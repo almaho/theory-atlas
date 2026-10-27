@@ -1,0 +1,58 @@
+(()=>{
+'use strict';
+const data=JSON.parse(document.getElementById('fg-data').textContent);
+const byId=Object.fromEntries(data.nodes.map(n=>[n.id,n]));
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const math=s=>esc(s).replace(/\^\{([^{}]*)\}/g,'<sup>$1</sup>');
+const svgMath=s=>esc(s).replace(/\^\{([^{}]*)\}/g,'<tspan baseline-shift="super" font-size=".75em">$1</tspan>');
+const direction=(e,mode)=>mode==='reduction'?{from:e.from,to:e.to}:{from:e.to,to:e.from};
+const consequences=(id,mode)=>data.edges.filter(e=>direction(e,mode).from===id);
+const visibleNodes=(group,query)=>{const base=data.nodes.filter(n=>group==='all'||n.group===group);if(!query.trim())return base;const q=query.toLowerCase(),ids=new Set(base.filter(n=>[n.label,n.short,n.contract,n.parameter,n.tag].join(' ').toLowerCase().includes(q)).map(n=>n.id));const expanded=new Set(ids);for(const e of data.edges)if(ids.has(e.from)||ids.has(e.to)){expanded.add(e.from);expanded.add(e.to);}return base.filter(n=>expanded.has(n.id));};
+window.FineGrainedModel={direction,consequences,visibleNodes,data};
+const root=document.getElementById('fine-grained');if(!root)return;
+let state={view:location.hash==='#bounds'?'bounds':'connections',direction:'algorithm',family:'all',query:'',publication:'all',node:null,edge:null};
+const $=s=>root.querySelector(s);
+function paper(id){const p=data.sources[id];return '<a href="'+esc(p.url)+'" target="_blank" rel="noopener noreferrer">'+esc(p.authors)+' · '+esc(p.venue)+' ↗</a>'+(p.publishedUrl?' · <a href="'+esc(p.publishedUrl)+'" target="_blank" rel="noopener noreferrer">Published version ↗</a>':'');}
+function source(r){return '<div class="source-link">'+paper(r.sourceId)+'<br>'+esc(r.locator)+'</div>';}
+function bound(r,kind){return '<div class="bound '+kind+'">'+(kind==='claim'?'<span class="badge claim">PREPRINT CLAIM · theorem inspected</span><br>':'')+(r.status==='historical'?'<span class="badge historical">HISTORICAL PREMISE · see status note</span><br>':'')+'<strong>'+math(r.bound)+'</strong>'+(r.condition?'<p><b>Assuming '+esc(r.condition)+'</b></p>':'')+'<p>'+math(r.detail)+'</p>'+source(r)+'</div>';}
+function compactBound(r,kind){const tag=kind==='claim'?'Preprint claim':r.status==='historical'?'Historical premise':kind==='algorithm'?'Baseline':'Conditional';return '<div class="compact-bound '+kind+'"><strong>'+math(r.bound)+'</strong><small>'+esc(tag)+(r.condition?' · '+esc(r.condition):'')+' · <a href="'+esc(data.sources[r.sourceId].url)+'" target="_blank" rel="noopener noreferrer">paper ↗</a></small></div>';}
+function edgePath(e){const a=byId[e.from],b=byId[e.to],sgn=b.x>a.x?1:-1;let x=a.x+sgn*106,X=b.x-sgn*111,y=a.y,Y=b.y;
+ if(e.route==='upper'||e.route==='lower'){const dy=e.route==='upper'?-17:17;return{d:'M'+x+' '+(y+dy)+' Q'+((x+X)/2)+' '+(y+dy*2)+' '+X+' '+(Y+dy),lx:(x+X)/2,ly:y+dy*2-5};}
+ if(e.route==='top'||e.route==='bottom'){const up=e.route==='top',lane=up?310:608,sy=a.y+(up?-33:33),ty=b.y+(up?-37:37);return{d:'M'+a.x+' '+sy+' V'+lane+' H'+b.x+' V'+ty,lx:(a.x+b.x)/2,ly:lane-7};}
+ const mid=(x+X)/2;return{d:'M'+x+' '+y+' C'+mid+' '+y+' '+mid+' '+Y+' '+X+' '+Y,lx:mid,ly:(y+Y)/2-9};
+}
+function map(nodes){const ids=new Set(nodes.map(n=>n.id)),edges=data.edges.filter(e=>ids.has(e.from)&&ids.has(e.to));const groups=data.groups.filter(g=>nodes.some(n=>n.group===g.id));const top=groups.length===1?groups[0].top-10:0,bottom=groups.length===1?groups[0].bottom+10:765;
+ if(!nodes.length)return '<p class="empty">No matching problem. Try another search or family.</p>';
+ const active=new Set(state.edge?[state.edge]:state.node?consequences(state.node,state.direction).map(e=>e.id):edges.map(e=>e.id));
+ const connected=new Set(state.node?[state.node]:[]);edges.filter(e=>active.has(e.id)).forEach(e=>{connected.add(e.from);connected.add(e.to)});
+ let s='<svg viewBox="0 '+top+' 1360 '+(bottom-top)+'" role="group" aria-label="Fine-grained problem connections"><defs><marker id="fg-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="context-stroke"/></marker></defs>';
+ for(const g of groups)s+='<rect class="family-panel" x="12" y="'+g.top+'" width="1336" height="'+(g.bottom-g.top)+'" rx="7"/><text class="family-title" x="28" y="'+(g.top+18)+'">'+esc(g.label.toUpperCase())+'</text>';
+ for(const e of edges){const p=edgePath(e),d=direction(e,state.direction),on=active.has(e.id),attr=state.direction==='reduction'?'marker-end':'marker-start';s+='<g class="edge '+(on?'active':'dim')+'" data-edge="'+e.id+'" data-from="'+d.from+'" data-to="'+d.to+'" role="button" tabindex="0" aria-pressed="'+(state.edge===e.id)+'" aria-label="'+esc('Inspect '+byId[d.from].short+' to '+byId[d.to].short)+'"><title>'+esc(e.consequence)+'</title><path class="edge-hit" d="'+p.d+'"/><path class="edge-line" '+attr+'="url(#fg-arrow)" d="'+p.d+'"/><text class="edge-label" text-anchor="middle" x="'+p.lx+'" y="'+p.ly+'">'+svgMath(e.short)+'</text></g>';}
+ for(const n of nodes)s+='<g class="node '+n.family+((state.node||state.edge)&&!connected.has(n.id)?' node-dim':'')+'" data-node="'+n.id+'" role="button" tabindex="0" aria-pressed="'+(state.node===n.id)+'" aria-label="Inspect '+esc(n.label)+'"><rect class="node-box" x="'+(n.x-105)+'" y="'+(n.y-32)+'" width="210" height="64" rx="7"/><text class="node-title" x="'+n.x+'" y="'+(n.y-2)+'" text-anchor="middle">'+esc(n.short)+'</text><text class="node-tag" x="'+n.x+'" y="'+(n.y+19)+'" text-anchor="middle">'+esc(n.tag)+'</text></g>';
+ return s+'</svg>';
+}
+function renderInspection(){const box=$('#inspection');if(state.edge){const e=data.edges.find(x=>x.id===state.edge),d=direction(e,state.direction);box.innerHTML='<span class="kicker">'+(state.direction==='algorithm'?'Algorithmic consequence':'Fine-grained reduction')+'</span><h2>'+esc(byId[d.from].short)+' → '+esc(byId[d.to].short)+'</h2><div class="inspection-grid"><div><p class="consequence">'+math(e.consequence)+'</p><p><strong>Reduction direction:</strong> '+esc(byId[e.from].short)+' reduces to '+esc(byId[e.to].short)+'. A solver for the target helps the source.</p>'+source(e)+(e.additionalSources||[]).map(id=>'<div class="source-link">'+paper(id)+'</div>').join('')+'</div><div><h3>Size and runtime accounting</h3><p>'+math(e.transformation)+'</p><h3>Scope</h3><p>'+math(e.notes)+'</p><div class="relation-list"><button data-node="'+e.from+'">Inspect '+esc(byId[e.from].short)+'</button><button data-node="'+e.to+'">Inspect '+esc(byId[e.to].short)+'</button></div></div></div>';return;}
+ if(!state.node){box.innerHTML='<h2>Choose where to begin</h2><p>Select a node or arrow above, or inspect a row in the bounds atlas. Every connection has its own runtime transformation.</p>';return;}
+ const n=byId[state.node],links=consequences(n.id,state.direction);box.innerHTML='<span class="kicker">'+esc(n.tag)+'</span><h2>'+esc(n.label)+'</h2><div class="inspection-grid"><div><h3>The problem</h3><p>'+esc(n.contract)+'</p><p><strong>Size parameter.</strong> '+esc(n.parameter)+'</p><h3>'+(state.direction==='algorithm'?'A faster solver here directly helps':'This problem reduces to')+'</h3><div class="relation-list">'+(links.length?links.map(e=>{const d=direction(e,state.direction);return '<button data-edge="'+e.id+'">'+esc(byId[d.to].short)+' → details</button>';}).join(''):'<span>No outgoing relation in this initial review.</span>')+'</div><p>Only the displayed direct relations are highlighted. Their exponent losses and input models must be checked before chaining them.</p></div><div>'+n.baselines.map(r=>bound(r,'algorithm')).join('')+bound(n.lower,'lower')+(state.publication==='all'?(n.claims||[]).map(r=>bound(r,'claim')).join(''):'')+(n.related||[]).map(r=>'<h3>Related, different guarantee</h3>'+bound(r,'algorithm')).join('')+'</div></div>';
+}
+function render(){const nodes=visibleNodes(state.family,state.query);const ids=new Set(nodes.map(n=>n.id));if(state.node&&!ids.has(state.node))state.node=null;if(state.edge){const e=data.edges.find(x=>x.id===state.edge);if(!ids.has(e.from)||!ids.has(e.to))state.edge=null;}
+ $('#connections').hidden=state.view!=='connections';$('#bounds').hidden=state.view!=='bounds';
+ root.querySelectorAll('[data-view]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.view===state.view)));
+ root.querySelectorAll('[data-direction]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.direction===state.direction)));
+ $('#connection-title').textContent=state.direction==='algorithm'?'Algorithmic consequences':'Fine-grained reductions';
+ $('#direction-help').textContent=state.direction==='algorithm'?'Arrow X → Y: a sufficiently faster algorithm for X yields a faster algorithm for Y.':'Arrow A → B: solve A using a solver for B. Algorithmic benefits travel in the reverse direction.';
+ $('#map').innerHTML=map(nodes);$('#map-status').textContent=nodes.length+' problems · '+data.edges.filter(e=>ids.has(e.from)&&ids.has(e.to)).length+' directed reduction'+(data.edges.filter(e=>ids.has(e.from)&&ids.has(e.to)).length===1?'':'s')+(state.node?' · direct links from '+byId[state.node].short:'');
+ $('#bounds-table').innerHTML=nodes.length?'<div class="column-labels"><span>Problem / contract</span><span>Algorithm bounds</span><span>Conditional lower bounds</span></div>'+nodes.map(n=>'<article class="bound-row '+n.family+'" data-bound-row="'+n.id+'"><div class="problem-name"><button data-node="'+n.id+'">'+esc(n.label)+'</button><small>'+esc(n.tag)+'</small></div><div>'+n.baselines.map(r=>compactBound(r,'algorithm')).join('')+(state.publication==='all'?(n.claims||[]).map(r=>compactBound(r,'claim')).join(''):'')+'</div><div>'+compactBound(n.lower,'lower')+'</div></article>').join(''):'<p class="empty">No matching problem.</p>';
+ renderInspection();$('#sources').innerHTML=Object.entries(data.sources).filter(([,s])=>state.publication==='all'||s.status!=='preprint').map(([id,s])=>'<div class="source-card"><strong>'+esc(s.title)+'</strong><small>'+paper(id)+'</small><small>'+esc(s.status==='preprint'?'Preprint claim; theorem statements inspected, proof not independently verified.':s.status==='reference'?'Construction reference.':'Published result; inspect the stated scope.')+'</small></div>').join('');
+}
+$('#family').innerHTML+=data.groups.map(g=>'<option value="'+g.id+'">'+esc(g.label)+'</option>').join('');
+$('#edition-count').textContent=data.nodes.length+' problems · '+data.edges.length+' reductions';
+$('#coverage').textContent=data.coverage;
+root.addEventListener('click',e=>{const b=e.target.closest('[data-view],[data-direction],[data-node],[data-edge],#clear-selection');if(!b)return;if(b.dataset.view){state.view=b.dataset.view;history.replaceState(null,'','#'+(state.view==='bounds'?'bounds':'connections'));}if(b.dataset.direction)state.direction=b.dataset.direction;if(b.dataset.node){state.node=b.dataset.node;state.edge=null;}if(b.dataset.edge){state.edge=b.dataset.edge;state.node=null;}if(b.id==='clear-selection'){state.node=null;state.edge=null;}render();});
+root.addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&e.target.matches('g[role=button]')){e.preventDefault();e.target.dispatchEvent(new MouseEvent('click',{bubbles:true}));}});
+$('#family').addEventListener('change',e=>{state.family=e.target.value;state.node=null;state.edge=null;render();});
+$('#search').addEventListener('input',e=>{state.query=e.target.value;render();});
+$('#publication').addEventListener('change',e=>{state.publication=e.target.value;render();});
+window.addEventListener('hashchange',()=>{state.view=location.hash==='#bounds'?'bounds':'connections';render();});
+render();
+})();

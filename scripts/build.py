@@ -4,6 +4,7 @@ import argparse
 import json
 import math
 from pathlib import Path
+from fine_grained import build_fine_grained
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
@@ -272,6 +273,7 @@ def main():
         output.parent.mkdir(exist_ok=True)
         output.write_text(html)
         print(f"Wrote {output} ({output.stat().st_size:,} bytes)")
+    build_fine_grained(ROOT, write=not args.check)
     print(f"Validated: {counts['papers']} sources; {counts['slices']} scoped settings; {counts['results']} results; {len(catalog['problems']) * len(catalog['models'])} cells.")
 
 

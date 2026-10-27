@@ -1,0 +1,704 @@
+{
+  "version": 1,
+  "reviewedOn": "2026-10-27",
+  "coverage": "An initial connected core, not a complete fine-grained complexity survey. Baselines are labeled and are not claimed best known.",
+  "sources": {
+    "vv10": {
+      "title": "Subcubic Equivalences Between Path, Matrix, and Triangle Problems",
+      "authors": "Virginia Vassilevska Williams and Ryan Williams",
+      "venue": "FOCS 2010; JACM 2018",
+      "status": "published",
+      "url": "https://www.cs.cmu.edu/~ryanw/tria-mmult.pdf",
+      "doi": "10.1145/3186893",
+      "publishedUrl": "https://cadmo.ethz.ch/education/lectures/FS18/SAADS/papers/subcubic.pdf"
+    },
+    "pat10": {
+      "title": "Towards Polynomial Lower Bounds for Dynamic Problems",
+      "authors": "Mihai Pătraşcu",
+      "venue": "STOC 2010",
+      "status": "published",
+      "url": "https://people.csail.mit.edu/mip/papers/mp-3sum/paper.pdf",
+      "doi": "10.1145/1806689.1806772"
+    },
+    "bk15": {
+      "title": "Quadratic Conditional Lower Bounds for String Problems and Dynamic Time Warping",
+      "authors": "Karl Bringmann and Marvin Künnemann",
+      "venue": "FOCS 2015",
+      "status": "published",
+      "url": "https://arxiv.org/pdf/1502.01063v2"
+    },
+    "rv13": {
+      "title": "Approximating the diameter of a graph",
+      "authors": "Liam Roditty and Virginia Vassilevska Williams",
+      "venue": "STOC 2013",
+      "status": "published",
+      "url": "https://arxiv.org/pdf/1207.3622"
+    },
+    "vvw16": {
+      "title": "On some fine-grained questions in algorithms and complexity",
+      "authors": "Virginia Vassilevska Williams",
+      "venue": "Author survey · explicit proof of Theorem 3.2",
+      "status": "reference",
+      "url": "https://people.csail.mit.edu/virgi/eccentri.pdf"
+    },
+    "cn85": {
+      "title": "Arboricity and Subgraph Listing Algorithms",
+      "authors": "Norishige Chiba and Takao Nishizeki",
+      "venue": "SIAM Journal on Computing 1985",
+      "status": "published",
+      "url": "https://www.cs.cornell.edu/courses/cs6241/2019sp/readings/Chiba-1985-arboricity.pdf"
+    },
+    "avw26": {
+      "title": "Truly Subquadratic 3SUM and Truly Subcubic APSP via Triangles in Sparse Lopsided Graphs",
+      "authors": "Josh Alman and Virginia Vassilevska Williams",
+      "venue": "arXiv:2610.06783v1 · 5 October 2026",
+      "status": "preprint",
+      "url": "https://arxiv.org/pdf/2610.06783v1"
+    },
+    "majd26": {
+      "title": "Thin matrix products up to D ≤ N^0.172 and lossless reductions for 3SUM, Exact Triangle and APSP",
+      "authors": "Ruhollah Majdoddin",
+      "venue": "arXiv:2610.17420v1 · 12 October 2026",
+      "status": "preprint",
+      "url": "https://arxiv.org/pdf/2610.17420v1"
+    }
+  },
+  "nodes": [
+    {
+      "id": "apsp",
+      "label": "All-pairs shortest paths",
+      "short": "APSP",
+      "group": "weighted",
+      "family": "weighted",
+      "x": 170,
+      "y": 100,
+      "tag": "EXACT · GRAPH",
+      "contract": "Directed n-vertex graphs; polynomially bounded integer weights; no negative cycles. Output all pairwise distances.",
+      "parameter": "n vertices; O(log n)-bit word RAM for the displayed integer preprints.",
+      "baselines": [
+        {
+          "bound": "O(n³)",
+          "detail": "Floyd–Warshall baseline; not a best-known claim.",
+          "sourceId": "vv10",
+          "locator": "Introduction",
+          "status": "baseline"
+        }
+      ],
+      "lower": {
+        "bound": "No O(n^{3−ε})",
+        "condition": "APSP hypothesis · historical premise",
+        "detail": "The classical conditional premise is retained for interpreting reductions. October 2026 preprints claim polynomial improvements; this is not shown as an established current barrier.",
+        "sourceId": "vv10",
+        "locator": "Theorem 1.1",
+        "status": "historical"
+      },
+      "claims": [
+        {
+          "bound": "O(n^{2.9995})",
+          "sourceId": "avw26",
+          "locator": "Theorems 2 and 22",
+          "detail": "Conservative exponent from the abstract; deterministic polynomial-size integer weights. Theorem inspected; proof not independently verified."
+        },
+        {
+          "bound": "n^{2.9945+o(1)}",
+          "sourceId": "majd26",
+          "locator": "Corollary 16.1(d), p.54",
+          "detail": "Deterministic, polynomial-size integer weights. Separate follow-up preprint claim; not a referee assessment."
+        }
+      ]
+    },
+    {
+      "id": "minplus",
+      "label": "Min-plus matrix product",
+      "short": "Min-plus product",
+      "group": "weighted",
+      "family": "weighted",
+      "x": 560,
+      "y": 100,
+      "tag": "EXACT · MATRIX",
+      "contract": "Two n×n integer matrices with polynomially bounded entries; Cᵢⱼ = minₖ(Aᵢₖ+Bₖⱼ).",
+      "parameter": "n is matrix dimension, not the n²-entry input length.",
+      "baselines": [
+        {
+          "bound": "O(n³)",
+          "detail": "Direct product baseline; each output entry examines n candidates.",
+          "sourceId": "vv10",
+          "locator": "§3",
+          "status": "baseline"
+        }
+      ],
+      "lower": {
+        "bound": "No O(n^{3−ε})",
+        "condition": "APSP hypothesis · historical premise",
+        "detail": "Subcubic equivalence is established. The old hypothesis is under review following the displayed 2026 claims.",
+        "sourceId": "vv10",
+        "locator": "Theorem 1.1 and §3",
+        "status": "historical"
+      },
+      "claims": [
+        {
+          "bound": "O(n^{2.9995})",
+          "sourceId": "avw26",
+          "locator": "Theorem 22",
+          "detail": "Conservative stated exponent; deterministic word RAM, polynomially bounded integer entries."
+        },
+        {
+          "bound": "n^{2.9945+o(1)}",
+          "sourceId": "majd26",
+          "locator": "Corollary 16.1(d), p.54",
+          "detail": "Follow-up preprint claim for min-plus product; no independent proof verification here."
+        }
+      ]
+    },
+    {
+      "id": "negative-triangle",
+      "label": "Negative triangle",
+      "short": "Negative triangle",
+      "group": "weighted",
+      "family": "weighted",
+      "x": 1000,
+      "y": 100,
+      "tag": "DECISION · GRAPH",
+      "contract": "Weighted tripartite graph on n vertices. Decide whether some triangle has total weight strictly below zero; polynomially bounded integer weights.",
+      "parameter": "n vertices. A negative triangle differs from a prescribed-weight or zero-weight triangle.",
+      "baselines": [
+        {
+          "bound": "O(n³)",
+          "detail": "Enumerate vertex triples; historical baseline.",
+          "sourceId": "vv10",
+          "locator": "Theorem 1.1 and §3",
+          "status": "baseline"
+        }
+      ],
+      "lower": {
+        "bound": "No O(n^{3−ε})",
+        "condition": "APSP hypothesis · historical premise",
+        "detail": "Classical subcubic equivalence. Faster min-plus also gives faster negative-triangle detection; the preprint status is not silently promoted to a proved frontier.",
+        "sourceId": "vv10",
+        "locator": "Theorems 3.1–3.2",
+        "status": "historical"
+      }
+    },
+    {
+      "id": "bmm",
+      "label": "Boolean matrix multiplication",
+      "short": "Boolean product",
+      "group": "boolean",
+      "family": "boolean",
+      "x": 170,
+      "y": 235,
+      "tag": "EXACT · MATRIX",
+      "contract": "Compute the Boolean product of two n×n Boolean matrices.",
+      "parameter": "n is matrix dimension. ω denotes the algebraic matrix multiplication exponent.",
+      "baselines": [
+        {
+          "bound": "O(n³) combinatorial",
+          "detail": "Elementary triple-loop baseline.",
+          "sourceId": "vv10",
+          "locator": "§1.1",
+          "status": "baseline"
+        },
+        {
+          "bound": "O(n^{ω+o(1)}) algebraic",
+          "detail": "Algebraic algorithms are already truly subcubic; no unrestricted cubic barrier is asserted.",
+          "sourceId": "vv10",
+          "locator": "§1.1 and Boolean specialization",
+          "status": "baseline"
+        }
+      ],
+      "lower": {
+        "bound": "No combinatorial O(n^{3−ε})",
+        "condition": "Combinatorial BMM conjecture",
+        "detail": "A model-specific conjecture, not a lower bound for algebraic algorithms. ‘Combinatorial’ is a research convention, not a universal machine model.",
+        "sourceId": "vv10",
+        "locator": "§1.1 and §VI.B",
+        "status": "conditional"
+      }
+    },
+    {
+      "id": "triangle",
+      "label": "Triangle detection",
+      "short": "Triangle detection",
+      "group": "boolean",
+      "family": "boolean",
+      "x": 560,
+      "y": 235,
+      "tag": "DECISION · GRAPH",
+      "contract": "Unweighted n-vertex graph; decide whether any triangle exists.",
+      "parameter": "Vertex-based n. Detection does not mean listing all triangles or per-edge reporting.",
+      "baselines": [
+        {
+          "bound": "O(n^{ω+o(1)})",
+          "detail": "Square the adjacency matrix and inspect adjacent pairs; algebraic baseline.",
+          "sourceId": "vv10",
+          "locator": "§1.1 and §VI.B",
+          "status": "baseline"
+        }
+      ],
+      "lower": {
+        "bound": "No combinatorial O(n^{3−ε})",
+        "condition": "Combinatorial BMM conjecture",
+        "detail": "Only the combinatorial conditional implication is shown. Algebraic subcubic algorithms are known.",
+        "sourceId": "vv10",
+        "locator": "Theorem V.2 and §VI.B",
+        "status": "conditional"
+      }
+    },
+    {
+      "id": "sat",
+      "label": "CNF satisfiability",
+      "short": "CNF-SAT",
+      "group": "seth",
+      "family": "hypothesis",
+      "x": 140,
+      "y": 455,
+      "tag": "DECISION · SETH",
+      "contract": "Satisfiability with v variables and M clauses. SETH quantifies over clause widths: for every fixed saving, some width k resists that saving.",
+      "parameter": "Exponential scale in v. It is not a polynomial n² or n³ problem.",
+      "baselines": [
+        {
+          "bound": "O(2ᵛ · poly(M))",
+          "detail": "Exhaustive assignment baseline; not the best algorithm for every fixed clause width.",
+          "sourceId": "bk15",
+          "locator": "§2.1",
+          "status": "baseline"
+        }
+      ],
+      "lower": {
+        "bound": "No uniform 2^{(1−δ)v} saving",
+        "condition": "SETH",
+        "detail": "For every δ>0 there exists a width k with no deterministic O(2^{(1−δ)v}) algorithm up to polynomial factors. Randomized consequences require randomized SETH.",
+        "sourceId": "bk15",
+        "locator": "§2.1",
+        "status": "conditional"
+      }
+    },
+    {
+      "id": "ov",
+      "label": "Orthogonal Vectors",
+      "short": "Orthogonal Vectors",
+      "group": "seth",
+      "family": "hypothesis",
+      "x": 440,
+      "y": 455,
+      "tag": "DECISION · OVH",
+      "contract": "Two sets of N Boolean d-vectors. Is there a cross-pair with dot product zero?",
+      "parameter": "N vectors per side; d=c log N in the fine-grained hardness regime, with c dependent on the desired exponent saving.",
+      "baselines": [
+        {
+          "bound": "O(N²d)",
+          "detail": "Examine all cross-pairs.",
+          "sourceId": "bk15",
+          "locator": "§2.1",
+          "status": "baseline"
+        }
+      ],
+      "lower": {
+        "bound": "No O(N^{2−ε} poly(d))",
+        "condition": "OV hypothesis; implied by SETH",
+        "detail": "Keep quantifiers over dimension and the desired saving. A randomized algorithm is ruled out only under the corresponding randomized hypothesis.",
+        "sourceId": "bk15",
+        "locator": "Lemma 2.1",
+        "status": "conditional"
+      }
+    },
+    {
+      "id": "diameter-exact",
+      "label": "Exact graph diameter",
+      "short": "Diameter · exact",
+      "group": "seth",
+      "family": "distance",
+      "x": 770,
+      "y": 350,
+      "tag": "EXACT · GRAPH",
+      "contract": "Connected, undirected, unweighted graph. Diameter D=maxᵤᵥ dist(u,v). Hardness already distinguishes D=2 from D=3.",
+      "parameter": "n vertices, m edges; the explicit OV construction has m=Õ(n), not necessarily O(n).",
+      "baselines": [
+        {
+          "bound": "O(n(n+m))",
+          "detail": "Run BFS from each vertex; Õ(n²) on m=Õ(n) instances.",
+          "sourceId": "rv13",
+          "locator": "Problem definition; exact all-sources baseline",
+          "status": "baseline"
+        }
+      ],
+      "lower": {
+        "bound": "No O(n^{2−ε}) on m=Õ(n)",
+        "condition": "SETH / OVH",
+        "detail": "For every fixed positive exponent saving. This is a conditional time bound for exact diameter. This barrier concerns deterministic algorithms; bounded-error randomized exclusions require randomized SETH/OVH.",
+        "sourceId": "rv13",
+        "locator": "Theorem 1",
+        "status": "conditional"
+      }
+    },
+    {
+      "id": "diameter-approx",
+      "label": "Diameter below factor 3/2",
+      "short": "Diameter · α < 3/2",
+      "group": "seth",
+      "family": "distance",
+      "x": 1120,
+      "y": 350,
+      "tag": "APPROXIMATION · GRAPH",
+      "contract": "Connected, undirected, unweighted graph. Estimate D̂ with D/α≤D̂≤D for fixed α<3/2.",
+      "parameter": "n vertices, m=Õ(n) in the explicit reduction. Fixed gap below 3/2 is essential.",
+      "baselines": [
+        {
+          "bound": "O(n(n+m))",
+          "detail": "Exact BFS baseline meets this stricter approximation contract. The faster floor(2D/3) algorithm is a separate related guarantee below.",
+          "sourceId": "rv13",
+          "locator": "Exact baseline",
+          "status": "baseline"
+        }
+      ],
+      "lower": {
+        "bound": "No O(n^{2−ε}) on m=Õ(n)",
+        "condition": "SETH / OVH",
+        "detail": "The D=2 versus D=3 gap excludes every fixed α<3/2. It does not exclude factor 3/2 or guarantees with additive rounding. This barrier concerns deterministic algorithms; bounded-error randomized exclusions require randomized SETH/OVH.",
+        "sourceId": "rv13",
+        "locator": "Theorem 1",
+        "status": "conditional"
+      },
+      "related": [
+        {
+          "bound": "Õ(m√n), expected time",
+          "detail": "⌊2D/3⌋ ≤ D̂ ≤ D. The floor matters; this is not the same contract as a strict factor below 3/2.",
+          "sourceId": "rv13",
+          "locator": "Abstract and main algorithm theorem"
+        }
+      ]
+    },
+    {
+      "id": "lcs",
+      "label": "Longest common subsequence",
+      "short": "LCS",
+      "group": "seth",
+      "family": "strings",
+      "x": 770,
+      "y": 555,
+      "tag": "EXACT · STRINGS",
+      "contract": "Exact LCS length of two binary strings of length at most L.",
+      "parameter": "L is string length. The reduction produces length O(Nd).",
+      "baselines": [
+        {
+          "bound": "O(L²)",
+          "detail": "Dynamic-programming baseline for equal-length strings; unequal lengths cost O(L₁L₂).",
+          "sourceId": "bk15",
+          "locator": "Introduction",
+          "status": "baseline"
+        }
+      ],
+      "lower": {
+        "bound": "No O(L^{2−ε})",
+        "condition": "OVH / SETH",
+        "detail": "Already binary alphabets; exact LCS. Does not assert approximate-LCS hardness. This barrier concerns deterministic algorithms; bounded-error randomized exclusions require randomized SETH/OVH.",
+        "sourceId": "bk15",
+        "locator": "Theorems 1.1 and 3.3; Lemmas 4.1, 4.3",
+        "status": "conditional"
+      }
+    },
+    {
+      "id": "edit",
+      "label": "Edit distance",
+      "short": "Edit distance",
+      "group": "seth",
+      "family": "strings",
+      "x": 1120,
+      "y": 555,
+      "tag": "EXACT · STRINGS",
+      "contract": "Exact Levenshtein distance on two binary strings: unit-cost insertion, deletion and substitution.",
+      "parameter": "L is maximum string length. Approximation and other cost choices require separate contracts.",
+      "baselines": [
+        {
+          "bound": "O(L²)",
+          "detail": "Dynamic-programming baseline.",
+          "sourceId": "bk15",
+          "locator": "Introduction",
+          "status": "baseline"
+        }
+      ],
+      "lower": {
+        "bound": "No O(L^{2−ε})",
+        "condition": "OVH / SETH",
+        "detail": "Exact unit-cost edit distance on binary strings. Randomized bounds require a corresponding randomized hypothesis.",
+        "sourceId": "bk15",
+        "locator": "Theorems 1.2, 3.3; Lemmas 5.2, 5.4",
+        "status": "conditional"
+      }
+    },
+    {
+      "id": "3sum",
+      "label": "Integer 3SUM",
+      "short": "3SUM",
+      "group": "numeric",
+      "family": "numeric",
+      "x": 200,
+      "y": 710,
+      "tag": "DECISION · NUMBERS",
+      "contract": "Given N polynomial-size integers, decide whether three distinct input positions sum to zero.",
+      "parameter": "N integers; bit length and RAM model must be preserved.",
+      "baselines": [
+        {
+          "bound": "O(N²)",
+          "detail": "Sort and use two pointers; baseline rather than a best-known claim.",
+          "sourceId": "pat10",
+          "locator": "§2",
+          "status": "baseline"
+        }
+      ],
+      "lower": {
+        "bound": "No expected O(N^{2−ε})",
+        "condition": "3SUM hypothesis · historical premise",
+        "detail": "The randomized premise used by the triangle-listing reduction is historical in light of the October 2026 improvement claims.",
+        "sourceId": "pat10",
+        "locator": "Theorem 5 and §2.2",
+        "status": "historical"
+      },
+      "claims": [
+        {
+          "bound": "O(N^{1.9992})",
+          "sourceId": "avw26",
+          "locator": "Theorem 2; abstract",
+          "detail": "Deterministic algorithm claimed for polynomial-size integers; full theorem checked, proof not independently verified."
+        },
+        {
+          "bound": "N^{1.9945+o(1)}",
+          "sourceId": "majd26",
+          "locator": "Corollary D; abstract",
+          "detail": "Follow-up preprint claim; no independent proof verification here."
+        }
+      ]
+    },
+    {
+      "id": "triangle-listing",
+      "label": "Triangle listing up to m outputs",
+      "short": "Triangle listing",
+      "group": "numeric",
+      "family": "numeric",
+      "x": 850,
+      "y": 710,
+      "tag": "REPORTING · GRAPH",
+      "contract": "Unweighted tripartite m-edge graph. Report up to m distinct triangles, or all triangles if fewer exist.",
+      "parameter": "m edges, not n vertices. The cap on output size is part of the problem.",
+      "baselines": [
+        {
+          "bound": "O(m^{3/2}) + O(n)",
+          "detail": "Chiba–Nishizeki gives O(m·a(G)) triangle listing; a(G)=O(√m). Input scanning/isolated vertices cost O(n).",
+          "sourceId": "cn85",
+          "locator": "§3",
+          "status": "baseline"
+        }
+      ],
+      "lower": {
+        "bound": "No O(m^{4/3−ε})",
+        "condition": "3SUM hypothesis · historical premise",
+        "detail": "Pătraşcu's conditional implication is for listing, not ordinary detection. It yields some positive saving in expected 3SUM time; no exact δ formula is assigned.",
+        "sourceId": "pat10",
+        "locator": "Theorem 5; Lemma 11; §2.2",
+        "status": "historical"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "apsp-minplus",
+      "from": "apsp",
+      "to": "minplus",
+      "short": "log n products",
+      "consequence": "Min-plus in O(n^{3−δ}) gives APSP in Õ(n^{3−δ}).",
+      "transformation": "O(log n) repeated min-plus squarings; path weights stay polynomially bounded.",
+      "sourceId": "vv10",
+      "locator": "Theorem 1.1; §3",
+      "notes": "No negative cycles. The same exponent saving is preserved up to logarithmic factors.",
+      "route": "upper",
+      "kind": "reduction",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "minplus-apsp",
+      "from": "minplus",
+      "to": "apsp",
+      "short": "3n vertices",
+      "consequence": "APSP in O(n^{3−δ}) gives min-plus in O(n^{3−δ}+n²).",
+      "transformation": "Three-layer directed acyclic graph on 3n vertices encodes the two matrices.",
+      "sourceId": "vv10",
+      "locator": "Theorem 1.1; §3",
+      "notes": "The produced graph has no negative cycles.",
+      "route": "lower",
+      "kind": "reduction",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "minplus-negtri",
+      "from": "minplus",
+      "to": "negative-triangle",
+      "short": "saving δ → δ/3",
+      "consequence": "Negative Triangle in O(n^{3−δ}) gives min-plus in Õ(n^{3−δ/3}).",
+      "transformation": "O(n² T(n^{1/3}) log W); T(n)/n nondecreasing, integer output magnitude W polynomial in n.",
+      "sourceId": "vv10",
+      "locator": "Theorem 3.2",
+      "notes": "The exact improvement is not the same δ. Integer magnitude enters through log W.",
+      "route": "upper",
+      "kind": "reduction",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "negtri-minplus",
+      "from": "negative-triangle",
+      "to": "minplus",
+      "short": "one product",
+      "consequence": "Min-plus in O(n^{3−δ}) gives Negative Triangle in O(n^{3−δ}+n²).",
+      "transformation": "One min-plus product over two tripartite layers and O(n²) comparisons against the third edge weight.",
+      "sourceId": "vv10",
+      "locator": "§3; product/triangle correspondence",
+      "notes": "Strictly negative total weight. Exact/zero-weight triangles are different problems.",
+      "route": "lower",
+      "kind": "reduction",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "bmm-triangle",
+      "from": "bmm",
+      "to": "triangle",
+      "short": "saving δ → δ/3",
+      "consequence": "Triangle detection in O(n^{3−δ}) gives Boolean product in O(n^{3−δ/3}).",
+      "transformation": "Boolean specialization of O(n² T(n^{1/3})) with constant value range.",
+      "sourceId": "vv10",
+      "locator": "Published Theorem V.2 and §VI.B",
+      "notes": "Deterministic and combinatorial reduction. Any cubic hardness claim applies only to combinatorial algorithms.",
+      "route": "upper",
+      "kind": "reduction",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "triangle-bmm",
+      "from": "triangle",
+      "to": "bmm",
+      "short": "one product",
+      "consequence": "Boolean product in O(n^{ω+o(1)}) gives triangle detection in O(n^{ω+o(1)}+n²).",
+      "transformation": "Square the Boolean adjacency matrix and test pairs that are adjacent in the input graph.",
+      "sourceId": "vv10",
+      "locator": "§1.1 and §VI.B",
+      "notes": "Works for ordinary unweighted detection; not an output-sensitive listing reduction.",
+      "route": "lower",
+      "kind": "reduction",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "sat-ov",
+      "from": "sat",
+      "to": "ov",
+      "short": "split variables",
+      "consequence": "For 0<δ≤1, OV in O(N^{2−δ} poly(d)) gives SAT time 2^{(1−δ/2)v} poly(M).",
+      "transformation": "Split v variables into two halves: N=2^{v/2} partial assignments per side; d=M clause indicators.",
+      "sourceId": "bk15",
+      "locator": "Lemma 2.1; §2.1",
+      "notes": "The displayed δ range includes the 2^{v/2} construction cost. SETH width and dimension quantifiers matter. Deterministic SETH does not by itself exclude bounded-error randomized algorithms.",
+      "route": "curve",
+      "kind": "reduction",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "ov-diameter",
+      "from": "ov",
+      "to": "diameter-exact",
+      "short": "2-versus-3 gap",
+      "consequence": "Exact diameter in O(n^{2−η}) on these graphs gives truly subquadratic OV for d=c log N.",
+      "transformation": "Connected unweighted undirected graph: n=2N+d+2; m≤2Nd+2N+2d+1. OV YES iff diameter 3, NO iff 2.",
+      "sourceId": "rv13",
+      "locator": "Theorem 1; explicit construction in VVW Theorem 3.2",
+      "notes": "The reduction has Õ(N) edges for logarithmic d. This direct consequence has its own size accounting.",
+      "route": "curve",
+      "kind": "reduction",
+      "verifiedOn": "2026-10-27",
+      "additionalSources": [
+        "vvw16"
+      ]
+    },
+    {
+      "id": "ov-diameter-apx",
+      "from": "ov",
+      "to": "diameter-approx",
+      "short": "α < 3/2",
+      "consequence": "An O(n^{2−η}) algorithm with fixed α<3/2 and D/α≤D̂≤D gives truly subquadratic OV.",
+      "transformation": "The same 2-versus-3 diameter gap: D=2 yields D̂≤2; D=3 yields D̂>2.",
+      "sourceId": "rv13",
+      "locator": "Theorem 1",
+      "notes": "No claim for α=3/2 or for floor(2D/3) guarantees.",
+      "route": "top",
+      "kind": "reduction",
+      "verifiedOn": "2026-10-27",
+      "additionalSources": [
+        "vvw16"
+      ]
+    },
+    {
+      "id": "ov-lcs",
+      "from": "ov",
+      "to": "lcs",
+      "short": "length O(Nd)",
+      "consequence": "LCS in O(L^{2−ε}) gives OV in O(Nd+(Nd)^{2−ε}).",
+      "transformation": "Two binary strings, length O(Nd), constructed in O(Nd) time.",
+      "sourceId": "bk15",
+      "locator": "Theorem 3.3; Lemmas 4.1, 4.3",
+      "notes": "For d=c log N, polynomial exponent savings transfer up to logarithmic factors.",
+      "route": "curve",
+      "kind": "reduction",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "ov-edit",
+      "from": "ov",
+      "to": "edit",
+      "short": "length O(Nd)",
+      "consequence": "Exact edit distance in O(L^{2−ε}) gives OV in O(Nd+(Nd)^{2−ε}).",
+      "transformation": "Binary-string alignment gadgets; length and construction time O(Nd); unit edit costs.",
+      "sourceId": "bk15",
+      "locator": "Theorems 1.2, 3.3; Lemmas 5.2, 5.4",
+      "notes": "No approximate-distance hardness is inferred.",
+      "route": "bottom",
+      "kind": "reduction",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "3sum-listing",
+      "from": "3sum",
+      "to": "triangle-listing",
+      "short": "m^{4/3} threshold",
+      "consequence": "Listing up to m triangles in O(m^{4/3−ε}) gives expected strongly subquadratic 3SUM.",
+      "transformation": "Randomized fine-grained reduction with output-sensitive listing; some positive saving follows.",
+      "sourceId": "pat10",
+      "locator": "Theorem 5; Lemma 11; §2.2",
+      "notes": "No 3SUM-to-ordinary-detection edge is justified by this theorem. The premise is historical; the reduction remains meaningful.",
+      "route": "curve",
+      "kind": "reduction",
+      "verifiedOn": "2026-10-27"
+    }
+  ],
+  "groups": [
+    {
+      "id": "weighted",
+      "label": "Weighted distances & products",
+      "top": 20,
+      "bottom": 160
+    },
+    {
+      "id": "boolean",
+      "label": "Boolean products & detection",
+      "top": 175,
+      "bottom": 280
+    },
+    {
+      "id": "seth",
+      "label": "From SAT and vectors to graphs & strings",
+      "top": 295,
+      "bottom": 625
+    },
+    {
+      "id": "numeric",
+      "label": "Numbers & output-sensitive reporting",
+      "top": 645,
+      "bottom": 750
+    }
+  ]
+}

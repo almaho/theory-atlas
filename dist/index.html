@@ -17,6 +17,10 @@
 .access-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:0 0 18px}.access-grid>div{border:1px solid var(--line);border-radius:5px;background:var(--bg);padding:9px 11px;min-width:0}.access-grid dt{font-size:12px;letter-spacing:.035em;text-transform:uppercase;color:var(--muted)}.access-grid dd{margin:3px 0 0;font-size:14px;overflow-wrap:anywhere}.setting-access{font-size:12px;color:var(--muted);margin:4px 0 12px}.setting-access strong{color:var(--ink)}.results-scroll{overflow-x:auto}.results-table{border-collapse:collapse;text-align:left;width:100%;min-width:730px;font-size:13px}.results-table caption{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}.results-table th{border-bottom:2px solid var(--line);padding:7px 10px;color:var(--muted);font-weight:600;white-space:nowrap}.results-table td{vertical-align:top;border-bottom:1px solid var(--line);padding:10px;overflow-wrap:anywhere}.results-table td:nth-child(1){width:112px}.results-table td:nth-child(2){width:23%}.results-table td:nth-child(3){width:28%}.results-table td:nth-child(4){width:32%}.results-table td small{display:block;font-size:12px;color:var(--muted);margin-top:6px}.results-table td strong{font-weight:600}.results-table tr:last-child td{border-bottom:0}
 @media(max-width:650px){.access-grid{grid-template-columns:1fr}.results-table{min-width:650px}}
 
+.view-nav .section-link{font-size:12px;color:var(--muted);padding:10px 12px;display:inline-block;white-space:nowrap}
+
+@media(max-width:600px){.view-nav>div{flex-wrap:wrap;justify-content:flex-end}.view-nav .section-link{width:100%;padding:3px 8px 7px;font-size:11px;text-align:right}}
+
 .view-nav{max-width:1240px;margin:auto;padding:19px 30px;display:flex;align-items:center;justify-content:space-between;gap:20px;border-bottom:1px solid var(--line)}
 .atlas-brand{font-size:12px;letter-spacing:.14em;font-weight:700;color:var(--ink);text-decoration:none}.atlas-brand span{display:block;font:13px/1.5 Georgia,serif;letter-spacing:0;color:var(--muted);margin-top:2px}.view-nav>div{display:flex;gap:7px}.view-nav button{border-color:transparent;background:transparent;font-size:13px;min-height:38px}.view-nav button[aria-pressed="true"]{background:var(--ink);color:var(--surface);border-radius:5px}
 .focus-view{--f-green:var(--green);--f-green-fill:var(--green-fill);--f-red:var(--red);--f-red-fill:var(--red-fill);--f-soft:light-dark(#f0f1ee,#27333a);max-width:1240px;padding:29px 30px 22px;margin:auto}
@@ -984,7 +988,7 @@ svg.vst-summary .vst-axis-label,.cell svg.vst-summary .vst-axis-label{font-size:
 </style>
 </head>
 <body>
-  <nav class="view-nav" aria-label="Atlas views"><a class="atlas-brand" href="#focus">THEORY ATLAS<span>Knowledge, in view.</span></a><div><button id="show-focus" type="button" aria-pressed="true">Focused figures</button><button id="show-atlas" type="button" aria-pressed="false">Explore full atlas <span aria-hidden="true">↗</span></button></div></nav>
+  <nav class="view-nav" aria-label="Atlas views"><a class="atlas-brand" href="#focus">THEORY ATLAS<span>Knowledge, in view.</span></a><div><a class="section-link" href="fine-grained.html">Fine-grained complexity ↗</a><button id="show-focus" type="button" aria-pressed="true">Focused figures</button><button id="show-atlas" type="button" aria-pressed="false">Explore full atlas <span aria-hidden="true">↗</span></button></div></nav>
   <main id="focus-view" aria-label="Matching knowledge map"></main>
   <main id="atlas" hidden aria-label="Graph theory atlas">
     <header class="head"><div><h1>Graph theory atlas</h1><p>Problems × computational models · algorithms and lower bounds</p></div><div class="controls"><button type="button" id="zoom-out" aria-label="Zoom out">−</button><output id="zoom-value">1.0×</output><button type="button" id="zoom-in" aria-label="Zoom in">+</button><button type="button" id="overview">Overview</button></div></header>

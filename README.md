@@ -8,6 +8,10 @@ Algorithms are green; lower bounds are red. Select a result for its theorem, ass
 
 Open the **[live atlas](https://almaho.github.io/theory-atlas/#atlas)**, or use [the standalone HTML](dist/index.html) offline. Source and history are in [almaho/theory-atlas](https://github.com/almaho/theory-atlas).
 
+The separate **[fine-grained complexity page](https://almaho.github.io/theory-atlas/fine-grained.html)** includes a connection map and a bounds atlas. Its first reviewed core has 13 problems and 12 directed reductions: weighted distances and products, Boolean triangle detection, SAT/OV, diameter, binary string problems, and triangle listing. Toggle between algorithmic consequences and reduction direction; select a connection for its size transformation, exponent loss, theorem, and source. Exact and approximate diameter remain separate.
+
+The October 2026 APSP/3SUM preprints are labeled claims, with their theorem statements inspected but proofs not independently verified here. Historical conditional implications remain distinct from the status of their premises. The displayed algorithm baselines are not asserted to be current best bounds.
+
 ## Run locally
 
 Python 3 and Node.js 24 are sufficient; no package installation is required.
@@ -47,9 +51,13 @@ See [the research contract](docs/research-contract.md) for data rules and [figur
 | `data/catalog.json` | Problems, models, definitions, and relationships |
 | `data/research/` | Papers, result records, and comparable scopes |
 | `data/focus/` | Curated figure data and theorem inspections |
+| `data/fine-grained.json` | Scoped problems, conditional bounds, source status, directed reductions |
 | `src/` | Shared interface and figure renderers |
 | `scripts/build.py` | Validation and standalone HTML build |
 | `scripts/test_renderer.cjs` | Renderer and scope regressions |
 | `dist/index.html` | Self-contained website and offline artifact |
+| `dist/fine-grained.html` | Self-contained fine-grained complexity page |
+
+Daily arXiv review is scheduled through the current Codex chat at 09:00 America/New_York. [The update policy](docs/arxiv-update-policy.md) records the user-authorized verification and publication process. Its persistent checkpoint is `../arxiv-monitor-state.json`; the first scheduled search is separate from the source review that produced this release.
 
 Stochastic matching includes adaptive and non-adaptive edge testing, historical and near-optimal algorithms, and necessary query budgets. Maximum degree and expected normalized total queries remain separate. Correlation clustering in LOCAL includes separate minimum-disagreement and maximum-agreement panels with explicit graph and communication setups.

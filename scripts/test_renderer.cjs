@@ -1060,3 +1060,4 @@ assert.equal(preserveContext.detailKey,'','A changed slice still invalidates the
 preserveContext.detailKey='mounted-secondary-view';
 vm.runInContext("focus(preserveCell,'other-slice',false);",preserveContext);
 assert.equal(preserveContext.detailKey,'','An explicit focus action still refreshes the chart');
+require('./test_fine_grained.cjs');
