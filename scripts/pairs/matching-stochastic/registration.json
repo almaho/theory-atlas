@@ -7,30 +7,99 @@
     {
       "key": "matching-stochastic",
       "sliceId": "matching-stochastic-nonadaptive-tests",
-      "label": "Matching · stochastic tests and in/out oracle",
+      "label": "Matching · stochastic guarantees",
       "problem": "matching",
       "model": "stochastic",
       "visible": true
     },
     {
+      "key": "matching-stochastic-bipartite",
+      "sliceId": "matching-stochastic-bipartite",
+      "label": "Matching · stochastic guarantees",
+      "problem": "matching",
+      "model": "stochastic",
+      "visible": false
+    },
+    {
+      "key": "matching-stochastic-near",
+      "sliceId": "matching-stochastic-near",
+      "label": "Matching · stochastic guarantees",
+      "problem": "matching",
+      "model": "stochastic",
+      "visible": false
+    },
+    {
+      "key": "matching-stochastic-adaptive",
+      "sliceId": "matching-stochastic-adaptive",
+      "label": "Matching · stochastic guarantees",
+      "problem": "matching",
+      "model": "stochastic",
+      "visible": false
+    },
+    {
       "key": "matching-stochastic-oracle",
       "sliceId": "matching-stochastic-inout-oracle",
-      "label": "Matching · specialized in/out oracle",
+      "label": "Matching · stochastic guarantees",
       "problem": "matching",
+      "model": "stochastic",
+      "visible": false
+    },
+    {
+      "key": "weighted-matching-stochastic",
+      "sliceId": "weighted-matching-stochastic-general",
+      "label": "Weighted matching · stochastic guarantees",
+      "problem": "weighted_matching",
+      "model": "stochastic",
+      "visible": true
+    },
+    {
+      "key": "weighted-matching-stochastic-bipartite",
+      "sliceId": "weighted-matching-stochastic-bipartite",
+      "label": "Weighted matching · stochastic guarantees",
+      "problem": "weighted_matching",
+      "model": "stochastic",
+      "visible": false
+    },
+    {
+      "key": "weighted-matching-stochastic-near",
+      "sliceId": "weighted-matching-stochastic-near",
+      "label": "Weighted matching · stochastic guarantees",
+      "problem": "weighted_matching",
+      "model": "stochastic",
+      "visible": false
+    },
+    {
+      "key": "weighted-matching-stochastic-adaptive",
+      "sliceId": "weighted-matching-stochastic-adaptive",
+      "label": "Weighted matching · stochastic guarantees",
+      "problem": "weighted_matching",
+      "model": "stochastic",
+      "visible": false
+    },
+    {
+      "key": "weighted-matching-stochastic-expected",
+      "sliceId": "weighted-matching-stochastic-expected",
+      "label": "Weighted matching · stochastic guarantees",
+      "problem": "weighted_matching",
       "model": "stochastic",
       "visible": false
     }
   ],
   "canonicalAliases": {
-    "matching-stochastic-oracle": "matching-stochastic"
+    "matching-stochastic-bipartite": "matching-stochastic",
+    "matching-stochastic-near": "matching-stochastic",
+    "matching-stochastic-adaptive": "matching-stochastic",
+    "matching-stochastic-oracle": "matching-stochastic",
+    "weighted-matching-stochastic-bipartite": "weighted-matching-stochastic",
+    "weighted-matching-stochastic-near": "weighted-matching-stochastic",
+    "weighted-matching-stochastic-adaptive": "weighted-matching-stochastic",
+    "weighted-matching-stochastic-expected": "weighted-matching-stochastic"
   },
   "pointFields": {
-    "x": "budgetKey",
-    "y": "guaranteeKey"
+    "y": "id"
   },
   "axisSummary": {
-    "x": "Symbolic incident-edge test budget, then specialized in/out query complexity",
-    "y": "Constant versus 1−ε expected approximation; deterministic out versus expected in",
-    "note": "Average and maximum degree are distinct. Fixed ε; no numerical exponent or tight frontier."
+    "x": "Retained fraction β; symbolic ε/δ anchors; budget lower bounds are separate annotations",
+    "y": "Theorem rows with exact query budgets; different resources and graph classes remain separate"
   }
 }

@@ -1,6 +1,6 @@
 {
   "problem": "cc",
-  "reviewedThrough": "2026-09-27",
+  "reviewedThrough": "2026-10-27",
   "searchSummary": "Expanded primary-source audit through 2026-09-27 spanning MinDisagree and MaxAgree, explicit and value-only outputs, unweighted and weighted input, matrix/list/combined/same-cluster access, dynamic node/edge changes, LOCAL, LCA and MPC. The original Pivot, 2013 local-query work, 2015/2021 weighted data-stream foundations, 2019–2020 query algorithms, and 2022–2026 frontiers are represented rather than an exhaustive enumeration of all papers. STOC 2024 cluster LP 1.437 claim was corrected in October 2025 to 1.485; historical records use the corrected version. The July 2026 1.3865 preprint remains distinct from published 2025 results. Source locators, oracle assumptions, output types and conditional lower bounds are explicit; models and guarantees with different quantifiers must not share a plotted frontier.",
   "coverage": [
     {
@@ -25,8 +25,8 @@
     },
     {
       "model": "local",
-      "status": "researched",
-      "note": "LOCAL round result for Pivot included; parallel shared-memory results excluded from MPC/LOCAL without a simulation."
+      "status": "reviewed",
+      "note": "Expanded minimum-disagreement and separate maximum-agreement settings; deterministic/randomized and graph class assumptions preserved. No general LOCAL lower bound verified."
     },
     {
       "model": "mpc",
@@ -120,9 +120,9 @@
       "publicationStatus": "conference",
       "url": "https://arxiv.org/abs/2205.03710",
       "verifiedOn": "2026-10-26",
-      "publicationUrl": "https://arxiv.org/abs/2205.03710",
       "fullTextUrl": "https://arxiv.org/pdf/2205.03710",
-      "verificationStatus": "primary_full_text"
+      "version": "arXiv:2205.03710v1",
+      "verificationNote": "Corollary 1.5; Section 4 LOCAL proof; Claim 4.1"
     },
     {
       "id": "cohenaddad-2021-mpc",
@@ -625,6 +625,70 @@
       "verificationStatus": "primary_full_text",
       "fullTextUrl": "https://arxiv.org/html/2002.11557v1",
       "publicationUrl": "https://doi.org/10.1145/3366423.3380220"
+    },
+    {
+      "id": "fischer-noever-2018",
+      "title": "Tight Analysis of Parallel Randomized Greedy MIS",
+      "authors": [
+        "Manuela Fischer",
+        "Andreas Noever"
+      ],
+      "year": 2018,
+      "venue": "SODA 2018; TALG 2020",
+      "publicationStatus": "conference",
+      "url": "https://doi.org/10.1137/1.9781611975031.140",
+      "fullTextUrl": "https://arxiv.org/pdf/1707.05124",
+      "verifiedOn": "2026-10-27",
+      "verificationNote": "Theorem 1.1; correlation-clustering reduction recorded in BCMT22 Table 1 and discussion"
+    },
+    {
+      "id": "cohen-addad-2021-constant",
+      "title": "Correlation Clustering in Constant Many Parallel Rounds",
+      "authors": [
+        "Vincent Cohen-Addad",
+        "Silvio Lattanzi",
+        "Slobodan Mitrović",
+        "Ashkan Norouzi-Fard",
+        "Nikos Parotsidis",
+        "Jakub Tarnawski"
+      ],
+      "year": 2021,
+      "venue": "ICML 2021",
+      "publicationStatus": "conference",
+      "url": "https://proceedings.mlr.press/v139/cohen-addad21b.html",
+      "fullTextUrl": "https://arxiv.org/pdf/2106.08448",
+      "verifiedOn": "2026-10-27",
+      "verificationNote": "Algorithm 1, Lemma 3.3, Theorem 3.9 and its explicit β=λ=1/36 setting; deterministic LOCAL implementation derived"
+    },
+    {
+      "id": "kawarabayashi-schwartzman-2018",
+      "title": "Adapting Local Sequential Algorithms to the Distributed Setting",
+      "authors": [
+        "Ken-ichi Kawarabayashi",
+        "Gregory Schwartzman"
+      ],
+      "year": 2018,
+      "venue": "DISC 2018",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.DISC.2018.35",
+      "fullTextUrl": "https://arxiv.org/pdf/1711.10155",
+      "verifiedOn": "2026-10-27",
+      "verificationNote": "Theorem 12; Section 3.3 correlation-clustering discussion"
+    },
+    {
+      "id": "chang-su-2022",
+      "title": "Narrowing the LOCAL–CONGEST Gaps in Sparse Networks via Expander Decompositions",
+      "authors": [
+        "Yi-Jun Chang",
+        "Hsin-Hao Su"
+      ],
+      "year": 2022,
+      "venue": "PODC 2022",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2205.08093",
+      "fullTextUrl": "https://arxiv.org/pdf/2205.08093v2",
+      "verifiedOn": "2026-10-27",
+      "verificationNote": "Theorem 1.3 and Section 3.3; inspected revised author version v2 (2025-10-23)"
     }
   ],
   "slices": [
@@ -1168,6 +1232,7 @@
           "frontierStatus": "verified_tradeoff",
           "notes": "Each Pivot phase uses two communication rounds, followed by one round for cluster assignment. Independently sampled finite ranks create a vanishing correction. The plotted factor a=3+8/(2r−1) is only the leading guarantee; the actual expected factor is a+δₙ. The theorem holds for all integer r≥1; displayed samples stop at r=128. Corollary 1.5 states any ε>0; for fixed ε choose r=O(1/ε) with 8/(2r−1)+δₙ<ε.",
           "plot": null,
+          "sourceId": "behnezhad-2022-constant-rounds",
           "sliceId": "cc-local-3plus",
           "panel": "tradeoff",
           "shortLabel": "BCMT22 · r-Pivot",
@@ -1195,7 +1260,9 @@
             "Positive edges are exactly the communication links",
             "Integer r≥1; finite rank correction retained",
             "Elapsed communication rounds, with O(log n)-bit messages"
-          ]
+          ],
+          "setup": "complete",
+          "objective": "min-disagreement"
         }
       ]
     },
@@ -3935,6 +4002,275 @@
         "label": "MPC rounds · simultaneous-norm objective",
         "kind": "symbolic"
       }
+    },
+    {
+      "id": "cc-local-pivot-exact3",
+      "problem": "cc",
+      "model": "local",
+      "label": "LOCAL minimum disagreements · Fischer–Noever · Pivot",
+      "task": "Minimize total disagreements",
+      "assumptions": [
+        "Uniform random vertex order",
+        "Minimum total disagreements on a complete signed instance",
+        "Communication follows positive edges",
+        "Expected cost and high-probability elapsed rounds are separate guarantees"
+      ],
+      "xAxis": {
+        "label": "Communication round cost, symbolic categories at fixed ε",
+        "kind": "ordinal"
+      },
+      "yAxis": {
+        "label": "Cost / OPT upper guarantee",
+        "kind": "symbolic"
+      },
+      "results": [
+        {
+          "kind": "upper",
+          "plot": null,
+          "frontierStatus": "verified_comparison",
+          "output": "Each vertex learns its cluster ID",
+          "evidenceStatus": "theorem_verified",
+          "id": "cc-local-fn18-pivot",
+          "sourceId": "fischer-noever-2018",
+          "paperId": "fischer-noever-2018",
+          "sliceId": "cc-local-pivot-exact3",
+          "panel": "min-baselines",
+          "setup": "complete",
+          "objective": "min-disagreement",
+          "shortLabel": "Fischer–Noever · Pivot",
+          "displayBound": "O(log n) rounds w.h.p.",
+          "bound": "O(log n) LOCAL rounds with high probability",
+          "exactBound": "E[cost] ≤ 3 OPT; O(log n) rounds with high probability",
+          "quality": "Expected factor 3",
+          "guarantee": "Expected 3-approximation",
+          "factorLabel": "3 expected",
+          "costLabel": "O(log n)",
+          "probability": "Expected approximation; round complexity holds with probability at least 1−1/n^c for any fixed c≥2. These are distinct probability statements.",
+          "graph": "Unweighted complete signed graph encoded by its positive-edge graph; nonedges are negative pairs",
+          "resourceModel": "LOCAL communication on positive edges; unrestricted messages; uniform random ordering for Pivot",
+          "theorem": "Fischer–Noever Theorem 1.1 together with the standard Pivot reduction; BCMT22 Table 1 and Section 1.1 explicitly record the LOCAL factor-3 consequence",
+          "sourceLocation": "Theorem 1.1; BCMT22 Table 1 and Section 1.1",
+          "verificationUrl": "https://arxiv.org/pdf/1707.05124#page=2",
+          "supportingUrl": "https://arxiv.org/pdf/2205.03710#page=3",
+          "assumptions": [
+            "Uniform random vertex order",
+            "Minimum total disagreements on a complete signed instance",
+            "Communication follows positive edges",
+            "Expected cost and high-probability elapsed rounds are separate guarantees"
+          ],
+          "notes": "Full parallel Pivot reproduces sequential Pivot. Its expected factor 3 is outside the logarithmic a−3 axis, so it has a separate endpoint card. The Ω(log n) greedy-procedure lower bound is not a lower bound for all correlation-clustering algorithms. This record does not replace the finite-rank correction retained for BCMT22."
+        }
+      ]
+    },
+    {
+      "id": "cc-local-deterministic-constant",
+      "problem": "cc",
+      "model": "local",
+      "label": "LOCAL minimum disagreements · Cohen-Addad et al. · exact agreement",
+      "task": "Minimize total disagreements",
+      "assumptions": [
+        "β=λ=1/36",
+        "Exact closed-neighborhood comparison",
+        "Unique vertex IDs",
+        "No restriction on LOCAL message size"
+      ],
+      "xAxis": {
+        "label": "Communication round cost, symbolic categories at fixed ε",
+        "kind": "ordinal"
+      },
+      "yAxis": {
+        "label": "Cost / OPT upper guarantee",
+        "kind": "symbolic"
+      },
+      "results": [
+        {
+          "kind": "upper",
+          "plot": null,
+          "frontierStatus": "verified_comparison",
+          "output": "Each vertex learns its cluster ID",
+          "evidenceStatus": "derived_from_verified_theorem",
+          "id": "cc-local-calm21-deterministic",
+          "sourceId": "cohen-addad-2021-constant",
+          "paperId": "cohen-addad-2021-constant",
+          "sliceId": "cc-local-deterministic-constant",
+          "panel": "min-baselines",
+          "setup": "complete",
+          "objective": "min-disagreement",
+          "shortLabel": "Cohen-Addad et al. · exact agreement",
+          "displayBound": "O(1) LOCAL rounds · derived implementation",
+          "bound": "O(1) LOCAL rounds",
+          "exactBound": "cost ≤ 1442 OPT; at most 6 communication rounds when neighbor IDs are initially known",
+          "quality": "Deterministic factor 1442",
+          "guarantee": "Deterministic 1442-approximation",
+          "factorLabel": "1442 deterministic",
+          "costLabel": "O(1)",
+          "probability": "Deterministic; exact neighborhood comparisons, without MPC sampling",
+          "graph": "Unweighted complete signed graph encoded by positive edges; missing pairs are negative",
+          "resourceModel": "LOCAL on the positive-edge graph; exchanging whole neighbor lists requires unrestricted messages",
+          "theorem": "Algorithm 1, Lemma 3.3, and Theorem 3.9; explicit β=λ=1/36 in the proof; LOCAL round implementation derived here",
+          "sourceLocation": "Algorithm 1, Lemma 3.3, Theorem 3.9, printed pp. 3–9",
+          "verificationUrl": "https://arxiv.org/pdf/2106.08448#page=8",
+          "assumptions": [
+            "β=λ=1/36",
+            "Exact closed-neighborhood comparison",
+            "Unique vertex IDs",
+            "No restriction on LOCAL message size"
+          ],
+          "notes": "Derivation: one round exchanges closed neighborhoods and determines agreement; one exchanges heavy/light flags; four rounds propagate the maximum ID in each trimmed component (diameter at most four by Lemma 3.3). Six rounds suffice with known neighbor IDs; allow one additional initial ID exchange otherwise. Theorem 3.9 explicitly certifies 1442 for these parameters. We do not use approximately optimized 701 as an exact bound. This is not the randomized MPC implementation and is not claimed to use CONGEST bandwidth."
+        }
+      ]
+    },
+    {
+      "id": "cc-local-maxagree-weighted",
+      "problem": "cc",
+      "model": "local",
+      "label": "CONGEST / LOCAL maximum agreements · weighted general",
+      "task": "Maximize total agreements",
+      "assumptions": [
+        "Fixed ε>0",
+        "Maximum total agreement weight, not minimum disagreements",
+        "Signed edges are communication links; absent pairs carry no objective term"
+      ],
+      "xAxis": {
+        "label": "Communication round cost, symbolic categories at fixed ε",
+        "kind": "ordinal"
+      },
+      "yAxis": {
+        "label": "ALG / OPT lower guarantee",
+        "kind": "symbolic"
+      },
+      "results": [
+        {
+          "kind": "upper",
+          "plot": null,
+          "frontierStatus": "verified_comparison",
+          "output": "Each vertex learns its cluster ID",
+          "evidenceStatus": "theorem_verified",
+          "id": "cc-local-ks18-maxagree",
+          "sourceId": "kawarabayashi-schwartzman-2018",
+          "paperId": "kawarabayashi-schwartzman-2018",
+          "sliceId": "cc-local-maxagree-weighted",
+          "panel": "max-agreement",
+          "setup": "weighted",
+          "objective": "max-agreement",
+          "shortLabel": "Kawarabayashi–Schwartzman",
+          "displayBound": "O(log* n) rounds for fixed ε",
+          "bound": "O(log* n) CONGEST rounds for fixed ε",
+          "exactBound": "Agreement weight ≥ (1/2−ε) OPT; O(log* n) rounds for fixed ε>0",
+          "quality": "At least (1/2−ε) of optimum agreement weight",
+          "guarantee": "Deterministic (1/2−ε)-approximation to maximum agreements",
+          "factorLabel": "½ − ε",
+          "costLabel": "O(log* n)",
+          "costTier": 0,
+          "probability": "Deterministic",
+          "graph": "General weighted signed graphs; missing edges contribute no agreement weight",
+          "resourceModel": "CONGEST on the signed input network, with O(log n)-bit messages; also a LOCAL algorithm",
+          "theorem": "Theorem 12; correlation-clustering discussion at the end of Section 3.3",
+          "sourceLocation": "Theorem 12",
+          "verificationUrl": "https://arxiv.org/pdf/1711.10155#page=15",
+          "assumptions": [
+            "Fixed ε>0",
+            "Maximum total agreement weight, not minimum disagreements",
+            "Signed edges are communication links; absent pairs carry no objective term"
+          ],
+          "notes": "The theorem states O(log* n) with ε fixed; the display does not assert that the hidden constant is independent of ε. This maximization guarantee cannot be converted to a multiplicative minimum-disagreement guarantee. All vertices choose from two cluster labels."
+        }
+      ]
+    },
+    {
+      "id": "cc-local-maxagree-minorfree",
+      "problem": "cc",
+      "model": "local",
+      "label": "CONGEST / LOCAL maximum agreements · H-minor-free",
+      "task": "Maximize total agreements",
+      "assumptions": [
+        "Fixed excluded minor H",
+        "0<ε<1",
+        "Maximize agreements on signed network edges",
+        "Potentially expensive local computation is allowed"
+      ],
+      "xAxis": {
+        "label": "Communication round cost, symbolic categories at fixed ε",
+        "kind": "ordinal"
+      },
+      "yAxis": {
+        "label": "ALG / OPT lower guarantee",
+        "kind": "symbolic"
+      },
+      "results": [
+        {
+          "kind": "upper",
+          "plot": null,
+          "frontierStatus": "verified_comparison",
+          "output": "Each vertex learns its cluster ID",
+          "evidenceStatus": "theorem_verified",
+          "id": "cc-local-cs22-maxagree-randomized",
+          "sourceId": "chang-su-2022",
+          "paperId": "chang-su-2022",
+          "sliceId": "cc-local-maxagree-minorfree",
+          "panel": "max-agreement",
+          "setup": "minorfree",
+          "objective": "max-agreement",
+          "shortLabel": "Chang–Su · randomized",
+          "displayBound": "ε^{−O(1)} log^{O(1)} n rounds",
+          "bound": "ε^{−O(1)} log^{O(1)} n CONGEST rounds",
+          "exactBound": "Agreements ≥ (1−ε) OPT in ε^{−O(1)} log^{O(1)} n rounds with high probability",
+          "quality": "At least (1−ε) of optimum agreements",
+          "guarantee": "(1−ε)-approximation to maximum agreements",
+          "factorLabel": "1 − ε",
+          "costLabel": "polylog n",
+          "costTier": 1,
+          "probability": "With high probability",
+          "graph": "Unweighted signed network excluding a fixed minor H; missing edges have no objective term",
+          "resourceModel": "CONGEST on the signed H-minor-free input network; unrestricted local computation may solve cluster subproblems exactly",
+          "theorem": "Theorem 1.3 and Section 3.3, inspected arXiv v2",
+          "sourceLocation": "Theorem 1.3; Section 3.3",
+          "verificationUrl": "https://arxiv.org/pdf/2205.08093v2#page=19",
+          "assumptions": [
+            "Fixed excluded minor H",
+            "0<ε<1",
+            "Maximize agreements on signed network edges",
+            "Potentially expensive local computation is allowed"
+          ],
+          "notes": "Separate from weighted general graphs and complete-signed minimum-disagreement instances. The proof gathers each component and computes an optimal clustering locally; local computational work is not bounded polynomially. Round exponents are independent of H, while constants may depend on H. Footnote 1 also notes a general-graph LOCAL (1−ε) approximation via low-diameter decomposition; we do not promote that brief observation to an additional fully audited theorem."
+        },
+        {
+          "kind": "upper",
+          "plot": null,
+          "frontierStatus": "verified_comparison",
+          "output": "Each vertex learns its cluster ID",
+          "evidenceStatus": "theorem_verified",
+          "id": "cc-local-cs22-maxagree-deterministic",
+          "sourceId": "chang-su-2022",
+          "paperId": "chang-su-2022",
+          "sliceId": "cc-local-maxagree-minorfree",
+          "panel": "max-agreement",
+          "setup": "minorfree",
+          "objective": "max-agreement",
+          "shortLabel": "Chang–Su · deterministic",
+          "displayBound": "ε^{−O(1)} 2^{O(√(log n log log n))} rounds",
+          "bound": "ε^{−O(1)} 2^{O(√(log n log log n))} CONGEST rounds",
+          "exactBound": "Agreements ≥ (1−ε) OPT in ε^{−O(1)} 2^{O(√(log n log log n))} rounds deterministically",
+          "quality": "At least (1−ε) of optimum agreements",
+          "guarantee": "(1−ε)-approximation to maximum agreements",
+          "factorLabel": "1 − ε",
+          "costLabel": "2^{O(√(log n log log n))}",
+          "costTier": 2,
+          "probability": "Deterministic",
+          "graph": "Unweighted signed network excluding a fixed minor H; missing edges have no objective term",
+          "resourceModel": "CONGEST on the signed H-minor-free input network; unrestricted local computation may solve cluster subproblems exactly",
+          "theorem": "Theorem 1.3 and Section 3.3, inspected arXiv v2",
+          "sourceLocation": "Theorem 1.3; Section 3.3",
+          "verificationUrl": "https://arxiv.org/pdf/2205.08093v2#page=19",
+          "assumptions": [
+            "Fixed excluded minor H",
+            "0<ε<1",
+            "Maximize agreements on signed network edges",
+            "Potentially expensive local computation is allowed"
+          ],
+          "notes": "Separate from weighted general graphs and complete-signed minimum-disagreement instances. The proof gathers each component and computes an optimal clustering locally; local computational work is not bounded polynomially. Round exponents are independent of H, while constants may depend on H. Footnote 1 also notes a general-graph LOCAL (1−ε) approximation via low-diameter decomposition; we do not promote that brief observation to an additional fully audited theorem."
+        }
+      ]
     }
   ]
 }

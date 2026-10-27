@@ -34,9 +34,9 @@
       "id": "cc",
       "name": "Correlation clustering",
       "short": "Correlation clustering",
-      "definition": "Partition a complete signed graph into any number of clusters. Minimize positive edges across clusters plus negative edges inside clusters.",
-      "quality": "α ≥ 1: disagreement cost ≤ α · OPT. Expected and high-probability guarantees are distinct.",
-      "variants": "Complete signed graph · weighted / unweighted · label flips / vertex updates",
+      "definition": "Partition a signed graph into clusters. Minimize disagreements or maximize agreements, with the objective and the treatment of missing edges stated separately.",
+      "quality": "Minimization uses α≥1 with cost≤α·OPT. Maximization uses retained fraction β≤1 with value≥β·OPT; these guarantees are not interchangeable.",
+      "variants": "Min disagreements / max agreements · complete signed / sparse signed network · weighted / unweighted",
       "axisLabel": "Approximation / guarantee",
       "axisShort": "α"
     },

@@ -22,7 +22,7 @@ Then open `http://127.0.0.1:8765/dist/#atlas`.
 
 ## Current scope
 
-The atlas has 60 problem/model cells. The original researched queue covered 36 completed pairs; new online and stochastic figures extend that collection. Streaming edge coloring was deferred. Cells without a completed source review are explicitly labeled, including the new weighted-matching row outside its reviewed online setup.
+The atlas has 60 problem/model cells. The original researched queue covered 36 completed pairs; new online and stochastic figures extend that collection. Streaming edge coloring was deferred. Cells without a completed source review are explicitly labeled, including the weighted-matching cells outside reviewed Online, Stochastic, LOCAL, MPC and Streaming setups.
 
 This is an evolving research collection, not an exhaustive bibliography. Review dates and qualifications belong to individual settings and sources. Incompatible graph classes, output contracts, probability guarantees, and resource models remain visibly distinguished.
 
@@ -51,3 +51,5 @@ See [the research contract](docs/research-contract.md) for data rules and [figur
 | `scripts/build.py` | Validation and standalone HTML build |
 | `scripts/test_renderer.cjs` | Renderer and scope regressions |
 | `dist/index.html` | Self-contained website and offline artifact |
+
+Stochastic matching includes adaptive and non-adaptive edge testing, historical and near-optimal algorithms, and necessary query budgets. Maximum degree and expected normalized total queries remain separate. Correlation clustering in LOCAL includes separate minimum-disagreement and maximum-agreement panels with explicit graph and communication setups.

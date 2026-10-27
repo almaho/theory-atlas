@@ -1,0 +1,26 @@
+{
+  "id": "weighted-matching-local",
+  "dataFile": "weighted-matching-local.json",
+  "javascript": "weighted-matching-local.js",
+  "css": "weighted-matching-local.css",
+  "routes": [
+    {
+      "key": "weighted-matching-local",
+      "sliceId": "weighted-matching-local-approximation",
+      "label": "Weighted matching · LOCAL rounds",
+      "problem": "weighted_matching",
+      "model": "local",
+      "visible": true
+    }
+  ],
+  "canonicalAliases": {},
+  "pointFields": {
+    "x": "boundKey",
+    "y": "setupKey"
+  },
+  "axisSummary": {
+    "x": "Synchronous LOCAL rounds; exact symbolic theorem formulas",
+    "y": "Randomness regime and approximation contract",
+    "note": "Theorem rows are symbolic categories; spacing and row order do not rank formulas in n, Δ and ε."
+  }
+}

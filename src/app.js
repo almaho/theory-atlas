@@ -85,7 +85,7 @@
   }
   function evidencePlot(c,w,h,s){
     const rs=visibleResults(s),upper=rs.filter(r=>r.kind==='upper').length,lower=rs.filter(r=>r.kind==='lower').length,level=chartDetail(w,h),full=level==='detail',tiny=level==='overview';
-    const title=rs.length?`${rs.length} results · formulas below`:'No scoped result yet',mid=w/2,pad=Math.min(10,w*.1,h*.1);
+    const title=rs.length?`${rs.length} results · formulas below`:'Not reviewed yet',mid=w/2,pad=Math.min(10,w*.1,h*.1);
     let svg=`<svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="xMidYMid meet" role="img" aria-label="${esc(c.p.name+' in '+c.m.name+'. '+title+'. Evidence is not placed on numeric axes.')}" xmlns="http://www.w3.org/2000/svg"><rect x="${pad}" y="${pad}" width="${Math.max(0,w-2*pad)}" height="${Math.max(0,h-2*pad)}" rx="4" fill="var(--unknown)"/>`;
     if(tiny){
       const kinds=[...(upper?['upper']:[]),...(lower?['lower']:[])],step=Math.min(22,w*.2),cy=h/2,r=Math.min(3.5,w*.045,h*.07);
@@ -102,7 +102,7 @@
   }
   function plot(c,w,h){
     const s=selectedSlice(c),level=chartDetail(w,h);
-    if(!s)return `<svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="xMidYMid meet" role="img" aria-label="${esc(c.p.name+' in '+c.m.name+'. No researched setting entered yet.')}" xmlns="http://www.w3.org/2000/svg"><rect x="12" y="12" width="${Math.max(0,w-24)}" height="${Math.max(0,h-24)}" fill="var(--unknown)"/>${level==='overview'?'':`<text x="${w/2}" y="${h/2}" text-anchor="middle" fill="var(--muted)" font-size="12">No scoped result yet</text>`}</svg>`;
+    if(!s)return `<svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="xMidYMid meet" role="img" aria-label="${esc(c.p.name+' in '+c.m.name+'. No researched setting entered yet.')}" xmlns="http://www.w3.org/2000/svg"><rect x="12" y="12" width="${Math.max(0,w-24)}" height="${Math.max(0,h-24)}" fill="var(--unknown)"/>${level==='overview'?'':`<text x="${w/2}" y="${h/2}" text-anchor="middle" fill="var(--muted)" font-size="12">Not reviewed yet</text>`}</svg>`;
     const curated=curatedKey(s);if(curated)return globalThis.AtlasFocus.summarySVG(curated,w,h,{publication:state.cutoff,level});
     const coordinates=plotted(s).some(r=>s.mode==='1d'?Number.isFinite(r.plot.v):Number.isFinite(r.plot.x)&&Number.isFinite(r.plot.y));
     if(!coordinates)return evidencePlot(c,w,h,s);

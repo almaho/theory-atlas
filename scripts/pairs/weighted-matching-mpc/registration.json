@@ -1,0 +1,26 @@
+{
+  "id": "weighted-matching-mpc",
+  "dataFile": "weighted-matching-mpc.json",
+  "javascript": "weighted-matching-mpc.js",
+  "css": "weighted-matching-mpc.css",
+  "routes": [
+    {
+      "key": "weighted-matching-mpc",
+      "sliceId": "weighted-matching-mpc-nearlinear",
+      "label": "Weighted matching · near-linear-memory MPC",
+      "problem": "weighted_matching",
+      "model": "mpc",
+      "visible": true
+    }
+  ],
+  "canonicalAliases": {},
+  "pointFields": {
+    "x": "memoryKey",
+    "y": "roundKey"
+  },
+  "axisSummary": {
+    "x": "Local memory; symbolic category",
+    "y": "Communication rounds; exact symbolic bound",
+    "note": "Fixed ε baseline; full accuracy dependence in theorem details. No comparable lower bound reviewed."
+  }
+}

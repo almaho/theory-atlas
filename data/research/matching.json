@@ -52,7 +52,7 @@
     {
       "model": "stochastic",
       "status": "reviewed",
-      "note": "A starting figure for the ABGR25 paper and its elementary budget lower bound; no complete literature or tightness claim."
+      "note": "Reviewed history and current guarantees for known-graph independent edge realizations. Query-commit, correlated realizations, and distributional online arrivals are separate models. This is a scoped collection, not an exhaustive bibliography."
     }
   ],
   "papers": [
@@ -1515,6 +1515,152 @@
       "fullTextUrl": "https://arxiv.org/html/2411.08805v2",
       "doi": "10.1145/3717823.3718279",
       "verifiedOn": "2026-10-27"
+    },
+    {
+      "title": "Towards a Unified Theory of Sparsification for Matching Problems",
+      "authors": [
+        "Sepehr Assadi",
+        "Aaron Bernstein"
+      ],
+      "year": 2019,
+      "venue": "SOSA 2019",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/opus/volltexte/2018/10037/pdf/OASIcs-SOSA-2019-11.pdf",
+      "fullTextUrl": "https://drops.dagstuhl.de/opus/volltexte/2018/10037/pdf/OASIcs-SOSA-2019-11.pdf",
+      "verifiedOn": "2026-10-27",
+      "doi": "10.4230/OASIcs.SOSA.2019.11",
+      "id": "stochastic-ab19"
+    },
+    {
+      "title": "The Stochastic Matching Problem with (Very) Few Queries",
+      "authors": [
+        "Sepehr Assadi",
+        "Sanjeev Khanna",
+        "Yang Li"
+      ],
+      "year": 2016,
+      "venue": "EC 2016",
+      "publicationStatus": "conference",
+      "url": "https://www.cis.upenn.edu/~sanjeev/papers/ec16_stochastic_matching.pdf",
+      "fullTextUrl": "https://www.cis.upenn.edu/~sanjeev/papers/ec16_stochastic_matching.pdf",
+      "verifiedOn": "2026-10-27",
+      "id": "stochastic-akl16"
+    },
+    {
+      "title": "The Stochastic Matching Problem: Beating Half with a Non-Adaptive Algorithm",
+      "authors": [
+        "Sepehr Assadi",
+        "Sanjeev Khanna",
+        "Yang Li"
+      ],
+      "year": 2017,
+      "venue": "EC 2017",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/pdf/1705.02280",
+      "fullTextUrl": "https://arxiv.org/pdf/1705.02280",
+      "verifiedOn": "2026-10-27",
+      "doi": "10.1145/3033274.3085146",
+      "id": "stochastic-akl17"
+    },
+    {
+      "id": "stochastic-azarmehr-behnezhad-ghafari-rubinfeld-2025-stochastic",
+      "title": "Stochastic Matching via In-n-Out Local Computation Algorithms",
+      "authors": [
+        "Amir Azarmehr",
+        "Soheil Behnezhad",
+        "Alma Ghafari",
+        "Ronitt Rubinfeld"
+      ],
+      "year": 2025,
+      "venue": "STOC 2025, pp. 1055–1066",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2411.08805",
+      "fullTextUrl": "https://arxiv.org/html/2411.08805v2",
+      "doi": "10.1145/3717823.3718279",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "title": "Stochastic Vertex Cover with Few Queries",
+      "authors": [
+        "Soheil Behnezhad",
+        "Avrim Blum",
+        "Mahsa Derakhshan"
+      ],
+      "year": 2022,
+      "venue": "SODA 2022",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/pdf/2112.05415",
+      "fullTextUrl": "https://arxiv.org/pdf/2112.05415",
+      "verifiedOn": "2026-10-27",
+      "doi": "10.1137/1.9781611977073.73",
+      "id": "stochastic-bbd22"
+    },
+    {
+      "title": "Stochastic Matching with Few Queries: (1−ε) Approximation",
+      "authors": [
+        "Soheil Behnezhad",
+        "Mahsa Derakhshan",
+        "MohammadTaghi Hajiaghayi"
+      ],
+      "year": 2020,
+      "venue": "STOC 2020",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/pdf/2002.11880",
+      "fullTextUrl": "https://arxiv.org/pdf/2002.11880",
+      "verifiedOn": "2026-10-27",
+      "doi": "10.1145/3357713.3384340",
+      "id": "stochastic-bdh20"
+    },
+    {
+      "title": "Ignorance is Almost Bliss: Near-Optimal Stochastic Matching With Few Queries",
+      "authors": [
+        "Avrim Blum",
+        "John P. Dickerson",
+        "Nika Haghtalab",
+        "Ariel D. Procaccia",
+        "Tuomas Sandholm",
+        "Ankit Sharma"
+      ],
+      "year": 2015,
+      "venue": "EC 2015",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/pdf/1407.4094",
+      "fullTextUrl": "https://arxiv.org/pdf/1407.4094",
+      "verifiedOn": "2026-10-27",
+      "doi": "10.1145/2764468.2764479",
+      "id": "stochastic-bdhpss15"
+    },
+    {
+      "title": "Stochastic Matching with Few Queries: New Algorithms and Tools",
+      "authors": [
+        "Soheil Behnezhad",
+        "Alireza Farhadi",
+        "MohammadTaghi Hajiaghayi",
+        "Nima Reyhani"
+      ],
+      "year": 2019,
+      "venue": "SODA 2019",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/pdf/1811.03224",
+      "fullTextUrl": "https://arxiv.org/pdf/1811.03224",
+      "verifiedOn": "2026-10-27",
+      "doi": "10.1137/1.9781611975482.177",
+      "id": "stochastic-bfhr19"
+    },
+    {
+      "title": "Query Efficient Weighted Stochastic Matching",
+      "authors": [
+        "Mahsa Derakhshan",
+        "Mohammad Saneian"
+      ],
+      "year": 2025,
+      "venue": "ICALP 2025",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol334-icalp2025/html/LIPIcs.ICALP.2025.67/LIPIcs.ICALP.2025.67.html",
+      "fullTextUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol334-icalp2025/html/LIPIcs.ICALP.2025.67/LIPIcs.ICALP.2025.67.html",
+      "verifiedOn": "2026-10-27",
+      "doi": "10.4230/LIPIcs.ICALP.2025.67",
+      "id": "stochastic-ds25"
     }
   ],
   "slices": [
@@ -6404,99 +6550,336 @@
       "id": "matching-stochastic-nonadaptive-tests",
       "problem": "matching",
       "model": "stochastic",
-      "label": "Nonadaptive stochastic edge tests",
-      "task": "Query subgraph H chosen before real edge realizations; then a maximum matching of H∩Gₚ",
+      "label": "Non-adaptive · general graphs",
+      "task": "Maximum queried degree; one row per theorem",
       "assumptions": [
-        "Known general unweighted base graph and probabilities pₑ≥p>0",
-        "Independent edge realizations",
-        "Choose the query subgraph before observing actual realizations",
-        "Fixed ε∈(0,1); approximation is a ratio of expectations",
-        "Average-degree lower and maximum-degree upper budgets differ"
+        "Known graph; independent edge realizations",
+        "Every theorem retains its graph, probability, resource and decision contract"
       ],
       "xAxis": {
-        "label": "Incident-edge test budget; symbolic dependence on 1/p",
-        "kind": "categorical",
-        "categories": [
-          {
-            "id": "linear",
-            "label": "Ω(1/p) average degree necessary"
-          },
-          {
-            "id": "polynomial",
-            "label": "(1/p)^Oε(1) maximum degree sufficient"
-          }
+        "label": "Retained matching fraction β; open markers are symbolic ε/δ anchors; red budget annotations have no β coordinate",
+        "min": 0,
+        "max": 1,
+        "ticks": [
+          0,
+          0.5,
+          1
         ]
       },
       "yAxis": {
-        "label": "Expected matching guarantee; distinct scopes",
-        "kind": "categorical",
+        "label": "Theorem rows with exact resource budgets; not a numerical cost ordering",
         "categories": [
           {
-            "id": "constant",
-            "label": "Any fixed constant fraction"
+            "id": "stochastic-blum15-half",
+            "label": "Blum et al. ’15"
           },
           {
-            "id": "near-optimal",
-            "label": "1−ε retained"
+            "id": "stochastic-akl16-half",
+            "label": "AKL ’16 · 1−o(1)"
+          },
+          {
+            "id": "stochastic-akl17-half-plus",
+            "label": "AKL ’17"
+          },
+          {
+            "id": "stochastic-akl17-small-p",
+            "label": "AKL ’17 · small p"
+          },
+          {
+            "id": "stochastic-bfhr19-unweighted",
+            "label": "BFHR ’19"
+          },
+          {
+            "id": "stochastic-ab19-two-thirds",
+            "label": "Assadi–Bernstein ’19"
+          },
+          {
+            "id": "stochastic-ds25-unweighted-general",
+            "label": "Derakhshan–Saneian ’25"
+          },
+          {
+            "id": "stochastic-abgr25-degree-necessity",
+            "label": "Necessary budget"
           }
         ]
       },
-      "parameters": {
-        "p": "Minimum edge-realization probability",
-        "epsilon": "Fixed accuracy parameter"
+      "results": [
+        {
+          "id": "stochastic-blum15-half",
+          "paperId": "stochastic-bdhpss15",
+          "kind": "upper",
+          "bound": "⌈log(2/ε) / p^{2/ε}⌉",
+          "guarantee": "(1−ε)/2",
+          "sourceLocation": "Theorem 5.1; Algorithm 2",
+          "notes": " General unweighted graph; independent pₑ≥p Ratio of expectations: E[ALG] / E[OPT] over independent realizations and algorithmic randomness",
+          "evidenceStatus": "full_text_verified",
+          "plot": null
+        },
+        {
+          "id": "stochastic-akl16-half",
+          "paperId": "stochastic-akl16",
+          "kind": "upper",
+          "bound": "O(log(1/(εp)) / (εp))",
+          "guarantee": "½−ε",
+          "sourceLocation": "Theorem 5.1; standing assumption §1.2",
+          "notes": "One nonadaptive query round. The success statement compares to each realized optimum and requires a growing base optimum. General unweighted graph; independent uniform edge realizations of probability p Probability 1−o(1) of ALG ≥ β·OPT(Gₚ), assuming base-graph OPT(G)=ω(1/p); not an arbitrary n^{-c} failure guarantee",
+          "evidenceStatus": "full_text_verified",
+          "plot": null
+        },
+        {
+          "id": "stochastic-akl17-half-plus",
+          "paperId": "stochastic-akl17",
+          "kind": "upper",
+          "bound": "O(log(1/p) / p)",
+          "guarantee": "½+δ₀",
+          "sourceLocation": "Theorem 1",
+          "notes": "δ₀ is an unspecified absolute positive constant. No numeric .501 value is assigned. General unweighted graph; independent uniform edge realizations of probability p Ratio of expectations: E[ALG] / E[OPT] over independent realizations and algorithmic randomness",
+          "evidenceStatus": "full_text_verified",
+          "plot": null
+        },
+        {
+          "id": "stochastic-akl17-small-p",
+          "paperId": "stochastic-akl17",
+          "kind": "upper",
+          "bound": "O(log(1/p) / p)",
+          "guarantee": "0.52 · small p",
+          "sourceLocation": "Theorem 1",
+          "notes": "Requires p≤p₀ for an absolute sufficiently small constant p₀. General unweighted graph; independent uniform edge realizations of probability p Ratio of expectations: E[ALG] / E[OPT] over independent realizations and algorithmic randomness",
+          "evidenceStatus": "full_text_verified",
+          "plot": null
+        },
+        {
+          "id": "stochastic-bfhr19-unweighted",
+          "paperId": "stochastic-bfhr19",
+          "kind": "upper",
+          "bound": "Oε(log(1/p) / p)",
+          "guarantee": "4√2−5−ε",
+          "sourceLocation": "Theorem 5.3; Algorithm 1",
+          "notes": "Original guarantee (1−2ε)(4√2−5); displayed after reparameterization. R=2000 log(1/ε) log(1/(εp))/(ε⁴p). This is maximum degree, not expected total queries. General unweighted graph; independent uniform edge realizations of probability p Ratio of expectations: E[ALG] / E[OPT] over independent realizations and algorithmic randomness",
+          "evidenceStatus": "full_text_verified",
+          "plot": null
+        },
+        {
+          "id": "stochastic-ab19-two-thirds",
+          "paperId": "stochastic-ab19",
+          "kind": "upper",
+          "bound": "O(log(1/(εp)) / (ε²p))",
+          "guarantee": "1/(3/2+ε)",
+          "sourceLocation": "Theorem 13",
+          "notes": "Deterministic polynomial-time sparsifier; expectation over actual realization. This is often reparameterized as 2/3−ε. General unweighted graph; independent uniform edge realizations of probability p Ratio of expectations: E[ALG] / E[OPT] over independent realizations and algorithmic randomness",
+          "evidenceStatus": "full_text_verified",
+          "plot": null
+        },
+        {
+          "id": "stochastic-ds25-unweighted-general",
+          "paperId": "stochastic-ds25",
+          "kind": "upper",
+          "bound": "O(1/p)",
+          "guarantee": "0.68",
+          "sourceLocation": "Theorem 1",
+          "notes": "Unit-weight specialization of the weighted theorem. General unweighted graph; independent known pₑ≥p Ratio of expectations: E[ALG] / E[OPT] over independent realizations and algorithmic randomness",
+          "evidenceStatus": "full_text_verified",
+          "plot": null
+        },
+        {
+          "id": "stochastic-abgr25-degree-necessity",
+          "paperId": "stochastic-azarmehr-behnezhad-ghafari-rubinfeld-2025-stochastic",
+          "kind": "lower",
+          "bound": "Ω(1/p)",
+          "guarantee": "Any fixed constant fraction of expected optimum",
+          "sourceLocation": "Introduction, elementary degree necessity",
+          "notes": "Average degree lower bound; the algorithm upper bound controls maximum degree. No matching polynomial exponent or ε-dependent tightness is claimed. General unweighted graph G; independent edge realizations with known probabilities pₑ≥p>0 Expectation over independent edge realizations and the algorithm’s randomness",
+          "evidenceStatus": "author_stated_bound",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "matching-stochastic-bipartite",
+      "problem": "matching",
+      "model": "stochastic",
+      "label": "Non-adaptive · bipartite graphs",
+      "task": "Keep the different query budgets visible",
+      "assumptions": [
+        "Known graph; independent edge realizations",
+        "Every theorem retains its graph, probability, resource and decision contract"
+      ],
+      "xAxis": {
+        "label": "Retained matching fraction β; open markers are symbolic ε/δ anchors; red budget annotations have no β coordinate",
+        "min": 0,
+        "max": 1,
+        "ticks": [
+          0,
+          0.5,
+          1
+        ]
+      },
+      "yAxis": {
+        "label": "Theorem rows with exact resource budgets; not a numerical cost ordering",
+        "categories": [
+          {
+            "id": "stochastic-bbd22-bipartite",
+            "label": "BBD ’22"
+          },
+          {
+            "id": "stochastic-ds25-unweighted-bipartite",
+            "label": "Derakhshan–Saneian ’25"
+          }
+        ]
       },
       "results": [
         {
-          "paperId": "azarmehr-behnezhad-ghafari-rubinfeld-2025-stochastic",
-          "sourceId": "azarmehr-behnezhad-ghafari-rubinfeld-2025-stochastic",
-          "shortLabel": "ABGR25",
-          "graph": "General unweighted graph G; independent edge realizations with known probabilities pₑ≥p>0",
-          "probability": "Expectation over independent edge realizations and the algorithm’s randomness",
-          "plot": null,
-          "id": "stochastic-abgr25-near-optimal",
+          "id": "stochastic-bbd22-bipartite",
+          "paperId": "stochastic-bbd22",
           "kind": "upper",
-          "panel": "budget",
-          "sliceId": "matching-stochastic-nonadaptive-tests",
-          "budgetKey": "polynomial",
-          "guaranteeKey": "near-optimal",
-          "quality": "1−ε of expected optimum, for fixed ε∈(0,1)",
-          "bound": "Maximum degree Δ(H) ≤ (1/p)^Oε(1)",
-          "displayBound": "(1/p)^{Oε(1)}",
-          "guarantee": "E μ(H∩Gₚ) ≥ (1−ε) E μ(Gₚ)",
-          "output": "Query subgraph H chosen before real edge realizations; then a maximum matching of H∩Gₚ",
-          "theorem": "Theorem 1; Result 1; Algorithm 1",
-          "sourceLocation": "Section 5.1, Theorem 1; introduction Result 1",
-          "evidenceStatus": "theorem_verified",
-          "frontierStatus": "verified_construction",
-          "oracle": "Known base graph and edge probabilities; only edge-existence tests count toward the budget",
-          "notes": "Union of maximum matchings from independent simulated realizations. The exponent depends on ε and stays symbolic. This is a ratio of expectations, not an expectation of instance-wise ratios.",
-          "sourceUrl": "https://arxiv.org/html/2411.08805v2#S5"
+          "bound": "O(log(1/p) / p)",
+          "guarantee": "0.731",
+          "sourceLocation": "Corollary 1.1; §6.1 / Algorithm 3",
+          "notes": "Any fixed constant below e/(e+1) is obtainable; .731 is the stated rounded guarantee. Different query regime from DS25 .73. Bipartite unweighted graph; independent uniform p Ratio of expectations: E[ALG] / E[OPT] over independent realizations and algorithmic randomness",
+          "evidenceStatus": "full_text_verified",
+          "plot": null
         },
         {
-          "paperId": "azarmehr-behnezhad-ghafari-rubinfeld-2025-stochastic",
-          "sourceId": "azarmehr-behnezhad-ghafari-rubinfeld-2025-stochastic",
-          "shortLabel": "ABGR25",
-          "graph": "General unweighted graph G; independent edge realizations with known probabilities pₑ≥p>0",
-          "probability": "Expectation over independent edge realizations and the algorithm’s randomness",
-          "plot": null,
-          "id": "stochastic-abgr25-degree-necessity",
+          "id": "stochastic-ds25-unweighted-bipartite",
+          "paperId": "stochastic-ds25",
+          "kind": "upper",
+          "bound": "O(1/p)",
+          "guarantee": "0.73",
+          "sourceLocation": "Theorem 1",
+          "notes": "Unit-weight specialization of weighted bipartite result. The smaller constant comes with the smaller O(1/p) budget. Bipartite unweighted graph; independent known pₑ≥p Ratio of expectations: E[ALG] / E[OPT] over independent realizations and algorithmic randomness",
+          "evidenceStatus": "full_text_verified",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "matching-stochastic-near",
+      "problem": "matching",
+      "model": "stochastic",
+      "label": "Non-adaptive · near-optimal",
+      "task": "Maximum degree; small p, ε for the lower bound",
+      "assumptions": [
+        "Known graph; independent edge realizations",
+        "Every theorem retains its graph, probability, resource and decision contract"
+      ],
+      "xAxis": {
+        "label": "Retained matching fraction β; open markers are symbolic ε/δ anchors; red budget annotations have no β coordinate",
+        "min": 0,
+        "max": 1,
+        "ticks": [
+          0,
+          0.5,
+          1
+        ]
+      },
+      "yAxis": {
+        "label": "Theorem rows with exact resource budgets; not a numerical cost ordering",
+        "categories": [
+          {
+            "id": "stochastic-bdh20-near",
+            "label": "BDH ’20"
+          },
+          {
+            "id": "stochastic-abgr25-near-optimal",
+            "label": "Azarmehr–Behnezhad–Ghafari–Rubinfeld ’25"
+          },
+          {
+            "id": "stochastic-bbd22-lower-unweighted",
+            "label": "BBD ’22 · necessary degree"
+          }
+        ]
+      },
+      "results": [
+        {
+          "id": "stochastic-bdh20-near",
+          "paperId": "stochastic-bdh20",
+          "kind": "upper",
+          "bound": "quasi-poly(1/p) · fixed ε",
+          "guarantee": "1−ε",
+          "sourceLocation": "Theorem 1; Remark 1.1",
+          "notes": "Degree exp(exp(exp(O(1/ε))·log log(1/p))); for fixed ε, exp((log(1/p))^{exp(O(1/ε))}). Keep the exponent symbolic. General unweighted graph; independent known pₑ≥p Ratio of expectations: E[ALG] / E[OPT] over independent realizations and algorithmic randomness",
+          "evidenceStatus": "full_text_verified",
+          "plot": null
+        },
+        {
+          "id": "stochastic-abgr25-near-optimal",
+          "paperId": "stochastic-azarmehr-behnezhad-ghafari-rubinfeld-2025-stochastic",
+          "kind": "upper",
+          "bound": "(1/p)^{Oε(1)}",
+          "guarantee": "1−ε of expected optimum, for fixed ε∈(0,1)",
+          "sourceLocation": "Theorem 1; Result 1; Algorithm 1",
+          "notes": "Union of maximum matchings from independent simulated realizations. The exponent depends on ε and stays symbolic. This is a ratio of expectations, not an expectation of instance-wise ratios. General unweighted graph G; independent edge realizations with known probabilities pₑ≥p>0 Expectation over independent edge realizations and the algorithm’s randomness",
+          "evidenceStatus": "theorem_verified",
+          "plot": null
+        },
+        {
+          "id": "stochastic-bbd22-lower-unweighted",
+          "paperId": "stochastic-bbd22",
           "kind": "lower",
-          "panel": "budget",
-          "sliceId": "matching-stochastic-nonadaptive-tests",
-          "budgetKey": "linear",
-          "guaranteeKey": "constant",
-          "quality": "Any fixed constant fraction of expected optimum",
-          "bound": "Average degree of H must be Ω(1/p) in the worst case",
-          "displayBound": "Ω(1/p)",
-          "guarantee": "A constant approximation independent of p requires Ω(1/p) average degree",
-          "output": "Necessary query budget for a nonadaptive subgraph H",
-          "theorem": "Introduction, elementary degree necessity",
-          "sourceLocation": "Section 1, paragraph following the approximation-ratio definition",
-          "evidenceStatus": "author_stated_bound",
-          "frontierStatus": "necessary_budget",
-          "oracle": "Known base graph; edge-existence tests selected before their outcomes are observed",
-          "notes": "Average degree lower bound; the algorithm upper bound controls maximum degree. No matching polynomial exponent or ε-dependent tightness is claimed.",
-          "sourceUrl": "https://arxiv.org/html/2411.08805v2#S1"
+          "bound": "Ω(1/(εp))",
+          "guarantee": "1−ε requires",
+          "sourceLocation": "Theorem 7.3; §7.3",
+          "notes": "Nonadaptively selected query subgraph; maximum queried degree. Holds already for bipartite graphs for p≤p₀ and ε≤ε₀, sufficiently small absolute constants. Randomized choices covered. No adaptive-testing transfer. Bipartite unweighted hard instances; unit weights transfer to edge-weighted matching Expected matching approximation; no w.h.p. statement",
+          "evidenceStatus": "full_text_verified",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "matching-stochastic-adaptive",
+      "problem": "matching",
+      "model": "stochastic",
+      "label": "Adaptive edge testing",
+      "task": "Per-vertex queries; no matching adaptive lower bound reviewed",
+      "assumptions": [
+        "Known graph; independent edge realizations",
+        "Every theorem retains its graph, probability, resource and decision contract"
+      ],
+      "xAxis": {
+        "label": "Retained matching fraction β; open markers are symbolic ε/δ anchors; red budget annotations have no β coordinate",
+        "min": 0,
+        "max": 1,
+        "ticks": [
+          0,
+          0.5,
+          1
+        ]
+      },
+      "yAxis": {
+        "label": "Theorem rows with exact resource budgets; not a numerical cost ordering",
+        "categories": [
+          {
+            "id": "stochastic-blum15-adaptive",
+            "label": "Blum et al. ’15"
+          },
+          {
+            "id": "stochastic-akl16-adaptive",
+            "label": "AKL ’16 · 1−o(1)"
+          }
+        ]
+      },
+      "results": [
+        {
+          "id": "stochastic-blum15-adaptive",
+          "paperId": "stochastic-bdhpss15",
+          "kind": "upper",
+          "bound": "⌈log(2/ε) / p^{2/ε}⌉",
+          "guarantee": "1−ε",
+          "sourceLocation": "Theorem 4.1; Algorithm 1",
+          "notes": "The per-vertex budget also bounds the number of adaptive rounds. General unweighted graph; independent pₑ≥p Ratio of expectations: E[ALG] / E[OPT] over independent realizations and algorithmic randomness",
+          "evidenceStatus": "full_text_verified",
+          "plot": null
+        },
+        {
+          "id": "stochastic-akl16-adaptive",
+          "paperId": "stochastic-akl16",
+          "kind": "upper",
+          "bound": "O(log(1/(εp)) / (εp))",
+          "guarantee": "1−ε · 1−o(1) success",
+          "sourceLocation": "Theorem 4.1; standing assumption §1.2",
+          "notes": "Same bound on adaptive rounds. Assumes OPT(G)=ω(1/p), where G is the base graph. Not a uniform high-probability theorem for tiny optima. General unweighted graph; independent uniform edge realizations of probability p Probability 1−o(1) of ALG ≥ β·OPT(Gₚ), assuming base-graph OPT(G)=ω(1/p); not an arbitrary n^{-c} failure guarantee",
+          "evidenceStatus": "full_text_verified",
+          "plot": null
         }
       ]
     },
@@ -6504,94 +6887,56 @@
       "id": "matching-stochastic-inout-oracle",
       "problem": "matching",
       "model": "stochastic",
-      "label": "Specialized matching in/out oracle",
-      "task": "Consistent membership answers for the specialized matching B",
+      "label": "Specialized in-n-out LCA",
+      "task": "Known reference probabilities; adaptive probes allowed",
       "assumptions": [
-        "Known base graph with maximum degree Δ",
-        "Realization access plus reference matching probabilities qₑ",
-        "Adaptive probes allowed; private random tapes",
-        "Out-query bound deterministic; in-query bound in expectation for any fixed realization"
+        "Known graph; independent edge realizations",
+        "Every theorem retains its graph, probability, resource and decision contract"
       ],
       "xAxis": {
-        "label": "Symbolic query count; Δ is base-graph maximum degree",
-        "kind": "categorical",
+        "label": "Specialized in/out query counts, not approximation",
         "categories": [
           {
-            "id": "poly-delta",
-            "label": "Δ^poly(1/ε)"
+            "id": "inout",
+            "label": "Δ^{poly(1/ε)}"
           }
         ]
       },
       "yAxis": {
-        "label": "Query direction and probability convention",
-        "kind": "categorical",
+        "label": "Theorem rows with exact resource budgets; not a numerical cost ordering",
         "categories": [
           {
-            "id": "out",
-            "label": "Out-queries, deterministic"
+            "id": "stochastic-abgr25-out",
+            "label": "ABGR ’25"
           },
           {
-            "id": "in",
-            "label": "In-queries, expectation"
+            "id": "stochastic-abgr25-in",
+            "label": "ABGR ’25"
           }
         ]
       },
-      "parameters": {
-        "Delta": "Maximum degree of known base graph",
-        "epsilon": "Fixed additive-accuracy parameter"
-      },
       "results": [
         {
-          "paperId": "azarmehr-behnezhad-ghafari-rubinfeld-2025-stochastic",
-          "sourceId": "azarmehr-behnezhad-ghafari-rubinfeld-2025-stochastic",
-          "shortLabel": "ABGR25",
-          "graph": "General unweighted graph G; independent edge realizations with known probabilities pₑ≥p>0",
-          "probability": "Out-query bound deterministic; approximation is in expectation",
-          "plot": null,
           "id": "stochastic-abgr25-out",
+          "paperId": "stochastic-azarmehr-behnezhad-ghafari-rubinfeld-2025-stochastic",
           "kind": "upper",
-          "panel": "oracle",
-          "sliceId": "matching-stochastic-inout-oracle",
-          "budgetKey": "poly-delta",
-          "guaranteeKey": "out",
-          "quality": "Specialized matching oracle: out-queries, worst case",
-          "bound": "q⁺(e) ≤ Δ^poly(1/ε), deterministically",
-          "displayBound": "Δ^{poly(1/ε)}",
-          "guarantee": "E|B(Gₚ)| ≥ E|A(Gₚ)|−εn; vertex matching marginals do not increase",
-          "output": "Consistent membership answers for the specialized matching B",
-          "theorem": "Lemma 5.6; Claim 6.9; Remark 5.8",
-          "sourceLocation": "Sections 5.2 and 6.2.3",
+          "bound": "Δ^{poly(1/ε)}",
+          "guarantee": "Specialized matching oracle: out-queries, worst case",
+          "sourceLocation": "Lemma 5.6; Claim 6.9; Remark 5.8",
+          "notes": "Out-query set Q⁺(v): vertices incident to a discovered edge while answering v. Reference matching probabilities are supplied information; their computation is outside this bound. General unweighted graph G; independent edge realizations with known probabilities pₑ≥p>0 Out-query bound deterministic; approximation is in expectation",
           "evidenceStatus": "theorem_verified",
-          "frontierStatus": "specialized_oracle",
-          "oracle": "Known base structure, realized subset, and reference matching probabilities qₑ; adaptive probes allowed",
-          "notes": "Out-query set Q⁺(v): vertices incident to a discovered edge while answering v. Reference matching probabilities are supplied information; their computation is outside this bound.",
-          "sourceUrl": "https://arxiv.org/html/2411.08805v2#S6.SS2.SSS3"
+          "plot": null
         },
         {
-          "paperId": "azarmehr-behnezhad-ghafari-rubinfeld-2025-stochastic",
-          "sourceId": "azarmehr-behnezhad-ghafari-rubinfeld-2025-stochastic",
-          "shortLabel": "ABGR25",
-          "graph": "General unweighted graph G; independent edge realizations with known probabilities pₑ≥p>0",
-          "probability": "Expectation over algorithmic randomness, for any fixed realization Gₚ",
-          "plot": null,
           "id": "stochastic-abgr25-in",
+          "paperId": "stochastic-azarmehr-behnezhad-ghafari-rubinfeld-2025-stochastic",
           "kind": "upper",
-          "panel": "oracle",
-          "sliceId": "matching-stochastic-inout-oracle",
-          "budgetKey": "poly-delta",
-          "guaranteeKey": "in",
-          "quality": "Specialized matching oracle: expected in-queries",
-          "bound": "E q⁻(e) ≤ Δ^poly(1/ε)",
-          "displayBound": "Δ^{poly(1/ε)}",
-          "guarantee": "Bound holds for every fixed realization Gₚ; expectation over algorithmic randomness",
-          "output": "Bound on how many other edge answers probe a given edge",
-          "theorem": "Claim 6.10; Lemma 3.8; Lemma 5.6",
-          "sourceLocation": "Sections 3.1, 3.3 and 6.2.3",
+          "bound": "Δ^{poly(1/ε)}",
+          "guarantee": "Specialized matching oracle: expected in-queries",
+          "sourceLocation": "Claim 6.10; Lemma 3.8; Lemma 5.6",
+          "notes": "Q⁻(v)={u : v∈Q⁺(u)}. Lemma 3.8 bounds expected correlated-set size by Q⁺·Q⁻ when both expected query counts are bounded. No in-query lower bound reviewed. General unweighted graph G; independent edge realizations with known probabilities pₑ≥p>0 Expectation over algorithmic randomness, for any fixed realization Gₚ",
           "evidenceStatus": "theorem_verified",
-          "frontierStatus": "specialized_oracle",
-          "oracle": "Same specialized oracle as the out-query row; private random tapes and adaptive probes",
-          "notes": "Q⁻(v)={u : v∈Q⁺(u)}. Lemma 3.8 bounds expected correlated-set size by Q⁺·Q⁻ when both expected query counts are bounded. No in-query lower bound reviewed.",
-          "sourceUrl": "https://arxiv.org/html/2411.08805v2#S6.SS2.SSS3"
+          "plot": null
         }
       ]
     }

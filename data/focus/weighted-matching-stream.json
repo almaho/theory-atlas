@@ -1,0 +1,106 @@
+{
+  "id": "weighted-matching-stream",
+  "problem": "weighted_matching",
+  "model": "stream",
+  "title": "Weighted matching · Streaming",
+  "reviewedOn": "2026-10-20",
+  "migratedOn": "2026-10-27",
+  "sources": {
+    "assadi-2025-simple-weighted": {
+      "id": "assadi-2025-simple-weighted",
+      "title": "A Simple (1−ε)-Approximation Semi-Streaming Algorithm for Maximum (Weighted) Matching",
+      "authors": [
+        "Sepehr Assadi"
+      ],
+      "year": 2025,
+      "venue": "TheoretiCS 2025",
+      "publicationStatus": "published",
+      "url": "https://arxiv.org/abs/2307.02968",
+      "verifiedOn": "2026-10-20",
+      "label": "Assadi ’25",
+      "fullTextUrl": "https://arxiv.org/html/2307.02968",
+      "shortLabel": "Assadi ’25"
+    }
+  },
+  "verifiedRecords": [
+    {
+      "id": "weighted-stream-assadi25",
+      "sourceId": "assadi-2025-simple-weighted",
+      "sliceId": "weighted-matching-stream-insertion",
+      "kind": "upper",
+      "panel": "insertion",
+      "xCategory": "rand",
+      "bound": "O(log n/ε) passes",
+      "displayBound": "O(log n/ε) passes",
+      "quality": "weight(M) ≥ (1−ε)OPTweight",
+      "space": "O(n log² n/ε) bits",
+      "passes": "O(log n/ε)",
+      "theorem": "Introduction, maximum-weight main result; Section 4",
+      "probability": "≥1−exp(−Θ(n))",
+      "notes": "Positive integer weights; unit weights give cardinality. Different ε conventions are retained; no numerical quality coordinate is assigned.",
+      "graph": "general graphs with positive integer edge weights",
+      "output": "matching edges",
+      "stream": "arbitrary-order insertion-only",
+      "assumptions": [
+        "Arbitrary-order insertion-only stream; multiple passes over the input.",
+        "General graph with positive integer edge weights.",
+        "Output is an explicit matching of edges with weight at least (1−ε)OPTweight.",
+        "Working memory is O(n log² n/ε) bits; semi-streaming for fixed ε.",
+        "This is an approximation guarantee with respect to total matching weight, not only cardinality."
+      ],
+      "label": "Assadi ’25",
+      "shortLabel": "Assadi ’25",
+      "year": 2025,
+      "publicationStatus": "published",
+      "evidenceStatus": "full_text_verified",
+      "sourceUrl": "https://arxiv.org/html/2307.02968",
+      "plotLane": "O(log n/ε) passes",
+      "originRecordId": "matching-stream-assadi25-weighted-specialization",
+      "paperId": "assadi-2025-simple-weighted",
+      "memoryKey": "space-bits",
+      "passKey": "logn-over-epsilon",
+      "parameters": "n vertices; approximation error ε>0; the displayed pass and bit-space bounds retain their ε dependence",
+      "plot": null
+    }
+  ],
+  "relatedResults": [],
+  "coverageNote": "One existing full-text-verified weighted streaming theorem, migrated from the mixed matching figure. This is a scoped baseline, not an exhaustive literature review.",
+  "lowerBoundStatus": "No comparable insertion-only multipass lower bound was verified in this source set. Lower bounds for streams with deletions are not transferred to this insertion-only contract.",
+  "axisNote": "Pass count and bit-space are symbolic resource categories; their positions do not encode a numerical tradeoff curve. The same ε appears in approximation, passes and space.",
+  "figureAxes": {
+    "insertion": {
+      "title": "Arbitrary-order insertion-only streams",
+      "x": {
+        "kind": "categorical",
+        "label": "Working memory in bits",
+        "categories": [
+          {
+            "id": "space-bits",
+            "label": "O(n log² n/ε) bits"
+          }
+        ]
+      },
+      "y": {
+        "kind": "categorical",
+        "label": "Passes over the stream",
+        "categories": [
+          {
+            "id": "logn-over-epsilon",
+            "label": "O(log n/ε) passes"
+          }
+        ]
+      }
+    }
+  },
+  "sourceVerification": [
+    {
+      "sourceId": "assadi-2025-simple-weighted",
+      "checkedOn": "2026-10-20",
+      "url": "https://arxiv.org/html/2307.02968",
+      "theorems": [
+        "Introduction, maximum-weight main result; Section 4"
+      ],
+      "note": "Reuses full-text verification from matching-streaming-more.json, weighted maximum-matching result. No new theorem or lower-bound transfer added."
+    }
+  ]
+}

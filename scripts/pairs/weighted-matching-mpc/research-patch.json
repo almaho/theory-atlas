@@ -1,0 +1,78 @@
+{
+  "upsertPapers": [
+    {
+      "title": "Massively Parallel Algorithms for b-Matching",
+      "authors": [
+        "Mohsen Ghaffari",
+        "Christoph Grunau",
+        "Slobodan Mitrović"
+      ],
+      "year": 2022,
+      "firstYear": 2022,
+      "venue": "SPAA 2022",
+      "url": "https://arxiv.org/abs/2211.07796",
+      "fullTextUrl": "https://arxiv.org/html/2211.07796",
+      "shortLabel": "GGM 2022",
+      "publicationStatus": "conference",
+      "publicationUrl": "https://doi.org/10.1145/3490148.3538589",
+      "verifiedOn": "2026-10-20",
+      "id": "ghaffari-grunau-mitrovic-2022-mpc"
+    }
+  ],
+  "upsertSlices": [
+    {
+      "id": "weighted-matching-mpc-nearlinear",
+      "problem": "weighted_matching",
+      "model": "mpc",
+      "label": "MPC; near-linear local memory",
+      "task": "Matching edges, by setting every b_v=1",
+      "assumptions": [
+        "The weighted b-matching algorithm is specialized to b_v=1 for every vertex.",
+        "Output is an explicit matching of edges, with weight at least OPT_w/(1+ε).",
+        "Local memory is near-linear Õ(n), with ε fixed; this is not the strongly sublinear n^δ regime.",
+        "Total memory is Õ(m+n), with ε fixed.",
+        "Probabilistic guarantee and theorem formulas are inherited from the existing full-text-verified MPC record."
+      ],
+      "xAxis": {
+        "kind": "categorical",
+        "label": "Memory per machine",
+        "categories": [
+          {
+            "id": "nearlinear",
+            "label": "Õ(n), fixed ε"
+          }
+        ]
+      },
+      "yAxis": {
+        "kind": "categorical",
+        "label": "Communication rounds",
+        "categories": [
+          {
+            "id": "doublelogaverage",
+            "label": "O(log log d̄), fixed ε"
+          }
+        ]
+      },
+      "parameters": {
+        "n": "Number of vertices",
+        "m": "Number of edges",
+        "dbar": "Average degree",
+        "epsilon": "Fixed positive approximation parameter in the main figure"
+      },
+      "results": [
+        {
+          "id": "weighted-mpc-ggm22",
+          "paperId": "ghaffari-grunau-mitrovic-2022-mpc",
+          "kind": "upper",
+          "bound": "O(log log d̄) rounds",
+          "guarantee": "w(M)≥OPT_w/(1+ε), fixed ε>0",
+          "sourceLocation": "Theorems 1.1 and 5.1; b_v=1 specialization",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "reviewed_baseline",
+          "notes": "d̄ is average degree. Theorem 5.1 states O(log log d̄ · exp(2^O(1/ε))) rounds and local Õ(n+poly(1/ε)) space. Local memory Õ(n), fixed ε; total memory Õ(m+n), fixed ε. Success ≥1−1/n^c for any constant c. No comparable lower bound is verified for this near-linear-memory contract. The reviewed CDP2024 conditional lower bound uses strongly sublinear local memory and is not plotted here.",
+          "plot": null
+        }
+      ]
+    }
+  ]
+}

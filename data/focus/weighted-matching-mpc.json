@@ -1,0 +1,113 @@
+{
+  "id": "weighted-matching-mpc",
+  "problem": "weighted_matching",
+  "model": "mpc",
+  "title": "Weighted matching · MPC",
+  "reviewedOn": "2026-10-20",
+  "migratedOn": "2026-10-27",
+  "sources": {
+    "ghaffari-grunau-mitrovic-2022-mpc": {
+      "title": "Massively Parallel Algorithms for b-Matching",
+      "authors": [
+        "Mohsen Ghaffari",
+        "Christoph Grunau",
+        "Slobodan Mitrović"
+      ],
+      "year": 2022,
+      "firstYear": 2022,
+      "venue": "SPAA 2022",
+      "url": "https://arxiv.org/abs/2211.07796",
+      "fullTextUrl": "https://arxiv.org/html/2211.07796",
+      "shortLabel": "GGM 2022",
+      "publicationStatus": "published",
+      "publicationUrl": "https://doi.org/10.1145/3490148.3538589",
+      "verifiedOn": "2026-10-20",
+      "id": "ghaffari-grunau-mitrovic-2022-mpc"
+    }
+  },
+  "verifiedRecords": [
+    {
+      "id": "weighted-mpc-ggm22",
+      "sourceId": "ghaffari-grunau-mitrovic-2022-mpc",
+      "kind": "upper",
+      "panel": "nearlinear",
+      "memoryRegime": "nearlinear",
+      "plotLane": "doublelogaverage",
+      "displayBound": "O(log log d̄)",
+      "roundComplexity": "O(log log d̄) rounds",
+      "quality": "w(M)≥OPT_w/(1+ε), fixed ε>0",
+      "output": "Matching edges, by setting every b_v=1",
+      "graph": "General weighted graphs",
+      "localMemory": "Õ(n), fixed ε",
+      "totalMemory": "Õ(m+n), fixed ε",
+      "randomization": "randomized",
+      "probability": "Success ≥1−1/n^c for any constant c",
+      "theorem": "Theorems 1.1 and 5.1; b_v=1 specialization",
+      "notes": "d̄ is average degree. Theorem 5.1 states O(log log d̄ · exp(2^O(1/ε))) rounds and local Õ(n+poly(1/ε)) space.",
+      "plotNote": "weighted · (1+ε)-approximation",
+      "summaryLabel": "GGM 2022",
+      "evidenceStatus": "full_text_verified",
+      "assumptions": [
+        "The weighted b-matching algorithm is specialized to b_v=1 for every vertex.",
+        "Output is an explicit matching of edges, with weight at least OPT_w/(1+ε).",
+        "Local memory is near-linear Õ(n), with ε fixed; this is not the strongly sublinear n^δ regime.",
+        "Total memory is Õ(m+n), with ε fixed.",
+        "Probabilistic guarantee and theorem formulas are inherited from the existing full-text-verified MPC record."
+      ],
+      "paperId": "ghaffari-grunau-mitrovic-2022-mpc",
+      "originRecordId": "mpc-ggm22-weighted",
+      "sliceId": "weighted-matching-mpc-nearlinear",
+      "memoryKey": "nearlinear",
+      "roundKey": "doublelogaverage",
+      "shortLabel": "GGM 2022",
+      "bound": "O(log log d̄) rounds",
+      "guarantee": "w(M)≥OPT_w/(1+ε), fixed ε>0",
+      "sourceLocation": "Theorems 1.1 and 5.1; b_v=1 specialization",
+      "exactRoundComplexity": "O(log log d̄ · exp(2^O(1/ε))) rounds",
+      "exactLocalMemory": "Õ(n + poly(1/ε))",
+      "parameters": "n vertices; m edges; d̄ is the average degree; fixed ε>0 in the main figure",
+      "plot": null
+    }
+  ],
+  "relatedResults": [],
+  "coverageNote": "One existing full-text-verified weighted MPC theorem, migrated from the mixed matching figure. This is a scoped baseline, not an exhaustive literature review.",
+  "lowerBoundStatus": "No comparable lower bound is verified for this near-linear-memory contract. The reviewed CDP2024 conditional lower bound uses strongly sublinear local memory and is not plotted here.",
+  "axisNote": "Axes are symbolic resource categories, not numerical distances or a fitted tradeoff curve. The main figure fixes ε; its full dependence remains in the theorem inspector.",
+  "figureAxes": {
+    "nearlinear": {
+      "title": "Near-linear local memory",
+      "x": {
+        "kind": "categorical",
+        "label": "Memory per machine",
+        "categories": [
+          {
+            "id": "nearlinear",
+            "label": "Õ(n), fixed ε"
+          }
+        ]
+      },
+      "y": {
+        "kind": "categorical",
+        "label": "Communication rounds",
+        "categories": [
+          {
+            "id": "doublelogaverage",
+            "label": "O(log log d̄), fixed ε"
+          }
+        ]
+      }
+    }
+  },
+  "sourceVerification": [
+    {
+      "sourceId": "ghaffari-grunau-mitrovic-2022-mpc",
+      "checkedOn": "2026-10-20",
+      "url": "https://arxiv.org/html/2211.07796",
+      "theorems": [
+        "Theorem 1.1",
+        "Theorem 5.1"
+      ],
+      "note": "Reuses full-text verification from matching-mpc.json. The b_v=1 specialization yields ordinary weighted matching. No new source claim added."
+    }
+  ]
+}

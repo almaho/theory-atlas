@@ -13,8 +13,8 @@ assert(catalog.models.some(m=>m.id==='online'));
 assert(catalog.models.some(m=>m.id==='stochastic'));
 assert(catalog.problems.some(p=>p.id==='weighted_matching'));
 const weightedResearch=read('data/research/weighted_matching.json');
-assert(weightedResearch.slices.every(s=>s.model==='online'));
-assert(weightedResearch.coverage.filter(c=>c.model!=='online').every(c=>c.status==='not_assessed'));
+assert.equal(weightedResearch.slices.filter(s=>s.model==='online').length,3,'Weighted Online retains its three decision/weighting contracts as other models are added');
+assert(weightedResearch.slices.filter(s=>s.model==='online').every(s=>s.problem==='weighted_matching'));
 for(const key of ['matching-online','matching-online-weighted']) {
   for(const [w,h] of [[40,40],[180,110],[240,180],[330,245],[500,260],[738,548],[1100,800]]) {
     const svg=api.summarySVG(key,w,h);

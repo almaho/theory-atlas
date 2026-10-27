@@ -1,0 +1,26 @@
+{
+  "id": "weighted-matching-stream",
+  "dataFile": "weighted-matching-stream.json",
+  "javascript": "weighted-matching-stream.js",
+  "css": "weighted-matching-stream.css",
+  "routes": [
+    {
+      "key": "weighted-matching-stream",
+      "sliceId": "weighted-matching-stream-insertion",
+      "label": "Weighted matching · insertion-only streaming",
+      "problem": "weighted_matching",
+      "model": "stream",
+      "visible": true
+    }
+  ],
+  "canonicalAliases": {},
+  "pointFields": {
+    "x": "memoryKey",
+    "y": "passKey"
+  },
+  "axisSummary": {
+    "x": "Working memory in bits; symbolic category",
+    "y": "Passes; exact symbolic bound",
+    "note": "Weight approximation is 1−ε; ε dependence retained in passes and space. No comparable lower bound reviewed."
+  }
+}

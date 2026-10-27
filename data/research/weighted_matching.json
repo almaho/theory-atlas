@@ -10,8 +10,8 @@
     },
     {
       "model": "stream",
-      "status": "not_assessed",
-      "note": "Weighted matching panel awaits design and scoped source review."
+      "status": "reviewed",
+      "note": "Filtered weighted specialization of an existing verified Matching result; exact memory, access and output assumptions retained."
     },
     {
       "model": "online",
@@ -25,13 +25,13 @@
     },
     {
       "model": "local",
-      "status": "not_assessed",
-      "note": "Weighted matching panel awaits design and scoped source review."
+      "status": "researched",
+      "note": "Harris deterministic/randomized (1+ε)-approximate weighted LOCAL algorithms, KMW lower bound transferred through unit weights; CONGEST shown as related only."
     },
     {
       "model": "mpc",
-      "status": "not_assessed",
-      "note": "Weighted matching panel awaits design and scoped source review."
+      "status": "reviewed",
+      "note": "Filtered weighted specialization of an existing verified Matching result; exact memory, access and output assumptions retained."
     },
     {
       "model": "query_list",
@@ -50,8 +50,8 @@
     },
     {
       "model": "stochastic",
-      "status": "not_assessed",
-      "note": "New column requested by the user; stochastic submodels and theorem figures await scoped review. Random-order online results are not automatically transferred here."
+      "status": "reviewed",
+      "note": "Reviewed history and current guarantees for known-graph independent edge realizations. Query-commit, correlated realizations, and distributional online arrivals are separate models. This is a scoped collection, not an exhaustive bibliography."
     }
   ],
   "papers": [
@@ -208,6 +208,218 @@
       "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol020-stacs2013/LIPIcs.STACS.2013.389/LIPIcs.STACS.2013.389.pdf",
       "publicationStatus": "conference",
       "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "azarmehr-behnezhad-ghafari-rubinfeld-2025-stochastic",
+      "title": "Stochastic Matching via In-n-Out Local Computation Algorithms",
+      "authors": [
+        "Amir Azarmehr",
+        "Soheil Behnezhad",
+        "Alma Ghafari",
+        "Ronitt Rubinfeld"
+      ],
+      "year": 2025,
+      "venue": "STOC 2025, pp. 1055–1066",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2411.08805",
+      "fullTextUrl": "https://arxiv.org/html/2411.08805v2",
+      "doi": "10.1145/3717823.3718279",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "stochastic-azarmehr-behnezhad-ghafari-rubinfeld-2025-stochastic",
+      "title": "Stochastic Matching via In-n-Out Local Computation Algorithms",
+      "authors": [
+        "Amir Azarmehr",
+        "Soheil Behnezhad",
+        "Alma Ghafari",
+        "Ronitt Rubinfeld"
+      ],
+      "year": 2025,
+      "venue": "STOC 2025, pp. 1055–1066",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2411.08805",
+      "fullTextUrl": "https://arxiv.org/html/2411.08805v2",
+      "doi": "10.1145/3717823.3718279",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "title": "Stochastic Vertex Cover with Few Queries",
+      "authors": [
+        "Soheil Behnezhad",
+        "Avrim Blum",
+        "Mahsa Derakhshan"
+      ],
+      "year": 2022,
+      "venue": "SODA 2022",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/pdf/2112.05415",
+      "fullTextUrl": "https://arxiv.org/pdf/2112.05415",
+      "verifiedOn": "2026-10-27",
+      "doi": "10.1137/1.9781611977073.73",
+      "id": "stochastic-bbd22"
+    },
+    {
+      "title": "Stochastic Weighted Matching: (1−ε) Approximation",
+      "authors": [
+        "Soheil Behnezhad",
+        "Mahsa Derakhshan"
+      ],
+      "year": 2020,
+      "venue": "FOCS 2020",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/pdf/2004.08703",
+      "fullTextUrl": "https://arxiv.org/pdf/2004.08703",
+      "verifiedOn": "2026-10-27",
+      "doi": "10.1109/FOCS46700.2020.00131",
+      "id": "stochastic-bd20"
+    },
+    {
+      "title": "Stochastic Matching with Few Queries: New Algorithms and Tools",
+      "authors": [
+        "Soheil Behnezhad",
+        "Alireza Farhadi",
+        "MohammadTaghi Hajiaghayi",
+        "Nima Reyhani"
+      ],
+      "year": 2019,
+      "venue": "SODA 2019",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/pdf/1811.03224",
+      "fullTextUrl": "https://arxiv.org/pdf/1811.03224",
+      "verifiedOn": "2026-10-27",
+      "doi": "10.1137/1.9781611975482.177",
+      "id": "stochastic-bfhr19"
+    },
+    {
+      "title": "Almost Optimal Stochastic Weighted Matching with Few Queries",
+      "authors": [
+        "Soheil Behnezhad",
+        "Nima Reyhani"
+      ],
+      "year": 2018,
+      "venue": "EC 2018",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/pdf/1710.10592",
+      "fullTextUrl": "https://arxiv.org/pdf/1710.10592",
+      "verifiedOn": "2026-10-27",
+      "doi": "10.1145/3219166.3219226",
+      "id": "stochastic-br18"
+    },
+    {
+      "title": "On Sparsification of Stochastic Packing Problems",
+      "authors": [
+        "Shaddin Dughmi",
+        "Yusuf Hakan Kalayci",
+        "Neel Patel"
+      ],
+      "year": 2023,
+      "venue": "ICALP 2023",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol261-icalp2023/LIPIcs.ICALP.2023.51/LIPIcs.ICALP.2023.51.pdf",
+      "fullTextUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol261-icalp2023/LIPIcs.ICALP.2023.51/LIPIcs.ICALP.2023.51.pdf",
+      "verifiedOn": "2026-10-27",
+      "doi": "10.4230/LIPIcs.ICALP.2023.51",
+      "id": "stochastic-dkp23"
+    },
+    {
+      "title": "Query Efficient Weighted Stochastic Matching",
+      "authors": [
+        "Mahsa Derakhshan",
+        "Mohammad Saneian"
+      ],
+      "year": 2025,
+      "venue": "ICALP 2025",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol334-icalp2025/html/LIPIcs.ICALP.2025.67/LIPIcs.ICALP.2025.67.html",
+      "fullTextUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol334-icalp2025/html/LIPIcs.ICALP.2025.67/LIPIcs.ICALP.2025.67.html",
+      "verifiedOn": "2026-10-27",
+      "doi": "10.4230/LIPIcs.ICALP.2025.67",
+      "id": "stochastic-ds25"
+    },
+    {
+      "title": "Distributed Local Approximation Algorithms for Maximum Matching in Graphs and Hypergraphs",
+      "authors": [
+        "David G. Harris"
+      ],
+      "firstYear": 2019,
+      "year": 2020,
+      "venue": "FOCS 2019; SIAM Journal on Computing 2020",
+      "publicationStatus": "journal",
+      "url": "https://arxiv.org/abs/1807.07645",
+      "fullTextUrl": "https://arxiv.org/html/1807.07645v7",
+      "shortLabel": "Harris 2020",
+      "verifiedOn": "2026-10-27",
+      "publicationUrl": "https://doi.org/10.1137/19M1279241",
+      "id": "weighted-local-harris-2020"
+    },
+    {
+      "title": "Local Computation: Lower and Upper Bounds",
+      "authors": [
+        "Fabian Kuhn",
+        "Thomas Moscibroda",
+        "Roger Wattenhofer"
+      ],
+      "firstYear": 2016,
+      "year": 2016,
+      "venue": "Journal of the ACM 2016; preliminary results PODC 2004 / SODA 2006",
+      "publicationStatus": "journal",
+      "url": "https://arxiv.org/abs/1011.5470",
+      "fullTextUrl": "https://arxiv.org/html/1011.5470v2",
+      "shortLabel": "KMW 2016",
+      "verifiedOn": "2026-10-27",
+      "publicationUrl": "https://doi.org/10.1145/2742012",
+      "id": "weighted-local-kmw-2016"
+    },
+    {
+      "title": "(1−ε)-Approximate Maximum Weighted Matching in Distributed, Parallel, and Semi-Streaming Settings",
+      "authors": [
+        "Shang-En Huang",
+        "Hsin-Hao Su"
+      ],
+      "firstYear": 2023,
+      "year": 2023,
+      "venue": "PODC 2023",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2212.14425",
+      "fullTextUrl": "https://arxiv.org/abs/2212.14425",
+      "shortLabel": "Huang–Su 2023",
+      "verifiedOn": "2026-10-27",
+      "publicationUrl": "https://doi.org/10.1145/3583668.3594570",
+      "id": "weighted-local-huang-su-2023"
+    },
+    {
+      "title": "Massively Parallel Algorithms for b-Matching",
+      "authors": [
+        "Mohsen Ghaffari",
+        "Christoph Grunau",
+        "Slobodan Mitrović"
+      ],
+      "year": 2022,
+      "firstYear": 2022,
+      "venue": "SPAA 2022",
+      "url": "https://arxiv.org/abs/2211.07796",
+      "fullTextUrl": "https://arxiv.org/html/2211.07796",
+      "shortLabel": "GGM 2022",
+      "publicationStatus": "conference",
+      "publicationUrl": "https://doi.org/10.1145/3490148.3538589",
+      "verifiedOn": "2026-10-20",
+      "id": "ghaffari-grunau-mitrovic-2022-mpc"
+    },
+    {
+      "id": "assadi-2025-simple-weighted",
+      "title": "A Simple (1−ε)-Approximation Semi-Streaming Algorithm for Maximum (Weighted) Matching",
+      "authors": [
+        "Sepehr Assadi"
+      ],
+      "year": 2025,
+      "venue": "TheoretiCS 2025",
+      "publicationStatus": "journal",
+      "url": "https://arxiv.org/abs/2307.02968",
+      "verifiedOn": "2026-10-20",
+      "label": "Assadi ’25",
+      "fullTextUrl": "https://arxiv.org/html/2307.02968",
+      "shortLabel": "Assadi ’25"
     }
   ],
   "slices": [
@@ -480,6 +692,501 @@
         }
       ],
       "weighting": "weighted"
+    },
+    {
+      "id": "weighted-matching-stochastic-general",
+      "problem": "weighted_matching",
+      "model": "stochastic",
+      "label": "Non-adaptive · general graphs",
+      "task": "Maximum queried degree; one row per theorem",
+      "assumptions": [
+        "Known graph; independent edge realizations",
+        "Every theorem retains its graph, probability, resource and decision contract"
+      ],
+      "xAxis": {
+        "label": "Retained matching fraction β; open markers are symbolic ε/δ anchors; red budget annotations have no β coordinate",
+        "min": 0,
+        "max": 1,
+        "ticks": [
+          0,
+          0.5,
+          1
+        ]
+      },
+      "yAxis": {
+        "label": "Theorem rows with exact resource budgets; not a numerical cost ordering",
+        "categories": [
+          {
+            "id": "stochastic-weighted-constant-lower",
+            "label": "Necessary budget"
+          },
+          {
+            "id": "stochastic-br18-half",
+            "label": "Behnezhad–Reyhani ’18"
+          },
+          {
+            "id": "stochastic-bfhr19-weighted",
+            "label": "BFHR ’19"
+          },
+          {
+            "id": "stochastic-ds25-weighted-general",
+            "label": "Derakhshan–Saneian ’25"
+          }
+        ]
+      },
+      "results": [
+        {
+          "id": "stochastic-weighted-constant-lower",
+          "paperId": "stochastic-azarmehr-behnezhad-ghafari-rubinfeld-2025-stochastic",
+          "kind": "lower",
+          "bound": "Ω(1/p)",
+          "guarantee": "Any fixed constant fraction of expected optimum",
+          "sourceLocation": "Introduction, elementary degree necessity",
+          "notes": "Average degree lower bound; the algorithm upper bound controls maximum degree. No matching polynomial exponent or ε-dependent tightness is claimed. Unit-weight instances transfer this necessity to weighted graphs. General unweighted graph G; independent edge realizations with known probabilities pₑ≥p>0 Expectation over independent edge realizations and the algorithm’s randomness",
+          "evidenceStatus": "author_stated_bound",
+          "plot": null
+        },
+        {
+          "id": "stochastic-br18-half",
+          "paperId": "stochastic-br18",
+          "kind": "upper",
+          "bound": "O(1/(ε p^{4/ε}))",
+          "guarantee": "½−ε",
+          "sourceLocation": "Theorem 8; Algorithm 2",
+          "notes": "Nonadaptive maximum-degree bound, independent of n and the edge weights. General edge-weighted graph; independent known pₑ≥p Ratio of expectations: E[ALG] / E[OPT] over independent realizations and algorithmic randomness",
+          "evidenceStatus": "full_text_verified",
+          "plot": null
+        },
+        {
+          "id": "stochastic-bfhr19-weighted",
+          "paperId": "stochastic-bfhr19",
+          "kind": "upper",
+          "bound": "O(log(1/p) / p)",
+          "guarantee": "0.501",
+          "sourceLocation": "Theorem 6.2; Algorithm 1",
+          "notes": "R=2000 log(1/ε) log(1/(εp))/(ε⁴p); a sufficiently small fixed ε gives .501. The log(1/p) factor is retained. General edge-weighted graph; independent uniform edge realizations of probability p Ratio of expectations: E[ALG] / E[OPT] over independent realizations and algorithmic randomness",
+          "evidenceStatus": "full_text_verified",
+          "plot": null
+        },
+        {
+          "id": "stochastic-ds25-weighted-general",
+          "paperId": "stochastic-ds25",
+          "kind": "upper",
+          "bound": "O(1/p)",
+          "guarantee": "0.68",
+          "sourceLocation": "Theorem 1",
+          "notes": " General edge-weighted graph; independent known pₑ≥p Ratio of expectations: E[ALG] / E[OPT] over independent realizations and algorithmic randomness",
+          "evidenceStatus": "full_text_verified",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "weighted-matching-stochastic-bipartite",
+      "problem": "weighted_matching",
+      "model": "stochastic",
+      "label": "Non-adaptive · bipartite graphs",
+      "task": "Keep the different query budgets visible",
+      "assumptions": [
+        "Known graph; independent edge realizations",
+        "Every theorem retains its graph, probability, resource and decision contract"
+      ],
+      "xAxis": {
+        "label": "Retained matching fraction β; open markers are symbolic ε/δ anchors; red budget annotations have no β coordinate",
+        "min": 0,
+        "max": 1,
+        "ticks": [
+          0,
+          0.5,
+          1
+        ]
+      },
+      "yAxis": {
+        "label": "Theorem rows with exact resource budgets; not a numerical cost ordering",
+        "categories": [
+          {
+            "id": "stochastic-ds25-weighted-bipartite",
+            "label": "Derakhshan–Saneian ’25"
+          }
+        ]
+      },
+      "results": [
+        {
+          "id": "stochastic-ds25-weighted-bipartite",
+          "paperId": "stochastic-ds25",
+          "kind": "upper",
+          "bound": "O(1/p)",
+          "guarantee": "0.73",
+          "sourceLocation": "Theorem 1",
+          "notes": " Bipartite edge-weighted graph; independent known pₑ≥p Ratio of expectations: E[ALG] / E[OPT] over independent realizations and algorithmic randomness",
+          "evidenceStatus": "full_text_verified",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "weighted-matching-stochastic-near",
+      "problem": "weighted_matching",
+      "model": "stochastic",
+      "label": "Non-adaptive · near-optimal",
+      "task": "Maximum degree; small p, ε for the lower bound",
+      "assumptions": [
+        "Known graph; independent edge realizations",
+        "Every theorem retains its graph, probability, resource and decision contract"
+      ],
+      "xAxis": {
+        "label": "Retained matching fraction β; open markers are symbolic ε/δ anchors; red budget annotations have no β coordinate",
+        "min": 0,
+        "max": 1,
+        "ticks": [
+          0,
+          0.5,
+          1
+        ]
+      },
+      "yAxis": {
+        "label": "Theorem rows with exact resource budgets; not a numerical cost ordering",
+        "categories": [
+          {
+            "id": "stochastic-bbd22-lower-weighted",
+            "label": "BBD ’22 · necessary degree"
+          },
+          {
+            "id": "stochastic-bd20-near",
+            "label": "Behnezhad–Derakhshan ’20"
+          }
+        ]
+      },
+      "results": [
+        {
+          "id": "stochastic-bbd22-lower-weighted",
+          "paperId": "stochastic-bbd22",
+          "kind": "lower",
+          "bound": "Ω(1/(εp))",
+          "guarantee": "1−ε requires",
+          "sourceLocation": "Theorem 7.3; §7.3",
+          "notes": "Nonadaptively selected query subgraph; maximum queried degree. Holds already for bipartite graphs for p≤p₀ and ε≤ε₀, sufficiently small absolute constants. Randomized choices covered. No adaptive-testing transfer. Bipartite unweighted hard instances; unit weights transfer to edge-weighted matching Expected matching approximation; no w.h.p. statement",
+          "evidenceStatus": "full_text_verified",
+          "plot": null
+        },
+        {
+          "id": "stochastic-bd20-near",
+          "paperId": "stochastic-bd20",
+          "kind": "upper",
+          "bound": "O_{ε,p}(1) · unspecified",
+          "guarantee": "1−ε",
+          "sourceLocation": "Theorem 1",
+          "notes": "The authors explicitly do not calculate the precise dependence on ε and p. Do not assign an exponential or polynomial degree coordinate. General edge-weighted graph; independent uniform edge realizations of probability p Ratio of expectations: E[ALG] / E[OPT] over independent realizations and algorithmic randomness",
+          "evidenceStatus": "full_text_verified",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "weighted-matching-stochastic-adaptive",
+      "problem": "weighted_matching",
+      "model": "stochastic",
+      "label": "Adaptive edge testing",
+      "task": "Per-vertex queries; no matching adaptive lower bound reviewed",
+      "assumptions": [
+        "Known graph; independent edge realizations",
+        "Every theorem retains its graph, probability, resource and decision contract"
+      ],
+      "xAxis": {
+        "label": "Retained matching fraction β; open markers are symbolic ε/δ anchors; red budget annotations have no β coordinate",
+        "min": 0,
+        "max": 1,
+        "ticks": [
+          0,
+          0.5,
+          1
+        ]
+      },
+      "yAxis": {
+        "label": "Theorem rows with exact resource budgets; not a numerical cost ordering",
+        "categories": [
+          {
+            "id": "stochastic-br18-adaptive",
+            "label": "Behnezhad–Reyhani ’18"
+          }
+        ]
+      },
+      "results": [
+        {
+          "id": "stochastic-br18-adaptive",
+          "paperId": "stochastic-br18",
+          "kind": "upper",
+          "bound": "O(1/(ε p^{4/ε}))",
+          "guarantee": "1−ε",
+          "sourceLocation": "Theorem 3; Algorithm 1",
+          "notes": "The same R bounds per-vertex queries and adaptive rounds; no n or weight-range factor. General edge-weighted graph; independent known pₑ≥p Ratio of expectations: E[ALG] / E[OPT] over independent realizations and algorithmic randomness",
+          "evidenceStatus": "full_text_verified",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "weighted-matching-stochastic-expected",
+      "problem": "weighted_matching",
+      "model": "stochastic",
+      "label": "Expected total-query budget",
+      "task": "r = maximum matching cardinality of the base graph",
+      "assumptions": [
+        "Known graph; independent edge realizations",
+        "Every theorem retains its graph, probability, resource and decision contract"
+      ],
+      "xAxis": {
+        "label": "Retained matching fraction β; open markers are symbolic ε/δ anchors; red budget annotations have no β coordinate",
+        "min": 0,
+        "max": 1,
+        "ticks": [
+          0,
+          0.5,
+          1
+        ]
+      },
+      "yAxis": {
+        "label": "Theorem rows with exact resource budgets; not a numerical cost ordering",
+        "categories": [
+          {
+            "id": "stochastic-dkp23-weighted",
+            "label": "Dughmi–Kalayci–Patel ’23"
+          },
+          {
+            "id": "stochastic-dkp23-lower",
+            "label": "DKP ’23 · rank-one witness"
+          }
+        ]
+      },
+      "results": [
+        {
+          "id": "stochastic-dkp23-weighted",
+          "paperId": "stochastic-dkp23",
+          "kind": "upper",
+          "bound": "E|Q| / r = O(1/p)",
+          "guarantee": "0.536",
+          "sourceLocation": "Published Theorem 15 and following paragraph; full Corollary 6.2",
+          "notes": "r is maximum matching cardinality of the base graph. Degree d=E|Q|/r, NOT maximum incident queries. Theorem gives (1−O(ε))max{1/2,(1+αe²)/(1+e²)}, d=O(1/(ε⁸p)); setting α=.474 and sufficiently small fixed ε yields .536. General edge-weighted graph; independent uniform edge realizations of probability p Ratio of expectations: E[ALG] / E[OPT] over independent realizations and algorithmic randomness",
+          "evidenceStatus": "full_text_verified",
+          "plot": null
+        },
+        {
+          "id": "stochastic-dkp23-lower",
+          "paperId": "stochastic-dkp23",
+          "kind": "lower",
+          "bound": "E|Q| / r = Ω(1/p)",
+          "guarantee": "Constant approximation requires",
+          "sourceLocation": "Full version §3, Example 3.1",
+          "notes": "Unit-weight star represents the rank-one example as matching. This expected normalized-total-query lower bound is not a maximum-degree statement. General edge-weighted graph; independent uniform edge realizations of probability p Ratio of expectations: E[ALG] / E[OPT] over independent realizations and algorithmic randomness",
+          "evidenceStatus": "full_text_verified",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "weighted-matching-local-approximation",
+      "problem": "weighted_matching",
+      "model": "local",
+      "label": "LOCAL · approximate maximum weight",
+      "task": "Construct a consistent distributed matching approximating maximum total edge weight",
+      "assumptions": [
+        "General graphs, nonnegative edge weights, n vertices and maximum degree Δ; synchronous LOCAL rounds with unbounded messages.",
+        "0<ε<1; randomized upper chooses failure δ=n^(−c) for fixed c>0",
+        "The lower bound transfers from unit-weight hard instances and concerns any fixed constant approximation",
+        "Rows are symbolic formulas with explicit ε dependence, not a numerical ranking"
+      ],
+      "xAxis": {
+        "label": "Synchronous LOCAL rounds; exact symbolic theorem formulas",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "weighted-local-harris20-deterministic",
+            "label": "Õ(ε⁻⁴ log² Δ + ε⁻¹ log* n)"
+          },
+          {
+            "id": "weighted-local-harris20-randomized",
+            "label": "Õ(ε⁻³ log Δ + ε⁻³ log log n + ε⁻²(log log n)²)"
+          },
+          {
+            "id": "weighted-local-kmw16-lower",
+            "label": "Ω(min{log Δ / log log Δ, √(log n / log log n)})"
+          }
+        ]
+      },
+      "yAxis": {
+        "label": "Randomness regime and approximation contract",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "deterministic",
+            "label": "Deterministic"
+          },
+          {
+            "id": "randomized",
+            "label": "Randomized · w.h.p."
+          },
+          {
+            "id": "both",
+            "label": "Both randomness regimes"
+          }
+        ]
+      },
+      "parameters": {
+        "n": "Number of vertices",
+        "Delta": "Maximum degree",
+        "epsilon": "Approximation error parameter"
+      },
+      "results": [
+        {
+          "id": "weighted-local-harris20-deterministic",
+          "paperId": "weighted-local-harris-2020",
+          "kind": "upper",
+          "bound": "Õ(ε⁻⁴ log² Δ + ε⁻¹ log* n)",
+          "guarantee": "weight(M) ≥ OPTweight/(1+ε)",
+          "sourceLocation": "Theorem 1.3, deterministic part (introduction); proof in Section 7",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "verified_algorithm",
+          "sourceUrl": "https://arxiv.org/html/1807.07645v7",
+          "notes": "General nonnegative edge weights; no weight-ratio parameter. Õ hides polylogarithmic factors under the source’s convention. The stated 1+ε approximation means retained weight at least 1/(1+ε).",
+          "plot": null,
+          "focusRecordId": "weighted-local-harris20-deterministic"
+        },
+        {
+          "id": "weighted-local-harris20-randomized",
+          "paperId": "weighted-local-harris-2020",
+          "kind": "upper",
+          "bound": "Õ(ε⁻³ log Δ + ε⁻³ log log n + ε⁻²(log log n)²)",
+          "guarantee": "weight(M) ≥ OPTweight/(1+ε)",
+          "sourceLocation": "Theorem 1.3, randomized part; set δ=n^(−c), c>0 fixed",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "verified_algorithm",
+          "sourceUrl": "https://arxiv.org/html/1807.07645v7",
+          "notes": "The full theorem has ε⁻³ log Δ + ε⁻³ log log(1/δ) + ε⁻²(log log(1/δ))² inside Õ, with success at least 1−δ. This row chooses δ=n^(−c) for a fixed c>0. No dependence on weight ratio. Compact views abbreviate the last two terms as poly(ε⁻¹, log log n).",
+          "plot": null,
+          "focusRecordId": "weighted-local-harris20-randomized"
+        },
+        {
+          "id": "weighted-local-kmw16-lower",
+          "paperId": "weighted-local-kmw-2016",
+          "kind": "lower",
+          "bound": "Ω(min{log Δ / log log Δ, √(log n / log log n)})",
+          "guarantee": "Any fixed constant-factor approximation to maximum weighted matching, by restriction to unit weights",
+          "sourceLocation": "KMW Theorem 20 and Corollary 21; simultaneous min-form also stated in Harris Section 7",
+          "evidenceStatus": "theorem_verified_transfer",
+          "frontierStatus": "necessary_rounds",
+          "sourceUrl": "https://arxiv.org/html/1011.5470v2",
+          "notes": "Transfer: give weight 1 to every edge of a KMW hard instance. Then total matching weight equals matching cardinality, so a weighted constant-factor algorithm would solve the original unweighted task with unchanged rounds. This is an existence-of-hard-instances bound, not a claim for every graph or a tight dependence on ε. The simultaneous min-form is quoted explicitly in Harris Section 7.",
+          "plot": null,
+          "focusRecordId": "weighted-local-kmw16-lower"
+        }
+      ]
+    },
+    {
+      "id": "weighted-matching-mpc-nearlinear",
+      "problem": "weighted_matching",
+      "model": "mpc",
+      "label": "MPC; near-linear local memory",
+      "task": "Matching edges, by setting every b_v=1",
+      "assumptions": [
+        "The weighted b-matching algorithm is specialized to b_v=1 for every vertex.",
+        "Output is an explicit matching of edges, with weight at least OPT_w/(1+ε).",
+        "Local memory is near-linear Õ(n), with ε fixed; this is not the strongly sublinear n^δ regime.",
+        "Total memory is Õ(m+n), with ε fixed.",
+        "Probabilistic guarantee and theorem formulas are inherited from the existing full-text-verified MPC record."
+      ],
+      "xAxis": {
+        "kind": "categorical",
+        "label": "Memory per machine",
+        "categories": [
+          {
+            "id": "nearlinear",
+            "label": "Õ(n), fixed ε"
+          }
+        ]
+      },
+      "yAxis": {
+        "kind": "categorical",
+        "label": "Communication rounds",
+        "categories": [
+          {
+            "id": "doublelogaverage",
+            "label": "O(log log d̄), fixed ε"
+          }
+        ]
+      },
+      "parameters": {
+        "n": "Number of vertices",
+        "m": "Number of edges",
+        "dbar": "Average degree",
+        "epsilon": "Fixed positive approximation parameter in the main figure"
+      },
+      "results": [
+        {
+          "id": "weighted-mpc-ggm22",
+          "paperId": "ghaffari-grunau-mitrovic-2022-mpc",
+          "kind": "upper",
+          "bound": "O(log log d̄) rounds",
+          "guarantee": "w(M)≥OPT_w/(1+ε), fixed ε>0",
+          "sourceLocation": "Theorems 1.1 and 5.1; b_v=1 specialization",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "reviewed_baseline",
+          "notes": "d̄ is average degree. Theorem 5.1 states O(log log d̄ · exp(2^O(1/ε))) rounds and local Õ(n+poly(1/ε)) space. Local memory Õ(n), fixed ε; total memory Õ(m+n), fixed ε. Success ≥1−1/n^c for any constant c. No comparable lower bound is verified for this near-linear-memory contract. The reviewed CDP2024 conditional lower bound uses strongly sublinear local memory and is not plotted here.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "weighted-matching-stream-insertion",
+      "problem": "weighted_matching",
+      "model": "stream",
+      "label": "Streaming; insertion-only, weighted multiple passes",
+      "task": "Output near-optimal matching edges by total positive integer weight",
+      "assumptions": [
+        "Arbitrary-order insertion-only stream; multiple passes over the input.",
+        "General graph with positive integer edge weights.",
+        "Output is an explicit matching of edges with weight at least (1−ε)OPTweight.",
+        "Working memory is O(n log² n/ε) bits; semi-streaming for fixed ε.",
+        "This is an approximation guarantee with respect to total matching weight, not only cardinality."
+      ],
+      "xAxis": {
+        "kind": "categorical",
+        "label": "Working memory in bits",
+        "categories": [
+          {
+            "id": "space-bits",
+            "label": "O(n log² n/ε) bits"
+          }
+        ]
+      },
+      "yAxis": {
+        "kind": "categorical",
+        "label": "Passes over the stream",
+        "categories": [
+          {
+            "id": "logn-over-epsilon",
+            "label": "O(log n/ε) passes"
+          }
+        ]
+      },
+      "parameters": {
+        "n": "Number of vertices",
+        "epsilon": "Approximation error; retained in pass and memory formulas"
+      },
+      "results": [
+        {
+          "id": "weighted-stream-assadi25",
+          "paperId": "assadi-2025-simple-weighted",
+          "kind": "upper",
+          "bound": "O(log n/ε) passes",
+          "guarantee": "weight(M) ≥ (1−ε)OPTweight",
+          "sourceLocation": "Introduction, maximum-weight main result; Section 4",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "reviewed_baseline",
+          "notes": "Positive integer weights; unit weights give cardinality. Different ε conventions are retained; no numerical quality coordinate is assigned. Memory O(n log² n/ε) bits; success ≥1−exp(−Θ(n)). No comparable insertion-only multipass lower bound was verified in this source set. Lower bounds for streams with deletions are not transferred to this insertion-only contract.",
+          "plot": null,
+          "sourceUrl": "https://arxiv.org/html/2307.02968"
+        }
+      ]
     }
   ]
 }

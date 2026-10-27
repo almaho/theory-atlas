@@ -1,0 +1,74 @@
+{
+  "upsertPapers": [
+    {
+      "id": "assadi-2025-simple-weighted",
+      "title": "A Simple (1−ε)-Approximation Semi-Streaming Algorithm for Maximum (Weighted) Matching",
+      "authors": [
+        "Sepehr Assadi"
+      ],
+      "year": 2025,
+      "venue": "TheoretiCS 2025",
+      "publicationStatus": "journal",
+      "url": "https://arxiv.org/abs/2307.02968",
+      "verifiedOn": "2026-10-20",
+      "label": "Assadi ’25",
+      "fullTextUrl": "https://arxiv.org/html/2307.02968",
+      "shortLabel": "Assadi ’25"
+    }
+  ],
+  "upsertSlices": [
+    {
+      "id": "weighted-matching-stream-insertion",
+      "problem": "weighted_matching",
+      "model": "stream",
+      "label": "Streaming; insertion-only, weighted multiple passes",
+      "task": "Output near-optimal matching edges by total positive integer weight",
+      "assumptions": [
+        "Arbitrary-order insertion-only stream; multiple passes over the input.",
+        "General graph with positive integer edge weights.",
+        "Output is an explicit matching of edges with weight at least (1−ε)OPTweight.",
+        "Working memory is O(n log² n/ε) bits; semi-streaming for fixed ε.",
+        "This is an approximation guarantee with respect to total matching weight, not only cardinality."
+      ],
+      "xAxis": {
+        "kind": "categorical",
+        "label": "Working memory in bits",
+        "categories": [
+          {
+            "id": "space-bits",
+            "label": "O(n log² n/ε) bits"
+          }
+        ]
+      },
+      "yAxis": {
+        "kind": "categorical",
+        "label": "Passes over the stream",
+        "categories": [
+          {
+            "id": "logn-over-epsilon",
+            "label": "O(log n/ε) passes"
+          }
+        ]
+      },
+      "parameters": {
+        "n": "Number of vertices",
+        "epsilon": "Approximation error; retained in pass and memory formulas"
+      },
+      "results": [
+        {
+          "id": "weighted-stream-assadi25",
+          "paperId": "assadi-2025-simple-weighted",
+          "kind": "upper",
+          "bound": "O(log n/ε) passes",
+          "guarantee": "weight(M) ≥ (1−ε)OPTweight",
+          "sourceLocation": "Introduction, maximum-weight main result; Section 4",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "reviewed_baseline",
+          "notes": "Positive integer weights; unit weights give cardinality. Different ε conventions are retained; no numerical quality coordinate is assigned. Memory O(n log² n/ε) bits; success ≥1−exp(−Θ(n)). No comparable insertion-only multipass lower bound was verified in this source set. Lower bounds for streams with deletions are not transferred to this insertion-only contract.",
+          "plot": null,
+          "sourceUrl": "https://arxiv.org/html/2307.02968"
+        }
+      ]
+    }
+  ]
+}

@@ -574,13 +574,50 @@
           "problem": "cc",
           "model": "local",
           "visible": true
+        },
+        {
+          "key": "cc-local-pivot-exact3",
+          "sliceId": "cc-local-pivot-exact3",
+          "label": "Correlation clustering · LOCAL variants",
+          "problem": "cc",
+          "model": "local",
+          "visible": false
+        },
+        {
+          "key": "cc-local-deterministic-constant",
+          "sliceId": "cc-local-deterministic-constant",
+          "label": "Correlation clustering · LOCAL variants",
+          "problem": "cc",
+          "model": "local",
+          "visible": false
+        },
+        {
+          "key": "cc-local-maxagree-weighted",
+          "sliceId": "cc-local-maxagree-weighted",
+          "label": "Correlation clustering · LOCAL variants",
+          "problem": "cc",
+          "model": "local",
+          "visible": false
+        },
+        {
+          "key": "cc-local-maxagree-minorfree",
+          "sliceId": "cc-local-maxagree-minorfree",
+          "label": "Correlation clustering · LOCAL variants",
+          "problem": "cc",
+          "model": "local",
+          "visible": false
         }
       ],
-      "canonicalAliases": {},
+      "canonicalAliases": {
+        "cc-local-pivot-exact3": "cc-local",
+        "cc-local-deterministic-constant": "cc-local",
+        "cc-local-maxagree-weighted": "cc-local",
+        "cc-local-maxagree-minorfree": "cc-local"
+      },
       "axisSummary": {
-        "x": "Leading expected approximation guarantee a; logarithmic spacing of a−3",
-        "y": "Elapsed communication rounds T=2r+1; logarithmic scale",
-        "note": "Actual expected factor is a+n^{−Ω(1)}. Dots are integer-r theorem instances; 3 is a neutral off-axis reference. No general lower bound is verified in the supplied source."
+        "x": "Approximation: minimum-disagreement curve; maximum-agreement ratios in a separate panel",
+        "y": "LOCAL communication rounds or symbolic CONGEST round categories, with objective and graph labels",
+        "note": "Expected quality and high-probability round complexity remain separate; no general LOCAL lower bound verified."
       }
     },
     {
@@ -1796,31 +1833,178 @@
         {
           "key": "matching-stochastic",
           "sliceId": "matching-stochastic-nonadaptive-tests",
-          "label": "Matching · stochastic tests and in/out oracle",
+          "label": "Matching · stochastic guarantees",
           "problem": "matching",
           "model": "stochastic",
           "visible": true
         },
         {
+          "key": "matching-stochastic-bipartite",
+          "sliceId": "matching-stochastic-bipartite",
+          "label": "Matching · stochastic guarantees",
+          "problem": "matching",
+          "model": "stochastic",
+          "visible": false
+        },
+        {
+          "key": "matching-stochastic-near",
+          "sliceId": "matching-stochastic-near",
+          "label": "Matching · stochastic guarantees",
+          "problem": "matching",
+          "model": "stochastic",
+          "visible": false
+        },
+        {
+          "key": "matching-stochastic-adaptive",
+          "sliceId": "matching-stochastic-adaptive",
+          "label": "Matching · stochastic guarantees",
+          "problem": "matching",
+          "model": "stochastic",
+          "visible": false
+        },
+        {
           "key": "matching-stochastic-oracle",
           "sliceId": "matching-stochastic-inout-oracle",
-          "label": "Matching · specialized in/out oracle",
+          "label": "Matching · stochastic guarantees",
           "problem": "matching",
+          "model": "stochastic",
+          "visible": false
+        },
+        {
+          "key": "weighted-matching-stochastic",
+          "sliceId": "weighted-matching-stochastic-general",
+          "label": "Weighted matching · stochastic guarantees",
+          "problem": "weighted_matching",
+          "model": "stochastic",
+          "visible": true
+        },
+        {
+          "key": "weighted-matching-stochastic-bipartite",
+          "sliceId": "weighted-matching-stochastic-bipartite",
+          "label": "Weighted matching · stochastic guarantees",
+          "problem": "weighted_matching",
+          "model": "stochastic",
+          "visible": false
+        },
+        {
+          "key": "weighted-matching-stochastic-near",
+          "sliceId": "weighted-matching-stochastic-near",
+          "label": "Weighted matching · stochastic guarantees",
+          "problem": "weighted_matching",
+          "model": "stochastic",
+          "visible": false
+        },
+        {
+          "key": "weighted-matching-stochastic-adaptive",
+          "sliceId": "weighted-matching-stochastic-adaptive",
+          "label": "Weighted matching · stochastic guarantees",
+          "problem": "weighted_matching",
+          "model": "stochastic",
+          "visible": false
+        },
+        {
+          "key": "weighted-matching-stochastic-expected",
+          "sliceId": "weighted-matching-stochastic-expected",
+          "label": "Weighted matching · stochastic guarantees",
+          "problem": "weighted_matching",
           "model": "stochastic",
           "visible": false
         }
       ],
       "canonicalAliases": {
-        "matching-stochastic-oracle": "matching-stochastic"
+        "matching-stochastic-bipartite": "matching-stochastic",
+        "matching-stochastic-near": "matching-stochastic",
+        "matching-stochastic-adaptive": "matching-stochastic",
+        "matching-stochastic-oracle": "matching-stochastic",
+        "weighted-matching-stochastic-bipartite": "weighted-matching-stochastic",
+        "weighted-matching-stochastic-near": "weighted-matching-stochastic",
+        "weighted-matching-stochastic-adaptive": "weighted-matching-stochastic",
+        "weighted-matching-stochastic-expected": "weighted-matching-stochastic"
       },
       "pointFields": {
-        "x": "budgetKey",
-        "y": "guaranteeKey"
+        "y": "id"
       },
       "axisSummary": {
-        "x": "Symbolic incident-edge test budget, then specialized in/out query complexity",
-        "y": "Constant versus 1−ε expected approximation; deterministic out versus expected in",
-        "note": "Average and maximum degree are distinct. Fixed ε; no numerical exponent or tight frontier."
+        "x": "Retained fraction β; symbolic ε/δ anchors; budget lower bounds are separate annotations",
+        "y": "Theorem rows with exact query budgets; different resources and graph classes remain separate"
+      }
+    },
+    {
+      "id": "weighted-matching-local",
+      "dataFile": "weighted-matching-local.json",
+      "javascript": "weighted-matching-local.js",
+      "css": "weighted-matching-local.css",
+      "routes": [
+        {
+          "key": "weighted-matching-local",
+          "sliceId": "weighted-matching-local-approximation",
+          "label": "Weighted matching · LOCAL rounds",
+          "problem": "weighted_matching",
+          "model": "local",
+          "visible": true
+        }
+      ],
+      "canonicalAliases": {},
+      "pointFields": {
+        "x": "boundKey",
+        "y": "setupKey"
+      },
+      "axisSummary": {
+        "x": "Synchronous LOCAL rounds; exact symbolic theorem formulas",
+        "y": "Randomness regime and approximation contract",
+        "note": "Theorem rows are symbolic categories; spacing and row order do not rank formulas in n, Δ and ε."
+      }
+    },
+    {
+      "id": "weighted-matching-mpc",
+      "dataFile": "weighted-matching-mpc.json",
+      "javascript": "weighted-matching-mpc.js",
+      "css": "weighted-matching-mpc.css",
+      "routes": [
+        {
+          "key": "weighted-matching-mpc",
+          "sliceId": "weighted-matching-mpc-nearlinear",
+          "label": "Weighted matching · near-linear-memory MPC",
+          "problem": "weighted_matching",
+          "model": "mpc",
+          "visible": true
+        }
+      ],
+      "canonicalAliases": {},
+      "pointFields": {
+        "x": "memoryKey",
+        "y": "roundKey"
+      },
+      "axisSummary": {
+        "x": "Local memory; symbolic category",
+        "y": "Communication rounds; exact symbolic bound",
+        "note": "Fixed ε baseline; full accuracy dependence in theorem details. No comparable lower bound reviewed."
+      }
+    },
+    {
+      "id": "weighted-matching-stream",
+      "dataFile": "weighted-matching-stream.json",
+      "javascript": "weighted-matching-stream.js",
+      "css": "weighted-matching-stream.css",
+      "routes": [
+        {
+          "key": "weighted-matching-stream",
+          "sliceId": "weighted-matching-stream-insertion",
+          "label": "Weighted matching · insertion-only streaming",
+          "problem": "weighted_matching",
+          "model": "stream",
+          "visible": true
+        }
+      ],
+      "canonicalAliases": {},
+      "pointFields": {
+        "x": "memoryKey",
+        "y": "passKey"
+      },
+      "axisSummary": {
+        "x": "Working memory in bits; symbolic category",
+        "y": "Passes; exact symbolic bound",
+        "note": "Weight approximation is 1−ε; ε dependence retained in passes and space. No comparable lower bound reviewed."
       }
     }
   ]
