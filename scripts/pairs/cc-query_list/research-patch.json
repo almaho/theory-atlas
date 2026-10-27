@@ -1,0 +1,161 @@
+{
+  "problem": "cc",
+  "model": "query_list",
+  "upsertPapers": [
+    {
+      "id": "assadi-2022-sparse-dense",
+      "title": "Sublinear Time and Space Algorithms for Correlation Clustering via Sparse-Dense Decompositions",
+      "authors": [
+        "Sepehr Assadi",
+        "Chen Wang"
+      ],
+      "year": 2022,
+      "venue": "ITCS 2022",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ITCS.2022.10",
+      "fullTextUrl": "https://drops.dagstuhl.de/opus/volltexte/2022/15606/pdf/LIPIcs-ITCS-2022-10.pdf",
+      "publicationUrl": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ITCS.2022.10",
+      "fullVersionUrl": "https://arxiv.org/pdf/2109.14528",
+      "shortLabel": "Assadi–Wang 2022",
+      "verifiedOn": "2026-10-26"
+    },
+    {
+      "id": "ailon-2008-pivot",
+      "title": "Aggregating Inconsistent Information: Ranking and Clustering",
+      "authors": [
+        "Nir Ailon",
+        "Moses Charikar",
+        "Alantha Newman"
+      ],
+      "year": 2008,
+      "venue": "Journal of the ACM 55(5), Article 23, October 2008",
+      "publicationStatus": "journal",
+      "url": "https://doi.org/10.1145/1411509.1411513",
+      "fullTextUrl": "https://gwern.net/doc/statistics/order/comparison/2008-ailon.pdf",
+      "publicationUrl": "https://doi.org/10.1145/1411509.1411513",
+      "shortLabel": "Ailon–Charikar–Newman 2008",
+      "verifiedOn": "2026-10-26"
+    }
+  ],
+  "upsertSlices": [
+    {
+      "id": "cc-query-list-constant",
+      "problem": "cc",
+      "model": "query_list",
+      "label": "Positive-edge adjacency-list access, multiplicative partition",
+      "task": "Output an explicit approximate MinDisagree partition",
+      "assumptions": [
+        "Complete undirected unweighted signed graph",
+        "Positive degree and indexed-positive-neighbor access, O(1) time per query",
+        "Negative labels implicit",
+        "Explicit partition; total number of queries",
+        "0≤m⁺≤n(n−1)/2"
+      ],
+      "parameters": {
+        "m": "Number of positive edges, m⁺=|E⁺|"
+      },
+      "mode": "1d",
+      "axis": {
+        "label": "Total degree / positive-neighbor queries",
+        "kind": "symbolic",
+        "scaleNote": "Schematic growth order, not numerical distance. O(n+m⁺) spans its density-dependent upper-bound family."
+      },
+      "figureAxes": {
+        "positive-lists": {
+          "title": "Positive-list query complexity",
+          "x": {
+            "label": "Total queries · symbolic growth classes",
+            "kind": "symbolic",
+            "categories": [
+              {
+                "id": "linear",
+                "label": "n"
+              },
+              {
+                "id": "near-linear",
+                "label": "n log n"
+              },
+              {
+                "id": "quadratic",
+                "label": "n²"
+              }
+            ],
+            "scaleNote": "Schematic growth order, not numerical distance. O(n+m⁺) spans its density-dependent upper-bound family."
+          },
+          "y": {
+            "label": "Algorithm and approximation guarantee",
+            "kind": "categorical",
+            "categories": [
+              {
+                "id": "cc-query-assadi-wang-2022",
+                "label": "Sparse–dense"
+              },
+              {
+                "id": "cc-query-pivot-original",
+                "label": "Pivot"
+              }
+            ]
+          }
+        }
+      },
+      "results": [
+        {
+          "id": "cc-query-assadi-wang-2022",
+          "paperId": "assadi-2022-sparse-dense",
+          "kind": "upper",
+          "bound": "O(n log n) queries",
+          "guarantee": "C=O(1) approximation with high probability",
+          "sourceLocation": "Theorem 1 / formal Theorem 12; §2.2 and Algorithm 1 analysis",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "historical",
+          "notes": "Theorem 12 distinguishes O(n log n) queries from O(n log² n) total time. The approximation and resource guarantees are high probability; the hidden constant C is unspecified. Theorem factor remains O(1); it is not assigned a numeric position.",
+          "plot": null,
+          "assumptions": [
+            "Complete undirected unweighted signed graph",
+            "Positive degree and indexed-positive-neighbor access, O(1) time per query",
+            "Negative labels implicit",
+            "Explicit partition; total number of queries",
+            "0≤m⁺≤n(n−1)/2",
+            "No numerical value of C is asserted"
+          ],
+          "queryComplexity": "O(n log n)",
+          "timeComplexity": "O(n log² n)",
+          "resourceProbability": "The stated query/time resource bounds hold with high probability; do not label them deterministic worst-case bounds.",
+          "implementationDerived": false,
+          "sourceUrl": "https://drops.dagstuhl.de/opus/volltexte/2022/15606/pdf/LIPIcs-ITCS-2022-10.pdf#page=14",
+          "correction": "Corrected the query resource to O(n log n), retained O(n log² n) as separate total-time metadata."
+        },
+        {
+          "id": "cc-query-pivot-original",
+          "paperId": "ailon-2008-pivot",
+          "kind": "upper",
+          "bound": "O(n+m⁺) queries",
+          "guarantee": "Expected disagreement cost ≤3·OPT",
+          "sourceLocation": "§6, KWIKCLUSTER pseudocode and Theorem 6.1",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "historical",
+          "notes": "Use a uniformly random permutation and an assigned flag per vertex. An unassigned vertex becomes a pivot; scan its positive list and assign only unassigned neighbors to its cluster. Pivots form an independent set in G⁺, so each positive edge has at most one pivot endpoint and is queried at most once. At most n degree queries, m⁺ neighbor queries, O(n) permutation/flag/output work; total O(n+m⁺). The induced pivot distribution matches uniform selection from remaining vertices. The journal pseudocode loops over remaining vertices and does not itself state an O(n+m⁺) adjacency-list implementation theorem. Label the bound as implementation-derived.",
+          "plot": null,
+          "assumptions": [
+            "Complete undirected unweighted signed graph",
+            "Positive degree and indexed-positive-neighbor access, O(1) time per query",
+            "Negative labels implicit",
+            "Explicit partition; total number of queries",
+            "0≤m⁺≤n(n−1)/2",
+            "The expected factor is not a high-probability factor-3 guarantee"
+          ],
+          "queryComplexity": "O(n+m⁺)",
+          "timeComplexity": "O(n+m⁺)",
+          "resourceProbability": "The implementation bound holds for every random permutation.",
+          "implementationDerived": true,
+          "sourceUrl": "https://gwern.net/doc/statistics/order/comparison/2008-ailon.pdf#page=13",
+          "correction": "Changed expected work to a per-outcome implementation-derived resource bound; retained the expected approximation guarantee."
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "Preserve original two result IDs. Upsert only this slice; do not replace other correlation-clustering settings.",
+    "Alternative-oracle lower bounds remain scoped focus related records and are not inserted into the positive-list research slice."
+  ]
+}

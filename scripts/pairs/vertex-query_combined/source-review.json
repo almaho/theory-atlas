@@ -1,0 +1,124 @@
+{
+  "pair": "vertex-query_combined",
+  "reviewedOn": "2026-10-27",
+  "scope": "The ten original records and their six primary sources; no literature expansion or quantum addition.",
+  "sources": [
+    {
+      "sourceId": "assadi-chen-khanna-2019-sublinear-coloring",
+      "url": "https://arxiv.org/html/1807.08886",
+      "locations": [
+        "Theorem 3 and §4.2 oracle definition",
+        "Theorem 7 and §5.3 hard construction",
+        "§5.2 free-degree lower-bound oracle"
+      ],
+      "verified": [
+        "Combined upper includes degree/neighbor/pair access.",
+        "Lower is a global worst case with construction degree Θ(√n); no uniform fixed-degree claim."
+      ]
+    },
+    {
+      "sourceId": "ferber-hardiman-chen-2025-sublinear-coloring",
+      "url": "https://arxiv.org/html/2502.06024",
+      "locations": [
+        "§1 oracle definitions and degree-preprocessing footnote",
+        "Theorem 1",
+        "Corollary 2",
+        "Algorithm 1 and proof"
+      ],
+      "verified": [
+        "Pair subroutine has O(n² log n/Δ) expected pair queries.",
+        "Add O(n) degree preprocessing unless Δ is supplied.",
+        "Greedy/pair envelope gives O(n^{3/2}√log n) expected queries.",
+        "Zero-error interpretation follows from checking each accepted color."
+      ],
+      "versionNote": "arXiv v1 identifier; inspected HTML bears internal 24 August 2026 revision date."
+    },
+    {
+      "sourceId": "bera-chakrabarti-ghosh-2020-degeneracy",
+      "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol168-icalp2020/LIPIcs.ICALP.2020.11/LIPIcs.ICALP.2020.11.pdf",
+      "locations": [
+        "§6 model, Theorem 11 and proof (pp.13–14)",
+        "Theorems 22–23 (p.17)"
+      ],
+      "verified": [
+        "Relative-slack upper retains sparse κ+1 branch.",
+        "Additive-slack lower is distinct; displayed specialization fixes integer λ>1.",
+        "Lower holds with κ supplied or unknown."
+      ],
+      "note": "Proofs of query lower bounds are deferred by the conference version to its full version; theorem statements and access definitions inspected. Screenshot extraction unavailable, textual mathematical statements used."
+    },
+    {
+      "sourceId": "halldorsson-kuhn-nolin-tonoyan-2022-degree",
+      "url": "https://arxiv.org/html/2112.00604",
+      "locations": [
+        "Abstract and §1.1 query-model consequence",
+        "§8 Theorem 4 and inherited construction steps",
+        "§8 Query model paragraphs"
+      ],
+      "verified": [
+        "Degree+1 lists are explicit extra input.",
+        "Indexed-neighbor and indexed-palette operations, ⊥ responses, and binary-search size recovery are stated.",
+        "Advertised time implies at most the same number of primitive queries under the source model."
+      ],
+      "qualification": {
+        "recordId": "vertex-result-40",
+        "scope": "Inherited pair-access convention in the D1LC query implementation",
+        "source": "HKNT22 §8: indexed-neighbor and indexed-palette operations are explicit; earlier construction steps are imported from ACK19/AA20.",
+        "displayResolution": "Related list-input card reports the claim and exact declared oracle without assigning it an ordinary combined-query coordinate."
+      }
+    },
+    {
+      "sourceId": "flin-mittal-2025-communication",
+      "url": "https://arxiv.org/html/2404.19081",
+      "locations": [
+        "Theorem 1 and Corollary 1.1",
+        "Theorem 5 and Proposition 5.1",
+        "§6 known-Δ discussion"
+      ],
+      "verified": [
+        "Zero-error upper counts expected bits.",
+        "Constant-error worst-case bits are a separate variant.",
+        "Linear lower uses degree-two gadgets and gives no round lower."
+      ],
+      "inference": "A zero-error expected-bit lower follows from truncating after a constant multiple of its expectation and applying the constant-error worst-case lower."
+    },
+    {
+      "sourceId": "chang-mishra-nguyen-salim-2025-communication",
+      "url": "https://arxiv.org/html/2412.12589",
+      "locations": [
+        "Theorem 1",
+        "§3.1 input/output model",
+        "§4.4 correctness and cost proof",
+        "Appendix B fallback"
+      ],
+      "verified": [
+        "Known n,Δ; disjoint adversarial edge partition; public randomness.",
+        "Expected O(n) bits with worst-case O(loglog n log Δ) rounds.",
+        "Fallback gathers the graph, retaining zero error and the round bound."
+      ]
+    }
+  ],
+  "resolvedCorrections": [
+    "All legacy exponent rectangles removed.",
+    "The pair subroutine is not labeled pure matrix access when Δ is unknown.",
+    "Queries, communication bits and interaction rounds never share one cost axis.",
+    "ACK lower not projected across all degrees.",
+    "Degeneracy relative and additive slack are visibly distinct.",
+    "HKNT preserved as a source-qualified related card.",
+    "Communication bits corrected to expected."
+  ],
+  "unresolvedIssues": [
+    {
+      "recordId": "vertex-result-40",
+      "scope": "Inherited pair-access convention in the D1LC query implementation",
+      "source": "HKNT22 §8: indexed-neighbor and indexed-palette operations are explicit; earlier construction steps are imported from ACK19/AA20.",
+      "displayResolution": "Related list-input card reports the claim and exact declared oracle without assigning it an ordinary combined-query coordinate."
+    }
+  ],
+  "visualConventions": {
+    "bounds": "Green circles for algorithms, red diamonds for lower bounds.",
+    "setupColors": "Blue query halos, violet communication halos, gold list-input halo; colors do not encode the bound direction.",
+    "axes": "Query plots show leading n-power; exact log factors and quantifiers are explicit. Pair graph shows Δ=n^α and leading exponent 2−α. Degeneracy lower coordinate fixes λ>1. Communication uses separate metric columns.",
+    "zoom": "No text at overview; compact removes details; detail restores formulas and key scope notes."
+  }
+}

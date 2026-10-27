@@ -1,0 +1,120 @@
+{
+  "id": "edge-lca",
+  "problem": "edge",
+  "model": "lca",
+  "title": "Edge coloring · LCA",
+  "reviewedOn": "2026-10-27",
+  "sources": {
+    "fraigniaud-heinrich-kosowski-2017-conflict": {
+      "id": "fraigniaud-heinrich-kosowski-2017-conflict",
+      "title": "Local Conflict Coloring",
+      "authors": [
+        "Pierre Fraigniaud",
+        "Marc Heinrich",
+        "Adrian Kosowski"
+      ],
+      "year": 2016,
+      "venue": "FOCS 2016; arXiv v2 revised 2017",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1511.01287",
+      "verifiedOn": "2026-10-27",
+      "fullTextUrl": "https://arxiv.org/html/1511.01287v2#S5"
+    }
+  },
+  "verifiedRecords": [
+    {
+      "id": "lca-conflict-linegraph-derived-2017",
+      "paperId": "fraigniaud-heinrich-kosowski-2017-conflict",
+      "kind": "upper",
+      "bound": "D^{O(√D log^{5/2}D)} · log* m line-graph oracle probes per queried edge",
+      "guarantee": "Proper q=D+1 vertex coloring of L(G), hence q≤2Δ−1 edge coloring of G",
+      "sourceLocation": "Theorem 5.1 (second case), Section 5; l=D+1 and d=1 on L(G)",
+      "evidenceStatus": "theorem_verified",
+      "frontierStatus": "derived_baseline",
+      "notes": "A direct theorem specialization, not an author-stated edge-LCA optimum. D is the degree of the line graph, not the degree Δ of G. The numerical exponent hidden in O(·) is not specified. The reviewed source provides no matching edge-LCA lower bound for this oracle.",
+      "plot": null,
+      "sliceId": "edge-lca-line-graph-oblivious-baseline",
+      "sourceId": "fraigniaud-heinrich-kosowski-2017-conflict",
+      "panel": "main",
+      "paletteKey": "degree-plus-one",
+      "probeKey": "fhk-probes",
+      "shortLabel": "FHK16 · Theorem 5.1",
+      "palette": "D + 1 ≤ 2Δ − 1",
+      "quality": "Proper edge coloring from a palette of D+1 colors, at most 2Δ−1",
+      "displayBound": "D^{O(√D log^{5/2}D)} · log* m",
+      "exactBound": "D^{O(√D log^{5/2}D)} · log* m probes per query; palette allowance q=D+1≤2Δ−1",
+      "graph": "Simple undirected graph G with m edges and maximum degree Δ; line graph L(G) has m vertices and maximum degree 2≤D≤2Δ−2",
+      "output": "One color per queried edge, with all answers consistent with one proper coloring of G",
+      "oracle": "Direct oracle access to vertices and neighborhoods of L(G), using the probe convention of Theorem 5.1; line-graph vertices are identified original edges",
+      "probability": "Deterministic; all answered edge queries are correct and mutually consistent",
+      "adaptivity": "Oblivious/stateless across queries; this does not assert that the probes within one query are nonadaptive",
+      "state": "No information retained between queries; the same fixed oracle and identifiers define the implicit coloring",
+      "parameters": "Known maximum line-graph degree D, a polynomial upper bound on m, and distinct O(log m)-bit identifiers for the line-graph vertices",
+      "theorem": "Theorem 5.1, second case; Corollary 5.1, second case; Section 5, arXiv v2 printed pp. 13–14",
+      "sourceUrl": "https://arxiv.org/html/1511.01287v2#S5",
+      "derivation": [
+        "Treat each original edge as a vertex of H=L(G), so |V(H)|=m.",
+        "For simple G, deg_H(uv)=deg_G(u)+deg_G(v)−2; hence D=max deg_H≤2Δ−2.",
+        "Give every H vertex the common list {1,…,D+1}, with only equal-color conflicts: l=D+1 and d=1, so l/d>D.",
+        "Apply Theorem 5.1 to H. A proper vertex coloring of H is a proper edge coloring of G."
+      ],
+      "assumptions": [
+        "Direct line-graph oracle supplied; creating or simulating it from an ordinary adjacency-list or adjacency-matrix representation of G is outside this probe count",
+        "Simple graph; maximum line-graph degree D≥2; trivial D<2 cases are omitted",
+        "Use one fixed identifier assignment, oracle ordering and degree/size parameters for every query",
+        "Deterministic oblivious LCA; no stored state between queries",
+        "The resource is input probes per edge-color query, not total time or total cost for explicitly outputting every edge color"
+      ],
+      "fixedDegree": "For fixed D≥2, the degree factor is constant and the upper bound is O(log* m) probes per query; no tightness claim."
+    }
+  ],
+  "relatedResults": [],
+  "figureAxes": {
+    "main": {
+      "title": "Direct line-graph oracle baseline",
+      "x": {
+        "label": "Palette allowance; exact symbolic category",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "degree-plus-one",
+            "label": "D+1≤2Δ−1"
+          }
+        ]
+      },
+      "y": {
+        "label": "Line-graph oracle probes per edge-color query; symbolic category",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "fhk-probes",
+            "label": "D^{O(√D log^{5/2}D)}·log* m"
+          }
+        ]
+      }
+    }
+  },
+  "axisNote": "Both axes carry exact symbolic categories. A single marker records the theorem’s palette/probe pair; distance and slope carry no numerical meaning.",
+  "coverageNote": "Bounded review of the supplied record and its primary source; no exhaustive literature or optimality claim.",
+  "lowerBoundStatus": "No edge-coloring LCA lower bound in the supplied source has been verified for this direct line-graph oracle. No lower-bound point is plotted.",
+  "sourceVerification": [
+    {
+      "sourceId": "fraigniaud-heinrich-kosowski-2017-conflict",
+      "url": "https://arxiv.org/html/1511.01287v2#S5",
+      "pdfUrl": "https://arxiv.org/pdf/1511.01287v2#page=14",
+      "checkedOn": "2026-10-27",
+      "theorems": [
+        "Theorem 5.1, second case",
+        "Corollary 5.1, second case",
+        "Sections 1.2, 1.3, 2.1, 2.2 and 5"
+      ],
+      "note": "Verified exact probe exponent, multiplicative log* size term, statelessness and consistency. Palette/edge-oracle application is an explicit line-graph derivation, not a new source theorem."
+    }
+  ],
+  "representation": {
+    "oracle": "Direct line-graph oracle visibly labeled at compact and detailed zoom",
+    "axes": "Exact symbolic palette/probe categories",
+    "lower": "No fabricated lower or tight frontier",
+    "fixedDegree": "O(log* m) reference is a specialization of the same point, not a second result"
+  }
+}

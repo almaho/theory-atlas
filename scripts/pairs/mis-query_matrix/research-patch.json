@@ -1,0 +1,387 @@
+{
+  "reviewedOn": "2026-10-26",
+  "upsertPapers": [
+    {
+      "id": "mahabadi-et-al-2026-matrix-mis-size",
+      "title": "Sublinear Metric Steiner Forest via Maximal Independent Set",
+      "authors": [
+        "Sepideh Mahabadi",
+        "Mohammad Roghani",
+        "Jakub Tarnawski",
+        "Ali Vakilian"
+      ],
+      "year": 2026,
+      "venue": "SODA 2026",
+      "publicationStatus": "conference",
+      "url": "https://epubs.siam.org/doi/10.1137/1.9781611978971.211",
+      "verifiedOn": "2026-10-26",
+      "shortLabel": "Mahabadi et al. 2026",
+      "fullTextUrl": "https://arxiv.org/pdf/2510.11627v1",
+      "publicationUrl": "https://epubs.siam.org/doi/10.1137/1.9781611978971.211",
+      "verificationVersion": "Author manuscript arXiv:2510.11627v1; SODA 2026 publication confirmed by SIAM and author publication list"
+    }
+  ],
+  "upsertSlices": [
+    {
+      "id": "mis-query-matrix-rgmis-size",
+      "problem": "mis",
+      "model": "query_matrix",
+      "label": "Adjacency matrix · generated greedy-MIS size · precision tradeoff",
+      "task": "Estimate the size of the random greedy MIS induced by an algorithm-generated random vertex permutation",
+      "assumptions": [
+        "General simple undirected graph",
+        "Only adjacency-matrix pair queries",
+        "MIS means inclusion-maximal, not maximum independent set",
+        "0 < ε < 1",
+        "High probability; algorithm-generated π",
+        "Scalar size output, not the expectation over π"
+      ],
+      "xAxis": {
+        "label": "Requested precision ε = (1/4)n^(−a) → tighter",
+        "kind": "derived-precision-exponent",
+        "min": 0,
+        "max": 0.5,
+        "ticks": [
+          0,
+          0.25,
+          0.5
+        ],
+        "tickLabels": [
+          "1/4",
+          "(1/4)n^(-1/4)",
+          "(1/4)n^(-1/2)"
+        ],
+        "parameter": "a",
+        "fixedAccuracyReference": {
+          "a": 0,
+          "epsilon": 0.25,
+          "meaning": "Illustrative fixed accuracy, not a new theorem"
+        }
+      },
+      "yAxis": {
+        "label": "Pair-query cost (powers of n)",
+        "kind": "exponent",
+        "min": 1.5,
+        "max": 2,
+        "ticks": [
+          1.5,
+          1.75,
+          2
+        ],
+        "tickLabels": [
+          "n^(3/2)",
+          "n^(7/4)",
+          "n²"
+        ],
+        "suppressed": "Constants and polylogarithmic factors; not an exact finite-n runtime crossover",
+        "viewDomain": [
+          1.4,
+          2.12
+        ],
+        "viewDomainNote": "Curated renderer adds framing space outside the data tick extent."
+      },
+      "parameters": {
+        "epsilon": "0 < ε < 1",
+        "precisionAxis": "ε=(1/4)n^(-a); a∈[0,1/2] displayed",
+        "plotInterpretation": "Theorem exponent 3/2+2a capped at 2 by an elementary full scan; logarithmic factors suppressed.",
+        "fixedAccuracyReference": "ε=1/4 is an explicitly labelled illustration"
+      },
+      "results": [
+        {
+          "id": "mis-query-mahabadi-2026-matrix-estimator",
+          "paperId": "mahabadi-et-al-2026-matrix-mis-size",
+          "kind": "upper",
+          "bound": "Õ(n^(3/2)/ε²)",
+          "guarantee": "|RGMIS(π)| ≤ estimate ≤ (1+ε)|RGMIS(π)|",
+          "sourceLocation": "Theorem 1.3; Algorithm 4 and its following note; author manuscript printed pp. 3, 18–19",
+          "evidenceStatus": "verified",
+          "frontierStatus": "current_best_verified",
+          "notes": "The target is a generated permutation's greedy MIS size, not maximum independent set size or the expectation over permutations. The published time bound also bounds pair queries. The plotted segment uses the theorem where it improves on scanning.",
+          "assumptions": [
+            "General simple undirected graph",
+            "Only adjacency-matrix pair queries",
+            "MIS means inclusion-maximal, not maximum independent set",
+            "0 < ε < 1",
+            "π is algorithm-generated; not a permutation fixed externally",
+            "No additive error"
+          ],
+          "output": "One scalar estimating an algorithm-generated random greedy MIS size",
+          "probability": "High probability for correctness and running time; the proof uses parallel independent instances for the runtime guarantee",
+          "derivationStatus": "primary_theorem",
+          "curve": {
+            "parameter": "a",
+            "epsilon": "ε = (1/4)n^(-a)",
+            "domain": [
+              0,
+              0.25
+            ],
+            "queryExponent": "3/2+2a",
+            "rawDomain": [
+              0,
+              0.5
+            ],
+            "rawQueryExponent": "3/2+2a"
+          }
+        },
+        {
+          "id": "mis-query-matrix-size-full-scan-baseline",
+          "paperId": "mahabadi-et-al-2026-matrix-mis-size",
+          "kind": "upper",
+          "bound": "O(n²)",
+          "guarantee": "Exact size of the greedy MIS for its own generated π",
+          "sourceLocation": "Elementary full-scan derivation from the adjacency-matrix model and greedy MIS definition",
+          "evidenceStatus": "verified",
+          "frontierStatus": "baseline",
+          "notes": "After at most n(n−1)/2 pair queries, greedy construction and counting use no further oracle queries. This baseline may choose its own π. Combining valid scalar-output algorithms gives the displayed query cap; this is an elementary derivation, not an additional theorem from the paper.",
+          "assumptions": [
+            "General simple undirected graph",
+            "Only adjacency-matrix pair queries",
+            "MIS means inclusion-maximal, not maximum independent set",
+            "Generate a permutation, read all unordered pairs, and execute greedy MIS",
+            "No claim to reproduce the amplified estimator's first-finishing permutation"
+          ],
+          "output": "One exact scalar cardinality",
+          "probability": "Always correct for the chosen permutation",
+          "derivationStatus": "elementary_baseline",
+          "curve": {
+            "parameter": "a",
+            "epsilon": "ε = (1/4)n^(-a)",
+            "domain": [
+              0.25,
+              0.5
+            ],
+            "queryExponent": "2"
+          }
+        }
+      ],
+      "mode": "curated",
+      "focusPairId": "mis-query_matrix",
+      "figureAxes": {
+        "x": {
+          "label": "Requested precision ε = (1/4)n^(−a) → tighter",
+          "kind": "derived-precision-exponent",
+          "min": 0,
+          "max": 0.5,
+          "ticks": [
+            0,
+            0.25,
+            0.5
+          ],
+          "tickLabels": [
+            "1/4",
+            "(1/4)n^(-1/4)",
+            "(1/4)n^(-1/2)"
+          ],
+          "parameter": "a",
+          "fixedAccuracyReference": {
+            "a": 0,
+            "epsilon": 0.25,
+            "meaning": "Illustrative fixed accuracy, not a new theorem"
+          }
+        },
+        "y": {
+          "label": "Pair-query cost (powers of n)",
+          "kind": "exponent",
+          "min": 1.4,
+          "max": 2.12,
+          "ticks": [
+            1.5,
+            1.75,
+            2
+          ],
+          "tickLabels": [
+            "n^(3/2)",
+            "n^(7/4)",
+            "n²"
+          ],
+          "suppressed": "Constants and polylogarithmic factors; not an exact finite-n runtime crossover"
+        }
+      }
+    },
+    {
+      "id": "mis-query-matrix-explicit",
+      "problem": "mis",
+      "model": "query_matrix",
+      "label": "Adjacency matrix · explicit MIS · tight quadratic queries",
+      "task": "Output the vertex set of an explicit maximal independent set",
+      "assumptions": [
+        "General simple undirected graph",
+        "Only adjacency-matrix pair queries",
+        "MIS means inclusion-maximal, not maximum independent set",
+        "Constant-probability success for the lower bound",
+        "Exact full-vertex-set output"
+      ],
+      "parameters": {
+        "epsilon": "0 < ε < 1",
+        "precisionAxis": "ε=(1/4)n^(-a); a∈[0,1/2] displayed",
+        "plotInterpretation": "Exact output is independent of ε; aligned axis enables visual comparison of query cost.",
+        "fixedAccuracyReference": "ε=1/4 is an explicitly labelled illustration"
+      },
+      "results": [
+        {
+          "id": "mis-query-matrix-explicit-full-scan-baseline",
+          "paperId": "mahabadi-et-al-2026-matrix-mis-size",
+          "kind": "upper",
+          "bound": "O(n²)",
+          "guarantee": "Exact inclusion-maximal independent set",
+          "sourceLocation": "Elementary full-scan and greedy-construction baseline",
+          "evidenceStatus": "verified",
+          "frontierStatus": "baseline",
+          "notes": "The same complete matrix scan permits exact explicit construction. This is a direct baseline, not a new paper theorem. Its query order is independent of ε.",
+          "assumptions": [
+            "General simple undirected graph",
+            "Only adjacency-matrix pair queries",
+            "MIS means inclusion-maximal, not maximum independent set",
+            "Read all unordered pairs, then run greedy in any fixed order",
+            "No ε approximation is required for explicit output"
+          ],
+          "output": "The full vertex set of one MIS",
+          "probability": "Deterministic, always correct",
+          "derivationStatus": "elementary_baseline",
+          "curve": {
+            "parameter": "a",
+            "domain": [
+              0,
+              0.5
+            ],
+            "queryExponent": "2",
+            "epsilonIndependent": true
+          }
+        },
+        {
+          "id": "mis-query-mahabadi-2026-matrix-construction-lower",
+          "paperId": "mahabadi-et-al-2026-matrix-mis-size",
+          "kind": "lower",
+          "bound": "Ω(n²)",
+          "guarantee": "Exact inclusion-maximal independent set",
+          "sourceLocation": "Introduction, footnote 1 (author manuscript printed p. 2)",
+          "evidenceStatus": "verified",
+          "frontierStatus": "baseline",
+          "notes": "The source gives the hidden-edge construction obstruction. The pair-query interpretation follows the same search argument: a correct explicit MIS must exclude exactly one endpoint and include every other vertex. This does not lower-bound estimating its size; on that promised family the size is always n−1.",
+          "assumptions": [
+            "General simple undirected graph",
+            "Only adjacency-matrix pair queries",
+            "MIS means inclusion-maximal, not maximum independent set",
+            "Explicit-output contract only",
+            "The hard input has a single edge at a random pair",
+            "Constant success probability bounded away from zero"
+          ],
+          "output": "The full vertex set of one MIS",
+          "probability": "Worst-case query lower bound for constant-probability successful randomized construction; deterministic algorithms are included",
+          "derivationStatus": "primary_lower_bound_with_query_interpretation",
+          "curve": {
+            "parameter": "a",
+            "domain": [
+              0,
+              0.5
+            ],
+            "queryExponent": "2",
+            "epsilonIndependent": true
+          }
+        }
+      ],
+      "mode": "curated",
+      "focusPairId": "mis-query_matrix",
+      "xAxis": {
+        "label": "Requested precision ε = (1/4)n^(−a) → tighter",
+        "kind": "derived-precision-exponent",
+        "min": 0,
+        "max": 0.5,
+        "ticks": [
+          0,
+          0.25,
+          0.5
+        ],
+        "tickLabels": [
+          "1/4",
+          "(1/4)n^(-1/4)",
+          "(1/4)n^(-1/2)"
+        ],
+        "parameter": "a",
+        "fixedAccuracyReference": {
+          "a": 0,
+          "epsilon": 0.25,
+          "meaning": "Illustrative fixed accuracy, not a new theorem"
+        }
+      },
+      "yAxis": {
+        "label": "Pair-query cost (powers of n)",
+        "kind": "exponent",
+        "min": 1.5,
+        "max": 2,
+        "ticks": [
+          1.5,
+          1.75,
+          2
+        ],
+        "tickLabels": [
+          "n^(3/2)",
+          "n^(7/4)",
+          "n²"
+        ],
+        "suppressed": "Constants and polylogarithmic factors; not an exact finite-n runtime crossover",
+        "viewDomain": [
+          1.4,
+          2.12
+        ],
+        "viewDomainNote": "Curated renderer adds framing space outside the data tick extent."
+      },
+      "figureAxes": {
+        "x": {
+          "label": "Requested precision ε = (1/4)n^(−a) → tighter",
+          "kind": "derived-precision-exponent",
+          "min": 0,
+          "max": 0.5,
+          "ticks": [
+            0,
+            0.25,
+            0.5
+          ],
+          "tickLabels": [
+            "1/4",
+            "(1/4)n^(-1/4)",
+            "(1/4)n^(-1/2)"
+          ],
+          "parameter": "a",
+          "fixedAccuracyReference": {
+            "a": 0,
+            "epsilon": 0.25,
+            "meaning": "Illustrative fixed accuracy, not a new theorem"
+          }
+        },
+        "y": {
+          "label": "Pair-query cost (powers of n)",
+          "kind": "exponent",
+          "min": 1.4,
+          "max": 2.12,
+          "ticks": [
+            1.5,
+            1.75,
+            2
+          ],
+          "tickLabels": [
+            "n^(3/2)",
+            "n^(7/4)",
+            "n²"
+          ],
+          "suppressed": "Constants and polylogarithmic factors; not an exact finite-n runtime crossover"
+        },
+        "note": "The aligned precision axis is a visual reference; explicit construction is exact and independent of ε."
+      }
+    }
+  ],
+  "corrections": [
+    {
+      "id": "mis-query-mahabadi-2026-matrix-estimator",
+      "reason": "Replace unexplained approximation coordinate x=1.25 with explicit ε precision parameter and fixed ε=1/4 reference."
+    },
+    {
+      "id": "mis-query-mahabadi-2026-matrix-construction-lower",
+      "reason": "Keep the quadratic lower bound solely in the exact explicit-output panel; no scalar estimation lower is inferred."
+    }
+  ],
+  "derivedBaselines": [
+    "mis-query-matrix-size-full-scan-baseline",
+    "mis-query-matrix-explicit-full-scan-baseline"
+  ]
+}

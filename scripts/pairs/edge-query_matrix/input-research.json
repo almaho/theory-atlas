@@ -1,0 +1,97 @@
+{
+  "problem": "edge",
+  "model": "query_matrix",
+  "slices": [
+    {
+      "id": "edge-query-adjmatrix-enumerate",
+      "problem": "edge",
+      "model": "query_matrix",
+      "label": "Adjacency-matrix access · full-output baseline",
+      "task": "Enumerate every possible edge then compute a proper coloring",
+      "assumptions": [
+        "Pair(u,v) query returns whether the undirected simple edge exists; n known; no neighbor sampling or adjacency list",
+        "Explicit full output; deterministic enumeration of n(n−1)/2 pairs, O(m) stored edges"
+      ],
+      "xAxis": {
+        "label": "Palette slack c in q = Δ + c",
+        "kind": "palette",
+        "min": 0,
+        "max": 8,
+        "ticks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          6,
+          8
+        ]
+      },
+      "yAxis": {
+        "label": "Pair query exponent p in Õ(n^p)",
+        "kind": "exponent",
+        "min": 0,
+        "max": 2.25,
+        "ticks": [
+          0,
+          0.5,
+          1,
+          1.5,
+          2,
+          2.25
+        ],
+        "tickLabels": [
+          "polylog",
+          "√n",
+          "n",
+          "n^{3/2}",
+          "n²",
+          "n^{9/4}"
+        ]
+      },
+      "parameters": {
+        "coordinateConvention": "The colored bound counts oracle queries alone. The exact output and computation time are separate columns in the table. O(n+m) ≤ O(n²) for a simple n-vertex graph."
+      },
+      "results": [
+        {
+          "id": "edge-query-matrix-vizing-composed",
+          "paperId": "assadi-et-al-2025-vizing",
+          "kind": "upper",
+          "bound": "n(n−1)/2 adjacency-matrix queries + O(m log Δ) randomized computation",
+          "guarantee": "Proper q=Δ+1 edge coloring, w.h.p.",
+          "sourceLocation": "STOC 2025 main coloring theorem combined with elementary full matrix enumeration (atlas derivation)",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "The matrix query count is a straightforward construction, not a matrix-oracle theorem of the cited authors. Dense versus sparse graph distinction matters; no lower bound is claimed.",
+          "plot": {
+            "x": 1,
+            "y": 2,
+            "closure": "upper-right",
+            "strictX": false,
+            "strictY": false,
+            "label": "q=Δ+1; ≤n² queries"
+          }
+        }
+      ]
+    }
+  ],
+  "papers": [
+    {
+      "id": "assadi-et-al-2025-vizing",
+      "title": "Vizing’s Theorem in Near-Linear Time",
+      "authors": [
+        "Sepehr Assadi",
+        "Soheil Behnezhad",
+        "Sayan Bhattacharya",
+        "Martín Costa",
+        "Shay Solomon",
+        "Tianyi Zhang"
+      ],
+      "year": 2025,
+      "venue": "STOC 2025; Journal of the ACM 2026",
+      "publicationStatus": "journal",
+      "url": "https://arxiv.org/abs/2410.05240",
+      "verifiedOn": "2026-09-27"
+    }
+  ]
+}

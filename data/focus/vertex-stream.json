@@ -1,0 +1,1944 @@
+{
+  "id": "vertex-stream",
+  "title": "Streaming vertex coloring",
+  "reviewedThrough": "2026-10-27",
+  "sources": {
+    "assadi-chen-khanna-2019-sublinear-coloring": {
+      "id": "assadi-chen-khanna-2019-sublinear-coloring",
+      "title": "Sublinear Algorithms for (Δ+1) Vertex Coloring",
+      "authors": [
+        "Sepehr Assadi",
+        "Yu Chen",
+        "Sanjeev Khanna"
+      ],
+      "year": 2019,
+      "venue": "SODA 2019",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1807.08886",
+      "verifiedOn": "2026-10-27",
+      "sourceUrl": "https://arxiv.org/html/1807.08886"
+    },
+    "chechik-chen-zhang-2026-streaming": {
+      "id": "chechik-chen-zhang-2026-streaming",
+      "title": "Faster Deterministic Streaming Vertex Coloring",
+      "authors": [
+        "Shiri Chechik",
+        "Hongyi Chen",
+        "Tianyi Zhang"
+      ],
+      "year": 2026,
+      "venue": "ICALP 2026",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2026.56",
+      "verifiedOn": "2026-10-27",
+      "sourceUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol374-icalp2026/html/LIPIcs.ICALP.2026.56/LIPIcs.ICALP.2026.56.html"
+    },
+    "assadi-sundaresan-yazdanyar-2026-streaming-few-colors": {
+      "id": "assadi-sundaresan-yazdanyar-2026-streaming-few-colors",
+      "title": "Coloring Graphs with Few Colors in the Streaming Model",
+      "authors": [
+        "Sepehr Assadi",
+        "Janani Sundaresan",
+        "Helia Yazdanyar"
+      ],
+      "year": 2026,
+      "venue": "SODA 2026",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2510.18177",
+      "verifiedOn": "2026-10-27",
+      "sourceUrl": "https://arxiv.org/html/2510.18177"
+    },
+    "bera-ghosh-2018-color-stream": {
+      "id": "bera-ghosh-2018-color-stream",
+      "title": "Coloring in Graph Streams",
+      "authors": [
+        "Suman Kalyan Bera",
+        "Prantar Ghosh"
+      ],
+      "year": 2018,
+      "venue": "arXiv",
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/abs/1807.07640",
+      "verifiedOn": "2026-10-27",
+      "sourceUrl": "https://arxiv.org/pdf/1807.07640"
+    },
+    "bera-chakrabarti-ghosh-2020-degeneracy": {
+      "id": "bera-chakrabarti-ghosh-2020-degeneracy",
+      "title": "Graph Coloring via Degeneracy in Streaming and Other Space-Conscious Models",
+      "authors": [
+        "Suman K. Bera",
+        "Amit Chakrabarti",
+        "Prantar Ghosh"
+      ],
+      "year": 2020,
+      "venue": "ICALP 2020",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2020.11",
+      "verifiedOn": "2026-10-27",
+      "sourceUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol168-icalp2020/LIPIcs.ICALP.2020.11/LIPIcs.ICALP.2020.11.pdf"
+    },
+    "assadi-chen-sun-2022-deterministic": {
+      "id": "assadi-chen-sun-2022-deterministic",
+      "title": "Deterministic Graph Coloring in the Streaming Model",
+      "authors": [
+        "Sepehr Assadi",
+        "Andrew Chen",
+        "Glenn Sun"
+      ],
+      "year": 2022,
+      "venue": "STOC 2022",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2109.14891",
+      "verifiedOn": "2026-10-27",
+      "sourceUrl": "https://arxiv.org/html/2109.14891"
+    },
+    "assadi-chakrabarti-ghosh-stoeckl-2023-robust": {
+      "id": "assadi-chakrabarti-ghosh-stoeckl-2023-robust",
+      "title": "Coloring in Graph Streams via Deterministic and Adversarially Robust Algorithms",
+      "authors": [
+        "Sepehr Assadi",
+        "Amit Chakrabarti",
+        "Prantar Ghosh",
+        "Manuel Stoeckl"
+      ],
+      "year": 2023,
+      "venue": "PODS 2023",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2212.10641",
+      "verifiedOn": "2026-10-27",
+      "sourceUrl": "https://arxiv.org/html/2212.10641"
+    },
+    "chakrabarti-ghosh-stoeckl-2022-robust": {
+      "id": "chakrabarti-ghosh-stoeckl-2022-robust",
+      "title": "Adversarially Robust Coloring for Graph Streams",
+      "authors": [
+        "Amit Chakrabarti",
+        "Prantar Ghosh",
+        "Manuel Stoeckl"
+      ],
+      "year": 2022,
+      "venue": "ITCS 2022",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ITCS.2022.37",
+      "verifiedOn": "2026-10-27",
+      "sourceUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol215-itcs2022/LIPIcs.ITCS.2022.37/LIPIcs.ITCS.2022.37.pdf"
+    },
+    "assadi-kumar-mittal-2022-brooks": {
+      "id": "assadi-kumar-mittal-2022-brooks",
+      "title": "Brooks’ Theorem in Graph Streams: A Single-Pass Semi-Streaming Algorithm for Δ-Coloring",
+      "authors": [
+        "Sepehr Assadi",
+        "Pankaj Kumar",
+        "Parth Mittal"
+      ],
+      "year": 2022,
+      "venue": "STOC 2022",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2203.10984",
+      "verifiedOn": "2026-10-27",
+      "sourceUrl": "https://arxiv.org/html/2203.10984"
+    },
+    "flin-halldorsson-2026-beyond-brooks": {
+      "id": "flin-halldorsson-2026-beyond-brooks",
+      "title": "Beyond Brooks: (Δ−1)-Coloring in Semi-Streaming",
+      "authors": [
+        "Maxime Flin",
+        "Magnús M. Halldórsson"
+      ],
+      "year": 2026,
+      "venue": "ICALP 2026",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2605.07774",
+      "verifiedOn": "2026-10-27",
+      "sourceUrl": "https://arxiv.org/html/2605.07774"
+    },
+    "halldorsson-kuhn-nolin-tonoyan-2022-degree": {
+      "id": "halldorsson-kuhn-nolin-tonoyan-2022-degree",
+      "title": "Near-Optimal Distributed Degree+1 Coloring",
+      "authors": [
+        "Magnús M. Halldórsson",
+        "Fabian Kuhn",
+        "Alexandre Nolin",
+        "Tigran Tonoyan"
+      ],
+      "year": 2022,
+      "venue": "STOC 2022",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2112.00604",
+      "verifiedOn": "2026-10-27",
+      "sourceUrl": "https://arxiv.org/html/2112.00604"
+    }
+  },
+  "verifiedRecords": [
+    {
+      "id": "vertex-stream-ack-2019",
+      "title": "Sublinear Algorithms for (Δ+1) Vertex Coloring",
+      "authors": [
+        "Sepehr Assadi",
+        "Yu Chen",
+        "Sanjeev Khanna"
+      ],
+      "year": 2019,
+      "venue": "SODA 2019",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1807.08886",
+      "verifiedOn": "2026-10-27",
+      "sourceUrl": "https://arxiv.org/html/1807.08886",
+      "sourceId": "assadi-chen-khanna-2019-sublinear-coloring",
+      "paperId": "assadi-chen-khanna-2019-sublinear-coloring",
+      "originalIds": [
+        "vertex-stream-ack-2019"
+      ],
+      "sliceId": "vertex-stream-dynamic-one-pass-delta-plus-one",
+      "kind": "algorithm",
+      "graph": "Simple undirected n-vertex graph",
+      "quality": "Δ+1",
+      "output": "Explicit proper coloring",
+      "oracle": "Graph-edge stream; working space in bits up to logarithmic encoding factors",
+      "probability": "With high probability",
+      "randomized": true,
+      "passes": "1",
+      "stream": "Turnstile; final maximum degree Δ",
+      "accounting": "Randomness included in working memory",
+      "notes": "Final Δ need not bound degrees during the stream. Polynomial postprocessing.",
+      "assumptions": [
+        "Simple undirected n-vertex graph",
+        "Turnstile; final maximum degree Δ",
+        "1 pass(es)",
+        "Randomness included in working memory"
+      ],
+      "panel": "final",
+      "shortName": "ACK19",
+      "palette": "Δ+1",
+      "displayBound": "Õ(n) bits; one pass",
+      "theorem": "Theorem 2, §4.1",
+      "setup": "turnstile",
+      "marks": [
+        {
+          "x": "plus",
+          "y": "semi"
+        }
+      ]
+    },
+    {
+      "id": "vertex-stream-deterministic-odelta-2026",
+      "title": "Faster Deterministic Streaming Vertex Coloring",
+      "authors": [
+        "Shiri Chechik",
+        "Hongyi Chen",
+        "Tianyi Zhang"
+      ],
+      "year": 2026,
+      "venue": "ICALP 2026",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2026.56",
+      "verifiedOn": "2026-10-27",
+      "sourceUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol374-icalp2026/html/LIPIcs.ICALP.2026.56/LIPIcs.ICALP.2026.56.html",
+      "sourceId": "chechik-chen-zhang-2026-streaming",
+      "paperId": "chechik-chen-zhang-2026-streaming",
+      "originalIds": [
+        "vertex-stream-deterministic-odelta-2026"
+      ],
+      "sliceId": "vertex-stream-deterministic-multipass-degree-palette",
+      "kind": "algorithm",
+      "graph": "Simple undirected n-vertex graph",
+      "quality": "O(Δ); refined (1+η)Δ for fixed η",
+      "output": "Explicit proper coloring",
+      "oracle": "Graph-edge stream; working space in bits up to logarithmic encoding factors",
+      "probability": "Deterministic",
+      "randomized": false,
+      "passes": "O(η⁻¹√logΔ)",
+      "stream": "Insertion only; adversarial order independent of random choices",
+      "accounting": "Randomness included in working memory",
+      "notes": "Fixed η∈(0,1). Main figure conservatively uses O(Δ): theorem suppresses integer/small-degree conventions. No guessed numerical palette ratio.",
+      "assumptions": [
+        "Simple undirected n-vertex graph",
+        "Insertion only; adversarial order independent of random choices",
+        "O(η⁻¹√logΔ) pass(es)",
+        "Randomness included in working memory"
+      ],
+      "panel": "passes",
+      "shortName": "CCZ26",
+      "palette": "O(Δ); refined (1+η)Δ for fixed η",
+      "displayBound": "O(η⁻¹√logΔ) passes; Õ(n) bits",
+      "theorem": "Theorem 2; §3",
+      "setup": "insertion",
+      "marks": [
+        {
+          "x": "linear",
+          "y": "sqrt"
+        }
+      ]
+    },
+    {
+      "id": "vertex-result-23",
+      "title": "Deterministic Graph Coloring in the Streaming Model",
+      "authors": [
+        "Sepehr Assadi",
+        "Andrew Chen",
+        "Glenn Sun"
+      ],
+      "year": 2022,
+      "venue": "STOC 2022",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2109.14891",
+      "verifiedOn": "2026-10-27",
+      "sourceUrl": "https://arxiv.org/html/2109.14891",
+      "sourceId": "assadi-chen-sun-2022-deterministic",
+      "paperId": "assadi-chen-sun-2022-deterministic",
+      "originalIds": [
+        "vertex-result-23"
+      ],
+      "sliceId": "vertex-stream-deterministic-multipass-degree-palette",
+      "kind": "algorithm",
+      "graph": "Simple undirected n-vertex graph",
+      "quality": "O(Δ)",
+      "output": "Explicit proper coloring",
+      "oracle": "Graph-edge stream; working space in bits up to logarithmic encoding factors",
+      "probability": "Deterministic",
+      "randomized": false,
+      "passes": "O(logΔ)",
+      "stream": "Insertion or turnstile",
+      "accounting": "Randomness included in working memory",
+      "notes": "The dynamic sparse-recovery extension preserves asymptotic space and passes. An initial degree pass removes advance knowledge of Δ.",
+      "assumptions": [
+        "Simple undirected n-vertex graph",
+        "Insertion or turnstile",
+        "O(logΔ) pass(es)",
+        "Randomness included in working memory"
+      ],
+      "panel": "passes",
+      "shortName": "ACS22",
+      "palette": "O(Δ)",
+      "displayBound": "O(logΔ) passes; O(n log n) bits",
+      "theorem": "Theorem 3; §5.4 dynamic extension",
+      "setup": "turnstile",
+      "marks": [
+        {
+          "x": "linear",
+          "y": "log"
+        }
+      ]
+    },
+    {
+      "id": "vertex-extended-vertex-stream-deterministic-multipass-degree-palette-16",
+      "title": "Deterministic Graph Coloring in the Streaming Model",
+      "authors": [
+        "Sepehr Assadi",
+        "Andrew Chen",
+        "Glenn Sun"
+      ],
+      "year": 2022,
+      "venue": "STOC 2022",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2109.14891",
+      "verifiedOn": "2026-10-27",
+      "sourceUrl": "https://arxiv.org/html/2109.14891",
+      "sourceId": "assadi-chen-sun-2022-deterministic",
+      "paperId": "assadi-chen-sun-2022-deterministic",
+      "originalIds": [
+        "vertex-extended-vertex-stream-deterministic-multipass-degree-palette-16"
+      ],
+      "sliceId": "vertex-stream-deterministic-multipass-degree-palette",
+      "kind": "algorithm",
+      "graph": "Simple undirected n-vertex graph",
+      "quality": "O(Δ²)",
+      "output": "Explicit proper coloring",
+      "oracle": "Graph-edge stream; working space in bits up to logarithmic encoding factors",
+      "probability": "Deterministic",
+      "randomized": false,
+      "passes": "2",
+      "stream": "Insertion or turnstile",
+      "accounting": "Randomness included in working memory",
+      "notes": "Known Δ: O(n log n) bits. Parallel degree guesses preserve two passes when Δ is unknown, with logarithmic overhead.",
+      "assumptions": [
+        "Simple undirected n-vertex graph",
+        "Insertion or turnstile",
+        "2 pass(es)",
+        "Randomness included in working memory"
+      ],
+      "panel": "passes",
+      "shortName": "ACS22",
+      "palette": "O(Δ²)",
+      "displayBound": "2 passes; Õ(n) bits",
+      "theorem": "Theorem 2; §5.4 extensions",
+      "setup": "turnstile",
+      "marks": [
+        {
+          "x": "square",
+          "y": "two"
+        }
+      ]
+    },
+    {
+      "id": "vertex-extended-vertex-stream-deterministic-multipass-degree-palette-17",
+      "title": "Coloring in Graph Streams via Deterministic and Adversarially Robust Algorithms",
+      "authors": [
+        "Sepehr Assadi",
+        "Amit Chakrabarti",
+        "Prantar Ghosh",
+        "Manuel Stoeckl"
+      ],
+      "year": 2023,
+      "venue": "PODS 2023",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2212.10641",
+      "verifiedOn": "2026-10-27",
+      "sourceUrl": "https://arxiv.org/html/2212.10641",
+      "sourceId": "assadi-chakrabarti-ghosh-stoeckl-2023-robust",
+      "paperId": "assadi-chakrabarti-ghosh-stoeckl-2023-robust",
+      "originalIds": [
+        "vertex-extended-vertex-stream-deterministic-multipass-degree-palette-17"
+      ],
+      "sliceId": "vertex-stream-deterministic-multipass-degree-palette",
+      "kind": "algorithm",
+      "graph": "Simple undirected n-vertex graph",
+      "quality": "Δ+1",
+      "output": "Explicit proper coloring",
+      "oracle": "Graph-edge stream; working space in bits up to logarithmic encoding factors",
+      "probability": "Deterministic",
+      "randomized": false,
+      "passes": "O(logΔ loglogΔ)",
+      "stream": "Insertion only; adversarial order independent of random choices",
+      "accounting": "Randomness included in working memory",
+      "notes": "Insertion streams. Log expressions denote asymptotic classes; bounded degree is handled trivially.",
+      "assumptions": [
+        "Simple undirected n-vertex graph",
+        "Insertion only; adversarial order independent of random choices",
+        "O(logΔ loglogΔ) pass(es)",
+        "Randomness included in working memory"
+      ],
+      "panel": "passes",
+      "shortName": "ACGS23",
+      "palette": "Δ+1",
+      "displayBound": "O(logΔ loglogΔ) passes; O(n log²n) bits",
+      "theorem": "Theorem 1, restated as Theorem 5",
+      "setup": "insertion",
+      "marks": [
+        {
+          "x": "plus",
+          "y": "loglog"
+        }
+      ]
+    },
+    {
+      "id": "vertex-result-26",
+      "title": "Deterministic Graph Coloring in the Streaming Model",
+      "authors": [
+        "Sepehr Assadi",
+        "Andrew Chen",
+        "Glenn Sun"
+      ],
+      "year": 2022,
+      "venue": "STOC 2022",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2109.14891",
+      "verifiedOn": "2026-10-27",
+      "sourceUrl": "https://arxiv.org/html/2109.14891",
+      "sourceId": "assadi-chen-sun-2022-deterministic",
+      "paperId": "assadi-chen-sun-2022-deterministic",
+      "originalIds": [
+        "vertex-result-26"
+      ],
+      "sliceId": "vertex-stream-deterministic-one-pass-lower",
+      "kind": "lower",
+      "graph": "Simple undirected n-vertex graph",
+      "quality": "exp(Δ^{o(1)}) impossible in deterministic semi-streaming",
+      "output": "Explicit proper coloring",
+      "oracle": "Graph-edge stream; working space in bits up to logarithmic encoding factors",
+      "probability": "Deterministic lower bound",
+      "randomized": false,
+      "passes": "1",
+      "stream": "Insertion only; adversarial order independent of random choices",
+      "accounting": "Randomness included in working memory",
+      "notes": "For each a≥1 and large n, space O(n log^a n) cannot guarantee fewer than exp(Δ^{1/(4a)}) colors at Δ=200 log^{a+1}n. Not an exp(Ω(Δ)) bound.",
+      "assumptions": [
+        "Simple undirected n-vertex graph",
+        "Insertion only; adversarial order independent of random choices",
+        "1 pass(es)",
+        "Randomness included in working memory"
+      ],
+      "panel": "passes",
+      "shortName": "ACS22",
+      "palette": "exp(Δ^{o(1)}) impossible in deterministic semi-streaming",
+      "displayBound": "No deterministic one-pass Õ(n)-space algorithm",
+      "theorem": "Result 1; Corollary 4.7(i)",
+      "setup": "insertion",
+      "marks": [
+        {
+          "x": "all",
+          "y": "one",
+          "bar": true
+        }
+      ]
+    },
+    {
+      "id": "vertex-result-27",
+      "title": "Adversarially Robust Coloring for Graph Streams",
+      "authors": [
+        "Amit Chakrabarti",
+        "Prantar Ghosh",
+        "Manuel Stoeckl"
+      ],
+      "year": 2022,
+      "venue": "ITCS 2022",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ITCS.2022.37",
+      "verifiedOn": "2026-10-27",
+      "sourceUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol215-itcs2022/LIPIcs.ITCS.2022.37/LIPIcs.ITCS.2022.37.pdf",
+      "sourceId": "chakrabarti-ghosh-stoeckl-2022-robust",
+      "paperId": "chakrabarti-ghosh-stoeckl-2022-robust",
+      "originalIds": [
+        "vertex-result-27"
+      ],
+      "sliceId": "vertex-stream-robust-incremental",
+      "kind": "lower",
+      "graph": "Simple undirected n-vertex graph",
+      "quality": "K, Δ+1≤K≤n/2",
+      "output": "Explicit proper coloring",
+      "oracle": "Graph-edge stream; working space in bits up to logarithmic encoding factors",
+      "probability": "Constant error",
+      "randomized": true,
+      "passes": "1",
+      "stream": "Insertion only; adaptive to previous colorings",
+      "accounting": "Lower holds even when random bits are free",
+      "notes": "In particular K=O(Δ) requires Ω(nΔ) space. Õ(n) space forces K=Ω̃(Δ²); no numeric frontier from suppressed logarithms.",
+      "assumptions": [
+        "Simple undirected n-vertex graph",
+        "Insertion only; adaptive to previous colorings",
+        "1 pass(es)",
+        "Lower holds even when random bits are free"
+      ],
+      "panel": "robust",
+      "shortName": "CGS22",
+      "palette": "K, Δ+1≤K≤n/2",
+      "displayBound": "Ω(nΔ²/K) bits",
+      "theorem": "Theorem 1; §4 lower bound",
+      "setup": "free",
+      "marks": [
+        {
+          "x": "all",
+          "y": "formula",
+          "formula": true
+        }
+      ]
+    },
+    {
+      "id": "vertex-extended-vertex-stream-robust-incremental-37",
+      "title": "Adversarially Robust Coloring for Graph Streams",
+      "authors": [
+        "Amit Chakrabarti",
+        "Prantar Ghosh",
+        "Manuel Stoeckl"
+      ],
+      "year": 2022,
+      "venue": "ITCS 2022",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ITCS.2022.37",
+      "verifiedOn": "2026-10-27",
+      "sourceUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol215-itcs2022/LIPIcs.ITCS.2022.37/LIPIcs.ITCS.2022.37.pdf",
+      "sourceId": "chakrabarti-ghosh-stoeckl-2022-robust",
+      "paperId": "chakrabarti-ghosh-stoeckl-2022-robust",
+      "originalIds": [
+        "vertex-extended-vertex-stream-robust-incremental-37"
+      ],
+      "sliceId": "vertex-stream-robust-incremental",
+      "kind": "algorithm",
+      "graph": "Simple undirected n-vertex graph",
+      "quality": "O(Δ³)",
+      "output": "Explicit proper coloring",
+      "oracle": "Graph-edge stream; working space in bits up to logarithmic encoding factors",
+      "probability": "At least 1−O(n⁻²)",
+      "randomized": true,
+      "passes": "1",
+      "stream": "Insertion only; adaptive to previous colorings",
+      "accounting": "External random tape excluded; known final degree bound L",
+      "notes": "Δ is the current degree; L bounds final degree and must be known. Choosing L=Δ for a fixed degree cap gives Õ(nΔ) external bits.",
+      "assumptions": [
+        "Simple undirected n-vertex graph",
+        "Insertion only; adaptive to previous colorings",
+        "1 pass(es)",
+        "External random tape excluded; known final degree bound L"
+      ],
+      "panel": "robust",
+      "shortName": "CGS22",
+      "palette": "O(Δ³)",
+      "displayBound": "O(n log⁴n) working bits + Õ(nL) external random bits",
+      "theorem": "Theorem 10; Table 1",
+      "setup": "free",
+      "marks": [
+        {
+          "x": "cube",
+          "y": "semi"
+        }
+      ]
+    },
+    {
+      "id": "vertex-extended-vertex-stream-robust-incremental-38",
+      "title": "Adversarially Robust Coloring for Graph Streams",
+      "authors": [
+        "Amit Chakrabarti",
+        "Prantar Ghosh",
+        "Manuel Stoeckl"
+      ],
+      "year": 2022,
+      "venue": "ITCS 2022",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ITCS.2022.37",
+      "verifiedOn": "2026-10-27",
+      "sourceUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol215-itcs2022/LIPIcs.ITCS.2022.37/LIPIcs.ITCS.2022.37.pdf",
+      "sourceId": "chakrabarti-ghosh-stoeckl-2022-robust",
+      "paperId": "chakrabarti-ghosh-stoeckl-2022-robust",
+      "originalIds": [
+        "vertex-extended-vertex-stream-robust-incremental-38"
+      ],
+      "sliceId": "vertex-stream-robust-incremental",
+      "kind": "algorithm",
+      "graph": "Simple undirected n-vertex graph",
+      "quality": "O(Δ²)",
+      "output": "Explicit proper coloring",
+      "oracle": "Graph-edge stream; working space in bits up to logarithmic encoding factors",
+      "probability": "High probability across all queries",
+      "randomized": true,
+      "passes": "1",
+      "stream": "Insertion only; adaptive to previous colorings",
+      "accounting": "Randomness included in working memory",
+      "notes": "Random bits count toward memory. This accounting differs from the external-tape algorithms.",
+      "assumptions": [
+        "Simple undirected n-vertex graph",
+        "Insertion only; adaptive to previous colorings",
+        "1 pass(es)",
+        "Randomness included in working memory"
+      ],
+      "panel": "robust",
+      "shortName": "CGS22",
+      "palette": "O(Δ²)",
+      "displayBound": "Õ(n√Δ) bits",
+      "theorem": "Corollary 15, k=2; Table 1",
+      "setup": "counted",
+      "marks": [
+        {
+          "x": "square",
+          "y": "sqrt"
+        }
+      ]
+    },
+    {
+      "id": "vertex-extended-vertex-stream-robust-incremental-39",
+      "title": "Coloring in Graph Streams via Deterministic and Adversarially Robust Algorithms",
+      "authors": [
+        "Sepehr Assadi",
+        "Amit Chakrabarti",
+        "Prantar Ghosh",
+        "Manuel Stoeckl"
+      ],
+      "year": 2023,
+      "venue": "PODS 2023",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2212.10641",
+      "verifiedOn": "2026-10-27",
+      "sourceUrl": "https://arxiv.org/html/2212.10641",
+      "sourceId": "assadi-chakrabarti-ghosh-stoeckl-2023-robust",
+      "paperId": "assadi-chakrabarti-ghosh-stoeckl-2023-robust",
+      "originalIds": [
+        "vertex-extended-vertex-stream-robust-incremental-39"
+      ],
+      "sliceId": "vertex-stream-robust-incremental",
+      "kind": "algorithm",
+      "graph": "Simple undirected n-vertex graph",
+      "quality": "O(Δ^{5/2})",
+      "output": "Explicit proper coloring",
+      "oracle": "Graph-edge stream; working space in bits up to logarithmic encoding factors",
+      "probability": "Total error at most δ, with logarithmic dependence on δ⁻¹ in memory",
+      "randomized": true,
+      "passes": "1",
+      "stream": "Insertion only; adaptive to previous colorings",
+      "accounting": "Oracle access to external random tape excluded",
+      "notes": "Fixed degree cap Δ. The semi-streaming claim excludes oracle randomness; it is not a total-memory Õ(n) guarantee.",
+      "assumptions": [
+        "Simple undirected n-vertex graph",
+        "Insertion only; adaptive to previous colorings",
+        "1 pass(es)",
+        "Oracle access to external random tape excluded"
+      ],
+      "panel": "robust",
+      "shortName": "ACGS23",
+      "palette": "O(Δ^{5/2})",
+      "displayBound": "Õ(n) working bits + O(nΔ) external random bits",
+      "theorem": "Theorem 3; Algorithm 2 analysis",
+      "setup": "free",
+      "marks": [
+        {
+          "x": "fivehalf",
+          "y": "semi"
+        }
+      ]
+    },
+    {
+      "id": "vertex-extended-vertex-stream-robust-incremental-40",
+      "title": "Coloring in Graph Streams via Deterministic and Adversarially Robust Algorithms",
+      "authors": [
+        "Sepehr Assadi",
+        "Amit Chakrabarti",
+        "Prantar Ghosh",
+        "Manuel Stoeckl"
+      ],
+      "year": 2023,
+      "venue": "PODS 2023",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2212.10641",
+      "verifiedOn": "2026-10-27",
+      "sourceUrl": "https://arxiv.org/html/2212.10641",
+      "sourceId": "assadi-chakrabarti-ghosh-stoeckl-2023-robust",
+      "paperId": "assadi-chakrabarti-ghosh-stoeckl-2023-robust",
+      "originalIds": [
+        "vertex-extended-vertex-stream-robust-incremental-40"
+      ],
+      "sliceId": "vertex-stream-robust-incremental",
+      "kind": "algorithm",
+      "graph": "Simple undirected n-vertex graph",
+      "quality": "O(Δ²) or O(Δ^{7/4})",
+      "output": "Explicit proper coloring",
+      "oracle": "Graph-edge stream; working space in bits up to logarithmic encoding factors",
+      "probability": "With high probability",
+      "randomized": true,
+      "passes": "1",
+      "stream": "Insertion only; adaptive to previous colorings",
+      "accounting": "Same external-random-tape model as Algorithm 2",
+      "notes": "Tradeoff O(Δ^{(5−3β)/2}) colors with Õ(nΔ^β) working space. Proof assumes Δ=Ω(log²n) and integer powers, with routine rounding. Only the two supplied β choices are plotted.",
+      "assumptions": [
+        "Simple undirected n-vertex graph",
+        "Insertion only; adaptive to previous colorings",
+        "1 pass(es)",
+        "Same external-random-tape model as Algorithm 2"
+      ],
+      "panel": "robust",
+      "shortName": "ACGS23",
+      "palette": "O(Δ²) or O(Δ^{7/4})",
+      "displayBound": "Õ(nΔ^{1/3}) for O(Δ²); Õ(n√Δ) for O(Δ^{7/4})",
+      "theorem": "Corollary 4.7, β=1/3 and β=1/2",
+      "setup": "free",
+      "marks": [
+        {
+          "x": "square",
+          "y": "third",
+          "tag": "β=1/3"
+        },
+        {
+          "x": "sevenfour",
+          "y": "sqrt",
+          "tag": "β=1/2"
+        }
+      ]
+    },
+    {
+      "id": "vertex-result-32",
+      "title": "Coloring in Graph Streams",
+      "authors": [
+        "Suman Kalyan Bera",
+        "Prantar Ghosh"
+      ],
+      "year": 2018,
+      "venue": "arXiv",
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/abs/1807.07640",
+      "verifiedOn": "2026-10-27",
+      "sourceUrl": "https://arxiv.org/pdf/1807.07640",
+      "sourceId": "bera-ghosh-2018-color-stream",
+      "paperId": "bera-ghosh-2018-color-stream",
+      "originalIds": [
+        "vertex-result-32"
+      ],
+      "sliceId": "vertex-stream-insertion-near-delta",
+      "kind": "algorithm",
+      "graph": "Simple undirected n-vertex graph",
+      "quality": "(1+ε)Δ for fixed ε and Δ=ω(log n); Δ+1 in the small-degree branch",
+      "output": "Explicit proper coloring",
+      "oracle": "Graph-edge stream; working space in bits up to logarithmic encoding factors",
+      "probability": "With high probability",
+      "randomized": true,
+      "passes": "1",
+      "stream": "Insertion only; adversarial order independent of random choices",
+      "accounting": "Randomness included in working memory",
+      "notes": "The theorem’s palette calculation uses Δ=ω(log n); bounded/logarithmic degree is stored and greedily Δ+1-colored. Do not read fractional palettes literally for tiny Δ.",
+      "assumptions": [
+        "Simple undirected n-vertex graph",
+        "Insertion only; adversarial order independent of random choices",
+        "1 pass(es)",
+        "Randomness included in working memory"
+      ],
+      "panel": "final",
+      "shortName": "BG18",
+      "palette": "(1+ε)Δ for fixed ε and Δ=ω(log n); Δ+1 in the small-degree branch",
+      "displayBound": "O(ε⁻¹n log n) words; one pass",
+      "theorem": "Theorem 3.2 and §3 small-degree branch",
+      "setup": "insertion",
+      "marks": [
+        {
+          "x": "near",
+          "y": "semi"
+        }
+      ]
+    },
+    {
+      "id": "vertex-result-33",
+      "title": "Brooks’ Theorem in Graph Streams: A Single-Pass Semi-Streaming Algorithm for Δ-Coloring",
+      "authors": [
+        "Sepehr Assadi",
+        "Pankaj Kumar",
+        "Parth Mittal"
+      ],
+      "year": 2022,
+      "venue": "STOC 2022",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2203.10984",
+      "verifiedOn": "2026-10-27",
+      "sourceUrl": "https://arxiv.org/html/2203.10984",
+      "sourceId": "assadi-kumar-mittal-2022-brooks",
+      "paperId": "assadi-kumar-mittal-2022-brooks",
+      "originalIds": [
+        "vertex-result-33"
+      ],
+      "sliceId": "vertex-stream-brooks",
+      "kind": "algorithm",
+      "graph": "Simple undirected n-vertex graph",
+      "quality": "Δ, or correctly report a Brooks obstruction",
+      "output": "Explicit proper coloring",
+      "oracle": "Graph-edge stream; working space in bits up to logarithmic encoding factors",
+      "probability": "With high probability",
+      "randomized": true,
+      "passes": "1",
+      "stream": "Insertion only; adversarial order independent of random choices",
+      "accounting": "Randomness included in working memory",
+      "notes": "Connected components that are cliques or odd cycles are checked separately. Final graph coloring; each edge appears once.",
+      "assumptions": [
+        "Simple undirected n-vertex graph",
+        "Insertion only; adversarial order independent of random choices",
+        "1 pass(es)",
+        "Randomness included in working memory"
+      ],
+      "panel": "final",
+      "shortName": "AKM22",
+      "palette": "Δ, or correctly report a Brooks obstruction",
+      "displayBound": "Õ(n) space; one pass",
+      "theorem": "Theorem 1.1 and following general-graph reduction",
+      "setup": "insertion",
+      "marks": [
+        {
+          "x": "brooks",
+          "y": "semi"
+        }
+      ]
+    },
+    {
+      "id": "vertex-extended-vertex-stream-brooks-43",
+      "title": "Beyond Brooks: (Δ−1)-Coloring in Semi-Streaming",
+      "authors": [
+        "Maxime Flin",
+        "Magnús M. Halldórsson"
+      ],
+      "year": 2026,
+      "venue": "ICALP 2026",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2605.07774",
+      "verifiedOn": "2026-10-27",
+      "sourceUrl": "https://arxiv.org/html/2605.07774",
+      "sourceId": "flin-halldorsson-2026-beyond-brooks",
+      "paperId": "flin-halldorsson-2026-beyond-brooks",
+      "originalIds": [
+        "vertex-extended-vertex-stream-brooks-43"
+      ],
+      "sliceId": "vertex-stream-brooks",
+      "kind": "algorithm",
+      "graph": "No Δ-clique; Δ≥universal Δ₀ (the source permits Δ₀≤10¹⁴)",
+      "quality": "Δ−1",
+      "output": "Explicit proper coloring",
+      "oracle": "Graph-edge stream; working space in bits up to logarithmic encoding factors",
+      "probability": "With high probability",
+      "randomized": true,
+      "passes": "1",
+      "stream": "Insertion only; adversarial order independent of random choices",
+      "accounting": "Randomness included in working memory",
+      "notes": "Each edge appears once. This palette is not promised for arbitrary graphs.",
+      "assumptions": [
+        "No Δ-clique; Δ≥universal Δ₀ (the source permits Δ₀≤10¹⁴)",
+        "Insertion only; adversarial order independent of random choices",
+        "1 pass(es)",
+        "Randomness included in working memory"
+      ],
+      "panel": "final",
+      "shortName": "FH26",
+      "palette": "Δ−1",
+      "displayBound": "Õ(n) space; one pass",
+      "theorem": "Theorem 1",
+      "setup": "insertion",
+      "marks": [
+        {
+          "x": "minus",
+          "y": "semi"
+        }
+      ]
+    },
+    {
+      "id": "vertex-extended-vertex-stream-brooks-44",
+      "title": "Beyond Brooks: (Δ−1)-Coloring in Semi-Streaming",
+      "authors": [
+        "Maxime Flin",
+        "Magnús M. Halldórsson"
+      ],
+      "year": 2026,
+      "venue": "ICALP 2026",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2605.07774",
+      "verifiedOn": "2026-10-27",
+      "sourceUrl": "https://arxiv.org/html/2605.07774",
+      "sourceId": "flin-halldorsson-2026-beyond-brooks",
+      "paperId": "flin-halldorsson-2026-beyond-brooks",
+      "originalIds": [
+        "vertex-extended-vertex-stream-brooks-44"
+      ],
+      "sliceId": "vertex-stream-brooks",
+      "kind": "lower",
+      "graph": "Promised (Δ−k)-colorable graphs of maximum degree Δ",
+      "quality": "Δ−k; 0≤k<(Δ−1)/2",
+      "output": "Explicit proper coloring",
+      "oracle": "Graph-edge stream; working space in bits up to logarithmic encoding factors",
+      "probability": "Success at least 2/3",
+      "randomized": true,
+      "passes": "1",
+      "stream": "Insertion only; adversarial order independent of random choices",
+      "accounting": "Randomness included in working memory",
+      "notes": "The theorem uses (Δ+1)/2<c≤Δ, c=Δ−k. Displayed k=0,1 give Ω(n); the general family remains in the inspector.",
+      "assumptions": [
+        "Promised (Δ−k)-colorable graphs of maximum degree Δ",
+        "Insertion only; adversarial order independent of random choices",
+        "1 pass(es)",
+        "Randomness included in working memory"
+      ],
+      "panel": "final",
+      "shortName": "FH26",
+      "palette": "Δ−k; 0≤k<(Δ−1)/2",
+      "displayBound": "Ω(n(k+1)) bits",
+      "theorem": "Theorem 2; §6 INDEX reduction",
+      "setup": "insertion",
+      "marks": [
+        {
+          "x": "minus",
+          "y": "linear",
+          "tag": "k=1"
+        },
+        {
+          "x": "brooks",
+          "y": "linear",
+          "tag": "k=0"
+        }
+      ]
+    },
+    {
+      "id": "vertex-result-36",
+      "title": "Graph Coloring via Degeneracy in Streaming and Other Space-Conscious Models",
+      "authors": [
+        "Suman K. Bera",
+        "Amit Chakrabarti",
+        "Prantar Ghosh"
+      ],
+      "year": 2020,
+      "venue": "ICALP 2020",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2020.11",
+      "verifiedOn": "2026-10-27",
+      "sourceUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol168-icalp2020/LIPIcs.ICALP.2020.11/LIPIcs.ICALP.2020.11.pdf",
+      "sourceId": "bera-chakrabarti-ghosh-2020-degeneracy",
+      "paperId": "bera-chakrabarti-ghosh-2020-degeneracy",
+      "originalIds": [
+        "vertex-result-36"
+      ],
+      "sliceId": "vertex-stream-degeneracy",
+      "kind": "algorithm",
+      "graph": "Simple undirected n-vertex graph",
+      "quality": "κ+O(εκ+1); κ+o(κ) in the growing-κ regime",
+      "output": "Explicit proper coloring",
+      "oracle": "Graph-edge stream; working space in bits up to logarithmic encoding factors",
+      "probability": "With high probability",
+      "randomized": true,
+      "passes": "1",
+      "stream": "Turnstile; polynomial stream length",
+      "accounting": "Randomness included in working memory",
+      "notes": "Source states (1+O(ε))κ. Atlas retains +1 for integer/small-κ correctness: one-block case is greedily κ+1 colored; multi-block bound is κ+λ+ℓ. Set ε=1/log n for Õ(n) space; unknown κ handled by parallel guesses.",
+      "assumptions": [
+        "Simple undirected n-vertex graph",
+        "Turnstile; polynomial stream length",
+        "1 pass(es)",
+        "Randomness included in working memory"
+      ],
+      "panel": "degeneracy",
+      "shortName": "BCG20",
+      "palette": "κ+O(εκ+1); κ+o(κ) in the growing-κ regime",
+      "displayBound": "O(ε⁻²n log⁴n) bits",
+      "theorem": "Theorem 10; Theorem 8 and equation (3)",
+      "setup": "turnstile",
+      "marks": [
+        {
+          "x": "relative",
+          "y": "upper"
+        }
+      ]
+    },
+    {
+      "id": "vertex-extended-vertex-stream-degeneracy-46",
+      "title": "Graph Coloring via Degeneracy in Streaming and Other Space-Conscious Models",
+      "authors": [
+        "Suman K. Bera",
+        "Amit Chakrabarti",
+        "Prantar Ghosh"
+      ],
+      "year": 2020,
+      "venue": "ICALP 2020",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2020.11",
+      "verifiedOn": "2026-10-27",
+      "sourceUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol168-icalp2020/LIPIcs.ICALP.2020.11/LIPIcs.ICALP.2020.11.pdf",
+      "sourceId": "bera-chakrabarti-ghosh-2020-degeneracy",
+      "paperId": "bera-chakrabarti-ghosh-2020-degeneracy",
+      "originalIds": [
+        "vertex-extended-vertex-stream-degeneracy-46"
+      ],
+      "sliceId": "vertex-stream-degeneracy",
+      "kind": "lower",
+      "graph": "Simple undirected n-vertex graph",
+      "quality": "κ+λ, integer λ>1",
+      "output": "Explicit proper coloring",
+      "oracle": "Graph-edge stream; working space in bits up to logarithmic encoding factors",
+      "probability": "Success at least 2/3",
+      "randomized": true,
+      "passes": "1",
+      "stream": "Insertion only; adversarial order independent of random choices",
+      "accounting": "Randomness included in working memory",
+      "notes": "Even insertion-only and κ known in advance. Constant λ gives quadratic space; this is a different accuracy than the relative-slack upper.",
+      "assumptions": [
+        "Simple undirected n-vertex graph",
+        "Insertion only; adversarial order independent of random choices",
+        "1 pass(es)",
+        "Randomness included in working memory"
+      ],
+      "panel": "degeneracy",
+      "shortName": "BCG20",
+      "palette": "κ+λ, integer λ>1",
+      "displayBound": "Ω(n²/λ²) bits",
+      "theorem": "Theorems 20–21",
+      "setup": "insertion",
+      "marks": [
+        {
+          "x": "additive",
+          "y": "lower"
+        }
+      ]
+    },
+    {
+      "id": "vertex-result-39",
+      "title": "Near-Optimal Distributed Degree+1 Coloring",
+      "authors": [
+        "Magnús M. Halldórsson",
+        "Fabian Kuhn",
+        "Alexandre Nolin",
+        "Tigran Tonoyan"
+      ],
+      "year": 2022,
+      "venue": "STOC 2022",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2112.00604",
+      "verifiedOn": "2026-10-27",
+      "sourceUrl": "https://arxiv.org/html/2112.00604",
+      "sourceId": "halldorsson-kuhn-nolin-tonoyan-2022-degree",
+      "paperId": "halldorsson-kuhn-nolin-tonoyan-2022-degree",
+      "originalIds": [
+        "vertex-result-39"
+      ],
+      "sliceId": "vertex-stream-degree-one-list",
+      "kind": "algorithm",
+      "graph": "Simple undirected n-vertex graph",
+      "quality": "Each vertex chooses from its own final dᵥ+1 list",
+      "output": "Explicit proper coloring",
+      "oracle": "Graph-edge stream; working space in bits up to logarithmic encoding factors",
+      "probability": "With high probability",
+      "randomized": true,
+      "passes": "1",
+      "stream": "Turnstile; final list precedes first incident edge",
+      "accounting": "Randomness included in working memory",
+      "notes": "The final list of each vertex must arrive before any incident edge. Source space assumes ordinary bounded-size vertex/color encodings.",
+      "assumptions": [
+        "Simple undirected n-vertex graph",
+        "Turnstile; final list precedes first incident edge",
+        "1 pass(es)",
+        "Randomness included in working memory"
+      ],
+      "panel": "final",
+      "shortName": "HKNT22",
+      "palette": "Each vertex chooses from its own final dᵥ+1 list",
+      "displayBound": "Õ(n) space; one pass",
+      "theorem": "Corollary 3(1); §8 Streaming",
+      "setup": "turnstile",
+      "marks": [
+        {
+          "x": "list",
+          "y": "semi"
+        }
+      ]
+    },
+    {
+      "id": "vertex-stream-random-order-chromatic-2026",
+      "title": "Coloring Graphs with Few Colors in the Streaming Model",
+      "authors": [
+        "Sepehr Assadi",
+        "Janani Sundaresan",
+        "Helia Yazdanyar"
+      ],
+      "year": 2026,
+      "venue": "SODA 2026",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2510.18177",
+      "verifiedOn": "2026-10-27",
+      "sourceUrl": "https://arxiv.org/html/2510.18177",
+      "sourceId": "assadi-sundaresan-yazdanyar-2026-streaming-few-colors",
+      "paperId": "assadi-sundaresan-yazdanyar-2026-streaming-few-colors",
+      "originalIds": [
+        "vertex-stream-random-order-chromatic-2026"
+      ],
+      "sliceId": "vertex-stream-random-order-chromatic-gap",
+      "kind": "algorithm",
+      "graph": "Simple undirected n-vertex graph",
+      "quality": "Promise χ≤q versus χ>q^t, integers q,t≥2",
+      "output": "Chromatic-gap decision",
+      "oracle": "Graph-edge stream; working space in bits up to logarithmic encoding factors",
+      "probability": "Exponentially high probability over edge order",
+      "randomized": true,
+      "passes": "1",
+      "stream": "Random-order insertion stream",
+      "accounting": "Randomness included in working memory",
+      "notes": "Stored subgraphs may be solved by exhaustive computation. This is a space result, not a polynomial-time guarantee.",
+      "assumptions": [
+        "Simple undirected n-vertex graph",
+        "Random-order insertion stream",
+        "1 pass(es)",
+        "Randomness included in working memory"
+      ],
+      "panel": "random_gap",
+      "shortName": "ASY26",
+      "palette": "Promise χ≤q versus χ>q^t, integers q,t≥2",
+      "displayBound": "Õ(n^{1+1/t}) space",
+      "theorem": "Theorem 4; §7.1",
+      "setup": "random",
+      "marks": [
+        {
+          "x": "power",
+          "y": "upper"
+        }
+      ]
+    },
+    {
+      "id": "vertex-extra-62",
+      "title": "Coloring Graphs with Few Colors in the Streaming Model",
+      "authors": [
+        "Sepehr Assadi",
+        "Janani Sundaresan",
+        "Helia Yazdanyar"
+      ],
+      "year": 2026,
+      "venue": "SODA 2026",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2510.18177",
+      "verifiedOn": "2026-10-27",
+      "sourceUrl": "https://arxiv.org/html/2510.18177",
+      "sourceId": "assadi-sundaresan-yazdanyar-2026-streaming-few-colors",
+      "paperId": "assadi-sundaresan-yazdanyar-2026-streaming-few-colors",
+      "originalIds": [
+        "vertex-extra-62"
+      ],
+      "sliceId": "vertex-stream-random-order-chromatic-gap",
+      "kind": "lower",
+      "graph": "Simple undirected n-vertex graph",
+      "quality": "Promise χ≤q versus χ>q²/4",
+      "output": "Chromatic-gap decision",
+      "oracle": "Graph-edge stream; working space in bits up to logarithmic encoding factors",
+      "probability": "Success at least 1−2^{−q⁴}/4",
+      "randomized": true,
+      "passes": "1",
+      "stream": "Random-order insertion stream",
+      "accounting": "Randomness included in working memory",
+      "notes": "Integer q≥5 for a nonvacuous gap, q=o(log^{1/4}n). Theorem allows q≥3 but q≤4 gives an overlapping promise. Gap and success differ from the upper: not a matching q² frontier.",
+      "assumptions": [
+        "Simple undirected n-vertex graph",
+        "Random-order insertion stream",
+        "1 pass(es)",
+        "Randomness included in working memory"
+      ],
+      "panel": "random_gap",
+      "shortName": "ASY26",
+      "palette": "Promise χ≤q versus χ>q²/4",
+      "displayBound": "Ω(n²/(q⁵·4^{q⁴})) bits; Ω(n²) for fixed q",
+      "theorem": "Theorem 5; §7.2",
+      "setup": "random",
+      "marks": [
+        {
+          "x": "squarequarter",
+          "y": "lower"
+        }
+      ]
+    },
+    {
+      "id": "vertex-stream-turnstile-chromatic-upper-2026",
+      "title": "Coloring Graphs with Few Colors in the Streaming Model",
+      "authors": [
+        "Sepehr Assadi",
+        "Janani Sundaresan",
+        "Helia Yazdanyar"
+      ],
+      "year": 2026,
+      "venue": "SODA 2026",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2510.18177",
+      "verifiedOn": "2026-10-27",
+      "sourceUrl": "https://arxiv.org/html/2510.18177",
+      "sourceId": "assadi-sundaresan-yazdanyar-2026-streaming-few-colors",
+      "paperId": "assadi-sundaresan-yazdanyar-2026-streaming-few-colors",
+      "originalIds": [
+        "vertex-stream-turnstile-chromatic-upper-2026"
+      ],
+      "sliceId": "vertex-stream-dynamic-chromatic-gap",
+      "kind": "algorithm",
+      "graph": "Final edge multiplicities polynomial in n",
+      "quality": "Promise χ≤q versus χ≥qt",
+      "output": "Chromatic-gap decision",
+      "oracle": "Graph-edge stream; working space in bits up to logarithmic encoding factors",
+      "probability": "With high probability",
+      "randomized": true,
+      "passes": "1",
+      "stream": "General turnstile multigraph",
+      "accounting": "Randomness included in working memory",
+      "notes": "Integers q,t; display t≥2 and qt≤n to keep the promise nonoverlapping and nonvacuous. Exact chromatic computations may be exponential.",
+      "assumptions": [
+        "Final edge multiplicities polynomial in n",
+        "General turnstile multigraph",
+        "1 pass(es)",
+        "Randomness included in working memory"
+      ],
+      "panel": "dynamic_gap",
+      "shortName": "ASY26",
+      "palette": "Promise χ≤q versus χ≥qt",
+      "displayBound": "Õ(n²/t²) space",
+      "theorem": "Theorem 6; §8.1",
+      "setup": "turnstile",
+      "marks": [
+        {
+          "x": "gap",
+          "y": "space",
+          "dx": -25,
+          "tag": "upper"
+        }
+      ]
+    },
+    {
+      "id": "vertex-extra-61",
+      "title": "Coloring Graphs with Few Colors in the Streaming Model",
+      "authors": [
+        "Sepehr Assadi",
+        "Janani Sundaresan",
+        "Helia Yazdanyar"
+      ],
+      "year": 2026,
+      "venue": "SODA 2026",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2510.18177",
+      "verifiedOn": "2026-10-27",
+      "sourceUrl": "https://arxiv.org/html/2510.18177",
+      "sourceId": "assadi-sundaresan-yazdanyar-2026-streaming-few-colors",
+      "paperId": "assadi-sundaresan-yazdanyar-2026-streaming-few-colors",
+      "originalIds": [
+        "vertex-extra-61"
+      ],
+      "sliceId": "vertex-stream-dynamic-chromatic-gap",
+      "kind": "lower",
+      "graph": "Final multiplicities O(n); no restriction on stream length or intermediate frequencies",
+      "quality": "Promise χ≤q versus χ≥qt",
+      "output": "Chromatic-gap decision",
+      "oracle": "Graph-edge stream; working space in bits up to logarithmic encoding factors",
+      "probability": "High constant success probability",
+      "randomized": true,
+      "passes": "1",
+      "stream": "General turnstile multigraph",
+      "accounting": "Randomness included in working memory",
+      "notes": "3≤q≤polylog n; integer t≥2, qt≤n in this view. Matches upper up to logarithms on the common multigraph contract, not necessarily on short simple-graph streams.",
+      "assumptions": [
+        "Final multiplicities O(n); no restriction on stream length or intermediate frequencies",
+        "General turnstile multigraph",
+        "1 pass(es)",
+        "Randomness included in working memory"
+      ],
+      "panel": "dynamic_gap",
+      "shortName": "ASY26",
+      "palette": "Promise χ≤q versus χ≥qt",
+      "displayBound": "Ω̃(n²/t²) bits",
+      "theorem": "Theorem 7; §8.2 and Remark 8.1",
+      "setup": "turnstile",
+      "marks": [
+        {
+          "x": "gap",
+          "y": "space",
+          "dx": 25,
+          "tag": "lower"
+        }
+      ]
+    }
+  ],
+  "relatedResults": [],
+  "panels": [
+    {
+      "id": "final",
+      "label": "Final coloring",
+      "subtitle": "One pass · randomization · final output",
+      "color": "final",
+      "xLabel": "Palette / output contract",
+      "yLabel": "Space classes",
+      "x": [
+        {
+          "id": "minus",
+          "label": "Δ−1",
+          "short": "Δ−1"
+        },
+        {
+          "id": "brooks",
+          "label": "Δ",
+          "short": "Δ"
+        },
+        {
+          "id": "plus",
+          "label": "Δ+1",
+          "short": "Δ+1"
+        },
+        {
+          "id": "near",
+          "label": "(1+ε)Δ",
+          "short": "(1+ε)Δ"
+        },
+        {
+          "id": "list",
+          "label": "dᵥ+1 list",
+          "short": "dᵥ+1 list"
+        }
+      ],
+      "y": [
+        {
+          "id": "semi",
+          "label": "Õ(n)",
+          "short": "Õ(n)"
+        },
+        {
+          "id": "linear",
+          "label": "Ω(n)",
+          "short": "Ω(n)"
+        }
+      ],
+      "notes": [
+        "Δ−1: Δ≥Δ₀, no Δ-clique; Δ: obstruction test.",
+        "Near-Δ: fixed ε, large Δ. List arrives before edges."
+      ]
+    },
+    {
+      "id": "passes",
+      "label": "Deterministic passes",
+      "subtitle": "Semi-streaming · palette versus passes",
+      "color": "passes",
+      "xLabel": "Palette class",
+      "yLabel": "Passes",
+      "x": [
+        {
+          "id": "plus",
+          "label": "Δ+1",
+          "short": "Δ+1"
+        },
+        {
+          "id": "linear",
+          "label": "O(Δ)",
+          "short": "O(Δ)"
+        },
+        {
+          "id": "square",
+          "label": "O(Δ²)",
+          "short": "O(Δ²)"
+        }
+      ],
+      "y": [
+        {
+          "id": "loglog",
+          "label": "O(logΔ loglogΔ)",
+          "short": "logΔ loglogΔ"
+        },
+        {
+          "id": "log",
+          "label": "O(logΔ)",
+          "short": "logΔ"
+        },
+        {
+          "id": "sqrt",
+          "label": "O(√logΔ)",
+          "short": "√logΔ"
+        },
+        {
+          "id": "two",
+          "label": "2",
+          "short": "2"
+        },
+        {
+          "id": "one",
+          "label": "1",
+          "short": "1"
+        }
+      ],
+      "notes": [
+        "ACS22 also allows deletions; CCZ26 is insertion only.",
+        "Red barrier: no exp(Δ^{o(1)}) palette in one pass."
+      ]
+    },
+    {
+      "id": "robust",
+      "label": "Adaptive outputs",
+      "subtitle": "One pass · next edge may depend on past colors",
+      "color": "robust",
+      "xLabel": "Palette K (symbolic classes)",
+      "yLabel": "Working space",
+      "x": [
+        {
+          "id": "sevenfour",
+          "label": "O(Δ^{7/4})",
+          "short": "O(Δ^{7/4})"
+        },
+        {
+          "id": "square",
+          "label": "O(Δ²)",
+          "short": "O(Δ²)"
+        },
+        {
+          "id": "fivehalf",
+          "label": "O(Δ^{5/2})",
+          "short": "O(Δ^{5/2})"
+        },
+        {
+          "id": "cube",
+          "label": "O(Δ³)",
+          "short": "O(Δ³)"
+        }
+      ],
+      "y": [
+        {
+          "id": "sqrt",
+          "label": "Õ(n√Δ)",
+          "short": "Õ(n√Δ)"
+        },
+        {
+          "id": "third",
+          "label": "Õ(nΔ^{1/3})",
+          "short": "Õ(nΔ^{1/3})"
+        },
+        {
+          "id": "semi",
+          "label": "Õ(n)",
+          "short": "Õ(n)"
+        }
+      ],
+      "notes": [
+        "Hollow halo: external random tape excluded.",
+        "Lower: Ω(nΔ²/K) bits, Δ+1≤K≤n/2; even free randomness."
+      ]
+    },
+    {
+      "id": "degeneracy",
+      "label": "Degeneracy κ",
+      "subtitle": "One pass · additive and relative slack differ",
+      "color": "degeneracy",
+      "xLabel": "Palette / accuracy class",
+      "yLabel": "Space formulas",
+      "x": [
+        {
+          "id": "additive",
+          "label": "κ+λ",
+          "short": "κ+λ"
+        },
+        {
+          "id": "relative",
+          "label": "κ+O(εκ+1)",
+          "short": "κ+O(εκ+1)"
+        }
+      ],
+      "y": [
+        {
+          "id": "lower",
+          "label": "Ω(n²/λ²)",
+          "short": "Ω(n²/λ²)"
+        },
+        {
+          "id": "upper",
+          "label": "O(ε^{−2}n log⁴n)",
+          "short": "O(ε^{−2}n log⁴n)"
+        }
+      ],
+      "notes": [
+        "Upper: turnstile. Lower: even insertion only, known κ.",
+        "Integer λ>1; success≥2/3. Different slack, no tight frontier."
+      ]
+    },
+    {
+      "id": "random_gap",
+      "label": "Random-order decision",
+      "subtitle": "One pass · χ≤q versus a higher chromatic threshold",
+      "color": "decision",
+      "xLabel": "High-χ promise",
+      "yLabel": "Space formulas",
+      "x": [
+        {
+          "id": "power",
+          "label": "χ>q^{t}",
+          "short": "χ>q^{t}"
+        },
+        {
+          "id": "squarequarter",
+          "label": "χ>q²/4",
+          "short": "χ>q²/4"
+        }
+      ],
+      "y": [
+        {
+          "id": "upper",
+          "label": "Õ(n^{1+1/t})",
+          "short": "Õ(n^{1+1/t})"
+        },
+        {
+          "id": "lower",
+          "label": "Ω(n²/(q⁵4^{q⁴}))",
+          "short": "Ω(n²/(q⁵4^{q⁴}))"
+        }
+      ],
+      "notes": [
+        "Upper: integers q,t≥2; exponential success over order.",
+        "Lower: q≥5, q=o(log^{1/4}n); success≥1−2^{−q⁴}/4."
+      ]
+    },
+    {
+      "id": "dynamic_gap",
+      "label": "Turnstile decision",
+      "subtitle": "One pass · general multigraph streams",
+      "color": "decision",
+      "xLabel": "Common promise: χ≤q versus χ≥qt",
+      "yLabel": "Space family",
+      "x": [
+        {
+          "id": "gap",
+          "label": "q versus qt",
+          "short": "q versus qt"
+        }
+      ],
+      "y": [
+        {
+          "id": "space",
+          "label": "n²/t² (up to logs)",
+          "short": "n²/t² (up to logs)"
+        }
+      ],
+      "notes": [
+        "Common range: 3≤q≤polylog n, integers t≥2, qt≤n.",
+        "Lower permits unbounded stream length / intermediate frequencies."
+      ]
+    }
+  ],
+  "figureAxes": {
+    "final": {
+      "x": {
+        "label": "Palette / output contract (categorical)",
+        "categories": [
+          {
+            "id": "minus",
+            "label": "Δ−1",
+            "short": "Δ−1"
+          },
+          {
+            "id": "brooks",
+            "label": "Δ",
+            "short": "Δ"
+          },
+          {
+            "id": "plus",
+            "label": "Δ+1",
+            "short": "Δ+1"
+          },
+          {
+            "id": "near",
+            "label": "(1+ε)Δ",
+            "short": "(1+ε)Δ"
+          },
+          {
+            "id": "list",
+            "label": "dᵥ+1 list",
+            "short": "dᵥ+1 list"
+          }
+        ]
+      },
+      "y": {
+        "label": "Space classes (symbolic categories, not a universal ranking)",
+        "categories": [
+          {
+            "id": "semi",
+            "label": "Õ(n)",
+            "short": "Õ(n)"
+          },
+          {
+            "id": "linear",
+            "label": "Ω(n)",
+            "short": "Ω(n)"
+          }
+        ]
+      }
+    },
+    "passes": {
+      "x": {
+        "label": "Palette class (categorical)",
+        "categories": [
+          {
+            "id": "plus",
+            "label": "Δ+1",
+            "short": "Δ+1"
+          },
+          {
+            "id": "linear",
+            "label": "O(Δ)",
+            "short": "O(Δ)"
+          },
+          {
+            "id": "square",
+            "label": "O(Δ²)",
+            "short": "O(Δ²)"
+          }
+        ]
+      },
+      "y": {
+        "label": "Passes (symbolic categories, not a universal ranking)",
+        "categories": [
+          {
+            "id": "loglog",
+            "label": "O(logΔ loglogΔ)",
+            "short": "logΔ loglogΔ"
+          },
+          {
+            "id": "log",
+            "label": "O(logΔ)",
+            "short": "logΔ"
+          },
+          {
+            "id": "sqrt",
+            "label": "O(√logΔ)",
+            "short": "√logΔ"
+          },
+          {
+            "id": "two",
+            "label": "2",
+            "short": "2"
+          },
+          {
+            "id": "one",
+            "label": "1",
+            "short": "1"
+          }
+        ]
+      }
+    },
+    "robust": {
+      "x": {
+        "label": "Palette K (symbolic classes) (categorical)",
+        "categories": [
+          {
+            "id": "sevenfour",
+            "label": "O(Δ^{7/4})",
+            "short": "O(Δ^{7/4})"
+          },
+          {
+            "id": "square",
+            "label": "O(Δ²)",
+            "short": "O(Δ²)"
+          },
+          {
+            "id": "fivehalf",
+            "label": "O(Δ^{5/2})",
+            "short": "O(Δ^{5/2})"
+          },
+          {
+            "id": "cube",
+            "label": "O(Δ³)",
+            "short": "O(Δ³)"
+          }
+        ]
+      },
+      "y": {
+        "label": "Working space (symbolic categories, not a universal ranking)",
+        "categories": [
+          {
+            "id": "sqrt",
+            "label": "Õ(n√Δ)",
+            "short": "Õ(n√Δ)"
+          },
+          {
+            "id": "third",
+            "label": "Õ(nΔ^{1/3})",
+            "short": "Õ(nΔ^{1/3})"
+          },
+          {
+            "id": "semi",
+            "label": "Õ(n)",
+            "short": "Õ(n)"
+          }
+        ]
+      }
+    },
+    "degeneracy": {
+      "x": {
+        "label": "Palette / accuracy class (categorical)",
+        "categories": [
+          {
+            "id": "additive",
+            "label": "κ+λ",
+            "short": "κ+λ"
+          },
+          {
+            "id": "relative",
+            "label": "κ+O(εκ+1)",
+            "short": "κ+O(εκ+1)"
+          }
+        ]
+      },
+      "y": {
+        "label": "Space formulas (symbolic categories, not a universal ranking)",
+        "categories": [
+          {
+            "id": "lower",
+            "label": "Ω(n²/λ²)",
+            "short": "Ω(n²/λ²)"
+          },
+          {
+            "id": "upper",
+            "label": "O(ε^{−2}n log⁴n)",
+            "short": "O(ε^{−2}n log⁴n)"
+          }
+        ]
+      }
+    },
+    "random_gap": {
+      "x": {
+        "label": "High-χ promise (categorical)",
+        "categories": [
+          {
+            "id": "power",
+            "label": "χ>q^{t}",
+            "short": "χ>q^{t}"
+          },
+          {
+            "id": "squarequarter",
+            "label": "χ>q²/4",
+            "short": "χ>q²/4"
+          }
+        ]
+      },
+      "y": {
+        "label": "Space formulas (symbolic categories, not a universal ranking)",
+        "categories": [
+          {
+            "id": "upper",
+            "label": "Õ(n^{1+1/t})",
+            "short": "Õ(n^{1+1/t})"
+          },
+          {
+            "id": "lower",
+            "label": "Ω(n²/(q⁵4^{q⁴}))",
+            "short": "Ω(n²/(q⁵4^{q⁴}))"
+          }
+        ]
+      }
+    },
+    "dynamic_gap": {
+      "x": {
+        "label": "Common promise: χ≤q versus χ≥qt (categorical)",
+        "categories": [
+          {
+            "id": "gap",
+            "label": "q versus qt",
+            "short": "q versus qt"
+          }
+        ]
+      },
+      "y": {
+        "label": "Space family (symbolic categories, not a universal ranking)",
+        "categories": [
+          {
+            "id": "space",
+            "label": "n²/t² (up to logs)",
+            "short": "n²/t² (up to logs)"
+          }
+        ]
+      }
+    }
+  },
+  "coverage": "Bounded review: all 22 supplied records from 11 primary sources. Construction and promise decision remain separate; no claim of complete literature coverage.",
+  "lowerBoundStatus": "Verified lower bounds are scoped to deterministic one pass, adaptive-output coloring, Brooks palettes, degeneracy accuracy, or chromatic-gap decision. No new generic randomized Δ+1 streaming lower is inferred.",
+  "sourceVerification": [
+    {
+      "id": "vertex-stream-ack-2019",
+      "url": "https://arxiv.org/html/1807.08886",
+      "theorem": "Theorem 2, §4.1",
+      "verifiedOn": "2026-10-27",
+      "scope": "Turnstile; final maximum degree Δ"
+    },
+    {
+      "id": "vertex-stream-deterministic-odelta-2026",
+      "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol374-icalp2026/html/LIPIcs.ICALP.2026.56/LIPIcs.ICALP.2026.56.html",
+      "theorem": "Theorem 2; §3",
+      "verifiedOn": "2026-10-27",
+      "scope": "Insertion only; adversarial order independent of random choices"
+    },
+    {
+      "id": "vertex-result-23",
+      "url": "https://arxiv.org/html/2109.14891",
+      "theorem": "Theorem 3; §5.4 dynamic extension",
+      "verifiedOn": "2026-10-27",
+      "scope": "Insertion or turnstile"
+    },
+    {
+      "id": "vertex-extended-vertex-stream-deterministic-multipass-degree-palette-16",
+      "url": "https://arxiv.org/html/2109.14891",
+      "theorem": "Theorem 2; §5.4 extensions",
+      "verifiedOn": "2026-10-27",
+      "scope": "Insertion or turnstile"
+    },
+    {
+      "id": "vertex-extended-vertex-stream-deterministic-multipass-degree-palette-17",
+      "url": "https://arxiv.org/html/2212.10641",
+      "theorem": "Theorem 1, restated as Theorem 5",
+      "verifiedOn": "2026-10-27",
+      "scope": "Insertion only; adversarial order independent of random choices"
+    },
+    {
+      "id": "vertex-result-26",
+      "url": "https://arxiv.org/html/2109.14891",
+      "theorem": "Result 1; Corollary 4.7(i)",
+      "verifiedOn": "2026-10-27",
+      "scope": "Insertion only; adversarial order independent of random choices"
+    },
+    {
+      "id": "vertex-result-27",
+      "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol215-itcs2022/LIPIcs.ITCS.2022.37/LIPIcs.ITCS.2022.37.pdf",
+      "theorem": "Theorem 1; §4 lower bound",
+      "verifiedOn": "2026-10-27",
+      "scope": "Insertion only; adaptive to previous colorings"
+    },
+    {
+      "id": "vertex-extended-vertex-stream-robust-incremental-37",
+      "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol215-itcs2022/LIPIcs.ITCS.2022.37/LIPIcs.ITCS.2022.37.pdf",
+      "theorem": "Theorem 10; Table 1",
+      "verifiedOn": "2026-10-27",
+      "scope": "Insertion only; adaptive to previous colorings"
+    },
+    {
+      "id": "vertex-extended-vertex-stream-robust-incremental-38",
+      "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol215-itcs2022/LIPIcs.ITCS.2022.37/LIPIcs.ITCS.2022.37.pdf",
+      "theorem": "Corollary 15, k=2; Table 1",
+      "verifiedOn": "2026-10-27",
+      "scope": "Insertion only; adaptive to previous colorings"
+    },
+    {
+      "id": "vertex-extended-vertex-stream-robust-incremental-39",
+      "url": "https://arxiv.org/html/2212.10641",
+      "theorem": "Theorem 3; Algorithm 2 analysis",
+      "verifiedOn": "2026-10-27",
+      "scope": "Insertion only; adaptive to previous colorings"
+    },
+    {
+      "id": "vertex-extended-vertex-stream-robust-incremental-40",
+      "url": "https://arxiv.org/html/2212.10641",
+      "theorem": "Corollary 4.7, β=1/3 and β=1/2",
+      "verifiedOn": "2026-10-27",
+      "scope": "Insertion only; adaptive to previous colorings"
+    },
+    {
+      "id": "vertex-result-32",
+      "url": "https://arxiv.org/pdf/1807.07640",
+      "theorem": "Theorem 3.2 and §3 small-degree branch",
+      "verifiedOn": "2026-10-27",
+      "scope": "Insertion only; adversarial order independent of random choices"
+    },
+    {
+      "id": "vertex-result-33",
+      "url": "https://arxiv.org/html/2203.10984",
+      "theorem": "Theorem 1.1 and following general-graph reduction",
+      "verifiedOn": "2026-10-27",
+      "scope": "Insertion only; adversarial order independent of random choices"
+    },
+    {
+      "id": "vertex-extended-vertex-stream-brooks-43",
+      "url": "https://arxiv.org/html/2605.07774",
+      "theorem": "Theorem 1",
+      "verifiedOn": "2026-10-27",
+      "scope": "Insertion only; adversarial order independent of random choices"
+    },
+    {
+      "id": "vertex-extended-vertex-stream-brooks-44",
+      "url": "https://arxiv.org/html/2605.07774",
+      "theorem": "Theorem 2; §6 INDEX reduction",
+      "verifiedOn": "2026-10-27",
+      "scope": "Insertion only; adversarial order independent of random choices"
+    },
+    {
+      "id": "vertex-result-36",
+      "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol168-icalp2020/LIPIcs.ICALP.2020.11/LIPIcs.ICALP.2020.11.pdf",
+      "theorem": "Theorem 10; Theorem 8 and equation (3)",
+      "verifiedOn": "2026-10-27",
+      "scope": "Turnstile; polynomial stream length"
+    },
+    {
+      "id": "vertex-extended-vertex-stream-degeneracy-46",
+      "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol168-icalp2020/LIPIcs.ICALP.2020.11/LIPIcs.ICALP.2020.11.pdf",
+      "theorem": "Theorems 20–21",
+      "verifiedOn": "2026-10-27",
+      "scope": "Insertion only; adversarial order independent of random choices"
+    },
+    {
+      "id": "vertex-result-39",
+      "url": "https://arxiv.org/html/2112.00604",
+      "theorem": "Corollary 3(1); §8 Streaming",
+      "verifiedOn": "2026-10-27",
+      "scope": "Turnstile; final list precedes first incident edge"
+    },
+    {
+      "id": "vertex-stream-random-order-chromatic-2026",
+      "url": "https://arxiv.org/html/2510.18177",
+      "theorem": "Theorem 4; §7.1",
+      "verifiedOn": "2026-10-27",
+      "scope": "Random-order insertion stream"
+    },
+    {
+      "id": "vertex-extra-62",
+      "url": "https://arxiv.org/html/2510.18177",
+      "theorem": "Theorem 5; §7.2",
+      "verifiedOn": "2026-10-27",
+      "scope": "Random-order insertion stream"
+    },
+    {
+      "id": "vertex-stream-turnstile-chromatic-upper-2026",
+      "url": "https://arxiv.org/html/2510.18177",
+      "theorem": "Theorem 6; §8.1",
+      "verifiedOn": "2026-10-27",
+      "scope": "General turnstile multigraph"
+    },
+    {
+      "id": "vertex-extra-61",
+      "url": "https://arxiv.org/html/2510.18177",
+      "theorem": "Theorem 7; §8.2 and Remark 8.1",
+      "verifiedOn": "2026-10-27",
+      "scope": "General turnstile multigraph"
+    }
+  ]
+}

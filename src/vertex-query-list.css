@@ -1,0 +1,56 @@
+.vql-map{display:block;width:100%;height:auto;background:var(--surface);border-radius:12px}
+.vql-map .vql-heading{font:650 21px system-ui,sans-serif;fill:var(--ink)}
+.vql-map .vql-muted{font:14px system-ui,sans-serif;fill:var(--muted)}
+.vql-map .vql-label,.vql-map .vql-tick{font:14px system-ui,sans-serif;fill:var(--ink)}
+.vql-map .vql-axis-title{font:600 13px system-ui,sans-serif;fill:var(--muted)}
+.vql-map .vql-legend{font:13px system-ui,sans-serif;fill:var(--muted)}
+.vql-map .vql-bound{font:650 18px system-ui,sans-serif;fill:var(--green)}
+.vql-map .vql-palette{font:650 19px system-ui,sans-serif;fill:var(--ink)}
+.vql-map .vql-side-heading{font:600 15px system-ui,sans-serif;fill:var(--ink)}
+.vql-map .vql-decomp-bound{font:650 21px system-ui,sans-serif;fill:var(--blue)}
+.vql-map .vql-cost-title{font:600 13px system-ui,sans-serif;fill:var(--muted)}
+.vql-map .vql-cost-bound{font:650 19px system-ui,sans-serif;fill:var(--ink)}
+.vql-map .vql-note,.vql-map .vql-empty{font:12px system-ui,sans-serif;fill:var(--muted)}
+.vql-map .vql-callout{font:600 14px system-ui,sans-serif;fill:var(--ink)}
+.vql-map .vql-upper{fill:var(--green);stroke:var(--surface);stroke-width:1}
+.vql-map .vql-axis{fill:none;stroke:var(--muted);stroke-width:1.2}
+.vql-map .vql-grid{fill:none;stroke:var(--line);stroke-width:1;stroke-dasharray:3 4}
+.vql-map .vql-rule{fill:none;stroke:var(--line);stroke-width:1}
+.vql-map .vql-cost-bg{fill:var(--soft);stroke:var(--line);stroke-width:1}
+.vql-map .vql-hit{fill:transparent;stroke:none}
+.vql-map .vql-selection{fill:none;stroke:var(--ink);stroke-width:1.2;stroke-dasharray:3 3}
+.vql-point[role=button]{cursor:pointer;outline:none}
+.vql-point[role=button]:focus .vql-selection{stroke:var(--blue);stroke-width:3}
+.vql-map[data-detail-level=compact] .vql-heading{font-size:14px}
+.vql-map[data-detail-level=compact] .vql-legend{font-size:11px}
+.vql-map[data-detail-level=compact] .vql-axis-title{font-size:11px}
+.vql-map[data-detail-level=compact] .vql-tick{font-size:12px}
+.vql-map[data-detail-level=compact] .vql-bound{font-size:13px}
+.vql-map[data-detail-level=compact] .vql-palette{font-size:15px}
+.vql-map[data-detail-level=compact] .vql-note{font-size:10px}
+.vql-toolbar{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;margin:18px 0;color:var(--muted);font-size:13px}
+.vql-toolbar label{display:flex;align-items:center;gap:8px}
+.vql-toolbar select{background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:7px;padding:8px}
+.vql-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+.vql-plot{min-width:680px}
+.vql-read,.vql-coverage{color:var(--muted);font-size:13px;line-height:1.65;margin:14px 0}
+.vql-theorem{background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:12px;padding:20px;margin:18px 0;line-height:1.6}
+.vql-detail-head{display:flex;gap:13px;align-items:baseline;flex-wrap:wrap}
+.vql-detail-head>span:last-child{color:var(--muted);font-size:12px}
+.vql-green{color:var(--green)}
+.vql-detail-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px;margin:18px 0}
+.vql-detail-grid small{display:block;color:var(--muted);font-size:12px}
+.vql-detail-grid strong{display:block;overflow-wrap:anywhere}
+.vql-theorem h3{font-size:15px;margin:12px 0 6px}
+.vql-theorem h4{font-size:14px}
+.vql-theorem p,.vql-theorem li{font-size:13px;overflow-wrap:anywhere}
+.vql-theorem a{color:var(--blue)}
+.vql-source-list{color:var(--ink);margin:18px 0}
+.vql-source-list summary{cursor:pointer}
+.vql-records{display:grid;gap:10px;margin-top:13px}
+.vql-record{display:flex;flex-direction:column;gap:5px;text-align:left;padding:13px;border:1px solid var(--line);border-radius:9px;background:var(--surface);color:var(--ink);cursor:pointer}
+.vql-record[aria-pressed=true]{border-color:var(--green)}
+.vql-record span{color:var(--green)}
+.vql-record small{color:var(--muted)}
+.vql-toolbar select:focus-visible,.vql-record:focus-visible,.vql-scroll:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+@media(max-width:600px){.vql-detail-grid{grid-template-columns:1fr}.vql-theorem{padding:15px}.vql-toolbar label{flex-wrap:wrap}}

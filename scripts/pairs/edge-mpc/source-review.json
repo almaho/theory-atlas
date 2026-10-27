@@ -1,0 +1,67 @@
+{
+  "pair": "edge-mpc",
+  "checkedOn": "2026-10-27",
+  "boundedSources": 2,
+  "originalRecords": 3,
+  "originalSlices": 2,
+  "status": "verified",
+  "sources": [
+    {
+      "sourceId": "behnezhad-et-al-2019-mpc-stream",
+      "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol144-esa2019/LIPIcs.ESA.2019.15/LIPIcs.ESA.2019.15.pdf",
+      "checkedOn": "2026-10-27",
+      "theorems": [
+        "Theorem 1",
+        "Corollary 2",
+        "Corollary 3 (scope note only)",
+        "Lemma 7"
+      ],
+      "note": "Corollary 2 verifies constant rounds and linear local memory; paper measures memory in words. Polynomial-degree extension is a separate regime."
+    },
+    {
+      "sourceId": "czumaj-davies-parter-2024-mpc",
+      "url": "https://link.springer.com/article/10.1007/s00446-024-00461-9",
+      "checkedOn": "2026-10-27",
+      "theorems": [
+        "Theorem 20",
+        "Theorem 21",
+        "Lemma 17",
+        "End of Section 4.2"
+      ],
+      "note": "Conditional component-stable lower separated from deterministic component-unstable upper. Palette comparison only for sufficiently large fixed Δ; computation n^{poly(Δ)} remains visible."
+    }
+  ],
+  "corrections": [
+    {
+      "id": "mpc-near-delta-constant-round-2019",
+      "change": "Corollary 2 theorem verified; words rather than bits; logarithms in additive palette depend on n; high-degree Corollary 3 is not the low-degree setting."
+    },
+    {
+      "id": "edge-mpc-cdp24-upper",
+      "change": "Retain low degree, component instability, total space and n^{poly(Δ)} local computation. No invented exponent for poly(Δ)."
+    },
+    {
+      "id": "edge-mpc-cdp24-lower",
+      "change": "Conditional deterministic component-stable lower only; log(log_Δ n) grouping retained; even forests and polynomial total space."
+    }
+  ],
+  "representation": {
+    "axes": "Exact palette/setup rows and symbolic round-formula columns in separate memory facets",
+    "conditionalStyle": "Dashed red ring and hollow triangle; explicit conditional text outside overview",
+    "setupColors": "Blue linear-memory, violet unstable low-space, ochre stable low-space; green/red denote theorem kind",
+    "largeFixedDegree": "Inspector only; palette inequality is not asserted for every small Δ",
+    "localComputation": "Include all standard MPC bounds with visible n^{poly(Δ)} badge; optional user answer remains pending"
+  },
+  "validation": {
+    "regression": "PASS in-memory Node VM; source scopes, original IDs, filtering, keyboard, lifecycle, escaping; eight sizes",
+    "sharedSchema": "PASS actual build.validate and build.load_pairs with read-only virtual overlay; 20 registrations",
+    "staticRender": "Inspected rasterized SVG with atlas text reset at 738×548, 330×245, 200×140; no overlap, overview no text",
+    "liveBrowser": "Pending root integration QA"
+  },
+  "notClaimed": [
+    "Unconditional or randomized low-space lower",
+    "A single tight frontier across stability/memory models",
+    "Near-Δ palette at bounded degree from the 2019 tilde shorthand",
+    "Polynomial local computation for varying Δ in Theorem 21"
+  ]
+}

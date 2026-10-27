@@ -1,0 +1,554 @@
+{
+  "problem": "cc",
+  "model": "mpc",
+  "slices": [
+    {
+      "id": "cc-mpc-constant-sublinear",
+      "problem": "cc",
+      "model": "mpc",
+      "label": "Constant-round MPC with sublinear per-machine memory",
+      "task": "Output a constant-factor approximation to minimum disagreements",
+      "assumptions": [
+        "Complete signed graph",
+        "Machine memory sublinear in n"
+      ],
+      "xAxis": {
+        "label": "Approximation factor α = cost / OPT",
+        "kind": "approximation",
+        "min": 1,
+        "max": 6,
+        "ticks": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "yAxis": {
+        "label": "Asymptotic round class (ordinal tiers)",
+        "kind": "ordinal",
+        "min": 0,
+        "max": 5,
+        "ticks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "tickLabels": [
+          "O(1)",
+          "log log log n",
+          "log log n",
+          "(log log n)^k",
+          "√log n",
+          "≥ log n"
+        ]
+      },
+      "parameters": {},
+      "results": [
+        {
+          "id": "cc-mpc-constant",
+          "paperId": "cohenaddad-2021-mpc",
+          "kind": "upper",
+          "bound": "O(1) MPC rounds with sublinear per-machine memory",
+          "guarantee": "Constant-factor approximation",
+          "sourceLocation": "Abstract",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "historical",
+          "notes": "Factor and memory exponent unspecified in abstract; keep symbolic pending full-text audit.",
+          "plot": null
+        },
+        {
+          "id": "cc-mpc-focs22-3plus",
+          "paperId": "behnezhad-2022-constant-rounds",
+          "kind": "upper",
+          "bound": "O(1/ε) MPC rounds, sublinear per-machine memory",
+          "guarantee": "(3+ε)-approximate partition",
+          "sourceLocation": "FOCS 2022 abstract",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "Run complexity depends on ε, separate from quality-stronger combinatorial 2024 MPC.",
+          "plot": null
+        },
+        {
+          "id": "cc-mpc-combinatorial-1876",
+          "paperId": "cohenaddad-2024-combinatorial",
+          "kind": "upper",
+          "bound": "(εδ)⁻ᴼ⁽¹⁾ MPC rounds for fixed ε,δ; n^δ memory/machine and O(ε⁻ᴼ⁽¹⁾m log n) total memory",
+          "guarantee": "(2−2/13+ε)-approximate partition; below 1.847 for ε=0.0008",
+          "sourceLocation": "STOC 2024 full arXiv Section 1.1, Theorem 1; §2.1",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Strongly sublinear n^δ memory per machine for fixed δ>0; total memory scales with m positive edges. The conference theorem gives the same approximation expression in streaming and MPC models.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "cc-mpc-pruned-sublinear",
+      "problem": "cc",
+      "model": "mpc",
+      "label": "Strictly sublinear per-machine memory, Pivot quality",
+      "task": "Output explicit approximate clustering",
+      "assumptions": [
+        "Unweighted signed graph represented by positive edges",
+        "Randomized; machine memory sublinear in n",
+        "Fixed ε>0"
+      ],
+      "xAxis": {
+        "label": "Approximation factor α = cost / OPT",
+        "kind": "approximation",
+        "min": 1,
+        "max": 6,
+        "ticks": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "yAxis": {
+        "label": "Asymptotic round class (ordinal tiers)",
+        "kind": "ordinal",
+        "min": 0,
+        "max": 5,
+        "ticks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "tickLabels": [
+          "O(1)",
+          "log log log n",
+          "log log n",
+          "(log log n)^k",
+          "√log n",
+          "≥ log n"
+        ]
+      },
+      "parameters": {
+        "epsilon": "fixed positive constant"
+      },
+      "results": [
+        {
+          "id": "cc-mpc-pruned-3plus",
+          "paperId": "dalirrooyfard-2024-pruned-pivot",
+          "kind": "upper",
+          "bound": "O(log(1/ε)) rounds with sublinear memory per machine",
+          "guarantee": "(3+ε)-approximation",
+          "sourceLocation": "Theorem 1.2",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Improves the older O(1/ε) round bound at the same approximation regime.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "cc-mpc-sketch-linear-memory",
+      "problem": "cc",
+      "model": "mpc",
+      "label": "Near-linear per-machine messages, sketch and recovery",
+      "task": "Output explicit approximate clustering",
+      "assumptions": [
+        "O(1) rounds",
+        "Õ(n) message-size per machine, not n^δ strictly sublinear memory",
+        "Randomized and polynomial local postprocessing"
+      ],
+      "xAxis": {
+        "label": "Approximation factor α = cost / OPT",
+        "kind": "approximation",
+        "min": 1,
+        "max": 6,
+        "ticks": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "yAxis": {
+        "label": "Asymptotic round class (ordinal tiers)",
+        "kind": "ordinal",
+        "min": 0,
+        "max": 5,
+        "ticks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "tickLabels": [
+          "O(1)",
+          "log log log n",
+          "log log n",
+          "(log log n)^k",
+          "√log n",
+          "≥ log n"
+        ]
+      },
+      "parameters": {},
+      "results": [
+        {
+          "id": "cc-mpc-alphabest",
+          "paperId": "assadi-2025-desparsification",
+          "kind": "upper",
+          "bound": "O(1) rounds and Õ(n)-size messages per machine",
+          "guarantee": "(α_best+o(1))-approximation with high probability",
+          "sourceLocation": "Corollary 1.2",
+          "evidenceStatus": "verified",
+          "frontierStatus": "current_best_verified",
+          "notes": "Centralizing the sketch requires near-linear capacity on at least one machine; cannot merge with n^δ-memory slice. α_best is symbolic; paper predates 2025 correction.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "cc-mpc-polylog-below-three",
+      "problem": "cc",
+      "model": "mpc",
+      "label": "Polylog-round MPC, below-Pivot factor",
+      "task": "Output a signed complete-graph MinDisagree partition",
+      "assumptions": [
+        "Positive edges distributed across machines",
+        "Per-machine memory sublinear, aggregate work Õ(m^{3/2}) in SODA 2024"
+      ],
+      "xAxis": {
+        "label": "Approximation factor α = cost / OPT",
+        "kind": "approximation",
+        "min": 1,
+        "max": 6,
+        "ticks": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "yAxis": {
+        "label": "Asymptotic round class (ordinal tiers)",
+        "kind": "ordinal",
+        "min": 0,
+        "max": 5,
+        "ticks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "tickLabels": [
+          "O(1)",
+          "log log log n",
+          "log log n",
+          "(log log n)^k",
+          "√log n",
+          "≥ log n"
+        ]
+      },
+      "parameters": {},
+      "results": [
+        {
+          "id": "cc-mpc-cao-24",
+          "paperId": "cao-2024-parallel",
+          "kind": "upper",
+          "bound": "polylog(n) rounds; Õ(m^{1.5}) total work and memory",
+          "guarantee": "(2.4+ε)-approximate partition",
+          "sourceLocation": "SODA 2024 abstract",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "historical",
+          "notes": "First below-3 polylog-round MPC result; m is number of positive edges and aggregate resource can be superlinear.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "cc-mpc-bounded-arboricity",
+      "problem": "cc",
+      "model": "mpc",
+      "label": "Bounded positive-graph arboricity",
+      "task": "Output a minimum-disagreement partition",
+      "assumptions": [
+        "Positive-edge graph has arboricity λ",
+        "Strongly sublinear per-machine memory"
+      ],
+      "xAxis": {
+        "label": "Approximation factor α = cost / OPT",
+        "kind": "approximation",
+        "min": 1,
+        "max": 6,
+        "ticks": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "yAxis": {
+        "label": "Asymptotic round class (ordinal tiers)",
+        "kind": "ordinal",
+        "min": 0,
+        "max": 5,
+        "ticks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "tickLabels": [
+          "O(1)",
+          "log log log n",
+          "log log n",
+          "(log log n)^k",
+          "√log n",
+          "≥ log n"
+        ]
+      },
+      "parameters": {
+        "lambda": "positive-edge arboricity"
+      },
+      "results": [
+        {
+          "id": "cc-mpc-cambus-arboricity",
+          "paperId": "cambus-2021-arboricity",
+          "kind": "upper",
+          "bound": "O(log λ·poly(log log n)) MPC rounds",
+          "guarantee": "3-approximation in expectation",
+          "sourceLocation": "DISC 2021 abstract",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "historical",
+          "notes": "Arboricity-specific; forests λ=1 admit an exact reduction to matching per paper.",
+          "plot": null
+        },
+        {
+          "id": "cc-mpc-cambus-forest",
+          "paperId": "cambus-2021-arboricity",
+          "kind": "upper",
+          "bound": "MPC rounds inherited from graph-matching subroutine",
+          "guarantee": "Exact optimal clustering on positive-edge forests",
+          "sourceLocation": "DISC 2021 abstract, forest corollary",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "candidate",
+          "notes": "Do not generalize exactness to arbitrary arboricity; source gives structural reduction to matching.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "cc-mpc-all-symmetric-norms",
+      "problem": "cc",
+      "model": "mpc",
+      "label": "All monotone symmetric norms simultaneously",
+      "task": "Output one partition that approximates each norm of the per-vertex disagreement vector",
+      "assumptions": [
+        "Unweighted complete signed graph; positive edges distribute input",
+        "Each machine O(n^δ) space for arbitrarily small fixed δ"
+      ],
+      "xAxis": {
+        "label": "Approximation factor α = cost / OPT",
+        "kind": "approximation",
+        "min": 1,
+        "max": 6,
+        "ticks": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "yAxis": {
+        "label": "Asymptotic round class (ordinal tiers)",
+        "kind": "ordinal",
+        "min": 0,
+        "max": 5,
+        "ticks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "tickLabels": [
+          "O(1)",
+          "log log log n",
+          "log log n",
+          "(log log n)^k",
+          "√log n",
+          "≥ log n"
+        ]
+      },
+      "parameters": {},
+      "results": [
+        {
+          "id": "cc-mpc-allnorms-63",
+          "paperId": "cao-2025-all-norms",
+          "kind": "upper",
+          "bound": "O(log³n) MPC rounds; Õ(m/ε⁶) total memory/work",
+          "guarantee": "Simultaneous (63.3+O(ε))-approximation for every monotone symmetric norm with high probability",
+          "sourceLocation": "ICALP 2025 Theorem 3",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Includes total ℓ₁ disagreements as one norm but stronger requirement is simultaneous across all norms.",
+          "plot": null
+        },
+        {
+          "id": "cc-mpc-allnorms-359",
+          "paperId": "cao-2025-all-norms",
+          "kind": "upper",
+          "bound": "O(1) MPC rounds; Õ(m/ε²) total memory/work",
+          "guarantee": "Simultaneous (359+ε)-approximation for every monotone symmetric norm with high probability",
+          "sourceLocation": "ICALP 2025 Theorem 5",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Distinct quality-round tradeoff from ℓ₁-only MPC sketches.",
+          "plot": null
+        }
+      ]
+    }
+  ],
+  "papers": [
+    {
+      "id": "behnezhad-2022-constant-rounds",
+      "title": "Almost 3-Approximate Correlation Clustering in Constant Rounds",
+      "authors": [
+        "Soheil Behnezhad",
+        "Moses Charikar",
+        "Weiyun Ma",
+        "Li-Yang Tan"
+      ],
+      "year": 2022,
+      "venue": "FOCS 2022",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2205.03710",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "cohenaddad-2021-mpc",
+      "title": "Correlation Clustering in Constant Many Parallel Rounds",
+      "authors": [
+        "Vincent Cohen-Addad",
+        "Silvio Lattanzi",
+        "Slobodan Mitrović",
+        "Ashkan Norouzi-Fard",
+        "Nikos Parotsidis",
+        "Jakub Tarnawski"
+      ],
+      "year": 2021,
+      "venue": "ICML 2021",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2106.08448",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "dalirrooyfard-2024-pruned-pivot",
+      "title": "Pruned Pivot: Correlation Clustering Algorithm for Dynamic, Parallel, and Local Computation Models",
+      "authors": [
+        "Mina Dalirrooyfard",
+        "Konstantin Makarychev",
+        "Slobodan Mitrović"
+      ],
+      "year": 2024,
+      "venue": "ICML 2024",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/html/2402.15668v2",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "assadi-2025-desparsification",
+      "title": "Correlation Clustering and (De)Sparsification: Graph Sketches Can Match Classical Algorithms",
+      "authors": [
+        "Sepehr Assadi",
+        "Sanjeev Khanna",
+        "Aaron Putterman"
+      ],
+      "year": 2025,
+      "venue": "STOC 2025; arXiv v1",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/html/2504.04258v1",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "cohenaddad-2024-combinatorial",
+      "title": "Combinatorial Correlation Clustering",
+      "authors": [
+        "Vincent Cohen-Addad",
+        "David Rasmussen Lolck",
+        "Marcin Pilipczuk",
+        "Mikkel Thorup",
+        "Shuyi Yan",
+        "Hanwen Zhang"
+      ],
+      "year": 2024,
+      "venue": "STOC 2024",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2404.05433",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "cao-2024-parallel",
+      "title": "Breaking 3-Factor Approximation for Correlation Clustering in Polylogarithmic Rounds",
+      "authors": [
+        "Nairen Cao",
+        "Shang-En Huang",
+        "Hsin-Hao Su"
+      ],
+      "year": 2024,
+      "venue": "SODA 2024",
+      "publicationStatus": "conference",
+      "url": "https://epubs.siam.org/doi/10.1137/1.9781611977912.143",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "cambus-2021-arboricity",
+      "title": "Massively Parallel Correlation Clustering in Bounded Arboricity Graphs",
+      "authors": [
+        "Mélanie Cambus",
+        "Davin Choo",
+        "Havu Miikonen",
+        "Jara Uitto"
+      ],
+      "year": 2021,
+      "venue": "DISC 2021",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.DISC.2021.15",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "cao-2025-all-norms",
+      "title": "Simultaneously Approximating All Norms for Massively Parallel Correlation Clustering",
+      "authors": [
+        "Nairen Cao",
+        "Shi Li",
+        "Jia Ye"
+      ],
+      "year": 2025,
+      "venue": "ICALP 2025",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol334-icalp2025/html/LIPIcs.ICALP.2025.40/LIPIcs.ICALP.2025.40.html",
+      "verifiedOn": "2026-09-27"
+    }
+  ]
+}

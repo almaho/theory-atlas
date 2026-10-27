@@ -1,0 +1,499 @@
+{
+  "problem": "mis",
+  "model": "mpc",
+  "slices": [
+    {
+      "id": "mis-mpc-linear-memory",
+      "problem": "mis",
+      "model": "mpc",
+      "label": "Linear memory per machine MPC",
+      "task": "Construct a maximal independent set",
+      "assumptions": [
+        "n-vertex graph",
+        "Õ(n) memory per machine",
+        "Randomized MPC algorithm"
+      ],
+      "parameters": {},
+      "results": [
+        {
+          "id": "mis-mpc-ghaffari-et-al-rounds",
+          "paperId": "ghaffari-et-al-2018-mpc-mis",
+          "kind": "upper",
+          "bound": "O(log log n) rounds",
+          "guarantee": "Explicit maximal independent set",
+          "sourceLocation": "Abstract",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "baseline",
+          "notes": "Linear-memory-per-machine regime; does not imply same rounds for strongly sublinear local memory.",
+          "plot": {
+            "v": 2.0,
+            "closure": "right",
+            "strict": false,
+            "label": "O(log log n) rounds"
+          }
+        }
+      ],
+      "mode": "1d",
+      "axis": {
+        "label": "Asymptotic round class (ordinal tiers)",
+        "kind": "ordinal",
+        "min": 0,
+        "max": 5,
+        "ticks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "tickLabels": [
+          "O(1)",
+          "log log log n",
+          "log log n",
+          "(log log n)^k",
+          "√log n",
+          "≥ log n"
+        ]
+      }
+    },
+    {
+      "id": "mis-mpc-lowspace-boundeddegree",
+      "problem": "mis",
+      "model": "mpc",
+      "label": "Low-space MPC, restricted maximum degree",
+      "task": "Construct an explicit maximal independent set",
+      "assumptions": [
+        "For any fixed φ>0, O(n^φ) local space and O(n^(1+φ)) global space",
+        "Maximum degree Δ=2^(log^(o(1)) n)",
+        "Deterministic, component-unstable MPC algorithm"
+      ],
+      "parameters": {
+        "φ": "Any fixed positive constant",
+        "Δ": "Maximum degree subject to stated regime"
+      },
+      "results": [
+        {
+          "id": "mis-mpc-czumaj-2024-lowspace",
+          "paperId": "czumaj-davies-peck-parter-2024-mpc",
+          "kind": "upper",
+          "bound": "O(log log Δ + log log log n) rounds",
+          "guarantee": "Explicit maximal independent set, deterministically",
+          "sourceLocation": "Theorem 25",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Degree restriction and component-unstable design are essential; cannot apply to arbitrary maximum degree.",
+          "plot": null
+        },
+        {
+          "id": "mis-mpc-czumaj-2024-stable-lower",
+          "paperId": "czumaj-davies-peck-parter-2024-mpc",
+          "kind": "lower",
+          "bound": "Ω(min{log Δ, log log n}) rounds (conditional)",
+          "guarantee": "Deterministic component-stable MIS construction",
+          "sourceLocation": "Theorem 26 and proof",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Assumes the connectivity conjecture and component stability; theorem headline discusses the parameterized o(log Δ + log log n) separation, while the proof derives Ω(min{log Δ,log log n}); encode the conservative proof expression. Not an unconditional lower bound for all MPC algorithms.",
+          "plot": null
+        }
+      ],
+      "mode": "1d",
+      "axis": {
+        "label": "Asymptotic round class (ordinal tiers)",
+        "kind": "ordinal",
+        "min": 0,
+        "max": 5,
+        "ticks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "tickLabels": [
+          "O(1)",
+          "log log log n",
+          "log log n",
+          "(log log n)^k",
+          "√log n",
+          "≥ log n"
+        ],
+        "scaleNote": "The labeled positions are asymptotic categories; symbolic results remain in the table."
+      }
+    },
+    {
+      "id": "mis-mpc-lowspace-general",
+      "problem": "mis",
+      "model": "mpc",
+      "label": "Strongly sublinear memory MPC, general graphs",
+      "task": "Output an explicit MIS on an arbitrary n-vertex graph",
+      "assumptions": [
+        "Per-machine local memory n^φ for fixed φ∈(0,1)",
+        "Randomized high-probability guarantee; memory and total space as stated separately"
+      ],
+      "parameters": {
+        "φ": "Any fixed constant (0,1)",
+        "Δ": "Maximum degree"
+      },
+      "results": [
+        {
+          "id": "mis-mpc-ghaffari-uitto-2019-lowspace",
+          "paperId": "ghaffari-uitto-2019-sparsify",
+          "kind": "upper",
+          "bound": "Õ(√(log Δ)) rounds",
+          "guarantee": "Explicit MIS on general graph with Δ maximum degree",
+          "sourceLocation": "Abstract, MPC theorem",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "candidate",
+          "notes": "First sublogarithmic-degree-sensitive general-graph result below linear memory; per machine n^φ.",
+          "plot": null
+        }
+      ],
+      "mode": "1d",
+      "axis": {
+        "label": "Asymptotic round class (ordinal tiers)",
+        "kind": "ordinal",
+        "min": 0,
+        "max": 5,
+        "ticks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "tickLabels": [
+          "O(1)",
+          "log log log n",
+          "log log n",
+          "(log log n)^k",
+          "√log n",
+          "≥ log n"
+        ],
+        "scaleNote": "The labeled positions are asymptotic categories; symbolic results remain in the table."
+      }
+    },
+    {
+      "id": "mis-mpc-lowspace-arboricity",
+      "problem": "mis",
+      "model": "mpc",
+      "label": "Low-space MPC, bounded arboricity",
+      "task": "Output an explicit MIS",
+      "assumptions": [
+        "n vertices, m edges, arboricity λ or α",
+        "Local memory O(n^φ), fixed φ∈(0,1)",
+        "Preserve global memory requirement per theorem"
+      ],
+      "parameters": {
+        "λ": "Arboricity",
+        "φ": "Fixed local-memory exponent"
+      },
+      "results": [
+        {
+          "id": "mis-mpc-brandt-2019-arbor",
+          "paperId": "brandt-fischer-uitto-2019-sparse-mpc",
+          "kind": "upper",
+          "bound": "O(log² log n + T(poly λ)) rounds after degree reduction",
+          "guarantee": "Explicit MIS on uniformly sparse graphs",
+          "sourceLocation": "Abstract; Theorems 1.1–1.3",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "T(Δ) denotes the chosen bounded-degree MPC MIS subroutine; keep symbolic rather than inventing numeric exponent.",
+          "plot": null
+        },
+        {
+          "id": "mis-mpc-behnezhad-2019-arbor",
+          "paperId": "behnezhad-et-al-2019-sparse-mpc",
+          "kind": "upper",
+          "bound": "O(√(log α)·log log α + log² log n) rounds",
+          "guarantee": "Explicit MIS on graph of arboricity α, w.h.p.",
+          "sourceLocation": "Abstract; Theorem 1",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "O(n^φ) local space and Õ(m) total space; α dependence and log-log factors matter.",
+          "plot": null
+        },
+        {
+          "id": "mis-mpc-ghaffari2020-arbor",
+          "paperId": "ghaffari-grunau-jin-2020-mpc-trees",
+          "kind": "upper",
+          "bound": "O(log log n) rounds for bounded-arboricity graphs",
+          "guarantee": "Explicit MIS on bounded-arboricity graph",
+          "sourceLocation": "Abstract; main MIS theorem",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "candidate",
+          "notes": "Bounded arboricity means a fixed bound independent of n in this statement; not arbitrary α=poly(n).",
+          "plot": null
+        }
+      ],
+      "mode": "1d",
+      "axis": {
+        "label": "Asymptotic round class (ordinal tiers)",
+        "kind": "ordinal",
+        "min": 0,
+        "max": 5,
+        "ticks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "tickLabels": [
+          "O(1)",
+          "log log log n",
+          "log log n",
+          "(log log n)^k",
+          "√log n",
+          "≥ log n"
+        ],
+        "scaleNote": "The labeled positions are asymptotic categories; symbolic results remain in the table."
+      }
+    },
+    {
+      "id": "mis-mpc-lowspace-trees-randomized",
+      "problem": "mis",
+      "model": "mpc",
+      "label": "Low-space MPC on trees, randomized",
+      "task": "Output explicit MIS on a tree",
+      "assumptions": [
+        "Tree input; local memory n^φ, fixed φ∈(0,1)",
+        "Randomized; complete tree restriction essential"
+      ],
+      "parameters": {
+        "φ": "Fixed local-memory exponent"
+      },
+      "results": [
+        {
+          "id": "mis-mpc-brandt-tree-2019",
+          "paperId": "brandt-fischer-uitto-2019-tree-mpc",
+          "kind": "upper",
+          "bound": "O(log³ log n) rounds",
+          "guarantee": "Explicit MIS on trees",
+          "sourceLocation": "Abstract",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "historical",
+          "notes": "Historical tree bound below linear per-machine memory.",
+          "plot": {
+            "v": 3.0,
+            "closure": "right",
+            "strict": false,
+            "label": "O(log³ log n) rounds"
+          }
+        },
+        {
+          "id": "mis-mpc-ghaffari-tree-2020",
+          "paperId": "ghaffari-grunau-jin-2020-mpc-trees",
+          "kind": "upper",
+          "bound": "O(log log n) rounds",
+          "guarantee": "Explicit MIS on trees",
+          "sourceLocation": "Abstract; main theorem",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "candidate",
+          "notes": "Improves prior O(log³ log n) tree bound under scalable MPC assumptions.",
+          "plot": {
+            "v": 2.0,
+            "closure": "right",
+            "strict": false,
+            "label": "O(log log n) rounds"
+          }
+        }
+      ],
+      "mode": "1d",
+      "axis": {
+        "label": "Asymptotic round class (ordinal tiers)",
+        "kind": "ordinal",
+        "min": 0,
+        "max": 5,
+        "ticks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "tickLabels": [
+          "O(1)",
+          "log log log n",
+          "log log n",
+          "(log log n)^k",
+          "√log n",
+          "≥ log n"
+        ]
+      }
+    },
+    {
+      "id": "mis-mpc-lowspace-trees-deterministic",
+      "problem": "mis",
+      "model": "mpc",
+      "label": "Low-space MPC on trees, deterministic",
+      "task": "Output explicit MIS on a tree",
+      "assumptions": [
+        "Tree input, arbitrary degree",
+        "Local memory O(n^δ) for δ∈(0,1); global memory O(m)",
+        "Deterministic"
+      ],
+      "parameters": {
+        "δ": "Fixed local-memory exponent"
+      },
+      "results": [
+        {
+          "id": "mis-mpc-latypov-tree-2021",
+          "paperId": "latypov-uitto-2021-mpc-trees",
+          "kind": "upper",
+          "bound": "O(log² log n) rounds; O(log log n) if constant maximum degree",
+          "guarantee": "Explicit deterministic MIS on trees",
+          "sourceLocation": "Abstract",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "candidate",
+          "notes": "Derived from deterministic 3-coloring; conference status not verified so retained as preprint.",
+          "plot": null
+        }
+      ],
+      "mode": "1d",
+      "axis": {
+        "label": "Asymptotic round class (ordinal tiers)",
+        "kind": "ordinal",
+        "min": 0,
+        "max": 5,
+        "ticks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "tickLabels": [
+          "O(1)",
+          "log log log n",
+          "log log n",
+          "(log log n)^k",
+          "√log n",
+          "≥ log n"
+        ],
+        "scaleNote": "The labeled positions are asymptotic categories; symbolic results remain in the table."
+      }
+    }
+  ],
+  "papers": [
+    {
+      "id": "ghaffari-et-al-2018-mpc-mis",
+      "title": "Improved Massively Parallel Computation Algorithms for MIS, Matching, and Vertex Cover",
+      "authors": [
+        "Mohsen Ghaffari",
+        "Themis Gouleakis",
+        "Christian Konrad",
+        "Slobodan Mitrović",
+        "Ronitt Rubinfeld"
+      ],
+      "year": 2018,
+      "venue": "PODC 2018",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1802.08237",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "czumaj-davies-peck-parter-2024-mpc",
+      "title": "Component stability in low-space massively parallel computation",
+      "authors": [
+        "Artur Czumaj",
+        "Peter Davies-Peck",
+        "Merav Parter"
+      ],
+      "year": 2024,
+      "venue": "Distributed Computing 37 (2024)",
+      "publicationStatus": "journal",
+      "url": "https://link.springer.com/article/10.1007/s00446-024-00461-9",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "ghaffari-uitto-2019-sparsify",
+      "title": "Sparsifying Distributed Algorithms with Ramifications in Massively Parallel Computation and Centralized Local Computation",
+      "authors": [
+        "Mohsen Ghaffari",
+        "Jara Uitto"
+      ],
+      "year": 2019,
+      "venue": "SODA 2019",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1807.06251",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "brandt-fischer-uitto-2019-tree-mpc",
+      "title": "Breaking the Linear-Memory Barrier in MPC: Fast MIS on Trees with Strongly Sublinear Memory",
+      "authors": [
+        "Sebastian Brandt",
+        "Manuela Fischer",
+        "Jara Uitto"
+      ],
+      "year": 2019,
+      "venue": "SIROCCO 2019",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1802.06748",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "brandt-fischer-uitto-2019-sparse-mpc",
+      "title": "Matching and MIS for Uniformly Sparse Graphs in the Low-Memory MPC Model",
+      "authors": [
+        "Sebastian Brandt",
+        "Manuela Fischer",
+        "Jara Uitto"
+      ],
+      "year": 2018,
+      "venue": "arXiv 2018; merged into PODC 2019 joint paper",
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/abs/1807.05374",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "behnezhad-et-al-2019-sparse-mpc",
+      "title": "Massively Parallel Symmetry Breaking on Sparse Graphs: MIS and Maximal Matching",
+      "authors": [
+        "Soheil Behnezhad",
+        "Mahsa Derakhshan",
+        "MohammadTaghi Hajiaghayi",
+        "Richard M. Karp"
+      ],
+      "year": 2018,
+      "venue": "arXiv 2018; merged into PODC 2019 joint paper",
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/abs/1807.06701",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "ghaffari-grunau-jin-2020-mpc-trees",
+      "title": "Improved MPC Algorithms for MIS, Matching, and Coloring on Trees and Beyond",
+      "authors": [
+        "Mohsen Ghaffari",
+        "Christoph Grunau",
+        "Ce Jin"
+      ],
+      "year": 2020,
+      "venue": "DISC 2020",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.DISC.2020.34",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "latypov-uitto-2021-mpc-trees",
+      "title": "Coloring Trees in Massively Parallel Computation",
+      "authors": [
+        "Rustam Latypov",
+        "Jara Uitto"
+      ],
+      "year": 2021,
+      "venue": "arXiv 2021",
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/abs/2105.13980",
+      "verifiedOn": "2026-09-27"
+    }
+  ]
+}

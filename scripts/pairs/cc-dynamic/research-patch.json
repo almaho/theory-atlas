@@ -1,0 +1,680 @@
+{
+  "reviewedOn": "2026-10-26",
+  "upsertPapers": [
+    {
+      "id": "braverman-2025-robust-dynamic",
+      "title": "Fully Dynamic Adversarially Robust Correlation Clustering in Polylogarithmic Update Time",
+      "authors": [
+        "Vladimir Braverman",
+        "Prathamesh Dharangutte",
+        "Shreyas Pai",
+        "Vihan Shah",
+        "Chen Wang"
+      ],
+      "year": 2025,
+      "venue": "AISTATS 2025; arXiv v2 February 2026",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2411.09979",
+      "verifiedOn": "2026-10-26",
+      "shortLabel": "Braverman et al. 2025",
+      "publicationUrl": "https://arxiv.org/abs/2411.09979",
+      "fullTextUrl": "https://arxiv.org/html/2411.09979v2"
+    },
+    {
+      "id": "cohenaddad-2024-node-dynamic",
+      "title": "Dynamic Correlation Clustering in Sublinear Update Time",
+      "authors": [
+        "Vincent Cohen-Addad",
+        "Silvio Lattanzi",
+        "Andreas Maggiori",
+        "Nikos Parotsidis"
+      ],
+      "year": 2024,
+      "venue": "ICML 2024",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2406.09137",
+      "verifiedOn": "2026-10-26",
+      "shortLabel": "Cohen-Addad et al. 2024",
+      "publicationUrl": "https://arxiv.org/abs/2406.09137",
+      "fullTextUrl": "https://arxiv.org/html/2406.09137"
+    },
+    {
+      "id": "cao-2026-static-dynamic",
+      "title": "Static to Dynamic Correlation Clustering",
+      "authors": [
+        "Nairen Cao",
+        "Vincent Cohen-Addad",
+        "Euiwoong Lee",
+        "Shi Li",
+        "David Rasmussen Lolck",
+        "Alantha Newman",
+        "Mikkel Thorup",
+        "Lukas Vogl",
+        "Shuyi Yan",
+        "Hanwen Zhang"
+      ],
+      "year": 2026,
+      "venue": "ICALP 2026",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2026.48",
+      "verifiedOn": "2026-10-26",
+      "shortLabel": "Cao et al. 2026",
+      "publicationUrl": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2026.48",
+      "fullTextUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol374-icalp2026/LIPIcs.ICALP.2026.48/LIPIcs.ICALP.2026.48.pdf"
+    },
+    {
+      "id": "behnezhad-2025-modified-pivot",
+      "title": "Correlation Clustering Beyond the Pivot Algorithm",
+      "authors": [
+        "Soheil Behnezhad",
+        "Moses Charikar",
+        "Vincent Cohen-Addad",
+        "Alma Ghafari",
+        "Weiyun Ma"
+      ],
+      "year": 2025,
+      "venue": "ICML 2025",
+      "publicationStatus": "conference",
+      "url": "https://proceedings.mlr.press/v267/behnezhad25a.html",
+      "verifiedOn": "2026-10-26",
+      "shortLabel": "Behnezhad et al. 2025",
+      "publicationUrl": "https://proceedings.mlr.press/v267/behnezhad25a.html",
+      "fullTextUrl": "https://raw.githubusercontent.com/mlresearch/v267/main/assets/behnezhad25a/behnezhad25a.pdf"
+    },
+    {
+      "id": "dalirrooyfard-2024-pruned-pivot",
+      "title": "Pruned Pivot: Correlation Clustering Algorithm for Dynamic, Parallel, and Local Computation Models",
+      "authors": [
+        "Mina Dalirrooyfard",
+        "Konstantin Makarychev",
+        "Slobodan Mitrović"
+      ],
+      "year": 2024,
+      "venue": "ICML 2024",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/html/2402.15668v2",
+      "verifiedOn": "2026-10-26",
+      "shortLabel": "Dalirrooyfard et al. 2024",
+      "publicationUrl": "https://arxiv.org/html/2402.15668v2",
+      "fullTextUrl": "https://arxiv.org/html/2402.15668v2"
+    },
+    {
+      "id": "behnezhad-2023-single-pass",
+      "title": "Single-Pass Streaming Algorithms for Correlation Clustering",
+      "authors": [
+        "Soheil Behnezhad",
+        "Moses Charikar",
+        "Weiyun Ma",
+        "Li-Yang Tan"
+      ],
+      "year": 2023,
+      "venue": "SODA 2023",
+      "publicationStatus": "conference",
+      "url": "https://epubs.siam.org/doi/10.1137/1.9781611977554.ch33",
+      "verifiedOn": "2026-10-26",
+      "shortLabel": "Behnezhad et al. 2023",
+      "publicationUrl": "https://epubs.siam.org/doi/10.1137/1.9781611977554.ch33",
+      "fullTextUrl": "https://epubs.siam.org/doi/10.1137/1.9781611977554.ch33",
+      "verificationStatus": "abstract_only"
+    },
+    {
+      "id": "dalirrooyfard-2025-node",
+      "title": "Sparse-Pivot: Dynamic Correlation Clustering for Node Insertions",
+      "authors": [
+        "Mina Dalirrooyfard",
+        "Konstantin Makarychev",
+        "Slobodan Mitrović"
+      ],
+      "year": 2025,
+      "venue": "ICML 2025",
+      "publicationStatus": "conference",
+      "url": "https://proceedings.mlr.press/v267/dalirrooyfard25a.html",
+      "verifiedOn": "2026-10-26",
+      "shortLabel": "Dalirrooyfard et al. 2025",
+      "publicationUrl": "https://proceedings.mlr.press/v267/dalirrooyfard25a.html",
+      "fullTextUrl": "https://raw.githubusercontent.com/mlresearch/v267/main/assets/dalirrooyfard25a/dalirrooyfard25a.pdf"
+    },
+    {
+      "id": "behnezhad-2019-dynamic-mis",
+      "title": "Fully Dynamic Maximal Independent Set with Polylogarithmic Update Time",
+      "authors": [
+        "Soheil Behnezhad",
+        "Mahsa Derakhshan",
+        "MohammadTaghi Hajiaghayi",
+        "Cliff Stein",
+        "Madhu Sudan"
+      ],
+      "year": 2019,
+      "venue": "FOCS 2019",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1909.03478",
+      "verifiedOn": "2026-10-26",
+      "shortLabel": "Behnezhad et al. 2019",
+      "publicationUrl": "https://arxiv.org/abs/1909.03478",
+      "fullTextUrl": "https://arxiv.org/html/1909.03478"
+    }
+  ],
+  "upsertSlices": [
+    {
+      "id": "cc-dynamic-edge-adaptive",
+      "problem": "cc",
+      "model": "dynamic",
+      "label": "Fully dynamic edge-label flips, adaptive adversary",
+      "task": "Implicit clustering representation",
+      "assumptions": [
+        "Adaptive edge-label flips",
+        "Polynomially bounded number of updates",
+        "Small fixed internal decomposition parameter; not approximation slack ε"
+      ],
+      "xAxis": {
+        "label": "Symbolic factor / separate model",
+        "kind": "symbolic"
+      },
+      "yAxis": {
+        "label": "Update-time formulas and guarantees (categorical rows)",
+        "kind": "categorical",
+        "categories": [
+          "Primary bound",
+          "Earlier alternative",
+          "Pivot alternative"
+        ],
+        "ordering": "Layout only; no numerical runtime scale or cross-adversary dominance"
+      },
+      "parameters": {
+        "epsilon": "Free ε>0 where present; chart reference ε=1/4",
+        "delta": "0<δ<1; fixed-time failure probability, not simultaneous sequence failure",
+        "numericRuntimeExponents": "None asserted"
+      },
+      "results": [
+        {
+          "id": "cc-dyn-adaptive-o1",
+          "paperId": "braverman-2025-robust-dynamic",
+          "kind": "upper",
+          "bound": "O(log² n) amortized update time",
+          "guarantee": "O(1)-approximation; the constant is not specified",
+          "sourceLocation": "Theorem 1; Lemmas 3.3 and 3.7; fixed internal decomposition parameter",
+          "evidenceStatus": "verified",
+          "frontierStatus": "verified",
+          "notes": "The unknown approximation constant has no numerical coordinate. This guarantee covers the update sequence and differs from the fixed-time Cao et al. statements.",
+          "assumptions": [
+            "Adaptive edge-label flips",
+            "Polynomially bounded number of updates",
+            "Small fixed internal decomposition parameter; not approximation slack ε"
+          ],
+          "output": "Implicit clustering representation",
+          "probability": "High probability throughout a polynomially bounded update sequence (Lemma 3.7), not unconditional correctness.",
+          "updateGuarantee": "Amortized update time",
+          "adversary": "Adaptive edge updates",
+          "plot": null
+        }
+      ],
+      "mode": "curated",
+      "focusPairId": "cc-dynamic",
+      "figureAxes": {
+        "x": {
+          "label": "Unspecified constant factor; no numerical position",
+          "kind": "symbolic",
+          "categories": [
+            {
+              "id": "unspecified",
+              "label": "O(1), unknown constant"
+            }
+          ]
+        },
+        "y": {
+          "label": "O(log²n) amortized",
+          "kind": "symbolic",
+          "categories": [
+            {
+              "id": "log2-amortized",
+              "label": "O(log² n) amortized"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "cc-dynamic-node-random-deletion",
+      "problem": "cc",
+      "model": "dynamic",
+      "label": "Node updates with random deletion",
+      "task": "Sparse graph encoding clusters; Θ(n) time to extract the full partition",
+      "assumptions": [
+        "Random deletion is required for the running-time proof",
+        "n counts all vertices that appeared in the stream",
+        "Do not charge full-partition extraction to the polylog update bound"
+      ],
+      "xAxis": {
+        "label": "Symbolic factor / separate model",
+        "kind": "symbolic"
+      },
+      "yAxis": {
+        "label": "Update-time formulas and guarantees (categorical rows)",
+        "kind": "categorical",
+        "categories": [
+          "Primary bound",
+          "Earlier alternative",
+          "Pivot alternative"
+        ],
+        "ordering": "Layout only; no numerical runtime scale or cross-adversary dominance"
+      },
+      "parameters": {
+        "epsilon": "Free ε>0 where present; chart reference ε=1/4",
+        "delta": "0<δ<1; fixed-time failure probability, not simultaneous sequence failure",
+        "numericRuntimeExponents": "None asserted"
+      },
+      "results": [
+        {
+          "id": "cc-dyn-node-polylog",
+          "paperId": "cohenaddad-2024-node-dynamic",
+          "kind": "upper",
+          "bound": "polylog(n) expected amortized time per node update",
+          "guarantee": "O(1)-approximation, unspecified constant",
+          "sourceLocation": "Theorem 6; §2 database model; Appendix C and Appendix D",
+          "evidenceStatus": "verified",
+          "frontierStatus": "verified",
+          "notes": "Appendix C bounds expected work using amortization; Appendix D separates linear-time output. Correctness does not require random deletions, but the cost analysis does.",
+          "assumptions": [
+            "Random deletion is required for the running-time proof",
+            "n counts all vertices that appeared in the stream",
+            "Do not charge full-partition extraction to the polylog update bound"
+          ],
+          "output": "Sparse graph encoding clusters; Θ(n) time to extract the full partition",
+          "probability": "Theorem 6 states success ≥1−5/n for each time t; Appendix F also union-bounds over the stream. We retain the theorem wording.",
+          "updateGuarantee": "Expected amortized",
+          "adversary": "Adversarial arrivals; uniformly random node deletion",
+          "plot": null
+        }
+      ],
+      "mode": "curated",
+      "focusPairId": "cc-dynamic",
+      "figureAxes": {
+        "x": {
+          "label": "Related node or unverified scope",
+          "kind": "symbolic"
+        },
+        "y": {
+          "label": "Symbolic resource formula",
+          "kind": "symbolic"
+        }
+      }
+    },
+    {
+      "id": "cc-dynamic-edge-adaptive-fixed-time",
+      "problem": "cc",
+      "model": "dynamic",
+      "label": "Fully dynamic edge labels, adaptive adversary, fixed-time success",
+      "task": "Maintained clustering representation with cluster membership and lists; deamortization uses two labels and a global switch",
+      "assumptions": [
+        "Fixed vertex set",
+        "Adaptive updates may observe outputs",
+        "The test time is fixed before the sequence; not chosen after observing randomness",
+        "0<δ<1; positive approximation slack ε where used"
+      ],
+      "xAxis": {
+        "label": "Approximation factor α (smaller is better)",
+        "kind": "approximation",
+        "min": 1,
+        "max": 4,
+        "ticks": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "reference": {
+          "epsilon": 0.25,
+          "label": "ε=1/4 display reference; theorems retain free ε"
+        }
+      },
+      "yAxis": {
+        "label": "Update-time formulas and guarantees (categorical rows)",
+        "kind": "categorical",
+        "categories": [
+          "Primary bound",
+          "Earlier alternative",
+          "Pivot alternative"
+        ],
+        "ordering": "Layout only; no numerical runtime scale or cross-adversary dominance"
+      },
+      "parameters": {
+        "epsilon": "Free ε>0 where present; chart reference ε=1/4",
+        "delta": "0<δ<1; fixed-time failure probability, not simultaneous sequence failure",
+        "numericRuntimeExponents": "None asserted"
+      },
+      "results": [
+        {
+          "id": "cc-dyn-adaptive-1485",
+          "paperId": "cao-2026-static-dynamic",
+          "kind": "upper",
+          "bound": "O(log(1/δ)) worst-case time per edge update",
+          "guarantee": "1.485-approximation at the preselected update",
+          "sourceLocation": "Theorem 1, printed p. 48:5; representation in §2, deamortization §2.3",
+          "evidenceStatus": "verified",
+          "frontierStatus": "verified",
+          "notes": "Constant δ gives constant update time; δ=n^−c gives O(log n). The display keeps δ symbolic.",
+          "assumptions": [
+            "Fixed vertex set",
+            "Adaptive updates may observe outputs",
+            "The test time is fixed before the sequence; not chosen after observing randomness",
+            "0<δ<1; positive approximation slack ε where used"
+          ],
+          "output": "Maintained clustering representation with cluster membership and lists; deamortization uses two labels and a global switch",
+          "probability": "For every update i chosen before the sequence, success is at least 1−δ, 0<δ<1; i is hidden from the algorithm. This is not simultaneous success at every update.",
+          "updateGuarantee": "Worst-case per update",
+          "adversary": "Adaptive edge updates",
+          "plot": null
+        },
+        {
+          "id": "cc-dyn-adaptive-1847",
+          "paperId": "cao-2026-static-dynamic",
+          "kind": "upper",
+          "bound": "O(log(1/δ)) worst-case time per edge update",
+          "guarantee": "1.847-approximation at the preselected update",
+          "sourceLocation": "Corollary 10, printed p. 48:10",
+          "evidenceStatus": "verified",
+          "frontierStatus": "verified",
+          "notes": "Combinatorial static-local-search instantiation; retained as a historical alternative within the same guarantee.",
+          "assumptions": [
+            "Fixed vertex set",
+            "Adaptive updates may observe outputs",
+            "The test time is fixed before the sequence; not chosen after observing randomness",
+            "0<δ<1; positive approximation slack ε where used"
+          ],
+          "output": "Maintained clustering representation with cluster membership and lists; deamortization uses two labels and a global switch",
+          "probability": "For every update i chosen before the sequence, success is at least 1−δ, 0<δ<1; i is hidden from the algorithm. This is not simultaneous success at every update.",
+          "updateGuarantee": "Worst-case per update",
+          "adversary": "Adaptive edge updates",
+          "plot": null
+        },
+        {
+          "id": "cc-dyn-adaptive-3plus",
+          "paperId": "cao-2026-static-dynamic",
+          "kind": "upper",
+          "bound": "O((log log n+log(1/δ))/ε) worst-case time per edge update",
+          "guarantee": "(3+ε)-approximation at the preselected update",
+          "sourceLocation": "Corollary 7, printed p. 48:10",
+          "evidenceStatus": "verified",
+          "frontierStatus": "verified",
+          "notes": "Pivot-based instantiation. The figure uses the labelled ε=1/4 reference only for horizontal placement; this formula retains free ε>0.",
+          "assumptions": [
+            "Fixed vertex set",
+            "Adaptive updates may observe outputs",
+            "The test time is fixed before the sequence; not chosen after observing randomness",
+            "0<δ<1; positive approximation slack ε where used"
+          ],
+          "output": "Maintained clustering representation with cluster membership and lists; deamortization uses two labels and a global switch",
+          "probability": "For every update i chosen before the sequence, success is at least 1−δ, 0<δ<1; i is hidden from the algorithm. This is not simultaneous success at every update.",
+          "updateGuarantee": "Worst-case per update",
+          "adversary": "Adaptive edge updates",
+          "plot": null
+        }
+      ],
+      "mode": "curated",
+      "focusPairId": "cc-dynamic",
+      "figureAxes": {
+        "x": {
+          "label": "Approximation factor α (smaller is better)",
+          "kind": "approximation",
+          "min": 1,
+          "max": 4,
+          "ticks": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "reference": {
+            "epsilon": 0.25,
+            "label": "ε=1/4 display reference; theorems retain free ε"
+          }
+        },
+        "y": {
+          "label": "Update-time formulas and guarantees (categorical rows)",
+          "kind": "categorical",
+          "categories": [
+            "Primary bound",
+            "Earlier alternative",
+            "Pivot alternative"
+          ],
+          "ordering": "Layout only; no numerical runtime scale or cross-adversary dominance"
+        }
+      }
+    },
+    {
+      "id": "cc-dynamic-edge-oblivious",
+      "problem": "cc",
+      "model": "dynamic",
+      "label": "Fully dynamic edge labels, oblivious adversary, expected cost",
+      "task": "Explicitly maintained cluster membership",
+      "assumptions": [
+        "Oblivious sequence independent of random ranks",
+        "Complete signed unweighted graph",
+        "No fixed polylogarithmic exponent asserted"
+      ],
+      "xAxis": {
+        "label": "Approximation factor α (smaller is better)",
+        "kind": "approximation",
+        "min": 1,
+        "max": 4,
+        "ticks": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "reference": {
+          "epsilon": 0.25,
+          "label": "ε=1/4 display reference; theorems retain free ε"
+        }
+      },
+      "yAxis": {
+        "label": "Update-time formulas and guarantees (categorical rows)",
+        "kind": "categorical",
+        "categories": [
+          "Primary bound",
+          "Earlier alternative",
+          "Pivot alternative"
+        ],
+        "ordering": "Layout only; no numerical runtime scale or cross-adversary dominance"
+      },
+      "parameters": {
+        "epsilon": "Free ε>0 where present; chart reference ε=1/4",
+        "delta": "0<δ<1; fixed-time failure probability, not simultaneous sequence failure",
+        "numericRuntimeExponents": "None asserted"
+      },
+      "results": [
+        {
+          "id": "cc-dyn-modifiedpivot-sub3",
+          "paperId": "behnezhad-2025-modified-pivot",
+          "kind": "upper",
+          "bound": "polylog(n) expected time per edge update",
+          "guarantee": "Expected cost at most 2.997·OPT (conservative proof-backed factor)",
+          "sourceLocation": "Theorem 4.1, Lemma 4.6, §5 and Appendix B; explicit parameters on p. 26",
+          "evidenceStatus": "verified",
+          "frontierStatus": "verified",
+          "notes": "Published Theorem 1.1 prints 2.99, while Theorem 4.1 and its parameter proof certify 2.997. We use 2.997; §5 maintains that algorithm. The original symbolic 3−ε₀ record ID is preserved.",
+          "assumptions": [
+            "Oblivious sequence independent of random ranks",
+            "Complete signed unweighted graph",
+            "No fixed polylogarithmic exponent asserted"
+          ],
+          "output": "Explicitly maintained cluster membership",
+          "probability": "Approximation and update time hold in expectation over the algorithm randomness for a fixed update sequence.",
+          "updateGuarantee": "Expected per-update time",
+          "adversary": "Oblivious edge updates",
+          "plot": null,
+          "sourceDiscrepancy": {
+            "headline": 2.99,
+            "proved": 2.997,
+            "decision": "Use the conservative proved value"
+          }
+        },
+        {
+          "id": "cc-dyn-mis-focs19",
+          "paperId": "behnezhad-2019-dynamic-mis",
+          "kind": "upper",
+          "bound": "O(log²Δ·log²n) expected edge-update time",
+          "guarantee": "Expected cost at most 3·OPT",
+          "sourceLocation": "Corollary 1.2 and the preceding Pivot reduction",
+          "evidenceStatus": "verified",
+          "frontierStatus": "verified",
+          "notes": "The cluster-change bound is a separate recourse guarantee. It is not a worst-case bound on update time or quality.",
+          "assumptions": [
+            "Oblivious update sequence",
+            "Δ is maximum positive degree",
+            "Random greedy MIS order induces the Pivot clustering"
+          ],
+          "output": "Explicit clustering; expected O(1) cluster changes per update",
+          "probability": "Expected quality over random Pivot order; expected running time for each update.",
+          "updateGuarantee": "Expected per-update time",
+          "adversary": "Oblivious edge updates",
+          "plot": null
+        },
+        {
+          "id": "cc-dyn-pruned-3plus",
+          "paperId": "dalirrooyfard-2024-pruned-pivot",
+          "kind": "upper",
+          "bound": "O(1/ε) expected per-edge-update time with constant-time memory allocation",
+          "guarantee": "Expected cost at most (3+ε)·OPT",
+          "sourceLocation": "Theorems 1.1 and 4.1; Lemma 7.2 and §7.2 deamortization",
+          "evidenceStatus": "verified",
+          "frontierStatus": "verified",
+          "notes": "Lemma 7.2 first proves expected amortized time. Section 7.2 removes amortization assuming O(1)-time memory allocation. The figure marks this qualification with *.",
+          "assumptions": [
+            "Oblivious edge-update sequence",
+            "ε>0",
+            "Constant-time allocation of uninitialized memory for deamortization"
+          ],
+          "output": "Maintained Pruned-Pivot cluster assignments",
+          "probability": "Expected approximation cost; running time is expected per update after the §7.2 deamortization.",
+          "updateGuarantee": "Expected per update with §7.2 memory assumption; expected amortized without it",
+          "adversary": "Oblivious edge updates",
+          "plot": null
+        },
+        {
+          "id": "cc-dyn-5-constant",
+          "paperId": "behnezhad-2023-single-pass",
+          "kind": "upper",
+          "bound": "O(1) expected edge-update time, as reported in later literature; exact model unverified",
+          "guarantee": "5-approximation reported by the original abstract; dynamic guarantee not fully inspected",
+          "sourceLocation": "SODA 2023 abstract; no accessible full dynamic theorem in this audit",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "unverified_scope",
+          "notes": "Retained for coverage, without plotting. Later papers disagree in shorthand about insertion-only versus fully dynamic scope; the original full statement was not accessible.",
+          "assumptions": [
+            "Excluded from the main comparison pending full-text verification"
+          ],
+          "output": "Dynamic output representation unverified",
+          "probability": "Dynamic randomness, deletion support and output representation remain unverified.",
+          "updateGuarantee": "Pending full-text audit",
+          "plot": null
+        }
+      ],
+      "mode": "curated",
+      "focusPairId": "cc-dynamic",
+      "figureAxes": {
+        "x": {
+          "label": "Approximation factor α (smaller is better)",
+          "kind": "approximation",
+          "min": 1,
+          "max": 4,
+          "ticks": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "reference": {
+            "epsilon": 0.25,
+            "label": "ε=1/4 display reference; theorems retain free ε"
+          }
+        },
+        "y": {
+          "label": "Update-time formulas and guarantees (categorical rows)",
+          "kind": "categorical",
+          "categories": [
+            "Primary bound",
+            "Earlier alternative",
+            "Pivot alternative"
+          ],
+          "ordering": "Layout only; no numerical runtime scale or cross-adversary dominance"
+        }
+      }
+    },
+    {
+      "id": "cc-dynamic-node-insertion",
+      "problem": "cc",
+      "model": "dynamic",
+      "label": "Node insertion only, database query access",
+      "task": "Maintained cluster assignments",
+      "assumptions": [
+        "Nonadaptive node insertion sequence",
+        "T is total number of updates; T=n for pure arrivals",
+        "Internal parameter is sufficiently small; rescaled to desired ε>0"
+      ],
+      "xAxis": {
+        "label": "Symbolic factor / separate model",
+        "kind": "symbolic"
+      },
+      "yAxis": {
+        "label": "Update-time formulas and guarantees (categorical rows)",
+        "kind": "categorical",
+        "categories": [
+          "Primary bound",
+          "Earlier alternative",
+          "Pivot alternative"
+        ],
+        "ordering": "Layout only; no numerical runtime scale or cross-adversary dominance"
+      },
+      "parameters": {
+        "epsilon": "Free ε>0 where present; chart reference ε=1/4",
+        "delta": "0<δ<1; fixed-time failure probability, not simultaneous sequence failure",
+        "numericRuntimeExponents": "None asserted"
+      },
+      "results": [
+        {
+          "id": "cc-dyn-node-20",
+          "paperId": "dalirrooyfard-2025-node",
+          "kind": "upper",
+          "bound": "poly(log T,1/ε) amortized database-update time with high probability",
+          "guarantee": "Expected cost at most (20+ε)·OPT at a fixed time",
+          "sourceLocation": "Theorems 2.1 and 2.2, §1–2; published pp. 2–4",
+          "evidenceStatus": "verified",
+          "frontierStatus": "verified",
+          "notes": "Theorem 2.1 gives 4(1+O(ε)) times a 5-approximate reference. Optional random soft deletions retain deleted vertices in the database until purge; these are not ordinary random deletions.",
+          "assumptions": [
+            "Nonadaptive node insertion sequence",
+            "T is total number of updates; T=n for pure arrivals",
+            "Internal parameter is sufficiently small; rescaled to desired ε>0"
+          ],
+          "output": "Maintained cluster assignments",
+          "probability": "Expected approximation (Theorem 2.1); high-probability amortized running time (Theorem 2.2).",
+          "updateGuarantee": "Amortized with high probability",
+          "adversary": "Graph and arrival order fixed in advance",
+          "plot": null
+        }
+      ],
+      "mode": "curated",
+      "focusPairId": "cc-dynamic",
+      "figureAxes": {
+        "x": {
+          "label": "Related node or unverified scope",
+          "kind": "symbolic"
+        },
+        "y": {
+          "label": "Symbolic resource formula",
+          "kind": "symbolic"
+        }
+      }
+    }
+  ],
+  "corrections": [
+    "Separate fixed-time probability from sequence-wide high probability and expected cost.",
+    "Use proof-backed Modified-Pivot factor 2.997 with published theorem-heading discrepancy disclosed.",
+    "Restore implicit output and extraction costs.",
+    "Keep random node deletion, nonadaptive arrivals and soft deletion distinct.",
+    "Quarantine the unverified SODA2023 dynamic scope instead of drawing an unsupported point.",
+    "Remove all runtime-exponent coordinates; retain symbolic polylog formulas."
+  ]
+}

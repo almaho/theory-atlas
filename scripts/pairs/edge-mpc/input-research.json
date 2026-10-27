@@ -1,0 +1,190 @@
+{
+  "problem": "edge",
+  "model": "mpc",
+  "slices": [
+    {
+      "id": "edge-mpc-linear-memory",
+      "problem": "edge",
+      "model": "mpc",
+      "label": "MPC; linear memory per machine",
+      "task": "Output explicit proper edge coloring in distributed memory",
+      "assumptions": [
+        "General graph with n vertices, m edges, maximum degree Δ",
+        "Randomized, high probability; O(n) memory per machine, O(m) total memory"
+      ],
+      "xAxis": {
+        "label": "Palette ratio r = q/Δ",
+        "kind": "palette",
+        "min": 1,
+        "max": 2.25,
+        "ticks": [
+          1,
+          1.25,
+          1.5,
+          1.75,
+          2,
+          2.25
+        ],
+        "tickLabels": [
+          "Δ",
+          "5Δ/4",
+          "3Δ/2",
+          "7Δ/4",
+          "2Δ",
+          "9Δ/4"
+        ]
+      },
+      "yAxis": {
+        "label": "Asymptotic round class (ordinal tiers)",
+        "kind": "ordinal",
+        "min": 0,
+        "max": 5,
+        "ticks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "tickLabels": [
+          "O(1)",
+          "log log log n",
+          "log log n",
+          "(log log n)^k",
+          "√log n",
+          "≥ log n"
+        ]
+      },
+      "parameters": {},
+      "results": [
+        {
+          "id": "mpc-near-delta-constant-round-2019",
+          "paperId": "behnezhad-et-al-2019-mpc-stream",
+          "kind": "upper",
+          "bound": "q=Δ+Õ(Δ^(3/4)) in O(1) MPC rounds",
+          "guarantee": "Proper edge coloring with high probability",
+          "sourceLocation": "Abstract; massively parallel result",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "candidate",
+          "notes": "At Δ=n^Ω(1), source additionally reports n^(1−Ω(1)) local memory; compare only after fixing a compatible memory exponent and total-space condition.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "edge-mpc-lowspace-component",
+      "problem": "edge",
+      "model": "mpc",
+      "label": "Low-space MPC · component stability",
+      "task": "Color edges in low-space MPC and understand conditional round limits",
+      "assumptions": [
+        "Degree Δ=log^{o(1)}log n for the constructive theorem; local space n^φ for some φ<1; total space n^{1+o(1)} for constructive theorem",
+        "Component stable restriction applies ONLY to lower bound; connectivity conjecture is an explicit hypothesis"
+      ],
+      "xAxis": {
+        "label": "Palette ratio r = q/Δ",
+        "kind": "palette",
+        "min": 1,
+        "max": 2.25,
+        "ticks": [
+          1,
+          1.25,
+          1.5,
+          1.75,
+          2,
+          2.25
+        ],
+        "tickLabels": [
+          "Δ",
+          "5Δ/4",
+          "3Δ/2",
+          "7Δ/4",
+          "2Δ",
+          "9Δ/4"
+        ]
+      },
+      "yAxis": {
+        "label": "Asymptotic round class (ordinal tiers)",
+        "kind": "ordinal",
+        "min": 0,
+        "max": 5,
+        "ticks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "tickLabels": [
+          "O(1)",
+          "log log log n",
+          "log log n",
+          "(log log n)^k",
+          "√log n",
+          "≥ log n"
+        ]
+      },
+      "parameters": {},
+      "results": [
+        {
+          "id": "edge-mpc-cdp24-upper",
+          "paperId": "czumaj-davies-parter-2024-mpc",
+          "kind": "upper",
+          "bound": "O(poly(Δ)+log Δ · log log log n) deterministic rounds",
+          "guarantee": "q=Δ+√Δ log³Δ proper edge coloring",
+          "sourceLocation": "Theorem 21, Distributed Computing 2024",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Component-unstable, potentially n^{poly(Δ)} local computation; degree promise and n^{1+o(1)} global space essential.",
+          "plot": null
+        },
+        {
+          "id": "edge-mpc-cdp24-lower",
+          "paperId": "czumaj-davies-parter-2024-mpc",
+          "kind": "lower",
+          "bound": "Ω(log log_Δ n) rounds, conditional",
+          "guarantee": "q=2Δ−2 edge coloring, even on forests",
+          "sourceLocation": "Theorem 20, Distributed Computing 2024",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Only for deterministic component-stable low-space MPC, assuming the connectivity conjecture; different q than upper theorem. Shown in same slice for navigation, not as a matched upper/lower frontier.",
+          "plot": null
+        }
+      ]
+    }
+  ],
+  "papers": [
+    {
+      "id": "behnezhad-et-al-2019-mpc-stream",
+      "title": "Streaming and Massively Parallel Algorithms for Edge Coloring",
+      "authors": [
+        "Soheil Behnezhad",
+        "Mahsa Derakhshan",
+        "MohammadTaghi Hajiaghayi",
+        "Marina Knittel",
+        "Hamed Saleh"
+      ],
+      "year": 2019,
+      "venue": "ESA 2019",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ESA.2019.15",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "czumaj-davies-parter-2024-mpc",
+      "title": "Component Stability in Low-Space Massively Parallel Computation",
+      "authors": [
+        "Artur Czumaj",
+        "Peter Davies-Peck",
+        "Merav Parter"
+      ],
+      "year": 2024,
+      "venue": "Distributed Computing 37 (2024)",
+      "publicationStatus": "journal",
+      "url": "https://link.springer.com/article/10.1007/s00446-024-00461-9",
+      "verifiedOn": "2026-09-27"
+    }
+  ]
+}

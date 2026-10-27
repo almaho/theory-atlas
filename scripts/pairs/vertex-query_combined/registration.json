@@ -1,0 +1,62 @@
+{
+  "id": "vertex-query_combined",
+  "dataFile": "vertex-query_combined.json",
+  "javascript": "vertex-query_combined.js",
+  "css": "vertex-query_combined.css",
+  "routes": [
+    {
+      "key": "vertex-query_combined",
+      "sliceId": "vertex-query-combined-delta-plus-one",
+      "label": "Vertex coloring · combined queries",
+      "problem": "vertex",
+      "model": "query_combined",
+      "visible": true
+    },
+    {
+      "key": "vertex-query-pairs",
+      "sliceId": "vertex-query-adjacency-matrix-only",
+      "label": "Vertex coloring · pair queries + degrees",
+      "problem": "vertex",
+      "model": "query_combined",
+      "visible": false
+    },
+    {
+      "key": "vertex-query-degeneracy",
+      "sliceId": "vertex-query-degeneracy",
+      "label": "Vertex coloring · degeneracy queries",
+      "problem": "vertex",
+      "model": "query_combined",
+      "visible": false
+    },
+    {
+      "key": "vertex-query-lists",
+      "sliceId": "vertex-query-degree-one-list",
+      "label": "Vertex coloring · list-input queries",
+      "problem": "vertex",
+      "model": "query_combined",
+      "visible": false
+    },
+    {
+      "key": "vertex-query-communication",
+      "sliceId": "vertex-query-two-party-communication",
+      "label": "Vertex coloring · communication",
+      "problem": "vertex",
+      "model": "query_combined",
+      "visible": true
+    }
+  ],
+  "canonicalAliases": {
+    "vertex-query-pairs": "vertex-query_combined",
+    "vertex-query-degeneracy": "vertex-query_combined",
+    "vertex-query-lists": "vertex-query_combined"
+  },
+  "pointFields": {
+    "x": "slot",
+    "y": "slot"
+  },
+  "axisSummary": {
+    "x": "Query access and palette contracts; communication is a separate view",
+    "y": "Leading n-power with exact factors; communication bits and rounds remain separate",
+    "note": "Global query lower is hard at Δ=Θ(√n). List-input oracle qualification retained."
+  }
+}

@@ -1,0 +1,744 @@
+{
+  "id": "mis-lca",
+  "title": "How local can an MIS answer be?",
+  "reviewedOn": "2026-10-20",
+  "coverage": "Bounded review of the eight supplied MIS-LCA sources plus one directly relevant deterministic lower-bound paper. Historical results are retained. This is not a claim of exhaustive current literature coverage. Fixed-tree comparisons are omitted.",
+  "lowerBoundStatus": "A verified Ω(log* n) lower bound appears only for deterministic query-order-oblivious fixed-degree LCAs. No general randomized probe or joint-generation lower bound is claimed.",
+  "sources": {
+    "ghaffari-2022-lca-mis": {
+      "id": "ghaffari-2022-lca-mis",
+      "title": "Local Computation of Maximal Independent Set",
+      "authors": [
+        "Mohsen Ghaffari"
+      ],
+      "year": 2022,
+      "venue": "FOCS 2022",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2210.01104",
+      "verifiedOn": "2026-10-20",
+      "fullTextUrl": "https://arxiv.org/html/2210.01104v1"
+    },
+    "ghaffari-2016-local-mis": {
+      "id": "ghaffari-2016-local-mis",
+      "title": "An Improved Distributed Algorithm for Maximal Independent Set",
+      "authors": [
+        "Mohsen Ghaffari"
+      ],
+      "year": 2016,
+      "venue": "SODA 2016",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1506.05093",
+      "verifiedOn": "2026-10-20",
+      "fullTextUrl": "https://arxiv.org/html/1506.05093v2"
+    },
+    "rubinfeld-tamir-vardi-xie-2011-lca": {
+      "id": "rubinfeld-tamir-vardi-xie-2011-lca",
+      "title": "Fast Local Computation Algorithms",
+      "authors": [
+        "Ronitt Rubinfeld",
+        "Gil Tamir",
+        "Shai Vardi",
+        "Ning Xie"
+      ],
+      "year": 2011,
+      "venue": "ICS 2011",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1104.1377",
+      "verifiedOn": "2026-10-20",
+      "fullTextUrl": "https://arxiv.org/html/1104.1377v1"
+    },
+    "alon-rubinfeld-vardi-xie-2012-lca": {
+      "id": "alon-rubinfeld-vardi-xie-2012-lca",
+      "title": "Space-Efficient Local Computation Algorithms",
+      "authors": [
+        "Noga Alon",
+        "Ronitt Rubinfeld",
+        "Shai Vardi",
+        "Ning Xie"
+      ],
+      "year": 2012,
+      "venue": "SODA 2012",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1109.6178",
+      "verifiedOn": "2026-10-20",
+      "fullTextUrl": "https://arxiv.org/html/1109.6178v2"
+    },
+    "even-medina-ron-2018-local": {
+      "id": "even-medina-ron-2018-local",
+      "title": "Best of Two Local Models: Local Centralized and Local Distributed Algorithms",
+      "authors": [
+        "Guy Even",
+        "Moti Medina",
+        "Dana Ron"
+      ],
+      "year": 2018,
+      "venue": "Information and Computation 2018",
+      "publicationStatus": "journal",
+      "url": "https://arxiv.org/abs/1402.3796",
+      "verifiedOn": "2026-10-20",
+      "fullTextUrl": "https://arxiv.org/html/1402.3796v3"
+    },
+    "levi-rubinfeld-yodpinyanee-2017-lca": {
+      "id": "levi-rubinfeld-yodpinyanee-2017-lca",
+      "title": "Local Computation Algorithms for Graphs of Non-Constant Degrees",
+      "authors": [
+        "Reut Levi",
+        "Ronitt Rubinfeld",
+        "Anak Yodpinyanee"
+      ],
+      "year": 2017,
+      "venue": "Algorithmica 2017",
+      "publicationStatus": "journal",
+      "url": "https://arxiv.org/abs/1502.04022",
+      "verifiedOn": "2026-10-20",
+      "fullTextUrl": "https://arxiv.org/html/1502.04022v1"
+    },
+    "ghaffari-uitto-2019-sparsify": {
+      "id": "ghaffari-uitto-2019-sparsify",
+      "title": "Sparsifying Distributed Algorithms with Ramifications in Massively Parallel Computation and Centralized Local Computation",
+      "authors": [
+        "Mohsen Ghaffari",
+        "Jara Uitto"
+      ],
+      "year": 2019,
+      "venue": "SODA 2019",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1807.06251",
+      "verifiedOn": "2026-10-20",
+      "fullTextUrl": "https://arxiv.org/html/1807.06251v1"
+    },
+    "biswas-et-al-2025-beyondworst-lca": {
+      "id": "biswas-et-al-2025-beyondworst-lca",
+      "title": "Beyond Worst Case Local Computation Algorithms",
+      "authors": [
+        "Amartya Shankha Biswas",
+        "Ruidi Cao",
+        "Cassandra Marcussen",
+        "Edward Pyne",
+        "Ronitt Rubinfeld",
+        "Asaf Shapira",
+        "Shlomo Tauber"
+      ],
+      "year": 2025,
+      "venue": "arXiv 2025 revision",
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/abs/2403.00129",
+      "verifiedOn": "2026-10-20",
+      "fullTextUrl": "https://arxiv.org/html/2403.00129v2"
+    },
+    "goos-hirvonen-levi-medina-suomela-2016-nonlocal": {
+      "id": "goos-hirvonen-levi-medina-suomela-2016-nonlocal",
+      "title": "Non-local Probes Do Not Help with Many Graph Problems",
+      "authors": [
+        "Mika Göös",
+        "Juho Hirvonen",
+        "Reut Levi",
+        "Moti Medina",
+        "Jukka Suomela"
+      ],
+      "year": 2016,
+      "venue": "DISC 2016",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1512.05411",
+      "publicationUrl": "https://link.springer.com/chapter/10.1007/978-3-662-53426-7_15",
+      "verifiedOn": "2026-10-20",
+      "fullTextUrl": "https://arxiv.org/html/1512.05411v1"
+    }
+  },
+  "verifiedRecords": [
+    {
+      "id": "mis-lca-ghaffari-polydeg",
+      "sourceId": "ghaffari-2022-lca-mis",
+      "paperId": "ghaffari-2022-lca-mis",
+      "panel": "cost",
+      "xCategory": "probes",
+      "yCategory": "mis-lca-ghaffari-polydeg",
+      "kind": "algorithm",
+      "displayBound": "poly(Δ) · log n",
+      "bound": "poly(Δ) · log n",
+      "shortLabel": "Ghaffari 2022",
+      "quality": "Exact maximal independent set",
+      "output": "Consistent YES/NO membership in one maximal independent set",
+      "graph": "Undirected graph on n vertices with maximum degree Δ",
+      "oracle": "Adjacency-list neighbor probes: (v,i) returns the ith neighbor",
+      "probability": "For each fixed v and η>0, poly(Δ) log(1/η) probes suffice with probability ≥1−η. Setting inverse-polynomial η and union bounding gives the high-probability all-vertex budget.",
+      "adaptivity": "Adaptive probes; one shared random tape fixes consistent answers",
+      "assumptions": [
+        "n is the vertex count; Δ is the maximum degree",
+        "The input graph is fixed before the random tape",
+        "Membership refers to a maximal independent set, not a maximum independent set"
+      ],
+      "sourceUrl": "https://arxiv.org/html/2210.01104v1",
+      "sourceURL": "https://arxiv.org/html/2210.01104v1",
+      "verifiedOn": "2026-10-20",
+      "notes": "The expected cost for a fixed queried vertex is poly(Δ), retained separately. The exponent of Δ is unspecified and is never assigned a numeric coordinate.",
+      "theorem": "Theorems 1.1 and 2.16; Section 1.1 defines the shared-tape adjacency-list model",
+      "resource": "Neighbor probes per membership query",
+      "plotLabel": "Ghaffari ’22",
+      "originalPanel": "randomized",
+      "setup": "variable",
+      "from": "logn",
+      "to": "polynomial",
+      "costFrom": "logn",
+      "costTo": "polynomial"
+    },
+    {
+      "id": "mis-lca-ghaffari-uitto-2019",
+      "sourceId": "ghaffari-uitto-2019-sparsify",
+      "paperId": "ghaffari-uitto-2019-sparsify",
+      "panel": "cost",
+      "xCategory": "probes",
+      "yCategory": "mis-lca-ghaffari-uitto-2019",
+      "kind": "algorithm",
+      "displayBound": "Δ^{O(log log Δ)} · poly(log n)",
+      "bound": "Δ^{O(log log Δ)} · poly(log n)",
+      "shortLabel": "Ghaffari–Uitto 2019",
+      "quality": "Exact maximal independent set",
+      "output": "Consistent YES/NO membership in one maximal independent set",
+      "graph": "Undirected graph on n vertices with maximum degree Δ",
+      "oracle": "Adjacency-list neighbor probes: (v,i) returns the ith neighbor",
+      "probability": "At least 1−1/n¹⁰ for consistent answers within the query bound",
+      "adaptivity": "Adaptive probes; one shared random tape fixes consistent answers",
+      "assumptions": [
+        "n is the vertex count; Δ is the maximum degree",
+        "The input graph is fixed before the random tape",
+        "Membership refers to a maximal independent set, not a maximum independent set"
+      ],
+      "sourceUrl": "https://arxiv.org/html/1807.06251v1",
+      "sourceURL": "https://arxiv.org/html/1807.06251v1",
+      "verifiedOn": "2026-10-20",
+      "notes": "Sparsification reduces the information gathered from a distributed neighborhood. The distributed-radius barrier is not a lower bound on all LCAs.",
+      "theorem": "Theorem 1.2",
+      "resource": "Probes per membership query",
+      "plotLabel": "Ghaffari–Uitto ’19",
+      "originalPanel": "randomized",
+      "setup": "variable",
+      "from": "polylog",
+      "to": "quasiLL",
+      "costFrom": "polylog",
+      "costTo": "quasiLL"
+    },
+    {
+      "id": "mis-lca-ghaffari-2016-intermediate",
+      "sourceId": "ghaffari-2016-local-mis",
+      "paperId": "ghaffari-2016-local-mis",
+      "panel": "cost",
+      "xCategory": "time",
+      "yCategory": "mis-lca-ghaffari-2016-intermediate",
+      "kind": "algorithm",
+      "displayBound": "Δ^{O(log Δ)} · log³ n",
+      "bound": "Δ^{O(log Δ)} · log³ n",
+      "shortLabel": "Ghaffari 2016",
+      "quality": "Exact maximal independent set",
+      "output": "Consistent YES/NO membership in one maximal independent set",
+      "graph": "Undirected graph on n vertices with maximum degree Δ",
+      "oracle": "Adjacency-list neighbor probes: (v,i) returns the ith neighbor",
+      "probability": "High probability in the cited LCA construction",
+      "adaptivity": "Adaptive probes; one shared random tape fixes consistent answers",
+      "assumptions": [
+        "n is the vertex count; Δ is the maximum degree",
+        "The input graph is fixed before the random tape",
+        "Membership refers to a maximal independent set, not a maximum independent set"
+      ],
+      "sourceUrl": "https://arxiv.org/html/1506.05093v2",
+      "sourceURL": "https://arxiv.org/html/1506.05093v2",
+      "verifiedOn": "2026-10-20",
+      "notes": "The paper states time 2^{O(log² Δ)} log³ n and space 2^{O(log² Δ)} log² n. The display rewrites the degree factor equivalently; a time guarantee also bounds the number of neighbor probes, but does not equate time with probes.",
+      "theorem": "Section 1.3, Corollary (C5)",
+      "resource": "Time per query; space Δ^{O(log Δ)} · log² n",
+      "plotLabel": "Ghaffari ’16",
+      "originalPanel": "randomized",
+      "setup": "variable",
+      "from": "polylog",
+      "to": "quasiL",
+      "costFrom": "polylog",
+      "costTo": "quasiL"
+    },
+    {
+      "id": "mis-lca-levi-2017-quasipoly",
+      "sourceId": "levi-rubinfeld-yodpinyanee-2017-lca",
+      "paperId": "levi-rubinfeld-yodpinyanee-2017-lca",
+      "panel": "cost",
+      "xCategory": "time",
+      "yCategory": "mis-lca-levi-2017-quasipoly",
+      "kind": "algorithm",
+      "displayBound": "Δ^{O(log² Δ)} · log³ n",
+      "bound": "Δ^{O(log² Δ)} · log³ n",
+      "shortLabel": "Levi–Rubinfeld–Yodpinyanee 2017",
+      "quality": "Exact maximal independent set",
+      "output": "Consistent YES/NO membership in one maximal independent set",
+      "graph": "Undirected graph on n vertices with maximum degree Δ",
+      "oracle": "Adjacency-list neighbor probes: (v,i) returns the ith neighbor",
+      "probability": "Failure at most 1/poly(n) in Theorems 3–5 construction",
+      "adaptivity": "Adaptive probes; one shared random tape fixes consistent answers",
+      "assumptions": [
+        "n is the vertex count; Δ is the maximum degree",
+        "The input graph is fixed before the random tape",
+        "Membership refers to a maximal independent set, not a maximum independent set"
+      ],
+      "sourceUrl": "https://arxiv.org/html/1502.04022v1",
+      "sourceURL": "https://arxiv.org/html/1502.04022v1",
+      "verifiedOn": "2026-10-20",
+      "notes": "Theorem 5 gives time 2^{O(log³ Δ)} log³ n and seed length 2^{O(log³ Δ)} log² n. This refines the supplied poly(log n) factors. The seed guarantee is preserved, not hidden behind a probe-only comparison.",
+      "theorem": "Theorem 5 and Section 3.5 (space reduction); Theorem 4 is the full-randomness variant",
+      "resource": "Time per query; seed/space Δ^{O(log² Δ)} · log² n",
+      "plotLabel": "LRY ’17",
+      "originalPanel": "randomized",
+      "setup": "variable",
+      "from": "polylog",
+      "to": "quasiL2",
+      "costFrom": "polylog",
+      "costTo": "quasiL2"
+    },
+    {
+      "id": "mis-lca-rubinfeld-2011",
+      "sourceId": "rubinfeld-tamir-vardi-xie-2011-lca",
+      "paperId": "rubinfeld-tamir-vardi-xie-2011-lca",
+      "panel": "cost",
+      "xCategory": "full",
+      "yCategory": "logn",
+      "kind": "algorithm",
+      "displayBound": "O_Δ(log n) time; O(n) space",
+      "bound": "O_Δ(log n) time; O(n) space",
+      "shortLabel": "Rubinfeld et al. 2011",
+      "quality": "Exact maximal independent set",
+      "output": "Consistent YES/NO membership in one maximal independent set",
+      "graph": "Undirected graph with fixed maximum degree Δ",
+      "oracle": "Adjacency-list neighbor probes: (v,i) returns the ith neighbor",
+      "probability": "Success at least 1−1/n over all queries",
+      "adaptivity": "Adaptive probes; one shared random tape fixes consistent answers",
+      "assumptions": [
+        "n is the vertex count; Δ is the maximum degree",
+        "The input graph is fixed before the random tape",
+        "Membership refers to a maximal independent set, not a maximum independent set"
+      ],
+      "sourceUrl": "https://arxiv.org/html/1104.1377v1",
+      "sourceURL": "https://arxiv.org/html/1104.1377v1",
+      "verifiedOn": "2026-10-20",
+      "notes": "Theorem 4.1 gives O(Δ^{O(Δ log Δ)} log n) time, O(n) space, and failure 1/n. Fixing Δ gives the displayed O(log n) time. The algorithm stores randomness; it is not the deterministic stateless contract.",
+      "theorem": "Theorem 4.1; Definition 2.2",
+      "resource": "Time per query and total local computation memory",
+      "plotLabel": "RTVX ’11",
+      "originalPanel": "classic",
+      "setup": "fixed",
+      "from": "logn",
+      "to": "logn",
+      "costFrom": "logn",
+      "costTo": "logn"
+    },
+    {
+      "id": "mis-lca-alon-2012-space",
+      "sourceId": "alon-rubinfeld-vardi-xie-2012-lca",
+      "paperId": "alon-rubinfeld-vardi-xie-2012-lca",
+      "panel": "cost",
+      "xCategory": "compact",
+      "yCategory": "log3n",
+      "kind": "algorithm",
+      "displayBound": "O_Δ(log³ n) time; O_Δ(log² n) space",
+      "bound": "O_Δ(log³ n) time; O_Δ(log² n) space",
+      "shortLabel": "Alon et al. 2012",
+      "quality": "Exact maximal independent set",
+      "output": "Consistent YES/NO membership in one maximal independent set",
+      "graph": "Undirected graph with fixed maximum degree Δ",
+      "oracle": "Adjacency-list neighbor probes: (v,i) returns the ith neighbor",
+      "probability": "Success at least 1−1/n over all queries",
+      "adaptivity": "Adaptive probes; one shared random tape fixes consistent answers",
+      "assumptions": [
+        "n is the vertex count; Δ is the maximum degree",
+        "The input graph is fixed before the random tape",
+        "Membership refers to a maximal independent set, not a maximum independent set"
+      ],
+      "sourceUrl": "https://arxiv.org/html/1109.6178v2",
+      "sourceURL": "https://arxiv.org/html/1109.6178v2",
+      "verifiedOn": "2026-10-20",
+      "notes": "The fixed-degree n-dependence avoids an inconsistent Δ exponent between the printed Theorem 6.1 space component and its preceding derivation. Both give log² n space for fixed Δ. The algorithm is query-order oblivious and parallelizable. The time bound is Δ^{O(Δ log Δ)} log³ n.",
+      "theorem": "Theorem 6.1; Section 1.1 on query-order obliviousness and parallelizability",
+      "resource": "Time per query and local memory including compact randomness",
+      "plotLabel": "ARVX ’12",
+      "originalPanel": "classic",
+      "setup": "fixed",
+      "from": "polylog",
+      "to": "polylog",
+      "costFrom": "polylog",
+      "costTo": "polylog"
+    },
+    {
+      "id": "mis-lca-even-2018-det",
+      "sourceId": "even-medina-ron-2018-local",
+      "paperId": "even-medina-ron-2018-local",
+      "panel": "cost",
+      "xCategory": "stateless",
+      "yCategory": "logstar",
+      "kind": "algorithm",
+      "displayBound": "O_Δ(log* n)",
+      "bound": "O_Δ(log* n)",
+      "shortLabel": "Even–Medina–Ron 2018",
+      "quality": "Exact maximal independent set",
+      "output": "Consistent YES/NO membership in one maximal independent set",
+      "graph": "Undirected graph with fixed maximum degree Δ",
+      "oracle": "Adjacency-list neighbor probes; the source also returns a reverse port, simulable with at most Δ neighbor probes",
+      "probability": "Deterministic: all answers correct",
+      "adaptivity": "Deterministic, stateless and query-order oblivious",
+      "assumptions": [
+        "Distinct vertex IDs; known n and maximum degree bound Δ",
+        "Δ is held fixed for the displayed n-dependence",
+        "Deterministic, stateless: no state retained between membership queries",
+        "Membership refers to a maximal independent set, not a maximum independent set"
+      ],
+      "sourceUrl": "https://arxiv.org/html/1402.3796v3",
+      "sourceURL": "https://arxiv.org/html/1402.3796v3",
+      "verifiedOn": "2026-10-20",
+      "notes": "The full degree-sensitive bound is Δ^{O(Δ²)} · log* n. This panel fixes Δ, so the result is O(log* n). No polynomial-in-Δ claim is made.",
+      "theorem": "Corollary 11; Section 2.2 defines CentLocal probes and statelessness",
+      "resource": "Neighbor probes per membership query",
+      "plotLabel": "EMR ’18",
+      "originalPanel": "deterministic",
+      "setup": "deterministic",
+      "from": "logstar",
+      "to": "logstar",
+      "costFrom": "logstar",
+      "costTo": "logstar"
+    },
+    {
+      "id": "mis-lca-nonlocal-2016-lower",
+      "sourceId": "goos-hirvonen-levi-medina-suomela-2016-nonlocal",
+      "paperId": "goos-hirvonen-levi-medina-suomela-2016-nonlocal",
+      "panel": "cost",
+      "xCategory": "stateless",
+      "yCategory": "logstar",
+      "kind": "lower",
+      "displayBound": "Ω(log* n)",
+      "bound": "Ω(log* n)",
+      "shortLabel": "Göös et al. 2016",
+      "quality": "Exact maximal independent set",
+      "output": "Consistent YES/NO membership in one maximal independent set",
+      "graph": "Bounded-degree undirected graphs; Δ is fixed",
+      "oracle": "Lower bound permits strong probes revealing all neighbors of any chosen vertex",
+      "probability": "Deterministic correctness on all valid inputs and queries",
+      "adaptivity": "Deterministic query-order-oblivious algorithms; includes stateless algorithms",
+      "assumptions": [
+        "Fixed degree bound",
+        "Deterministic and query-order oblivious; no claim for arbitrary stateful randomized LCAs",
+        "Probe locations may be nonlocal",
+        "The stronger full-neighbor probe lower bound also applies to single-neighbor probes"
+      ],
+      "sourceUrl": "https://arxiv.org/html/1512.05411v1",
+      "sourceURL": "https://arxiv.org/html/1512.05411v1",
+      "verifiedOn": "2026-10-20",
+      "notes": "The source explicitly transfers its Table 1 LOCAL lower bounds to deterministic query-order-oblivious CentLOCAL. For fixed Δ, strong and single-neighbor probes differ by only a constant factor. This pairs with the stateless upper bound in n, not in Δ.",
+      "theorem": "Theorem 2 and Table 1, Section 5.2 (MIS row)",
+      "resource": "Probes per membership query",
+      "plotLabel": "GHLMŠ ’16",
+      "originalPanel": "deterministic",
+      "setup": "deterministic",
+      "from": "logstar",
+      "to": "logstar",
+      "costFrom": "logstar",
+      "costTo": "logstar"
+    },
+    {
+      "id": "mis-lca-ghaffari-polydeg-expected",
+      "sourceId": "ghaffari-2022-lca-mis",
+      "paperId": "ghaffari-2022-lca-mis",
+      "panel": "cost",
+      "xCategory": "probes",
+      "yCategory": "mis-lca-ghaffari-polydeg",
+      "kind": "algorithm",
+      "displayBound": "poly(Δ) expected probes",
+      "bound": "poly(Δ) expected probes",
+      "shortLabel": "Ghaffari 2022 · expectation",
+      "quality": "Exact maximal independent set",
+      "output": "Consistent YES/NO membership in one maximal independent set",
+      "graph": "Undirected graph on n vertices with maximum degree Δ",
+      "oracle": "Adjacency-list neighbor probes: (v,i) returns the ith neighbor",
+      "probability": "Expectation over the shared random tape for each fixed queried vertex",
+      "adaptivity": "Adaptive probes; one shared random tape fixes consistent answers",
+      "assumptions": [
+        "n is the vertex count; Δ is the maximum degree",
+        "The input graph is fixed before the random tape",
+        "Membership refers to a maximal independent set, not a maximum independent set"
+      ],
+      "sourceUrl": "https://arxiv.org/html/2210.01104v1",
+      "sourceURL": "https://arxiv.org/html/2210.01104v1",
+      "verifiedOn": "2026-10-20",
+      "notes": "Theorems 1.1 and 2.16 provide this expectation as well as the tail bound. An expected per-query bound is not a high-probability worst-query bound, so it is inspected separately.",
+      "theorem": "Theorems 1.1 and 2.16; Section 1.1 defines the shared-tape adjacency-list model",
+      "resource": "Expected neighbor probes per fixed membership query",
+      "plotLabel": "Ghaffari ’22 · expectation",
+      "originalPanel": "expected",
+      "setup": "expected",
+      "from": "constant",
+      "to": "polynomial",
+      "costFrom": "constant",
+      "costTo": "polynomial"
+    }
+  ],
+  "relatedResults": [
+    {
+      "id": "mis-lca-biswas-2025-generator",
+      "sourceId": "biswas-et-al-2025-beyondworst-lca",
+      "paperId": "biswas-et-al-2025-beyondworst-lca",
+      "panel": "generator",
+      "xCategory": "joint",
+      "yCategory": "mis-lca-biswas-2025-generator",
+      "kind": "algorithm",
+      "displayBound": "polylog(n) / q",
+      "bound": "polylog(n) / q",
+      "shortLabel": "Biswas et al. 2025",
+      "quality": "A sampled graph together with one exact MIS",
+      "output": "Joint graph adjacency answers and MIS membership answers",
+      "graph": "Jointly generated Erdős–Rényi G(n,q), 0<q≤1",
+      "oracle": "Local Access Generator: the graph is generated by the oracle, not supplied as a fixed input",
+      "probability": "Per-query complexity holds with high probability; generated graph distribution is within n^{−c} total variation of G(n,q), for desired constant c",
+      "adaptivity": "Memoryless generator; a fixed random tape gives mutually consistent graph and MIS answers",
+      "assumptions": [
+        "q is the edge probability (called p in the source)",
+        "Graph and MIS are generated together",
+        "No assertion for a fixed adversarial graph",
+        "For q≥1/polylog(n), the work simplifies to polylog(n)"
+      ],
+      "sourceUrl": "https://arxiv.org/html/2403.00129v2",
+      "sourceURL": "https://arxiv.org/html/2403.00129v2",
+      "verifiedOn": "2026-10-20",
+      "notes": "The near-G(n,q) sampling guarantee from Definition 1.11 is part of the theorem contract. The theorem supplies a work bound, not an input-adjacency-probe bound. No comparable lower bound is verified in this source set.",
+      "theorem": "Definition 1.11, Theorem 1.12 and Section 8",
+      "resource": "Work per graph-edge or MIS-membership query",
+      "plotLabel": "Biswas et al. ’25"
+    }
+  ],
+  "figureAxes": {
+    "cost": {
+      "x": {
+        "label": "Probe budget / time upper bound per query",
+        "kind": "symbolic-growth-classes",
+        "categories": [
+          {
+            "id": "constant",
+            "label": "1"
+          },
+          {
+            "id": "logstar",
+            "label": "log* n"
+          },
+          {
+            "id": "logn",
+            "label": "log n"
+          },
+          {
+            "id": "polylog",
+            "label": "poly(log n)"
+          },
+          {
+            "id": "polynomial",
+            "label": "n^{O(1)}"
+          },
+          {
+            "id": "quasiLL",
+            "label": "n^{O(log log n)}"
+          },
+          {
+            "id": "quasiL",
+            "label": "n^{O(log n)}"
+          },
+          {
+            "id": "quasiL2",
+            "label": "n^{O(log² n)}"
+          }
+        ]
+      },
+      "y": {
+        "label": "Named theorem and setup",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "mis-lca-ghaffari-polydeg",
+            "label": "Ghaffari 2022"
+          },
+          {
+            "id": "mis-lca-ghaffari-uitto-2019",
+            "label": "Ghaffari–Uitto 2019"
+          },
+          {
+            "id": "mis-lca-ghaffari-2016-intermediate",
+            "label": "Ghaffari 2016"
+          },
+          {
+            "id": "mis-lca-levi-2017-quasipoly",
+            "label": "Levi–Rubinfeld–Yodpinyanee 2017"
+          },
+          {
+            "id": "mis-lca-rubinfeld-2011",
+            "label": "Rubinfeld et al. 2011"
+          },
+          {
+            "id": "mis-lca-alon-2012-space",
+            "label": "Alon et al. 2012"
+          },
+          {
+            "id": "mis-lca-even-2018-det",
+            "label": "Even–Medina–Ron 2018"
+          },
+          {
+            "id": "mis-lca-nonlocal-2016-lower",
+            "label": "Göös et al. 2016"
+          },
+          {
+            "id": "mis-lca-ghaffari-polydeg-expected",
+            "label": "Ghaffari 2022 · expectation"
+          }
+        ]
+      },
+      "scaleNote": "Expression envelopes under 1≤Δ<n, not runtime lower bounds or numerical locations. Asymptotic classes overlap; exponent constants are unknown."
+    }
+  },
+  "sourceVerification": [
+    {
+      "sourceId": "ghaffari-2022-lca-mis",
+      "url": "https://arxiv.org/html/2210.01104v1",
+      "theorem": "Theorems 1.1 and 2.16; Section 1.1 defines the shared-tape adjacency-list model",
+      "verifiedOn": "2026-10-20",
+      "status": "primary_statement_verified",
+      "publicationURL": null,
+      "notes": "The expected cost for a fixed queried vertex is poly(Δ), retained separately. The exponent of Δ is unspecified and is never assigned a numeric coordinate.",
+      "recheckedOn": "2026-10-26"
+    },
+    {
+      "sourceId": "ghaffari-2016-local-mis",
+      "url": "https://arxiv.org/html/1506.05093v2",
+      "theorem": "Section 1.3, Corollary (C5)",
+      "verifiedOn": "2026-10-20",
+      "status": "primary_statement_verified",
+      "publicationURL": null,
+      "notes": "The paper states time 2^{O(log² Δ)} log³ n and space 2^{O(log² Δ)} log² n. The display rewrites the degree factor equivalently; a time guarantee also bounds the number of neighbor probes, but does not equate time with probes."
+    },
+    {
+      "sourceId": "rubinfeld-tamir-vardi-xie-2011-lca",
+      "url": "https://arxiv.org/html/1104.1377v1",
+      "theorem": "Theorem 4.1; Definition 2.2",
+      "verifiedOn": "2026-10-20",
+      "status": "primary_statement_verified",
+      "publicationURL": null,
+      "notes": "Theorem 4.1 gives O(Δ^{O(Δ log Δ)} log n) time, O(n) space, and failure 1/n. Fixing Δ gives the displayed O(log n) time. The algorithm stores randomness; it is not the deterministic stateless contract."
+    },
+    {
+      "sourceId": "alon-rubinfeld-vardi-xie-2012-lca",
+      "url": "https://arxiv.org/html/1109.6178v2",
+      "theorem": "Theorem 6.1; Section 1.1 on query-order obliviousness and parallelizability",
+      "verifiedOn": "2026-10-20",
+      "status": "primary_statement_verified",
+      "publicationURL": null,
+      "notes": "The fixed-degree n-dependence avoids an inconsistent Δ exponent between the printed Theorem 6.1 space component and its preceding derivation. Both give log² n space for fixed Δ. The algorithm is query-order oblivious and parallelizable. The time bound is Δ^{O(Δ log Δ)} log³ n."
+    },
+    {
+      "sourceId": "even-medina-ron-2018-local",
+      "url": "https://arxiv.org/html/1402.3796v3",
+      "theorem": "Corollary 11; Section 2.2 defines CentLocal probes and statelessness",
+      "verifiedOn": "2026-10-20",
+      "status": "primary_statement_verified",
+      "publicationURL": null,
+      "notes": "The full degree-sensitive bound is Δ^{O(Δ²)} · log* n. This panel fixes Δ, so the result is O(log* n). No polynomial-in-Δ claim is made.",
+      "recheckedOn": "2026-10-26"
+    },
+    {
+      "sourceId": "levi-rubinfeld-yodpinyanee-2017-lca",
+      "url": "https://arxiv.org/html/1502.04022v1",
+      "theorem": "Theorem 5 and Section 3.5 (space reduction); Theorem 4 is the full-randomness variant",
+      "verifiedOn": "2026-10-20",
+      "status": "primary_statement_verified",
+      "publicationURL": null,
+      "notes": "Theorem 5 gives time 2^{O(log³ Δ)} log³ n and seed length 2^{O(log³ Δ)} log² n. This refines the supplied poly(log n) factors. The seed guarantee is preserved, not hidden behind a probe-only comparison."
+    },
+    {
+      "sourceId": "ghaffari-uitto-2019-sparsify",
+      "url": "https://arxiv.org/html/1807.06251v1",
+      "theorem": "Theorem 1.2",
+      "verifiedOn": "2026-10-20",
+      "status": "primary_statement_verified",
+      "publicationURL": null,
+      "notes": "Sparsification reduces the information gathered from a distributed neighborhood. The distributed-radius barrier is not a lower bound on all LCAs."
+    },
+    {
+      "sourceId": "biswas-et-al-2025-beyondworst-lca",
+      "url": "https://arxiv.org/html/2403.00129v2",
+      "theorem": "Definition 1.11, Theorem 1.12 and Section 8",
+      "verifiedOn": "2026-10-20",
+      "status": "primary_statement_verified",
+      "publicationURL": null,
+      "notes": "The near-G(n,q) sampling guarantee from Definition 1.11 is part of the theorem contract. The theorem supplies a work bound, not an input-adjacency-probe bound. No comparable lower bound is verified in this source set.",
+      "recheckedOn": "2026-10-26"
+    },
+    {
+      "sourceId": "goos-hirvonen-levi-medina-suomela-2016-nonlocal",
+      "url": "https://arxiv.org/html/1512.05411v1",
+      "theorem": "Theorem 2 and Table 1, Section 5.2 (MIS row)",
+      "verifiedOn": "2026-10-20",
+      "status": "primary_statement_verified",
+      "publicationURL": "https://link.springer.com/chapter/10.1007/978-3-662-53426-7_15",
+      "notes": "The source explicitly transfers its Table 1 LOCAL lower bounds to deterministic query-order-oblivious CentLOCAL. For fixed Δ, strong and single-neighbor probes differ by only a constant factor. This pairs with the stateless upper bound in n, not in Δ.",
+      "recheckedOn": "2026-10-26"
+    }
+  ],
+  "archive": {
+    "fixedTreeComparisons": "None supplied in this pair; no fixed-tree comparison added.",
+    "originalResearchFile": "input-research.json",
+    "excludedBarrier": "The Δ^{Ω(log Δ/log log Δ)} full-neighborhood simulation barrier is not a universal LCA lower bound. The source discussion remains linked through Ghaffari–Uitto 2019 and Ghaffari 2022."
+  },
+  "representation": {
+    "chosenOn": "2026-10-26",
+    "status": "user_requested",
+    "main": "One shared symbolic cost axis; colored setup legend and degree-dependent formula ranges using Δ<n; green algorithm/red lower markers.",
+    "related": "Joint graph/MIS generator is a related-result card only."
+  },
+  "costAxis": {
+    "label": "Probe budget / time upper bound per query",
+    "kind": "symbolic-growth-classes",
+    "note": "Expression envelopes under 1≤Δ<n, not runtime lower bounds or numerical locations. Asymptotic classes overlap; exponent constants are unknown.",
+    "results": {
+      "mis-lca-ghaffari-polydeg": {
+        "setup": "variable",
+        "from": "logn",
+        "to": "polynomial"
+      },
+      "mis-lca-ghaffari-uitto-2019": {
+        "setup": "variable",
+        "from": "polylog",
+        "to": "quasiLL"
+      },
+      "mis-lca-ghaffari-2016-intermediate": {
+        "setup": "variable",
+        "from": "polylog",
+        "to": "quasiL"
+      },
+      "mis-lca-levi-2017-quasipoly": {
+        "setup": "variable",
+        "from": "polylog",
+        "to": "quasiL2"
+      },
+      "mis-lca-rubinfeld-2011": {
+        "setup": "fixed",
+        "from": "logn",
+        "to": "logn"
+      },
+      "mis-lca-alon-2012-space": {
+        "setup": "fixed",
+        "from": "polylog",
+        "to": "polylog"
+      },
+      "mis-lca-even-2018-det": {
+        "setup": "deterministic",
+        "from": "logstar",
+        "to": "logstar"
+      },
+      "mis-lca-nonlocal-2016-lower": {
+        "setup": "deterministic",
+        "from": "logstar",
+        "to": "logstar"
+      },
+      "mis-lca-ghaffari-polydeg-expected": {
+        "setup": "expected",
+        "from": "constant",
+        "to": "polynomial"
+      }
+    }
+  }
+}

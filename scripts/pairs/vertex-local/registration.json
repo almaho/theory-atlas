@@ -1,0 +1,72 @@
+{
+  "id": "vertex-local",
+  "dataFile": "vertex-local.json",
+  "javascript": "vertex-local.js",
+  "css": "vertex-local.css",
+  "routes": [
+    {
+      "key": "vertex-local",
+      "sliceId": "vertex-local-randomized-delta-plus-one",
+      "label": "Vertex coloring · LOCAL rounds",
+      "problem": "vertex",
+      "model": "local",
+      "visible": true
+    },
+    {
+      "key": "vertex-local-det",
+      "sliceId": "vertex-local-deterministic-delta-plus-one",
+      "label": "Vertex coloring · deterministic LOCAL",
+      "problem": "vertex",
+      "model": "local",
+      "visible": false
+    },
+    {
+      "key": "vertex-local-high",
+      "sliceId": "vertex-local-high-degree-degree-one",
+      "label": "Vertex coloring · high-degree LOCAL",
+      "problem": "vertex",
+      "model": "local",
+      "visible": false
+    },
+    {
+      "key": "vertex-local-brooks",
+      "sliceId": "vertex-local-brooks-delta-minus-k",
+      "label": "Vertex coloring · fewer colors in LOCAL",
+      "problem": "vertex",
+      "model": "local",
+      "visible": false
+    },
+    {
+      "key": "vertex-local-cycle",
+      "sliceId": "vertex-local-cycle-lower",
+      "label": "Vertex coloring · cycles in LOCAL",
+      "problem": "vertex",
+      "model": "local",
+      "visible": false
+    },
+    {
+      "key": "vertex-local-sparse",
+      "sliceId": "vertex-local-sparsified-input",
+      "label": "Vertex coloring · palette-sparsified LOCAL",
+      "problem": "vertex",
+      "model": "local",
+      "visible": false
+    }
+  ],
+  "canonicalAliases": {
+    "vertex-local-det": "vertex-local",
+    "vertex-local-high": "vertex-local",
+    "vertex-local-brooks": "vertex-local",
+    "vertex-local-cycle": "vertex-local",
+    "vertex-local-sparse": "vertex-local"
+  },
+  "pointFields": {
+    "x": "contractKey",
+    "y": "rowKey"
+  },
+  "axisSummary": {
+    "x": "Coloring contract; separate panels preserve graph/output/network assumptions",
+    "y": "Exact symbolic round formulas; categories do not rank variable-Δ bounds",
+    "note": "Green algorithms and red lower bounds. Cycle Δ=2 reference; transformed-network lower stays separate."
+  }
+}

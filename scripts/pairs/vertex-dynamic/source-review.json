@@ -1,0 +1,166 @@
+{
+  "pair": "vertex-dynamic",
+  "verifiedOn": "2026-10-27",
+  "scope": "Seven original algorithm records from six supplied primary papers; one related lower from the same HP2022 source. No literature expansion.",
+  "representation": {
+    "main": "Five adversary/palette/averaging columns on a shared categorical symbolic update-time axis",
+    "colors": "Green algorithm markers; blue adaptive, purple oblivious and ochre deterministic setup labels/halos; red only for the separate verified decision lower",
+    "paletteChoice": "User confirmed including both Δ+1 and the deterministic larger-palette family.",
+    "lower": "Related decision card outside maintenance coordinate system. No proved main lower in bounded sources.",
+    "comparisonLimits": [
+      "No numeric projection of polylogarithms.",
+      "No dominance region crosses adversary or averaging contracts.",
+      "No statement that n^{2/3} is a proved lower bound.",
+      "The (1+o(1))Δ family is asymptotic as Δ grows, not an adjustable ε tradeoff."
+    ]
+  },
+  "sources": [
+    {
+      "id": "flin-halldorsson-2025-dynamic-coloring",
+      "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol334-icalp2025/html/LIPIcs.ICALP.2025.79/LIPIcs.ICALP.2025.79.html",
+      "publicationUrl": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2025.79",
+      "verifiedOn": "2026-10-27",
+      "theorems": [
+        "Theorem 1; §4.4 proof"
+      ]
+    },
+    {
+      "id": "behnezhad-rajaraman-wasim-2025-dynamic-coloring",
+      "url": "https://arxiv.org/pdf/2411.04418v2",
+      "publicationUrl": "https://arxiv.org/abs/2411.04418",
+      "verifiedOn": "2026-10-27",
+      "theorems": [
+        "Theorem 1, PDF p.3; proof in §5.4"
+      ]
+    },
+    {
+      "id": "bhattacharya-grandoni-kulkarni-liu-solomon-2022-dynamic",
+      "url": "https://wrap.warwick.ac.uk/id/eprint/163819/1/WRAP-Fully-Dynamic-1-Coloring-in-O1-Update-Time-2022.pdf",
+      "publicationUrl": "https://doi.org/10.1145/3494539",
+      "verifiedOn": "2026-10-27",
+      "theorems": [
+        "Theorem 1.2, accepted manuscript p.3; Lemma 2.1"
+      ]
+    },
+    {
+      "id": "bhattacharya-chakrabarty-henzinger-nanongkai-2018-dynamic",
+      "url": "https://arxiv.org/html/1711.04355v1",
+      "publicationUrl": "https://arxiv.org/abs/1711.04355",
+      "verifiedOn": "2026-10-27",
+      "theorems": [
+        "Theorem 3.1; §1 footnote 2",
+        "Theorem 4.1; §4.3 concluding proof; §4.1 constant-degree footnote"
+      ]
+    },
+    {
+      "id": "henzinger-peng-2022-dynamic-color",
+      "url": "https://arxiv.org/html/1907.04745",
+      "publicationUrl": "https://arxiv.org/abs/1907.04745",
+      "verifiedOn": "2026-10-27",
+      "theorems": [
+        "Theorem 1.1; §1.1 footnote 1; §3",
+        "Appendix A, Theorem A.1 and preceding reduction"
+      ]
+    },
+    {
+      "id": "ghaffari-koo-2026-dynamic-vertex",
+      "url": "https://arxiv.org/html/2512.09218v3",
+      "publicationUrl": "https://arxiv.org/abs/2512.09218",
+      "verifiedOn": "2026-10-27",
+      "theorems": [
+        "Theorem 1.1, arXiv:2512.09218v3 (15 October 2026); §3"
+      ]
+    }
+  ],
+  "corrections": [
+    {
+      "id": "vertex-dynamic-adaptive-brw-2025",
+      "evidence": "arXiv2411.04418v2 Theorem1, PDF p.3 and repeated §5.4",
+      "change": "Restore amortized: the abstract-only input omitted it."
+    },
+    {
+      "id": "vertex-dynamic-oblivious-constant-2022",
+      "evidence": "Accepted journal manuscript Theorem1.2 p.3",
+      "change": "Use total O(n log n+nΔ+t), both expectation and WHP; O(1) amortized only for t=Ω(n log n+nΔ). Keep sequence footnote visible on detailed atlas and focus."
+    },
+    {
+      "id": "vertex-extended-vertex-dynamic-oblivious-delta-plus-one-13",
+      "evidence": "arXiv2512.09218v3 Thm1.1 and §3 (15 October2026)",
+      "change": "Refresh outdated August revision; distinguish expected per fixed update position from expected amortization, WHP time, and conditional expectation under every random history. Initialization O(n)."
+    },
+    {
+      "id": "vertex-result-22",
+      "evidence": "arXiv1711.04355v1 Thm4.1, §4.3 final proof",
+      "change": "Retain verified O(polylog Δ) formula class. Inspector supplies the proof's exact intermediate O(λ²L²T) total work, with source growth bounds for λ and L, without inventing a numeric exponent. The typography of the printed iterated-log denominator is not used to create numeric coordinates."
+    },
+    {
+      "id": "vertex-result-19",
+      "evidence": "Thm3.1 and §1 footnote2",
+      "change": "Make oblivious expectation/amortization explicit; log⁺ protects the small-Δ display convention."
+    },
+    {
+      "id": "vertex-dynamic-hp-delta-colorability-lower",
+      "evidence": "HP2022 AppendixA ThmA.1 and reduction",
+      "change": "Related result only: Ω(log n) cell probes on average across updates AND decision queries, O(log n)-bit cells, already Δ=2. Does not lower-bound Δ+1 maintenance or updates alone with unrestricted query cost."
+    }
+  ],
+  "recordPreservation": [
+    {
+      "id": "vertex-dynamic-adaptive-flin-2025",
+      "originalIds": [
+        "vertex-dynamic-adaptive-flin-2025"
+      ],
+      "action": "preserved as its own visible theorem"
+    },
+    {
+      "id": "vertex-dynamic-adaptive-brw-2025",
+      "originalIds": [
+        "vertex-dynamic-adaptive-brw-2025"
+      ],
+      "action": "preserved as its own visible theorem"
+    },
+    {
+      "id": "vertex-dynamic-oblivious-constant-2022",
+      "originalIds": [
+        "vertex-dynamic-oblivious-constant-2022"
+      ],
+      "action": "preserved as its own visible theorem"
+    },
+    {
+      "id": "vertex-result-19",
+      "originalIds": [
+        "vertex-result-19"
+      ],
+      "action": "preserved as its own visible theorem"
+    },
+    {
+      "id": "vertex-extended-vertex-dynamic-oblivious-delta-plus-one-12",
+      "originalIds": [
+        "vertex-extended-vertex-dynamic-oblivious-delta-plus-one-12"
+      ],
+      "action": "preserved as its own visible theorem"
+    },
+    {
+      "id": "vertex-extended-vertex-dynamic-oblivious-delta-plus-one-13",
+      "originalIds": [
+        "vertex-extended-vertex-dynamic-oblivious-delta-plus-one-13"
+      ],
+      "action": "preserved as its own visible theorem"
+    },
+    {
+      "id": "vertex-result-22",
+      "originalIds": [
+        "vertex-result-22"
+      ],
+      "action": "preserved as its own visible theorem"
+    }
+  ],
+  "deduplication": "None: HP2022 and BGKLS2022 are independent constant-time algorithms with different guarantees; GK2026 is per-update expectation. Seven IDs remain seven points.",
+  "lowerStatus": "No matching nontrivial maintenance update-time lower was verified in these sources. HP2022's decision lower is related only; FH2025's n^{2/3} discussion is not a lower-bound theorem.",
+  "verificationMethod": "Primary theorem HTML/PDF extracts through web tool; no secondary evidence used for theorem scope. Curl networking unavailable; no cached unverified claims substituted.",
+  "unresolvedFactualBlockers": [],
+  "limitations": [
+    "Not a full literature survey.",
+    "Browser layout and final publication integration are root tasks."
+  ]
+}

@@ -1,0 +1,39 @@
+
+.edyn-view,.edyn-map,.edyn-summary{--edyn-general:light-dark(#33659a,#97bdea);--edyn-sparse:light-dark(#875ca4,#c6a9e0);--edyn-forest:light-dark(#9c641f,#e0b26f)}
+.edyn-view .f-hero h1{font-size:32px;max-width:900px}.edyn-toolbar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;margin:18px 0 12px;font-size:11px}.edyn-legend,.edyn-filters{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center}.edyn-legend i{display:inline-block;width:8px;height:8px;margin-right:6px}.edyn-key-alg{background:var(--green);border-radius:50%}.edyn-key-lower{border:1.5px solid var(--red);transform:rotate(45deg);box-sizing:border-box}.edyn-filters select{font-size:11px;min-height:32px;margin-left:5px}.edyn-scroll{overflow-x:auto;overscroll-behavior-x:contain;border:1px solid var(--line);border-radius:7px;background:var(--surface)}.edyn-plot{min-width:830px;padding:8px}.edyn-map{display:block;width:100%;height:auto}
+svg.edyn-map text,svg.edyn-summary text,.cell svg.edyn-summary text{font:11px ui-sans-serif,system-ui,sans-serif;fill:var(--ink)}
+svg.edyn-map .edyn-heading,svg.edyn-summary .edyn-heading,.cell svg.edyn-summary .edyn-heading{font:600 16px ui-sans-serif,system-ui,sans-serif}
+svg.edyn-map .edyn-heading{font:500 24px Georgia,serif}
+svg.edyn-map .edyn-panel-title,svg.edyn-summary .edyn-panel-title,.cell svg.edyn-summary .edyn-panel-title{font-size:12px;font-weight:600}
+svg.edyn-map .edyn-panel-title{font-size:16px}
+svg.edyn-map .edyn-muted,svg.edyn-summary .edyn-muted,.cell svg.edyn-summary .edyn-muted{font-size:9px;fill:var(--muted)}
+svg.edyn-map .edyn-muted{font-size:11px}
+svg.edyn-map .edyn-setup,svg.edyn-summary .edyn-setup,.cell svg.edyn-summary .edyn-setup{font-size:9px;font-weight:600}
+svg.edyn-map .edyn-setup{font-size:12px}
+svg.edyn-map .edyn-palette,svg.edyn-summary .edyn-palette,.cell svg.edyn-summary .edyn-palette{font-size:8px;fill:var(--muted)}
+svg.edyn-map .edyn-palette{font-size:10px}
+svg.edyn-map .edyn-formula,svg.edyn-summary .edyn-formula,.cell svg.edyn-summary .edyn-formula{font-size:10px;font-weight:600}
+svg.edyn-map .edyn-formula{font-size:14px}
+svg.edyn-map .edyn-tag,svg.edyn-summary .edyn-tag,.cell svg.edyn-summary .edyn-tag{font-size:7.4px;fill:var(--muted)}
+svg.edyn-map .edyn-tag{font-size:10px}
+svg.edyn-map .edyn-tick,svg.edyn-summary .edyn-tick,.cell svg.edyn-summary .edyn-tick{font-size:7.7px;fill:var(--muted)}
+svg.edyn-map .edyn-tick{font-size:11px}
+svg.edyn-map .edyn-axis-title,svg.edyn-summary .edyn-axis-title,.cell svg.edyn-summary .edyn-axis-title{font-size:8px;fill:var(--muted)}
+svg.edyn-map .edyn-axis-title{font-size:11px}
+svg.edyn-map .edyn-legend,svg.edyn-summary .edyn-legend,.cell svg.edyn-summary .edyn-legend{font-size:9px;fill:var(--muted)}
+svg.edyn-map .edyn-legend{font-size:11px}
+svg.edyn-summary .edyn-short,.cell svg.edyn-summary .edyn-short{font-size:7.7px;font-weight:500}
+svg.edyn-summary[data-detail-level=compact] .edyn-heading,.cell svg.edyn-summary[data-detail-level=compact] .edyn-heading{font-size:11px}
+svg.edyn-summary[data-detail-level=compact] .edyn-panel-title,.cell svg.edyn-summary[data-detail-level=compact] .edyn-panel-title{font-size:9px}
+svg.edyn-summary[data-detail-level=compact] .edyn-axis-title,.cell svg.edyn-summary[data-detail-level=compact] .edyn-axis-title{font-size:7px}
+.edyn-upper{color:var(--green)}.edyn-lower{color:var(--red)}
+svg.edyn-map .edyn-upper,svg.edyn-summary .edyn-upper,.cell svg.edyn-summary .edyn-upper{fill:var(--green)}
+svg.edyn-map .edyn-lower,svg.edyn-summary .edyn-lower,.cell svg.edyn-summary .edyn-lower{fill:var(--red)}
+.edyn-general,svg.edyn-map .edyn-general,svg.edyn-summary .edyn-general,.cell svg.edyn-summary .edyn-general{color:var(--edyn-general);fill:var(--edyn-general)}
+.edyn-sparse,svg.edyn-map .edyn-sparse,svg.edyn-summary .edyn-sparse,.cell svg.edyn-summary .edyn-sparse{color:var(--edyn-sparse);fill:var(--edyn-sparse)}
+.edyn-forest,svg.edyn-map .edyn-forest,svg.edyn-summary .edyn-forest,.cell svg.edyn-summary .edyn-forest{color:var(--edyn-forest);fill:var(--edyn-forest)}
+.edyn-axis{stroke:var(--muted);stroke-width:.7;fill:none}.edyn-grid{stroke:var(--line);stroke-width:.65;stroke-dasharray:2 5;fill:none}.edyn-row-line{stroke:var(--line);stroke-width:.55;fill:none}.edyn-result[role=button]{cursor:pointer;outline:none}.edyn-result[role=button]:focus{outline:1px dotted var(--ink)}.edyn-result[role=button]:hover{filter:brightness(1.12)}
+.edyn-notes{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:14px 0}.edyn-notes p,.edyn-notation,.edyn-coverage{font-size:11px;line-height:1.65;color:var(--muted);margin:0}.edyn-notation{padding:10px 0;border-top:1px solid var(--line)}.edyn-theorem{border:1px solid var(--line);border-radius:7px;padding:16px;margin-top:16px;background:var(--bg)}.edyn-detail-top{display:flex;flex-wrap:wrap;gap:12px 20px;font-size:12px}.edyn-detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:14px}.edyn-detail-grid small{display:block;font-size:10px;color:var(--muted);margin-bottom:5px}.edyn-detail-grid strong{font-size:15px;font-weight:500}.edyn-theorem p,.edyn-theorem li{font-size:11px;line-height:1.7}.edyn-theorem h3{font:17px/1.5 Georgia,serif}.edyn-theorem summary{font-size:11px;cursor:pointer}.edyn-section-title{font:19px Georgia,serif;margin:22px 0 12px}.edyn-records,.edyn-related-records{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}.edyn-record{display:flex;flex-direction:column;gap:7px;padding:14px;text-align:left;border-left:2px solid currentColor}.edyn-record span,.edyn-record small{font-size:11px}.edyn-record strong{font-size:14px;font-weight:500}.edyn-record small{color:var(--muted)}.edyn-record[aria-pressed=true]{background:var(--bg)}.edyn-related>p{font-size:11px;color:var(--muted)}
+@media(max-width:750px){.edyn-notes{grid-template-columns:1fr;gap:10px}.edyn-view .f-hero h1{font-size:28px}}
+@media(max-width:510px){.edyn-detail-grid,.edyn-records,.edyn-related-records{grid-template-columns:1fr}.edyn-scroll:before{content:'Swipe to compare time and recolorings →';position:sticky;left:0;display:block;padding:9px 12px;background:var(--bg);font-size:10px;color:var(--muted)}}
+@media print{.edyn-toolbar{display:none}.edyn-plot{min-width:0}.edyn-scroll{overflow:visible}.edyn-map{break-inside:avoid}}

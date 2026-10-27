@@ -1,0 +1,528 @@
+{
+  "problem": "vertex",
+  "model": "query_combined",
+  "slices": [
+    {
+      "id": "vertex-query-combined-delta-plus-one",
+      "problem": "vertex",
+      "model": "query_combined",
+      "label": "Neighbor and pair queries, explicit (Δ+1) coloring",
+      "task": "Output a valid color for each of the n vertices",
+      "assumptions": [
+        "Both neighbor/list queries and pair/adjacency queries available",
+        "Randomized upper bound; constant-success lower bound",
+        "Arbitrary graph of maximum degree Δ"
+      ],
+      "xAxis": {
+        "label": "Palette slack c in q = Δ + c",
+        "kind": "palette",
+        "min": 0,
+        "max": 8,
+        "ticks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          6,
+          8
+        ]
+      },
+      "yAxis": {
+        "label": "Query exponent p in Õ(n^p)",
+        "kind": "exponent",
+        "min": 0,
+        "max": 2,
+        "ticks": [
+          0,
+          0.5,
+          1,
+          1.5,
+          2
+        ],
+        "tickLabels": [
+          "polylog",
+          "√n",
+          "n",
+          "n^{3/2}",
+          "n²"
+        ]
+      },
+      "parameters": {
+        "n": "number of vertices",
+        "Delta": "maximum degree",
+        "coordinateConvention": "The x coordinate is the additive palette slack c=1. The table retains the exact quality and model assumptions. Ordinal round positions are asymptotic categories."
+      },
+      "results": [
+        {
+          "id": "vertex-query-combined-ack-upper-2019",
+          "paperId": "assadi-chen-khanna-2019-sublinear-coloring",
+          "kind": "upper",
+          "bound": "Õ(n√n) time in the combined neighbor-and-pair query model",
+          "guarantee": "Explicit proper (Δ+1)-vertex coloring",
+          "sourceLocation": "Abstract; sublinear-time result in Section 4.2",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "historical",
+          "notes": "Combined neighbor/pair access. Ferber–Hardiman–Chen 2025 improves the expected time by a square-root logarithmic factor, while this bound/lower match to polylogarithmic factors.",
+          "plot": {
+            "x": 1,
+            "y": 1.5,
+            "closure": "upper-right",
+            "strictX": false,
+            "strictY": false,
+            "label": "O resource 1.5"
+          }
+        },
+        {
+          "id": "vertex-query-combined-ack-lower-2019",
+          "paperId": "assadi-chen-khanna-2019-sublinear-coloring",
+          "kind": "lower",
+          "bound": "Ω(n√n) time/queries for sufficiently large constant success probability",
+          "guarantee": "Any classical query algorithm returning a proper c·Δ-coloring for any fixed c>1 with sufficiently large constant success probability; applies in particular to (Δ+1) coloring",
+          "sourceLocation": "Theorem 7, Section 5.3",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "candidate",
+          "notes": "Theorem states a stronger degree-based palette lower bound in the combined model. The paper's hard instances and probability threshold matter. No numeric red region because q depends on Δ. The red region concerns the combined neighbor-and-pair oracle and success probability specified in this setting.",
+          "plot": {
+            "x": 1,
+            "y": 1.5,
+            "closure": "lower-left",
+            "strictX": false,
+            "strictY": true,
+            "label": "Ω resource 1.5"
+          }
+        },
+        {
+          "id": "vertex-query-combined-ferber-2025",
+          "paperId": "ferber-hardiman-chen-2025-sublinear-coloring",
+          "kind": "upper",
+          "bound": "O(n^(3/2)√(log n)) expected running time",
+          "guarantee": "Proper (Δ+1)-coloring with combined classical neighbor and adjacency-pair access",
+          "sourceLocation": "Abstract; Corollary 2 after Theorem 1",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Combines O(nΔ) list-greedy and the adjacency-only O(n² log n/Δ) routine by selecting the better depending on Δ. Expected-time bound, not a worst-case guarantee.",
+          "plot": {
+            "x": 1,
+            "y": 1.5,
+            "closure": "upper-right",
+            "strictX": false,
+            "strictY": false,
+            "label": "O resource 1.5"
+          }
+        }
+      ]
+    },
+    {
+      "id": "vertex-query-adjacency-matrix-only",
+      "problem": "vertex",
+      "model": "query_combined",
+      "label": "Matrix pairs with degree-query preprocessing",
+      "task": "Output a proper (Δ+1)-color assignment",
+      "assumptions": [
+        "Classical randomized algorithm",
+        "Pair queries ask whether a chosen vertex pair is an edge; degree queries can identify Δ in O(n) queries",
+        "Maximum degree Δ"
+      ],
+      "xAxis": {
+        "label": "Palette ratio r = q/Δ",
+        "kind": "palette",
+        "min": 1,
+        "max": 2.25,
+        "ticks": [
+          1,
+          1.25,
+          1.5,
+          1.75,
+          2,
+          2.25
+        ],
+        "tickLabels": [
+          "Δ",
+          "5Δ/4",
+          "3Δ/2",
+          "7Δ/4",
+          "2Δ",
+          "9Δ/4"
+        ]
+      },
+      "yAxis": {
+        "label": "Query exponent p in Õ(n^p)",
+        "kind": "exponent",
+        "min": 0,
+        "max": 2,
+        "ticks": [
+          0,
+          0.5,
+          1,
+          1.5,
+          2
+        ],
+        "tickLabels": [
+          "polylog",
+          "√n",
+          "n",
+          "n^{3/2}",
+          "n²"
+        ]
+      },
+      "parameters": {
+        "n": "vertices",
+        "Delta": "maximum degree"
+      },
+      "results": [
+        {
+          "id": "vertex-query-matrix-ferber-2025",
+          "paperId": "ferber-hardiman-chen-2025-sublinear-coloring",
+          "kind": "upper",
+          "bound": "O(n² log n / Δ) expected adjacency queries",
+          "guarantee": "Proper (Δ+1)-coloring",
+          "sourceLocation": "Table 1 and Theorem 1",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Single-oracle matrix subroutine; combining with list-based greedy O(nΔ) yields a different combined-access expected bound.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "vertex-query-degeneracy",
+      "problem": "vertex",
+      "model": "query_combined",
+      "label": "General graph queries: degeneracy-near coloring",
+      "task": "Output explicit proper κ(G)+O(1)-palette coloring",
+      "assumptions": [
+        "Classical randomized algorithms",
+        "Both neighbor(i,v) and pair(u,v) adjacency queries available",
+        "Graph degeneracy κ(G)"
+      ],
+      "xAxis": {
+        "label": "Palette ratio r = q/Δ",
+        "kind": "palette",
+        "min": 1,
+        "max": 2.25,
+        "ticks": [
+          1,
+          1.25,
+          1.5,
+          1.75,
+          2,
+          2.25
+        ],
+        "tickLabels": [
+          "Δ",
+          "5Δ/4",
+          "3Δ/2",
+          "7Δ/4",
+          "2Δ",
+          "9Δ/4"
+        ]
+      },
+      "yAxis": {
+        "label": "Query exponent p in Õ(n^p)",
+        "kind": "exponent",
+        "min": 0,
+        "max": 2,
+        "ticks": [
+          0,
+          0.5,
+          1,
+          1.5,
+          2
+        ],
+        "tickLabels": [
+          "polylog",
+          "√n",
+          "n",
+          "n^{3/2}",
+          "n²"
+        ]
+      },
+      "parameters": {
+        "kappa": "graph degeneracy",
+        "n": "vertices"
+      },
+      "results": [
+        {
+          "id": "vertex-result-38",
+          "paperId": "bera-chakrabarti-ghosh-2020-degeneracy",
+          "kind": "lower",
+          "bound": "Ω(n²/λ²) queries for κ+λ coloring, integer λ>1",
+          "guarantee": "Proper degeneracy-near-optimal coloring",
+          "sourceLocation": "Section 7, query lower-bound theorem",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Combined pair and neighbor oracle; κ+O(1) entails Ω(n²), while κ+o(κ) is achievable in Õ(n^(3/2)).",
+          "plot": null
+        },
+        {
+          "id": "vertex-extra-59",
+          "paperId": "bera-chakrabarti-ghosh-2020-degeneracy",
+          "kind": "upper",
+          "bound": "Õ(n^(3/2)) worst-case queries, time and space",
+          "guarantee": "Proper κ+o(κ) coloring with high probability",
+          "sourceLocation": "Theorem 11; Sections 4.2 and 6",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Queries combine neighbor(i,v) and pair(u,v); no prior knowledge of κ required.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "vertex-query-degree-one-list",
+      "problem": "vertex",
+      "model": "query_combined",
+      "label": "Graph queries, degree+1 list coloring",
+      "task": "Output a proper global coloring from per-vertex color lists",
+      "assumptions": [
+        "Each vertex v has at least deg(v)+1 permitted colors",
+        "Standard graph-query model of STOC 2022",
+        "Randomized"
+      ],
+      "xAxis": {
+        "label": "Palette ratio r = q/Δ",
+        "kind": "palette",
+        "min": 1,
+        "max": 2.25,
+        "ticks": [
+          1,
+          1.25,
+          1.5,
+          1.75,
+          2,
+          2.25
+        ],
+        "tickLabels": [
+          "Δ",
+          "5Δ/4",
+          "3Δ/2",
+          "7Δ/4",
+          "2Δ",
+          "9Δ/4"
+        ]
+      },
+      "yAxis": {
+        "label": "Query exponent p in Õ(n^p)",
+        "kind": "exponent",
+        "min": 0,
+        "max": 2,
+        "ticks": [
+          0,
+          0.5,
+          1,
+          1.5,
+          2
+        ],
+        "tickLabels": [
+          "polylog",
+          "√n",
+          "n",
+          "n^{3/2}",
+          "n²"
+        ]
+      },
+      "parameters": {
+        "d_v": "vertex degree",
+        "n": "vertices"
+      },
+      "results": [
+        {
+          "id": "vertex-result-40",
+          "paperId": "halldorsson-kuhn-nolin-tonoyan-2022-degree",
+          "kind": "upper",
+          "bound": "Õ(n√n) time",
+          "guarantee": "Proper degree+1 list coloring",
+          "sourceLocation": "STOC 2022 abstract, query-model consequence",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "candidate",
+          "notes": "Source abstract calls it the standard query model; exact oracle combination must be checked before direct comparison to matrix-only results.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "vertex-query-two-party-communication",
+      "problem": "vertex",
+      "model": "query_combined",
+      "label": "Two-party edge-partition communication, proper Δ+1 coloring",
+      "task": "Both players learn the same coloring",
+      "assumptions": [
+        "Input edges split between two players",
+        "Interactive communication; not adjacency oracle queries",
+        "Randomized"
+      ],
+      "xAxis": {
+        "label": "Palette ratio r = q/Δ",
+        "kind": "palette",
+        "min": 1,
+        "max": 2.25,
+        "ticks": [
+          1,
+          1.25,
+          1.5,
+          1.75,
+          2,
+          2.25
+        ],
+        "tickLabels": [
+          "Δ",
+          "5Δ/4",
+          "3Δ/2",
+          "7Δ/4",
+          "2Δ",
+          "9Δ/4"
+        ]
+      },
+      "yAxis": {
+        "label": "Query exponent p in Õ(n^p)",
+        "kind": "exponent",
+        "min": 0,
+        "max": 2,
+        "ticks": [
+          0,
+          0.5,
+          1,
+          1.5,
+          2
+        ],
+        "tickLabels": [
+          "polylog",
+          "√n",
+          "n",
+          "n^{3/2}",
+          "n²"
+        ]
+      },
+      "parameters": {
+        "n": "vertices",
+        "Delta": "maximum degree"
+      },
+      "results": [
+        {
+          "id": "vertex-result-56",
+          "paperId": "flin-mittal-2025-communication",
+          "kind": "upper",
+          "bound": "O(n) communicated bits; O(n) expected rounds",
+          "guarantee": "Both players learn proper (Δ+1)-coloring",
+          "sourceLocation": "Distributed Computing 2025 abstract",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "historical",
+          "notes": "Communication model is included as related access variant, not a matrix/list query bound.",
+          "plot": null
+        },
+        {
+          "id": "vertex-extended-vertex-query-two-party-communication-57",
+          "paperId": "flin-mittal-2025-communication",
+          "kind": "lower",
+          "bound": "Ω(n) communicated bits",
+          "guarantee": "Proper (Δ+1)-coloring",
+          "sourceLocation": "Distributed Computing 2025 abstract, folklore lower",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "candidate",
+          "notes": "Lower bound in two-party model only.",
+          "plot": null
+        },
+        {
+          "id": "vertex-extended-vertex-query-two-party-communication-58",
+          "paperId": "chang-mishra-nguyen-salim-2025-communication",
+          "kind": "upper",
+          "bound": "O(n) expected communicated bits; O(loglog n · log Δ) worst-case rounds",
+          "guarantee": "Both players learn proper (Δ+1)-coloring",
+          "sourceLocation": "PODC 2025 abstract, vertex-coloring protocol",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "candidate",
+          "notes": "Improves interaction-round count of O(n)-bit protocol; does not reduce optimal communication.",
+          "plot": null
+        }
+      ]
+    }
+  ],
+  "papers": [
+    {
+      "id": "assadi-chen-khanna-2019-sublinear-coloring",
+      "title": "Sublinear Algorithms for (Δ+1) Vertex Coloring",
+      "authors": [
+        "Sepehr Assadi",
+        "Yu Chen",
+        "Sanjeev Khanna"
+      ],
+      "year": 2019,
+      "venue": "SODA 2019",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1807.08886",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "ferber-hardiman-chen-2025-sublinear-coloring",
+      "title": "Improved Sublinear Algorithms for Classical and Quantum Graph Coloring",
+      "authors": [
+        "Asaf Ferber",
+        "Liam Hardiman",
+        "Xiaonan Chen"
+      ],
+      "year": 2025,
+      "venue": "arXiv (revised 2026)",
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/abs/2502.06024",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "bera-chakrabarti-ghosh-2020-degeneracy",
+      "title": "Graph Coloring via Degeneracy in Streaming and Other Space-Conscious Models",
+      "authors": [
+        "Suman K. Bera",
+        "Amit Chakrabarti",
+        "Prantar Ghosh"
+      ],
+      "year": 2020,
+      "venue": "ICALP 2020",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2020.11",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "halldorsson-kuhn-nolin-tonoyan-2022-degree",
+      "title": "Near-Optimal Distributed Degree+1 Coloring",
+      "authors": [
+        "Magnús M. Halldórsson",
+        "Fabian Kuhn",
+        "Alexandre Nolin",
+        "Tigran Tonoyan"
+      ],
+      "year": 2022,
+      "venue": "STOC 2022",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2112.00604",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "flin-mittal-2025-communication",
+      "title": "(Δ+1) Vertex Coloring in O(n) Communication",
+      "authors": [
+        "Maxime Flin",
+        "Parth Mittal"
+      ],
+      "year": 2025,
+      "venue": "Distributed Computing 38",
+      "publicationStatus": "journal",
+      "url": "https://arxiv.org/abs/2404.19081",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "chang-mishra-nguyen-salim-2025-communication",
+      "title": "Round and Communication Efficient Graph Coloring",
+      "authors": [
+        "Yi-Jun Chang",
+        "Gopinath Mishra",
+        "Hung Thuan Nguyen",
+        "Farrel D. Salim"
+      ],
+      "year": 2025,
+      "venue": "PODC 2025",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2412.12589",
+      "verifiedOn": "2026-09-27"
+    }
+  ]
+}

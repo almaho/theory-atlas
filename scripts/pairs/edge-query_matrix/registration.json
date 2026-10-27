@@ -1,0 +1,22 @@
+{
+  "id": "edge-query_matrix",
+  "dataFile": "edge-query-matrix.json",
+  "javascript": "edge-query-matrix.js",
+  "css": "edge-query-matrix.css",
+  "routes": [
+    {
+      "key": "edge-query_matrix",
+      "sliceId": "edge-query-adjmatrix-enumerate",
+      "label": "Edge coloring · adjacency matrix · full output",
+      "visible": true,
+      "problem": "edge",
+      "model": "query_matrix"
+    }
+  ],
+  "axisSummary": {
+    "x": "Palette q · exact category",
+    "y": "Pair queries · symbolic asymptotic order",
+    "note": "One scan-and-color baseline. Exact query count remains visible; computation and output are separate. No lower bound is claimed."
+  },
+  "canonicalAliases": {}
+}

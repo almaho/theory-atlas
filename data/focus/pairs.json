@@ -1,0 +1,1696 @@
+{
+  "version": 1,
+  "pairs": [
+    {
+      "id": "matching-query_matrix",
+      "dataFile": "matching-query-matrix.json",
+      "javascript": "query-matrix.js",
+      "css": "query-matrix.css",
+      "routes": [
+        {
+          "key": "matching-query_matrix",
+          "sliceId": "matching-query-matrix-mixed-value",
+          "label": "Adjacency matrix · matching size",
+          "problem": "matching",
+          "model": "query_matrix",
+          "visible": true
+        },
+        {
+          "key": "matching-query_matrix-additive",
+          "sliceId": "matching-query-matrix-additive-lb",
+          "label": "Adjacency matrix · additive size",
+          "problem": "matching",
+          "model": "query_matrix",
+          "visible": false
+        },
+        {
+          "key": "matching-query_matrix-051",
+          "sliceId": "matching-query-matrix-value-additive",
+          "label": "Adjacency matrix · 0.5109 with slack",
+          "problem": "matching",
+          "model": "query_matrix",
+          "visible": false
+        }
+      ],
+      "canonicalAliases": {
+        "matching-query_matrix-additive": "matching-query_matrix",
+        "matching-query_matrix-051": "matching-query_matrix"
+      },
+      "axisSummary": {
+        "x": "Guarantee family / additive error contract (categorical)",
+        "y": "Total pair-query budgets and time upper bounds (exact symbolic formulas)",
+        "note": "No numeric coordinate is assigned to Θ(ε²), Ω_ε(1), or δ."
+      },
+      "pointFields": {
+        "x": "qualityFamily",
+        "y": "resourceLane"
+      }
+    },
+    {
+      "id": "matching-stream",
+      "dataFile": "matching-streaming-more.json",
+      "javascript": "streaming-more.js",
+      "css": "streaming-more.css",
+      "routes": [
+        {
+          "key": "matching-stream-insertion",
+          "sliceId": "matching-stream-multipass-general",
+          "label": "Streaming · insertion-only multipass",
+          "problem": "matching",
+          "model": "stream",
+          "visible": true
+        },
+        {
+          "key": "matching-stream-insertion-bipartite",
+          "sliceId": "matching-stream-multipass-bipartite",
+          "label": "Streaming · bipartite multipass",
+          "problem": "matching",
+          "model": "stream",
+          "visible": false
+        },
+        {
+          "key": "matching-stream-turnstile",
+          "sliceId": "matching-stream-dynamic-passes",
+          "label": "Streaming · insertions and deletions",
+          "problem": "matching",
+          "model": "stream",
+          "visible": true
+        },
+        {
+          "key": "matching-stream-onepass",
+          "sliceId": "matching-stream-dynamic-onepass-lower",
+          "label": "Streaming · one-pass space frontier",
+          "problem": "matching",
+          "model": "stream",
+          "visible": false
+        },
+        {
+          "key": "matching-stream-bounded",
+          "sliceId": "matching-stream-bounded-deletions-maximal",
+          "label": "Streaming · bounded deletions",
+          "problem": "matching",
+          "model": "stream",
+          "visible": true
+        },
+        {
+          "key": "matching-stream-bounded-approx",
+          "sliceId": "matching-stream-bounded-deletions-approx",
+          "label": "Streaming · bounded-deletion approximation",
+          "problem": "matching",
+          "model": "stream",
+          "visible": false
+        },
+        {
+          "key": "matching-stream-arboricity",
+          "sliceId": "matching-stream-arboricity-value",
+          "label": "Streaming · bounded-arboricity size",
+          "problem": "matching",
+          "model": "stream",
+          "visible": true
+        }
+      ],
+      "canonicalAliases": {
+        "matching-stream-insertion-bipartite": "matching-stream-insertion",
+        "matching-stream-onepass": "matching-stream-turnstile",
+        "matching-stream-bounded-approx": "matching-stream-bounded"
+      },
+      "axisSummary": {
+        "x": "Randomness / output guarantee (categorical)",
+        "y": "Passes or memory in bits, with exact symbolic formula rows; different resources and outputs stay in separate panels"
+      },
+      "pointFields": {
+        "x": "xCategory",
+        "y": "id"
+      }
+    },
+    {
+      "id": "matching-dynamic",
+      "dataFile": "matching-dynamic-more.json",
+      "javascript": "dynamic-more.js",
+      "css": "dynamic-more.css",
+      "routes": [
+        {
+          "key": "matching-dynamic",
+          "sliceId": "matching-dynamic-explicit-nearopt-adaptive",
+          "label": "Dynamic · remaining update regimes",
+          "problem": "matching",
+          "model": "dynamic",
+          "visible": true
+        },
+        {
+          "key": "matching-dynamic-maximal-adaptive",
+          "sliceId": "matching-dynamic-maximal-adaptive",
+          "label": "Exact maximal · adaptive",
+          "problem": "matching",
+          "model": "dynamic",
+          "visible": false
+        },
+        {
+          "key": "matching-dynamic-nearopt-worstcase",
+          "sliceId": "matching-dynamic-explicit-nearopt-worstcase",
+          "label": "Near-optimal · worst-case",
+          "problem": "matching",
+          "model": "dynamic",
+          "visible": false
+        },
+        {
+          "key": "matching-dynamic-polylog",
+          "sliceId": "matching-dynamic-explicit-polylog",
+          "label": "Explicit polylog approximation",
+          "problem": "matching",
+          "model": "dynamic",
+          "visible": false
+        },
+        {
+          "key": "matching-dynamic-maximal-oblivious",
+          "sliceId": "matching-dynamic-maximal-oblivious",
+          "label": "Exact maximal · oblivious",
+          "problem": "matching",
+          "model": "dynamic",
+          "visible": false
+        }
+      ],
+      "canonicalAliases": {
+        "matching-dynamic-maximal-adaptive": "matching-dynamic",
+        "matching-dynamic-nearopt-worstcase": "matching-dynamic",
+        "matching-dynamic-polylog": "matching-dynamic",
+        "matching-dynamic-maximal-oblivious": "matching-dynamic"
+      },
+      "axisSummary": {
+        "x": "Randomization and update regime (categorical)",
+        "y": "Symbolic update-time formula (not a numerical ranking)"
+      }
+    },
+    {
+      "id": "mis-dynamic",
+      "dataFile": "mis-dynamic.json",
+      "javascript": "mis-dynamic.js",
+      "css": "mis-dynamic.css",
+      "routes": [
+        {
+          "key": "mis-dynamic",
+          "sliceId": "mis-dynamic-randomized-oblivious",
+          "label": "Dynamic MIS · algorithms and lower bounds",
+          "problem": "mis",
+          "model": "dynamic",
+          "visible": true
+        },
+        {
+          "key": "mis-dynamic-adaptive",
+          "sliceId": "mis-dynamic-incremental-adaptive-conditional",
+          "label": "Dynamic MIS · incremental adaptive",
+          "problem": "mis",
+          "model": "dynamic",
+          "visible": false
+        },
+        {
+          "key": "mis-dynamic-deterministic",
+          "sliceId": "mis-dynamic-deterministic-centralized",
+          "label": "Dynamic MIS · deterministic",
+          "problem": "mis",
+          "model": "dynamic",
+          "visible": false
+        },
+        {
+          "key": "mis-dynamic-amortized",
+          "sliceId": "mis-dynamic-randomized-oblivious-amortized",
+          "label": "Dynamic MIS · amortized history",
+          "problem": "mis",
+          "model": "dynamic",
+          "visible": false
+        },
+        {
+          "key": "mis-dynamic-batch",
+          "sliceId": "mis-dynamic-batch-parallel-oblivious",
+          "label": "Dynamic MIS · parallel batches",
+          "problem": "mis",
+          "model": "dynamic",
+          "visible": false
+        }
+      ],
+      "canonicalAliases": {
+        "mis-dynamic-adaptive": "mis-dynamic",
+        "mis-dynamic-deterministic": "mis-dynamic",
+        "mis-dynamic-amortized": "mis-dynamic",
+        "mis-dynamic-batch": "mis-dynamic"
+      },
+      "axisSummary": {
+        "x": "Update guarantee / output contract or parallel resource (categorical)",
+        "y": "Exact symbolic time, work and depth bounds; not a numerical ranking"
+      },
+      "pointFields": {
+        "x": "contract",
+        "y": "displayBound"
+      }
+    },
+    {
+      "id": "mis-stream",
+      "dataFile": "mis-stream.json",
+      "javascript": "mis-stream.js",
+      "css": "mis-stream.css",
+      "routes": [
+        {
+          "key": "mis-stream",
+          "sliceId": "mis-stream-semistreaming-passes",
+          "label": "MIS · streaming passes & memory",
+          "problem": "mis",
+          "model": "stream",
+          "visible": true
+        },
+        {
+          "key": "mis-stream-edge-onepass",
+          "sliceId": "mis-stream-edge-onepass-explicit",
+          "label": "MIS · one-pass edge arrival",
+          "problem": "mis",
+          "model": "stream",
+          "visible": false
+        },
+        {
+          "key": "mis-stream-tradeoff",
+          "sliceId": "mis-stream-p-pass-tradeoff",
+          "label": "MIS · p-pass memory tradeoff",
+          "problem": "mis",
+          "model": "stream",
+          "visible": false
+        },
+        {
+          "key": "mis-stream-vertex-arrival",
+          "sliceId": "mis-stream-vertex-arrival-explicit",
+          "label": "MIS · explicit vertex arrival",
+          "problem": "mis",
+          "model": "stream",
+          "visible": false
+        },
+        {
+          "key": "mis-stream-lexicographic-first",
+          "sliceId": "mis-stream-lexicographic-first",
+          "label": "MIS · prescribed greedy output",
+          "problem": "mis",
+          "model": "stream",
+          "visible": false
+        }
+      ],
+      "canonicalAliases": {
+        "mis-stream-edge-onepass": "mis-stream",
+        "mis-stream-tradeoff": "mis-stream",
+        "mis-stream-vertex-arrival": "mis-stream",
+        "mis-stream-lexicographic-first": "mis-stream"
+      },
+      "axisSummary": {
+        "x": "Memory allowance, arrival model or pass budget (scoped panels)",
+        "y": "Pass complexity or symbolic memory bounds (bits)"
+      },
+      "pointFields": {
+        "x": "xCategory",
+        "y": "yCategory"
+      }
+    },
+    {
+      "id": "mis-lca",
+      "dataFile": "mis-lca.json",
+      "javascript": "mis-lca.js",
+      "css": "mis-lca.css",
+      "routes": [
+        {
+          "key": "mis-lca",
+          "sliceId": "mis-lca-adjlist-membership",
+          "label": "MIS · local membership",
+          "problem": "mis",
+          "model": "lca",
+          "visible": true
+        },
+        {
+          "key": "mis-lca-fixed",
+          "sliceId": "mis-lca-constantdegree-original",
+          "label": "MIS · fixed-degree membership",
+          "problem": "mis",
+          "model": "lca",
+          "visible": false
+        },
+        {
+          "key": "mis-lca-generator",
+          "sliceId": "mis-lca-random-graph-cogeneration",
+          "label": "MIS · joint graph generation",
+          "problem": "mis",
+          "model": "lca",
+          "visible": false
+        }
+      ],
+      "canonicalAliases": {
+        "mis-lca-fixed": "mis-lca",
+        "mis-lca-generator": "mis-lca"
+      },
+      "axisSummary": {
+        "x": "Per-query cost, symbolic growth classes; Δ-dependent expressions span their fixed-degree to n-only envelopes using 1≤Δ<n",
+        "y": "Named theorem rows; color identifies setup, not a second numerical resource",
+        "note": "The joint graph generator is a separate related card; expected and high-probability costs are distinguished."
+      },
+      "pointFields": {
+        "x": "costTo",
+        "y": "id"
+      }
+    },
+    {
+      "id": "mis-query_list",
+      "dataFile": "mis-query-list.json",
+      "javascript": "mis-query-list.js",
+      "css": "mis-query-list.css",
+      "routes": [
+        {
+          "key": "mis-query_list",
+          "sliceId": "mis-query-adjarray-bni",
+          "label": "MIS · adjacency arrays · matching bounds",
+          "problem": "mis",
+          "model": "query_list",
+          "visible": true
+        }
+      ],
+      "canonicalAliases": {},
+      "axisSummary": {
+        "x": "Neighborhood independence β; 1 ≤ β ≤ Δ < n",
+        "y": "Total time; matching Θ(nβ) upper and lower bounds"
+      }
+    },
+    {
+      "id": "mis-mpc",
+      "dataFile": "mis-mpc.json",
+      "javascript": "mis-mpc.js",
+      "css": "mis-mpc.css",
+      "routes": [
+        {
+          "key": "mis-mpc",
+          "sliceId": "mis-mpc-linear-memory",
+          "label": "MIS · MPC",
+          "problem": "mis",
+          "model": "mpc",
+          "visible": true
+        },
+        {
+          "key": "mis-mpc-degree",
+          "sliceId": "mis-mpc-lowspace-boundeddegree",
+          "label": "Low-space MPC, restricted maximum degree",
+          "problem": "mis",
+          "model": "mpc",
+          "visible": false
+        },
+        {
+          "key": "mis-mpc-general",
+          "sliceId": "mis-mpc-lowspace-general",
+          "label": "Strongly sublinear memory MPC, general graphs",
+          "problem": "mis",
+          "model": "mpc",
+          "visible": false
+        },
+        {
+          "key": "mis-mpc-arboricity",
+          "sliceId": "mis-mpc-lowspace-arboricity",
+          "label": "Low-space MPC, bounded arboricity",
+          "problem": "mis",
+          "model": "mpc",
+          "visible": false
+        },
+        {
+          "key": "mis-mpc-trees-randomized",
+          "sliceId": "mis-mpc-lowspace-trees-randomized",
+          "label": "Low-space MPC on trees, randomized",
+          "problem": "mis",
+          "model": "mpc",
+          "visible": false
+        },
+        {
+          "key": "mis-mpc-trees-deterministic",
+          "sliceId": "mis-mpc-lowspace-trees-deterministic",
+          "label": "Low-space MPC on trees, deterministic",
+          "problem": "mis",
+          "model": "mpc",
+          "visible": false
+        }
+      ],
+      "canonicalAliases": {
+        "mis-mpc-degree": "mis-mpc",
+        "mis-mpc-general": "mis-mpc",
+        "mis-mpc-arboricity": "mis-mpc",
+        "mis-mpc-trees-randomized": "mis-mpc",
+        "mis-mpc-trees-deterministic": "mis-mpc"
+      },
+      "axisSummary": {
+        "x": "Graph and local-memory setup (colored categories)",
+        "y": "Communication rounds: exact symbolic formula rows"
+      },
+      "pointFields": {
+        "x": "setup",
+        "y": "plotLane"
+      }
+    },
+    {
+      "id": "mis-local",
+      "dataFile": "mis-local.json",
+      "javascript": "mis-local.js",
+      "css": "mis-local.css",
+      "routes": [
+        {
+          "key": "mis-local",
+          "sliceId": "mis-local-deterministic-general",
+          "label": "MIS · LOCAL rounds",
+          "problem": "mis",
+          "model": "local",
+          "visible": true
+        },
+        {
+          "key": "mis-local-randomized-degree",
+          "sliceId": "mis-local-randomized-degree",
+          "label": "MIS · degree-sensitive rounds",
+          "problem": "mis",
+          "model": "local",
+          "visible": false
+        },
+        {
+          "key": "mis-local-randomized-general-lower",
+          "sliceId": "mis-local-randomized-general-lower",
+          "label": "MIS · randomized rounds",
+          "problem": "mis",
+          "model": "local",
+          "visible": false
+        },
+        {
+          "key": "mis-local-awake-energy",
+          "sliceId": "mis-local-awake-energy",
+          "label": "MIS · sleeping elapsed rounds",
+          "problem": "mis",
+          "model": "local",
+          "visible": false
+        }
+      ],
+      "canonicalAliases": {
+        "mis-local-randomized-degree": "mis-local",
+        "mis-local-randomized-general-lower": "mis-local",
+        "mis-local-awake-energy": "mis-local"
+      },
+      "pointFields": {
+        "x": "xCategory",
+        "y": "yCategory"
+      },
+      "axisSummary": {
+        "x": "Algorithm, success and communication contract",
+        "y": "Total elapsed synchronous rounds (symbolic growth families)",
+        "note": "Awake quantities are theorem details only. Degree-dependent expressions use conservative enclosures; no unknown polynomial exponent is instantiated."
+      }
+    },
+    {
+      "id": "mis-query_matrix",
+      "dataFile": "mis-query-matrix.json",
+      "javascript": "mis-query-matrix.js",
+      "css": "mis-query-matrix.css",
+      "routes": [
+        {
+          "key": "mis-query_matrix",
+          "sliceId": "mis-query-matrix-rgmis-size",
+          "label": "MIS · matrix queries · size and explicit output",
+          "problem": "mis",
+          "model": "query_matrix",
+          "visible": true
+        },
+        {
+          "key": "mis-query_matrix-explicit",
+          "sliceId": "mis-query-matrix-explicit",
+          "label": "MIS · matrix queries · explicit construction",
+          "problem": "mis",
+          "model": "query_matrix",
+          "visible": false
+        }
+      ],
+      "canonicalAliases": {
+        "mis-query_matrix-explicit": "mis-query_matrix"
+      },
+      "axisSummary": {
+        "x": "Requested precision ε = (1/4)n^(−a) → tighter",
+        "y": "Pair-query cost (powers of n)"
+      }
+    },
+    {
+      "id": "cc-query_list",
+      "dataFile": "cc-query-list.json",
+      "javascript": "cc-query-list.js",
+      "css": "cc-query-list.css",
+      "routes": [
+        {
+          "key": "cc-query_list",
+          "sliceId": "cc-query-list-constant",
+          "label": "Correlation clustering · positive-list queries",
+          "problem": "cc",
+          "model": "query_list",
+          "visible": true
+        }
+      ],
+      "canonicalAliases": {},
+      "axisSummary": {
+        "x": "Total queries: n, n log n, n² (symbolic growth order)",
+        "y": "Named algorithms and their distinct approximation guarantees"
+      },
+      "pointFields": {
+        "x": "costTo",
+        "y": "id"
+      }
+    },
+    {
+      "id": "cc-local",
+      "dataFile": "cc-local.json",
+      "javascript": "cc-local.js",
+      "css": "cc-local.css",
+      "routes": [
+        {
+          "key": "cc-local",
+          "sliceId": "cc-local-3plus",
+          "label": "Correlation clustering · LOCAL tradeoff",
+          "problem": "cc",
+          "model": "local",
+          "visible": true
+        }
+      ],
+      "canonicalAliases": {},
+      "axisSummary": {
+        "x": "Leading expected approximation guarantee a; logarithmic spacing of a−3",
+        "y": "Elapsed communication rounds T=2r+1; logarithmic scale",
+        "note": "Actual expected factor is a+n^{−Ω(1)}. Dots are integer-r theorem instances; 3 is a neutral off-axis reference. No general lower bound is verified in the supplied source."
+      }
+    },
+    {
+      "id": "cc-mpc",
+      "dataFile": "cc-mpc.json",
+      "javascript": "cc-mpc.js",
+      "css": "cc-mpc.css",
+      "routes": [
+        {
+          "key": "cc-mpc",
+          "sliceId": "cc-mpc-constant-sublinear",
+          "label": "Correlation clustering · MPC",
+          "problem": "cc",
+          "model": "mpc",
+          "visible": true
+        },
+        {
+          "key": "cc-mpc-pruned",
+          "sliceId": "cc-mpc-pruned-sublinear",
+          "label": "Strictly sublinear per-machine memory, Pivot quality",
+          "problem": "cc",
+          "model": "mpc",
+          "visible": false
+        },
+        {
+          "key": "cc-mpc-communication",
+          "sliceId": "cc-mpc-sketch-linear-memory",
+          "label": "Near-linear per-machine communication; polynomial recovery space",
+          "problem": "cc",
+          "model": "mpc",
+          "visible": false
+        },
+        {
+          "key": "cc-mpc-polylog",
+          "sliceId": "cc-mpc-polylog-below-three",
+          "label": "Polylog-round MPC, below-Pivot factor",
+          "problem": "cc",
+          "model": "mpc",
+          "visible": false
+        },
+        {
+          "key": "cc-mpc-arboricity",
+          "sliceId": "cc-mpc-bounded-arboricity",
+          "label": "Bounded positive-graph arboricity",
+          "problem": "cc",
+          "model": "mpc",
+          "visible": false
+        },
+        {
+          "key": "cc-mpc-allnorms",
+          "sliceId": "cc-mpc-all-symmetric-norms",
+          "label": "All monotone symmetric norms simultaneously",
+          "problem": "cc",
+          "model": "mpc",
+          "visible": false
+        }
+      ],
+      "canonicalAliases": {
+        "cc-mpc-pruned": "cc-mpc",
+        "cc-mpc-communication": "cc-mpc",
+        "cc-mpc-polylog": "cc-mpc",
+        "cc-mpc-arboricity": "cc-mpc",
+        "cc-mpc-allnorms": "cc-mpc"
+      },
+      "axisSummary": {
+        "x": "MPC round growth in n for fixed ε, δ and λ≥2; exact formulas retained",
+        "y": "Algorithm and graph setup; quality labels retain expectation / probability"
+      },
+      "pointFields": {
+        "x": "roundClass",
+        "y": "id"
+      }
+    },
+    {
+      "id": "cc-dynamic",
+      "dataFile": "cc-dynamic.json",
+      "javascript": "cc-dynamic.js",
+      "css": "cc-dynamic.css",
+      "routes": [
+        {
+          "key": "cc-dynamic",
+          "sliceId": "cc-dynamic-edge-adaptive-fixed-time",
+          "label": "Correlation clustering · dynamic · edge updates",
+          "visible": true,
+          "problem": "cc",
+          "model": "dynamic"
+        },
+        {
+          "key": "cc-dynamic-adaptive",
+          "sliceId": "cc-dynamic-edge-adaptive",
+          "label": "Correlation clustering · adaptive sequence guarantee",
+          "visible": false,
+          "problem": "cc",
+          "model": "dynamic"
+        },
+        {
+          "key": "cc-dynamic-oblivious",
+          "sliceId": "cc-dynamic-edge-oblivious",
+          "label": "Correlation clustering · oblivious edge updates",
+          "visible": false,
+          "problem": "cc",
+          "model": "dynamic"
+        },
+        {
+          "key": "cc-dynamic-node-random-deletion",
+          "sliceId": "cc-dynamic-node-random-deletion",
+          "label": "Correlation clustering · node updates with random deletion",
+          "visible": false,
+          "problem": "cc",
+          "model": "dynamic"
+        },
+        {
+          "key": "cc-dynamic-node-insertion",
+          "sliceId": "cc-dynamic-node-insertion",
+          "label": "Correlation clustering · node insertion",
+          "visible": false,
+          "problem": "cc",
+          "model": "dynamic"
+        }
+      ],
+      "canonicalAliases": {
+        "cc-dynamic-adaptive": "cc-dynamic",
+        "cc-dynamic-oblivious": "cc-dynamic",
+        "cc-dynamic-node-random-deletion": "cc-dynamic",
+        "cc-dynamic-node-insertion": "cc-dynamic"
+      },
+      "axisSummary": {
+        "x": "Approximation factor α (smaller is better); ε=1/4 reference",
+        "y": "Update-time formulas and guarantees (categorical rows)"
+      }
+    },
+    {
+      "id": "cc-stream",
+      "dataFile": "cc-stream.json",
+      "javascript": "cc-stream.js",
+      "css": "cc-stream.css",
+      "routes": [
+        {
+          "key": "cc-stream-partition",
+          "sliceId": "cc-stream-single-pass-pivot",
+          "label": "Correlation clustering · stream partition",
+          "visible": true,
+          "problem": "cc",
+          "model": "stream"
+        },
+        {
+          "key": "cc-stream-value",
+          "sliceId": "cc-stream-value-tiny-space",
+          "label": "Correlation clustering · stream cost",
+          "visible": true,
+          "problem": "cc",
+          "model": "stream"
+        },
+        {
+          "key": "cc-stream-turnstile-explicit",
+          "sliceId": "cc-stream-turnstile-explicit",
+          "label": "Single-pass edge-insertion/deletion stream, explicit clustering",
+          "visible": false,
+          "problem": "cc",
+          "model": "stream"
+        },
+        {
+          "key": "cc-stream-insertion-deterministic-sketch",
+          "sliceId": "cc-stream-insertion-deterministic-sketch",
+          "label": "Insertion-only stream, deterministic synopsis",
+          "visible": false,
+          "problem": "cc",
+          "model": "stream"
+        },
+        {
+          "key": "cc-stream-multipass-min-disagree",
+          "sliceId": "cc-stream-multipass-min-disagree",
+          "label": "Multipass semi-streaming, MinDisagree explicit partition",
+          "visible": false,
+          "problem": "cc",
+          "model": "stream"
+        },
+        {
+          "key": "cc-stream-onepass-weighted-maxagree",
+          "sliceId": "cc-stream-onepass-weighted-maxagree",
+          "label": "One-pass weighted MaxAgree, output partition",
+          "visible": false,
+          "problem": "cc",
+          "model": "stream"
+        },
+        {
+          "key": "cc-stream-onepass-weighted-mindisagree",
+          "sliceId": "cc-stream-onepass-weighted-mindisagree",
+          "label": "One-pass weighted MinDisagree",
+          "visible": false,
+          "problem": "cc",
+          "model": "stream"
+        },
+        {
+          "key": "cc-stream-node-arrival-cost",
+          "sliceId": "cc-stream-node-arrival-cost",
+          "label": "Node-arrival stream, cost value only",
+          "visible": false,
+          "problem": "cc",
+          "model": "stream"
+        },
+        {
+          "key": "cc-stream-dense-coreset",
+          "sliceId": "cc-stream-dense-coreset",
+          "label": "Dense-graph coreset, two passes",
+          "visible": false,
+          "problem": "cc",
+          "model": "stream"
+        }
+      ],
+      "canonicalAliases": {
+        "cc-stream-turnstile-explicit": "cc-stream-partition",
+        "cc-stream-insertion-deterministic-sketch": "cc-stream-partition",
+        "cc-stream-multipass-min-disagree": "cc-stream-partition",
+        "cc-stream-onepass-weighted-maxagree": "cc-stream-partition",
+        "cc-stream-onepass-weighted-mindisagree": "cc-stream-partition",
+        "cc-stream-node-arrival-cost": "cc-stream-value",
+        "cc-stream-dense-coreset": "cc-stream-partition"
+      },
+      "axisSummary": {
+        "x": "Partition: numerical approximation factor. Value: memory exponent with fixed explicit accuracy parameters.",
+        "y": "Partition: logarithmic pass count. Value: named output/error and access contracts.",
+        "note": "Separate partition/value atlas facets. Weighted variants are related cards. Green algorithms and red lower bounds; no invented partition barrier."
+      }
+    },
+    {
+      "id": "cc-lca",
+      "dataFile": "cc-lca.json",
+      "javascript": "cc-lca.js",
+      "css": "cc-lca.css",
+      "routes": [
+        {
+          "key": "cc-lca",
+          "sliceId": "cc-lca-pruned-degree",
+          "label": "Correlation clustering · local labels",
+          "problem": "cc",
+          "model": "lca",
+          "visible": true
+        },
+        {
+          "key": "cc-lca-matrix-additive",
+          "sliceId": "cc-lca-matrix-additive",
+          "label": "Correlation clustering · matrix local labels",
+          "problem": "cc",
+          "model": "lca",
+          "visible": false
+        }
+      ],
+      "canonicalAliases": {
+        "cc-lca-matrix-additive": "cc-lca"
+      },
+      "axisSummary": {
+        "x": "Per-label probes, symbolic 1/ε → 1/ε² → n/ε for 1/n<ε<1",
+        "y": "Positive-list and matrix access, quality guarantees, and preprocessing policies",
+        "note": "Degree-dependent band; algorithms green, scoped non-adaptive lower bounds red; unranked symbolic insets retain unspecified polynomial and general-c formulas."
+      }
+    },
+    {
+      "id": "cc-query_matrix",
+      "dataFile": "cc-query-matrix.json",
+      "javascript": "cc-query-matrix.js",
+      "css": "cc-query-matrix.css",
+      "routes": [
+        {
+          "key": "cc-query_matrix",
+          "sliceId": "cc-query-matrix-additive-partition",
+          "label": "Correlation clustering · matrix queries",
+          "problem": "cc",
+          "model": "query_matrix",
+          "visible": true
+        },
+        {
+          "key": "cc-query_matrix-mixed",
+          "sliceId": "cc-query-matrix-additive-explicit",
+          "label": "Correlation clustering · matrix queries · mixed error",
+          "problem": "cc",
+          "model": "query_matrix",
+          "visible": false
+        }
+      ],
+      "canonicalAliases": {
+        "cc-query_matrix-mixed": "cc-query_matrix"
+      },
+      "axisSummary": {
+        "x": "Requested precision ε = ε₀ n^(−a)",
+        "y": "Pair queries (powers of n)"
+      }
+    },
+    {
+      "id": "cc-query_combined",
+      "dataFile": "cc-query-combined.json",
+      "javascript": "cc-query-combined.js",
+      "css": "cc-query-combined.css",
+      "routes": [
+        {
+          "key": "cc-query_combined",
+          "sliceId": "cc-query-combined-multiplicative",
+          "label": "Correlation clustering · combined graph queries",
+          "problem": "cc",
+          "model": "query_combined",
+          "visible": true
+        },
+        {
+          "key": "cc-query_combined-oracle",
+          "sliceId": "cc-query-same-cluster-oracle",
+          "label": "Correlation clustering · optimal-cluster oracle",
+          "problem": "cc",
+          "model": "query_combined",
+          "visible": true
+        },
+        {
+          "key": "cc-query_combined-additive",
+          "sliceId": "cc-query-general-additive",
+          "label": "Correlation clustering · combined additive queries",
+          "problem": "cc",
+          "model": "query_combined",
+          "visible": false
+        },
+        {
+          "key": "cc-query_combined-memory",
+          "sliceId": "cc-query-random-memory-value",
+          "label": "Correlation clustering · random queries and memory",
+          "problem": "cc",
+          "model": "query_combined",
+          "visible": false
+        }
+      ],
+      "canonicalAliases": {
+        "cc-query_combined-additive": "cc-query_combined"
+      },
+      "axisSummary": {
+        "x": "Approximation / error contract, separated by query model",
+        "y": "Graph time or oracle-query complexity; memory tradeoff remains separate",
+        "note": "Ordinary graph access and an optimal-partition oracle have independent panels."
+      },
+      "axisDetails": {
+        "multiplicative": {
+          "x": {
+            "label": "Base c in (c+ε)-approximation",
+            "kind": "numeric",
+            "domain": [
+              1.35,
+              1.53
+            ]
+          },
+          "y": {
+            "label": "Total time at sufficiently small fixed ε",
+            "kind": "symbolic",
+            "ticks": [
+              "Õ(n)",
+              "n²"
+            ]
+          },
+          "warning": "The plotted c is the base constant, not a chosen full ratio. Both markers retain the ε-dependent time formula."
+        },
+        "additive": {
+          "x": {
+            "label": "Output error contract",
+            "kind": "categorical",
+            "ticks": [
+              "OPT+εn²"
+            ]
+          },
+          "y": {
+            "label": "Required graph queries",
+            "kind": "symbolic",
+            "ticks": [
+              "Ω(n/ε)"
+            ]
+          },
+          "warning": "The theorem is informal; no invented ε domain or numerical curve."
+        },
+        "oracle-opt": {
+          "x": {
+            "label": "Approximation target · categories",
+            "kind": "categorical",
+            "ticks": [
+              "Exact",
+              "1+γ/10",
+              "Expected 2"
+            ]
+          },
+          "y": {
+            "label": "Oracle-query order in OPT",
+            "kind": "symbolic",
+            "ticks": [
+              "o(OPT)",
+              "O(OPT)"
+            ]
+          },
+          "warning": "Linear-query markers do not give the same constant; labels distinguish ≤2OPT and E[Q]≤OPT. Lower bound forbids sublinear order only at the near-optimal target under Gap-ETH."
+        },
+        "oracle-k": {
+          "x": {
+            "label": "Near-optimal MinDisAgree[k]",
+            "kind": "categorical",
+            "ticks": [
+              "0<ε≤δ"
+            ]
+          },
+          "y": {
+            "label": "Oracle-query complexity",
+            "kind": "symbolic",
+            "ticks": [
+              "Ω(k/polylog k)",
+              "O(k¹⁴ log k log n/ε⁶)"
+            ]
+          },
+          "warning": "δ is the unknown positive constant in the ETH theorem. Symbolic spacing expresses a gap, not a numeric exponent."
+        },
+        "memory": {
+          "x": {
+            "label": "Accuracy exponent a: ε=n^(−a)",
+            "kind": "numeric",
+            "domain": [
+              0,
+              0.5
+            ],
+            "openEndpoints": true
+          },
+          "y": {
+            "label": "Lower-bound query exponent p",
+            "kind": "derived-exponent",
+            "formula": "p=min{1+2a−b/2,3/2−b} for b<0; min{1+2a−2b,3/2−b} for b≥0",
+            "domain": [
+              0.5,
+              2
+            ]
+          },
+          "parameter": "γ=n^b, −1/2<b<1/2; memory=n^(1/2+b) bits."
+        }
+      }
+    },
+    {
+      "id": "edge-local",
+      "dataFile": "edge-local.json",
+      "javascript": "edge-local.js",
+      "css": "edge-local.css",
+      "routes": [
+        {
+          "key": "edge-local",
+          "sliceId": "edge-local-two-delta-minus-two",
+          "label": "Edge coloring · LOCAL · bounded degree",
+          "visible": true,
+          "problem": "edge",
+          "model": "local"
+        },
+        {
+          "key": "edge-local-variable",
+          "sliceId": "edge-local-near-delta-deterministic-2026",
+          "label": "Edge coloring · LOCAL · variable degree",
+          "visible": false,
+          "problem": "edge",
+          "model": "local"
+        },
+        {
+          "key": "edge-local-history",
+          "sliceId": "edge-local-two-delta-minus-one-history",
+          "label": "Edge coloring · LOCAL · 2Δ−1 history",
+          "visible": false,
+          "problem": "edge",
+          "model": "local"
+        },
+        {
+          "key": "edge-local-vizing",
+          "sliceId": "edge-local-delta-plus-one",
+          "label": "Edge coloring · LOCAL · Δ+1",
+          "visible": false,
+          "problem": "edge",
+          "model": "local"
+        },
+        {
+          "key": "edge-local-near",
+          "sliceId": "edge-local-near-delta-history",
+          "label": "Edge coloring · LOCAL · near Δ",
+          "visible": false,
+          "problem": "edge",
+          "model": "local"
+        },
+        {
+          "key": "edge-local-three-halves",
+          "sliceId": "edge-local-three-halves",
+          "label": "Edge coloring · LOCAL · 3Δ/2",
+          "visible": false,
+          "problem": "edge",
+          "model": "local"
+        },
+        {
+          "key": "edge-local-multigraph",
+          "sliceId": "edge-local-multigraph-shannon",
+          "label": "Edge coloring · LOCAL · multigraphs",
+          "visible": true,
+          "problem": "edge",
+          "model": "local"
+        }
+      ],
+      "canonicalAliases": {
+        "edge-local-variable": "edge-local",
+        "edge-local-history": "edge-local",
+        "edge-local-vizing": "edge-local",
+        "edge-local-near": "edge-local",
+        "edge-local-three-halves": "edge-local"
+      },
+      "axisSummary": {
+        "x": "Exact palette q at fixed degree Δ≥3, with deterministic/randomized setup panels",
+        "y": "Symbolic communication-round order; green upper bounds and red lower bounds",
+        "note": "Variable-degree formulas are secondary; constant-degree multigraphs have their own scoped facet."
+      }
+    },
+    {
+      "id": "edge-dynamic",
+      "dataFile": "edge-dynamic.json",
+      "javascript": "edge-dynamic.js",
+      "css": "edge-dynamic.css",
+      "routes": [
+        {
+          "key": "edge-dynamic",
+          "sliceId": "edge-dynamic-forest-greedy-incremental-recourse",
+          "label": "Edge coloring · dynamic",
+          "problem": "edge",
+          "model": "dynamic",
+          "visible": true
+        },
+        {
+          "key": "edge-dynamic-forest-fully-random-recourse",
+          "sliceId": "edge-dynamic-forest-fully-random-recourse",
+          "label": "Fully dynamic forest; randomized recourse",
+          "problem": "edge",
+          "model": "dynamic",
+          "visible": false
+        },
+        {
+          "key": "edge-dynamic-general-large-palette-recourse",
+          "sliceId": "edge-dynamic-general-large-palette-recourse",
+          "label": "Fully dynamic general graph; large palette",
+          "problem": "edge",
+          "model": "dynamic",
+          "visible": false
+        },
+        {
+          "key": "edge-dynamic-forest-incremental-random-recourse",
+          "sliceId": "edge-dynamic-forest-incremental-random-recourse",
+          "label": "Incremental forest; randomized recourse",
+          "problem": "edge",
+          "model": "dynamic",
+          "visible": false
+        },
+        {
+          "key": "edge-dynamic-forest-full-optimal-palette-lower",
+          "sliceId": "edge-dynamic-forest-full-optimal-palette-lower",
+          "label": "Fully dynamic forest; optimal Δ-color palette",
+          "problem": "edge",
+          "model": "dynamic",
+          "visible": false
+        },
+        {
+          "key": "edge-dynamic-low-arboricity-adaptive-recourse",
+          "sliceId": "edge-dynamic-low-arboricity-adaptive-recourse",
+          "label": "Fully dynamic low-arboricity graph; adaptive palette",
+          "problem": "edge",
+          "model": "dynamic",
+          "visible": false
+        },
+        {
+          "key": "edge-dynamic-general-near-delta-history",
+          "sliceId": "edge-dynamic-general-near-delta-history",
+          "label": "General graphs · (1+ε)Δ dynamic progression",
+          "problem": "edge",
+          "model": "dynamic",
+          "visible": false
+        },
+        {
+          "key": "edge-dynamic-general-greedy",
+          "sliceId": "edge-dynamic-general-greedy",
+          "label": "General graphs · 2Δ−1 greedy",
+          "problem": "edge",
+          "model": "dynamic",
+          "visible": false
+        },
+        {
+          "key": "edge-dynamic-arboricity-history",
+          "sliceId": "edge-dynamic-arboricity-history",
+          "label": "Sparse graphs · Δ+O(α) dynamic",
+          "problem": "edge",
+          "model": "dynamic",
+          "visible": false
+        }
+      ],
+      "canonicalAliases": {
+        "edge-dynamic-forest-fully-random-recourse": "edge-dynamic",
+        "edge-dynamic-general-large-palette-recourse": "edge-dynamic",
+        "edge-dynamic-forest-incremental-random-recourse": "edge-dynamic",
+        "edge-dynamic-forest-full-optimal-palette-lower": "edge-dynamic",
+        "edge-dynamic-low-arboricity-adaptive-recourse": "edge-dynamic",
+        "edge-dynamic-general-near-delta-history": "edge-dynamic",
+        "edge-dynamic-general-greedy": "edge-dynamic",
+        "edge-dynamic-arboricity-history": "edge-dynamic"
+      },
+      "axisSummary": {
+        "x": "Categorical cost-formula classes, separately for update time and recolorings; no universal order when parameters vary.",
+        "y": "Shared graph / palette / update-contract rows."
+      }
+    },
+    {
+      "id": "edge-mpc",
+      "dataFile": "edge-mpc.json",
+      "javascript": "edge-mpc.js",
+      "css": "edge-mpc.css",
+      "routes": [
+        {
+          "key": "edge-mpc",
+          "sliceId": "edge-mpc-linear-memory",
+          "label": "Edge coloring · MPC memory and stability",
+          "problem": "edge",
+          "model": "mpc",
+          "visible": true
+        },
+        {
+          "key": "edge-mpc-lowspace",
+          "sliceId": "edge-mpc-lowspace-component",
+          "label": "Edge coloring · low-space component stability",
+          "problem": "edge",
+          "model": "mpc",
+          "visible": false
+        }
+      ],
+      "canonicalAliases": {
+        "edge-mpc-lowspace": "edge-mpc"
+      },
+      "pointFields": {
+        "x": "roundKey",
+        "y": "paletteKey"
+      },
+      "axisSummary": {
+        "x": "MPC round formulas; categorical, not numerical ratios",
+        "y": "Exact palette and algorithm setup; linear and sublinear memory facets",
+        "note": "Linear and sublinear local-memory facets, algorithms green and conditional stable-only lower red; no numerical frontier"
+      }
+    },
+    {
+      "id": "edge-lca",
+      "dataFile": "edge-lca.json",
+      "javascript": "edge-lca.js",
+      "css": "edge-lca.css",
+      "routes": [
+        {
+          "key": "edge-lca",
+          "sliceId": "edge-lca-line-graph-oblivious-baseline",
+          "label": "Edge coloring · direct line-graph LCA",
+          "problem": "edge",
+          "model": "lca",
+          "visible": true
+        }
+      ],
+      "canonicalAliases": {},
+      "pointFields": {
+        "x": "paletteKey",
+        "y": "probeKey"
+      },
+      "axisSummary": {
+        "x": "Exact palette allowance D+1≤2Δ−1; symbolic category",
+        "y": "Direct line-graph oracle probes per edge-color query; exact theorem formula",
+        "note": "One derived algorithm baseline; no verified matching lower or numerical frontier"
+      }
+    },
+    {
+      "id": "edge-query_matrix",
+      "dataFile": "edge-query-matrix.json",
+      "javascript": "edge-query-matrix.js",
+      "css": "edge-query-matrix.css",
+      "routes": [
+        {
+          "key": "edge-query_matrix",
+          "sliceId": "edge-query-adjmatrix-enumerate",
+          "label": "Edge coloring · adjacency matrix · full output",
+          "visible": true,
+          "problem": "edge",
+          "model": "query_matrix"
+        }
+      ],
+      "axisSummary": {
+        "x": "Palette q · exact category",
+        "y": "Pair queries · symbolic asymptotic order",
+        "note": "One scan-and-color baseline. Exact query count remains visible; computation and output are separate. No lower bound is claimed."
+      },
+      "canonicalAliases": {}
+    },
+    {
+      "id": "edge-query_list",
+      "dataFile": "edge-query_list.json",
+      "javascript": "edge-query_list.js",
+      "css": "edge-query_list.css",
+      "routes": [
+        {
+          "key": "edge-query_list",
+          "sliceId": "edge-query-list-full-output-baseline",
+          "label": "Edge coloring · adjacency lists",
+          "problem": "edge",
+          "model": "query_list",
+          "visible": true
+        },
+        {
+          "key": "edge-query-list-enumerated",
+          "sliceId": "edge-query-adjlist-enumerate-plus-static",
+          "label": "Full scan + static coloring",
+          "problem": "edge",
+          "model": "query_list",
+          "visible": false
+        }
+      ],
+      "canonicalAliases": {
+        "edge-query-list-enumerated": "edge-query_list"
+      },
+      "axisSummary": {
+        "x": "Palette categories with exact symbolic guarantees",
+        "y": "Exact n+2m degree/neighbor queries; computation in theorem details"
+      }
+    },
+    {
+      "id": "vertex-lca",
+      "dataFile": "vertex-lca.json",
+      "javascript": "vertex-lca.js",
+      "css": "vertex-lca.css",
+      "routes": [
+        {
+          "key": "vertex-lca",
+          "sliceId": "vertex-lca-consistent-list-coloring",
+          "label": "Vertex coloring · LCA query guarantees",
+          "problem": "vertex",
+          "model": "lca",
+          "visible": true
+        },
+        {
+          "key": "vertex-lca-average",
+          "sliceId": "vertex-lca-average-case-k-color",
+          "label": "Vertex coloring · average-case LCA related result",
+          "problem": "vertex",
+          "model": "lca",
+          "visible": false
+        }
+      ],
+      "canonicalAliases": {
+        "vertex-lca-average": "vertex-lca"
+      },
+      "pointFields": {
+        "x": "costKey",
+        "y": "rowKey"
+      },
+      "axisSummary": {
+        "x": "Per-vertex probe formula; symbolic categories, not a universal cost ranking",
+        "y": "Algorithm and list-size requirement",
+        "note": "Expected, high-probability and deterministic guarantees separated; average-case theorem in a qualified related card."
+      }
+    },
+    {
+      "id": "vertex-query_matrix",
+      "dataFile": "vertex-query-matrix.json",
+      "javascript": "vertex-query-matrix.js",
+      "css": "vertex-query-matrix.css",
+      "routes": [
+        {
+          "key": "vertex-query_matrix",
+          "sliceId": "vertex-query-average-case-k-color",
+          "label": "Vertex coloring · adjacency matrix · average-input k-coloring",
+          "visible": true,
+          "problem": "vertex",
+          "model": "query_matrix"
+        }
+      ],
+      "axisSummary": {
+        "x": "Colorability parameter k · symbolic domain",
+        "y": "Average cost divided by nk · symbolic order",
+        "note": "Randomized and deterministic algorithms with zero-error lower bound. Common range ends at n^(1/37); lower bound continues to n^(1/3). Query/time switch preserves distinct resource claims."
+      },
+      "canonicalAliases": {}
+    },
+    {
+      "id": "vertex-dynamic",
+      "dataFile": "vertex-dynamic.json",
+      "javascript": "vertex-dynamic.js",
+      "css": "vertex-dynamic.css",
+      "routes": [
+        {
+          "key": "vertex-dynamic",
+          "sliceId": "vertex-dynamic-adaptive-delta-plus-one",
+          "label": "Dynamic vertex coloring",
+          "problem": "vertex",
+          "model": "dynamic",
+          "visible": true
+        },
+        {
+          "key": "vertex-dynamic-oblivious",
+          "sliceId": "vertex-dynamic-oblivious-delta-plus-one",
+          "label": "Oblivious Δ+1 coloring",
+          "problem": "vertex",
+          "model": "dynamic",
+          "visible": false
+        },
+        {
+          "key": "vertex-dynamic-deterministic",
+          "sliceId": "vertex-dynamic-deterministic-palette",
+          "label": "Deterministic larger palette",
+          "problem": "vertex",
+          "model": "dynamic",
+          "visible": false
+        }
+      ],
+      "canonicalAliases": {
+        "vertex-dynamic-oblivious": "vertex-dynamic",
+        "vertex-dynamic-deterministic": "vertex-dynamic"
+      },
+      "axisSummary": {
+        "x": "Adversary × palette × averaging contract",
+        "y": "Symbolic update-time classes"
+      }
+    },
+    {
+      "id": "vertex-mpc",
+      "dataFile": "vertex-mpc.json",
+      "javascript": "vertex-mpc.js",
+      "css": "vertex-mpc.css",
+      "routes": [
+        {
+          "key": "vertex-mpc",
+          "sliceId": "vertex-mpc-linear-memory-delta-plus-one",
+          "label": "Vertex coloring · MPC · memory and rounds",
+          "visible": true,
+          "problem": "vertex",
+          "model": "mpc"
+        },
+        {
+          "key": "vertex-mpc-strongly-sublinear-randomized",
+          "sliceId": "vertex-mpc-strongly-sublinear-randomized",
+          "label": "Strongly sublinear local-memory MPC, randomized",
+          "visible": false,
+          "problem": "vertex",
+          "model": "mpc"
+        },
+        {
+          "key": "vertex-mpc-strongly-sublinear-deterministic",
+          "sliceId": "vertex-mpc-strongly-sublinear-deterministic",
+          "label": "Strongly sublinear local-memory MPC, deterministic",
+          "visible": false,
+          "problem": "vertex",
+          "model": "mpc"
+        },
+        {
+          "key": "vertex-mpc-degeneracy",
+          "sliceId": "vertex-mpc-degeneracy",
+          "label": "Near-linear local-memory MPC, degeneracy palette",
+          "visible": false,
+          "problem": "vertex",
+          "model": "mpc"
+        }
+      ],
+      "axisSummary": {
+        "x": "Per-machine memory · symbolic categories",
+        "y": "Communication rounds · symbolic classes",
+        "note": "Distinct palette scopes, random/deterministic shapes, a separate degeneracy row and explicit local-work/memory qualifications."
+      },
+      "canonicalAliases": {}
+    },
+    {
+      "id": "vertex-stream",
+      "dataFile": "vertex-stream.json",
+      "javascript": "vertex-stream.js",
+      "css": "vertex-stream.css",
+      "routes": [
+        {
+          "key": "vertex-stream",
+          "sliceId": "vertex-stream-dynamic-one-pass-delta-plus-one",
+          "label": "Streaming vertex coloring",
+          "problem": "vertex",
+          "model": "stream",
+          "visible": true
+        },
+        {
+          "key": "vertex-stream-1",
+          "sliceId": "vertex-stream-deterministic-multipass-degree-palette",
+          "label": "Deterministic multipass semi-streaming, linear-in-Δ palette",
+          "problem": "vertex",
+          "model": "stream",
+          "visible": false
+        },
+        {
+          "key": "vertex-stream-decision",
+          "sliceId": "vertex-stream-random-order-chromatic-gap",
+          "label": "Streaming chromatic-gap decision",
+          "problem": "vertex",
+          "model": "stream",
+          "visible": true
+        },
+        {
+          "key": "vertex-stream-3",
+          "sliceId": "vertex-stream-dynamic-chromatic-gap",
+          "label": "Turnstile stream, chromatic-number gap decision",
+          "problem": "vertex",
+          "model": "stream",
+          "visible": false
+        },
+        {
+          "key": "vertex-stream-4",
+          "sliceId": "vertex-stream-deterministic-one-pass-lower",
+          "label": "Deterministic one-pass palette barrier",
+          "problem": "vertex",
+          "model": "stream",
+          "visible": false
+        },
+        {
+          "key": "vertex-stream-5",
+          "sliceId": "vertex-stream-robust-incremental",
+          "label": "Adaptive-output robust stream: palette versus space",
+          "problem": "vertex",
+          "model": "stream",
+          "visible": false
+        },
+        {
+          "key": "vertex-stream-6",
+          "sliceId": "vertex-stream-insertion-near-delta",
+          "label": "One-pass insertion stream, degree-near palette",
+          "problem": "vertex",
+          "model": "stream",
+          "visible": false
+        },
+        {
+          "key": "vertex-stream-7",
+          "sliceId": "vertex-stream-brooks",
+          "label": "One-pass semi-streaming at and below Brooks palette",
+          "problem": "vertex",
+          "model": "stream",
+          "visible": false
+        },
+        {
+          "key": "vertex-stream-8",
+          "sliceId": "vertex-stream-degeneracy",
+          "label": "Degeneracy κ palette, one-pass tradeoff",
+          "problem": "vertex",
+          "model": "stream",
+          "visible": false
+        },
+        {
+          "key": "vertex-stream-9",
+          "sliceId": "vertex-stream-degree-one-list",
+          "label": "One-pass dynamic stream, degree+1 list coloring",
+          "problem": "vertex",
+          "model": "stream",
+          "visible": false
+        }
+      ],
+      "canonicalAliases": {
+        "vertex-stream-1": "vertex-stream",
+        "vertex-stream-3": "vertex-stream-decision",
+        "vertex-stream-4": "vertex-stream",
+        "vertex-stream-5": "vertex-stream",
+        "vertex-stream-6": "vertex-stream",
+        "vertex-stream-7": "vertex-stream",
+        "vertex-stream-8": "vertex-stream",
+        "vertex-stream-9": "vertex-stream"
+      },
+      "axisSummary": {
+        "x": "Palette / gap promise, with incompatible contracts separated",
+        "y": "Working space or deterministic passes (symbolic classes)"
+      }
+    },
+    {
+      "id": "vertex-query_list",
+      "dataFile": "vertex-query-list.json",
+      "javascript": "vertex-query-list.js",
+      "css": "vertex-query-list.css",
+      "canonicalAliases": {},
+      "routes": [
+        {
+          "key": "vertex-query_list",
+          "sliceId": "vertex-query-adjacency-list-only",
+          "label": "Vertex coloring · neighbor queries · greedy baseline",
+          "visible": true,
+          "problem": "vertex",
+          "model": "query_list"
+        }
+      ],
+      "axisSummary": {
+        "x": "Palette q = Δ+1",
+        "y": "Exact neighbor scan Q = n+2m",
+        "note": "Deterministic full output; query calls on the main axes, RAM computation in source inspection. No query optimality claim."
+      }
+    },
+    {
+      "id": "vertex-local",
+      "dataFile": "vertex-local.json",
+      "javascript": "vertex-local.js",
+      "css": "vertex-local.css",
+      "routes": [
+        {
+          "key": "vertex-local",
+          "sliceId": "vertex-local-randomized-delta-plus-one",
+          "label": "Vertex coloring · LOCAL rounds",
+          "problem": "vertex",
+          "model": "local",
+          "visible": true
+        },
+        {
+          "key": "vertex-local-det",
+          "sliceId": "vertex-local-deterministic-delta-plus-one",
+          "label": "Vertex coloring · deterministic LOCAL",
+          "problem": "vertex",
+          "model": "local",
+          "visible": false
+        },
+        {
+          "key": "vertex-local-high",
+          "sliceId": "vertex-local-high-degree-degree-one",
+          "label": "Vertex coloring · high-degree LOCAL",
+          "problem": "vertex",
+          "model": "local",
+          "visible": false
+        },
+        {
+          "key": "vertex-local-brooks",
+          "sliceId": "vertex-local-brooks-delta-minus-k",
+          "label": "Vertex coloring · fewer colors in LOCAL",
+          "problem": "vertex",
+          "model": "local",
+          "visible": false
+        },
+        {
+          "key": "vertex-local-cycle",
+          "sliceId": "vertex-local-cycle-lower",
+          "label": "Vertex coloring · cycles in LOCAL",
+          "problem": "vertex",
+          "model": "local",
+          "visible": false
+        },
+        {
+          "key": "vertex-local-sparse",
+          "sliceId": "vertex-local-sparsified-input",
+          "label": "Vertex coloring · palette-sparsified LOCAL",
+          "problem": "vertex",
+          "model": "local",
+          "visible": false
+        }
+      ],
+      "canonicalAliases": {
+        "vertex-local-det": "vertex-local",
+        "vertex-local-high": "vertex-local",
+        "vertex-local-brooks": "vertex-local",
+        "vertex-local-cycle": "vertex-local",
+        "vertex-local-sparse": "vertex-local"
+      },
+      "pointFields": {
+        "x": "contractKey",
+        "y": "rowKey"
+      },
+      "axisSummary": {
+        "x": "Coloring contract; separate panels preserve graph/output/network assumptions",
+        "y": "Exact symbolic round formulas; categories do not rank variable-Δ bounds",
+        "note": "Green algorithms and red lower bounds. Cycle Δ=2 reference; transformed-network lower stays separate."
+      }
+    },
+    {
+      "id": "vertex-query_combined",
+      "dataFile": "vertex-query_combined.json",
+      "javascript": "vertex-query_combined.js",
+      "css": "vertex-query_combined.css",
+      "routes": [
+        {
+          "key": "vertex-query_combined",
+          "sliceId": "vertex-query-combined-delta-plus-one",
+          "label": "Vertex coloring · combined queries",
+          "problem": "vertex",
+          "model": "query_combined",
+          "visible": true
+        },
+        {
+          "key": "vertex-query-pairs",
+          "sliceId": "vertex-query-adjacency-matrix-only",
+          "label": "Vertex coloring · pair queries + degrees",
+          "problem": "vertex",
+          "model": "query_combined",
+          "visible": false
+        },
+        {
+          "key": "vertex-query-degeneracy",
+          "sliceId": "vertex-query-degeneracy",
+          "label": "Vertex coloring · degeneracy queries",
+          "problem": "vertex",
+          "model": "query_combined",
+          "visible": false
+        },
+        {
+          "key": "vertex-query-lists",
+          "sliceId": "vertex-query-degree-one-list",
+          "label": "Vertex coloring · list-input queries",
+          "problem": "vertex",
+          "model": "query_combined",
+          "visible": false
+        },
+        {
+          "key": "vertex-query-communication",
+          "sliceId": "vertex-query-two-party-communication",
+          "label": "Vertex coloring · communication",
+          "problem": "vertex",
+          "model": "query_combined",
+          "visible": true
+        }
+      ],
+      "canonicalAliases": {
+        "vertex-query-pairs": "vertex-query_combined",
+        "vertex-query-degeneracy": "vertex-query_combined",
+        "vertex-query-lists": "vertex-query_combined"
+      },
+      "pointFields": {
+        "x": "slot",
+        "y": "slot"
+      },
+      "axisSummary": {
+        "x": "Query access and palette contracts; communication is a separate view",
+        "y": "Leading n-power with exact factors; communication bits and rounds remain separate",
+        "note": "Global query lower is hard at Δ=Θ(√n). List-input oracle qualification retained."
+      }
+    }
+  ]
+}

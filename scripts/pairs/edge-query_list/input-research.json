@@ -1,0 +1,326 @@
+{
+  "problem": "edge",
+  "model": "query_list",
+  "slices": [
+    {
+      "id": "edge-query-list-full-output-baseline",
+      "problem": "edge",
+      "model": "query_list",
+      "label": "Adjacency-list oracle; explicit full output baseline",
+      "task": "Enumerate all edges and produce one proper color per edge",
+      "assumptions": [
+        "Graph supplied through degree(v) and indexed neighbor(v,i) queries, with vertex IDs and known n; no matrix or pair queries",
+        "Simple graph with maximum degree Δ≥1; arbitrary local adjacency order; deterministic, unrestricted internal space"
+      ],
+      "xAxis": {
+        "label": "Palette ratio r = q/Δ",
+        "kind": "palette",
+        "min": 1,
+        "max": 2.25,
+        "ticks": [
+          1,
+          1.25,
+          1.5,
+          1.75,
+          2,
+          2.25
+        ],
+        "tickLabels": [
+          "Δ",
+          "5Δ/4",
+          "3Δ/2",
+          "7Δ/4",
+          "2Δ",
+          "9Δ/4"
+        ]
+      },
+      "yAxis": {
+        "label": "Query exponent p in Õ(n^p)",
+        "kind": "exponent",
+        "min": 0,
+        "max": 2,
+        "ticks": [
+          0,
+          0.5,
+          1,
+          1.5,
+          2
+        ],
+        "tickLabels": [
+          "polylog",
+          "√n",
+          "n",
+          "n^{3/2}",
+          "n²"
+        ]
+      },
+      "parameters": {},
+      "results": [
+        {
+          "id": "query-adjacency-list-greedy-baseline",
+          "paperId": "blikstad-maus-devos-2026-distributed",
+          "kind": "upper",
+          "bound": "O(n+m) degree/neighbor oracle queries; q≤2Δ−1 colors",
+          "guarantee": "Explicit proper edge coloring of all m edges",
+          "sourceLocation": "The 2Δ−1 greedy coloring is stated in Introduction, historic focus paragraph (arXiv:2603.02689v2); query bound follows from enumerating each adjacency list once",
+          "evidenceStatus": "verified",
+          "frontierStatus": "baseline",
+          "notes": "Derived oracle implementation, not a theorem or query-model SOTA claim by the cited authors: ask n degrees and 2m indexed neighbor queries, retain all m edges, then greedily color. Graph with Δ=1 has q=1; no query lower bound or optimal frontier is asserted. Adjacency matrix and combined access remain unassessed.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "edge-query-adjlist-enumerate-plus-static",
+      "problem": "edge",
+      "model": "query_list",
+      "label": "Adjacency-list access · modern full-output algorithms",
+      "task": "Enumerate all edges, then compute and emit a proper coloring",
+      "assumptions": [
+        "Degree(v) and indexed neighbor(v,i) oracle; all vertices known; simple graph with m edges",
+        "Full explicit coloring of all edges; enumeration asks n degree queries and 2m neighbor queries; implementations retain graph in memory"
+      ],
+      "xAxis": {
+        "label": "Palette slack c in q = Δ + c",
+        "kind": "palette",
+        "min": 0,
+        "max": 8,
+        "ticks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          6,
+          8
+        ]
+      },
+      "yAxis": {
+        "label": "Degree/neighbor query exponent p in Õ(n^p)",
+        "kind": "exponent",
+        "min": 0,
+        "max": 2.25,
+        "ticks": [
+          0,
+          0.5,
+          1,
+          1.5,
+          2,
+          2.25
+        ],
+        "tickLabels": [
+          "polylog",
+          "√n",
+          "n",
+          "n^{3/2}",
+          "n²",
+          "n^{9/4}"
+        ]
+      },
+      "parameters": {
+        "α": "graph arboricity",
+        "ε": "positive palette slack",
+        "coordinateConvention": "The colored bound counts oracle queries alone. The exact output and computation time are separate columns in the table. O(n+m) ≤ O(n²) for a simple n-vertex graph."
+      },
+      "results": [
+        {
+          "id": "edge-query-vizing-2025-enumerated",
+          "paperId": "assadi-et-al-2025-vizing",
+          "kind": "upper",
+          "bound": "O(n+m) oracle queries + O(m log Δ) randomized computation, w.h.p.",
+          "guarantee": "Exact Vizing palette q=Δ+1",
+          "sourceLocation": "STOC 2025 main theorem (arXiv:2410.05240 abstract) plus explicit adjacency-list enumeration",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Oracle count is elementary composition by the atlas, not a query-complexity theorem claimed by the authors. Requires O(m) graph storage; cannot be called sublinear for explicit full output.",
+          "plot": {
+            "x": 1,
+            "y": 2,
+            "closure": "upper-right",
+            "strictX": false,
+            "strictY": false,
+            "label": "q=Δ+1; ≤n² queries"
+          }
+        },
+        {
+          "id": "edge-query-near-vizing-2025-enumerated",
+          "paperId": "assadi-2025-nearvizing",
+          "kind": "upper",
+          "bound": "O(n+m) queries + O(m log Δ) expected computation",
+          "guarantee": "q=Δ+O(log n) proper coloring",
+          "sourceLocation": "SODA 2025 Result 1 / Theorem 2 plus explicit adjacency-list enumeration",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "Same query count as exact Vizing, but expected-time guarantee and larger palette. Historical algorithmic tradeoff.",
+          "plot": null
+        },
+        {
+          "id": "edge-query-density-2024-enumerated",
+          "paperId": "bhattacharya-costa-panski-solomon-2024-density",
+          "kind": "upper",
+          "bound": "O(n+m) queries + Õ(min{m√n,mΔ} · α/Δ) computation",
+          "guarantee": "q=Δ+1 proper coloring",
+          "sourceLocation": "ESA 2024 abstract plus explicit adjacency-list enumeration",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "Static running time improves in low-arboricity graphs; α is arboricity, and this is an atlas-composed oracle implementation, not author-stated query optimum.",
+          "plot": null
+        },
+        {
+          "id": "edge-query-nearlinear-2026-enumerated",
+          "paperId": "bernshteyn-dhawan-2026-linear-static",
+          "kind": "upper",
+          "bound": "O(n+m) queries + O(m log(1/ε)/ε⁴) randomized computation, w.h.p.",
+          "guarantee": "q=(1+ε)Δ proper coloring",
+          "sourceLocation": "Theorem 1.3, SIAM J. Discrete Math. 2026 (arXiv:2407.04887) plus explicit adjacency-list enumeration",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Assumes constant ε>0 and Δ≥1/ε. More precise full-version runtime O(m log(1/ε)/ε⁴) with high probability; oracle bound is elementary atlas composition.",
+          "plot": null
+        },
+        {
+          "id": "edge-query-vizing2024-mnthird",
+          "paperId": "bhattacharya-carmon-costa-solomon-zhang-2024-vizing",
+          "kind": "upper",
+          "bound": "O(n+m) queries + Õ(m n^{1/3}) computation",
+          "guarantee": "Proper q=Δ+1 edge coloring",
+          "sourceLocation": "FOCS 2024 abstract plus elementary adjacency-list enumeration",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "Historical 2024 static algorithm; enumeration/oracle bound is atlas derivation, not paper-stated oracle complexity.",
+          "plot": {
+            "x": 1,
+            "y": 2,
+            "closure": "upper-right",
+            "strictX": false,
+            "strictY": false,
+            "label": "q=Δ+1; ≤n² queries"
+          }
+        },
+        {
+          "id": "edge-query-vizing2025-mnfourth",
+          "paperId": "bhattacharya-costa-solomon-zhang-2025-faster-vizing",
+          "kind": "upper",
+          "bound": "O(n+m) queries + Õ(m n^{1/4}) computation",
+          "guarantee": "Proper q=Δ+1 edge coloring",
+          "sourceLocation": "Abstract, SODA 2025 / arXiv:2410.12479, plus elementary adjacency-list enumeration",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "Improved 2024 exponent, later superseded by STOC 2025 O(m log Δ); query count is an atlas composition.",
+          "plot": {
+            "x": 1,
+            "y": 2,
+            "closure": "upper-right",
+            "strictX": false,
+            "strictY": false,
+            "label": "q=Δ+1; ≤n² queries"
+          }
+        }
+      ]
+    }
+  ],
+  "papers": [
+    {
+      "id": "blikstad-maus-devos-2026-distributed",
+      "title": "Deterministic Edge Coloring with few Colors in CONGEST",
+      "authors": [
+        "Joakim Blikstad",
+        "Yannic Maus",
+        "Tijn de Vos"
+      ],
+      "year": 2026,
+      "venue": "DISC 2026 (accepted); arXiv:2603.02689v2",
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/abs/2603.02689",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "assadi-et-al-2025-vizing",
+      "title": "Vizing’s Theorem in Near-Linear Time",
+      "authors": [
+        "Sepehr Assadi",
+        "Soheil Behnezhad",
+        "Sayan Bhattacharya",
+        "Martín Costa",
+        "Shay Solomon",
+        "Tianyi Zhang"
+      ],
+      "year": 2025,
+      "venue": "STOC 2025; Journal of the ACM 2026",
+      "publicationStatus": "journal",
+      "url": "https://arxiv.org/abs/2410.05240",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "assadi-2025-nearvizing",
+      "title": "Faster Vizing and Near-Vizing Edge Coloring Algorithms",
+      "authors": [
+        "Sepehr Assadi"
+      ],
+      "year": 2025,
+      "venue": "SODA 2025",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2405.13371",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "bhattacharya-costa-panski-solomon-2024-density",
+      "title": "Density-Sensitive Algorithms for (Δ+1)-Edge Coloring",
+      "authors": [
+        "Sayan Bhattacharya",
+        "Martín Costa",
+        "Nadav Panski",
+        "Shay Solomon"
+      ],
+      "year": 2024,
+      "venue": "ESA 2024",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ESA.2024.23",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "bernshteyn-dhawan-2026-linear-static",
+      "title": "A Linear-Time Algorithm for (1+ε)Δ-Edge-Coloring",
+      "authors": [
+        "Anton Bernshteyn",
+        "Abhishek Dhawan"
+      ],
+      "year": 2026,
+      "venue": "SIAM Journal on Discrete Mathematics 2026",
+      "publicationStatus": "journal",
+      "url": "https://arxiv.org/abs/2407.04887",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "bhattacharya-costa-solomon-zhang-2025-faster-vizing",
+      "title": "Even Faster (Δ+1)-Edge Coloring via Shorter Multi-Step Vizing Chains",
+      "authors": [
+        "Sayan Bhattacharya",
+        "Martín Costa",
+        "Shay Solomon",
+        "Tianyi Zhang"
+      ],
+      "year": 2025,
+      "venue": "SODA 2025",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2410.12479",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "bhattacharya-carmon-costa-solomon-zhang-2024-vizing",
+      "title": "Faster (Δ+1)-Edge Coloring: Breaking the m√n Time Barrier",
+      "authors": [
+        "Sayan Bhattacharya",
+        "Din Carmon",
+        "Martín Costa",
+        "Shay Solomon",
+        "Tianyi Zhang"
+      ],
+      "year": 2024,
+      "venue": "FOCS 2024; arXiv:2405.15449",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2405.15449",
+      "verifiedOn": "2026-09-27"
+    }
+  ]
+}

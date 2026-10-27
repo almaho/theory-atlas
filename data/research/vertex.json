@@ -1,0 +1,3215 @@
+{
+  "problem": "vertex",
+  "reviewedThrough": "2026-10-27",
+  "searchSummary": "Expanded primary-source survey through 2026-09-27, now including historical and current palettes Δ+1, degree+1 lists, (1+ε)Δ, Brooks Δ and Δ−1, degeneracy κ, chromatic-gap decisions; dynamic adaptivity, stream robustness, communication versus graph queries, and memory regimes remain separate. Every entry has a primary-paper link and explicit assumptions. Symbolic bounds remain unshaded where no common numeric axes justify interpolation. LCA coverage now separates deterministic degree+1 lists, randomized MIS-reduction, and average-case exact k-coloring. The bibliography is an evolving atlas, not a systematic review of every graph class and theorem.",
+  "coverage": [
+    {
+      "model": "dynamic",
+      "status": "researched",
+      "note": "Adaptive and oblivious adversaries separated; Δ+1 palette only. Other coloring tradeoffs are outside current scope."
+    },
+    {
+      "model": "stream",
+      "status": "researched",
+      "note": "Insertion/turnstile, randomized/deterministic, robust adaptive-output, Brooks palettes, degeneracy and chromatic-gap decisions are distinct slices."
+    },
+    {
+      "model": "lca",
+      "status": "researched",
+      "note": "Centralized Δ+1 list-color LCAs, deterministic oblivious historical LCA, and average-case exact k-color LCA are distinct slices; worst-case exact-k LCA is not inferred from average-case result."
+    },
+    {
+      "model": "local",
+      "status": "researched",
+      "note": "Randomized and deterministic LOCAL rounds separated; FOCS 2024 color results follow reductions. No unsupported lower frontier drawn."
+    },
+    {
+      "model": "mpc",
+      "status": "researched",
+      "note": "Near-linear machine memory and strongly sublinear machine memory separated; deterministic low-memory result allows exponential local computation."
+    },
+    {
+      "model": "query_list",
+      "status": "researched",
+      "note": "Adjacency-list/array slices are separated below; inspect each oracle and output assumption."
+    },
+    {
+      "model": "query_matrix",
+      "status": "researched",
+      "note": "Adjacency-matrix slices are separated below; inspect pair-query and output assumptions."
+    },
+    {
+      "model": "query_combined",
+      "status": "researched",
+      "note": "Combined, communication, same-cluster, or other query interfaces are kept separate from pure list/matrix access."
+    }
+  ],
+  "papers": [
+    {
+      "id": "flin-halldorsson-2025-dynamic-coloring",
+      "title": "Faster Dynamic (Δ+1)-Coloring Against Adaptive Adversaries",
+      "authors": [
+        "Maxime Flin",
+        "Magnús M. Halldórsson"
+      ],
+      "year": 2025,
+      "venue": "ICALP 2025",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2025.79",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "behnezhad-rajaraman-wasim-2025-dynamic-coloring",
+      "title": "Fully Dynamic (Δ+1) Coloring Against Adaptive Adversaries",
+      "authors": [
+        "Soheil Behnezhad",
+        "Rajmohan Rajaraman",
+        "Omer Wasim"
+      ],
+      "year": 2025,
+      "venue": "SODA 2025",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2411.04418",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "assadi-chen-khanna-2019-sublinear-coloring",
+      "title": "Sublinear Algorithms for (Δ+1) Vertex Coloring",
+      "authors": [
+        "Sepehr Assadi",
+        "Yu Chen",
+        "Sanjeev Khanna"
+      ],
+      "year": 2019,
+      "venue": "SODA 2019",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1807.08886",
+      "verifiedOn": "2026-10-27",
+      "sourceUrl": "https://arxiv.org/html/1807.08886"
+    },
+    {
+      "id": "bhattacharya-grandoni-kulkarni-liu-solomon-2022-dynamic",
+      "title": "Fully Dynamic (Δ+1)-Coloring in O(1) Update Time",
+      "authors": [
+        "Sayan Bhattacharya",
+        "Fabrizio Grandoni",
+        "Janardhan Kulkarni",
+        "Quanquan C. Liu",
+        "Shay Solomon"
+      ],
+      "year": 2022,
+      "venue": "ACM Transactions on Algorithms 18(2)",
+      "publicationStatus": "journal",
+      "url": "https://doi.org/10.1145/3494539",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "chechik-chen-zhang-2026-streaming",
+      "title": "Faster Deterministic Streaming Vertex Coloring",
+      "authors": [
+        "Shiri Chechik",
+        "Hongyi Chen",
+        "Tianyi Zhang"
+      ],
+      "year": 2026,
+      "venue": "ICALP 2026",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2026.56",
+      "verifiedOn": "2026-10-27",
+      "sourceUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol374-icalp2026/html/LIPIcs.ICALP.2026.56/LIPIcs.ICALP.2026.56.html"
+    },
+    {
+      "id": "assadi-sundaresan-yazdanyar-2026-streaming-few-colors",
+      "title": "Coloring Graphs with Few Colors in the Streaming Model",
+      "authors": [
+        "Sepehr Assadi",
+        "Janani Sundaresan",
+        "Helia Yazdanyar"
+      ],
+      "year": 2026,
+      "venue": "SODA 2026",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2510.18177",
+      "verifiedOn": "2026-10-27",
+      "sourceUrl": "https://arxiv.org/html/2510.18177"
+    },
+    {
+      "id": "ferber-hardiman-chen-2025-sublinear-coloring",
+      "title": "Improved Sublinear Algorithms for Classical and Quantum Graph Coloring",
+      "authors": [
+        "Asaf Ferber",
+        "Liam Hardiman",
+        "Xiaonan Chen"
+      ],
+      "year": 2025,
+      "venue": "arXiv (revised 2026)",
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/abs/2502.06024",
+      "verifiedOn": "2026-10-27",
+      "verificationUrl": "https://arxiv.org/html/2502.06024#S1",
+      "versionNote": "The HTML displays arXiv:2502.06024v1 (9 February 2025) and an internal manuscript date of 24 August 2026. The abstract history lists only v1; no later revision number is asserted."
+    },
+    {
+      "id": "chang-fischer-ghaffari-uitto-zheng-2019-lca-mpc",
+      "title": "The Complexity of (Δ+1)-Coloring in Congested Clique, Massively Parallel Computation, and Centralized Local Computation",
+      "authors": [
+        "Yi-Jun Chang",
+        "Manuela Fischer",
+        "Mohsen Ghaffari",
+        "Jara Uitto",
+        "Yufan Zheng"
+      ],
+      "year": 2019,
+      "venue": "PODC 2019",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1808.08419",
+      "verifiedOn": "2026-09-27",
+      "fullTextUrl": "https://arxiv.org/html/1808.08419v3"
+    },
+    {
+      "id": "ghaffari-grunau-2024-network-decomposition",
+      "title": "Near-Optimal Deterministic Network Decomposition and Ruling Set, and Improved MIS",
+      "authors": [
+        "Mohsen Ghaffari",
+        "Christoph Grunau"
+      ],
+      "year": 2024,
+      "venue": "FOCS 2024",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2410.19516",
+      "verifiedOn": "2026-10-27",
+      "verificationUrl": "https://arxiv.org/html/2410.19516v1",
+      "theorem": "Theorem 1.3; Corollary 1.4",
+      "verificationNote": "The deterministic theorem includes degree+1 lists. The randomized corollary states ordinary Δ+1 coloring through CLP shattering; preserve that stated contract."
+    },
+    {
+      "id": "czumaj-davies-parter-2021-low-space-mpc",
+      "title": "Improved Deterministic (Δ+1)-Coloring in Low-Space MPC",
+      "authors": [
+        "Artur Czumaj",
+        "Peter Davies",
+        "Merav Parter"
+      ],
+      "year": 2021,
+      "venue": "PODC 2021",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2112.05831",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "bhattacharya-chakrabarty-henzinger-nanongkai-2018-dynamic",
+      "title": "Dynamic Algorithms for Graph Coloring",
+      "authors": [
+        "Sayan Bhattacharya",
+        "Deeparnab Chakrabarty",
+        "Monika Henzinger",
+        "Danupon Nanongkai"
+      ],
+      "year": 2018,
+      "venue": "SODA 2018",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1711.04355",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "henzinger-peng-2022-dynamic-color",
+      "title": "Constant-Time Dynamic (Δ+1)-Coloring and Weight Approximation for Minimum Spanning Forest: Dynamic Algorithms Meet Property Testing",
+      "authors": [
+        "Monika Henzinger",
+        "Pan Peng"
+      ],
+      "year": 2022,
+      "venue": "ACM Transactions on Algorithms 18(2)",
+      "publicationStatus": "journal",
+      "url": "https://arxiv.org/abs/1907.04745",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "ghaffari-koo-2026-dynamic-vertex",
+      "title": "Dynamic Graph Coloring: Sequential, Parallel, and Distributed",
+      "authors": [
+        "Mohsen Ghaffari",
+        "Jaehyun Koo"
+      ],
+      "year": 2026,
+      "venue": "arXiv v3 (15 October 2026)",
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/abs/2512.09218",
+      "verifiedOn": "2026-10-27",
+      "version": "2512.09218v3"
+    },
+    {
+      "id": "bera-ghosh-2018-color-stream",
+      "title": "Coloring in Graph Streams",
+      "authors": [
+        "Suman Kalyan Bera",
+        "Prantar Ghosh"
+      ],
+      "year": 2018,
+      "venue": "arXiv",
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/abs/1807.07640",
+      "verifiedOn": "2026-10-27",
+      "sourceUrl": "https://arxiv.org/pdf/1807.07640"
+    },
+    {
+      "id": "bera-chakrabarti-ghosh-2020-degeneracy",
+      "title": "Graph Coloring via Degeneracy in Streaming and Other Space-Conscious Models",
+      "authors": [
+        "Suman K. Bera",
+        "Amit Chakrabarti",
+        "Prantar Ghosh"
+      ],
+      "year": 2020,
+      "venue": "ICALP 2020",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2020.11",
+      "verifiedOn": "2026-10-27",
+      "sourceUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol168-icalp2020/LIPIcs.ICALP.2020.11/LIPIcs.ICALP.2020.11.pdf"
+    },
+    {
+      "id": "assadi-chen-sun-2022-deterministic",
+      "title": "Deterministic Graph Coloring in the Streaming Model",
+      "authors": [
+        "Sepehr Assadi",
+        "Andrew Chen",
+        "Glenn Sun"
+      ],
+      "year": 2022,
+      "venue": "STOC 2022",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2109.14891",
+      "verifiedOn": "2026-10-27",
+      "sourceUrl": "https://arxiv.org/html/2109.14891"
+    },
+    {
+      "id": "assadi-chakrabarti-ghosh-stoeckl-2023-robust",
+      "title": "Coloring in Graph Streams via Deterministic and Adversarially Robust Algorithms",
+      "authors": [
+        "Sepehr Assadi",
+        "Amit Chakrabarti",
+        "Prantar Ghosh",
+        "Manuel Stoeckl"
+      ],
+      "year": 2023,
+      "venue": "PODS 2023",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2212.10641",
+      "verifiedOn": "2026-10-27",
+      "sourceUrl": "https://arxiv.org/html/2212.10641"
+    },
+    {
+      "id": "chakrabarti-ghosh-stoeckl-2022-robust",
+      "title": "Adversarially Robust Coloring for Graph Streams",
+      "authors": [
+        "Amit Chakrabarti",
+        "Prantar Ghosh",
+        "Manuel Stoeckl"
+      ],
+      "year": 2022,
+      "venue": "ITCS 2022",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ITCS.2022.37",
+      "verifiedOn": "2026-10-27",
+      "sourceUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol215-itcs2022/LIPIcs.ITCS.2022.37/LIPIcs.ITCS.2022.37.pdf"
+    },
+    {
+      "id": "assadi-kumar-mittal-2022-brooks",
+      "title": "Brooks’ Theorem in Graph Streams: A Single-Pass Semi-Streaming Algorithm for Δ-Coloring",
+      "authors": [
+        "Sepehr Assadi",
+        "Pankaj Kumar",
+        "Parth Mittal"
+      ],
+      "year": 2022,
+      "venue": "STOC 2022",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2203.10984",
+      "verifiedOn": "2026-10-27",
+      "sourceUrl": "https://arxiv.org/html/2203.10984"
+    },
+    {
+      "id": "flin-halldorsson-2026-beyond-brooks",
+      "title": "Beyond Brooks: (Δ−1)-Coloring in Semi-Streaming",
+      "authors": [
+        "Maxime Flin",
+        "Magnús M. Halldórsson"
+      ],
+      "year": 2026,
+      "venue": "ICALP 2026",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2605.07774",
+      "verifiedOn": "2026-10-27",
+      "sourceUrl": "https://arxiv.org/html/2605.07774"
+    },
+    {
+      "id": "alon-assadi-2020-palette-beyond",
+      "title": "Palette Sparsification Beyond (Δ+1) Vertex Coloring",
+      "authors": [
+        "Noga Alon",
+        "Sepehr Assadi"
+      ],
+      "year": 2020,
+      "venue": "APPROX/RANDOM 2020",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2006.10456",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "halldorsson-kuhn-nolin-tonoyan-2022-degree",
+      "title": "Near-Optimal Distributed Degree+1 Coloring",
+      "authors": [
+        "Magnús M. Halldórsson",
+        "Fabian Kuhn",
+        "Alexandre Nolin",
+        "Tigran Tonoyan"
+      ],
+      "year": 2022,
+      "venue": "STOC 2022",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2112.00604",
+      "verifiedOn": "2026-10-27",
+      "verificationUrl": "https://arxiv.org/html/2112.00604v1",
+      "theorem": "Theorems 1–2; Corollary 1",
+      "verificationNote": "Theorem 1 colors a high-degree subset with local failure Δ^{-c}; setting the degree upper bound to n yields simultaneous high-degree coverage. Theorem 2 completes all vertices.",
+      "sourceUrl": "https://arxiv.org/html/2112.00604"
+    },
+    {
+      "id": "harris-schneider-su-2018-local-color",
+      "title": "Distributed (Δ+1)-Coloring in Sublogarithmic Rounds",
+      "authors": [
+        "David G. Harris",
+        "Johannes Schneider",
+        "Hsin-Hao Su"
+      ],
+      "year": 2018,
+      "venue": "Journal of the ACM 65(4)",
+      "publicationStatus": "journal",
+      "url": "https://arxiv.org/abs/1603.01486",
+      "verifiedOn": "2026-10-27",
+      "verificationUrl": "https://arxiv.org/html/1603.01486v4",
+      "theorem": "§1.2; §4 runtime argument; Theorem 7.6",
+      "verificationNote": "Randomized Δ+1-list coloring; retains the exact degree-dependent historical formula."
+    },
+    {
+      "id": "chang-li-pettie-2020-color",
+      "title": "Distributed (Δ+1)-Coloring via Ultrafast Graph Shattering",
+      "authors": [
+        "Yi-Jun Chang",
+        "Wenzheng Li",
+        "Seth Pettie"
+      ],
+      "year": 2020,
+      "venue": "SIAM Journal on Computing",
+      "publicationStatus": "journal",
+      "url": "https://arxiv.org/abs/1711.01361",
+      "verifiedOn": "2026-10-27",
+      "verificationUrl": "https://arxiv.org/html/1711.01361v3",
+      "theorem": "Theorem 1 (§4.4)",
+      "verificationNote": "Randomized Δ+1-list coloring reduces to deterministic degree+1-list coloring on polylogarithmic-size graphs. Keep Det_d symbolic rather than assigning an invented exponent."
+    },
+    {
+      "id": "ghaffari-kuhn-2021-deterministic",
+      "title": "Deterministic Distributed Vertex Coloring: Simpler, Faster, and without Network Decomposition",
+      "authors": [
+        "Mohsen Ghaffari",
+        "Fabian Kuhn"
+      ],
+      "year": 2021,
+      "venue": "FOCS 2021",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2011.04511",
+      "verifiedOn": "2026-10-27",
+      "verificationUrl": "https://arxiv.org/html/2011.04511v2",
+      "theorem": "Theorem 4.1; Corollary 1.2",
+      "verificationNote": "The LOCAL deterministic bound applies to degree+1 lists. The randomized corollary states ordinary Δ+1 coloring with global high probability."
+    },
+    {
+      "id": "halldorsson-nolin-tonoyan-2021-ultrafast",
+      "title": "Ultrafast Distributed Coloring of High Degree Graphs",
+      "authors": [
+        "Magnús M. Halldórsson",
+        "Alexandre Nolin",
+        "Tigran Tonoyan"
+      ],
+      "year": 2021,
+      "venue": "arXiv",
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/abs/2105.04700",
+      "verifiedOn": "2026-10-27",
+      "verificationUrl": "https://arxiv.org/html/2105.04700v1",
+      "theorem": "Theorem 1; §§4, 6.2",
+      "verificationNote": "Full Δ+1-list coloring requires maximum degree at least log^{2+δ}n for fixed δ>0. Theorem is stronger CONGEST. HKNT22 incorporates this report's LOCAL work; do not count it as an independent frontier."
+    },
+    {
+      "id": "flin-halldorsson-jakob-maus-2026-optimal",
+      "title": "Sublogarithmic Distributed Vertex Coloring with Optimal Number of Colors",
+      "authors": [
+        "Maxime Flin",
+        "Magnús M. Halldórsson",
+        "Manuel Jakob",
+        "Yannic Maus"
+      ],
+      "year": 2026,
+      "venue": "STOC 2026",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2603.28637",
+      "verifiedOn": "2026-10-27",
+      "verificationUrl": "https://arxiv.org/html/2603.28637v2",
+      "theorem": "Theorem 1; §4.3",
+      "verificationNote": "Sufficiently large Δ; q≥Δ−k_Δ+1. Output is a valid q-coloring or a local non-colorability certificate. The exceptional Δ≥log^{50}n regime is faster. No imported boundary hardness."
+    },
+    {
+      "id": "linial-1992-locality",
+      "title": "Locality in Distributed Graph Algorithms",
+      "authors": [
+        "Nathan Linial"
+      ],
+      "year": 1992,
+      "venue": "SIAM Journal on Computing 21(1)",
+      "publicationStatus": "journal",
+      "url": "https://epubs.siam.org/doi/10.1137/0221015",
+      "verifiedOn": "2026-10-27",
+      "verificationUrl": "https://courses.csail.mit.edu/6.852/08/papers/Linial.pdf",
+      "theorem": "Theorem 2.1, printed p.195",
+      "verificationNote": "Three-coloring an n-cycle takes at least (log* n−3)/2 rounds. Use only the deterministic case here, even with a consistent orientation. No all-degree/palette lower projection."
+    },
+    {
+      "id": "czumaj-davies-parter-2020-clique-mpc",
+      "title": "Simple, Deterministic, Constant-Round Coloring in the Congested Clique",
+      "authors": [
+        "Artur Czumaj",
+        "Peter Davies",
+        "Merav Parter"
+      ],
+      "year": 2020,
+      "venue": "PODC 2020; SIAM Journal on Computing 2021",
+      "publicationStatus": "journal",
+      "url": "https://arxiv.org/abs/2009.06043",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "flin-ghaffari-halldorsson-kuhn-nolin-2024-palette",
+      "title": "A Distributed Palette Sparsification Theorem",
+      "authors": [
+        "Maxime Flin",
+        "Mohsen Ghaffari",
+        "Magnús M. Halldórsson",
+        "Fabian Kuhn",
+        "Alexandre Nolin"
+      ],
+      "year": 2024,
+      "venue": "SODA 2024",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2301.06457",
+      "verifiedOn": "2026-10-27",
+      "verificationUrl": "https://arxiv.org/html/2301.06457v2",
+      "theorem": "Theorems 1–2; precise Theorem 7; §5 proof",
+      "verificationNote": "Communication is restricted to the sampled-color conflict network. The lower bound holds on sampled cliques even at success 2/3; explicit sampling is Bernoulli f(n)/n with c log n≤f(n)≤polylog n."
+    },
+    {
+      "id": "barenboim-elkin-kuhn-2014-linear-degree",
+      "title": "Distributed (Δ+1)-Coloring in Linear (in Δ) Time",
+      "authors": [
+        "Leonid Barenboim",
+        "Michael Elkin",
+        "Fabian Kuhn"
+      ],
+      "year": 2014,
+      "venue": "SIAM Journal on Computing 43(1)",
+      "publicationStatus": "journal",
+      "url": "https://doi.org/10.1137/12088848X",
+      "verifiedOn": "2026-10-27",
+      "verificationUrl": "https://www.cs.bgu.ac.il/~elkinm/Bar_E_Kuhn.SICOMP.pdf",
+      "theorem": "Theorem 4.6, printed p.87",
+      "verificationNote": "Full journal theorem confirms O(Δ)+(1/2)log* n rounds for ordinary Δ+1 coloring. Specializing Δ=2 supplies the cycle upper in the reference inset."
+    },
+    {
+      "id": "flin-mittal-2025-communication",
+      "title": "(Δ+1) Vertex Coloring in O(n) Communication",
+      "authors": [
+        "Maxime Flin",
+        "Parth Mittal"
+      ],
+      "year": 2025,
+      "venue": "Distributed Computing 38",
+      "publicationStatus": "journal",
+      "url": "https://arxiv.org/abs/2404.19081",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "chang-mishra-nguyen-salim-2025-communication",
+      "title": "Round and Communication Efficient Graph Coloring",
+      "authors": [
+        "Yi-Jun Chang",
+        "Gopinath Mishra",
+        "Hung Thuan Nguyen",
+        "Farrel D. Salim"
+      ],
+      "year": 2025,
+      "venue": "PODC 2025",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2412.12589",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "ghaffari-2022-lca-mis-color",
+      "title": "Local Computation of Maximal Independent Set",
+      "authors": [
+        "Mohsen Ghaffari"
+      ],
+      "year": 2022,
+      "venue": "FOCS 2022",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2210.01104",
+      "verifiedOn": "2026-10-27",
+      "fullTextUrl": "https://arxiv.org/html/2210.01104v1"
+    },
+    {
+      "id": "fraigniaud-heinrich-kosowski-2016-conflict",
+      "title": "Local Conflict Coloring",
+      "authors": [
+        "Pierre Fraigniaud",
+        "Marc Heinrich",
+        "Adrian Kosowski"
+      ],
+      "year": 2016,
+      "venue": "FOCS 2016",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1511.01287",
+      "verifiedOn": "2026-10-27",
+      "fullTextUrl": "https://arxiv.org/html/1511.01287v2",
+      "verificationUrl": "https://arxiv.org/html/1511.01287v2",
+      "theorem": "Theorem 4.1; Corollary 4.1",
+      "verificationNote": "Set conflict degree d=1 in Theorem 4.1: lists of size degree(v)+1 suffice; exact bound is O(√Δ log^{5/2}Δ)+log* n."
+    },
+    {
+      "id": "marcussen-pyne-rubinfeld-shapira-tauber-2026-average",
+      "title": "Graph k-Coloring in Average Sublinear Time",
+      "authors": [
+        "Cassandra Marcussen",
+        "Edward Pyne",
+        "Ronitt Rubinfeld",
+        "Asaf Shapira",
+        "Shlomo Tauber"
+      ],
+      "year": 2026,
+      "venue": "FOCS 2026",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2607.26592",
+      "verifiedOn": "2026-10-27",
+      "fullTextUrl": "https://arxiv.org/html/2607.26592v1",
+      "verificationUrl": "https://arxiv.org/html/2607.26592v1",
+      "version": "arXiv:2607.26592v1, 29 July 2026",
+      "publicationEvidence": "The author paper record states FOCS 2026."
+    }
+  ],
+  "slices": [
+    {
+      "id": "vertex-dynamic-adaptive-delta-plus-one",
+      "problem": "vertex",
+      "model": "dynamic",
+      "label": "Fully dynamic (Δ+1) coloring, adaptive adversary",
+      "task": "Maintain an explicit proper vertex coloring after each edge update",
+      "assumptions": [
+        "Fixed n-vertex graph",
+        "Maximum degree at most Δ at all times; Δ known in advance",
+        "Adaptive adversary; edge insertions and deletions"
+      ],
+      "xAxis": {
+        "label": "Adversary, palette and averaging contract (categorical)",
+        "categories": [
+          {
+            "id": "adaptive",
+            "label": "Adaptive; Δ+1"
+          },
+          {
+            "id": "oblivious_expected",
+            "label": "Oblivious · expected amortized; Δ+1"
+          },
+          {
+            "id": "oblivious_whp",
+            "label": "Oblivious · expected and WHP amortized; Δ+1"
+          },
+          {
+            "id": "oblivious_each",
+            "label": "Oblivious · expected per update; Δ+1"
+          },
+          {
+            "id": "deterministic",
+            "label": "Deterministic · amortized; (1+o(1))Δ"
+          }
+        ],
+        "kind": "categorical"
+      },
+      "yAxis": {
+        "label": "Symbolic update-time classes; not a universal asymptotic ranking",
+        "categories": [
+          {
+            "id": "n89",
+            "label": "Õ(n^{8/9})",
+            "short": "n^{8/9}"
+          },
+          {
+            "id": "n23",
+            "label": "Õ(n^{2/3})",
+            "short": "n^{2/3}"
+          },
+          {
+            "id": "polylog",
+            "label": "O(polylog Δ)",
+            "short": "polylog Δ"
+          },
+          {
+            "id": "log",
+            "label": "O(log⁺Δ)",
+            "short": "log⁺Δ"
+          },
+          {
+            "id": "constant",
+            "label": "O(1)",
+            "short": "1"
+          }
+        ],
+        "kind": "categorical"
+      },
+      "parameters": {
+        "n": "fixed vertex count",
+        "Delta": "fixed known maximum degree bound throughout updates",
+        "coordinateConvention": "Categorical formula classes and time contracts; no invented numeric exponent."
+      },
+      "results": [
+        {
+          "id": "vertex-dynamic-adaptive-flin-2025",
+          "paperId": "flin-halldorsson-2025-dynamic-coloring",
+          "kind": "upper",
+          "bound": "Õ(n^{2/3}); Amortized update time, with high probability",
+          "guarantee": "Explicit proper vertex coloring maintained after every edge insertion or deletion; Δ+1 colors; Adaptive: updates may depend on past outputs.",
+          "sourceLocation": "Theorem 1; §4.4 proof",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Uses ordinary O(Δ) recoloring for Δ=O(n^{2/3}). The n^{2/3} discussion in §1.1 is a technique barrier and open question, not a proved dynamic lower bound. Phase initialization is included through amortization; this is not a per-update worst-case guarantee.",
+          "plot": null,
+          "sourceUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol334-icalp2025/html/LIPIcs.ICALP.2025.79/LIPIcs.ICALP.2025.79.html"
+        },
+        {
+          "id": "vertex-dynamic-adaptive-brw-2025",
+          "paperId": "behnezhad-rajaraman-wasim-2025-dynamic-coloring",
+          "kind": "upper",
+          "bound": "Õ(n^{8/9}); Amortized update time, with high probability",
+          "guarantee": "Explicit proper vertex coloring maintained after every edge insertion or deletion; Δ+1 colors; Adaptive: updates may depend on past outputs.",
+          "sourceLocation": "Theorem 1, PDF p.3; proof in §5.4",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "Restores the amortized qualifier omitted from the input abstract-only record. FH2025 improves the same adaptive contract. Periodic rebuilding is amortized over phases; §5.4.1 notes sufficiently long sequences for matching initialization.",
+          "plot": null,
+          "sourceUrl": "https://arxiv.org/pdf/2411.04418v2"
+        }
+      ]
+    },
+    {
+      "id": "vertex-stream-dynamic-one-pass-delta-plus-one",
+      "problem": "vertex",
+      "model": "stream",
+      "label": "One-pass turnstile stream, explicit (Δ+1) coloring",
+      "task": "Explicit proper coloring",
+      "assumptions": [
+        "Turnstile; final maximum degree Δ",
+        "Simple undirected n-vertex graph",
+        "1 pass(es)"
+      ],
+      "xAxis": {
+        "label": "Palette / output contract",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "minus",
+            "label": "Δ−1",
+            "short": "Δ−1"
+          },
+          {
+            "id": "brooks",
+            "label": "Δ",
+            "short": "Δ"
+          },
+          {
+            "id": "plus",
+            "label": "Δ+1",
+            "short": "Δ+1"
+          },
+          {
+            "id": "near",
+            "label": "(1+ε)Δ",
+            "short": "(1+ε)Δ"
+          },
+          {
+            "id": "list",
+            "label": "dᵥ+1 list",
+            "short": "dᵥ+1 list"
+          }
+        ]
+      },
+      "yAxis": {
+        "label": "Space classes (symbolic categories)",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "semi",
+            "label": "Õ(n)",
+            "short": "Õ(n)"
+          },
+          {
+            "id": "linear",
+            "label": "Ω(n)",
+            "short": "Ω(n)"
+          }
+        ]
+      },
+      "parameters": {
+        "n": "number of vertices",
+        "Delta": "final maximum degree",
+        "coordinateConvention": "Categorical formula classes; no numerical exponent or universal ranking is assigned."
+      },
+      "results": [
+        {
+          "id": "vertex-stream-ack-2019",
+          "paperId": "assadi-chen-khanna-2019-sublinear-coloring",
+          "kind": "upper",
+          "bound": "Õ(n) bits; one pass",
+          "guarantee": "Δ+1",
+          "sourceLocation": "Theorem 2, §4.1",
+          "evidenceStatus": "verified",
+          "frontierStatus": "current_best_verified",
+          "notes": "Final Δ need not bound degrees during the stream. Polynomial postprocessing. With high probability Randomness included in working memory",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "vertex-query-combined-delta-plus-one",
+      "problem": "vertex",
+      "model": "query_combined",
+      "label": "Neighbor and pair queries, explicit (Δ+1) coloring",
+      "task": "Output a valid color for each of the n vertices",
+      "assumptions": [
+        "Known vertex set [n]; arbitrary fixed ordering of neighbor lists.",
+        "Degree queries are part of the oracle.",
+        "This is a classical randomized algorithm.",
+        "Hard-family degree Θ(√n); do not extend the red marker across all degrees.",
+        "Classical randomized algorithms with the theorem’s success threshold.",
+        "Lower-bound oracle gives all degrees for free.",
+        "Degree preprocessing uses O(n) queries unless Δ is supplied.",
+        "For Δ=0 output one color after degree discovery; displayed formulas use Δ≥1.",
+        "Source abstract identifier is v1, with internal revision date 24 August 2026."
+      ],
+      "xAxis": {
+        "label": "Classical Δ+1 query results (source categories)",
+        "kind": "symbolic"
+      },
+      "yAxis": {
+        "label": "Leading n-power of query cost; polylogs remain in labels",
+        "kind": "symbolic"
+      },
+      "parameters": {
+        "n": "number of vertices",
+        "Delta": "maximum degree",
+        "kappa": "graph degeneracy; distinct from Δ",
+        "coordinateConvention": "Custom renderer; exact source scopes and no common numeric region across different resource models."
+      },
+      "results": [
+        {
+          "id": "vertex-query-combined-ack-upper-2019",
+          "paperId": "assadi-chen-khanna-2019-sublinear-coloring",
+          "kind": "upper",
+          "bound": "Õ(n^{3/2}) queries",
+          "guarantee": "Δ+1 colors; An explicit proper color for every vertex",
+          "sourceLocation": "Theorem 3, §4.2",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "historical",
+          "notes": "Degree, indexed-neighbor and pair queries. Global upper bound over all maximum degrees. Uses neighbor greedy below √n and a pair-query routine above √n. The plot shows the leading n-power only; polylogarithmic factors remain in the bound label.",
+          "plot": null
+        },
+        {
+          "id": "vertex-query-combined-ack-lower-2019",
+          "paperId": "assadi-chen-khanna-2019-sublinear-coloring",
+          "kind": "lower",
+          "bound": "Ω(n^{3/2}) queries",
+          "guarantee": "cΔ colors, for every fixed c>1; hence Δ+1; An explicit proper color for every vertex",
+          "sourceLocation": "Theorem 7, §5.3; query model in §5.2",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "candidate",
+          "notes": "Indexed-neighbor and pair queries, even with all degrees supplied. A global worst-case lower bound. The displayed construction has N=2s vertices and Δ=√s+1, so Δ=Θ(√N). It does not establish Ω(n^{3/2}) at every fixed Δ. The output may use cΔ colors, which includes Δ+1 for sufficiently large degree.",
+          "plot": null
+        },
+        {
+          "id": "vertex-query-combined-ferber-2025",
+          "paperId": "ferber-hardiman-chen-2025-sublinear-coloring",
+          "kind": "upper",
+          "bound": "O(n^{3/2}√log n) expected queries",
+          "guarantee": "Δ+1 colors; An explicit proper color for every vertex",
+          "sourceLocation": "Corollary 2, after Theorem 1; Algorithm 1",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "candidate",
+          "notes": "Neighbor and pair queries, with degree queries to determine Δ. Selects the cheaper of O(nΔ) greedy and O(n² log n/Δ) pair queries. For Δ≥1 this gives O(n + min{nΔ,n² log n/Δ}); the largest envelope is O(n^{3/2}√log n), near Δ=√(n log n). Correctness is Las Vegas: a color is accepted only after its color class has been checked.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "vertex-mpc-linear-memory-delta-plus-one",
+      "problem": "vertex",
+      "model": "mpc",
+      "label": "MPC (Δ+1) coloring with near-linear local memory",
+      "task": "Output a proper vertex coloring",
+      "assumptions": [
+        "Randomized MPC",
+        "Õ(n) memory per machine",
+        "Arbitrary n-vertex graph of maximum degree Δ",
+        "See the verified figure for per-record palette, total-memory, randomness and local-work scopes."
+      ],
+      "xAxis": {
+        "label": "Per-machine memory · symbolic categories",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "sublinear",
+            "label": "O(n^φ)"
+          },
+          {
+            "id": "linear",
+            "label": "O(n)"
+          },
+          {
+            "id": "near-linear",
+            "label": "Õ(n)"
+          }
+        ],
+        "note": "0<φ<1 is fixed. O(n) and Õ(n) remain separate guarantees; positions within a category are displaced solely to avoid overlap. Source memory units are retained in the inspector. Bit/word conversion costs O(log n); this categorical picture does not assert an exact shared budget."
+      },
+      "yAxis": {
+        "label": "Communication rounds · symbolic asymptotic classes",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "constant",
+            "label": "O(1)"
+          },
+          {
+            "id": "logloglog",
+            "label": "O(logloglog n)"
+          },
+          {
+            "id": "sqrt-loglog",
+            "label": "O(√loglog n)"
+          },
+          {
+            "id": "logdelta-loglog",
+            "label": "O(logΔ+loglog n)"
+          }
+        ],
+        "note": "Symbolic classes, not numerical runtime, constants or fixed n."
+      },
+      "parameters": {
+        "n": "number of vertices",
+        "Delta": "maximum degree",
+        "localMemory": "Õ(n) per machine",
+        "coordinateConvention": "The x coordinate is the additive palette slack c=1. The table retains the exact quality and model assumptions. Ordinal round positions are asymptotic categories."
+      },
+      "results": [
+        {
+          "id": "vertex-mpc-ack-2019",
+          "paperId": "assadi-chen-khanna-2019-sublinear-coloring",
+          "kind": "upper",
+          "bound": "O(1) rounds; Õ(n) local memory",
+          "guarantee": "Uniform Δ+1 palette; With high probability, 1−1/poly(n); the main implementation does not require shared public randomness.",
+          "sourceLocation": "Theorem 4 and §4.3, including the polynomial-time implementation",
+          "evidenceStatus": "verified",
+          "frontierStatus": "source_verified",
+          "notes": "The cited theorem states local memory, not an optimized total-memory bound. Total memory: Not specified by Theorem 4. Local work: Polynomial-time implementation is provided in §4.3; brute-force implementation is not required.",
+          "plot": null
+        },
+        {
+          "id": "vertex-result-41",
+          "paperId": "czumaj-davies-parter-2020-clique-mpc",
+          "kind": "upper",
+          "bound": "O(1) rounds; O(n) local and O(nΔ) total memory",
+          "guarantee": "Arbitrary Δ+1 lists; Deterministic.",
+          "sourceLocation": "Theorem 2; Theorem 3 is a separate uniform-palette variant",
+          "evidenceStatus": "verified",
+          "frontierStatus": "source_verified",
+          "notes": "Theorem 3 improves total memory to O(m+n) for the uniform Δ+1 palette. That improvement is not attached to arbitrary explicit lists. Total memory: O(nΔ). Local work: Polynomial local computation.",
+          "plot": null
+        },
+        {
+          "id": "vertex-extended-vertex-mpc-linear-memory-delta-plus-one-9",
+          "paperId": "halldorsson-kuhn-nolin-tonoyan-2022-degree",
+          "kind": "upper",
+          "bound": "O(1) rounds; Õ(n) local memory",
+          "guarantee": "Arbitrary d(v)+1 lists; With high probability; no fixed failure exponent inferred.",
+          "sourceLocation": "Corollary 3(3), Theorem 4 and §8 MPC implementation",
+          "evidenceStatus": "verified",
+          "frontierStatus": "source_verified",
+          "notes": "This is the stronger degree+1-list contract. The cited corollary does not state aggregate memory. Total memory: Not specified by Corollary 3(3). Local work: The corollary measures MPC rounds, not total sequential work.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "vertex-dynamic-oblivious-delta-plus-one",
+      "problem": "vertex",
+      "model": "dynamic",
+      "label": "Fully dynamic (Δ+1), oblivious updates",
+      "task": "Maintain explicit proper colors after each edge update",
+      "assumptions": [
+        "Randomized",
+        "Update sequence oblivious to algorithmic choices",
+        "Edge insertion/deletion; graph maximum degree bounded by Δ"
+      ],
+      "xAxis": {
+        "label": "Adversary, palette and averaging contract (categorical)",
+        "categories": [
+          {
+            "id": "adaptive",
+            "label": "Adaptive; Δ+1"
+          },
+          {
+            "id": "oblivious_expected",
+            "label": "Oblivious · expected amortized; Δ+1"
+          },
+          {
+            "id": "oblivious_whp",
+            "label": "Oblivious · expected and WHP amortized; Δ+1"
+          },
+          {
+            "id": "oblivious_each",
+            "label": "Oblivious · expected per update; Δ+1"
+          },
+          {
+            "id": "deterministic",
+            "label": "Deterministic · amortized; (1+o(1))Δ"
+          }
+        ],
+        "kind": "categorical"
+      },
+      "yAxis": {
+        "label": "Symbolic update-time classes; not a universal asymptotic ranking",
+        "categories": [
+          {
+            "id": "n89",
+            "label": "Õ(n^{8/9})",
+            "short": "n^{8/9}"
+          },
+          {
+            "id": "n23",
+            "label": "Õ(n^{2/3})",
+            "short": "n^{2/3}"
+          },
+          {
+            "id": "polylog",
+            "label": "O(polylog Δ)",
+            "short": "polylog Δ"
+          },
+          {
+            "id": "log",
+            "label": "O(log⁺Δ)",
+            "short": "log⁺Δ"
+          },
+          {
+            "id": "constant",
+            "label": "O(1)",
+            "short": "1"
+          }
+        ],
+        "kind": "categorical"
+      },
+      "parameters": {
+        "n": "fixed vertex count",
+        "Delta": "fixed known maximum degree bound throughout updates",
+        "coordinateConvention": "Categorical formula classes and time contracts; no invented numeric exponent."
+      },
+      "results": [
+        {
+          "id": "vertex-dynamic-oblivious-constant-2022",
+          "paperId": "bhattacharya-grandoni-kulkarni-liu-solomon-2022-dynamic",
+          "kind": "upper",
+          "bound": "O(1)*; Expected and high-probability amortized; O(1) requires t=Ω(n log n+nΔ)",
+          "guarantee": "Explicit proper vertex coloring maintained after every edge insertion or deletion; Δ+1 colors; Oblivious: update sequence independent of algorithm randomness.",
+          "sourceLocation": "Theorem 1.2, accepted manuscript p.3; Lemma 2.1",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "The constant marker has a sequence-length footnote. For shorter sequences retain the additive n log n+nΔ overhead; this is not constant expected time at every update position. For t updates: total O(n log n+nΔ+t); space O(nΔ+m_max). Initially empty graph.",
+          "plot": null,
+          "sourceUrl": "https://wrap.warwick.ac.uk/id/eprint/163819/1/WRAP-Fully-Dynamic-1-Coloring-in-O1-Update-Time-2022.pdf"
+        },
+        {
+          "id": "vertex-result-19",
+          "paperId": "bhattacharya-chakrabarty-henzinger-nanongkai-2018-dynamic",
+          "kind": "upper",
+          "bound": "O(log⁺Δ); Expected amortized update time",
+          "guarantee": "Explicit proper vertex coloring maintained after every edge insertion or deletion; Δ+1 colors; Oblivious: update sequence independent of algorithm randomness.",
+          "sourceLocation": "Theorem 3.1; §1 footnote 2",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "The source writes O(log Δ); log⁺Δ=max{1,log Δ} covers trivial constant-degree cases. §6 treats changing Δ separately; this comparison fixes Δ. The paper's amortized convention starts with an empty graph. Main fixed-Δ version shown.",
+          "plot": null,
+          "sourceUrl": "https://arxiv.org/html/1711.04355v1"
+        },
+        {
+          "id": "vertex-extended-vertex-dynamic-oblivious-delta-plus-one-12",
+          "paperId": "henzinger-peng-2022-dynamic-color",
+          "kind": "upper",
+          "bound": "O(1); Expected amortized update time",
+          "guarantee": "Explicit proper vertex coloring maintained after every edge insertion or deletion; Δ+1 colors; Oblivious: update sequence independent of algorithm randomness.",
+          "sourceLocation": "Theorem 1.1; §1.1 footnote 1; §3",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "Independent constant-time approach. It is a separate theorem from BGKLS2022 with a different time guarantee; both original records remain visible. Empty-graph initialization with independently sampled vertex ranks; preprocessing is distinct from update cost.",
+          "plot": null,
+          "sourceUrl": "https://arxiv.org/html/1907.04745"
+        },
+        {
+          "id": "vertex-extended-vertex-dynamic-oblivious-delta-plus-one-13",
+          "paperId": "ghaffari-koo-2026-dynamic-vertex",
+          "kind": "upper",
+          "bound": "O(1); Expected worst-case per-update time; not amortized",
+          "guarantee": "Explicit proper vertex coloring maintained after every edge insertion or deletion; Δ+1 colors; Oblivious: update sequence independent of algorithm randomness.",
+          "sourceLocation": "Theorem 1.1, arXiv:2512.09218v3 (15 October 2026); §3",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Worst-case refers to the update position before expectation over random choices. This is neither a deterministic nor a high-probability O(1) bound, nor a conditional expectation for every realized random history. O(n) initialization. §3 restarts on rare failures to remove the polynomial sequence-length restriction without changing O(1) expectation.",
+          "plot": null,
+          "sourceUrl": "https://arxiv.org/html/2512.09218v3"
+        }
+      ]
+    },
+    {
+      "id": "vertex-stream-deterministic-multipass-degree-palette",
+      "problem": "vertex",
+      "model": "stream",
+      "label": "Deterministic multipass semi-streaming, linear-in-Δ palette",
+      "task": "Explicit proper coloring",
+      "assumptions": [
+        "Insertion only; adversarial order independent of random choices",
+        "Simple undirected n-vertex graph",
+        "O(η⁻¹√logΔ) pass(es)",
+        "Insertion or turnstile",
+        "O(logΔ) pass(es)",
+        "2 pass(es)",
+        "O(logΔ loglogΔ) pass(es)"
+      ],
+      "xAxis": {
+        "label": "Palette class",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "plus",
+            "label": "Δ+1",
+            "short": "Δ+1"
+          },
+          {
+            "id": "linear",
+            "label": "O(Δ)",
+            "short": "O(Δ)"
+          },
+          {
+            "id": "square",
+            "label": "O(Δ²)",
+            "short": "O(Δ²)"
+          }
+        ]
+      },
+      "yAxis": {
+        "label": "Passes (symbolic categories)",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "loglog",
+            "label": "O(logΔ loglogΔ)",
+            "short": "logΔ loglogΔ"
+          },
+          {
+            "id": "log",
+            "label": "O(logΔ)",
+            "short": "logΔ"
+          },
+          {
+            "id": "sqrt",
+            "label": "O(√logΔ)",
+            "short": "√logΔ"
+          },
+          {
+            "id": "two",
+            "label": "2",
+            "short": "2"
+          },
+          {
+            "id": "one",
+            "label": "1",
+            "short": "1"
+          }
+        ]
+      },
+      "parameters": {
+        "n": "vertices",
+        "Delta": "maximum degree",
+        "coordinateConvention": "Categorical formula classes; no numerical exponent or universal ranking is assigned."
+      },
+      "results": [
+        {
+          "id": "vertex-stream-deterministic-odelta-2026",
+          "paperId": "chechik-chen-zhang-2026-streaming",
+          "kind": "upper",
+          "bound": "O(η⁻¹√logΔ) passes; Õ(n) bits",
+          "guarantee": "O(Δ); refined (1+η)Δ for fixed η",
+          "sourceLocation": "Theorem 2; §3",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Fixed η∈(0,1). Main figure conservatively uses O(Δ): theorem suppresses integer/small-degree conventions. No guessed numerical palette ratio. Deterministic Randomness included in working memory",
+          "plot": null
+        },
+        {
+          "id": "vertex-result-23",
+          "paperId": "assadi-chen-sun-2022-deterministic",
+          "kind": "upper",
+          "bound": "O(logΔ) passes; O(n log n) bits",
+          "guarantee": "O(Δ)",
+          "sourceLocation": "Theorem 3; §5.4 dynamic extension",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "The dynamic sparse-recovery extension preserves asymptotic space and passes. An initial degree pass removes advance knowledge of Δ. Deterministic Randomness included in working memory",
+          "plot": null
+        },
+        {
+          "id": "vertex-extended-vertex-stream-deterministic-multipass-degree-palette-16",
+          "paperId": "assadi-chen-sun-2022-deterministic",
+          "kind": "upper",
+          "bound": "2 passes; Õ(n) bits",
+          "guarantee": "O(Δ²)",
+          "sourceLocation": "Theorem 2; §5.4 extensions",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "Known Δ: O(n log n) bits. Parallel degree guesses preserve two passes when Δ is unknown, with logarithmic overhead. Deterministic Randomness included in working memory",
+          "plot": null
+        },
+        {
+          "id": "vertex-extended-vertex-stream-deterministic-multipass-degree-palette-17",
+          "paperId": "assadi-chakrabarti-ghosh-stoeckl-2023-robust",
+          "kind": "upper",
+          "bound": "O(logΔ loglogΔ) passes; O(n log²n) bits",
+          "guarantee": "Δ+1",
+          "sourceLocation": "Theorem 1, restated as Theorem 5",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Insertion streams. Log expressions denote asymptotic classes; bounded degree is handled trivially. Deterministic Randomness included in working memory",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "vertex-stream-random-order-chromatic-gap",
+      "problem": "vertex",
+      "model": "stream",
+      "label": "Random-order insertion stream, chromatic-number gap decision",
+      "task": "Chromatic-gap decision",
+      "assumptions": [
+        "Random-order insertion stream",
+        "Simple undirected n-vertex graph",
+        "1 pass(es)"
+      ],
+      "xAxis": {
+        "label": "High-χ promise",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "power",
+            "label": "χ>q^t",
+            "short": "χ>q^t"
+          },
+          {
+            "id": "squarequarter",
+            "label": "χ>q²/4",
+            "short": "χ>q²/4"
+          }
+        ]
+      },
+      "yAxis": {
+        "label": "Space formulas (symbolic categories)",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "upper",
+            "label": "Õ(n^{1+1/t})",
+            "short": "Õ(n^{1+1/t})"
+          },
+          {
+            "id": "lower",
+            "label": "Ω(n²/(q⁵4^{q⁴}))",
+            "short": "Ω(n²/(q⁵4^{q⁴}))"
+          }
+        ]
+      },
+      "parameters": {
+        "q": "low-chromatic-number threshold",
+        "t": "gap exponent",
+        "n": "vertices",
+        "coordinateConvention": "Categorical formula classes; no numerical exponent or universal ranking is assigned."
+      },
+      "results": [
+        {
+          "id": "vertex-stream-random-order-chromatic-2026",
+          "paperId": "assadi-sundaresan-yazdanyar-2026-streaming-few-colors",
+          "kind": "upper",
+          "bound": "Õ(n^{1+1/t}) space",
+          "guarantee": "Promise χ≤q versus χ>q^t, integers q,t≥2",
+          "sourceLocation": "Theorem 4; §7.1",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Stored subgraphs may be solved by exhaustive computation. This is a space result, not a polynomial-time guarantee. Exponentially high probability over edge order Randomness included in working memory",
+          "plot": null
+        },
+        {
+          "id": "vertex-extra-62",
+          "paperId": "assadi-sundaresan-yazdanyar-2026-streaming-few-colors",
+          "kind": "lower",
+          "bound": "Ω(n²/(q⁵·4^{q⁴})) bits; Ω(n²) for fixed q",
+          "guarantee": "Promise χ≤q versus χ>q²/4",
+          "sourceLocation": "Theorem 5; §7.2",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Integer q≥5 for a nonvacuous gap, q=o(log^{1/4}n). Theorem allows q≥3 but q≤4 gives an overlapping promise. Gap and success differ from the upper: not a matching q² frontier. Success at least 1−2^{−q⁴}/4 Randomness included in working memory",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "vertex-stream-dynamic-chromatic-gap",
+      "problem": "vertex",
+      "model": "stream",
+      "label": "Turnstile stream, chromatic-number gap decision",
+      "task": "Chromatic-gap decision",
+      "assumptions": [
+        "General turnstile multigraph",
+        "Final edge multiplicities polynomial in n",
+        "1 pass(es)",
+        "Final multiplicities O(n); no restriction on stream length or intermediate frequencies"
+      ],
+      "xAxis": {
+        "label": "Common promise: χ≤q versus χ≥qt",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "gap",
+            "label": "q versus qt",
+            "short": "q versus qt"
+          }
+        ]
+      },
+      "yAxis": {
+        "label": "Space family (symbolic categories)",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "space",
+            "label": "n²/t² (up to logs)",
+            "short": "n²/t² (up to logs)"
+          }
+        ]
+      },
+      "parameters": {
+        "q": "low-chromatic threshold",
+        "t": "multiplicative separation",
+        "n": "vertices",
+        "coordinateConvention": "Categorical formula classes; no numerical exponent or universal ranking is assigned."
+      },
+      "results": [
+        {
+          "id": "vertex-stream-turnstile-chromatic-upper-2026",
+          "paperId": "assadi-sundaresan-yazdanyar-2026-streaming-few-colors",
+          "kind": "upper",
+          "bound": "Õ(n²/t²) space",
+          "guarantee": "Promise χ≤q versus χ≥qt",
+          "sourceLocation": "Theorem 6; §8.1",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Integers q,t; display t≥2 and qt≤n to keep the promise nonoverlapping and nonvacuous. Exact chromatic computations may be exponential. With high probability Randomness included in working memory",
+          "plot": null
+        },
+        {
+          "id": "vertex-extra-61",
+          "paperId": "assadi-sundaresan-yazdanyar-2026-streaming-few-colors",
+          "kind": "lower",
+          "bound": "Ω̃(n²/t²) bits",
+          "guarantee": "Promise χ≤q versus χ≥qt",
+          "sourceLocation": "Theorem 7; §8.2 and Remark 8.1",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "3≤q≤polylog n; integer t≥2, qt≤n in this view. Matches upper up to logarithms on the common multigraph contract, not necessarily on short simple-graph streams. High constant success probability Randomness included in working memory",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "vertex-query-adjacency-matrix-only",
+      "problem": "vertex",
+      "model": "query_combined",
+      "label": "Pair queries with degree preprocessing",
+      "task": "Output a proper (Δ+1)-color assignment",
+      "assumptions": [
+        "1≤Δ≤n−1.",
+        "Known Δ, or use degree queries first.",
+        "Classical access; quantum results from this paper are outside the supplied records."
+      ],
+      "xAxis": {
+        "label": "Maximum-degree exponent α, Δ=n^α",
+        "kind": "symbolic"
+      },
+      "yAxis": {
+        "label": "Leading n-power of expected queries; log n retained in labels",
+        "kind": "symbolic"
+      },
+      "parameters": {
+        "n": "number of vertices",
+        "Delta": "maximum degree",
+        "kappa": "graph degeneracy; distinct from Δ",
+        "coordinateConvention": "Custom renderer; exact source scopes and no common numeric region across different resource models."
+      },
+      "results": [
+        {
+          "id": "vertex-query-matrix-ferber-2025",
+          "paperId": "ferber-hardiman-chen-2025-sublinear-coloring",
+          "kind": "upper",
+          "bound": "O(n² log n / Δ) expected pair queries",
+          "guarantee": "Δ+1 colors; An explicit proper color for every vertex",
+          "sourceLocation": "Theorem 1, §1 model and Algorithm 1",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "candidate",
+          "notes": "Pair queries, plus O(n) degree-query preprocessing unless Δ is known. This is not a pure adjacency-matrix oracle when Δ is unknown. The axis shows leading n-power: Δ=n^α gives pair cost exponent 2−α, with the log n factor kept in the formula. Degree preprocessing adds O(n). Indexed-neighbor access is not used by this subroutine.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "vertex-query-adjacency-list-only",
+      "problem": "vertex",
+      "model": "query_list",
+      "label": "Adjacency list neighbor queries only",
+      "task": "Output a proper (Δ+1)-color assignment",
+      "assumptions": [
+        "All n vertices are known, including isolates; lists are consistent with one simple undirected graph.",
+        "The oracle returns ⊥ after the end of each finite list. A padded list that never signals termination is a different model.",
+        "No degree or pair queries are used. The implementation does not need Δ in advance.",
+        "The exact count describes this full-scan implementation, not every coloring algorithm and not a query lower bound.",
+        "When m=0, the scan still makes n end tests and outputs n copies of color 1. For Δ≥1, n+2m≤n(Δ+1)≤2nΔ."
+      ],
+      "xAxis": {
+        "label": "Number of colors q · symbolic palette",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "delta-plus-one",
+            "label": "Δ+1"
+          }
+        ]
+      },
+      "yAxis": {
+        "label": "Neighbor calls Q · exact implementation cost",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "scan-cost",
+            "label": "n+2m"
+          }
+        ],
+        "note": "One symbolic formula for an implemented upper bound; no numerical exponent, feasibility region or lower-bound shading."
+      },
+      "parameters": {
+        "n": "Known vertex count, n≥1, including isolates",
+        "m": "Number of undirected edges",
+        "Delta": "Maximum degree; not required as input by greedy",
+        "coordinateConvention": "Symbolic exact scan n+2m paired with Δ+1 colors. No forced quadratic exponent."
+      },
+      "results": [
+        {
+          "id": "vertex-query-list-greedy",
+          "paperId": "ferber-hardiman-chen-2025-sublinear-coloring",
+          "kind": "upper",
+          "bound": "Exactly n+2m neighbor calls for the scan-and-greedy implementation",
+          "guarantee": "Proper vertex coloring from the common palette [Δ+1]; Deterministic; correct on every input satisfying the graph and oracle promises.",
+          "sourceLocation": "§1 query-model definition and greedy baseline; Table 1 and the g(Δ)=nΔ discussion before Corollary 2",
+          "evidenceStatus": "verified",
+          "frontierStatus": "baseline",
+          "notes": "The exact scan formula and RAM implementation are elementary atlas derivations from the source's access definition and greedy baseline. They are not a new author-stated optimality theorem. Sparse graphs can have high Δ, so m is retained instead of plotting every instance at n². Source coarse baseline: O(nΔ) for Δ≥1. Total RAM time O(n+m); output n assignments.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "vertex-lca-consistent-list-coloring",
+      "problem": "vertex",
+      "model": "lca",
+      "label": "LCA; consistent list coloring with distinct query guarantees",
+      "task": "Answer the color of a requested vertex consistently with one proper global list-coloring",
+      "assumptions": [
+        "General simple graph with indexed adjacency-neighbor and readable list input",
+        "List sizes and randomness are specified per result",
+        "A single fixed random tape is reused for randomized algorithms; deterministic result is stateless",
+        "Per-query probe costs; no total-output or cross-model lower bound is inferred"
+      ],
+      "xAxis": {
+        "label": "Per-vertex probe formula; symbolic categories, not a universal cost ranking",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "poly",
+            "label": "poly(Δ)"
+          },
+          {
+            "id": "poly-log",
+            "label": "poly(Δ)·log n"
+          },
+          {
+            "id": "conflict-logstar",
+            "label": "Δ^{O(√Δ log^{5/2}Δ)}·log* n"
+          }
+        ]
+      },
+      "yAxis": {
+        "label": "Algorithm and list-size requirement",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "vertex-lca-chang-et-al-2019",
+            "label": "CFGUZ19 · Theorem 1.3; |L(v)| ≥ Δ+1"
+          },
+          {
+            "id": "vertex-lca-mis-reduction-2022",
+            "label": "Ghaffari22 · MIS reduction; |L(v)| ≥ degree(v)+1"
+          },
+          {
+            "id": "vertex-lca-deterministic-conflict-2016",
+            "label": "FHK16 · Corollary 5.1; |L(v)| ≥ Δ+1"
+          }
+        ]
+      },
+      "parameters": {
+        "n": "vertices",
+        "Delta": "maximum degree"
+      },
+      "results": [
+        {
+          "id": "vertex-lca-chang-et-al-2019",
+          "paperId": "chang-fischer-ghaffari-uitto-zheng-2019-lca-mpc",
+          "kind": "upper",
+          "bound": "Δ^{O(1)} · O(log n) queries per vertex, with high probability",
+          "guarantee": "Proper list coloring from lists of size at least Δ+1; common palette gives (Δ+1)-coloring",
+          "sourceLocation": "Theorem 1.3; model in Section 1.3; implementation in Section 4.3",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "candidate",
+          "notes": "The poly(Δ) symbol does not identify a numerical exponent. The matching symbolic class of the 2022 reduction is not a claim that its hidden polynomial is smaller.",
+          "plot": null
+        },
+        {
+          "id": "vertex-lca-mis-reduction-2022",
+          "paperId": "ghaffari-2022-lca-mis-color",
+          "kind": "upper",
+          "bound": "poly(Δ) · log n probes with high probability for all vertices; expected poly(Δ) probes for each fixed queried vertex",
+          "guarantee": "Proper (degree+1)-list coloring; also solves (Δ+1)-list coloring by retaining degree(v)+1 allowed colors",
+          "sourceLocation": "Section 1.2 after Theorem 1.1; Theorem 2.16",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "candidate",
+          "notes": "One source record has two displayed guarantees. It does not create a new independent paper or an extra result ID. The expected guarantee is not an all-query worst-case cost bound.",
+          "plot": null
+        },
+        {
+          "id": "vertex-lca-deterministic-conflict-2016",
+          "paperId": "fraigniaud-heinrich-kosowski-2016-conflict",
+          "kind": "upper",
+          "bound": "Δ^{O(√Δ log^{5/2}Δ)} · log* n probes per vertex",
+          "guarantee": "Deterministic proper list coloring from lists of size at least Δ+1",
+          "sourceLocation": "Corollary 5.1, second case; Section 5",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "historical",
+          "notes": "For fixed Δ≥2, this specializes to O(log* n) probes. For variable Δ, the degree factor is much larger; the figure therefore uses symbolic categories, not a fabricated total order.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "vertex-local-randomized-delta-plus-one",
+      "problem": "vertex",
+      "model": "local",
+      "label": "Randomized LOCAL (Δ+1) coloring",
+      "task": "Each node outputs a proper color after synchronous communication rounds",
+      "assumptions": [
+        "Unbounded messages and local computation (LOCAL model)",
+        "Randomized high-probability algorithm",
+        "Arbitrary n-node graph with maximum degree Δ"
+      ],
+      "xAxis": {
+        "label": "Coloring contract; inspect pair figure",
+        "kind": "symbolic",
+        "categories": [
+          {
+            "id": "ordinary",
+            "label": "Common Δ+1 palette"
+          },
+          {
+            "id": "delta-list",
+            "label": "Δ+1 lists"
+          },
+          {
+            "id": "degree-list",
+            "label": "degree+1 lists"
+          }
+        ]
+      },
+      "yAxis": {
+        "label": "Exact symbolic LOCAL rounds; no numerical ranking",
+        "kind": "symbolic",
+        "categories": [
+          {
+            "id": "d-linear",
+            "label": "O(Δ) + ½ log* n",
+            "mode": "Det."
+          },
+          {
+            "id": "d-root",
+            "label": "O(√Δ log^{5/2}Δ) + log* n",
+            "mode": "Det."
+          },
+          {
+            "id": "d-log",
+            "label": "O(log²Δ · log n)",
+            "mode": "Det."
+          },
+          {
+            "id": "d-53",
+            "label": "Õ((log n)^{5/3})",
+            "mode": "Det."
+          },
+          {
+            "id": "r-hss",
+            "label": "O(√log Δ) + 2^{O(√loglog n)}",
+            "mode": "Rand."
+          },
+          {
+            "id": "r-det",
+            "label": "O(Det_d(polylog n))",
+            "mode": "Rand."
+          },
+          {
+            "id": "r-3",
+            "label": "O(log³log n)",
+            "mode": "Rand."
+          },
+          {
+            "id": "r-53",
+            "label": "Õ((loglog n)^{5/3})",
+            "mode": "Rand."
+          }
+        ]
+      },
+      "parameters": {
+        "n": "nodes",
+        "Delta": "maximum degree",
+        "coordinateConvention": "Pair renderer separates contracts and shows exact symbolic bounds. No generic palette-ratio or degree-exponent projection."
+      },
+      "results": [
+        {
+          "id": "vertex-local-randomized-ghaffari-grunau-2024",
+          "paperId": "ghaffari-grunau-2024-network-decomposition",
+          "kind": "upper",
+          "bound": "Õ((loglog n)^{5/3})",
+          "guarantee": "Common palette [Δ+1]; Every vertex outputs a proper color",
+          "sourceLocation": "Theorem 1.3; Corollary 1.4",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "candidate",
+          "notes": "Corollary 1.4 states ordinary coloring. No stronger list guarantee is silently assigned to this record.",
+          "plot": null,
+          "verificationUrl": "https://arxiv.org/html/2410.19516v1"
+        },
+        {
+          "id": "vertex-result-44",
+          "paperId": "harris-schneider-su-2018-local-color",
+          "kind": "upper",
+          "bound": "O(√log Δ) + 2^{O(√loglog n)}",
+          "guarantee": "|L(v)|≥Δ+1; Every vertex outputs a proper color",
+          "sourceLocation": "§1.2; §4 runtime argument; Theorem 7.6",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "historical",
+          "notes": "Historical bound with explicit Δ dependence. This expression is a symbolic row, not a numerical rank.",
+          "plot": null,
+          "verificationUrl": "https://arxiv.org/html/1603.01486v4"
+        },
+        {
+          "id": "vertex-extended-vertex-local-randomized-delta-plus-one-25",
+          "paperId": "chang-li-pettie-2020-color",
+          "kind": "upper",
+          "bound": "O(Det_d(polylog n))",
+          "guarantee": "|L(v)|≥Δ+1; Every vertex outputs a proper color",
+          "sourceLocation": "Theorem 1 (§4.4)",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "historical",
+          "notes": "Det_d(N) is deterministic degree+1-list-coloring complexity on N-vertex graphs. The row is a reduction formula, not a fixed exponent.",
+          "plot": null,
+          "verificationUrl": "https://arxiv.org/html/1711.01361v3"
+        },
+        {
+          "id": "vertex-extended-vertex-local-randomized-delta-plus-one-26",
+          "paperId": "ghaffari-kuhn-2021-deterministic",
+          "kind": "upper",
+          "bound": "O(log³log n)",
+          "guarantee": "Common palette [Δ+1]; Every vertex outputs a proper color",
+          "sourceLocation": "Theorem 4.1; Corollary 1.2",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "historical",
+          "notes": "Corollary 1.2 follows by applying Theorem 4.1 after CLP shattering.",
+          "plot": null,
+          "verificationUrl": "https://arxiv.org/html/2011.04511v2"
+        },
+        {
+          "id": "vertex-extended-vertex-local-randomized-delta-plus-one-27",
+          "paperId": "halldorsson-kuhn-nolin-tonoyan-2022-degree",
+          "kind": "upper",
+          "bound": "O(log³log n)",
+          "guarantee": "|L(v)|≥degree(v)+1; Every vertex outputs a proper color",
+          "sourceLocation": "Theorems 1–2; Corollary 1",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "candidate",
+          "notes": "Theorem 2 completes every vertex, unlike the separate high-degree partial-output record.",
+          "plot": null,
+          "verificationUrl": "https://arxiv.org/html/2112.00604v1"
+        }
+      ]
+    },
+    {
+      "id": "vertex-local-deterministic-delta-plus-one",
+      "problem": "vertex",
+      "model": "local",
+      "label": "Deterministic LOCAL (Δ+1) coloring",
+      "task": "Each node outputs a proper color",
+      "assumptions": [
+        "Deterministic algorithm",
+        "Unbounded messages and computation (LOCAL)",
+        "Arbitrary n-node graph of maximum degree Δ"
+      ],
+      "xAxis": {
+        "label": "Coloring contract; inspect pair figure",
+        "kind": "symbolic",
+        "categories": [
+          {
+            "id": "ordinary",
+            "label": "Common Δ+1 palette"
+          },
+          {
+            "id": "delta-list",
+            "label": "Δ+1 lists"
+          },
+          {
+            "id": "degree-list",
+            "label": "degree+1 lists"
+          }
+        ]
+      },
+      "yAxis": {
+        "label": "Exact symbolic LOCAL rounds; no numerical ranking",
+        "kind": "symbolic",
+        "categories": [
+          {
+            "id": "d-linear",
+            "label": "O(Δ) + ½ log* n",
+            "mode": "Det."
+          },
+          {
+            "id": "d-root",
+            "label": "O(√Δ log^{5/2}Δ) + log* n",
+            "mode": "Det."
+          },
+          {
+            "id": "d-log",
+            "label": "O(log²Δ · log n)",
+            "mode": "Det."
+          },
+          {
+            "id": "d-53",
+            "label": "Õ((log n)^{5/3})",
+            "mode": "Det."
+          },
+          {
+            "id": "r-hss",
+            "label": "O(√log Δ) + 2^{O(√loglog n)}",
+            "mode": "Rand."
+          },
+          {
+            "id": "r-det",
+            "label": "O(Det_d(polylog n))",
+            "mode": "Rand."
+          },
+          {
+            "id": "r-3",
+            "label": "O(log³log n)",
+            "mode": "Rand."
+          },
+          {
+            "id": "r-53",
+            "label": "Õ((loglog n)^{5/3})",
+            "mode": "Rand."
+          }
+        ]
+      },
+      "parameters": {
+        "n": "nodes",
+        "Delta": "maximum degree",
+        "coordinateConvention": "Pair renderer separates contracts and shows exact symbolic bounds. No generic palette-ratio or degree-exponent projection."
+      },
+      "results": [
+        {
+          "id": "vertex-local-deterministic-ghaffari-grunau-2024",
+          "paperId": "ghaffari-grunau-2024-network-decomposition",
+          "kind": "upper",
+          "bound": "Õ((log n)^{5/3})",
+          "guarantee": "|L(v)|≥degree(v)+1; Every vertex outputs a proper color",
+          "sourceLocation": "Theorem 1.3; Corollary 1.4",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "candidate",
+          "notes": "Theorem 1.3 explicitly includes degree+1 list coloring via the MIS reduction. Corrected the supplied weaker ordinary-only description.",
+          "plot": null,
+          "verificationUrl": "https://arxiv.org/html/2410.19516v1"
+        },
+        {
+          "id": "vertex-result-48",
+          "paperId": "barenboim-elkin-kuhn-2014-linear-degree",
+          "kind": "upper",
+          "bound": "O(Δ) + ½ log* n",
+          "guarantee": "Common palette [Δ+1]; Every vertex outputs a proper color",
+          "sourceLocation": "Theorem 4.6, printed p.87",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "historical",
+          "notes": "Journal Theorem 4.6. At Δ=2 this yields O(log* n) for three-coloring cycles; the reference inset reuses this record.",
+          "plot": null,
+          "verificationUrl": "https://www.cs.bgu.ac.il/~elkinm/Bar_E_Kuhn.SICOMP.pdf"
+        },
+        {
+          "id": "vertex-extended-vertex-local-deterministic-delta-plus-one-30",
+          "paperId": "ghaffari-kuhn-2021-deterministic",
+          "kind": "upper",
+          "bound": "O(log²Δ · log n)",
+          "guarantee": "|L(v)|≥degree(v)+1; Every vertex outputs a proper color",
+          "sourceLocation": "Theorem 4.1; Corollary 1.2",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "historical",
+          "notes": "Theorem 4.1 is a LOCAL degree+1-list theorem; its messages may depend on the full color universe. Only communication rounds are plotted.",
+          "plot": null,
+          "verificationUrl": "https://arxiv.org/html/2011.04511v2"
+        },
+        {
+          "id": "vertex-local-deterministic-conflict-2016",
+          "paperId": "fraigniaud-heinrich-kosowski-2016-conflict",
+          "kind": "upper",
+          "bound": "O(√Δ log^{5/2}Δ) + log* n",
+          "guarantee": "|L(v)|≥degree(v)+1; Every vertex outputs a proper color",
+          "sourceLocation": "Theorem 4.1; Corollary 4.1",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "historical",
+          "notes": "Theorem 4.1 with d=1 gives the stronger degree+1-list contract. No fictitious pure √Δ exponent drops the logarithmic factor or log* n term.",
+          "plot": null,
+          "verificationUrl": "https://arxiv.org/html/1511.01287v2"
+        }
+      ]
+    },
+    {
+      "id": "vertex-mpc-strongly-sublinear-randomized",
+      "problem": "vertex",
+      "model": "mpc",
+      "label": "Strongly sublinear local-memory MPC, randomized",
+      "task": "Output a proper (Δ+1)-list coloring",
+      "assumptions": [
+        "O(n^α) memory per machine for any fixed α>0",
+        "Õ(m) aggregate space under model conventions",
+        "Randomized",
+        "See the verified figure for per-record palette, total-memory, randomness and local-work scopes."
+      ],
+      "xAxis": {
+        "label": "Per-machine memory · symbolic categories",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "sublinear",
+            "label": "O(n^φ)"
+          },
+          {
+            "id": "linear",
+            "label": "O(n)"
+          },
+          {
+            "id": "near-linear",
+            "label": "Õ(n)"
+          }
+        ],
+        "note": "0<φ<1 is fixed. O(n) and Õ(n) remain separate guarantees; positions within a category are displaced solely to avoid overlap. Source memory units are retained in the inspector. Bit/word conversion costs O(log n); this categorical picture does not assert an exact shared budget."
+      },
+      "yAxis": {
+        "label": "Communication rounds · symbolic asymptotic classes",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "constant",
+            "label": "O(1)"
+          },
+          {
+            "id": "logloglog",
+            "label": "O(logloglog n)"
+          },
+          {
+            "id": "sqrt-loglog",
+            "label": "O(√loglog n)"
+          },
+          {
+            "id": "logdelta-loglog",
+            "label": "O(logΔ+loglog n)"
+          }
+        ],
+        "note": "Symbolic classes, not numerical runtime, constants or fixed n."
+      },
+      "parameters": {
+        "n": "vertices",
+        "m": "edges",
+        "alpha": "fixed positive local-memory exponent"
+      },
+      "results": [
+        {
+          "id": "vertex-mpc-chang-et-al-low-memory-2019",
+          "paperId": "chang-fischer-ghaffari-uitto-zheng-2019-lca-mpc",
+          "kind": "upper",
+          "bound": "O(√loglog n) rounds; O(n^φ) bits of local memory",
+          "guarantee": "Arbitrary Δ+1 lists; With high probability.",
+          "sourceLocation": "Theorem 1.2; §3.3 and Appendix E memory accounting",
+          "evidenceStatus": "verified",
+          "frontierStatus": "source_verified",
+          "notes": "The plot uses the verified round and per-machine memory bounds. The reported aggregate-memory bound is not presented as including an arbitrary full explicit list input. Total memory: Õ(m) in Theorem 1.2; Õ(m+n) system/working memory in Appendix E. Local work: Polynomial in the local memory S, explicitly required by the source's MPC model.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "vertex-mpc-strongly-sublinear-deterministic",
+      "problem": "vertex",
+      "model": "mpc",
+      "label": "Strongly sublinear local-memory MPC, deterministic",
+      "task": "Output a proper (Δ+1)-list coloring",
+      "assumptions": [
+        "O(n^φ) memory per machine for fixed φ∈(0,1)",
+        "Exponential in n^φ local computation permitted",
+        "Aggregate memory Õ(m+n^(1+φ))",
+        "See the verified figure for per-record palette, total-memory, randomness and local-work scopes."
+      ],
+      "xAxis": {
+        "label": "Per-machine memory · symbolic categories",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "sublinear",
+            "label": "O(n^φ)"
+          },
+          {
+            "id": "linear",
+            "label": "O(n)"
+          },
+          {
+            "id": "near-linear",
+            "label": "Õ(n)"
+          }
+        ],
+        "note": "0<φ<1 is fixed. O(n) and Õ(n) remain separate guarantees; positions within a category are displaced solely to avoid overlap. Source memory units are retained in the inspector. Bit/word conversion costs O(log n); this categorical picture does not assert an exact shared budget."
+      },
+      "yAxis": {
+        "label": "Communication rounds · symbolic asymptotic classes",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "constant",
+            "label": "O(1)"
+          },
+          {
+            "id": "logloglog",
+            "label": "O(logloglog n)"
+          },
+          {
+            "id": "sqrt-loglog",
+            "label": "O(√loglog n)"
+          },
+          {
+            "id": "logdelta-loglog",
+            "label": "O(logΔ+loglog n)"
+          }
+        ],
+        "note": "Symbolic classes, not numerical runtime, constants or fixed n."
+      },
+      "parameters": {
+        "n": "vertices",
+        "m": "edges",
+        "phi": "fixed local-memory exponent in (0,1)"
+      },
+      "results": [
+        {
+          "id": "vertex-mpc-czumaj-davies-parter-2021",
+          "paperId": "czumaj-davies-parter-2021-low-space-mpc",
+          "kind": "upper",
+          "bound": "O(logloglog n) rounds; O(n^φ) local memory",
+          "guarantee": "Arbitrary Δ+1 lists; Deterministic.",
+          "sourceLocation": "Theorem 1 and §1.1 local-computation discussion",
+          "evidenceStatus": "verified",
+          "frontierStatus": "source_verified",
+          "notes": "The paper also discusses a non-uniform polynomial-work implementation with n^φ advice bits depending on n; this is not an ordinary uniform polynomial-time replacement. Aggregate memory is source-reported; the full explicit-list input must be accounted for separately. Total memory: Õ(m+n^(1+φ)). Local work: exp(n^φ) local computation per machine is permitted. This is not a uniform polynomial-local-work guarantee.",
+          "plot": null
+        },
+        {
+          "id": "vertex-result-43",
+          "paperId": "czumaj-davies-parter-2020-clique-mpc",
+          "kind": "upper",
+          "bound": "O(logΔ+loglog n) rounds; O(n^φ) local memory",
+          "guarantee": "Arbitrary d(v)+1 lists; Deterministic.",
+          "sourceLocation": "Theorem 4 (degree+1 list coloring)",
+          "evidenceStatus": "verified",
+          "frontierStatus": "source_verified",
+          "notes": "Corrects the original record's weaker Δ+1-list wording. Explicit degree+1 lists contain 2m+n color entries. Total memory: O(m+n^(1+φ)). Local work: Polynomial local computation.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "vertex-dynamic-deterministic-palette",
+      "problem": "vertex",
+      "model": "dynamic",
+      "label": "Deterministic dynamic degree-based palette",
+      "task": "Maintain explicit colors after edge insertion/deletion",
+      "assumptions": [
+        "Deterministic algorithm",
+        "Graph degree bounded by Δ",
+        "Palette larger than Δ+1"
+      ],
+      "xAxis": {
+        "label": "Adversary, palette and averaging contract (categorical)",
+        "categories": [
+          {
+            "id": "adaptive",
+            "label": "Adaptive; Δ+1"
+          },
+          {
+            "id": "oblivious_expected",
+            "label": "Oblivious · expected amortized; Δ+1"
+          },
+          {
+            "id": "oblivious_whp",
+            "label": "Oblivious · expected and WHP amortized; Δ+1"
+          },
+          {
+            "id": "oblivious_each",
+            "label": "Oblivious · expected per update; Δ+1"
+          },
+          {
+            "id": "deterministic",
+            "label": "Deterministic · amortized; (1+o(1))Δ"
+          }
+        ],
+        "kind": "categorical"
+      },
+      "yAxis": {
+        "label": "Symbolic update-time classes; not a universal asymptotic ranking",
+        "categories": [
+          {
+            "id": "n89",
+            "label": "Õ(n^{8/9})",
+            "short": "n^{8/9}"
+          },
+          {
+            "id": "n23",
+            "label": "Õ(n^{2/3})",
+            "short": "n^{2/3}"
+          },
+          {
+            "id": "polylog",
+            "label": "O(polylog Δ)",
+            "short": "polylog Δ"
+          },
+          {
+            "id": "log",
+            "label": "O(log⁺Δ)",
+            "short": "log⁺Δ"
+          },
+          {
+            "id": "constant",
+            "label": "O(1)",
+            "short": "1"
+          }
+        ],
+        "kind": "categorical"
+      },
+      "parameters": {
+        "n": "fixed vertex count",
+        "Delta": "fixed known maximum degree bound throughout updates",
+        "coordinateConvention": "Categorical formula classes and time contracts; no invented numeric exponent."
+      },
+      "results": [
+        {
+          "id": "vertex-result-22",
+          "paperId": "bhattacharya-chakrabarty-henzinger-nanongkai-2018-dynamic",
+          "kind": "upper",
+          "bound": "O(polylog Δ); Deterministic amortized update time",
+          "guarantee": "Explicit proper vertex coloring maintained after every edge insertion or deletion; (1+o(1))Δ colors; Arbitrary updates; deterministic algorithm permits adaptive choices.",
+          "sourceLocation": "Theorem 4.1; §4.3 concluding proof; §4.1 constant-degree footnote",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "The o(1) tends to zero as Δ grows. This palette family is not an ε tradeoff and does not promise Δ+1 colors. Constant-degree cases use ordinary O(Δ) updates. Determinism permits updates based on past outputs. Initially empty graph under the paper's amortization convention.",
+          "plot": null,
+          "sourceUrl": "https://arxiv.org/html/1711.04355v1"
+        }
+      ]
+    },
+    {
+      "id": "vertex-stream-deterministic-one-pass-lower",
+      "problem": "vertex",
+      "model": "stream",
+      "label": "Deterministic one-pass palette barrier",
+      "task": "Explicit proper coloring",
+      "assumptions": [
+        "Insertion only; adversarial order independent of random choices",
+        "Simple undirected n-vertex graph",
+        "1 pass(es)"
+      ],
+      "xAxis": {
+        "label": "Palette class",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "plus",
+            "label": "Δ+1",
+            "short": "Δ+1"
+          },
+          {
+            "id": "linear",
+            "label": "O(Δ)",
+            "short": "O(Δ)"
+          },
+          {
+            "id": "square",
+            "label": "O(Δ²)",
+            "short": "O(Δ²)"
+          }
+        ]
+      },
+      "yAxis": {
+        "label": "Passes (symbolic categories)",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "loglog",
+            "label": "O(logΔ loglogΔ)",
+            "short": "logΔ loglogΔ"
+          },
+          {
+            "id": "log",
+            "label": "O(logΔ)",
+            "short": "logΔ"
+          },
+          {
+            "id": "sqrt",
+            "label": "O(√logΔ)",
+            "short": "√logΔ"
+          },
+          {
+            "id": "two",
+            "label": "2",
+            "short": "2"
+          },
+          {
+            "id": "one",
+            "label": "1",
+            "short": "1"
+          }
+        ]
+      },
+      "parameters": {
+        "Delta": "maximum degree",
+        "n": "vertices",
+        "coordinateConvention": "Categorical formula classes; no numerical exponent or universal ranking is assigned."
+      },
+      "results": [
+        {
+          "id": "vertex-result-26",
+          "paperId": "assadi-chen-sun-2022-deterministic",
+          "kind": "lower",
+          "bound": "No deterministic one-pass Õ(n)-space algorithm",
+          "guarantee": "exp(Δ^{o(1)}) impossible in deterministic semi-streaming",
+          "sourceLocation": "Result 1; Corollary 4.7(i)",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "For each a≥1 and large n, space O(n log^a n) cannot guarantee fewer than exp(Δ^{1/(4a)}) colors at Δ=200 log^{a+1}n. Not an exp(Ω(Δ)) bound. Deterministic lower bound Randomness included in working memory",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "vertex-stream-robust-incremental",
+      "problem": "vertex",
+      "model": "stream",
+      "label": "Adaptive-output robust stream: palette versus space",
+      "task": "Explicit proper coloring",
+      "assumptions": [
+        "Insertion only; adaptive to previous colorings",
+        "Simple undirected n-vertex graph",
+        "1 pass(es)"
+      ],
+      "xAxis": {
+        "label": "Palette K (symbolic classes)",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "sevenfour",
+            "label": "O(Δ^{7/4})",
+            "short": "O(Δ^{7/4})"
+          },
+          {
+            "id": "square",
+            "label": "O(Δ²)",
+            "short": "O(Δ²)"
+          },
+          {
+            "id": "fivehalf",
+            "label": "O(Δ^{5/2})",
+            "short": "O(Δ^{5/2})"
+          },
+          {
+            "id": "cube",
+            "label": "O(Δ³)",
+            "short": "O(Δ³)"
+          }
+        ]
+      },
+      "yAxis": {
+        "label": "Working space (symbolic categories)",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "sqrt",
+            "label": "Õ(n√Δ)",
+            "short": "Õ(n√Δ)"
+          },
+          {
+            "id": "third",
+            "label": "Õ(nΔ^{1/3})",
+            "short": "Õ(nΔ^{1/3})"
+          },
+          {
+            "id": "semi",
+            "label": "Õ(n)",
+            "short": "Õ(n)"
+          }
+        ]
+      },
+      "parameters": {
+        "n": "vertices",
+        "Delta": "maximum degree",
+        "coordinateConvention": "Categorical formula classes; no numerical exponent or universal ranking is assigned."
+      },
+      "results": [
+        {
+          "id": "vertex-result-27",
+          "paperId": "chakrabarti-ghosh-stoeckl-2022-robust",
+          "kind": "lower",
+          "bound": "Ω(nΔ²/K) bits",
+          "guarantee": "K, Δ+1≤K≤n/2",
+          "sourceLocation": "Theorem 1; §4 lower bound",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "In particular K=O(Δ) requires Ω(nΔ) space. Õ(n) space forces K=Ω̃(Δ²); no numeric frontier from suppressed logarithms. Constant error Lower holds even when random bits are free",
+          "plot": null
+        },
+        {
+          "id": "vertex-extended-vertex-stream-robust-incremental-37",
+          "paperId": "chakrabarti-ghosh-stoeckl-2022-robust",
+          "kind": "upper",
+          "bound": "O(n log⁴n) working bits + Õ(nL) external random bits",
+          "guarantee": "O(Δ³)",
+          "sourceLocation": "Theorem 10; Table 1",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "Δ is the current degree; L bounds final degree and must be known. Choosing L=Δ for a fixed degree cap gives Õ(nΔ) external bits. At least 1−O(n⁻²) External random tape excluded; known final degree bound L",
+          "plot": null
+        },
+        {
+          "id": "vertex-extended-vertex-stream-robust-incremental-38",
+          "paperId": "chakrabarti-ghosh-stoeckl-2022-robust",
+          "kind": "upper",
+          "bound": "Õ(n√Δ) bits",
+          "guarantee": "O(Δ²)",
+          "sourceLocation": "Corollary 15, k=2; Table 1",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "Random bits count toward memory. This accounting differs from the external-tape algorithms. High probability across all queries Randomness included in working memory",
+          "plot": null
+        },
+        {
+          "id": "vertex-extended-vertex-stream-robust-incremental-39",
+          "paperId": "assadi-chakrabarti-ghosh-stoeckl-2023-robust",
+          "kind": "upper",
+          "bound": "Õ(n) working bits + O(nΔ) external random bits",
+          "guarantee": "O(Δ^{5/2})",
+          "sourceLocation": "Theorem 3; Algorithm 2 analysis",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Fixed degree cap Δ. The semi-streaming claim excludes oracle randomness; it is not a total-memory Õ(n) guarantee. Total error at most δ, with logarithmic dependence on δ⁻¹ in memory Oracle access to external random tape excluded",
+          "plot": null
+        },
+        {
+          "id": "vertex-extended-vertex-stream-robust-incremental-40",
+          "paperId": "assadi-chakrabarti-ghosh-stoeckl-2023-robust",
+          "kind": "upper",
+          "bound": "Õ(nΔ^{1/3}) for O(Δ²); Õ(n√Δ) for O(Δ^{7/4})",
+          "guarantee": "O(Δ²) or O(Δ^{7/4})",
+          "sourceLocation": "Corollary 4.7, β=1/3 and β=1/2",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Tradeoff O(Δ^{(5−3β)/2}) colors with Õ(nΔ^β) working space. Proof assumes Δ=Ω(log²n) and integer powers, with routine rounding. Only the two supplied β choices are plotted. With high probability Same external-random-tape model as Algorithm 2",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "vertex-stream-insertion-near-delta",
+      "problem": "vertex",
+      "model": "stream",
+      "label": "One-pass insertion stream, degree-near palette",
+      "task": "Explicit proper coloring",
+      "assumptions": [
+        "Insertion only; adversarial order independent of random choices",
+        "Simple undirected n-vertex graph",
+        "1 pass(es)"
+      ],
+      "xAxis": {
+        "label": "Palette / output contract",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "minus",
+            "label": "Δ−1",
+            "short": "Δ−1"
+          },
+          {
+            "id": "brooks",
+            "label": "Δ",
+            "short": "Δ"
+          },
+          {
+            "id": "plus",
+            "label": "Δ+1",
+            "short": "Δ+1"
+          },
+          {
+            "id": "near",
+            "label": "(1+ε)Δ",
+            "short": "(1+ε)Δ"
+          },
+          {
+            "id": "list",
+            "label": "dᵥ+1 list",
+            "short": "dᵥ+1 list"
+          }
+        ]
+      },
+      "yAxis": {
+        "label": "Space classes (symbolic categories)",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "semi",
+            "label": "Õ(n)",
+            "short": "Õ(n)"
+          },
+          {
+            "id": "linear",
+            "label": "Ω(n)",
+            "short": "Ω(n)"
+          }
+        ]
+      },
+      "parameters": {
+        "Delta": "maximum degree",
+        "epsilon": "fixed positive constant",
+        "coordinateConvention": "Categorical formula classes; no numerical exponent or universal ranking is assigned."
+      },
+      "results": [
+        {
+          "id": "vertex-result-32",
+          "paperId": "bera-ghosh-2018-color-stream",
+          "kind": "upper",
+          "bound": "O(ε⁻¹n log n) words; one pass",
+          "guarantee": "(1+ε)Δ for fixed ε and Δ=ω(log n); Δ+1 in the small-degree branch",
+          "sourceLocation": "Theorem 3.2 and §3 small-degree branch",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "The theorem’s palette calculation uses Δ=ω(log n); bounded/logarithmic degree is stored and greedily Δ+1-colored. Do not read fractional palettes literally for tiny Δ. With high probability Randomness included in working memory",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "vertex-stream-brooks",
+      "problem": "vertex",
+      "model": "stream",
+      "label": "One-pass semi-streaming at and below Brooks palette",
+      "task": "Explicit proper coloring",
+      "assumptions": [
+        "Insertion only; adversarial order independent of random choices",
+        "Simple undirected n-vertex graph",
+        "1 pass(es)",
+        "No Δ-clique; Δ≥universal Δ₀ (the source permits Δ₀≤10¹⁴)",
+        "Promised (Δ−k)-colorable graphs of maximum degree Δ"
+      ],
+      "xAxis": {
+        "label": "Palette / output contract",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "minus",
+            "label": "Δ−1",
+            "short": "Δ−1"
+          },
+          {
+            "id": "brooks",
+            "label": "Δ",
+            "short": "Δ"
+          },
+          {
+            "id": "plus",
+            "label": "Δ+1",
+            "short": "Δ+1"
+          },
+          {
+            "id": "near",
+            "label": "(1+ε)Δ",
+            "short": "(1+ε)Δ"
+          },
+          {
+            "id": "list",
+            "label": "dᵥ+1 list",
+            "short": "dᵥ+1 list"
+          }
+        ]
+      },
+      "yAxis": {
+        "label": "Space classes (symbolic categories)",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "semi",
+            "label": "Õ(n)",
+            "short": "Õ(n)"
+          },
+          {
+            "id": "linear",
+            "label": "Ω(n)",
+            "short": "Ω(n)"
+          }
+        ]
+      },
+      "parameters": {
+        "Delta": "maximum degree",
+        "n": "vertices",
+        "coordinateConvention": "Categorical formula classes; no numerical exponent or universal ranking is assigned."
+      },
+      "results": [
+        {
+          "id": "vertex-result-33",
+          "paperId": "assadi-kumar-mittal-2022-brooks",
+          "kind": "upper",
+          "bound": "Õ(n) space; one pass",
+          "guarantee": "Δ, or correctly report a Brooks obstruction",
+          "sourceLocation": "Theorem 1.1 and following general-graph reduction",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Connected components that are cliques or odd cycles are checked separately. Final graph coloring; each edge appears once. With high probability Randomness included in working memory",
+          "plot": null
+        },
+        {
+          "id": "vertex-extended-vertex-stream-brooks-43",
+          "paperId": "flin-halldorsson-2026-beyond-brooks",
+          "kind": "upper",
+          "bound": "Õ(n) space; one pass",
+          "guarantee": "Δ−1",
+          "sourceLocation": "Theorem 1",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Each edge appears once. This palette is not promised for arbitrary graphs. With high probability Randomness included in working memory",
+          "plot": null
+        },
+        {
+          "id": "vertex-extended-vertex-stream-brooks-44",
+          "paperId": "flin-halldorsson-2026-beyond-brooks",
+          "kind": "lower",
+          "bound": "Ω(n(k+1)) bits",
+          "guarantee": "Δ−k; 0≤k<(Δ−1)/2",
+          "sourceLocation": "Theorem 2; §6 INDEX reduction",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "The theorem uses (Δ+1)/2<c≤Δ, c=Δ−k. Displayed k=0,1 give Ω(n); the general family remains in the inspector. Success at least 2/3 Randomness included in working memory",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "vertex-stream-degeneracy",
+      "problem": "vertex",
+      "model": "stream",
+      "label": "Degeneracy κ palette, one-pass tradeoff",
+      "task": "Explicit proper coloring",
+      "assumptions": [
+        "Turnstile; polynomial stream length",
+        "Simple undirected n-vertex graph",
+        "1 pass(es)",
+        "Insertion only; adversarial order independent of random choices"
+      ],
+      "xAxis": {
+        "label": "Palette / accuracy class",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "additive",
+            "label": "κ+λ",
+            "short": "κ+λ"
+          },
+          {
+            "id": "relative",
+            "label": "κ+O(εκ+1)",
+            "short": "κ+O(εκ+1)"
+          }
+        ]
+      },
+      "yAxis": {
+        "label": "Space formulas (symbolic categories)",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "lower",
+            "label": "Ω(n²/λ²)",
+            "short": "Ω(n²/λ²)"
+          },
+          {
+            "id": "upper",
+            "label": "O(ε^{−2}n log⁴n)",
+            "short": "O(ε^{−2}n log⁴n)"
+          }
+        ]
+      },
+      "parameters": {
+        "kappa": "graph degeneracy",
+        "coordinateConvention": "Categorical formula classes; no numerical exponent or universal ranking is assigned."
+      },
+      "results": [
+        {
+          "id": "vertex-result-36",
+          "paperId": "bera-chakrabarti-ghosh-2020-degeneracy",
+          "kind": "upper",
+          "bound": "O(ε⁻²n log⁴n) bits",
+          "guarantee": "κ+O(εκ+1); κ+o(κ) in the growing-κ regime",
+          "sourceLocation": "Theorem 10; Theorem 8 and equation (3)",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Source states (1+O(ε))κ. Atlas retains +1 for integer/small-κ correctness: one-block case is greedily κ+1 colored; multi-block bound is κ+λ+ℓ. Set ε=1/log n for Õ(n) space; unknown κ handled by parallel guesses. With high probability Randomness included in working memory",
+          "plot": null
+        },
+        {
+          "id": "vertex-extended-vertex-stream-degeneracy-46",
+          "paperId": "bera-chakrabarti-ghosh-2020-degeneracy",
+          "kind": "lower",
+          "bound": "Ω(n²/λ²) bits",
+          "guarantee": "κ+λ, integer λ>1",
+          "sourceLocation": "Theorems 20–21",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Even insertion-only and κ known in advance. Constant λ gives quadratic space; this is a different accuracy than the relative-slack upper. Success at least 2/3 Randomness included in working memory",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "vertex-query-degeneracy",
+      "problem": "vertex",
+      "model": "query_combined",
+      "label": "General graph queries: degeneracy-near coloring",
+      "task": "Explicit proper coloring under distinct degeneracy palette contracts",
+      "assumptions": [
+        "κ denotes graph degeneracy, not maximum degree.",
+        "Theorems 22–23 give the same query order with κ unknown or supplied.",
+        "A fixed additive λ and a sublinear relative slack o(κ) are distinct requirements.",
+        "Classical randomized algorithm; known vertex set [n].",
+        "Query budget can be enforced by aborting exceptional runs.",
+        "The displayed upper and additive-slack lower have different palette contracts."
+      ],
+      "xAxis": {
+        "label": "Different degeneracy palette contracts",
+        "kind": "symbolic"
+      },
+      "yAxis": {
+        "label": "Leading n-power of query cost; polylogs remain in labels",
+        "kind": "symbolic"
+      },
+      "parameters": {
+        "n": "number of vertices",
+        "Delta": "maximum degree",
+        "kappa": "graph degeneracy; distinct from Δ",
+        "coordinateConvention": "Custom renderer; exact source scopes and no common numeric region across different resource models."
+      },
+      "results": [
+        {
+          "id": "vertex-result-38",
+          "paperId": "bera-chakrabarti-ghosh-2020-degeneracy",
+          "kind": "lower",
+          "bound": "Ω(n²/λ²) queries",
+          "guarantee": "κ+λ colors; integer λ>1; An explicit proper color for every vertex",
+          "sourceLocation": "Theorems 22 and 23, §7",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "candidate",
+          "notes": "Pair and indexed-neighbor queries; lower holds also when κ is given. For each admissible hard family, additive slack λ yields the stated query lower bound. The overview specializes to a fixed integer λ>1, so its marker is at n². This does not match the different κ+o(κ) palette contract of the upper bound.",
+          "plot": null
+        },
+        {
+          "id": "vertex-extra-59",
+          "paperId": "bera-chakrabarti-ghosh-2020-degeneracy",
+          "kind": "upper",
+          "bound": "Õ(n^{3/2}) worst-case queries",
+          "guarantee": "κ+o(κ), with κ+1 for the sparse branch; An explicit proper color for every vertex",
+          "sourceLocation": "Theorem 11 and its proof, §6.1",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "candidate",
+          "notes": "Pair and indexed-neighbor queries with ⊥ end markers. No prior κ is needed. The algorithm first scans the graph; if κ≤√n it obtains a κ+1 coloring. Otherwise it uses a random partition, giving (1+O(1/log n))κ colors. Thus κ+o(κ) is an asymptotic shorthand, not a promise of κ colors at fixed small κ.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "vertex-stream-degree-one-list",
+      "problem": "vertex",
+      "model": "stream",
+      "label": "One-pass dynamic stream, degree+1 list coloring",
+      "task": "Explicit proper coloring",
+      "assumptions": [
+        "Turnstile; final list precedes first incident edge",
+        "Simple undirected n-vertex graph",
+        "1 pass(es)"
+      ],
+      "xAxis": {
+        "label": "Palette / output contract",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "minus",
+            "label": "Δ−1",
+            "short": "Δ−1"
+          },
+          {
+            "id": "brooks",
+            "label": "Δ",
+            "short": "Δ"
+          },
+          {
+            "id": "plus",
+            "label": "Δ+1",
+            "short": "Δ+1"
+          },
+          {
+            "id": "near",
+            "label": "(1+ε)Δ",
+            "short": "(1+ε)Δ"
+          },
+          {
+            "id": "list",
+            "label": "dᵥ+1 list",
+            "short": "dᵥ+1 list"
+          }
+        ]
+      },
+      "yAxis": {
+        "label": "Space classes (symbolic categories)",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "semi",
+            "label": "Õ(n)",
+            "short": "Õ(n)"
+          },
+          {
+            "id": "linear",
+            "label": "Ω(n)",
+            "short": "Ω(n)"
+          }
+        ]
+      },
+      "parameters": {
+        "d_v": "degree of vertex v",
+        "coordinateConvention": "Categorical formula classes; no numerical exponent or universal ranking is assigned."
+      },
+      "results": [
+        {
+          "id": "vertex-result-39",
+          "paperId": "halldorsson-kuhn-nolin-tonoyan-2022-degree",
+          "kind": "upper",
+          "bound": "Õ(n) space; one pass",
+          "guarantee": "Each vertex chooses from its own final dᵥ+1 list",
+          "sourceLocation": "Corollary 3(1); §8 Streaming",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "The final list of each vertex must arrive before any incident edge. Source space assumes ordinary bounded-size vertex/color encodings. With high probability Randomness included in working memory",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "vertex-query-degree-one-list",
+      "problem": "vertex",
+      "model": "query_combined",
+      "label": "Graph queries, degree+1 list coloring",
+      "task": "Output a proper global coloring from per-vertex color lists",
+      "assumptions": [
+        "Input color lists are additional queryable data.",
+        "No claim that palette queries alone reveal graph edges.",
+        "Access-model qualification is visible; no matching lower bound is asserted."
+      ],
+      "xAxis": {
+        "label": "List-input contract, unranked source report",
+        "kind": "symbolic"
+      },
+      "yAxis": {
+        "label": "No normalized graph-query coordinate",
+        "kind": "symbolic"
+      },
+      "parameters": {
+        "n": "number of vertices",
+        "Delta": "maximum degree",
+        "kappa": "graph degeneracy; distinct from Δ",
+        "coordinateConvention": "Custom renderer; exact source scopes and no common numeric region across different resource models."
+      },
+      "results": [
+        {
+          "id": "vertex-result-40",
+          "paperId": "halldorsson-kuhn-nolin-tonoyan-2022-degree",
+          "kind": "upper",
+          "bound": "Õ(n^{3/2}) theorem-reported query-model cost",
+          "guarantee": "Each input list has degree(v)+1 colors; An explicit proper color for every vertex",
+          "sourceLocation": "Abstract and §1.1 consequence; §8 Theorem 4 and “Query model” paragraphs",
+          "evidenceStatus": "statement_verified_oracle_qualification",
+          "frontierStatus": "candidate",
+          "notes": "§8 explicitly enumerates indexed-neighbor and indexed-palette queries, both allowing ⊥. The advertised Õ(n√n) runtime implies no more primitive queries in its stated unit-cost model. §8 inherits construction steps from ACK19/AA20 while enumerating neighbor and palette operations; the precise inherited pair-access convention is not explicit in those paragraphs. Retained separately as a source-reported list-input result, without a normalized ordinary-combined-oracle point.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "vertex-local-high-degree-degree-one",
+      "problem": "vertex",
+      "model": "local",
+      "label": "High-degree LOCAL list coloring",
+      "task": "Each vertex outputs a valid color from its list",
+      "assumptions": [
+        "Randomized LOCAL (or stronger result in CONGEST)",
+        "Minimum relevant degree specified in each result",
+        "Per-vertex list size deg(v)+1 or Δ+1, per theorem"
+      ],
+      "xAxis": {
+        "label": "Coloring contract; inspect pair figure",
+        "kind": "symbolic",
+        "categories": [
+          {
+            "id": "full",
+            "label": "Full · Δ+1 lists"
+          },
+          {
+            "id": "partial",
+            "label": "Partial · degree+1 lists"
+          }
+        ]
+      },
+      "yAxis": {
+        "label": "Exact symbolic LOCAL rounds; no numerical ranking",
+        "kind": "symbolic",
+        "categories": [
+          {
+            "id": "logstar",
+            "label": "log* n"
+          }
+        ]
+      },
+      "parameters": {
+        "Delta": "maximum degree",
+        "n": "vertices",
+        "coordinateConvention": "Pair renderer separates contracts and shows exact symbolic bounds. No generic palette-ratio or degree-exponent projection."
+      },
+      "results": [
+        {
+          "id": "vertex-result-50",
+          "paperId": "halldorsson-nolin-tonoyan-2021-ultrafast",
+          "kind": "upper",
+          "bound": "O(log* n)",
+          "guarantee": "|L(v)|≥Δ+1; Every vertex outputs a proper color",
+          "sourceLocation": "Theorem 1; §§4, 6.2",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "candidate",
+          "notes": "Full-graph output, even when individual vertices have low degree. Uses maximum-degree-sized lists. A CONGEST theorem is also valid in LOCAL; no minimum-degree premise is substituted.",
+          "plot": null,
+          "verificationUrl": "https://arxiv.org/html/2105.04700v1"
+        },
+        {
+          "id": "vertex-extended-vertex-local-high-degree-degree-one-51",
+          "paperId": "halldorsson-kuhn-nolin-tonoyan-2022-degree",
+          "kind": "upper",
+          "bound": "O(log* n)",
+          "guarantee": "|L(v)|≥degree(v)+1; A proper partial coloring covering all target high-degree vertices; low-degree vertices may remain uncolored",
+          "sourceLocation": "Theorems 1–2; Corollary 1",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "candidate",
+          "notes": "Full-graph output only if every vertex satisfies this threshold (Corollary 1). Theorem 1 itself uses degree(v)≥log⁷Δ and per-vertex failure Δ^{-c}, even conditioned on random bits outside distance two.",
+          "plot": null,
+          "verificationUrl": "https://arxiv.org/html/2112.00604v1"
+        }
+      ]
+    },
+    {
+      "id": "vertex-local-brooks-delta-minus-k",
+      "problem": "vertex",
+      "model": "local",
+      "label": "Fewer than Δ+1 colors in LOCAL",
+      "task": "Find proper Δ−k coloring when such a coloring exists",
+      "assumptions": [
+        "Randomized LOCAL",
+        "Input promises must exclude non-colorable graphs",
+        "k integer smaller than k_Δ defined by (k_Δ+1)(k_Δ+2)≤Δ"
+      ],
+      "xAxis": {
+        "label": "Coloring contract; inspect pair figure",
+        "kind": "symbolic",
+        "categories": [
+          {
+            "id": "deficit",
+            "label": "q=Δ−k, 0≤k<k_Δ"
+          }
+        ]
+      },
+      "yAxis": {
+        "label": "Exact symbolic LOCAL rounds; no numerical ranking",
+        "kind": "symbolic",
+        "categories": [
+          {
+            "id": "brooks-general",
+            "label": "Õ(log⁴log n)"
+          },
+          {
+            "id": "brooks-high",
+            "label": "O(log* n), Δ≥log^{50}n"
+          }
+        ]
+      },
+      "parameters": {
+        "Delta": "maximum degree",
+        "k": "palette deficit",
+        "n": "nodes",
+        "coordinateConvention": "Pair renderer separates contracts and shows exact symbolic bounds. No generic palette-ratio or degree-exponent projection."
+      },
+      "results": [
+        {
+          "id": "vertex-result-52",
+          "paperId": "flin-halldorsson-jakob-maus-2026-optimal",
+          "kind": "upper",
+          "bound": "Õ(log⁴log n); O(log* n) if Δ≥(log n)^{50}",
+          "guarantee": "q=Δ−k, 0≤k<k_Δ; (k_Δ+1)(k_Δ+2)≤Δ, k_Δ maximal; A proper q-coloring, or some vertex supplies a certificate of non-q-colorability",
+          "sourceLocation": "Theorem 1; §4.3",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "candidate",
+          "notes": "Theorem 1 uses q≥Δ−k_Δ+1. This does not promise Δ-coloring for every small Δ or colorability for arbitrary input. The Ω(n/Δ) boundary hardness quoted in the introduction is outside this theorem and is not added.",
+          "plot": null,
+          "verificationUrl": "https://arxiv.org/html/2603.28637v2"
+        }
+      ]
+    },
+    {
+      "id": "vertex-local-cycle-lower",
+      "problem": "vertex",
+      "model": "local",
+      "label": "Three-coloring cycles: locality lower bound",
+      "task": "Compute a proper three-coloring on an n-cycle",
+      "assumptions": [
+        "Deterministic LOCAL with unique IDs",
+        "Δ=2, so q=Δ+1=3"
+      ],
+      "xAxis": {
+        "label": "Coloring contract; inspect pair figure",
+        "kind": "symbolic",
+        "categories": [
+          {
+            "id": "three",
+            "label": "Three-coloring cycles · Δ=2"
+          }
+        ]
+      },
+      "yAxis": {
+        "label": "Exact symbolic LOCAL rounds; no numerical ranking",
+        "kind": "symbolic",
+        "categories": [
+          {
+            "id": "logstar",
+            "label": "log* n"
+          }
+        ]
+      },
+      "parameters": {
+        "n": "cycle length",
+        "coordinateConvention": "Pair renderer separates contracts and shows exact symbolic bounds. No generic palette-ratio or degree-exponent projection."
+      },
+      "results": [
+        {
+          "id": "vertex-result-53",
+          "paperId": "linial-1992-locality",
+          "kind": "lower",
+          "bound": "Ω(log* n)",
+          "guarantee": "q=3; Δ=2; Each node outputs a proper three-coloring",
+          "sourceLocation": "Theorem 2.1, printed p.195",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "candidate",
+          "notes": "Theorem 2.1 gives the exact lower (log* n−3)/2. A cycle is not a valid hardness witness for an arbitrary larger palette.",
+          "plot": null,
+          "verificationUrl": "https://courses.csail.mit.edu/6.852/08/papers/Linial.pdf"
+        }
+      ]
+    },
+    {
+      "id": "vertex-local-sparsified-input",
+      "problem": "vertex",
+      "model": "local",
+      "label": "LOCAL rounds after distributed palette sparsification",
+      "task": "Compute proper Δ+1 coloring using the sampled-color conflict graph",
+      "assumptions": [
+        "Each node initially samples only poly(log n) colors",
+        "Communication restricted to sparsified graph",
+        "This is a transformed network, not unrestricted LOCAL on original G",
+        "The plotted strict sampled-edge upper requires Δ≥C log⁴n for a sufficiently large constant C; the all-degree mixed-network variant is retained in its record."
+      ],
+      "xAxis": {
+        "label": "Coloring contract; inspect pair figure",
+        "kind": "symbolic",
+        "categories": [
+          {
+            "id": "sampled",
+            "label": "Palette-sparsified graph"
+          }
+        ]
+      },
+      "yAxis": {
+        "label": "Exact symbolic LOCAL rounds; no numerical ranking",
+        "kind": "symbolic",
+        "categories": [
+          {
+            "id": "sparse-upper",
+            "label": "O(log²Δ), Δ≥C log⁴n"
+          },
+          {
+            "id": "sparse-lower",
+            "label": "Ω(log Δ/loglog n)"
+          }
+        ]
+      },
+      "parameters": {
+        "Delta": "maximum degree",
+        "n": "nodes",
+        "coordinateConvention": "Pair renderer separates contracts and shows exact symbolic bounds. No generic palette-ratio or degree-exponent projection."
+      },
+      "results": [
+        {
+          "id": "vertex-result-54",
+          "paperId": "flin-ghaffari-halldorsson-kuhn-nolin-2024-palette",
+          "kind": "upper",
+          "bound": "O(log²Δ)",
+          "guarantee": "Colors from sampled subsets of [Δ+1]; Every vertex outputs a proper color; Δ≥C log⁴n for a sufficiently large constant C",
+          "sourceLocation": "Theorem 1; §4.2 sampled-edge implementation and §5 large-degree branch",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "candidate",
+          "notes": "The plotted strict sampled-edge bound uses Δ≥C log⁴n for a sufficiently large constant C. Theorem 1 samples Θ(log²n) colors per node and uses O(log n)-bit messages. Its all-degree O(log²Δ+log³log n) implementation retains original edges when Δ=O(log⁴n); that mixed-network variant is kept separately below. The lower bound is not for unrestricted communication on G.",
+          "plot": null,
+          "verificationUrl": "https://arxiv.org/html/2301.06457v2",
+          "allDegreeVariant": {
+            "displayBound": "O(log²Δ + log³log n)",
+            "graph": "All maximum-degree regimes",
+            "communication": "Palette-sampled edges in the large-degree branch; original edges may be retained when Δ=O(log⁴n)",
+            "theorem": "Theorem 1 and §5 proof",
+            "notes": "This all-degree implementation is not plotted as a strict sampled-edge upper for every Δ."
+          }
+        },
+        {
+          "id": "vertex-extended-vertex-local-sparsified-input-55",
+          "paperId": "flin-ghaffari-halldorsson-kuhn-nolin-2024-palette",
+          "kind": "lower",
+          "bound": "Ω(log Δ / loglog n)",
+          "guarantee": "Use the sampled colors from [Δ+1]; Proper coloring respecting the sampled palettes",
+          "sourceLocation": "Theorems 1–2; precise Theorem 7; §5 proof",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "candidate",
+          "notes": "Precise Theorem 7 takes n=Δ+1 and independent inclusion probability f(n)/n, with c log n≤f(n)≤polylog n. Messages may be unbounded. Do not transfer to the original clique's unrestricted LOCAL communication.",
+          "plot": null,
+          "verificationUrl": "https://arxiv.org/html/2301.06457v2"
+        }
+      ]
+    },
+    {
+      "id": "vertex-query-two-party-communication",
+      "problem": "vertex",
+      "model": "query_combined",
+      "label": "Two-party edge-partition communication, proper Δ+1 coloring",
+      "task": "Both players learn the same coloring",
+      "assumptions": [
+        "Known vertex set and maximum degree Δ.",
+        "Edges are partitioned without overlap.",
+        "Public randomness for the plotted zero-error protocol.",
+        "Do not extend the degree-two construction to every prescribed Δ.",
+        "Both-party output includes the Bob-output requirement.",
+        "Expected-bit extension is a standard truncation inference, not a restatement of Theorem 5.",
+        "n and Δ are given to both parties.",
+        "Public randomness; adversarial disjoint edge partition.",
+        "No new round lower bound is claimed."
+      ],
+      "xAxis": {
+        "label": "Communication metric (bits / rounds)",
+        "kind": "symbolic"
+      },
+      "yAxis": {
+        "label": "Protocol and exact symbolic budget",
+        "kind": "symbolic"
+      },
+      "parameters": {
+        "n": "number of vertices",
+        "Delta": "maximum degree",
+        "kappa": "graph degeneracy; distinct from Δ",
+        "coordinateConvention": "Custom renderer; exact source scopes and no common numeric region across different resource models."
+      },
+      "results": [
+        {
+          "id": "vertex-result-56",
+          "paperId": "flin-mittal-2025-communication",
+          "kind": "upper",
+          "bound": "O(n) expected bits; O(n) expected rounds",
+          "guarantee": "Δ+1 colors; Both parties learn the full same coloring",
+          "sourceLocation": "Theorem 1, §3; round comparison confirmed in CMNS25 §1.1",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "historical",
+          "notes": "Two parties hold disjoint portions of the edge set; n and Δ supplied. This is a communication budget, not a graph-query count. The original record omitted the expectation qualifier for bits. Theorem 1 is zero error; Corollary 1.1 instead gives a constant-error private-coin worst-case-bit variant, not used as the plotted protocol.",
+          "plot": null
+        },
+        {
+          "id": "vertex-extended-vertex-query-two-party-communication-57",
+          "paperId": "flin-mittal-2025-communication",
+          "kind": "lower",
+          "bound": "Ω(n) communicated bits",
+          "guarantee": "Δ+1 colors; hard graphs have Δ=2; Bob (and hence both parties) learns a proper full coloring",
+          "sourceLocation": "Theorem 5 and Proposition 5.1, §5",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "candidate",
+          "notes": "Two-party edge partition; lower already holds with all edges at Alice. The proof encodes independent bits in degree-two gadgets. It lower-bounds the global worst-case communication budget, and supplies no interaction-round lower bound. Zero-error expected-bit optimality follows by truncation and Markov’s inequality (an explicit atlas inference).",
+          "plot": null
+        },
+        {
+          "id": "vertex-extended-vertex-query-two-party-communication-58",
+          "paperId": "chang-mishra-nguyen-salim-2025-communication",
+          "kind": "upper",
+          "bound": "O(n) expected bits; O(loglog n · log Δ) worst-case rounds",
+          "guarantee": "Δ+1 colors; Both parties learn the full same coloring",
+          "sourceLocation": "Theorem 1; §§3.1, 4.4; Appendix B",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "candidate",
+          "notes": "Two parties hold a disjoint edge partition; n and Δ supplied. The rare unsuccessful sparsification triggers transmission of the full graph, so the output remains correct. This fallback preserves the worst-case round bound while the communication bound remains expected. Logs are conventionally truncated below a constant for small n and Δ.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "vertex-mpc-degeneracy",
+      "problem": "vertex",
+      "model": "mpc",
+      "label": "Near-linear local-memory MPC, degeneracy palette",
+      "task": "Output a proper κ(G)+o(κ(G)) coloring",
+      "assumptions": [
+        "Randomized MPC",
+        "n processors",
+        "O(n log² n) bits per processor",
+        "κ is graph degeneracy",
+        "See the verified figure for per-record palette, total-memory, randomness and local-work scopes."
+      ],
+      "xAxis": {
+        "label": "Per-processor memory · bits",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "bits-near-linear",
+            "label": "O(n log²n) bits"
+          }
+        ]
+      },
+      "yAxis": {
+        "label": "Communication rounds",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "constant",
+            "label": "O(1)"
+          }
+        ]
+      },
+      "parameters": {
+        "kappa": "graph degeneracy"
+      },
+      "results": [
+        {
+          "id": "vertex-extra-60",
+          "paperId": "bera-chakrabarti-ghosh-2020-degeneracy",
+          "kind": "upper",
+          "bound": "O(1) rounds; n processors × O(n log²n) bits",
+          "guarantee": "κ+o(κ) colors asymptotically; κ+1 in the small-input central branch; With high probability.",
+          "sourceLocation": "ICALP Theorem 12; full version Theorem 4.3 and proof",
+          "evidenceStatus": "verified",
+          "frontierStatus": "source_verified",
+          "notes": "κ≤Δ, but κ+o(κ) is not a numerical substitute for Δ+1. Do not read the little-o notation as exact κ colors for fixed κ. The κ=ω(log²n) restriction belongs to the separate Congested Clique theorem, not this MPC theorem. Total memory: O(n²log²n) bits allocated across n processors (direct product). Local work: The gathered subgraphs are colored locally; the model allows arbitrary local work.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "vertex-lca-average-case-k-color",
+      "problem": "vertex",
+      "model": "lca",
+      "label": "Average-case exact k-coloring; reported LCA probes",
+      "task": "Answer requested vertex colors consistently with an exact k-coloring",
+      "assumptions": [
+        "Uniform distribution over all labeled k-colorable graphs, not G(n,p) and not arbitrary worst-case graphs",
+        "2≤k≤n^{1/37}",
+        "A fixed shared random tape; zero-error allows FAIL",
+        "The local probe unit is unresolved: the proof charges O(ν) probes for a sampled core with ν=Θ(k^9 log k) vertices, while certifying its induced adjacency matrix would ordinarily need pair-entry accounting",
+        "The full-output Ω(nk) lower bound is not a lower bound for these local queries"
+      ],
+      "xAxis": {
+        "label": "Exact palette target; separate average-case contract",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "k-color",
+            "label": "k colors"
+          }
+        ]
+      },
+      "yAxis": {
+        "label": "Source-reported local probe count; unresolved probe unit",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "reported-poly-k",
+            "label": "O(k^9 log k), source convention"
+          }
+        ]
+      },
+      "parameters": {
+        "k": "2≤k≤n^{1/37}",
+        "n": "Number of labeled vertices"
+      },
+      "results": [
+        {
+          "id": "vertex-lca-average-k-2026",
+          "paperId": "marcussen-pyne-rubinfeld-shapira-tauber-2026-average",
+          "kind": "upper",
+          "bound": "Theorem 10 reports O(k^9 log k) average-case probes and O(k^26 polylog k) average-case time",
+          "guarantee": "Exact k-coloring under the uniform distribution over k-colorable labeled graphs; zero-error partial answers or FAIL",
+          "sourceLocation": "Theorem 10, Appendix A.2; Definitions A.2–A.4 (arXiv v1 printed pp.37–40)",
+          "evidenceStatus": "theorem_statement_verified_oracle_unit_unresolved",
+          "frontierStatus": "related_scope_caveat",
+          "notes": "Preserved as a related result with a visible source-audit qualification. The source theorem is verified in both HTML and PDF, but its O(k^9 log k) count is not placed on the main adjacency-list cost axis or advertised as an exact adjacency-matrix pair-probe bound.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "vertex-query-average-case-k-color",
+      "problem": "vertex",
+      "model": "query_matrix",
+      "label": "Average-input k-coloring · full output · zero error",
+      "task": "Output a proper coloring with colors from [k] for every promised k-colorable graph",
+      "assumptions": [
+        "Input G is uniformly distributed over all labeled k-colorable graphs on [n] for the average complexity statement.",
+        "The algorithms must output a proper coloring on every promised graph, not merely with high probability over G.",
+        "Randomized average is E_{G∼U} E_r T(G,r); deterministic average is E_{G∼U} T(G).",
+        "One matrix-entry query costs constant time. Thus query count is bounded above by total runtime.",
+        "Internal failure triggers further stages and ultimately exhaustive search; external output is a full coloring, never FAIL.",
+        "Upper range 2≤k≤n^(1/37); lower range 2≤k≤n^(1/3)."
+      ],
+      "xAxis": {
+        "label": "Colorability parameter k · symbolic domain",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "start",
+            "label": "2"
+          },
+          {
+            "id": "upper-end",
+            "label": "n^(1/37)"
+          },
+          {
+            "id": "lower-end",
+            "label": "n^(1/3)"
+          }
+        ],
+        "note": "Intervals show theorem validity ranges; horizontal distances do not encode ratios of k."
+      },
+      "yAxis": {
+        "label": "Average cost divided by nk · symbolic order",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "constant",
+            "label": "1"
+          },
+          {
+            "id": "polylog",
+            "label": "polylog n"
+          }
+        ],
+        "note": "Order classes only. A polylogarithmic upper bound does not assert a separation or fix a logarithmic exponent."
+      },
+      "parameters": {
+        "k": "Known colorability promise, at least 2; unrelated to Δ.",
+        "n": "Labeled vertex count.",
+        "coordinateConvention": "Symbolic validity ranges for k; cost order normalized by nk. No numeric exponent coordinate is invented.",
+        "resource": "Pair-query upper bounds deduced from total runtime, lower bound directly bounds queries; total-time view also available."
+      },
+      "results": [
+        {
+          "id": "vertex-query-average-k-upper-2026",
+          "paperId": "marcussen-pyne-rubinfeld-shapira-tauber-2026-average",
+          "kind": "upper",
+          "bound": "Randomized O(nk); deterministic Õ(nk) average runtime",
+          "guarantee": "Proper full coloring with colors from [k], zero error on every promised input and random string",
+          "sourceLocation": "Theorems 1–2; §1.1 matrix-access statement and §§5.2–5.3 correctness/runtime proofs",
+          "evidenceStatus": "verified",
+          "frontierStatus": "current_best_verified",
+          "notes": "These are average-input bounds, not worst-case runtime guarantees and not per-vertex LCA bounds. The tilde hides polylog(n); no particular logarithmic exponent is inferred. k is a colorability promise, not maximum degree or a claim that every color must be used. Zero error: every k-colorable input and every random string produce a proper full coloring. Runtime is averaged over the random input and, for the randomized algorithm, its coins. FAIL occurs only inside subroutines; exhaustive fallback completes the coloring. Validity: 2 ≤ k ≤ n^(1/37).",
+          "plot": null
+        },
+        {
+          "id": "vertex-query-average-k-lower-2026",
+          "paperId": "marcussen-pyne-rubinfeld-shapira-tauber-2026-average",
+          "kind": "lower",
+          "bound": "Ω(nk) pair queries and time on every input; therefore also on average",
+          "guarantee": "Proper full coloring with colors from [k], zero error on every promised input and random string",
+          "sourceLocation": "Theorem 3; stronger Theorem 9 and matrix-query adversary proof in §6; §2.4 query statement",
+          "evidenceStatus": "verified",
+          "frontierStatus": "current_best_verified",
+          "notes": "This strengthens the original average-runtime wording. The proof directly bounds matrix queries and hence time. Its larger k-range is shown beyond the upper-bound range, without implying that this source supplies an algorithm there. The theorem also discusses unsorted-list access, but the figure restricts to matrix pair queries. No NP-hardness assumption is needed. Requires worst-case correctness: for every k-colorable input and every random string the algorithm outputs a proper full k-coloring. Applies to deterministic and zero-error randomized algorithms, not an unqualified bounded-error model. Validity: 2 ≤ k ≤ n^(1/3).",
+          "plot": null
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,192 @@
+{
+  "schemaVersion": 1,
+  "pairId": "cc-query_list",
+  "status": "source-review-complete",
+  "reviewedForAtlasSnapshot": "2026-10-20",
+  "reviewDate": "2026-10-26",
+  "scope": "Research only. Supplied two-paper set, including the linked full version of Assadi–Wang. No renderer or shared-project changes.",
+  "sources": [
+    {
+      "id": "assadi-2022-sparse-dense",
+      "authors": [
+        "Sepehr Assadi",
+        "Chen Wang"
+      ],
+      "title": "Sublinear Time and Space Algorithms for Correlation Clustering via Sparse-Dense Decompositions",
+      "publicationStatus": "conference",
+      "venue": "ITCS 2022",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ITCS.2022.10",
+      "pdfUrl": "https://drops.dagstuhl.de/opus/volltexte/2022/15606/pdf/LIPIcs-ITCS-2022-10.pdf",
+      "fullVersionUrl": "https://arxiv.org/pdf/2109.14528",
+      "fullVersion": "arXiv:2109.14528v1, 29 September 2021",
+      "inspected": [
+        "Conference Theorem 1, p.10:3",
+        "Conference §2.1–2.2, p.10:7",
+        "Conference Theorem 12 / Algorithm 1 / analysis, pp.10:14–15",
+        "Full version Appendix B.1, Propositions B.1 and B.2, printed pp.38–39"
+      ]
+    },
+    {
+      "id": "ailon-2008-pivot",
+      "authors": [
+        "Nir Ailon",
+        "Moses Charikar",
+        "Alantha Newman"
+      ],
+      "title": "Aggregating Inconsistent Information: Ranking and Clustering",
+      "publicationStatus": "journal",
+      "venue": "Journal of the ACM 55(5), Article 23, October 2008",
+      "url": "https://doi.org/10.1145/1411509.1411513",
+      "inspectedPdfUrl": "https://gwern.net/doc/statistics/order/comparison/2008-ailon.pdf",
+      "sourceAccessNote": "Exact journal article on a mirror; DOI landing page inaccessible and supplied-era author-copy URL returned 404. Verified article title/authors/DOI and primary paper content, not a secondary summary.",
+      "inspected": [
+        "Section 6 KWIKCLUSTER pseudocode, p.23:13",
+        "Theorem 6.1, p.23:14"
+      ]
+    }
+  ],
+  "commonProblem": {
+    "graph": "Unweighted complete undirected signed graph on n vertices; each pair is positive or negative.",
+    "objective": "Minimize positive edges crossing clusters plus negative edges inside clusters.",
+    "output": "Explicit partition of all vertices.",
+    "multiplicativeOnly": true,
+    "mPositive": "m⁺=|E⁺|, counting positive edges once, not total signed pairs and not negative edges.",
+    "parameterRange": "0≤m⁺≤n(n−1)/2; therefore n+m⁺ ranges from n to Θ(n²).",
+    "rangeMeaning": "A family of resource upper bounds as density varies, not exact running time or a lower bound."
+  },
+  "records": [
+    {
+      "id": "cc-query-assadi-wang-2022",
+      "type": "upper",
+      "paperId": "assadi-2022-sparse-dense",
+      "theoremLocation": "Theorem 1 / formal Theorem 12; §2.2 and Algorithm 1 analysis",
+      "oracleId": "positive-lists",
+      "guarantee": "cost≤C·OPT for an unspecified absolute C=O(1), with high probability.",
+      "queryBound": "O(n log n)",
+      "timeBound": "O(n log² n)",
+      "success": "At least 1−n^(−c), for a large constant c>0 (conference footnote 4).",
+      "resourceProbability": "The stated query/time resource bounds hold with high probability; do not label them deterministic worst-case bounds.",
+      "oracleOperations": [
+        "Positive degree deg⁺(v) in O(1) time",
+        "The ith positive neighbor of v, for i≤deg⁺(v), in O(1) time"
+      ],
+      "numericApproximation": null,
+      "inference": false,
+      "notes": [
+        "No pair-query oracle is required by the stated model.",
+        "Negative edges are implicit from the positive subgraph.",
+        "The output is the full partition; this is not merely an estimator or local membership oracle.",
+        "Never place O(n log² n) total time on the query axis."
+      ]
+    },
+    {
+      "id": "cc-query-pivot-original",
+      "type": "upper",
+      "paperId": "ailon-2008-pivot",
+      "theoremLocation": "§6, KWIKCLUSTER pseudocode and Theorem 6.1",
+      "oracleId": "positive-lists",
+      "guarantee": "E[cost]≤3·OPT.",
+      "approximationFactor": 3,
+      "success": "Expected approximation; not a high-probability factor-3 guarantee.",
+      "queryBound": "O(n+m⁺)",
+      "timeBound": "O(n+m⁺)",
+      "resourceProbability": "The implementation bound holds for every random permutation.",
+      "inference": true,
+      "inferenceScope": "Adjacency-list resource bound only; expected factor 3 is the cited theorem.",
+      "inferenceExplanation": "Use a uniformly random permutation and an assigned flag per vertex. An unassigned vertex becomes a pivot; scan its positive list and assign only unassigned neighbors to its cluster. Pivots form an independent set in G⁺, so each positive edge has at most one pivot endpoint and is queried at most once. At most n degree queries, m⁺ neighbor queries, O(n) permutation/flag/output work; total O(n+m⁺). The induced pivot distribution matches uniform selection from remaining vertices.",
+      "sourceLimit": "The journal pseudocode loops over remaining vertices and does not itself state an O(n+m⁺) adjacency-list implementation theorem. Label the bound as implementation-derived."
+    },
+    {
+      "id": "cc-query-aw-full-list-lower",
+      "type": "lower",
+      "paperId": "assadi-2022-sparse-dense",
+      "theoremLocation": "Full version Proposition B.1, printed p.38",
+      "oracleId": "full-signed-lists",
+      "guarantee": "Every finite multiplicative approximation factor α≥1 requires Ω(n²) queries at success probability at least 99%.",
+      "queryBound": "Ω(n²)",
+      "timeConsequence": "Ω(n²) time follows if one query costs O(1).",
+      "success": "At least 99/100",
+      "inference": false,
+      "scopeWarning": "Not a positive-list lower bound. Full signed-list degree is n−1; indexed neighbors reveal labels without filtering to positives.",
+      "proofIdea": "A hidden positive pair among otherwise negative pairs yields zero-optimum instances, forcing a finite multiplicative approximation to distinguish the pair."
+    },
+    {
+      "id": "cc-query-aw-negative-list-lower",
+      "type": "lower",
+      "paperId": "assadi-2022-sparse-dense",
+      "theoremLocation": "Full version Proposition B.2, printed p.39",
+      "oracleId": "negative-lists",
+      "guarantee": "Every finite multiplicative approximation factor α≥1 requires Ω(n²) queries at success probability at least 99%.",
+      "queryBound": "Ω(n²)",
+      "timeConsequence": "Ω(n²) time follows if one query costs O(1).",
+      "success": "At least 99/100",
+      "inference": false,
+      "scopeWarning": "Not a positive-list lower bound. Access is filtered to G⁻. The proof discusses negative degree, pair, and neighbor queries.",
+      "proofIdea": "The positive edges form a hidden perfect matching in zero-optimum instances; recovering an acceptable partition recovers that matching.",
+      "proofTranscriptionCaution": "The full-version proof has an apparent degree-answer typo n−1 where its constructed negative graph has degree n−2. Cite the proposition and oracle scope rather than copying that proof line into the atlas."
+    }
+  ],
+  "oracleDistinctions": [
+    {
+      "id": "positive-lists",
+      "label": "Positive-neighbor lists",
+      "operations": "deg⁺(v), ith neighbor in G⁺",
+      "role": "Main algorithm comparison",
+      "sameOracleLowerFound": false
+    },
+    {
+      "id": "full-signed-lists",
+      "label": "Full signed lists",
+      "operations": "Complete-graph list access; queries reveal edge labels without filtering positives",
+      "role": "Alternative-oracle lower bound only"
+    },
+    {
+      "id": "negative-lists",
+      "label": "Negative-neighbor lists",
+      "operations": "Degree/indexed-neighbor access in G⁻; proposition proof also discusses pair queries",
+      "role": "Alternative-oracle lower bound only"
+    }
+  ],
+  "exclusions": [
+    "No nontrivial positive-list query lower theorem was verified in these two sources.",
+    "Do not reuse Assadi–Wang's cited MIS-computation lower bounds as lower bounds for arbitrary clustering algorithms.",
+    "ACN bad-triangle lower bounds on optimum and LP bounds are not query-complexity lower bounds.",
+    "Weighted correlation clustering, consensus clustering, additive-error matrix results, and streaming results are outside this pair review.",
+    "Do not substitute a numeric approximation factor for Assadi–Wang's unspecified constant."
+  ],
+  "implementationEvidence": {
+    "kind": "Read-only in-memory exhaustive check",
+    "status": "passed",
+    "graphFamily": "All simple positive subgraphs on n=1,…,5; each defines a complete signed instance.",
+    "permutations": "Every vertex permutation for every graph.",
+    "checkedCases": 124469,
+    "assertions": [
+      "Positive-list implementation returns the same partition as recursive Pivot using the same ordering.",
+      "All vertices are assigned exactly once.",
+      "Total neighbor-list entries examined is at most m⁺."
+    ],
+    "limits": "This is regression evidence for the stated implementation inference; the edge-count argument supplies its general proof. It is not a new approximation theorem."
+  },
+  "figureProposal": {
+    "mainAxis": "Symbolic query-cost axis: n, n log n, n².",
+    "setupColumns": [
+      "Positive lists",
+      "Full signed lists",
+      "Negative lists"
+    ],
+    "algorithms": "Green markers/outline. AW point at n log n; Pivot density-dependent O(n+m⁺) upper-bound range with expected-factor label.",
+    "lowerBounds": "Red diamonds at n² confined to alternative-oracle columns; labels retain any finite factor and ≥99% success.",
+    "setupColors": "Distinct column tint/color with a separate setup legend; maintain green/red bound-type encoding.",
+    "time": "Separate total-time chips, never silently mixed with query counts.",
+    "approximation": "Use guarantee text, not a numeric approximation x-axis, because C=O(1) has no verified numeric value.",
+    "semanticZoom": "Keep setup labels, named algorithms, asymptotic costs, and scoped red markers at atlas summary scale; hide theorem details/counts until focused inspection.",
+    "alternative": "A shared total-time axis is also sound if query lower bounds are explicitly labeled as implying time lower bounds."
+  },
+  "clarification": {
+    "question": "Include the full-signed-list and negative-list oracle contrasts beside positive-list algorithms, or keep them in a related-results strip?",
+    "recommended": "Include distinct oracle columns on one shared query-cost axis.",
+    "blockingForResearch": false,
+    "rendererStatus": "Isolated deliverables prepared and regression checks passed.",
+    "resolution": "User chose positive lists in main; alternative oracles in related results only."
+  }
+}

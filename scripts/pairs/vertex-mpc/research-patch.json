@@ -1,0 +1,403 @@
+{
+  "upsertPapers": [
+    {
+      "id": "assadi-chen-khanna-2019-sublinear-coloring",
+      "title": "Sublinear Algorithms for (Δ+1) Vertex Coloring",
+      "authors": [
+        "Sepehr Assadi",
+        "Yu Chen",
+        "Sanjeev Khanna"
+      ],
+      "year": 2019,
+      "venue": "SODA 2019",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1807.08886",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "chang-fischer-ghaffari-uitto-zheng-2019-lca-mpc",
+      "title": "The Complexity of (Δ+1)-Coloring in Congested Clique, Massively Parallel Computation, and Centralized Local Computation",
+      "authors": [
+        "Yi-Jun Chang",
+        "Manuela Fischer",
+        "Mohsen Ghaffari",
+        "Jara Uitto",
+        "Yufan Zheng"
+      ],
+      "year": 2019,
+      "venue": "PODC 2019",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1808.08419",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "czumaj-davies-parter-2021-low-space-mpc",
+      "title": "Improved Deterministic (Δ+1)-Coloring in Low-Space MPC",
+      "authors": [
+        "Artur Czumaj",
+        "Peter Davies",
+        "Merav Parter"
+      ],
+      "year": 2021,
+      "venue": "PODC 2021",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2112.05831",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "bera-chakrabarti-ghosh-2020-degeneracy",
+      "title": "Graph Coloring via Degeneracy in Streaming and Other Space-Conscious Models",
+      "authors": [
+        "Suman K. Bera",
+        "Amit Chakrabarti",
+        "Prantar Ghosh"
+      ],
+      "year": 2020,
+      "venue": "ICALP 2020",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2020.11",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "halldorsson-kuhn-nolin-tonoyan-2022-degree",
+      "title": "Near-Optimal Distributed Degree+1 Coloring",
+      "authors": [
+        "Magnús M. Halldórsson",
+        "Fabian Kuhn",
+        "Alexandre Nolin",
+        "Tigran Tonoyan"
+      ],
+      "year": 2022,
+      "venue": "STOC 2022",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2112.00604",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "czumaj-davies-parter-2020-clique-mpc",
+      "title": "Simple, Deterministic, Constant-Round Coloring in the Congested Clique",
+      "authors": [
+        "Artur Czumaj",
+        "Peter Davies",
+        "Merav Parter"
+      ],
+      "year": 2020,
+      "venue": "PODC 2020; SIAM Journal on Computing 2021",
+      "publicationStatus": "journal",
+      "url": "https://arxiv.org/abs/2009.06043",
+      "verifiedOn": "2026-09-27"
+    }
+  ],
+  "upsertSlices": [
+    {
+      "id": "vertex-mpc-linear-memory-delta-plus-one",
+      "problem": "vertex",
+      "model": "mpc",
+      "label": "MPC (Δ+1) coloring with near-linear local memory",
+      "task": "Output a proper vertex coloring",
+      "assumptions": [
+        "Randomized MPC",
+        "Õ(n) memory per machine",
+        "Arbitrary n-vertex graph of maximum degree Δ",
+        "See the verified figure for per-record palette, total-memory, randomness and local-work scopes."
+      ],
+      "xAxis": {
+        "label": "Per-machine memory · symbolic categories",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "sublinear",
+            "label": "O(n^φ)"
+          },
+          {
+            "id": "linear",
+            "label": "O(n)"
+          },
+          {
+            "id": "near-linear",
+            "label": "Õ(n)"
+          }
+        ],
+        "note": "0<φ<1 is fixed. O(n) and Õ(n) remain separate guarantees; positions within a category are displaced solely to avoid overlap. Source memory units are retained in the inspector. Bit/word conversion costs O(log n); this categorical picture does not assert an exact shared budget."
+      },
+      "yAxis": {
+        "label": "Communication rounds · symbolic asymptotic classes",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "constant",
+            "label": "O(1)"
+          },
+          {
+            "id": "logloglog",
+            "label": "O(logloglog n)"
+          },
+          {
+            "id": "sqrt-loglog",
+            "label": "O(√loglog n)"
+          },
+          {
+            "id": "logdelta-loglog",
+            "label": "O(logΔ+loglog n)"
+          }
+        ],
+        "note": "Symbolic classes, not numerical runtime, constants or fixed n."
+      },
+      "parameters": {
+        "n": "number of vertices",
+        "Delta": "maximum degree",
+        "localMemory": "Õ(n) per machine",
+        "coordinateConvention": "The x coordinate is the additive palette slack c=1. The table retains the exact quality and model assumptions. Ordinal round positions are asymptotic categories."
+      },
+      "results": [
+        {
+          "id": "vertex-mpc-ack-2019",
+          "paperId": "assadi-chen-khanna-2019-sublinear-coloring",
+          "kind": "upper",
+          "bound": "O(1) rounds; Õ(n) local memory",
+          "guarantee": "Uniform Δ+1 palette; With high probability, 1−1/poly(n); the main implementation does not require shared public randomness.",
+          "sourceLocation": "Theorem 4 and §4.3, including the polynomial-time implementation",
+          "evidenceStatus": "verified",
+          "frontierStatus": "source_verified",
+          "notes": "The cited theorem states local memory, not an optimized total-memory bound. Total memory: Not specified by Theorem 4. Local work: Polynomial-time implementation is provided in §4.3; brute-force implementation is not required.",
+          "plot": null
+        },
+        {
+          "id": "vertex-result-41",
+          "paperId": "czumaj-davies-parter-2020-clique-mpc",
+          "kind": "upper",
+          "bound": "O(1) rounds; O(n) local and O(nΔ) total memory",
+          "guarantee": "Arbitrary Δ+1 lists; Deterministic.",
+          "sourceLocation": "Theorem 2; Theorem 3 is a separate uniform-palette variant",
+          "evidenceStatus": "verified",
+          "frontierStatus": "source_verified",
+          "notes": "Theorem 3 improves total memory to O(m+n) for the uniform Δ+1 palette. That improvement is not attached to arbitrary explicit lists. Total memory: O(nΔ). Local work: Polynomial local computation.",
+          "plot": null
+        },
+        {
+          "id": "vertex-extended-vertex-mpc-linear-memory-delta-plus-one-9",
+          "paperId": "halldorsson-kuhn-nolin-tonoyan-2022-degree",
+          "kind": "upper",
+          "bound": "O(1) rounds; Õ(n) local memory",
+          "guarantee": "Arbitrary d(v)+1 lists; With high probability; no fixed failure exponent inferred.",
+          "sourceLocation": "Corollary 3(3), Theorem 4 and §8 MPC implementation",
+          "evidenceStatus": "verified",
+          "frontierStatus": "source_verified",
+          "notes": "This is the stronger degree+1-list contract. The cited corollary does not state aggregate memory. Total memory: Not specified by Corollary 3(3). Local work: The corollary measures MPC rounds, not total sequential work.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "vertex-mpc-strongly-sublinear-randomized",
+      "problem": "vertex",
+      "model": "mpc",
+      "label": "Strongly sublinear local-memory MPC, randomized",
+      "task": "Output a proper (Δ+1)-list coloring",
+      "assumptions": [
+        "O(n^α) memory per machine for any fixed α>0",
+        "Õ(m) aggregate space under model conventions",
+        "Randomized",
+        "See the verified figure for per-record palette, total-memory, randomness and local-work scopes."
+      ],
+      "xAxis": {
+        "label": "Per-machine memory · symbolic categories",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "sublinear",
+            "label": "O(n^φ)"
+          },
+          {
+            "id": "linear",
+            "label": "O(n)"
+          },
+          {
+            "id": "near-linear",
+            "label": "Õ(n)"
+          }
+        ],
+        "note": "0<φ<1 is fixed. O(n) and Õ(n) remain separate guarantees; positions within a category are displaced solely to avoid overlap. Source memory units are retained in the inspector. Bit/word conversion costs O(log n); this categorical picture does not assert an exact shared budget."
+      },
+      "yAxis": {
+        "label": "Communication rounds · symbolic asymptotic classes",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "constant",
+            "label": "O(1)"
+          },
+          {
+            "id": "logloglog",
+            "label": "O(logloglog n)"
+          },
+          {
+            "id": "sqrt-loglog",
+            "label": "O(√loglog n)"
+          },
+          {
+            "id": "logdelta-loglog",
+            "label": "O(logΔ+loglog n)"
+          }
+        ],
+        "note": "Symbolic classes, not numerical runtime, constants or fixed n."
+      },
+      "parameters": {
+        "n": "vertices",
+        "m": "edges",
+        "alpha": "fixed positive local-memory exponent"
+      },
+      "results": [
+        {
+          "id": "vertex-mpc-chang-et-al-low-memory-2019",
+          "paperId": "chang-fischer-ghaffari-uitto-zheng-2019-lca-mpc",
+          "kind": "upper",
+          "bound": "O(√loglog n) rounds; O(n^φ) bits of local memory",
+          "guarantee": "Arbitrary Δ+1 lists; With high probability.",
+          "sourceLocation": "Theorem 1.2; §3.3 and Appendix E memory accounting",
+          "evidenceStatus": "verified",
+          "frontierStatus": "source_verified",
+          "notes": "The plot uses the verified round and per-machine memory bounds. The reported aggregate-memory bound is not presented as including an arbitrary full explicit list input. Total memory: Õ(m) in Theorem 1.2; Õ(m+n) system/working memory in Appendix E. Local work: Polynomial in the local memory S, explicitly required by the source's MPC model.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "vertex-mpc-strongly-sublinear-deterministic",
+      "problem": "vertex",
+      "model": "mpc",
+      "label": "Strongly sublinear local-memory MPC, deterministic",
+      "task": "Output a proper (Δ+1)-list coloring",
+      "assumptions": [
+        "O(n^φ) memory per machine for fixed φ∈(0,1)",
+        "Exponential in n^φ local computation permitted",
+        "Aggregate memory Õ(m+n^(1+φ))",
+        "See the verified figure for per-record palette, total-memory, randomness and local-work scopes."
+      ],
+      "xAxis": {
+        "label": "Per-machine memory · symbolic categories",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "sublinear",
+            "label": "O(n^φ)"
+          },
+          {
+            "id": "linear",
+            "label": "O(n)"
+          },
+          {
+            "id": "near-linear",
+            "label": "Õ(n)"
+          }
+        ],
+        "note": "0<φ<1 is fixed. O(n) and Õ(n) remain separate guarantees; positions within a category are displaced solely to avoid overlap. Source memory units are retained in the inspector. Bit/word conversion costs O(log n); this categorical picture does not assert an exact shared budget."
+      },
+      "yAxis": {
+        "label": "Communication rounds · symbolic asymptotic classes",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "constant",
+            "label": "O(1)"
+          },
+          {
+            "id": "logloglog",
+            "label": "O(logloglog n)"
+          },
+          {
+            "id": "sqrt-loglog",
+            "label": "O(√loglog n)"
+          },
+          {
+            "id": "logdelta-loglog",
+            "label": "O(logΔ+loglog n)"
+          }
+        ],
+        "note": "Symbolic classes, not numerical runtime, constants or fixed n."
+      },
+      "parameters": {
+        "n": "vertices",
+        "m": "edges",
+        "phi": "fixed local-memory exponent in (0,1)"
+      },
+      "results": [
+        {
+          "id": "vertex-mpc-czumaj-davies-parter-2021",
+          "paperId": "czumaj-davies-parter-2021-low-space-mpc",
+          "kind": "upper",
+          "bound": "O(logloglog n) rounds; O(n^φ) local memory",
+          "guarantee": "Arbitrary Δ+1 lists; Deterministic.",
+          "sourceLocation": "Theorem 1 and §1.1 local-computation discussion",
+          "evidenceStatus": "verified",
+          "frontierStatus": "source_verified",
+          "notes": "The paper also discusses a non-uniform polynomial-work implementation with n^φ advice bits depending on n; this is not an ordinary uniform polynomial-time replacement. Aggregate memory is source-reported; the full explicit-list input must be accounted for separately. Total memory: Õ(m+n^(1+φ)). Local work: exp(n^φ) local computation per machine is permitted. This is not a uniform polynomial-local-work guarantee.",
+          "plot": null
+        },
+        {
+          "id": "vertex-result-43",
+          "paperId": "czumaj-davies-parter-2020-clique-mpc",
+          "kind": "upper",
+          "bound": "O(logΔ+loglog n) rounds; O(n^φ) local memory",
+          "guarantee": "Arbitrary d(v)+1 lists; Deterministic.",
+          "sourceLocation": "Theorem 4 (degree+1 list coloring)",
+          "evidenceStatus": "verified",
+          "frontierStatus": "source_verified",
+          "notes": "Corrects the original record's weaker Δ+1-list wording. Explicit degree+1 lists contain 2m+n color entries. Total memory: O(m+n^(1+φ)). Local work: Polynomial local computation.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "vertex-mpc-degeneracy",
+      "problem": "vertex",
+      "model": "mpc",
+      "label": "Near-linear local-memory MPC, degeneracy palette",
+      "task": "Output a proper κ(G)+o(κ(G)) coloring",
+      "assumptions": [
+        "Randomized MPC",
+        "n processors",
+        "O(n log² n) bits per processor",
+        "κ is graph degeneracy",
+        "See the verified figure for per-record palette, total-memory, randomness and local-work scopes."
+      ],
+      "xAxis": {
+        "label": "Per-processor memory · bits",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "bits-near-linear",
+            "label": "O(n log²n) bits"
+          }
+        ]
+      },
+      "yAxis": {
+        "label": "Communication rounds",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "constant",
+            "label": "O(1)"
+          }
+        ]
+      },
+      "parameters": {
+        "kappa": "graph degeneracy"
+      },
+      "results": [
+        {
+          "id": "vertex-extra-60",
+          "paperId": "bera-chakrabarti-ghosh-2020-degeneracy",
+          "kind": "upper",
+          "bound": "O(1) rounds; n processors × O(n log²n) bits",
+          "guarantee": "κ+o(κ) colors asymptotically; κ+1 in the small-input central branch; With high probability.",
+          "sourceLocation": "ICALP Theorem 12; full version Theorem 4.3 and proof",
+          "evidenceStatus": "verified",
+          "frontierStatus": "source_verified",
+          "notes": "κ≤Δ, but κ+o(κ) is not a numerical substitute for Δ+1. Do not read the little-o notation as exact κ colors for fixed κ. The κ=ω(log²n) restriction belongs to the separate Congested Clique theorem, not this MPC theorem. Total memory: O(n²log²n) bits allocated across n processors (direct product). Local work: The gathered subgraphs are colored locally; the model allows arbitrary local work.",
+          "plot": null
+        }
+      ]
+    }
+  ]
+}

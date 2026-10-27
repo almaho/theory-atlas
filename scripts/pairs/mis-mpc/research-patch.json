@@ -1,0 +1,1125 @@
+{
+  "problem": "mis",
+  "pair": "mis-mpc",
+  "reviewedThrough": "2026-10-26",
+  "upsertPapers": [
+    {
+      "id": "ghaffari-et-al-2018-mpc-mis",
+      "title": "Improved Massively Parallel Computation Algorithms for MIS, Matching, and Vertex Cover",
+      "authors": [
+        "Mohsen Ghaffari",
+        "Themis Gouleakis",
+        "Christian Konrad",
+        "Slobodan Mitrović",
+        "Ronitt Rubinfeld"
+      ],
+      "year": 2018,
+      "venue": "PODC 2018",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1802.08237",
+      "verifiedOn": "2026-10-26"
+    },
+    {
+      "id": "czumaj-davies-peck-parter-2024-mpc",
+      "title": "Component stability in low-space massively parallel computation",
+      "authors": [
+        "Artur Czumaj",
+        "Peter Davies-Peck",
+        "Merav Parter"
+      ],
+      "year": 2024,
+      "venue": "Distributed Computing 37 (2024)",
+      "publicationStatus": "journal",
+      "url": "https://link.springer.com/article/10.1007/s00446-024-00461-9",
+      "verifiedOn": "2026-10-26"
+    },
+    {
+      "id": "ghaffari-uitto-2019-sparsify",
+      "title": "Sparsifying Distributed Algorithms with Ramifications in Massively Parallel Computation and Centralized Local Computation",
+      "authors": [
+        "Mohsen Ghaffari",
+        "Jara Uitto"
+      ],
+      "year": 2019,
+      "venue": "SODA 2019",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1807.06251",
+      "verifiedOn": "2026-10-26"
+    },
+    {
+      "id": "brandt-fischer-uitto-2019-tree-mpc",
+      "title": "Breaking the Linear-Memory Barrier in MPC: Fast MIS on Trees with Strongly Sublinear Memory",
+      "authors": [
+        "Sebastian Brandt",
+        "Manuela Fischer",
+        "Jara Uitto"
+      ],
+      "year": 2019,
+      "venue": "SIROCCO 2019",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1802.06748",
+      "verifiedOn": "2026-10-26"
+    },
+    {
+      "id": "brandt-fischer-uitto-2019-sparse-mpc",
+      "title": "Matching and MIS for Uniformly Sparse Graphs in the Low-Memory MPC Model",
+      "authors": [
+        "Sebastian Brandt",
+        "Manuela Fischer",
+        "Jara Uitto"
+      ],
+      "year": 2018,
+      "venue": "arXiv 2018; merged into PODC 2019 joint paper",
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/abs/1807.05374",
+      "verifiedOn": "2026-10-26"
+    },
+    {
+      "id": "behnezhad-et-al-2019-sparse-mpc",
+      "title": "Massively Parallel Symmetry Breaking on Sparse Graphs: MIS and Maximal Matching",
+      "authors": [
+        "Soheil Behnezhad",
+        "Mahsa Derakhshan",
+        "MohammadTaghi Hajiaghayi",
+        "Richard M. Karp"
+      ],
+      "year": 2018,
+      "venue": "Author manuscript; merged into PODC 2019 joint paper",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1807.06701",
+      "verifiedOn": "2026-10-26",
+      "publicationUrl": "https://doi.org/10.1145/3293611.3331609"
+    },
+    {
+      "id": "ghaffari-grunau-jin-2020-mpc-trees",
+      "title": "Improved MPC Algorithms for MIS, Matching, and Coloring on Trees and Beyond",
+      "authors": [
+        "Mohsen Ghaffari",
+        "Christoph Grunau",
+        "Ce Jin"
+      ],
+      "year": 2020,
+      "venue": "DISC 2020",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.DISC.2020.34",
+      "verifiedOn": "2026-10-26"
+    },
+    {
+      "id": "latypov-uitto-2021-mpc-trees",
+      "title": "Coloring Trees in Massively Parallel Computation",
+      "authors": [
+        "Rustam Latypov",
+        "Jara Uitto"
+      ],
+      "year": 2021,
+      "venue": "arXiv 2021",
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/abs/2105.13980",
+      "verifiedOn": "2026-10-26"
+    }
+  ],
+  "upsertSlices": [
+    {
+      "id": "mis-mpc-linear-memory",
+      "problem": "mis",
+      "model": "mpc",
+      "label": "Linear memory per machine MPC",
+      "task": "Construct a maximal independent set",
+      "assumptions": [
+        "n-vertex graph",
+        "Õ(n) memory per machine",
+        "Randomized MPC algorithm"
+      ],
+      "parameters": {},
+      "results": [
+        {
+          "id": "mis-mpc-ghaffari-et-al-rounds",
+          "paperId": "ghaffari-et-al-2018-mpc-mis",
+          "kind": "upper",
+          "bound": "O(log log Δ) rounds",
+          "guarantee": "Exact maximal independent set",
+          "sourceLocation": "Theorem 1.1; Sections 1.1.1 and 3.2",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "candidate",
+          "notes": "The theorem is degree-sensitive. The old abstract O(log log n) bound is a valid weaker consequence because Δ<n.",
+          "plot": null,
+          "assumptions": [
+            "Near-linear local memory"
+          ],
+          "localMemory": "Õ(n) bits (Section 3.2 uses O(n log n) bits)",
+          "totalMemory": "Õ(m+n), including isolated vertices"
+        }
+      ],
+      "mode": "1d",
+      "axis": {
+        "label": "Communication rounds: exact symbolic formula rows",
+        "kind": "symbolic",
+        "scaleNote": "Shared round-cost formulas, not a numerical ranking. Green is O(·), red is Ω(·). Graph, stability, randomness and global space must match before reading a gap."
+      },
+      "figureAxes": {
+        "landscape": {
+          "x": {
+            "label": "Graph and local-memory setup",
+            "kind": "categorical",
+            "categories": [
+              {
+                "id": "nearlinear",
+                "label": "Near-linear",
+                "short": "≈ n",
+                "detail": "General graphs; Õ(n) local memory",
+                "color": "#466ab3"
+              },
+              {
+                "id": "general",
+                "label": "Low-space",
+                "short": "General",
+                "detail": "General graphs; n^δ local memory",
+                "color": "#8b5daa"
+              },
+              {
+                "id": "degree",
+                "label": "Restricted Δ",
+                "short": "Small Δ",
+                "detail": "Δ=2^(log^o(1) n); n^δ local memory",
+                "color": "#b06b2d"
+              },
+              {
+                "id": "arboricity",
+                "label": "Arboricity α",
+                "short": "α",
+                "detail": "Variable arboricity; n^δ local memory",
+                "color": "#42828b"
+              },
+              {
+                "id": "bounded",
+                "label": "Bounded α",
+                "short": "α=O(1)",
+                "detail": "Fixed arboricity; n^δ local memory",
+                "color": "#9a7182"
+              },
+              {
+                "id": "trees",
+                "label": "Trees",
+                "short": "Trees",
+                "detail": "Trees; strongly sublinear local memory",
+                "color": "#727844"
+              }
+            ]
+          },
+          "y": {
+            "label": "Communication rounds: exact symbolic formula rows",
+            "kind": "symbolic",
+            "categories": [
+              {
+                "id": "general-det",
+                "label": "log Δ + log(log* n)"
+              },
+              {
+                "id": "general-rand",
+                "label": "√log Δ · log log Δ + √log log n"
+              },
+              {
+                "id": "arbor-old",
+                "label": "√log α · log log α + log² log n"
+              },
+              {
+                "id": "arbor-new",
+                "label": "√log α · log log α + log log n"
+              },
+              {
+                "id": "tree-old",
+                "label": "log³ log n"
+              },
+              {
+                "id": "tree-det",
+                "label": "log² log n"
+              },
+              {
+                "id": "small-degree",
+                "label": "log log Δ + log log log n"
+              },
+              {
+                "id": "degree-lower",
+                "label": "min{log Δ, log log n}"
+              },
+              {
+                "id": "doublelogn",
+                "label": "log log n"
+              },
+              {
+                "id": "doublelogdegree",
+                "label": "log log Δ"
+              }
+            ],
+            "scaleNote": "Shared round-cost formulas, not a numerical ranking. Green is O(·), red is Ω(·). Graph, stability, randomness and global space must match before reading a gap."
+          }
+        }
+      }
+    },
+    {
+      "id": "mis-mpc-lowspace-boundeddegree",
+      "problem": "mis",
+      "model": "mpc",
+      "label": "Low-space MPC, restricted maximum degree",
+      "task": "Construct an explicit maximal independent set",
+      "assumptions": [
+        "For any fixed φ>0, O(n^φ) local space and O(n^(1+φ)) global space",
+        "Maximum degree Δ=2^(log^(o(1)) n)",
+        "Deterministic; component-unstable algorithms and component-stable conditional lower bounds are distinguished"
+      ],
+      "parameters": {
+        "φ": "Any fixed positive constant",
+        "Δ": "Maximum degree subject to stated regime"
+      },
+      "results": [
+        {
+          "id": "mis-mpc-czumaj-2024-lowspace",
+          "paperId": "czumaj-davies-peck-parter-2024-mpc",
+          "kind": "upper",
+          "bound": "O(log log Δ + log log log n) rounds",
+          "guarantee": "Exact maximal independent set",
+          "sourceLocation": "Theorem 25",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "candidate",
+          "notes": "The restricted degree and component-instability are essential; local computation may be expensive.",
+          "plot": null,
+          "assumptions": [
+            "Fixed local-memory exponent 0<δ<1"
+          ],
+          "localMemory": "O(n^δ), any fixed 0<δ<1",
+          "totalMemory": "O(n^(1+δ)) in the stated degree regime"
+        },
+        {
+          "id": "mis-mpc-czumaj-2024-stable-lower",
+          "paperId": "czumaj-davies-peck-parter-2024-mpc",
+          "kind": "lower",
+          "bound": "Ω(min{log Δ, log log n}) rounds",
+          "guarantee": "Exact maximal independent set",
+          "sourceLocation": "Theorem 26, proof: conservative explicit expression",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "candidate",
+          "notes": "The headline rules out o(log Δ + log log n); the proof explicitly derives the displayed min expression, which is the conservative formula plotted.",
+          "plot": null,
+          "assumptions": [
+            "Fixed local-memory exponent 0<δ<1",
+            "Connectivity conjecture",
+            "Component-stable algorithm"
+          ],
+          "localMemory": "O(n^δ), any fixed 0<δ<1",
+          "totalMemory": "Polynomial global memory",
+          "conditional": true,
+          "condition": "Connectivity conjecture: randomized low-space MPC distinguishing one n-cycle from two n/2-cycles with failure at most 1/n requires Ω(log n) rounds."
+        }
+      ],
+      "mode": "1d",
+      "axis": {
+        "label": "Communication rounds: exact symbolic formula rows",
+        "kind": "symbolic",
+        "scaleNote": "Shared round-cost formulas, not a numerical ranking. Green is O(·), red is Ω(·). Graph, stability, randomness and global space must match before reading a gap."
+      },
+      "figureAxes": {
+        "landscape": {
+          "x": {
+            "label": "Graph and local-memory setup",
+            "kind": "categorical",
+            "categories": [
+              {
+                "id": "nearlinear",
+                "label": "Near-linear",
+                "short": "≈ n",
+                "detail": "General graphs; Õ(n) local memory",
+                "color": "#466ab3"
+              },
+              {
+                "id": "general",
+                "label": "Low-space",
+                "short": "General",
+                "detail": "General graphs; n^δ local memory",
+                "color": "#8b5daa"
+              },
+              {
+                "id": "degree",
+                "label": "Restricted Δ",
+                "short": "Small Δ",
+                "detail": "Δ=2^(log^o(1) n); n^δ local memory",
+                "color": "#b06b2d"
+              },
+              {
+                "id": "arboricity",
+                "label": "Arboricity α",
+                "short": "α",
+                "detail": "Variable arboricity; n^δ local memory",
+                "color": "#42828b"
+              },
+              {
+                "id": "bounded",
+                "label": "Bounded α",
+                "short": "α=O(1)",
+                "detail": "Fixed arboricity; n^δ local memory",
+                "color": "#9a7182"
+              },
+              {
+                "id": "trees",
+                "label": "Trees",
+                "short": "Trees",
+                "detail": "Trees; strongly sublinear local memory",
+                "color": "#727844"
+              }
+            ]
+          },
+          "y": {
+            "label": "Communication rounds: exact symbolic formula rows",
+            "kind": "symbolic",
+            "categories": [
+              {
+                "id": "general-det",
+                "label": "log Δ + log(log* n)"
+              },
+              {
+                "id": "general-rand",
+                "label": "√log Δ · log log Δ + √log log n"
+              },
+              {
+                "id": "arbor-old",
+                "label": "√log α · log log α + log² log n"
+              },
+              {
+                "id": "arbor-new",
+                "label": "√log α · log log α + log log n"
+              },
+              {
+                "id": "tree-old",
+                "label": "log³ log n"
+              },
+              {
+                "id": "tree-det",
+                "label": "log² log n"
+              },
+              {
+                "id": "small-degree",
+                "label": "log log Δ + log log log n"
+              },
+              {
+                "id": "degree-lower",
+                "label": "min{log Δ, log log n}"
+              },
+              {
+                "id": "doublelogn",
+                "label": "log log n"
+              },
+              {
+                "id": "doublelogdegree",
+                "label": "log log Δ"
+              }
+            ],
+            "scaleNote": "Shared round-cost formulas, not a numerical ranking. Green is O(·), red is Ω(·). Graph, stability, randomness and global space must match before reading a gap."
+          }
+        }
+      }
+    },
+    {
+      "id": "mis-mpc-lowspace-general",
+      "problem": "mis",
+      "model": "mpc",
+      "label": "Strongly sublinear memory MPC, general graphs",
+      "task": "Output an explicit MIS on an arbitrary n-vertex graph",
+      "assumptions": [
+        "Per-machine local memory n^φ for fixed φ∈(0,1)",
+        "Randomization, success, component stability and global memory are stated per theorem"
+      ],
+      "parameters": {
+        "φ": "Any fixed constant (0,1)",
+        "Δ": "Maximum degree"
+      },
+      "results": [
+        {
+          "id": "mis-mpc-ghaffari-uitto-2019-lowspace",
+          "paperId": "ghaffari-uitto-2019-sparsify",
+          "kind": "upper",
+          "bound": "O(√log Δ · log log Δ + √log log n) rounds",
+          "guarantee": "Exact maximal independent set",
+          "sourceLocation": "Theorems 1.1 and 3.7; Section 1.1",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "candidate",
+          "notes": "Retains the additive √log log n term suppressed by the Õ shorthand.",
+          "plot": null,
+          "assumptions": [
+            "Fixed local-memory exponent 0<δ<1"
+          ],
+          "localMemory": "O(n^δ), any fixed 0<δ<1",
+          "totalMemory": "Õ(m+n), including isolated vertices"
+        },
+        {
+          "id": "mis-mpc-cdp24-general-det",
+          "paperId": "czumaj-davies-peck-parter-2024-mpc",
+          "kind": "upper",
+          "bound": "O(log Δ + log(log* n)) rounds",
+          "guarantee": "Exact maximal independent set",
+          "sourceLocation": "Lemma 27; input-inclusive memory convention in Section 1.1",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "candidate",
+          "notes": "The stable lower bound does not constrain this component-unstable algorithm.",
+          "plot": null,
+          "assumptions": [
+            "Fixed local-memory exponent 0<δ<1"
+          ],
+          "localMemory": "O(n^δ), any fixed 0<δ<1",
+          "totalMemory": "O(m+n^(1+δ))"
+        },
+        {
+          "id": "mis-mpc-cdp24-general-lower",
+          "paperId": "czumaj-davies-peck-parter-2024-mpc",
+          "kind": "lower",
+          "bound": "Ω(log log n) rounds",
+          "guarantee": "Exact maximal independent set",
+          "sourceLocation": "Theorem 12 (MIS); Theorem 5 success convention",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "candidate",
+          "notes": "The forests qualifier in Theorem 12 belongs to matching, not MIS; no tree-specific MIS lower bound is inferred.",
+          "plot": null,
+          "assumptions": [
+            "Fixed local-memory exponent 0<δ<1",
+            "Connectivity conjecture",
+            "Component-stable algorithm"
+          ],
+          "localMemory": "O(n^δ), any fixed 0<δ<1",
+          "totalMemory": "Polynomial global memory",
+          "conditional": true,
+          "condition": "Connectivity conjecture: randomized low-space MPC distinguishing one n-cycle from two n/2-cycles with failure at most 1/n requires Ω(log n) rounds."
+        }
+      ],
+      "mode": "1d",
+      "axis": {
+        "label": "Communication rounds: exact symbolic formula rows",
+        "kind": "symbolic",
+        "scaleNote": "Shared round-cost formulas, not a numerical ranking. Green is O(·), red is Ω(·). Graph, stability, randomness and global space must match before reading a gap."
+      },
+      "figureAxes": {
+        "landscape": {
+          "x": {
+            "label": "Graph and local-memory setup",
+            "kind": "categorical",
+            "categories": [
+              {
+                "id": "nearlinear",
+                "label": "Near-linear",
+                "short": "≈ n",
+                "detail": "General graphs; Õ(n) local memory",
+                "color": "#466ab3"
+              },
+              {
+                "id": "general",
+                "label": "Low-space",
+                "short": "General",
+                "detail": "General graphs; n^δ local memory",
+                "color": "#8b5daa"
+              },
+              {
+                "id": "degree",
+                "label": "Restricted Δ",
+                "short": "Small Δ",
+                "detail": "Δ=2^(log^o(1) n); n^δ local memory",
+                "color": "#b06b2d"
+              },
+              {
+                "id": "arboricity",
+                "label": "Arboricity α",
+                "short": "α",
+                "detail": "Variable arboricity; n^δ local memory",
+                "color": "#42828b"
+              },
+              {
+                "id": "bounded",
+                "label": "Bounded α",
+                "short": "α=O(1)",
+                "detail": "Fixed arboricity; n^δ local memory",
+                "color": "#9a7182"
+              },
+              {
+                "id": "trees",
+                "label": "Trees",
+                "short": "Trees",
+                "detail": "Trees; strongly sublinear local memory",
+                "color": "#727844"
+              }
+            ]
+          },
+          "y": {
+            "label": "Communication rounds: exact symbolic formula rows",
+            "kind": "symbolic",
+            "categories": [
+              {
+                "id": "general-det",
+                "label": "log Δ + log(log* n)"
+              },
+              {
+                "id": "general-rand",
+                "label": "√log Δ · log log Δ + √log log n"
+              },
+              {
+                "id": "arbor-old",
+                "label": "√log α · log log α + log² log n"
+              },
+              {
+                "id": "arbor-new",
+                "label": "√log α · log log α + log log n"
+              },
+              {
+                "id": "tree-old",
+                "label": "log³ log n"
+              },
+              {
+                "id": "tree-det",
+                "label": "log² log n"
+              },
+              {
+                "id": "small-degree",
+                "label": "log log Δ + log log log n"
+              },
+              {
+                "id": "degree-lower",
+                "label": "min{log Δ, log log n}"
+              },
+              {
+                "id": "doublelogn",
+                "label": "log log n"
+              },
+              {
+                "id": "doublelogdegree",
+                "label": "log log Δ"
+              }
+            ],
+            "scaleNote": "Shared round-cost formulas, not a numerical ranking. Green is O(·), red is Ω(·). Graph, stability, randomness and global space must match before reading a gap."
+          }
+        }
+      }
+    },
+    {
+      "id": "mis-mpc-lowspace-arboricity",
+      "problem": "mis",
+      "model": "mpc",
+      "label": "Low-space MPC, bounded arboricity",
+      "task": "Output an explicit MIS",
+      "assumptions": [
+        "n vertices, m edges, arboricity λ or α",
+        "Local memory O(n^φ), fixed φ∈(0,1)",
+        "Preserve global memory requirement per theorem"
+      ],
+      "parameters": {
+        "λ": "Arboricity",
+        "φ": "Fixed local-memory exponent"
+      },
+      "results": [
+        {
+          "id": "mis-mpc-brandt-2019-arbor",
+          "paperId": "brandt-fischer-uitto-2019-sparse-mpc",
+          "kind": "upper",
+          "bound": "O(log² log n + T(poly(α,log n))) rounds",
+          "guarantee": "Exact maximal independent set",
+          "sourceLocation": "Theorem 1.1: degree reduction",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "candidate",
+          "notes": "T(D) is the full round complexity of a bounded-degree MIS subroutine. Formal reduction retains log n in residual degree; abstract T(poly α) shorthand is not plotted as an exact cost. Printed Theorem 1.3 predates the retained GU logarithmic factors.",
+          "plot": null,
+          "assumptions": [
+            "Fixed local-memory exponent 0<δ<1"
+          ],
+          "localMemory": "O(n^δ), fixed 0<δ≤1/2",
+          "totalMemory": "Õ(m), or Õ(m+n) including isolated vertices"
+        },
+        {
+          "id": "mis-mpc-behnezhad-2019-arbor",
+          "paperId": "behnezhad-et-al-2019-sparse-mpc",
+          "kind": "upper",
+          "bound": "O(√log α · log log α + log² log n) rounds",
+          "guarantee": "Exact maximal independent set",
+          "sourceLocation": "Theorem 1; PODC 2019 joint-paper abstract",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "candidate",
+          "notes": "The published joint paper combines the BDHK and BFU manuscripts.",
+          "plot": null,
+          "assumptions": [
+            "Fixed local-memory exponent 0<δ<1"
+          ],
+          "localMemory": "O(n^δ), any fixed 0<δ<1",
+          "totalMemory": "Õ(m+n), including isolated vertices"
+        },
+        {
+          "id": "mis-mpc-ghaffari2020-arbor",
+          "paperId": "ghaffari-grunau-jin-2020-mpc-trees",
+          "kind": "upper",
+          "bound": "O(log log n) rounds",
+          "guarantee": "Exact maximal independent set",
+          "sourceLocation": "Theorem 1, α=O(1)",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "candidate",
+          "notes": "No compatible MIS lower bound on fixed-arboricity graphs was verified in this bounded source set.",
+          "plot": null,
+          "assumptions": [
+            "Fixed local-memory exponent 0<δ<1"
+          ],
+          "localMemory": "O(n^δ), any fixed 0<δ<1",
+          "totalMemory": "Õ(m+n), including isolated vertices"
+        },
+        {
+          "id": "mis-mpc-ggj20-variable-arboricity",
+          "paperId": "ghaffari-grunau-jin-2020-mpc-trees",
+          "kind": "upper",
+          "bound": "O(√log α · log log α + log log n) rounds",
+          "guarantee": "Exact maximal independent set",
+          "sourceLocation": "Theorem 1",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "candidate",
+          "notes": "Keep α-dependence explicit; only fixed α gives the O(log log n) specialization.",
+          "plot": null,
+          "assumptions": [
+            "Fixed local-memory exponent 0<δ<1"
+          ],
+          "localMemory": "O(n^δ), any fixed 0<δ<1",
+          "totalMemory": "Õ(m+n), including isolated vertices"
+        }
+      ],
+      "mode": "1d",
+      "axis": {
+        "label": "Communication rounds: exact symbolic formula rows",
+        "kind": "symbolic",
+        "scaleNote": "Shared round-cost formulas, not a numerical ranking. Green is O(·), red is Ω(·). Graph, stability, randomness and global space must match before reading a gap."
+      },
+      "figureAxes": {
+        "landscape": {
+          "x": {
+            "label": "Graph and local-memory setup",
+            "kind": "categorical",
+            "categories": [
+              {
+                "id": "nearlinear",
+                "label": "Near-linear",
+                "short": "≈ n",
+                "detail": "General graphs; Õ(n) local memory",
+                "color": "#466ab3"
+              },
+              {
+                "id": "general",
+                "label": "Low-space",
+                "short": "General",
+                "detail": "General graphs; n^δ local memory",
+                "color": "#8b5daa"
+              },
+              {
+                "id": "degree",
+                "label": "Restricted Δ",
+                "short": "Small Δ",
+                "detail": "Δ=2^(log^o(1) n); n^δ local memory",
+                "color": "#b06b2d"
+              },
+              {
+                "id": "arboricity",
+                "label": "Arboricity α",
+                "short": "α",
+                "detail": "Variable arboricity; n^δ local memory",
+                "color": "#42828b"
+              },
+              {
+                "id": "bounded",
+                "label": "Bounded α",
+                "short": "α=O(1)",
+                "detail": "Fixed arboricity; n^δ local memory",
+                "color": "#9a7182"
+              },
+              {
+                "id": "trees",
+                "label": "Trees",
+                "short": "Trees",
+                "detail": "Trees; strongly sublinear local memory",
+                "color": "#727844"
+              }
+            ]
+          },
+          "y": {
+            "label": "Communication rounds: exact symbolic formula rows",
+            "kind": "symbolic",
+            "categories": [
+              {
+                "id": "general-det",
+                "label": "log Δ + log(log* n)"
+              },
+              {
+                "id": "general-rand",
+                "label": "√log Δ · log log Δ + √log log n"
+              },
+              {
+                "id": "arbor-old",
+                "label": "√log α · log log α + log² log n"
+              },
+              {
+                "id": "arbor-new",
+                "label": "√log α · log log α + log log n"
+              },
+              {
+                "id": "tree-old",
+                "label": "log³ log n"
+              },
+              {
+                "id": "tree-det",
+                "label": "log² log n"
+              },
+              {
+                "id": "small-degree",
+                "label": "log log Δ + log log log n"
+              },
+              {
+                "id": "degree-lower",
+                "label": "min{log Δ, log log n}"
+              },
+              {
+                "id": "doublelogn",
+                "label": "log log n"
+              },
+              {
+                "id": "doublelogdegree",
+                "label": "log log Δ"
+              }
+            ],
+            "scaleNote": "Shared round-cost formulas, not a numerical ranking. Green is O(·), red is Ω(·). Graph, stability, randomness and global space must match before reading a gap."
+          }
+        }
+      }
+    },
+    {
+      "id": "mis-mpc-lowspace-trees-randomized",
+      "problem": "mis",
+      "model": "mpc",
+      "label": "Low-space MPC on trees, randomized",
+      "task": "Output explicit MIS on a tree",
+      "assumptions": [
+        "Tree input; local memory n^φ, fixed φ∈(0,1)",
+        "Randomized; complete tree restriction essential"
+      ],
+      "parameters": {
+        "φ": "Fixed local-memory exponent"
+      },
+      "results": [
+        {
+          "id": "mis-mpc-brandt-tree-2019",
+          "paperId": "brandt-fischer-uitto-2019-tree-mpc",
+          "kind": "upper",
+          "bound": "O(log³ log n) rounds",
+          "guarantee": "Exact maximal independent set",
+          "sourceLocation": "Theorem 1.3",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "candidate",
+          "notes": "Historical near-linear-global-memory bound. Polylog local factors can be absorbed by a slightly smaller fixed exponent.",
+          "plot": null,
+          "assumptions": [
+            "Fixed local-memory exponent 0<δ<1"
+          ],
+          "localMemory": "Õ(n^ε), any fixed 0<ε<1",
+          "totalMemory": "Õ(n): Õ(n^(1−ε)) machines"
+        },
+        {
+          "id": "mis-mpc-ghaffari-tree-2020",
+          "paperId": "ghaffari-grunau-jin-2020-mpc-trees",
+          "kind": "upper",
+          "bound": "O(log log n) rounds",
+          "guarantee": "Exact maximal independent set",
+          "sourceLocation": "Theorem 1, α=1",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "candidate",
+          "notes": "Tree specialization of the bounded-arboricity theorem.",
+          "plot": null,
+          "assumptions": [
+            "Fixed local-memory exponent 0<δ<1"
+          ],
+          "localMemory": "O(n^δ), any fixed 0<δ<1",
+          "totalMemory": "Õ(m+n), including isolated vertices"
+        },
+        {
+          "id": "mis-mpc-bfu19-extra-global-memory",
+          "paperId": "brandt-fischer-uitto-2019-tree-mpc",
+          "kind": "upper",
+          "bound": "O(log² log n) rounds",
+          "guarantee": "Exact maximal independent set",
+          "sourceLocation": "Theorem 1.2",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "historical",
+          "notes": "Faster historical tree algorithm with superlinear total memory; kept outside the main near-linear-global-memory tree comparison.",
+          "plot": null,
+          "assumptions": [
+            "Fixed local-memory exponent 0<δ<1"
+          ],
+          "localMemory": "Õ(n^ε), any fixed 0<ε<1",
+          "totalMemory": "Õ(n^(1+2ε/3)): Õ(n^(1−ε/3)) machines"
+        }
+      ],
+      "mode": "1d",
+      "axis": {
+        "label": "Communication rounds: exact symbolic formula rows",
+        "kind": "symbolic",
+        "scaleNote": "Shared round-cost formulas, not a numerical ranking. Green is O(·), red is Ω(·). Graph, stability, randomness and global space must match before reading a gap."
+      },
+      "figureAxes": {
+        "landscape": {
+          "x": {
+            "label": "Graph and local-memory setup",
+            "kind": "categorical",
+            "categories": [
+              {
+                "id": "nearlinear",
+                "label": "Near-linear",
+                "short": "≈ n",
+                "detail": "General graphs; Õ(n) local memory",
+                "color": "#466ab3"
+              },
+              {
+                "id": "general",
+                "label": "Low-space",
+                "short": "General",
+                "detail": "General graphs; n^δ local memory",
+                "color": "#8b5daa"
+              },
+              {
+                "id": "degree",
+                "label": "Restricted Δ",
+                "short": "Small Δ",
+                "detail": "Δ=2^(log^o(1) n); n^δ local memory",
+                "color": "#b06b2d"
+              },
+              {
+                "id": "arboricity",
+                "label": "Arboricity α",
+                "short": "α",
+                "detail": "Variable arboricity; n^δ local memory",
+                "color": "#42828b"
+              },
+              {
+                "id": "bounded",
+                "label": "Bounded α",
+                "short": "α=O(1)",
+                "detail": "Fixed arboricity; n^δ local memory",
+                "color": "#9a7182"
+              },
+              {
+                "id": "trees",
+                "label": "Trees",
+                "short": "Trees",
+                "detail": "Trees; strongly sublinear local memory",
+                "color": "#727844"
+              }
+            ]
+          },
+          "y": {
+            "label": "Communication rounds: exact symbolic formula rows",
+            "kind": "symbolic",
+            "categories": [
+              {
+                "id": "general-det",
+                "label": "log Δ + log(log* n)"
+              },
+              {
+                "id": "general-rand",
+                "label": "√log Δ · log log Δ + √log log n"
+              },
+              {
+                "id": "arbor-old",
+                "label": "√log α · log log α + log² log n"
+              },
+              {
+                "id": "arbor-new",
+                "label": "√log α · log log α + log log n"
+              },
+              {
+                "id": "tree-old",
+                "label": "log³ log n"
+              },
+              {
+                "id": "tree-det",
+                "label": "log² log n"
+              },
+              {
+                "id": "small-degree",
+                "label": "log log Δ + log log log n"
+              },
+              {
+                "id": "degree-lower",
+                "label": "min{log Δ, log log n}"
+              },
+              {
+                "id": "doublelogn",
+                "label": "log log n"
+              },
+              {
+                "id": "doublelogdegree",
+                "label": "log log Δ"
+              }
+            ],
+            "scaleNote": "Shared round-cost formulas, not a numerical ranking. Green is O(·), red is Ω(·). Graph, stability, randomness and global space must match before reading a gap."
+          }
+        }
+      }
+    },
+    {
+      "id": "mis-mpc-lowspace-trees-deterministic",
+      "problem": "mis",
+      "model": "mpc",
+      "label": "Low-space MPC on trees, deterministic",
+      "task": "Output explicit MIS on a tree",
+      "assumptions": [
+        "Tree input, arbitrary degree",
+        "Local memory O(n^δ) for δ∈(0,1); global memory O(m)",
+        "Deterministic"
+      ],
+      "parameters": {
+        "δ": "Fixed local-memory exponent"
+      },
+      "results": [
+        {
+          "id": "mis-mpc-latypov-tree-2021",
+          "paperId": "latypov-uitto-2021-mpc-trees",
+          "kind": "upper",
+          "bound": "O(log² log n) rounds",
+          "guarantee": "Exact maximal independent set",
+          "sourceLocation": "Theorem 4.10",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "candidate",
+          "notes": "MIS follows from deterministic 3-coloring. Publication venue remains unverified; retained as author preprint.",
+          "plot": null,
+          "assumptions": [
+            "Fixed local-memory exponent 0<δ<1"
+          ],
+          "localMemory": "O(n^δ), any fixed 0<δ<1",
+          "totalMemory": "O(m) words; O(n) for a nontrivial tree"
+        },
+        {
+          "id": "mis-mpc-latypov-constant-degree-tree",
+          "paperId": "latypov-uitto-2021-mpc-trees",
+          "kind": "upper",
+          "bound": "O(log log n) rounds",
+          "guarantee": "Exact maximal independent set",
+          "sourceLocation": "Theorem 3.4",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "candidate",
+          "notes": "Additional constant-degree restriction; not the arbitrary-degree deterministic theorem.",
+          "plot": null,
+          "assumptions": [
+            "Fixed local-memory exponent 0<δ<1"
+          ],
+          "localMemory": "O(n^δ), any fixed 0<δ<1",
+          "totalMemory": "O(m) words; O(n) for a nontrivial tree"
+        }
+      ],
+      "mode": "1d",
+      "axis": {
+        "label": "Communication rounds: exact symbolic formula rows",
+        "kind": "symbolic",
+        "scaleNote": "Shared round-cost formulas, not a numerical ranking. Green is O(·), red is Ω(·). Graph, stability, randomness and global space must match before reading a gap."
+      },
+      "figureAxes": {
+        "landscape": {
+          "x": {
+            "label": "Graph and local-memory setup",
+            "kind": "categorical",
+            "categories": [
+              {
+                "id": "nearlinear",
+                "label": "Near-linear",
+                "short": "≈ n",
+                "detail": "General graphs; Õ(n) local memory",
+                "color": "#466ab3"
+              },
+              {
+                "id": "general",
+                "label": "Low-space",
+                "short": "General",
+                "detail": "General graphs; n^δ local memory",
+                "color": "#8b5daa"
+              },
+              {
+                "id": "degree",
+                "label": "Restricted Δ",
+                "short": "Small Δ",
+                "detail": "Δ=2^(log^o(1) n); n^δ local memory",
+                "color": "#b06b2d"
+              },
+              {
+                "id": "arboricity",
+                "label": "Arboricity α",
+                "short": "α",
+                "detail": "Variable arboricity; n^δ local memory",
+                "color": "#42828b"
+              },
+              {
+                "id": "bounded",
+                "label": "Bounded α",
+                "short": "α=O(1)",
+                "detail": "Fixed arboricity; n^δ local memory",
+                "color": "#9a7182"
+              },
+              {
+                "id": "trees",
+                "label": "Trees",
+                "short": "Trees",
+                "detail": "Trees; strongly sublinear local memory",
+                "color": "#727844"
+              }
+            ]
+          },
+          "y": {
+            "label": "Communication rounds: exact symbolic formula rows",
+            "kind": "symbolic",
+            "categories": [
+              {
+                "id": "general-det",
+                "label": "log Δ + log(log* n)"
+              },
+              {
+                "id": "general-rand",
+                "label": "√log Δ · log log Δ + √log log n"
+              },
+              {
+                "id": "arbor-old",
+                "label": "√log α · log log α + log² log n"
+              },
+              {
+                "id": "arbor-new",
+                "label": "√log α · log log α + log log n"
+              },
+              {
+                "id": "tree-old",
+                "label": "log³ log n"
+              },
+              {
+                "id": "tree-det",
+                "label": "log² log n"
+              },
+              {
+                "id": "small-degree",
+                "label": "log log Δ + log log log n"
+              },
+              {
+                "id": "degree-lower",
+                "label": "min{log Δ, log log n}"
+              },
+              {
+                "id": "doublelogn",
+                "label": "log log n"
+              },
+              {
+                "id": "doublelogdegree",
+                "label": "log log Δ"
+              }
+            ],
+            "scaleNote": "Shared round-cost formulas, not a numerical ranking. Green is O(·), red is Ω(·). Graph, stability, randomness and global space must match before reading a gap."
+          }
+        }
+      }
+    }
+  ],
+  "corrections": [
+    "GGKMR Theorem 1.1 improves stored abstract bound to O(log log Δ).",
+    "GU retains √log log n.",
+    "BFU reduction retains residual degree poly(α,log n) and remains related evidence.",
+    "General MIS lower is conditional and component-stable, not automatically valid for forests/trees.",
+    "CDP Theorem 26 uses the proof’s conservative min expression.",
+    "LU arbitrary-degree and constant-degree tree theorems are separate."
+  ]
+}

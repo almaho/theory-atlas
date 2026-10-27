@@ -1,0 +1,617 @@
+{
+  "id": "cc-query_matrix",
+  "title": "Accuracy changes the price of a partition",
+  "problem": "cc",
+  "model": "query_matrix",
+  "version": 1,
+  "sources": {
+    "garg-2026-query-lb": {
+      "id": "garg-2026-query-lb",
+      "title": "Query Lower Bounds for Correlation Clustering under Memory Constraints",
+      "authors": [
+        "Sumegha Garg",
+        "Songhua He",
+        "Periklis A. Papakonstantinou"
+      ],
+      "year": 2026,
+      "venue": "ITCS 2026",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ITCS.2026.67",
+      "verifiedOn": "2026-10-26",
+      "fullTextUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol362-itcs2026/html/LIPIcs.ITCS.2026.67/LIPIcs.ITCS.2026.67.html",
+      "publicationUrl": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ITCS.2026.67"
+    },
+    "bonchi-2013-local": {
+      "id": "bonchi-2013-local",
+      "title": "Local Correlation Clustering",
+      "authors": [
+        "Francesco Bonchi",
+        "David García-Soriano",
+        "Konstantin Kutzkov"
+      ],
+      "year": 2013,
+      "venue": "arXiv 2013",
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/html/1312.5105v1",
+      "verifiedOn": "2026-10-26",
+      "fullTextUrl": "https://arxiv.org/html/1312.5105v1",
+      "publicationUrl": "https://arxiv.org/html/1312.5105v1"
+    },
+    "bressan-2019-adaptive-queries": {
+      "id": "bressan-2019-adaptive-queries",
+      "title": "Correlation Clustering with Adaptive Similarity Queries",
+      "authors": [
+        "Marco Bressan",
+        "Nicolò Cesa-Bianchi",
+        "Andrea Paudice",
+        "Fabio Vitale"
+      ],
+      "year": 2019,
+      "venue": "NeurIPS 2019",
+      "publicationStatus": "conference",
+      "url": "https://proceedings.neurips.cc/paper/2019/hash/b0ba5c44aaf65f6ca34cf116e6d82ebf-Abstract.html",
+      "verifiedOn": "2026-10-26",
+      "fullTextUrl": "https://proceedings.neurips.cc/paper_files/paper/2019/file/b0ba5c44aaf65f6ca34cf116e6d82ebf-Paper.pdf",
+      "publicationUrl": "https://proceedings.neurips.cc/paper/2019/hash/b0ba5c44aaf65f6ca34cf116e6d82ebf-Abstract.html"
+    },
+    "garciasoriano-2020-query-efficient": {
+      "id": "garciasoriano-2020-query-efficient",
+      "title": "Query-Efficient Correlation Clustering",
+      "authors": [
+        "David García-Soriano",
+        "Konstantin Kutzkov",
+        "Francesco Bonchi",
+        "Charalampos E. Tsourakakis"
+      ],
+      "year": 2020,
+      "venue": "The Web Conference 2020",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2002.11557",
+      "verifiedOn": "2026-10-26",
+      "fullTextUrl": "https://arxiv.org/html/2002.11557v1",
+      "publicationUrl": "https://doi.org/10.1145/3366423.3380220"
+    }
+  },
+  "verifiedRecords": [
+    {
+      "graph": "Complete signed graph with binary ± labels on n vertices",
+      "oracle": "Adjacency-matrix pair queries; no neighbor lists",
+      "resource": "Adjacency-matrix pair queries",
+      "output": "Explicit partition of all n vertices",
+      "conditional": false,
+      "id": "cc-query-partition-lb",
+      "paperId": "garg-2026-query-lb",
+      "kind": "lower",
+      "bound": "Ω(n/ε²) announced",
+      "guarantee": "Partition cost OPT + O(εn²)",
+      "sourceLocation": "Introduction, Theorem 1 (Informal), and footnote 1",
+      "evidenceStatus": "informal_primary_statement",
+      "frontierStatus": "announced",
+      "notes": "The conference announces this lower bound, but explicitly defers its formal statement and proof. No ε-domain curve or capped lower bound is inferred.",
+      "plot": null,
+      "panel": "pure",
+      "setup": "pure",
+      "display": "announcement",
+      "displayBound": "Ω(n/ε²) announced",
+      "quality": "Partition cost OPT + O(εn²)",
+      "theorem": "Introduction, Theorem 1 (Informal), and footnote 1",
+      "probability": "Randomized algorithms; the informal statement does not state a success threshold.",
+      "assumptions": [
+        "Adjacency-matrix queries, adaptivity allowed",
+        "Unrestricted memory",
+        "Formal ε regime is omitted"
+      ],
+      "shortLabel": "Garg–He–Papakonstantinou 2026",
+      "sourceId": "garg-2026-query-lb",
+      "sourceUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol362-itcs2026/html/LIPIcs.ITCS.2026.67/LIPIcs.ITCS.2026.67.html"
+    },
+    {
+      "graph": "Complete signed graph with binary ± labels on n vertices",
+      "oracle": "Adjacency-matrix pair queries; no neighbor lists",
+      "resource": "Adjacency-matrix pair queries",
+      "output": "Explicit partition of all n vertices",
+      "conditional": false,
+      "id": "cc-query-bonchi-four",
+      "paperId": "bonchi-2013-local",
+      "kind": "upper",
+      "bound": "O(n/ε) queries and time",
+      "guarantee": "Cost ≤ 4 OPT + εn²",
+      "sourceLocation": "Theorem 3.3; §3 probability convention",
+      "evidenceStatus": "verified",
+      "frontierStatus": "historical",
+      "notes": "Historical constant-success guarantee; retained separately from the expected-cost frontier.",
+      "plot": null,
+      "panel": "mixed",
+      "setup": "constant-success",
+      "display": "related",
+      "displayBound": "O(n/ε) queries and time",
+      "quality": "Cost ≤ 4 OPT + εn²",
+      "theorem": "Theorem 3.3; §3 probability convention",
+      "probability": "Success probability at least 2/3",
+      "assumptions": [
+        "0 < ε < 1",
+        "Constant-success quality, distinct from expected cost"
+      ],
+      "shortLabel": "Bonchi et al. 2013",
+      "sourceId": "bonchi-2013-local",
+      "sourceUrl": "https://arxiv.org/html/1312.5105v1"
+    },
+    {
+      "graph": "Complete signed graph with binary ± labels on n vertices",
+      "oracle": "Adjacency-matrix pair queries; no neighbor lists",
+      "resource": "Adjacency-matrix pair queries",
+      "output": "Explicit partition of all n vertices",
+      "conditional": false,
+      "id": "cc-query-bonchi-four-lb",
+      "paperId": "bonchi-2013-local",
+      "kind": "lower",
+      "bound": "Ω(n/(c²ε)) historical statement",
+      "guarantee": "Cost ≤ c OPT + εn², fixed c",
+      "sourceLocation": "Theorem 6.1 and Corollary 6.4",
+      "evidenceStatus": "verified_statement_with_later_scope_caveat",
+      "frontierStatus": "historical",
+      "notes": "Preserved as a historical statement, not used as the general adaptive lower frontier: Bressan 2019 §6 discusses the per-vertex query restriction in the earlier proof.",
+      "plot": null,
+      "panel": "mixed",
+      "setup": "constant-success",
+      "display": "related",
+      "displayBound": "Ω(n/(c²ε)) historical statement",
+      "quality": "Cost ≤ c OPT + εn², fixed c",
+      "theorem": "Theorem 6.1 and Corollary 6.4",
+      "probability": "Corollary 6.4 states success probability 1/2.",
+      "assumptions": [
+        "Corollary 6.4: ε > 10⁷/n",
+        "Its proof assumes c ≥ 3",
+        "Theorem 6.1 uses 1/n < ε < 1/(100c)",
+        "2019 source identifies a restriction in this earlier lower-bound argument"
+      ],
+      "shortLabel": "Bonchi et al. 2013",
+      "sourceId": "bonchi-2013-local",
+      "sourceUrl": "https://arxiv.org/html/1312.5105v1"
+    },
+    {
+      "graph": "Complete signed graph with binary ± labels on n vertices",
+      "oracle": "Adjacency-matrix pair queries; no neighbor lists",
+      "resource": "Adjacency-matrix pair queries",
+      "output": "Explicit partition of all n vertices",
+      "conditional": false,
+      "id": "cc-query-bonchi-pure-additive",
+      "paperId": "bonchi-2013-local",
+      "kind": "upper",
+      "bound": "n poly(1/ε) + 2^{poly(1/ε)} time",
+      "guarantee": "Cost ≤ OPT + εn²",
+      "sourceLocation": "Theorem 3.6 and Corollary 3.7",
+      "evidenceStatus": "verified",
+      "frontierStatus": "historical",
+      "notes": "The local routine has poly(1/ε) probes after preprocessing. The polynomial degree is not specified here, so no numeric query exponent is plotted.",
+      "plot": null,
+      "panel": "pure",
+      "setup": "pure",
+      "display": "related",
+      "displayBound": "n poly(1/ε) + 2^{poly(1/ε)} time",
+      "quality": "Cost ≤ OPT + εn²",
+      "theorem": "Theorem 3.6 and Corollary 3.7",
+      "probability": "Success probability at least 2/3",
+      "assumptions": [
+        "0 < ε < 1",
+        "Full explicit partition",
+        "Unspecified polynomial dependence on 1/ε"
+      ],
+      "shortLabel": "Bonchi et al. 2013",
+      "sourceId": "bonchi-2013-local",
+      "sourceUrl": "https://arxiv.org/html/1312.5105v1"
+    },
+    {
+      "graph": "Complete signed graph with binary ± labels on n vertices",
+      "oracle": "Adjacency-matrix pair queries; no neighbor lists",
+      "resource": "Adjacency-matrix pair queries",
+      "output": "Explicit partition of all n vertices",
+      "conditional": false,
+      "id": "cc-query-bressan-2019-three",
+      "paperId": "bressan-2019-adaptive-queries",
+      "kind": "upper",
+      "bound": "O(n/ε) queries and time",
+      "guarantee": "E[cost] ≤ 3 OPT + O(εn²)",
+      "sourceLocation": "Theorem 1 and Table 1",
+      "evidenceStatus": "verified",
+      "frontierStatus": "historical",
+      "notes": "ACC gives E[cost] ≤ 3 OPT + ((2e−1)/(2(e−1)))n²/f(n) + n/e; summarized as 3 OPT + O(n³/Q).",
+      "plot": null,
+      "panel": "mixed",
+      "setup": "expected",
+      "display": "related",
+      "displayBound": "O(n/ε) queries and time",
+      "quality": "E[cost] ≤ 3 OPT + O(εn²)",
+      "theorem": "Theorem 1 and Table 1",
+      "probability": "Expected clustering cost; query budget bounded deterministically",
+      "assumptions": [
+        "Query rate f from Definition 1",
+        "Q ≤ n⌈f(n)⌉",
+        "Q = Ω(n) in the summarized budget tradeoff"
+      ],
+      "shortLabel": "Bressan et al. 2019",
+      "sourceUrl": "https://proceedings.neurips.cc/paper_files/paper/2019/file/b0ba5c44aaf65f6ca34cf116e6d82ebf-Paper.pdf#page=4",
+      "sourceId": "bressan-2019-adaptive-queries"
+    },
+    {
+      "graph": "Complete signed graph with binary ± labels on n vertices",
+      "oracle": "Adjacency-matrix pair queries; no neighbor lists",
+      "resource": "Adjacency-matrix pair queries",
+      "output": "Explicit partition of all n vertices",
+      "conditional": false,
+      "id": "cc-query-garciasoriano-2020-three",
+      "paperId": "garciasoriano-2020-query-efficient",
+      "kind": "upper",
+      "bound": "O(n/ε) queries and time",
+      "guarantee": "E[cost] ≤ 3 OPT + εn²",
+      "sourceLocation": "Theorems 3.1 and 3.4",
+      "evidenceStatus": "verified",
+      "frontierStatus": "historical",
+      "notes": "The exact budget guarantee is E[cost] ≤ 3 OPT + n³/(2Q). Setting Q = n/(2ε) yields the displayed tradeoff.",
+      "plot": null,
+      "panel": "mixed",
+      "setup": "expected",
+      "display": "curve",
+      "displayBound": "O(n/ε) queries and time",
+      "quality": "E[cost] ≤ 3 OPT + εn²",
+      "theorem": "Theorems 3.1 and 3.4",
+      "probability": "Expected clustering cost; at most Q queries",
+      "assumptions": [
+        "Any Q > 0 in the theorem",
+        "Set Q ≥ n/(2ε) for the displayed additive error",
+        "Adaptive and nonadaptive variants",
+        "At smaller ε use the full-input 3-approximation baseline"
+      ],
+      "shortLabel": "García-Soriano et al. 2020",
+      "curve": {
+        "domain": [
+          0,
+          1
+        ],
+        "queryExponent": "1+a"
+      },
+      "sourceId": "garciasoriano-2020-query-efficient",
+      "sourceUrl": "https://arxiv.org/html/2002.11557v1"
+    },
+    {
+      "graph": "Complete signed graph with binary ± labels on n vertices",
+      "oracle": "Adjacency-matrix pair queries; no neighbor lists",
+      "resource": "Adjacency-matrix pair queries",
+      "output": "Explicit partition of all n vertices",
+      "conditional": false,
+      "id": "cc-query-bressan-2019-pure-additive",
+      "paperId": "bressan-2019-adaptive-queries",
+      "kind": "upper",
+      "bound": "O(n/ε²) queries",
+      "guarantee": "Cost ≤ OPT + O(εn²)",
+      "sourceLocation": "Theorems 6 and 7",
+      "evidenceStatus": "verified",
+      "frontierStatus": "current_best_verified",
+      "notes": "VC dimension n−1 gives the query bound. Constant rescaling of ε converts the O(εn²) allowance to εn². Computation remains exponential.",
+      "plot": null,
+      "panel": "pure",
+      "setup": "pure",
+      "display": "curve",
+      "displayBound": "O(n/ε²) queries",
+      "quality": "Cost ≤ OPT + O(εn²)",
+      "theorem": "Theorems 6 and 7",
+      "probability": "High probability, as stated by Theorem 7",
+      "assumptions": [
+        "0 < ε < 1",
+        "Uniformly random pair queries",
+        "Exponential search over partitions"
+      ],
+      "shortLabel": "Bressan et al. 2019",
+      "curve": {
+        "domain": [
+          0,
+          0.5
+        ],
+        "queryExponent": "1+2a"
+      },
+      "sourceUrl": "https://proceedings.neurips.cc/paper_files/paper/2019/file/b0ba5c44aaf65f6ca34cf116e6d82ebf-Paper.pdf#page=7",
+      "sourceId": "bressan-2019-adaptive-queries"
+    },
+    {
+      "graph": "Complete signed graph with binary ± labels on n vertices",
+      "oracle": "Adjacency-matrix pair queries; no neighbor lists",
+      "resource": "Adjacency-matrix pair queries",
+      "output": "Explicit partition of all n vertices",
+      "conditional": false,
+      "id": "cc-query-bressan-2019-global-lb",
+      "paperId": "bressan-2019-adaptive-queries",
+      "kind": "lower",
+      "bound": "Ω(n/ε) expected-query floor",
+      "guarantee": "Some instance has E[cost] ≥ OPT + n²ε/80 if E[Q] < n/(80ε)",
+      "sourceLocation": "Theorem 9 and following paragraph",
+      "evidenceStatus": "verified",
+      "frontierStatus": "historical",
+      "notes": "The following paragraph extends the statement to c OPT + Ω(n²ε) for any fixed c. This earlier floor remains available in the inspector.",
+      "plot": null,
+      "panel": "mixed",
+      "setup": "expected",
+      "display": "related",
+      "displayBound": "Ω(n/ε) expected-query floor",
+      "quality": "Some instance has E[cost] ≥ OPT + n²ε/80 if E[Q] < n/(80ε)",
+      "theorem": "Theorem 9 and following paragraph",
+      "probability": "Expected cost and expected number of queries; randomized adaptive algorithms included",
+      "assumptions": [
+        "Ω(1/n) ≤ ε ≤ 1/2",
+        "1/ε is an integer",
+        "Hard instances of arbitrarily large n",
+        "For fixed c≥1, constants may depend on c"
+      ],
+      "shortLabel": "Bressan et al. 2019",
+      "sourceUrl": "https://proceedings.neurips.cc/paper_files/paper/2019/file/b0ba5c44aaf65f6ca34cf116e6d82ebf-Paper.pdf#page=8",
+      "sourceId": "bressan-2019-adaptive-queries"
+    },
+    {
+      "graph": "Complete signed graph with binary ± labels on n vertices",
+      "oracle": "Adjacency-matrix pair queries; no neighbor lists",
+      "resource": "Adjacency-matrix pair queries",
+      "output": "Explicit partition of all n vertices",
+      "conditional": false,
+      "id": "cc-query-garciasoriano-2020-global-lb",
+      "paperId": "garciasoriano-2020-query-efficient",
+      "kind": "lower",
+      "bound": "Ω(n/(c²ε)) queries",
+      "guarantee": "E[cost] ≤ c OPT + εn² requires this many queries",
+      "sourceLocation": "Theorem 4.1",
+      "evidenceStatus": "verified",
+      "frontierStatus": "historical",
+      "notes": "Substitute T=εn² in the theorem's Ω(n³/(Tc²)) bound. The plotted c=3 frontier applies for fixed 0≤a<1 and sufficiently large n; its a=1 endpoint is excluded.",
+      "plot": null,
+      "panel": "mixed",
+      "setup": "expected",
+      "display": "curve",
+      "displayBound": "Ω(n/(c²ε)) queries",
+      "quality": "E[cost] ≤ c OPT + εn² requires this many queries",
+      "theorem": "Theorem 4.1",
+      "probability": "Expected clustering cost; arbitrary adaptive randomized algorithms",
+      "assumptions": [
+        "c ≥ 1; c=3 in the main panel",
+        "8/n < ε ≤ 1/(2048c²)",
+        "Output is a full clustering"
+      ],
+      "shortLabel": "García-Soriano et al. 2020",
+      "curve": {
+        "domain": [
+          0,
+          1
+        ],
+        "queryExponent": "1+a",
+        "openEnd": true
+      },
+      "sourceId": "garciasoriano-2020-query-efficient",
+      "sourceUrl": "https://arxiv.org/html/2002.11557v1"
+    },
+    {
+      "graph": "Complete signed graph with binary ± labels on n vertices",
+      "oracle": "Adjacency-matrix pair queries; no neighbor lists",
+      "resource": "Adjacency-matrix pair queries",
+      "output": "Explicit partition of all n vertices",
+      "conditional": false,
+      "id": "cc-query-matrix-pure-scan-cap",
+      "sourceId": "bressan-2019-adaptive-queries",
+      "paperId": "bressan-2019-adaptive-queries",
+      "panel": "pure",
+      "setup": "pure",
+      "kind": "upper",
+      "display": "curve",
+      "displayBound": "O(n²) queries · exponential optimization",
+      "quality": "Cost = OPT",
+      "theorem": "Elementary full-input query baseline",
+      "probability": "Always correct",
+      "assumptions": [
+        "Read all n(n−1)/2 pair labels",
+        "Enumerate all partitions to find optimum",
+        "Query cost only; no polynomial-time claim"
+      ],
+      "notes": "All input labels suffice for exact optimization without further queries. This is a derived baseline, not an extra paper theorem.",
+      "shortLabel": "Full-input baseline",
+      "derived": true,
+      "curve": {
+        "domain": [
+          0.5,
+          1
+        ],
+        "queryExponent": "2"
+      },
+      "sourceUrl": "https://proceedings.neurips.cc/paper_files/paper/2019/file/b0ba5c44aaf65f6ca34cf116e6d82ebf-Paper.pdf",
+      "bound": "O(n²) queries · exponential optimization",
+      "guarantee": "Cost = OPT",
+      "evidenceStatus": "verified_derivation",
+      "sourceLocation": "Elementary full-input query baseline"
+    },
+    {
+      "graph": "Complete signed graph with binary ± labels on n vertices",
+      "oracle": "Adjacency-matrix pair queries; no neighbor lists",
+      "resource": "Adjacency-matrix pair queries",
+      "output": "Explicit partition of all n vertices",
+      "conditional": false,
+      "id": "cc-query-matrix-mixed-scan-cap",
+      "sourceId": "garciasoriano-2020-query-efficient",
+      "paperId": "garciasoriano-2020-query-efficient",
+      "panel": "mixed",
+      "setup": "expected",
+      "kind": "upper",
+      "display": "cap",
+      "displayBound": "O(n²) queries and time",
+      "quality": "E[cost] ≤ 3 OPT",
+      "theorem": "Full QwickCluster baseline; §3 before Theorem 3.1",
+      "probability": "Expected clustering cost",
+      "assumptions": [
+        "Read all pair labels, then run QwickCluster",
+        "At most n(n−1)/2 distinct oracle queries",
+        "No additive error needed"
+      ],
+      "notes": "Reading the full matrix supplies a quadratic query cap for every ε. The rightmost green marker shows this cap; it is not an extrapolated lower bound.",
+      "shortLabel": "Full-input baseline",
+      "derived": true,
+      "curve": {
+        "domain": [
+          1,
+          1
+        ],
+        "queryExponent": "2"
+      },
+      "sourceUrl": "https://arxiv.org/html/2002.11557v1",
+      "bound": "O(n²) queries and time",
+      "guarantee": "E[cost] ≤ 3 OPT",
+      "evidenceStatus": "verified_derivation",
+      "sourceLocation": "Full QwickCluster baseline; §3 before Theorem 3.1"
+    }
+  ],
+  "sharedAxes": {
+    "x": {
+      "label": "Requested precision ε = ε₀ n^(−a)",
+      "kind": "derived-precision-exponent",
+      "min": 0,
+      "max": 1,
+      "ticks": [
+        0,
+        0.5,
+        1
+      ],
+      "tickLabels": [
+        "ε₀",
+        "ε₀/√n",
+        "ε₀/n"
+      ],
+      "parameter": "a",
+      "fixedAccuracyReference": {
+        "a": 0,
+        "epsilon": 0.000030517578125,
+        "meaning": "ε₀=1/32768: fixed illustrative constant within the c=3 lower-bound regime"
+      }
+    },
+    "y": {
+      "label": "Pair queries (powers of n)",
+      "kind": "exponent",
+      "min": 1,
+      "max": 2,
+      "ticks": [
+        1,
+        1.5,
+        2
+      ],
+      "tickLabels": [
+        "n",
+        "n^(3/2)",
+        "n²"
+      ],
+      "suppressed": "Constants are suppressed. These are asymptotic exponents, not finite-n crossovers.",
+      "viewDomain": [
+        0.9,
+        2.1
+      ],
+      "viewDomainNote": "Renderer framing only; labelled scientific ticks run from n through n²."
+    },
+    "pureUpper": "min{1+2a,2}",
+    "mixedUpper": "min{1+a,2}",
+    "mixedLower": "1+a for fixed a<1 and sufficiently large n",
+    "pureLower": "Informal announcement only; formal ε/probability regime unavailable"
+  },
+  "figureAxes": {
+    "pure": {
+      "x": {
+        "label": "Requested precision ε = ε₀ n^(−a)",
+        "kind": "derived-precision-exponent",
+        "min": 0,
+        "max": 1,
+        "ticks": [
+          0,
+          0.5,
+          1
+        ],
+        "tickLabels": [
+          "ε₀",
+          "ε₀/√n",
+          "ε₀/n"
+        ],
+        "parameter": "a",
+        "fixedAccuracyReference": {
+          "a": 0,
+          "epsilon": 0.000030517578125,
+          "meaning": "ε₀=1/32768: fixed illustrative constant within the c=3 lower-bound regime"
+        }
+      },
+      "y": {
+        "label": "Pair queries (powers of n)",
+        "kind": "exponent",
+        "min": 1,
+        "max": 2,
+        "ticks": [
+          1,
+          1.5,
+          2
+        ],
+        "tickLabels": [
+          "n",
+          "n^(3/2)",
+          "n²"
+        ],
+        "suppressed": "Constants are suppressed. These are asymptotic exponents, not finite-n crossovers.",
+        "viewDomain": [
+          0.9,
+          2.1
+        ],
+        "viewDomainNote": "Renderer framing only; labelled scientific ticks run from n through n²."
+      }
+    },
+    "mixed": {
+      "x": {
+        "label": "Requested precision ε = ε₀ n^(−a)",
+        "kind": "derived-precision-exponent",
+        "min": 0,
+        "max": 1,
+        "ticks": [
+          0,
+          0.5,
+          1
+        ],
+        "tickLabels": [
+          "ε₀",
+          "ε₀/√n",
+          "ε₀/n"
+        ],
+        "parameter": "a",
+        "fixedAccuracyReference": {
+          "a": 0,
+          "epsilon": 0.000030517578125,
+          "meaning": "ε₀=1/32768: fixed illustrative constant within the c=3 lower-bound regime"
+        }
+      },
+      "y": {
+        "label": "Pair queries (powers of n)",
+        "kind": "exponent",
+        "min": 1,
+        "max": 2,
+        "ticks": [
+          1,
+          1.5,
+          2
+        ],
+        "tickLabels": [
+          "n",
+          "n^(3/2)",
+          "n²"
+        ],
+        "suppressed": "Constants are suppressed. These are asymptotic exponents, not finite-n crossovers.",
+        "viewDomain": [
+          0.9,
+          2.1
+        ],
+        "viewDomainNote": "Renderer framing only; labelled scientific ticks run from n through n²."
+      }
+    }
+  },
+  "coverage": "Four supplied primary sources; all nine original records retained. Pure-additive 2026 lower bound is an informal announcement. No memory-constrained random-query value bounds are imported.",
+  "sourceVerification": {
+    "reviewedOn": "2026-10-26",
+    "scope": "Four supplied primary sources; statements read directly",
+    "formalLower": "García-Soriano et al. 2020 Theorem 4.1",
+    "unresolved": "Garg et al. ITCS2026 Introduction Theorem1 is informal; formal ε range/probability/proof deferred; shown as announcement only",
+    "reviewFile": "source-review.json"
+  }
+}

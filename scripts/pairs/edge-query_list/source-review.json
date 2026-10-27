@@ -1,0 +1,106 @@
+{
+  "pair": "edge-query_list",
+  "reviewedOn": "2026-10-27",
+  "status": "ready_for_integration",
+  "scope": "Seven supplied source records; seven primary papers. No literature expansion. Scan complexity and output accounting are explicitly atlas derivations.",
+  "representation": {
+    "decision": "Main categorical computation-time versus palette grid with a shared exact n+2m oracle-query line; reversible default authorized by root while optional user question remained open.",
+    "axes": "Both axes carry named formula categories, no numeric palette ratio and no fabricated n exponent.",
+    "lower": "An independent derivedBounds record gives Ω(m) output operations. It has no paperId/sourceId and is not inserted as a paper theorem in research-patch.json. No query lower bound or query-optimality claim.",
+    "zoom": "738×548 labeled detail,330×245 category/marker summary,overview without any SVG text,1060×740 focused chart.",
+    "colors": "Green algorithms, red output-time floor. Palette colors appear in labels and faint marker halos."
+  },
+  "sources": [
+    {
+      "id": "blikstad-maus-devos-2026-distributed",
+      "url": "https://arxiv.org/html/2603.02689v2",
+      "location": "Introduction, historic greedy palette discussion",
+      "verified": "Provides the 2Δ−1 palette observation. Atlas derives n+2m queries and straightforward O(mΔ) computation by scanning at most 2Δ−2 neighbors per edge.",
+      "limitation": "Not an optimal greedy implementation claim. Full DISC paper remains preprint/accepted; publication filter is conservative."
+    },
+    {
+      "id": "assadi-et-al-2025-vizing",
+      "url": "https://arxiv.org/html/2410.05240v3",
+      "publicationUrl": "https://doi.org/10.1145/3806392",
+      "location": "Corollary C.1(i) in arXiv v3; Corollary B.1(i) in JACM",
+      "verified": "Randomized O(m log Δ) time w.h.p. for Δ+1 colors. Theorem1.1 itself gives O(m log n). Display uses log⁺ to include trivial Δ≤1.",
+      "publication": "JACM 73(3), Article15,16 June2026; originally STOC2025."
+    },
+    {
+      "id": "assadi-2025-nearvizing",
+      "url": "https://arxiv.org/html/2405.13371",
+      "location": "Theorem2 and §4.3",
+      "verified": "Δ+O(log n) palette in expected O(m log Δ) time. Fallback enforces the palette on every execution, without promoting expectation to a same-order high-probability time bound."
+    },
+    {
+      "id": "bhattacharya-costa-panski-solomon-2024-density",
+      "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol308-esa2024/LIPIcs.ESA.2024.23/LIPIcs.ESA.2024.23.pdf",
+      "location": "Theorem3's explicit runtime remark; Lemma24; Corollary25",
+      "verified": "Restore the additive m term omitted in the input's abstract-level formula. The corrected soft-O cost is Õ(m+min{m√n,mΔ}α/Δ), in expectation and w.h.p.",
+      "exactHighProbability": "O(min{mΔ log²n,m√n log^(3/2)n}α/Δ+m log²n).",
+      "reason": "Without the additive term, a star gives an apparent sub-m runtime despite explicit output."
+    },
+    {
+      "id": "bernshteyn-dhawan-2026-linear-static",
+      "url": "https://arxiv.org/pdf/2407.04887v2",
+      "publicationUrl": "https://epubs.siam.org/doi/10.1137/25M1785241",
+      "location": "Theorem1.3, printed p.3; Definition1.1; §1.1/Table1",
+      "verified": "0<ε<1 and Δ≥1/ε; O(m log(1/ε)/ε⁴) time with success at least1−ε^{Ω(m)}. Integer color labels are ≤(1+ε)Δ, even for noninteger q. For constant ε, linear post-scan time.",
+      "normalization": "log⁺ in display is a safe upper-bound convention retaining linear output cost near ε=1. Original source formula retained explicitly.",
+      "support": "The same source discusses straightforward greedy O(mΔ), supporting the baseline implementation derivation.",
+      "publication": "SIAM J.Discrete Math.40(2):919–958,16 June2026."
+    },
+    {
+      "id": "bhattacharya-carmon-costa-solomon-zhang-2024-vizing",
+      "url": "https://arxiv.org/html/2405.15449",
+      "location": "Theorem1.1",
+      "verified": "Randomized Õ(mn^{1/3}) time w.h.p., Δ+1 colors, general simple graphs. Retained as historical."
+    },
+    {
+      "id": "bhattacharya-costa-solomon-zhang-2025-faster-vizing",
+      "url": "https://arxiv.org/html/2410.12479",
+      "location": "Theorem1.1",
+      "verified": "Randomized Õ(mn^{1/4}) time w.h.p., Δ+1 colors, general simple graphs. Retained as historical; extension subroutine is not reinterpreted as an oracle lower."
+    }
+  ],
+  "composition": {
+    "oracle": "Exactly n degree calls plus sum_v degree(v)=2m indexed neighbor calls; retain every undirected edge once. No further external oracle calls are made.",
+    "time": "Total time is O(n+m) for enumeration plus the static computation. The n term is retained when isolated vertices dominate.",
+    "memory": "Full O(n+m) adjacency representation retained; algorithm auxiliary memory unrestricted.",
+    "outputProof": "The requested output has m records. If one operation emits at most a constant number of records, emitting the output takes at least a constant multiple of m operations, even if the graph and coloring are already known."
+  },
+  "preservedOriginalIds": [
+    "query-adjacency-list-greedy-baseline",
+    "edge-query-vizing-2025-enumerated",
+    "edge-query-near-vizing-2025-enumerated",
+    "edge-query-density-2024-enumerated",
+    "edge-query-nearlinear-2026-enumerated",
+    "edge-query-vizing2024-mnthird",
+    "edge-query-vizing2025-mnfourth"
+  ],
+  "corrections": [
+    "Removed old fabricated query exponent 2 coordinates; n+2m is exact for each displayed implementation.",
+    "Density-sensitive additive m term restored.",
+    "Exact-Vizing theorem reference corrected to Appendix C/B.",
+    "Greedy O(mΔ) explicitly identified as straightforward, not optimal.",
+    "Expected near-Vizing runtime kept distinct from w.h.p.",
+    "Near-linear ε regime, palette rounding and stronger failure probability recorded."
+  ],
+  "unresolvedBlockingFacts": [],
+  "validation": {
+    "regression": "tests.cjs passed in a read-only virtual filesystem: seven IDs; source regimes; scan counting including isolates; star counterexample; filters; nine dimensions; overview without text; keyboard and lifecycle.",
+    "sharedBuild": "Unmodified build.validate and build.load_pairs passed with virtual upserts/registration:231 sources,151 slices,406 results,23 focus pairs at snapshot.",
+    "staticLayout": "Raster-inspected 738×548 detail,330×245 compact,180×120 overview,1060×740 focus; clear labels, no marker/annotation collisions.",
+    "browser": "Parent integration and live browser QA remain."
+  },
+  "rootRepresentationRevision": {
+    "date": "2026-10-27",
+    "userConfirmed": true,
+    "main": "Exact query cost n+2m versus palette categories; all7 markers retained.",
+    "detailsOnly": [
+      "Post-scan computation",
+      "Elementary Ω(m) output-time proof"
+    ],
+    "validation": "Full regression and live atlas/focus semantic zoom checks passed"
+  }
+}

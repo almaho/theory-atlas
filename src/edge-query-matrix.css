@@ -1,0 +1,30 @@
+.eqm-map{display:block;width:100%;height:auto;background:var(--surface);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,sans-serif}
+.eqm-map .eqm-label,.eqm-map .eqm-tick,.eqm-map .eqm-legend,.eqm-map .eqm-muted,.eqm-map .eqm-axis-title,.eqm-map .eqm-note,.eqm-map .eqm-cost-title,.eqm-map .eqm-cost-note,.eqm-map .eqm-side-heading,.eqm-map .eqm-cost-bound,.eqm-map .eqm-total,.eqm-map .eqm-palette,.eqm-map .eqm-heading,.eqm-map .eqm-bound{font-family:Inter,ui-sans-serif,system-ui,sans-serif;fill:var(--ink)}
+.eqm-map .eqm-heading{font-size:21px;font-weight:700}.eqm-map .eqm-label{font-size:16px}.eqm-map .eqm-side-heading{font-size:17px;font-weight:650}
+.eqm-map .eqm-tick{font-size:16px}.eqm-map .eqm-legend{font-size:13px}.eqm-map .eqm-muted{font-size:13px;fill:var(--muted)}
+.eqm-map .eqm-axis-title{font-size:13px;font-weight:650;fill:var(--muted)}.eqm-map .eqm-palette{font-size:20px;font-weight:700}
+.eqm-map .eqm-bound{font-size:23px;font-weight:700;fill:var(--green)}.eqm-map .eqm-note{font-size:12px;fill:var(--muted)}
+.eqm-map .eqm-cost-title{font-size:12px;fill:var(--muted)}.eqm-map .eqm-cost-bound{font-size:18px;font-weight:700}.eqm-map .eqm-cost-note{font-size:11px;fill:var(--muted)}
+.eqm-map .eqm-total{font-size:15px;font-weight:650}.eqm-map .eqm-upper{fill:var(--green);stroke:var(--surface);stroke-width:1.4}
+.eqm-map .eqm-axis{fill:none;stroke:var(--muted);stroke-width:1.2}.eqm-map .eqm-grid{stroke:var(--line);stroke-width:1;fill:none}.eqm-map .eqm-vgrid{stroke:var(--line);stroke-dasharray:3 4;fill:none}
+.eqm-map .eqm-note-rule{stroke:var(--line);fill:none}.eqm-map .eqm-cost-bg{fill:var(--bg);stroke:var(--line)}
+.eqm-map .eqm-selection{fill:var(--surface);stroke:var(--green);stroke-width:1}.eqm-map .eqm-hit{fill:transparent;stroke:none}
+.eqm-map .eqm-point[role=button]{cursor:pointer}.eqm-map .eqm-point[role=button]:focus{outline:none}.eqm-map .eqm-point[role=button]:focus .eqm-selection{stroke:var(--blue);stroke-width:3}
+.eqm-map[data-detail-level=compact] .eqm-heading{font-size:14px}.eqm-map[data-detail-level=compact] .eqm-legend,.eqm-map[data-detail-level=compact] .eqm-muted{font-size:9px}
+.eqm-map[data-detail-level=compact] .eqm-axis-title{font-size:10px}.eqm-map[data-detail-level=compact] .eqm-tick{font-size:12px}
+.eqm-map[data-detail-level=compact] .eqm-bound{font-size:17px}.eqm-map[data-detail-level=compact] .eqm-palette{font-size:15px}
+.eqm-map[data-detail-level=compact] .eqm-cost-note{font-size:11px}.eqm-map[data-detail-level=compact] .eqm-note{font-size:10px}
+.eqm-view{--eqm-green:var(--green)}.eqm-toolbar{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap;margin:18px 0;font-size:13px}
+.eqm-toolbar label{display:flex;gap:8px;align-items:center}.eqm-toolbar select{font:inherit;max-width:100%;border:1px solid var(--line);border-radius:7px;background:var(--surface);color:var(--ink);padding:7px}
+.eqm-green{color:var(--green);font-weight:650}
+.eqm-scroll{overflow-x:auto;overscroll-behavior-x:contain;max-width:100%;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+.eqm-plot{min-width:660px}.eqm-read,.eqm-coverage{font-size:13px;line-height:1.6;color:var(--muted)}
+.eqm-theorem{margin-top:22px;border:1px solid var(--line);border-radius:12px;padding:20px;font-size:14px;line-height:1.6;background:var(--surface)}
+.eqm-detail-head{display:flex;gap:10px 16px;flex-wrap:wrap;align-items:center}.eqm-detail-head>span:last-child{color:var(--muted);font-size:12px}
+.eqm-detail-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:18px 0}
+.eqm-detail-grid>div{padding:10px 12px;background:var(--bg);border-radius:8px}.eqm-detail-grid small{display:block;color:var(--muted);font-size:11px}.eqm-detail-grid strong{display:block;margin-top:4px}
+.eqm-theorem details{border-top:1px solid var(--line);padding-top:13px}.eqm-theorem summary,.eqm-source-list summary{cursor:pointer;font-weight:650}
+.eqm-theorem h3{font-size:18px}.eqm-theorem h4{margin-bottom:8px}.eqm-theorem a{color:var(--green)}.eqm-theorem li{margin-bottom:7px}
+.eqm-source-list{margin:20px 0}.eqm-record{display:grid;gap:4px;width:100%;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:9px;padding:13px;text-align:left;color:var(--ink);font:inherit;cursor:pointer;margin-top:10px}
+.eqm-record:focus-visible,.eqm-toolbar select:focus-visible,.eqm-scroll:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+@media(max-width:780px){.eqm-detail-grid{grid-template-columns:1fr}.eqm-theorem{padding:14px}.eqm-toolbar{align-items:flex-start}.eqm-view .f-hero h1{font-size:28px}.eqm-plot{min-width:660px}}

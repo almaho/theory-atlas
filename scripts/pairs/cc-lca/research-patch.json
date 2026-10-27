@@ -1,0 +1,204 @@
+{
+  "upsertPapers": [
+    {
+      "id": "dalirrooyfard-2024-pruned-pivot",
+      "title": "Pruned Pivot: Correlation Clustering Algorithm for Dynamic, Parallel, and Local Computation Models",
+      "authors": [
+        "Mina Dalirrooyfard",
+        "Konstantin Makarychev",
+        "Slobodan Mitrović"
+      ],
+      "year": 2024,
+      "venue": "ICML 2024",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/html/2402.15668v2",
+      "verifiedOn": "2026-10-26",
+      "verificationStatus": "primary_full_text"
+    },
+    {
+      "id": "bonchi-2013-local",
+      "title": "Local Correlation Clustering",
+      "authors": [
+        "Francesco Bonchi",
+        "David García-Soriano",
+        "Konstantin Kutzkov"
+      ],
+      "year": 2013,
+      "venue": "arXiv 2013",
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/html/1312.5105v1",
+      "verifiedOn": "2026-10-26",
+      "verificationStatus": "primary_full_text"
+    }
+  ],
+  "upsertSlices": [
+    {
+      "id": "cc-lca-pruned-degree",
+      "problem": "cc",
+      "model": "lca",
+      "label": "Local computation, bounded positive degree",
+      "task": "Answer consistent cluster-label queries for one implicit MinDisagree partition",
+      "assumptions": [
+        "Unweighted complete signed graph; MinDisagree objective",
+        "Indexed positive-neighbor access; negative pairs are implicit",
+        "Shared random ordering, implemented by limited-independence ranks in §6",
+        "Each label query returns part of the same implicit partition"
+      ],
+      "xAxis": {
+        "label": "Per-label probes · symbolic growth order",
+        "kind": "probes",
+        "min": 0,
+        "max": 2,
+        "ticks": [
+          0,
+          1,
+          2
+        ],
+        "tickLabels": [
+          "1/ε",
+          "1/ε²",
+          "n/ε"
+        ]
+      },
+      "yAxis": {
+        "label": "Access and preprocessing policy (categorical)",
+        "kind": "categorical",
+        "min": 0,
+        "max": 3,
+        "ticks": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "tickLabels": [
+          "Positive lists",
+          "Matrix · prepared",
+          "Matrix · lower bound",
+          "Matrix · no preprocessing"
+        ]
+      },
+      "parameters": {
+        "epsilon": "1/n<ε<1 for displayed symbolic cost order; each theorem retains its full domain",
+        "Delta": "Maximum positive degree, 1≤Δ<n; edgeless graphs trivial",
+        "coordinateConvention": "Custom shared symbolic figure. No numerical polynomial exponents or automatic closure regions."
+      },
+      "results": [
+        {
+          "id": "cc-lca-pruned-3plus",
+          "paperId": "dalirrooyfard-2024-pruned-pivot",
+          "kind": "upper",
+          "bound": "O(Δ/ε) probes per label; O((Δ/ε)polylog n) local space",
+          "guarantee": "Expected cost ≤(3+ε)OPT",
+          "sourceLocation": "Theorem 1.3; footnote 3; §6",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "historical",
+          "notes": "The band displays the degree-dependent upper-bound family from 1/ε to n/ε. It is not a lower bound, confidence band, or exact cost.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "cc-lca-matrix-additive",
+      "problem": "cc",
+      "model": "lca",
+      "label": "Adjacency-matrix local cluster labels with additive error",
+      "task": "Answer consistent cluster-label queries for one implicit MinDisagree partition",
+      "assumptions": [
+        "Unweighted complete signed graph; MinDisagree objective",
+        "Pairwise matrix queries; shared random seed",
+        "(c,ε) means cost≤cOPT+εn²",
+        "Preprocessing is charged separately; historical lower bounds restricted to non-adaptive queries"
+      ],
+      "xAxis": {
+        "label": "Per-label probes · symbolic growth order",
+        "kind": "probes",
+        "min": 0,
+        "max": 2,
+        "ticks": [
+          0,
+          1,
+          2
+        ],
+        "tickLabels": [
+          "1/ε",
+          "1/ε²",
+          "n/ε"
+        ]
+      },
+      "yAxis": {
+        "label": "Access and preprocessing policy (categorical)",
+        "kind": "categorical",
+        "min": 0,
+        "max": 3,
+        "ticks": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "tickLabels": [
+          "Positive lists",
+          "Matrix · prepared",
+          "Matrix · lower bound",
+          "Matrix · no preprocessing"
+        ]
+      },
+      "parameters": {
+        "epsilon": "1/n<ε<1 for displayed symbolic cost order; each theorem retains its full domain",
+        "Delta": "Maximum positive degree, 1≤Δ<n; edgeless graphs trivial",
+        "coordinateConvention": "Custom shared symbolic figure. No numerical polynomial exponents or automatic closure regions."
+      },
+      "results": [
+        {
+          "id": "cc-lca-bonchi-four",
+          "paperId": "bonchi-2013-local",
+          "kind": "upper",
+          "bound": "O(1/ε) per-label time after O(1/ε²) non-adaptive preprocessing; O(1/ε²) time without preprocessing",
+          "guarantee": "With probability ≥2/3, cost ≤4OPT+εn²",
+          "sourceLocation": "Theorem 3.4; Corollary 4.3; Definition 1.1",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "historical",
+          "notes": "Both green markers refer to one theorem with two preprocessing policies. Time bounds imply query upper bounds, but probe and time complexity are not identified for every algorithm.",
+          "plot": null
+        },
+        {
+          "id": "cc-lca-bonchi-one-additive",
+          "paperId": "bonchi-2013-local",
+          "kind": "upper",
+          "bound": "poly(1/ε) local time after poly(1/ε) preprocessing probes and 2^{poly(1/ε)} preprocessing time",
+          "guarantee": "With probability ≥2/3, cost ≤OPT+εn²",
+          "sourceLocation": "Theorem 3.6; §5 proof",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "historical",
+          "notes": "Shown in an inset inside the matrix setup because an unspecified polynomial cannot honestly be positioned relative to 1/ε² or n/ε.",
+          "plot": null
+        },
+        {
+          "id": "cc-lca-bonchi-lb",
+          "paperId": "bonchi-2013-local",
+          "kind": "lower",
+          "bound": "Ω(1/(εc²)) non-adaptive probes per label, c≥1 and 1/n<ε<1/(100c)",
+          "guarantee": "Expected (c,ε) approximation; corrected non-adaptive scope",
+          "sourceLocation": "Theorem 6.1; Query-Efficient Correlation Clustering (2020), §2",
+          "evidenceStatus": "theorem_scope_corrected",
+          "frontierStatus": "historical",
+          "notes": "This is the general-c theorem behind the constant-c red marker; these are not independent lower bounds. The 2020 primary source says the 2013 proof covers only non-adaptive algorithms. No adaptive LCA lower bound is inferred here.",
+          "plot": null
+        },
+        {
+          "id": "cc-lca-bonchi-constant-lb",
+          "paperId": "bonchi-2013-local",
+          "kind": "lower",
+          "bound": "Ω(1/ε) non-adaptive probes per label for constant c, in the theorem’s asymptotic parameter regime",
+          "guarantee": "Constant-factor plus εn² error; corrected non-adaptive scope",
+          "sourceLocation": "Theorem 3.4 lower clause; Theorem 6.1; Corollary 6.4; 2020 §2 correction",
+          "evidenceStatus": "theorem_scope_corrected",
+          "frontierStatus": "historical",
+          "notes": "Specialization of the general-c lower bound, not a second independent barrier. Its marker is separated vertically from the algorithm so neither is hidden. Historical adaptive wording in Theorem 3.4 is restricted here using the authors’ 2020 correction.",
+          "plot": null
+        }
+      ]
+    }
+  ]
+}

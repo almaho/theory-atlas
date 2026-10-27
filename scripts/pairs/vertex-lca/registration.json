@@ -1,0 +1,36 @@
+{
+  "id": "vertex-lca",
+  "dataFile": "vertex-lca.json",
+  "javascript": "vertex-lca.js",
+  "css": "vertex-lca.css",
+  "routes": [
+    {
+      "key": "vertex-lca",
+      "sliceId": "vertex-lca-consistent-list-coloring",
+      "label": "Vertex coloring · LCA query guarantees",
+      "problem": "vertex",
+      "model": "lca",
+      "visible": true
+    },
+    {
+      "key": "vertex-lca-average",
+      "sliceId": "vertex-lca-average-case-k-color",
+      "label": "Vertex coloring · average-case LCA related result",
+      "problem": "vertex",
+      "model": "lca",
+      "visible": false
+    }
+  ],
+  "canonicalAliases": {
+    "vertex-lca-average": "vertex-lca"
+  },
+  "pointFields": {
+    "x": "costKey",
+    "y": "rowKey"
+  },
+  "axisSummary": {
+    "x": "Per-vertex probe formula; symbolic categories, not a universal cost ranking",
+    "y": "Algorithm and list-size requirement",
+    "note": "Expected, high-probability and deterministic guarantees separated; average-case theorem in a qualified related card."
+  }
+}

@@ -1,0 +1,138 @@
+{
+  "pairId": "cc-query_matrix",
+  "reviewedOn": "2026-10-26",
+  "scope": "Only the four supplied primary sources",
+  "sources": [
+    {
+      "id": "garg-2026-query-lb",
+      "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol362-itcs2026/html/LIPIcs.ITCS.2026.67/LIPIcs.ITCS.2026.67.html",
+      "checkedStatements": [
+        {
+          "id": "cc-query-partition-lb",
+          "theorem": "Introduction, Theorem 1 (Informal), and footnote 1",
+          "evidenceStatus": "informal_primary_statement",
+          "assumptions": [
+            "Adjacency-matrix queries, adaptivity allowed",
+            "Unrestricted memory",
+            "Formal ε regime is omitted"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bonchi-2013-local",
+      "url": "https://arxiv.org/html/1312.5105v1",
+      "checkedStatements": [
+        {
+          "id": "cc-query-bonchi-four",
+          "theorem": "Theorem 3.3; §3 probability convention",
+          "evidenceStatus": "verified",
+          "assumptions": [
+            "0 < ε < 1",
+            "Constant-success quality, distinct from expected cost"
+          ]
+        },
+        {
+          "id": "cc-query-bonchi-four-lb",
+          "theorem": "Theorem 6.1 and Corollary 6.4",
+          "evidenceStatus": "verified_statement_with_later_scope_caveat",
+          "assumptions": [
+            "Corollary 6.4: ε > 10⁷/n",
+            "Its proof assumes c ≥ 3",
+            "Theorem 6.1 uses 1/n < ε < 1/(100c)",
+            "2019 source identifies a restriction in this earlier lower-bound argument"
+          ]
+        },
+        {
+          "id": "cc-query-bonchi-pure-additive",
+          "theorem": "Theorem 3.6 and Corollary 3.7",
+          "evidenceStatus": "verified",
+          "assumptions": [
+            "0 < ε < 1",
+            "Full explicit partition",
+            "Unspecified polynomial dependence on 1/ε"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bressan-2019-adaptive-queries",
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2019/file/b0ba5c44aaf65f6ca34cf116e6d82ebf-Paper.pdf",
+      "checkedStatements": [
+        {
+          "id": "cc-query-bressan-2019-three",
+          "theorem": "Theorem 1 and Table 1",
+          "evidenceStatus": "verified",
+          "assumptions": [
+            "Query rate f from Definition 1",
+            "Q ≤ n⌈f(n)⌉",
+            "Q = Ω(n) in the summarized budget tradeoff"
+          ]
+        },
+        {
+          "id": "cc-query-bressan-2019-pure-additive",
+          "theorem": "Theorems 6 and 7",
+          "evidenceStatus": "verified",
+          "assumptions": [
+            "0 < ε < 1",
+            "Uniformly random pair queries",
+            "Exponential search over partitions"
+          ]
+        },
+        {
+          "id": "cc-query-bressan-2019-global-lb",
+          "theorem": "Theorem 9 and following paragraph",
+          "evidenceStatus": "verified",
+          "assumptions": [
+            "Ω(1/n) ≤ ε ≤ 1/2",
+            "1/ε is an integer",
+            "Hard instances of arbitrarily large n",
+            "For fixed c≥1, constants may depend on c"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "garciasoriano-2020-query-efficient",
+      "url": "https://arxiv.org/html/2002.11557v1",
+      "checkedStatements": [
+        {
+          "id": "cc-query-garciasoriano-2020-three",
+          "theorem": "Theorems 3.1 and 3.4",
+          "evidenceStatus": "verified",
+          "assumptions": [
+            "Any Q > 0 in the theorem",
+            "Set Q ≥ n/(2ε) for the displayed additive error",
+            "Adaptive and nonadaptive variants",
+            "At smaller ε use the full-input 3-approximation baseline"
+          ]
+        },
+        {
+          "id": "cc-query-garciasoriano-2020-global-lb",
+          "theorem": "Theorem 4.1",
+          "evidenceStatus": "verified",
+          "assumptions": [
+            "c ≥ 1; c=3 in the main panel",
+            "8/n < ε ≤ 1/(2048c²)",
+            "Output is a full clustering"
+          ]
+        }
+      ]
+    }
+  ],
+  "openIssues": [
+    {
+      "id": "cc-query-partition-lb",
+      "issue": "ITCS2026 Introduction Theorem1 is explicitly informal; formal ε range, success probability and proof are deferred.",
+      "resolution": "Shown as a separate red announcement, never a numeric lower curve or claim of proven tightness."
+    }
+  ],
+  "design": {
+    "panels": [
+      "Pure additive full partition; query upper curve and informal lower announcement",
+      "Expected mixed factor-3 full partition; coincident upper/lower exponent curves"
+    ],
+    "historical": "Constant-success results and unspecified ε polynomial remain inspectable without false curve placement",
+    "cap": "n² cap comes from reading all pair labels. Pure optimization is exponential."
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "upsertPapers": [
+    {
+      "id": "assadi-et-al-2025-vizing",
+      "title": "Vizing’s Theorem in Near-Linear Time",
+      "authors": [
+        "Sepehr Assadi",
+        "Soheil Behnezhad",
+        "Sayan Bhattacharya",
+        "Martín Costa",
+        "Shay Solomon",
+        "Tianyi Zhang"
+      ],
+      "year": 2025,
+      "venue": "STOC 2025; Journal of the ACM 2026",
+      "publicationStatus": "journal",
+      "url": "https://arxiv.org/abs/2410.05240",
+      "verifiedOn": "2026-10-27",
+      "verificationUrl": "https://arxiv.org/html/2410.05240v3",
+      "journalUrl": "https://doi.org/10.1145/3806392",
+      "version": "arXiv:2410.05240v3, 14 October 2025"
+    }
+  ],
+  "upsertSlices": [
+    {
+      "id": "edge-query-adjmatrix-enumerate",
+      "problem": "edge",
+      "model": "query_matrix",
+      "label": "Adjacency-matrix access · enumerate then color",
+      "task": "Enumerate every possible edge then compute a proper coloring",
+      "assumptions": [
+        "Known vertex set; one unit-cost Pair(u,v) query returns adjacency in a fixed undirected simple graph.",
+        "Query every unordered pair u<v once; build a stored graph and compute its maximum degree during the scan.",
+        "All actual edges are retained before the randomized static coloring stage; that stage makes no additional matrix-oracle queries.",
+        "Explicit output includes a color for every actual edge; absent pairs are not output.",
+        "For Δ=0 output is empty; for Δ=1 assign color 1 to each edge in O(m) additional time. The expression log max{2,Δ} extends the displayed time to these trivial cases."
+      ],
+      "xAxis": {
+        "label": "Palette q · exact category",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "delta-plus-one",
+            "label": "Δ+1"
+          }
+        ]
+      },
+      "yAxis": {
+        "label": "Pair queries · symbolic asymptotic order",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "linear",
+            "label": "n"
+          },
+          {
+            "id": "quadratic",
+            "label": "n²"
+          }
+        ],
+        "note": "Ordered asymptotic reference tiers only; the point is Θ(n²), annotated with exact n(n−1)/2. This is not a numeric interpolation or a second result."
+      },
+      "parameters": {
+        "coordinateConvention": "Curated figure uses symbolic asymptotic reference tiers, with the exact n(n−1)/2 count attached to the baseline. The single point is at palette Δ+1 and quadratic query order. Computation and output have separate labels.",
+        "density": "No dependence on m in the scan query count."
+      },
+      "results": [
+        {
+          "id": "edge-query-matrix-vizing-composed",
+          "paperId": "assadi-et-al-2025-vizing",
+          "kind": "upper",
+          "bound": "Exactly n(n−1)/2 pair queries; after scanning: O(m log max{2,Δ}) w.h.p. computation",
+          "guarantee": "Proper q=Δ+1 edge coloring; randomized computation completes w.h.p.; the pair count is deterministic.",
+          "sourceLocation": "Corollary C.1(1), with proof in §C.1; deterministic matrix enumeration is an atlas derivation.",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "The exact matrix-query count is the cost of this full-scan construction, not a matrix-oracle theorem of the cited paper. The same scan runs on sparse and dense graphs. Theorem 1.1 states O(m log n); the sharper degree-sensitive time comes from Corollary C.1(1). The total time includes enumeration. No query lower bound or oracle optimality is claimed. For Δ=0 output is empty; for Δ=1 assign color 1 to each edge in O(m) additional time. The expression log max{2,Δ} extends the displayed time to these trivial cases.",
+          "plot": null
+        }
+      ]
+    }
+  ]
+}

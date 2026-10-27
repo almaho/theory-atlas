@@ -1,0 +1,524 @@
+{
+  "problem": "matching",
+  "model": "dynamic",
+  "slices": [
+    {
+      "id": "matching-dynamic-explicit-nearopt-adaptive",
+      "problem": "matching",
+      "model": "dynamic",
+      "label": "Fully dynamic, explicit (1−ε)-approximate matching",
+      "task": "Maintain edges of a near-maximum cardinality matching after edge insertion/deletion",
+      "assumptions": [
+        "General n-vertex graph initially empty",
+        "Fixed ε>0",
+        "Randomized, high probability even against adaptive adversary",
+        "Amortized update time"
+      ],
+      "xAxis": {
+        "label": "Approximation factor α (lower is better)",
+        "kind": "approximation",
+        "min": 1,
+        "max": 3,
+        "ticks": [
+          1,
+          1.5,
+          2,
+          2.5,
+          3
+        ]
+      },
+      "yAxis": {
+        "label": "Update-time exponent q in Õ(n^q) (lower is faster)",
+        "kind": "exponent",
+        "min": 0,
+        "max": 1.5,
+        "ticks": [
+          0,
+          0.25,
+          0.5,
+          0.75,
+          1,
+          1.25,
+          1.5
+        ],
+        "tickLabels": [
+          "polylog",
+          "n^{1/4}",
+          "√n",
+          "n^{3/4}",
+          "n",
+          "n^{5/4}",
+          "n^{3/2}"
+        ]
+      },
+      "parameters": {
+        "epsilon": "fixed constant",
+        "ORS": "Maximum ordered RS matching packing at linear matching size"
+      },
+      "results": [
+        {
+          "id": "matching-dynamic-ors-akk25",
+          "paperId": "assadi-khanna-kiss-2025-ors",
+          "kind": "upper",
+          "bound": "n^{o(1)} · ORS(n) amortized update time",
+          "guarantee": "|M| ≥ (1−ε)·OPT, explicitly maintained",
+          "sourceLocation": "Abstract; Theorem 1",
+          "evidenceStatus": "verified",
+          "frontierStatus": "current_best_verified",
+          "notes": "High probability against adaptive adversary. ORS(n) is not known to be n^{o(1)}; no unconditional sublinear exponent follows from the theorem. ORS depends on the constant matching-size parameter suppressed by the paper's notation.",
+          "plot": null
+        },
+        {
+          "id": "matching-dynamic-bg24-ors",
+          "paperId": "behnezhad-ghafari-2024-ors",
+          "kind": "upper",
+          "bound": "Õ(√(n^{1+ε}·ORS(Θε(n)))) amortized update time",
+          "guarantee": "Explicit (1−ε)-approximate maximum matching",
+          "sourceLocation": "Abstract / principal theorem",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "historical",
+          "notes": "ORS graph density is unknown; retain parameter. Paper compared to AKK25.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "matching-dynamic-maximal-adaptive",
+      "problem": "matching",
+      "model": "dynamic",
+      "label": "Fully dynamic exact maximal matching, adaptive updates",
+      "task": "Maintain a maximal matching after every edge update",
+      "assumptions": [
+        "General n-vertex graph initially empty",
+        "Deterministic or randomized as stated in each result; guarantees handle adaptive update sequences",
+        "Amortized update time"
+      ],
+      "xAxis": {
+        "label": "Approximation factor α = OPT / |M|",
+        "kind": "approximation",
+        "min": 1,
+        "max": 2.2,
+        "ticks": [
+          1.0,
+          1.24,
+          1.48,
+          1.72,
+          1.96,
+          2.2
+        ]
+      },
+      "yAxis": {
+        "label": "Amortized update-time exponent q in Õ(n^q)",
+        "kind": "exponent",
+        "min": 0,
+        "max": 1.1,
+        "ticks": [
+          0.0,
+          0.22,
+          0.44,
+          0.66,
+          0.88,
+          1.1
+        ]
+      },
+      "parameters": {
+        "coordinateConvention": "Maximal matching is a 2-approximation; exponents suppress polylog factors."
+      },
+      "results": [
+        {
+          "id": "matching-dynamic-maximal-cks26",
+          "paperId": "chuzhoy-khanna-song-2026-maximal",
+          "kind": "upper",
+          "bound": "n^{1/2+o(1)} amortized update time",
+          "guarantee": "Exact maximal matching maintained explicitly",
+          "sourceLocation": "Theorem 1.1; STOC 2026 accepted-papers listing",
+          "evidenceStatus": "verified",
+          "frontierStatus": "current_best_verified",
+          "notes": "Deterministic and adaptive-safe. Exact maximality implies a 1/2 approximation, but is a stronger task than maintaining an arbitrary 1/2-approximate matching. The n^{o(1)} factor is not necessarily polylogarithmic, so the theorem is not placed at an attained Õ(√n) coordinate. The curated dynamic-edge map preserves the exact formula.",
+          "plot": null
+        },
+        {
+          "id": "matching-dynamic-bbks25-deterministic",
+          "paperId": "bernstein-bhattacharya-kiss-saranurak-2025-maximal",
+          "kind": "upper",
+          "bound": "Õ(n^{8/9}) amortized update time",
+          "guarantee": "Exact maximal matching, deterministic",
+          "sourceLocation": "Abstract",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "historical",
+          "notes": "Prior deterministic dense-graph breakthrough; superseded by CKS26 deterministic n^{1/2+o(1)}. Plot uses α=2 because every maximal matching is a 2-approximation; q is the n-exponent of amortized update time, suppressing polylog factors.",
+          "plot": {
+            "x": 2,
+            "y": 0.8888888888888888,
+            "closure": "upper-right",
+            "strictX": false,
+            "strictY": false
+          }
+        },
+        {
+          "id": "matching-dynamic-bbks25-randomized",
+          "paperId": "bernstein-bhattacharya-kiss-saranurak-2025-maximal",
+          "kind": "upper",
+          "bound": "Õ(n^{3/4}) amortized update time",
+          "guarantee": "Exact maximal matching, randomized against adaptive adversary",
+          "sourceLocation": "Abstract",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "historical",
+          "notes": "Compare only to randomized adaptive-adversary algorithms. Plot uses α=2 because every maximal matching is a 2-approximation; q is the n-exponent of amortized update time, suppressing polylog factors.",
+          "plot": {
+            "x": 2,
+            "y": 0.75,
+            "closure": "upper-right",
+            "strictX": false,
+            "strictY": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "matching-dynamic-explicit-nearopt-worstcase",
+      "problem": "matching",
+      "model": "dynamic",
+      "label": "Fully dynamic explicit near-optimum, worst-case updates",
+      "task": "Maintain an explicit (1+ε)-approximate maximum-cardinality matching",
+      "assumptions": [
+        "General graph",
+        "Deterministic data structure",
+        "Worst-case per edge update; m is current number of edges"
+      ],
+      "xAxis": {
+        "label": "Approximation factor α = OPT / |M|",
+        "kind": "approximation",
+        "min": 1,
+        "max": 2.2,
+        "ticks": [
+          1.0,
+          1.24,
+          1.48,
+          1.72,
+          1.96,
+          2.2
+        ]
+      },
+      "yAxis": {
+        "label": "Worst-case update-time exponent q in Õ(n^q)",
+        "kind": "exponent",
+        "min": 0,
+        "max": 1.1,
+        "ticks": [
+          0.0,
+          0.22,
+          0.44,
+          0.66,
+          0.88,
+          1.1
+        ]
+      },
+      "parameters": {
+        "epsilon": "positive constant",
+        "coordinateConvention": "Fixed ε is treated as a constant; q=1/2 suppresses the √m dependence under m=Õ(n)."
+      },
+      "results": [
+        {
+          "id": "matching-dynamic-gupta-peng-13",
+          "paperId": "gupta-peng-2013-dynamic",
+          "kind": "upper",
+          "bound": "O(√m·ε⁻²) worst-case update time",
+          "guarantee": "(1+ε)-approximate matching edges maintained",
+          "sourceLocation": "Abstract / main result",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "historical",
+          "notes": "Worst-case m-sensitive bound; no adaptive randomness. Plot specializes the stated (1+ε) guarantee to the representative fixed ε=0.1 (α=1.1) and treats m=Õ(n), so q=1/2.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "matching-dynamic-explicit-polylog",
+      "problem": "matching",
+      "model": "dynamic",
+      "label": "Fully dynamic explicit constant approximation",
+      "task": "Maintain a matching rather than only an estimate",
+      "assumptions": [
+        "General graph",
+        "Deterministic or randomized as specified",
+        "Amortized versus worst-case update time kept in each result"
+      ],
+      "xAxis": {
+        "label": "Approximation factor α = OPT / |M|",
+        "kind": "approximation",
+        "min": 1,
+        "max": 2.6,
+        "ticks": [
+          1.0,
+          1.32,
+          1.64,
+          1.96,
+          2.28,
+          2.6
+        ]
+      },
+      "yAxis": {
+        "label": "Amortized/worst-case update-time exponent q in Õ(n^q)",
+        "kind": "exponent",
+        "min": 0,
+        "max": 1.1,
+        "ticks": [
+          0.0,
+          0.22,
+          0.44,
+          0.66,
+          0.88,
+          1.1
+        ]
+      },
+      "parameters": {
+        "epsilon": "fixed >0",
+        "coordinateConvention": "Fixed ε is treated as a constant; q=0 denotes polylogarithmic update time."
+      },
+      "results": [
+        {
+          "id": "matching-dynamic-bhn16",
+          "paperId": "bhattacharya-henzinger-nanongkai-2016",
+          "kind": "upper",
+          "bound": "poly(log n,1/ε) update time",
+          "guarantee": "Explicit (2+ε)-approximate maximum matching, deterministic",
+          "sourceLocation": "Abstract, contribution (1)",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "historical",
+          "notes": "Deterministic result; distinguish from their second theorem about bipartite value. Plot uses the limiting α=2 boundary for (2+ε), with strictX=true; q=0 denotes polylogarithmic update time. Chart fixes ε=0.1, giving α=2.1; the theorem formula remains above.",
+          "plot": {
+            "x": 2.1,
+            "y": 0,
+            "closure": "upper-right",
+            "strictX": false,
+            "strictY": false
+          }
+        },
+        {
+          "id": "matching-dynamic-charikar-solomon18",
+          "paperId": "charikar-solomon-2018-almost-maximal",
+          "kind": "upper",
+          "bound": "poly(log n,1/ε) worst-case update time",
+          "guarantee": "Randomized almost-maximal matching implies (2+ε)-approximate cardinality matching",
+          "sourceLocation": "Abstract / principal theorem",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "historical",
+          "notes": "High-probability guarantee; almost-maximal is weaker than exact maximality. Plot uses the limiting α=2 boundary for (2+ε), with strictX=true; q=0 denotes polylogarithmic update time. Chart fixes ε=0.1, giving α=2.1; the theorem formula remains above.",
+          "plot": {
+            "x": 2.1,
+            "y": 0,
+            "closure": "upper-right",
+            "strictX": false,
+            "strictY": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "matching-dynamic-maximal-oblivious",
+      "problem": "matching",
+      "model": "dynamic",
+      "label": "Fully dynamic maximal matching, oblivious adversary",
+      "task": "Explicitly maintain exact maximal matching after updates",
+      "assumptions": [
+        "General graph",
+        "Randomized; fixed update sequence independent of random coins",
+        "Expected amortized update time"
+      ],
+      "xAxis": {
+        "label": "Approximation factor α = OPT / |M|",
+        "kind": "approximation",
+        "min": 1,
+        "max": 2.2,
+        "ticks": [
+          1.0,
+          1.24,
+          1.48,
+          1.72,
+          1.96,
+          2.2
+        ]
+      },
+      "yAxis": {
+        "label": "Expected amortized update-time exponent q in Õ(n^q)",
+        "kind": "exponent",
+        "min": 0,
+        "max": 1.1,
+        "ticks": [
+          0.0,
+          0.22,
+          0.44,
+          0.66,
+          0.88,
+          1.1
+        ]
+      },
+      "parameters": {
+        "coordinateConvention": "Maximal matching is a 2-approximation; q=0 denotes O(polylog n) or O(1) update time."
+      },
+      "results": [
+        {
+          "id": "matching-dynamic-bgs11",
+          "paperId": "baswana-gupta-sen-2011-maximal",
+          "kind": "upper",
+          "bound": "O(log n) expected amortized update time",
+          "guarantee": "Exact maximal matching",
+          "sourceLocation": "Abstract",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "historical",
+          "notes": "Oblivious update-sequence setting; distinguish from adaptive-adversary results. Plot uses α=2 for maximality and q=0 for O(log n) or O(1) update time.",
+          "plot": {
+            "x": 2,
+            "y": 0,
+            "closure": "upper-right",
+            "strictX": false,
+            "strictY": false
+          }
+        },
+        {
+          "id": "matching-dynamic-solomon16",
+          "paperId": "solomon-2016-constant",
+          "kind": "upper",
+          "bound": "O(1) expected amortized update time",
+          "guarantee": "Exact maximal matching",
+          "sourceLocation": "Abstract",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "current_best_verified",
+          "notes": "Randomized; constant-amortized bound does not transfer to adaptive updates. Plot uses α=2 for maximality and q=0 for O(log n) or O(1) update time.",
+          "plot": {
+            "x": 2,
+            "y": 0,
+            "closure": "upper-right",
+            "strictX": false,
+            "strictY": false
+          }
+        }
+      ]
+    }
+  ],
+  "papers": [
+    {
+      "id": "assadi-khanna-kiss-2025-ors",
+      "title": "Improved Bounds for Fully Dynamic Matching via Ordered Ruzsa-Szemerédi Graphs",
+      "authors": [
+        "Sepehr Assadi",
+        "Sanjeev Khanna",
+        "Peter Kiss"
+      ],
+      "year": 2025,
+      "venue": "SODA 2025",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2406.13573",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "chuzhoy-khanna-song-2026-maximal",
+      "title": "A Faster Deterministic Algorithm for Fully Dynamic Maximal Matching",
+      "authors": [
+        "Julia Chuzhoy",
+        "Sanjeev Khanna",
+        "Junkai Song"
+      ],
+      "year": 2026,
+      "venue": "STOC 2026",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2605.00797",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "gupta-peng-2013-dynamic",
+      "title": "Fully Dynamic (1+ε)-Approximate Matchings",
+      "authors": [
+        "Manoj Gupta",
+        "Richard Peng"
+      ],
+      "year": 2013,
+      "venue": "FOCS 2013",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1304.0378",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "behnezhad-ghafari-2024-ors",
+      "title": "Fully Dynamic Matching and Ordered Ruzsa-Szemerédi Graphs",
+      "authors": [
+        "Soheil Behnezhad",
+        "Alma Ghafari"
+      ],
+      "year": 2024,
+      "venue": "FOCS 2024",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2404.06069",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "bhattacharya-henzinger-nanongkai-2016",
+      "title": "New Deterministic Approximation Algorithms for Fully Dynamic Matching",
+      "authors": [
+        "Sayan Bhattacharya",
+        "Monika Henzinger",
+        "Danupon Nanongkai"
+      ],
+      "year": 2016,
+      "venue": "STOC 2016",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1604.05765",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "charikar-solomon-2018-almost-maximal",
+      "title": "Fully Dynamic Almost-Maximal Matching: Breaking the Polynomial Barrier for Worst-Case Time Bounds",
+      "authors": [
+        "Moses Charikar",
+        "Shay Solomon"
+      ],
+      "year": 2018,
+      "venue": "ICALP 2018",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1711.06883",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "baswana-gupta-sen-2011-maximal",
+      "title": "Fully dynamic maximal matching in O(log n) update time",
+      "authors": [
+        "Surender Baswana",
+        "Manoj Gupta",
+        "Sandeep Sen"
+      ],
+      "year": 2011,
+      "venue": "FOCS 2011",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1103.1109",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "solomon-2016-constant",
+      "title": "Fully Dynamic Maximal Matching in Constant Update Time",
+      "authors": [
+        "Shay Solomon"
+      ],
+      "year": 2016,
+      "venue": "FOCS 2016",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1604.08491",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "bernstein-bhattacharya-kiss-saranurak-2025-maximal",
+      "title": "Deterministic Dynamic Maximal Matching in Sublinear Update Time",
+      "authors": [
+        "Aaron Bernstein",
+        "Sayan Bhattacharya",
+        "Peter Kiss",
+        "Thatchaphol Saranurak"
+      ],
+      "year": 2025,
+      "venue": "STOC 2025",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2504.20780",
+      "verifiedOn": "2026-09-27"
+    }
+  ]
+}

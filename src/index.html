@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Explore graph algorithms and lower bounds by problem, model, approximation, and resource.">
+  <title>Theory Atlas · Graph problem frontiers</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23192e3b'/%3E%3Cpath d='M16 44V17h31M16 44h31M28 33h19V17' stroke='%2371d7a0' stroke-width='5' fill='none'/%3E%3C/svg%3E">
+  <style>/* ATLAS_CSS */</style>
+</head>
+<body>
+  <nav class="view-nav" aria-label="Atlas views"><a class="atlas-brand" href="#focus">THEORY ATLAS<span>Knowledge, in view.</span></a><div><button id="show-focus" type="button" aria-pressed="true">Focused figures</button><button id="show-atlas" type="button" aria-pressed="false">Explore full atlas <span aria-hidden="true">↗</span></button></div></nav>
+  <main id="focus-view" aria-label="Matching knowledge map"></main>
+  <main id="atlas" hidden aria-label="Graph theory atlas">
+    <header class="head"><div><h1>Graph theory atlas</h1><p>Problems × computational models · algorithms and lower bounds</p></div><div class="controls"><button type="button" id="zoom-out" aria-label="Zoom out">−</button><output id="zoom-value">1.0×</output><button type="button" id="zoom-in" aria-label="Zoom in">+</button><button type="button" id="overview">Overview</button></div></header>
+    <div class="global-search"><label for="global-query">Find a paper or result across the atlas</label><input id="global-query" type="search" autocomplete="off" placeholder="Title, author, theorem, bound, access model…"><span id="global-hint"></span></div>
+    <section id="global-results" hidden aria-label="Atlas search results"></section>
+    <nav id="featured-settings" class="featured-settings" aria-label="Featured problem and model figures"></nav>
+    <div class="locator"><strong id="location">Problem × model</strong><span>Click a plot to zoom · scroll or pinch to zoom · drag to pan</span></div>
+    <section id="stage" aria-label="Zoomable problem and model landscape"></section>
+    <div class="legend"><span><i class="key green"></i>Upper bound / algorithm</span><span><i class="key red"></i>Lower bound</span><span><i class="key gray"></i>Open / incomparable</span><span class="hint">Colored regions use the selected setting; symbolic settings show evidence lanes.</span></div>
+    <section id="detail" hidden aria-label="Selected problem and model"></section>
+    <footer><span id="live" aria-live="polite">Select a plot to examine results.</span><span id="coverage"></span></footer>
+  </main>
+  <script id="atlas-data" type="application/json">/* ATLAS_DATA */</script>
+  <script>/* ATLAS_JS */</script>
+</body>
+</html>

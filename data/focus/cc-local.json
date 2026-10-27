@@ -1,0 +1,178 @@
+{
+  "id": "cc-local",
+  "title": "Correlation clustering · LOCAL",
+  "problem": "cc",
+  "model": "local",
+  "reviewedOn": "2026-10-26",
+  "sources": {
+    "behnezhad-2022-constant-rounds": {
+      "id": "behnezhad-2022-constant-rounds",
+      "title": "Almost 3-Approximate Correlation Clustering in Constant Rounds",
+      "authors": [
+        "Soheil Behnezhad",
+        "Moses Charikar",
+        "Weiyun Ma",
+        "Li-Yang Tan"
+      ],
+      "year": 2022,
+      "venue": "FOCS 2022",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2205.03710",
+      "verifiedOn": "2026-10-26",
+      "fullTextUrl": "https://arxiv.org/pdf/2205.03710",
+      "version": "arXiv:2205.03710v1",
+      "verificationNote": "Corollary 1.5; Section 4 LOCAL proof; Claim 4.1"
+    }
+  },
+  "verifiedRecords": [
+    {
+      "id": "cc-local-3plus-rounds",
+      "paperId": "behnezhad-2022-constant-rounds",
+      "kind": "upper",
+      "bound": "2r+1 LOCAL rounds",
+      "guarantee": "Expected (3+8/(2r−1)+n^{−Ω(1)})-approximation; (3+ε) with r=O(1/ε)",
+      "sourceLocation": "Corollary 1.5; Section 4 LOCAL proof, printed pp. 25–26; Claim 4.1, pp. 23–24",
+      "evidenceStatus": "theorem_verified",
+      "frontierStatus": "verified_tradeoff",
+      "notes": "Each Pivot phase uses two communication rounds, followed by one round for cluster assignment. Independently sampled finite ranks create a vanishing correction. The plotted factor a=3+8/(2r−1) is only the leading guarantee; the actual expected factor is a+δₙ. The theorem holds for all integer r≥1; displayed samples stop at r=128. Corollary 1.5 states any ε>0; for fixed ε choose r=O(1/ε) with 8/(2r−1)+δₙ<ε.",
+      "plot": null,
+      "sourceId": "behnezhad-2022-constant-rounds",
+      "sliceId": "cc-local-3plus",
+      "panel": "tradeoff",
+      "shortLabel": "BCMT22 · r-Pivot",
+      "displayBound": "2r+1 rounds; O(1/ε) for expected (3+ε)-approximation",
+      "exactBound": "T = 2r+1; E[cost] ≤ (3+8/(2r−1)+δₙ) OPT, δₙ = n^{−Ω(1)}",
+      "quality": "Expected cost at most (3+8/(2r−1)+n^{−Ω(1)}) times OPT",
+      "output": "Partition into any number of clusters; each vertex learns its cluster ID",
+      "graph": "Unweighted complete signed graph encoded by its positive-edge graph G; nonedges are negative pairs",
+      "resourceModel": "Elapsed synchronous LOCAL rounds on the positive-edge network G; O(log n)-bit messages suffice",
+      "probability": "Expected approximation over independent random vertex ranks; no high-probability approximation ratio is claimed",
+      "theorem": "Corollary 1.5; Section 4 LOCAL implementation (printed pp. 25–26); Claim 4.1",
+      "verificationUrl": "https://arxiv.org/pdf/2205.03710#page=27",
+      "parameter": {
+        "symbol": "r",
+        "domain": "Positive integers",
+        "minimum": 1
+      },
+      "roundsExpression": "2r+1",
+      "leadingApproximationExpression": "3+8/(2r−1)",
+      "rankCorrection": "n^{−Ω(1)}",
+      "assumptions": [
+        "Positive-edge graph defines unweighted complete signed instance",
+        "Communication on the positive-edge graph; fixed ε>0",
+        "Randomized expected objective guarantee",
+        "Positive edges are exactly the communication links",
+        "Integer r≥1; finite rank correction retained",
+        "Elapsed communication rounds, with O(log n)-bit messages"
+      ]
+    }
+  ],
+  "relatedResults": [],
+  "figureAxes": {
+    "tradeoff": {
+      "title": "Expected approximation versus communication rounds",
+      "x": {
+        "label": "Leading approximation guarantee a=3+8/(2r−1); log spacing in a−3",
+        "kind": "log-excess",
+        "offset": 3,
+        "min": 3.03125,
+        "max": 11,
+        "ticks": [
+          3.03125,
+          3.125,
+          3.5,
+          5,
+          11
+        ],
+        "tickLabels": [
+          "3 + 1/32",
+          "3.125",
+          "3.5",
+          "5",
+          "11"
+        ],
+        "note": "Actual expected approximation is a+δₙ, where δₙ=n^{−Ω(1)}. The reference 3 is off the log axis."
+      },
+      "y": {
+        "label": "Elapsed communication rounds T=2r+1; logarithmic scale",
+        "kind": "log",
+        "min": 2,
+        "max": 512,
+        "ticks": [
+          2,
+          8,
+          32,
+          128,
+          512
+        ],
+        "tickLabels": [
+          "2",
+          "8",
+          "32",
+          "128",
+          "512"
+        ]
+      }
+    }
+  },
+  "sampleR": [
+    1,
+    2,
+    4,
+    8,
+    16,
+    32,
+    64,
+    128
+  ],
+  "defaultR": 16,
+  "displayRRange": [
+    1,
+    128
+  ],
+  "sourceVerification": [
+    {
+      "sourceId": "behnezhad-2022-constant-rounds",
+      "url": "https://arxiv.org/pdf/2205.03710",
+      "checkedOn": "2026-10-26",
+      "theorems": [
+        "Corollary 1.5, printed p. 4",
+        "Section 4 LOCAL implementation, printed pp. 25–26",
+        "Claim 4.1, printed pp. 23–24",
+        "Appendix B Lemma B.1, printed pp. 30–31 (scope audit only)"
+      ],
+      "note": "Expected guarantee and finite-rank correction verified. No general LOCAL round lower theorem in supplied source."
+    }
+  ],
+  "coverageNote": "Bounded review of the one supplied source, not an exhaustive literature frontier.",
+  "lowerBoundStatus": "No general LOCAL round lower bound is proved in the supplied source. Algorithm-specific bad-order examples are not universal bounds.",
+  "lowerBoundAudit": {
+    "generalLocalRoundLowerBoundInSuppliedSource": false,
+    "generalApproximationHardnessThresholdVerifiedInSuppliedSource": false,
+    "mainFigureLowerBoundRecords": [],
+    "mainFigureNote": "No general LOCAL round lower bound is proved in the supplied source.",
+    "excludedClaims": [
+      {
+        "sourceLocation": "Introduction, printed p. 3",
+        "claim": "A cited Omega(log n) lower bound for completing parallel greedy MIS / the full Pivot construction.",
+        "reasonExcluded": "This is not a round lower bound for all LOCAL correlation-clustering algorithms."
+      },
+      {
+        "sourceLocation": "Appendix B, Lemma B.1, printed pp. 30–31",
+        "claim": "A bad-permutation example for r-Pivot, with claimed cost Omega((n^2/r) OPT) for r<n/2.",
+        "reasonExcluded": "Algorithm-specific and permutation-specific; not an expected approximation lower bound and not a universal LOCAL round lower bound."
+      },
+      {
+        "sourceLocation": "Introduction / conclusion",
+        "claim": "Approximation 3 is described as a combinatorial barrier or target.",
+        "reasonExcluded": "This is not a proved universal hardness boundary and must not be drawn as a red lower-bound line."
+      }
+    ],
+    "additionalSetupNotMerged": {
+      "claim": "Approximately 2.06+epsilon rounding given a suitable LP solution.",
+      "reason": "Computing the LP is not included; this is an incompatible extra-input contract, not the same end-to-end LOCAL guarantee."
+    }
+  },
+  "axisSemantics": "X is a=3+8/(2r−1), with logarithmic spacing of the excess a−3; actual expected guarantee is a+δₙ with δₙ=n^{−Ω(1)}. Y is elapsed rounds on a logarithmic scale. Dots are selected integer-r theorem instances; the dashed line is a visual guide, not a continuous parameter theorem. The reference 3 is not a lower bound.",
+  "acceptedSetup": "Approximation factor and round tradeoff"
+}

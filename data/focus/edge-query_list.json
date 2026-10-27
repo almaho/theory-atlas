@@ -1,0 +1,589 @@
+{
+  "id": "edge-query_list",
+  "problem": "edge",
+  "model": "query_list",
+  "title": "One scan, several palettes",
+  "sources": {
+    "blikstad-maus-devos-2026-distributed": {
+      "id": "blikstad-maus-devos-2026-distributed",
+      "title": "Deterministic Edge Coloring with few Colors in CONGEST",
+      "authors": [
+        "Joakim Blikstad",
+        "Yannic Maus",
+        "Tijn de Vos"
+      ],
+      "year": 2026,
+      "venue": "DISC 2026 (accepted); arXiv:2603.02689v2",
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/abs/2603.02689",
+      "verifiedOn": "2026-10-27",
+      "fullTextUrl": "https://arxiv.org/html/2603.02689v2"
+    },
+    "assadi-et-al-2025-vizing": {
+      "id": "assadi-et-al-2025-vizing",
+      "title": "Vizing’s Theorem in Near-Linear Time",
+      "authors": [
+        "Sepehr Assadi",
+        "Soheil Behnezhad",
+        "Sayan Bhattacharya",
+        "Martín Costa",
+        "Shay Solomon",
+        "Tianyi Zhang"
+      ],
+      "year": 2025,
+      "venue": "STOC 2025; Journal of the ACM 2026",
+      "publicationStatus": "journal",
+      "url": "https://arxiv.org/abs/2410.05240",
+      "verifiedOn": "2026-10-27",
+      "fullTextUrl": "https://arxiv.org/html/2410.05240v3",
+      "publicationUrl": "https://doi.org/10.1145/3806392"
+    },
+    "assadi-2025-nearvizing": {
+      "id": "assadi-2025-nearvizing",
+      "title": "Faster Vizing and Near-Vizing Edge Coloring Algorithms",
+      "authors": [
+        "Sepehr Assadi"
+      ],
+      "year": 2025,
+      "venue": "SODA 2025",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2405.13371",
+      "verifiedOn": "2026-10-27",
+      "fullTextUrl": "https://arxiv.org/html/2405.13371"
+    },
+    "bhattacharya-costa-panski-solomon-2024-density": {
+      "id": "bhattacharya-costa-panski-solomon-2024-density",
+      "title": "Density-Sensitive Algorithms for (Δ+1)-Edge Coloring",
+      "authors": [
+        "Sayan Bhattacharya",
+        "Martín Costa",
+        "Nadav Panski",
+        "Shay Solomon"
+      ],
+      "year": 2024,
+      "venue": "ESA 2024",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ESA.2024.23",
+      "verifiedOn": "2026-10-27",
+      "fullTextUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol308-esa2024/LIPIcs.ESA.2024.23/LIPIcs.ESA.2024.23.pdf"
+    },
+    "bernshteyn-dhawan-2026-linear-static": {
+      "id": "bernshteyn-dhawan-2026-linear-static",
+      "title": "A Linear-Time Algorithm for (1+ε)Δ-Edge-Coloring",
+      "authors": [
+        "Anton Bernshteyn",
+        "Abhishek Dhawan"
+      ],
+      "year": 2026,
+      "venue": "SIAM Journal on Discrete Mathematics 2026",
+      "publicationStatus": "journal",
+      "url": "https://arxiv.org/abs/2407.04887",
+      "verifiedOn": "2026-10-27",
+      "fullTextUrl": "https://arxiv.org/pdf/2407.04887v2",
+      "publicationUrl": "https://epubs.siam.org/doi/10.1137/25M1785241"
+    },
+    "bhattacharya-costa-solomon-zhang-2025-faster-vizing": {
+      "id": "bhattacharya-costa-solomon-zhang-2025-faster-vizing",
+      "title": "Even Faster (Δ+1)-Edge Coloring via Shorter Multi-Step Vizing Chains",
+      "authors": [
+        "Sayan Bhattacharya",
+        "Martín Costa",
+        "Shay Solomon",
+        "Tianyi Zhang"
+      ],
+      "year": 2025,
+      "venue": "SODA 2025",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2410.12479",
+      "verifiedOn": "2026-10-27",
+      "fullTextUrl": "https://arxiv.org/html/2410.12479"
+    },
+    "bhattacharya-carmon-costa-solomon-zhang-2024-vizing": {
+      "id": "bhattacharya-carmon-costa-solomon-zhang-2024-vizing",
+      "title": "Faster (Δ+1)-Edge Coloring: Breaking the m√n Time Barrier",
+      "authors": [
+        "Sayan Bhattacharya",
+        "Din Carmon",
+        "Martín Costa",
+        "Shay Solomon",
+        "Tianyi Zhang"
+      ],
+      "year": 2024,
+      "venue": "FOCS 2024; arXiv:2405.15449",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2405.15449",
+      "verifiedOn": "2026-10-27",
+      "fullTextUrl": "https://arxiv.org/html/2405.15449"
+    }
+  },
+  "verifiedRecords": [
+    {
+      "kind": "upper",
+      "panel": "queries",
+      "graph": "Undirected simple graph with n known labeled vertices, m edges and maximum degree Δ",
+      "output": "One explicit color assignment for every edge",
+      "oracle": "degree(v) and indexed neighbor(v,i); arbitrary local list order",
+      "queryComplexity": "Exactly n+2m oracle calls for this scan",
+      "queryDerivation": "Ask degree(v) once for each of n vertices; then read all degree(v) list entries. The sum of degrees is 2m. Retain each undirected edge once and make no further external graph queries.",
+      "totalTimeConvention": "Total RAM time includes the O(n+m) scan and the post-scan computation shown separately.",
+      "memory": "Stores the full O(n+m)-word adjacency representation; no auxiliary-space restriction imposed.",
+      "evidenceStatus": "verified",
+      "conditional": false,
+      "id": "query-adjacency-list-greedy-baseline",
+      "paperId": "blikstad-maus-devos-2026-distributed",
+      "bound": "Exactly n+2m oracle calls for this scan; O(mΔ) post-scan time",
+      "guarantee": "Proper coloring using at most 2Δ−1 colors",
+      "sourceLocation": "Greedy palette observation in Introduction; straightforward RAM implementation is an atlas derivation",
+      "frontierStatus": "baseline",
+      "notes": "Each edge has at most 2Δ−2 colored neighbors; scanning these and the 2Δ−1 palette costs O(Δ) per edge. The oracle scan is an atlas composition. The same O(mΔ) greedy bound is explicitly discussed in Bernshteyn–Dhawan §1.1/Table 1.",
+      "paletteCategory": "greedy",
+      "costClass": "degree",
+      "shortName": "Straightforward greedy",
+      "shortTag": "deterministic",
+      "palette": "2Δ−1",
+      "quality": "Proper coloring using at most 2Δ−1 colors",
+      "computation": "O(mΔ)",
+      "displayBound": "O(mΔ) straightforward greedy computation",
+      "probability": "Deterministic worst-case time",
+      "randomized": false,
+      "theorem": "Greedy palette observation in Introduction; straightforward RAM implementation is an atlas derivation",
+      "assumptions": [
+        "Δ≥1; empty graphs handled trivially",
+        "Scan neighboring edge colors and choose a free color for each edge",
+        "This is a straightforward greedy implementation, not an optimal implementation of greedy coloring"
+      ],
+      "supportingSourceIds": [
+        "bernshteyn-dhawan-2026-linear-static"
+      ],
+      "sourceId": "blikstad-maus-devos-2026-distributed",
+      "sourceUrl": "https://arxiv.org/html/2603.02689v2",
+      "totalTime": "O(n+m) scan + O(mΔ) post-scan computation",
+      "queryCost": "n-plus-2m"
+    },
+    {
+      "kind": "upper",
+      "panel": "queries",
+      "graph": "Undirected simple graph with n known labeled vertices, m edges and maximum degree Δ",
+      "output": "One explicit color assignment for every edge",
+      "oracle": "degree(v) and indexed neighbor(v,i); arbitrary local list order",
+      "queryComplexity": "Exactly n+2m oracle calls for this scan",
+      "queryDerivation": "Ask degree(v) once for each of n vertices; then read all degree(v) list entries. The sum of degrees is 2m. Retain each undirected edge once and make no further external graph queries.",
+      "totalTimeConvention": "Total RAM time includes the O(n+m) scan and the post-scan computation shown separately.",
+      "memory": "Stores the full O(n+m)-word adjacency representation; no auxiliary-space restriction imposed.",
+      "evidenceStatus": "verified",
+      "conditional": false,
+      "id": "edge-query-vizing-2025-enumerated",
+      "paperId": "assadi-et-al-2025-vizing",
+      "bound": "Exactly n+2m oracle calls for this scan; O(m log⁺Δ) post-scan time",
+      "guarantee": "Proper coloring using at most Δ+1 colors",
+      "sourceLocation": "arXiv:2410.05240v3, Corollary C.1(i); journal version Corollary B.1(i)",
+      "frontierStatus": "current_best_verified",
+      "notes": "Theorem 1.1 itself states O(m log n); Appendix C supplies the log Δ improvement. Journal appendix numbering is B.1. The n+2m query count is derived by the atlas, not an author-stated query lower or optimum.",
+      "paletteCategory": "vizing",
+      "costClass": "degree_log",
+      "shortName": "Exact Vizing · 2025",
+      "shortTag": "w.h.p.",
+      "palette": "Δ+1",
+      "quality": "Proper coloring using at most Δ+1 colors",
+      "computation": "O(m log⁺Δ)",
+      "displayBound": "O(m log⁺Δ) computation, w.h.p.",
+      "probability": "Randomized runtime and successful coloring with high probability",
+      "randomized": true,
+      "theorem": "arXiv:2410.05240v3, Corollary C.1(i); journal version Corollary B.1(i)",
+      "assumptions": [
+        "General simple graphs",
+        "Δ≤1 is trivial; log⁺Δ=max{1,log Δ} includes that case"
+      ],
+      "sourceId": "assadi-et-al-2025-vizing",
+      "sourceUrl": "https://arxiv.org/html/2410.05240v3",
+      "totalTime": "O(n+m) scan + O(m log⁺Δ) post-scan computation",
+      "queryCost": "n-plus-2m"
+    },
+    {
+      "kind": "upper",
+      "panel": "queries",
+      "graph": "Undirected simple graph with n known labeled vertices, m edges and maximum degree Δ",
+      "output": "One explicit color assignment for every edge",
+      "oracle": "degree(v) and indexed neighbor(v,i); arbitrary local list order",
+      "queryComplexity": "Exactly n+2m oracle calls for this scan",
+      "queryDerivation": "Ask degree(v) once for each of n vertices; then read all degree(v) list entries. The sum of degrees is 2m. Retain each undirected edge once and make no further external graph queries.",
+      "totalTimeConvention": "Total RAM time includes the O(n+m) scan and the post-scan computation shown separately.",
+      "memory": "Stores the full O(n+m)-word adjacency representation; no auxiliary-space restriction imposed.",
+      "evidenceStatus": "verified",
+      "conditional": false,
+      "id": "edge-query-near-vizing-2025-enumerated",
+      "paperId": "assadi-2025-nearvizing",
+      "bound": "Exactly n+2m oracle calls for this scan; O(m log⁺Δ) expected post-scan time",
+      "guarantee": "Proper coloring using Δ+O(log n) colors",
+      "sourceLocation": "Theorem 2 and §4.3 fallback modification",
+      "frontierStatus": "historical",
+      "notes": "The fallback ensures the palette always holds without changing the expected-time order. Do not relabel expectation as the same-time high-probability guarantee.",
+      "paletteCategory": "additive",
+      "costClass": "degree_log",
+      "shortName": "Near Vizing · 2025",
+      "shortTag": "expected",
+      "palette": "Δ+O(log n)",
+      "quality": "Proper coloring using Δ+O(log n) colors",
+      "computation": "O(m log⁺Δ) expected",
+      "displayBound": "O(m log⁺Δ) expected computation",
+      "probability": "Always a valid coloring within the palette; expected runtime",
+      "randomized": true,
+      "theorem": "Theorem 2 and §4.3 fallback modification",
+      "assumptions": [
+        "General simple graphs",
+        "Use the §4.3 fallback when the sampled coloring exceeds the target palette",
+        "Δ≤1 handled trivially"
+      ],
+      "sourceId": "assadi-2025-nearvizing",
+      "sourceUrl": "https://arxiv.org/html/2405.13371",
+      "totalTime": "O(n+m) scan + O(m log⁺Δ) expected post-scan computation",
+      "queryCost": "n-plus-2m"
+    },
+    {
+      "kind": "upper",
+      "panel": "queries",
+      "graph": "Undirected simple graph with n known labeled vertices, m edges and maximum degree Δ",
+      "output": "One explicit color assignment for every edge",
+      "oracle": "degree(v) and indexed neighbor(v,i); arbitrary local list order",
+      "queryComplexity": "Exactly n+2m oracle calls for this scan",
+      "queryDerivation": "Ask degree(v) once for each of n vertices; then read all degree(v) list entries. The sum of degrees is 2m. Retain each undirected edge once and make no further external graph queries.",
+      "totalTimeConvention": "Total RAM time includes the O(n+m) scan and the post-scan computation shown separately.",
+      "memory": "Stores the full O(n+m)-word adjacency representation; no auxiliary-space restriction imposed.",
+      "evidenceStatus": "verified",
+      "conditional": false,
+      "id": "edge-query-density-2024-enumerated",
+      "paperId": "bhattacharya-costa-panski-solomon-2024-density",
+      "bound": "Exactly n+2m oracle calls for this scan; Õ(m + min{m√n,mΔ}·α/Δ) post-scan time",
+      "guarantee": "Proper coloring using at most Δ+1 colors",
+      "sourceLocation": "ESA 2024 Theorem 3, explicit runtime remark; Lemma 24 and Corollary 25",
+      "frontierStatus": "historical",
+      "notes": "Corrects the abstract-level omission of the additive linear term. For a star, the bare density term can be sublinear in m; the actual implementation still includes graph processing and output.",
+      "paletteCategory": "vizing",
+      "costClass": "density",
+      "shortName": "Density-sensitive · 2024",
+      "shortTag": "w.h.p. / expected",
+      "palette": "Δ+1",
+      "quality": "Proper coloring using at most Δ+1 colors",
+      "computation": "Õ(m + min{m√n,mΔ}·α/Δ)",
+      "exactComputation": "High-probability O(min{mΔ log²n, m√n log^(3/2)n}·α/Δ + m log²n), from Corollary 25.",
+      "displayBound": "Õ(m + min{m√n,mΔ}·α/Δ) computation",
+      "probability": "Randomized; soft-O bound holds in expectation and with high probability",
+      "randomized": true,
+      "theorem": "ESA 2024 Theorem 3, explicit runtime remark; Lemma 24 and Corollary 25",
+      "assumptions": [
+        "α is graph arboricity",
+        "Retain the additive m term even when α/Δ is small",
+        "Õ hides polylogarithmic factors in n"
+      ],
+      "sourceId": "bhattacharya-costa-panski-solomon-2024-density",
+      "sourceUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol308-esa2024/LIPIcs.ESA.2024.23/LIPIcs.ESA.2024.23.pdf",
+      "totalTime": "O(n+m) scan + Õ(m + min{m√n,mΔ}·α/Δ) post-scan computation",
+      "queryCost": "n-plus-2m"
+    },
+    {
+      "kind": "upper",
+      "panel": "queries",
+      "graph": "Undirected simple graph with n known labeled vertices, m edges and maximum degree Δ",
+      "output": "One explicit color assignment for every edge",
+      "oracle": "degree(v) and indexed neighbor(v,i); arbitrary local list order",
+      "queryComplexity": "Exactly n+2m oracle calls for this scan",
+      "queryDerivation": "Ask degree(v) once for each of n vertices; then read all degree(v) list entries. The sum of degrees is 2m. Retain each undirected edge once and make no further external graph queries.",
+      "totalTimeConvention": "Total RAM time includes the O(n+m) scan and the post-scan computation shown separately.",
+      "memory": "Stores the full O(n+m)-word adjacency representation; no auxiliary-space restriction imposed.",
+      "evidenceStatus": "verified",
+      "conditional": false,
+      "id": "edge-query-nearlinear-2026-enumerated",
+      "paperId": "bernshteyn-dhawan-2026-linear-static",
+      "bound": "Exactly n+2m oracle calls for this scan; O(m log⁺(1/ε)/ε⁴) post-scan time",
+      "guarantee": "Integer color labels at most (1+ε)Δ",
+      "sourceLocation": "Theorem 1.3 (arXiv:2407.04887v2, printed p.3); Definition 1.1 palette convention",
+      "frontierStatus": "current_best_verified",
+      "notes": "The theorem states the stronger failure bound ε^{Ω(m)}. The source expression uses log(1/ε); the display's log⁺ convention is a safe upper-bound normalization. This is total post-scan computation, not an amortized per-query LCA guarantee.",
+      "paletteCategory": "epsilon",
+      "costClass": "epsilon",
+      "shortName": "Linear time · 2026",
+      "shortTag": "failure ≤ ε^{Ω(m)}",
+      "palette": "(1+ε)Δ",
+      "quality": "Integer color labels at most (1+ε)Δ",
+      "computation": "O(m log⁺(1/ε)/ε⁴)",
+      "sourceComputation": "O(m log(1/ε)/ε⁴)",
+      "displayBound": "O(m log⁺(1/ε)/ε⁴) computation",
+      "probability": "Finishes with a proper coloring within the bound with probability at least 1−ε^{Ω(m)}",
+      "randomized": true,
+      "theorem": "Theorem 1.3 (arXiv:2407.04887v2, printed p.3); Definition 1.1 palette convention",
+      "assumptions": [
+        "0<ε<1 and Δ≥1/ε",
+        "For fixed ε, post-scan runtime is O(m)",
+        "Source allows noninteger q, with integer color labels ≤q (equivalently at most floor(q) colors)",
+        "Display uses log⁺x=max{1,log x} to keep the explicit linear output term visible"
+      ],
+      "sourceId": "bernshteyn-dhawan-2026-linear-static",
+      "sourceUrl": "https://arxiv.org/pdf/2407.04887v2",
+      "totalTime": "O(n+m) scan + O(m log⁺(1/ε)/ε⁴) post-scan computation",
+      "queryCost": "n-plus-2m"
+    },
+    {
+      "kind": "upper",
+      "panel": "queries",
+      "graph": "Undirected simple graph with n known labeled vertices, m edges and maximum degree Δ",
+      "output": "One explicit color assignment for every edge",
+      "oracle": "degree(v) and indexed neighbor(v,i); arbitrary local list order",
+      "queryComplexity": "Exactly n+2m oracle calls for this scan",
+      "queryDerivation": "Ask degree(v) once for each of n vertices; then read all degree(v) list entries. The sum of degrees is 2m. Retain each undirected edge once and make no further external graph queries.",
+      "totalTimeConvention": "Total RAM time includes the O(n+m) scan and the post-scan computation shown separately.",
+      "memory": "Stores the full O(n+m)-word adjacency representation; no auxiliary-space restriction imposed.",
+      "evidenceStatus": "verified",
+      "conditional": false,
+      "id": "edge-query-vizing2024-mnthird",
+      "paperId": "bhattacharya-carmon-costa-solomon-zhang-2024-vizing",
+      "bound": "Exactly n+2m oracle calls for this scan; Õ(m n^{1/3}) post-scan time",
+      "guarantee": "Proper coloring using at most Δ+1 colors",
+      "sourceLocation": "arXiv:2405.15449v1, Theorem 1.1",
+      "frontierStatus": "historical",
+      "notes": "Historical time improvement; all external degree/neighbor access is still the shared full scan.",
+      "paletteCategory": "vizing",
+      "costClass": "third",
+      "shortName": "Vizing · FOCS 2024",
+      "shortTag": "w.h.p.",
+      "palette": "Δ+1",
+      "quality": "Proper coloring using at most Δ+1 colors",
+      "computation": "Õ(m n^{1/3})",
+      "displayBound": "Õ(m n^{1/3}) computation, w.h.p.",
+      "probability": "Randomized computation succeeds in the stated runtime with high probability",
+      "randomized": true,
+      "theorem": "arXiv:2405.15449v1, Theorem 1.1",
+      "assumptions": [
+        "General simple graphs",
+        "Õ hides polylogarithmic factors in n"
+      ],
+      "sourceId": "bhattacharya-carmon-costa-solomon-zhang-2024-vizing",
+      "sourceUrl": "https://arxiv.org/html/2405.15449",
+      "totalTime": "O(n+m) scan + Õ(m n^{1/3}) post-scan computation",
+      "queryCost": "n-plus-2m"
+    },
+    {
+      "kind": "upper",
+      "panel": "queries",
+      "graph": "Undirected simple graph with n known labeled vertices, m edges and maximum degree Δ",
+      "output": "One explicit color assignment for every edge",
+      "oracle": "degree(v) and indexed neighbor(v,i); arbitrary local list order",
+      "queryComplexity": "Exactly n+2m oracle calls for this scan",
+      "queryDerivation": "Ask degree(v) once for each of n vertices; then read all degree(v) list entries. The sum of degrees is 2m. Retain each undirected edge once and make no further external graph queries.",
+      "totalTimeConvention": "Total RAM time includes the O(n+m) scan and the post-scan computation shown separately.",
+      "memory": "Stores the full O(n+m)-word adjacency representation; no auxiliary-space restriction imposed.",
+      "evidenceStatus": "verified",
+      "conditional": false,
+      "id": "edge-query-vizing2025-mnfourth",
+      "paperId": "bhattacharya-costa-solomon-zhang-2025-faster-vizing",
+      "bound": "Exactly n+2m oracle calls for this scan; Õ(m n^{1/4}) post-scan time",
+      "guarantee": "Proper coloring using at most Δ+1 colors",
+      "sourceLocation": "arXiv:2410.12479v1, Theorem 1.1",
+      "frontierStatus": "historical",
+      "notes": "Historical time improvement. Its color-extension subroutine is not a separate adjacency-list query lower bound.",
+      "paletteCategory": "vizing",
+      "costClass": "quarter",
+      "shortName": "Vizing · SODA 2025",
+      "shortTag": "w.h.p.",
+      "palette": "Δ+1",
+      "quality": "Proper coloring using at most Δ+1 colors",
+      "computation": "Õ(m n^{1/4})",
+      "displayBound": "Õ(m n^{1/4}) computation, w.h.p.",
+      "probability": "Randomized computation succeeds in the stated runtime with high probability",
+      "randomized": true,
+      "theorem": "arXiv:2410.12479v1, Theorem 1.1",
+      "assumptions": [
+        "General simple graphs",
+        "Õ hides polylogarithmic factors in n"
+      ],
+      "sourceId": "bhattacharya-costa-solomon-zhang-2025-faster-vizing",
+      "sourceUrl": "https://arxiv.org/html/2410.12479",
+      "totalTime": "O(n+m) scan + Õ(m n^{1/4}) post-scan computation",
+      "queryCost": "n-plus-2m"
+    }
+  ],
+  "relatedResults": [],
+  "derivedBounds": [
+    {
+      "id": "edge-query-list-explicit-output-time",
+      "kind": "lower",
+      "derived": true,
+      "resource": "output_time",
+      "panel": "details",
+      "costClass": "output",
+      "paletteCategory": "all",
+      "shortName": "Elementary output cost",
+      "shortTag": "time only",
+      "displayBound": "Output cost: Ω(m)",
+      "computation": "Ω(m) output operations",
+      "quality": "Writing one color assignment for each of m edges",
+      "graph": "Undirected simple graph with n known labeled vertices, m edges and maximum degree Δ",
+      "output": "One explicit color assignment for every edge",
+      "probability": "Deterministic counting argument; applies to randomized algorithms on every successful execution",
+      "oracle": "No claim about oracle queries",
+      "queryComplexity": null,
+      "assumptions": [
+        "Explicit output contains m edge-color assignments",
+        "A unit-cost operation emits O(1) assignments",
+        "No compressed or implicit coloring representation"
+      ],
+      "proof": "The requested output has m records. If one operation emits at most a constant number of records, emitting the output takes at least a constant multiple of m operations, even if the graph and coloring are already known.",
+      "theorem": "Elementary output-counting derivation by the atlas; not a paper theorem",
+      "notes": "This is a time lower bound only. It is not a degree/neighbor-query lower bound, a palette lower bound, or a query-optimality claim."
+    }
+  ],
+  "palettes": [
+    {
+      "id": "vizing",
+      "label": "Δ+1",
+      "description": "Exact Vizing guarantee"
+    },
+    {
+      "id": "additive",
+      "label": "Δ+O(log n)",
+      "description": "Additive slack"
+    },
+    {
+      "id": "epsilon",
+      "label": "(1+ε)Δ",
+      "description": "Multiplicative slack"
+    },
+    {
+      "id": "greedy",
+      "label": "2Δ−1",
+      "description": "Straightforward greedy"
+    }
+  ],
+  "costs": [
+    {
+      "id": "degree",
+      "label": "O(mΔ)",
+      "short": "mΔ"
+    },
+    {
+      "id": "third",
+      "label": "Õ(m n^{1/3})",
+      "short": "mn¹ᐟ³"
+    },
+    {
+      "id": "quarter",
+      "label": "Õ(m n^{1/4})",
+      "short": "mn¹ᐟ⁴"
+    },
+    {
+      "id": "density",
+      "label": "Õ(m + mα min{1,√n/Δ})",
+      "short": "density"
+    },
+    {
+      "id": "degree_log",
+      "label": "O(m log⁺Δ)",
+      "short": "m log⁺Δ"
+    },
+    {
+      "id": "epsilon",
+      "label": "O(m f(ε))",
+      "short": "m f(ε)"
+    },
+    {
+      "id": "output",
+      "label": "Output cost: Ω(m)",
+      "short": "Ω(m) time"
+    }
+  ],
+  "figureAxes": {
+    "queries": {
+      "x": {
+        "label": "Palette guarantee categories (not numeric palette ratios)",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "vizing",
+            "label": "Δ+1"
+          },
+          {
+            "id": "additive",
+            "label": "Δ+O(log n)"
+          },
+          {
+            "id": "epsilon",
+            "label": "(1+ε)Δ"
+          },
+          {
+            "id": "greedy",
+            "label": "2Δ−1"
+          }
+        ]
+      },
+      "y": {
+        "label": "Oracle queries per complete explicit coloring; exact symbolic count",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "n-plus-2m",
+            "label": "n+2m"
+          }
+        ]
+      }
+    }
+  },
+  "queryScan": {
+    "calls": "n+2m",
+    "degreeCalls": "n",
+    "neighborCalls": "2m",
+    "time": "O(n+m)",
+    "derived": true,
+    "proof": "Ask degree(v) once for each of n vertices; then read all degree(v) list entries. The sum of degrees is 2m. Retain each undirected edge once and make no further external graph queries."
+  },
+  "sourceVerification": {
+    "reviewedOn": "2026-10-27",
+    "scope": "Seven supplied source records, verified primary statements; scan and explicit-output counting are atlas derivations.",
+    "sources": [
+      {
+        "id": "blikstad-maus-devos-2026-distributed",
+        "url": "https://arxiv.org/html/2603.02689v2"
+      },
+      {
+        "id": "assadi-et-al-2025-vizing",
+        "url": "https://arxiv.org/html/2410.05240v3"
+      },
+      {
+        "id": "assadi-2025-nearvizing",
+        "url": "https://arxiv.org/html/2405.13371"
+      },
+      {
+        "id": "bhattacharya-costa-panski-solomon-2024-density",
+        "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol308-esa2024/LIPIcs.ESA.2024.23/LIPIcs.ESA.2024.23.pdf"
+      },
+      {
+        "id": "bernshteyn-dhawan-2026-linear-static",
+        "url": "https://arxiv.org/pdf/2407.04887v2"
+      },
+      {
+        "id": "bhattacharya-costa-solomon-zhang-2025-faster-vizing",
+        "url": "https://arxiv.org/html/2410.12479"
+      },
+      {
+        "id": "bhattacharya-carmon-costa-solomon-zhang-2024-vizing",
+        "url": "https://arxiv.org/html/2405.15449"
+      }
+    ],
+    "notes": [
+      "Density-sensitive formula restores the omitted additive m term.",
+      "Corollary C.1 in arXiv / B.1 in journal, not main Theorem 1.1, yields log Δ.",
+      "No nontrivial adjacency-list query lower bound in this bounded source set."
+    ]
+  },
+  "lowerBoundStatus": "No oracle-query lower bound is verified in the reviewed source set. The elementary output-time proof appears only in related theorem details.",
+  "coverage": "All seven supplied records preserved. The common n+2m query count is a full-enumeration implementation, not a claim of optimal oracle complexity.",
+  "notation": {
+    "alpha": "Arboricity",
+    "epsilonFunction": "f(ε)=log⁺(1/ε)/ε⁴",
+    "logPlus": "log⁺x=max{1,log x}"
+  },
+  "sharedAssumptions": [
+    "Known n labeled vertices; undirected simple graph; arbitrary adjacency-list order",
+    "Edgeless graphs produce an empty output after n degree queries; displayed nonempty-graph formulas use Δ≥1",
+    "Full explicit edge-color assignments; unrestricted auxiliary space"
+  ],
+  "representationPreference": "User confirmed2026-10-27: query cost on main axis; computation only in details."
+}

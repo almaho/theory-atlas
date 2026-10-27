@@ -1,0 +1,97 @@
+{
+  "problem": "vertex",
+  "model": "query_list",
+  "slices": [
+    {
+      "id": "vertex-query-adjacency-list-only",
+      "problem": "vertex",
+      "model": "query_list",
+      "label": "Adjacency list neighbor queries only",
+      "task": "Output a proper (Δ+1)-color assignment",
+      "assumptions": [
+        "Classical deterministic greedy algorithm",
+        "Neighbor access lists incident vertices",
+        "Maximum degree Δ"
+      ],
+      "xAxis": {
+        "label": "Palette slack c in q = Δ + c",
+        "kind": "palette",
+        "min": 0,
+        "max": 8,
+        "ticks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          6,
+          8
+        ]
+      },
+      "yAxis": {
+        "label": "Neighbor/list query exponent p in O(n^p)",
+        "kind": "exponent",
+        "min": 0,
+        "max": 2.25,
+        "ticks": [
+          0,
+          0.5,
+          1,
+          1.5,
+          2,
+          2.25
+        ],
+        "tickLabels": [
+          "polylog",
+          "√n",
+          "n",
+          "n^{3/2}",
+          "n²",
+          "n^{9/4}"
+        ]
+      },
+      "parameters": {
+        "n": "vertices",
+        "Delta": "maximum degree",
+        "coordinateConvention": "O(nΔ) ≤ O(n²) uses Δ≤n−1; the original degree-sensitive query bound remains in the table."
+      },
+      "results": [
+        {
+          "id": "vertex-query-list-greedy",
+          "paperId": "ferber-hardiman-chen-2025-sublinear-coloring",
+          "kind": "upper",
+          "bound": "O(nΔ) neighbor/list queries",
+          "guarantee": "Proper (Δ+1)-coloring",
+          "sourceLocation": "Table 1 and introduction (greedy baseline)",
+          "evidenceStatus": "verified",
+          "frontierStatus": "baseline",
+          "notes": "Simple greedy upper bound with list access; no claim it is optimal for all Δ.",
+          "plot": {
+            "x": 1,
+            "y": 2,
+            "closure": "upper-right",
+            "strictX": false,
+            "strictY": false,
+            "label": "q=Δ+1; ≤n² queries"
+          }
+        }
+      ]
+    }
+  ],
+  "papers": [
+    {
+      "id": "ferber-hardiman-chen-2025-sublinear-coloring",
+      "title": "Improved Sublinear Algorithms for Classical and Quantum Graph Coloring",
+      "authors": [
+        "Asaf Ferber",
+        "Liam Hardiman",
+        "Xiaonan Chen"
+      ],
+      "year": 2025,
+      "venue": "arXiv (revised 2026)",
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/abs/2502.06024",
+      "verifiedOn": "2026-09-27"
+    }
+  ]
+}

@@ -1,0 +1,179 @@
+{
+  "id": "mis-query_list",
+  "title": "Neighborhood independence determines the cost",
+  "problem": "mis",
+  "model": "query_list",
+  "reviewedOn": "2026-10-26",
+  "coverage": "Two supplied bounds from one primary paper. This figure compares explicit MIS construction in adjacency arrays.",
+  "sources": {
+    "assadi-solomon-2019-query-mis": {
+      "id": "assadi-solomon-2019-query-mis",
+      "title": "When Algorithms for Maximal Independent Set and Maximal Matching Run in Sublinear Time",
+      "authors": [
+        "Sepehr Assadi",
+        "Shay Solomon"
+      ],
+      "year": 2019,
+      "venue": "ICALP 2019",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2019.17",
+      "verifiedOn": "2026-10-26",
+      "shortLabel": "Assadi–Solomon 2019",
+      "fullTextUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol132-icalp2019/LIPIcs.ICALP.2019.17/LIPIcs.ICALP.2019.17.pdf",
+      "publicationUrl": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2019.17"
+    }
+  },
+  "verifiedRecords": [
+    {
+      "id": "mis-query-assadi-solomon-upper",
+      "sourceId": "assadi-solomon-2019-query-mis",
+      "kind": "algorithm",
+      "setup": "explicit",
+      "panel": "neighborhood",
+      "displayBound": "O(nβ)",
+      "bound": "O(nβ)",
+      "shortLabel": "Assadi–Solomon 2019",
+      "quality": "Exact inclusion-maximal independent set",
+      "output": "Explicit list of vertices in one MIS",
+      "graph": "Every nonempty simple graph; n vertices, neighborhood independence β",
+      "oracle": "Adjacency arrays: O(1) degree and indexed-neighbor access",
+      "probability": "Deterministic; always correct",
+      "adaptivity": "Adaptive access",
+      "assumptions": [
+        "Simple undirected n-vertex graph, with at least one edge",
+        "Degree and indexed-neighbor access in O(1) time",
+        "β is neighborhood independence; 1 ≤ β ≤ Δ < n",
+        "Output the complete MIS; total time is measured",
+        "β need not be known to the algorithm"
+      ],
+      "theorem": "Theorem 1 and Claims 2–3, pp. 17:6–17:7",
+      "sourceUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol132-icalp2019/LIPIcs.ICALP.2019.17/LIPIcs.ICALP.2019.17.pdf#page=6",
+      "resource": "Total computation time, including input access and explicit output",
+      "evidenceStatus": "full_text_verified",
+      "conditional": false,
+      "notes": "Greedy marking gives this bound without knowing β. Claim 2 retains O(n) initialization, so edgeless graphs (β = 0) take O(n); the complete expression is O(n(1+β)).",
+      "curve": {
+        "parameter": "a",
+        "domain": [
+          0,
+          1
+        ],
+        "beta": "Θ(n^a)",
+        "timeExponent": "1+a",
+        "normalization": "Exact asymptotic consequence of nβ, ignoring constant factors"
+      }
+    },
+    {
+      "id": "mis-query-assadi-solomon-lower",
+      "sourceId": "assadi-solomon-2019-query-mis",
+      "kind": "lower",
+      "setup": "explicit",
+      "panel": "neighborhood",
+      "displayBound": "Ω(nβ)",
+      "bound": "Ω(nβ)",
+      "shortLabel": "Assadi–Solomon 2019",
+      "quality": "Exact inclusion-maximal independent set",
+      "output": "Explicit list of vertices in one MIS",
+      "graph": "Worst case over n-vertex graphs with neighborhood independence at most β",
+      "oracle": "Adjacency arrays: O(1) degree and indexed-neighbor access",
+      "probability": "Unconditional lower bound; deterministic algorithms included. The source statement does not give a numerical randomized success threshold.",
+      "adaptivity": "Adaptive access",
+      "assumptions": [
+        "Simple undirected n-vertex graph, with at least one edge",
+        "Degree and indexed-neighbor access in O(1) time",
+        "β is neighborhood independence; 1 ≤ β ≤ Δ < n",
+        "Output the complete MIS; total time is measured",
+        "Worst-case graph-class bound, not a per-instance lower bound"
+      ],
+      "theorem": "Optimality of Our Bounds, p. 17:3; independent-copy argument",
+      "sourceUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol132-icalp2019/LIPIcs.ICALP.2019.17/LIPIcs.ICALP.2019.17.pdf#page=3",
+      "resource": "Total computation time, including input access and explicit output",
+      "evidenceStatus": "full_text_verified",
+      "conditional": false,
+      "notes": "The paper extends its cited general-graph lower bound using disjoint hard instances. The figure pairs only the common deterministic contract; no unverified randomized probability is added.",
+      "curve": {
+        "parameter": "a",
+        "domain": [
+          0,
+          1
+        ],
+        "beta": "Θ(n^a)",
+        "timeExponent": "1+a",
+        "normalization": "Exact asymptotic consequence of nβ, ignoring constant factors"
+      }
+    }
+  ],
+  "relatedResults": [],
+  "setups": [
+    {
+      "id": "explicit",
+      "label": "Explicit MIS · adjacency array",
+      "color": "#2563eb",
+      "output": "Explicit MIS",
+      "resource": "Total time"
+    }
+  ],
+  "figureAxes": {
+    "neighborhood": {
+      "title": "Explicit MIS · matching time bounds",
+      "x": {
+        "label": "Neighborhood independence β",
+        "kind": "derived-power",
+        "min": 0,
+        "max": 1,
+        "ticks": [
+          0,
+          0.5,
+          1
+        ],
+        "tickLabels": [
+          "Θ(1)",
+          "Θ(√n)",
+          "Θ(n)"
+        ],
+        "parameter": "β = Θ(n^a)"
+      },
+      "y": {
+        "label": "Total time",
+        "kind": "derived-power",
+        "min": 1,
+        "max": 2,
+        "ticks": [
+          1,
+          1.5,
+          2
+        ],
+        "tickLabels": [
+          "n",
+          "n³ᐟ²",
+          "n²"
+        ],
+        "relation": "nβ = Θ(n^(1+a))"
+      },
+      "scaleNote": "Asymptotic powers, not empirical runtimes. Both bounds share the nβ curve. β ≤ Δ < n; β = Θ(n) denotes an asymptotic regime, not β = n."
+    }
+  },
+  "axisSummary": {
+    "x": "Neighborhood independence β; 1 ≤ β ≤ Δ < n",
+    "y": "Total time; matching Θ(nβ) upper and lower bounds"
+  },
+  "sourceVerification": [
+    {
+      "sourceId": "assadi-solomon-2019-query-mis",
+      "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol132-icalp2019/LIPIcs.ICALP.2019.17/LIPIcs.ICALP.2019.17.pdf",
+      "checkedOn": "2026-10-26",
+      "locations": [
+        "Result 1, pp. 17:2–17:3: access model",
+        "Theorem 1 and Claims 2–3, pp. 17:6–17:7: deterministic upper",
+        "Optimality paragraph, p. 17:3: parameterized lower"
+      ],
+      "notes": "Matched output, total-time resource and adjacency-array access; preserved β=0 initialization caveat. Lower success threshold is not numerically specified."
+    }
+  ],
+  "notes": [
+    "1 ≤ β ≤ Δ < n for nonempty simple graphs.",
+    "For β = 0, output all vertices in O(n) time.",
+    "The lower bound is worst-case over a graph class; easy graphs can be faster.",
+    "Green circles and red hollow diamonds coincide because the two statements have the same asymptotic order."
+  ]
+}

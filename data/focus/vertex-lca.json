@@ -1,0 +1,351 @@
+{
+  "id": "vertex-lca",
+  "problem": "vertex",
+  "model": "lca",
+  "title": "Vertex coloring · LCA",
+  "reviewedOn": "2026-10-27",
+  "sources": {
+    "chang-fischer-ghaffari-uitto-zheng-2019-lca-mpc": {
+      "id": "chang-fischer-ghaffari-uitto-zheng-2019-lca-mpc",
+      "title": "The Complexity of (Δ+1)-Coloring in Congested Clique, Massively Parallel Computation, and Centralized Local Computation",
+      "authors": [
+        "Yi-Jun Chang",
+        "Manuela Fischer",
+        "Mohsen Ghaffari",
+        "Jara Uitto",
+        "Yufan Zheng"
+      ],
+      "year": 2019,
+      "venue": "PODC 2019",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1808.08419",
+      "verifiedOn": "2026-10-27",
+      "fullTextUrl": "https://arxiv.org/html/1808.08419v3"
+    },
+    "ghaffari-2022-lca-mis-color": {
+      "id": "ghaffari-2022-lca-mis-color",
+      "title": "Local Computation of Maximal Independent Set",
+      "authors": [
+        "Mohsen Ghaffari"
+      ],
+      "year": 2022,
+      "venue": "FOCS 2022",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2210.01104",
+      "verifiedOn": "2026-10-27",
+      "fullTextUrl": "https://arxiv.org/html/2210.01104v1"
+    },
+    "fraigniaud-heinrich-kosowski-2016-conflict": {
+      "id": "fraigniaud-heinrich-kosowski-2016-conflict",
+      "title": "Local Conflict Coloring",
+      "authors": [
+        "Pierre Fraigniaud",
+        "Marc Heinrich",
+        "Adrian Kosowski"
+      ],
+      "year": 2016,
+      "venue": "FOCS 2016",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1511.01287",
+      "verifiedOn": "2026-10-27",
+      "fullTextUrl": "https://arxiv.org/html/1511.01287v2"
+    },
+    "marcussen-pyne-rubinfeld-shapira-tauber-2026-average": {
+      "id": "marcussen-pyne-rubinfeld-shapira-tauber-2026-average",
+      "title": "Graph k-Coloring in Average Sublinear Time",
+      "authors": [
+        "Cassandra Marcussen",
+        "Edward Pyne",
+        "Ronitt Rubinfeld",
+        "Asaf Shapira",
+        "Shlomo Tauber"
+      ],
+      "year": 2026,
+      "venue": "FOCS 2026",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2607.26592",
+      "verifiedOn": "2026-10-27",
+      "fullTextUrl": "https://arxiv.org/html/2607.26592v1"
+    }
+  },
+  "verifiedRecords": [
+    {
+      "id": "vertex-lca-chang-et-al-2019",
+      "paperId": "chang-fischer-ghaffari-uitto-zheng-2019-lca-mpc",
+      "kind": "upper",
+      "bound": "Δ^{O(1)} · O(log n) queries per vertex, with high probability",
+      "guarantee": "Consistent proper (Δ+1)-list coloring, with high probability",
+      "sourceLocation": "Theorem 1.3; model in Section 1.3; implementation in Section 4.3",
+      "evidenceStatus": "theorem_verified",
+      "frontierStatus": "candidate",
+      "notes": "The poly(Δ) symbol does not identify a numerical exponent. The matching symbolic class of the 2022 reduction is not a claim that its hidden polynomial is smaller.",
+      "plot": null,
+      "sliceId": "vertex-lca-consistent-list-coloring",
+      "panel": "main",
+      "graph": "General simple undirected n-vertex graph with maximum degree Δ≥2; trivial smaller degrees omitted",
+      "output": "Return the color of a queried vertex, consistently with one proper global list-coloring",
+      "parameters": "Known n and Δ bounds, unique vertex identifiers, fixed adjacency ordering, and readable color lists",
+      "resourceModel": "Graph-neighbor/degree probes and input-list access per vertex-color query; not total work to output all n colors",
+      "sourceId": "chang-fischer-ghaffari-uitto-zheng-2019-lca-mpc",
+      "rowKey": "vertex-lca-chang-et-al-2019",
+      "costKey": "poly-log",
+      "shortLabel": "CFGUZ19 · Theorem 1.3",
+      "sourceUrl": "https://arxiv.org/html/1808.08419v3",
+      "quality": "Proper list coloring from lists of size at least Δ+1; common palette gives (Δ+1)-coloring",
+      "palette": "|L(v)| ≥ Δ+1",
+      "displayBound": "poly(Δ) · log n",
+      "theorem": "Theorem 1.3; Sections 1.3 and 4.3",
+      "oracle": "Degree and i-th-neighbor queries; a vertex’s input color list and fixed per-vertex random sequence are accessible from its ID",
+      "probability": "Success probability at least 1−1/poly(n), with a fixed shared collection of per-vertex random sequences defining one consistent coloring",
+      "state": "Reuse the same random tape across all output queries; do not reseed separately for each requested vertex",
+      "adaptivity": "The high-probability global coloring event supports arbitrary sequences of requests, including adaptive requests",
+      "assumptions": [
+        "Each vertex has a readable list of at least Δ+1 allowed colors; a fixed Δ+1 subset can be retained",
+        "The access model includes degree, indexed neighbors, input labels and fixed per-vertex random sequences",
+        "Color identifiers use O(log n) bits as in Section 2; the paper permits randomized hashing for larger identifiers",
+        "The constant polynomial exponent in Δ is unspecified"
+      ],
+      "guarantees": [
+        {
+          "id": "whp",
+          "type": "whp",
+          "costKey": "poly-log",
+          "formula": "poly(Δ) · log n",
+          "label": "All queries · w.h.p."
+        }
+      ]
+    },
+    {
+      "id": "vertex-lca-mis-reduction-2022",
+      "paperId": "ghaffari-2022-lca-mis-color",
+      "kind": "upper",
+      "bound": "poly(Δ) · log n probes with high probability for all vertices; expected poly(Δ) probes for each fixed queried vertex",
+      "guarantee": "Consistent (degree+1)-list coloring, hence proper (Δ+1)-coloring",
+      "sourceLocation": "Section 1.2 after Theorem 1.1; Theorem 2.16",
+      "evidenceStatus": "theorem_verified",
+      "frontierStatus": "candidate",
+      "notes": "One source record has two displayed guarantees. It does not create a new independent paper or an extra result ID. The expected guarantee is not an all-query worst-case cost bound.",
+      "plot": null,
+      "sliceId": "vertex-lca-consistent-list-coloring",
+      "panel": "main",
+      "graph": "General simple undirected n-vertex graph with maximum degree Δ≥2; trivial smaller degrees omitted",
+      "output": "Return the color of a queried vertex, consistently with one proper global list-coloring",
+      "parameters": "Known n and Δ bounds, unique vertex identifiers, fixed adjacency ordering, and readable color lists",
+      "resourceModel": "Graph-neighbor/degree probes and input-list access per vertex-color query; not total work to output all n colors",
+      "sourceId": "ghaffari-2022-lca-mis-color",
+      "rowKey": "vertex-lca-mis-reduction-2022",
+      "costKey": "poly-log",
+      "shortLabel": "Ghaffari22 · MIS reduction",
+      "sourceUrl": "https://arxiv.org/html/2210.01104v1",
+      "quality": "Proper (degree+1)-list coloring; also solves (Δ+1)-list coloring by retaining degree(v)+1 allowed colors",
+      "palette": "|L(v)| ≥ degree(v)+1",
+      "displayBound": "poly(Δ) · log n w.h.p.; E[Q(v)] = poly(Δ) for fixed v",
+      "theorem": "Theorem 1.1; Section 1.2 coloring-reduction statement; Theorem 2.16 and proof",
+      "oracle": "Indexed adjacency-list neighbor probes, readable input lists and a fixed shared random tape; the standard MIS reduction is simulated with polynomial degree overhead",
+      "probability": "For every fixed v, expectation is over the random tape. Choosing the theorem’s failure parameter as n^{−c} and taking a union bound gives poly(Δ)·log n cost simultaneously for all vertices with high probability.",
+      "state": "One fixed random tape defines the same global MIS in the reduction graph and hence one consistent coloring across all requests",
+      "adaptivity": "The fixed-v expectation does not automatically hold for a vertex selected after observing the random tape or earlier answers. The simultaneous high-probability event is a separate guarantee.",
+      "reduction": [
+        "Retain exactly degree(v)+1 colors from each list, in a fixed order.",
+        "Use a vertex (v,c) for each retained color. Join all copies of v into a clique and connect (u,c) to (v,c) when uv is an original edge and c occurs in both lists.",
+        "The reduction graph has N≤n(Δ+1) vertices and maximum degree at most 2Δ. Maximality forces exactly one selected copy of each v, since at most degree(v) colors can be blocked by neighbors.",
+        "An original color query can check at most Δ+1 fixed MIS vertices. Simulating each reduction-graph neighborhood uses only polynomially many original graph/list probes. Thus the unspecified polynomial remains polynomial and log N=O(log n)."
+      ],
+      "assumptions": [
+        "Readable vertex lists of size at least degree(v)+1, fixed graph ordering and fixed shared randomness",
+        "Expectation applies to each fixed queried vertex, not the expected maximum over queries",
+        "The high-probability and expected guarantees describe the same reduction-based algorithm",
+        "Polynomial reduction overhead is absorbed into poly(Δ); no exact polynomial exponent is supplied"
+      ],
+      "guarantees": [
+        {
+          "id": "expected",
+          "type": "expected",
+          "costKey": "poly",
+          "formula": "poly(Δ)",
+          "label": "Expected · fixed v"
+        },
+        {
+          "id": "whp",
+          "type": "whp",
+          "costKey": "poly-log",
+          "formula": "poly(Δ) · log n",
+          "label": "All queries · w.h.p."
+        }
+      ]
+    },
+    {
+      "id": "vertex-lca-deterministic-conflict-2016",
+      "paperId": "fraigniaud-heinrich-kosowski-2016-conflict",
+      "kind": "upper",
+      "bound": "Δ^{O(√Δ log^{5/2}Δ)} · log* n probes per vertex",
+      "guarantee": "Deterministic oblivious proper (Δ+1)-list coloring",
+      "sourceLocation": "Corollary 5.1, second case; Section 5",
+      "evidenceStatus": "theorem_verified",
+      "frontierStatus": "historical",
+      "notes": "For fixed Δ≥2, this specializes to O(log* n) probes. For variable Δ, the degree factor is much larger; the figure therefore uses symbolic categories, not a fabricated total order.",
+      "plot": null,
+      "sliceId": "vertex-lca-consistent-list-coloring",
+      "panel": "main",
+      "graph": "General simple undirected n-vertex graph with maximum degree Δ≥2; trivial smaller degrees omitted",
+      "output": "Return the color of a queried vertex, consistently with one proper global list-coloring",
+      "parameters": "Known n and Δ bounds, unique vertex identifiers, fixed adjacency ordering, and readable color lists",
+      "resourceModel": "Graph-neighbor/degree probes and input-list access per vertex-color query; not total work to output all n colors",
+      "sourceId": "fraigniaud-heinrich-kosowski-2016-conflict",
+      "rowKey": "vertex-lca-deterministic-conflict-2016",
+      "costKey": "conflict-logstar",
+      "shortLabel": "FHK16 · Corollary 5.1",
+      "sourceUrl": "https://arxiv.org/html/1511.01287v2",
+      "quality": "Deterministic proper list coloring from lists of size at least Δ+1",
+      "palette": "|L(v)| ≥ Δ+1",
+      "displayBound": "Δ^{O(√Δ log^{5/2}Δ)} · log* n",
+      "theorem": "Corollary 5.1, second case; Theorem 5.1 and proof, Section 5",
+      "oracle": "Direct graph-neighborhood probes in the source convention and readable lists. Enumerating neighborhoods using indexed-neighbor access adds only a polynomial Δ factor absorbed by the displayed exponent.",
+      "probability": "Deterministic; no failure probability",
+      "state": "Oblivious/stateless: no information is retained between output queries",
+      "adaptivity": "Oblivious here means no stored state; it does not mean that graph probes within a query are nonadaptive",
+      "assumptions": [
+        "Lists of size at least Δ+1; unique O(log n)-bit vertex identifiers and a polynomial upper bound on n",
+        "Conflict-coloring specialization l=Δ+1,d=1 satisfies l/d>Δ",
+        "Keep the unknown O(·) exponent symbolic; no universal comparison with poly(Δ)·log n as Δ and n vary"
+      ],
+      "guarantees": [
+        {
+          "id": "deterministic",
+          "type": "deterministic",
+          "costKey": "conflict-logstar",
+          "formula": "Δ^{O(√Δ log^{5/2}Δ)} · log* n",
+          "label": "Deterministic"
+        }
+      ]
+    }
+  ],
+  "relatedResults": [
+    {
+      "id": "vertex-lca-average-k-2026",
+      "paperId": "marcussen-pyne-rubinfeld-shapira-tauber-2026-average",
+      "kind": "upper",
+      "bound": "Theorem 10 reports O(k^9 log k) average-case probes and O(k^26 polylog k) average-case time",
+      "guarantee": "Consistent proper exact k-coloring with high probability over graph/coins",
+      "sourceLocation": "Theorem 10, Appendix A.2; Definitions A.2–A.4 (arXiv v1 printed pp.37–40)",
+      "evidenceStatus": "theorem_statement_verified_oracle_unit_unresolved",
+      "frontierStatus": "related_scope_caveat",
+      "notes": "Preserved as a related result with a visible source-audit qualification. The source theorem is verified in both HTML and PDF, but its O(k^9 log k) count is not placed on the main adjacency-list cost axis or advertised as an exact adjacency-matrix pair-probe bound.",
+      "plot": null,
+      "sliceId": "vertex-lca-average-case-k-color",
+      "sourceId": "marcussen-pyne-rubinfeld-shapira-tauber-2026-average",
+      "panel": "related-average",
+      "shortLabel": "MPRST26 · Theorem 10",
+      "quality": "Exact k-coloring under the uniform distribution over k-colorable labeled graphs; zero-error partial answers or FAIL",
+      "palette": "k colors; 2≤k≤n^{1/37}",
+      "displayBound": "Reported O(k^9 log k) probes; probe unit unresolved",
+      "graph": "Uniformly sampled labeled k-colorable n-vertex graph, for 2≤k≤n^{1/37}; not worst-case graph input",
+      "output": "Consistent proper partial k-coloring with FAIL on remaining vertices; full proper k-coloring on the high-probability graph event",
+      "parameters": "n, k and a fixed shared random tape; no persistent memory between output queries",
+      "oracle": "Appendix A uses a generic graph-probe convention. The main full-output algorithm is adjacency-matrix based, but the exact local O(k^9 log k) theorem must not be labeled a verified pair-query bound.",
+      "probability": "Zero-error: never return an improper partial coloring. Definitions A.3–A.4 require full coloring with probability at least 1−1/n over the graph distribution; the proof gives a 1−exp(−Ω(n/k)) graph-structure event. Shared random choices are kept consistent.",
+      "state": "Every query erases local memory; all queries use the same random tape to select and deterministically color the same core",
+      "adaptivity": "The probe quantity is E_G[max_v E_r Q(G,v)], not E_{G,v,r} Q and not E_G E_r[max_v Q]",
+      "theorem": "Theorem 10; Definitions A.1–A.4; Algorithm 14 and proof, Appendix A; Definition 4.2",
+      "sourceUrl": "https://arxiv.org/html/2607.26592v1",
+      "timeBound": "O(k^26 polylog k) average-case time, averaged over graphs and queried vertices as defined in Appendix A",
+      "queryQuantifier": "E_G[max_v E_r Q(G,v)] = O(k^9 log k), using the paper’s reported probe convention",
+      "assumptions": [
+        "Uniform distribution over all labeled k-colorable graphs, not G(n,p) and not arbitrary worst-case graphs",
+        "2≤k≤n^{1/37}",
+        "A fixed shared random tape; zero-error allows FAIL",
+        "The local probe unit is unresolved: the proof charges O(ν) probes for a sampled core with ν=Θ(k^9 log k) vertices, while certifying its induced adjacency matrix would ordinarily need pair-entry accounting",
+        "The full-output Ω(nk) lower bound is not a lower bound for these local queries"
+      ],
+      "scopeCaveat": "Reported local probe bound; access unit needs clarification"
+    }
+  ],
+  "figureAxes": {
+    "main": {
+      "title": "Worst-case input list coloring, different query guarantees",
+      "x": {
+        "label": "Per-vertex probe formula; symbolic categories, not a universal cost ranking",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "poly",
+            "label": "poly(Δ)"
+          },
+          {
+            "id": "poly-log",
+            "label": "poly(Δ)·log n"
+          },
+          {
+            "id": "conflict-logstar",
+            "label": "Δ^{O(√Δ log^{5/2}Δ)}·log* n"
+          }
+        ]
+      },
+      "y": {
+        "label": "Algorithm and list-size requirement",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "vertex-lca-chang-et-al-2019",
+            "label": "CFGUZ19 · Theorem 1.3; |L(v)| ≥ Δ+1"
+          },
+          {
+            "id": "vertex-lca-mis-reduction-2022",
+            "label": "Ghaffari22 · MIS reduction; |L(v)| ≥ degree(v)+1"
+          },
+          {
+            "id": "vertex-lca-deterministic-conflict-2016",
+            "label": "FHK16 · Corollary 5.1; |L(v)| ≥ Δ+1"
+          }
+        ]
+      }
+    }
+  },
+  "axisNote": "One symbolic probe axis groups exact formula classes. Color halos distinguish high-probability, fixed-query expectation and deterministic guarantees; points remain green algorithms. Positions are not numerical exponents or a total ranking.",
+  "coverageNote": "Bounded review of four supplied records and four primary papers. No exhaustive literature or optimality claim.",
+  "lowerBoundStatus": "No comparable LCA lower bound is verified in the bounded source set. Full-output Ω(nk) and LOCAL round lower bounds do not transfer to these local-query contracts.",
+  "sourceVerification": [
+    {
+      "sourceId": "chang-fischer-ghaffari-uitto-zheng-2019-lca-mpc",
+      "url": "https://arxiv.org/html/1808.08419v3",
+      "checkedOn": "2026-10-27",
+      "theorems": [
+        "Theorem 1.3; Sections 1.3 and 4.3"
+      ],
+      "note": "Primary theorem and access/success conventions inspected."
+    },
+    {
+      "sourceId": "ghaffari-2022-lca-mis-color",
+      "url": "https://arxiv.org/html/2210.01104v1",
+      "checkedOn": "2026-10-27",
+      "theorems": [
+        "Theorem 1.1; Section 1.2 coloring-reduction statement; Theorem 2.16 and proof"
+      ],
+      "note": "Primary theorem and access/success conventions inspected."
+    },
+    {
+      "sourceId": "fraigniaud-heinrich-kosowski-2016-conflict",
+      "url": "https://arxiv.org/html/1511.01287v2",
+      "checkedOn": "2026-10-27",
+      "theorems": [
+        "Corollary 5.1, second case; Theorem 5.1 and proof, Section 5"
+      ],
+      "note": "Primary theorem and access/success conventions inspected."
+    },
+    {
+      "sourceId": "marcussen-pyne-rubinfeld-shapira-tauber-2026-average",
+      "url": "https://arxiv.org/html/2607.26592v1",
+      "checkedOn": "2026-10-27",
+      "theorems": [
+        "Theorem 10; Definitions A.1–A.4; Algorithm 14 and proof, Appendix A; Definition 4.2"
+      ],
+      "note": "Theorem text and expectation quantifiers checked in HTML and PDF; retain unresolved probe-unit caveat on related card."
+    }
+  ],
+  "representation": {
+    "averageCase": "Related-result card; distinct distribution, palette target, FAIL contract and unresolved probe unit",
+    "main": "Three original worst-case records; four guarantee markers because the 2022 record has both expected and high-probability cost",
+    "degree": "No invented polynomial exponent or degree ordering",
+    "questionStatus": "User confirmed average-case result as related card only on 2026-10-27"
+  }
+}

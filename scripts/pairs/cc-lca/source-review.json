@@ -1,0 +1,89 @@
+{
+  "id": "cc-lca",
+  "reviewedOn": "2026-10-26",
+  "scope": "Two original papers and five original records; one contextual primary source verifies a correction.",
+  "evidence": [
+    {
+      "sourceId": "dalirrooyfard-2024-pruned-pivot",
+      "url": "https://arxiv.org/html/2402.15668v2",
+      "theorems": [
+        "1.3",
+        "footnote 3",
+        "§6"
+      ],
+      "notes": "Probe bound, expected quality, shared seed and space verified."
+    },
+    {
+      "sourceId": "bonchi-2013-local",
+      "url": "https://arxiv.org/html/1312.5105v1",
+      "theorems": [
+        "3.4",
+        "3.6",
+        "6.1",
+        "Corollary 4.3",
+        "Corollary 6.4",
+        "Definition 1.1"
+      ],
+      "notes": "Local time versus shared preprocessing, common randomness, error contract and lower-bound domain verified."
+    },
+    {
+      "sourceId": "garciasoriano-2020-query-efficient",
+      "url": "https://arxiv.org/html/2002.11557v1#S2",
+      "theorems": [
+        "§2"
+      ],
+      "notes": "Explicitly restricts the earlier lower proof to non-adaptive algorithms."
+    }
+  ],
+  "recordCorrections": [
+    {
+      "id": "cc-lca-pruned-3plus",
+      "changes": [
+        "Quality made explicitly expected.",
+        "Shared rank seed/local space separated from preprocessing.",
+        "Removed the unrelated degree-power ladder; display O(Δ/ε) degree-dependent band."
+      ]
+    },
+    {
+      "id": "cc-lca-bonchi-four",
+      "changes": [
+        "Both preprocessing policies visible.",
+        "Time-derived query upper bounds identified.",
+        "Global success and common-seed consistency preserved."
+      ]
+    },
+    {
+      "id": "cc-lca-bonchi-one-additive",
+      "changes": [
+        "Unspecified polynomial left unranked.",
+        "Exponential preprocessing time visible separately from polynomial probe cost."
+      ]
+    },
+    {
+      "id": "cc-lca-bonchi-lb",
+      "changes": [
+        "Restricted to non-adaptive algorithms using 2020 §2.",
+        "Parameter and ε-only-preprocessing regime visible.",
+        "Expected-cost statement kept separate from constant-confidence specialization."
+      ]
+    },
+    {
+      "id": "cc-lca-bonchi-constant-lb",
+      "changes": [
+        "Removed unsupported adaptive wording.",
+        "Linked to general-c theorem as a specialization, not an independent lower bound.",
+        "Constant-confidence regime uses Corollary 6.4, including ε>10^7/n."
+      ]
+    }
+  ],
+  "representationDecision": {
+    "main": "One shared symbolic per-label probe axis; separate blue positive-list and purple matrix setup lanes",
+    "preprocessing": "Visible in main figure and pure-additive inset",
+    "unknownPolynomial": "Unranked inset; no invented exponent",
+    "lowerScope": "No adaptive or positive-list lower-bound marker"
+  },
+  "outstanding": [
+    "Parent integration and live browser inspection required."
+  ],
+  "researchLimit": "No new literature frontier added; 2020 paper used only to correct a supplied theorem’s scope."
+}

@@ -1,0 +1,547 @@
+{
+  "id": "mis-stream",
+  "title": "How much memory buys an MIS?",
+  "reviewedOn": "2026-10-20",
+  "sources": {
+    "assadi-et-al-2024-stream-mis": {
+      "id": "assadi-et-al-2024-stream-mis",
+      "title": "O(log log n) Passes is Optimal for Semi-Streaming Maximal Independent Set",
+      "authors": [
+        "Sepehr Assadi",
+        "Christian Konrad",
+        "Kheeran K. Naidu",
+        "Janani Sundaresan"
+      ],
+      "year": 2024,
+      "venue": "STOC 2024",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2312.13178",
+      "verifiedOn": "2026-10-20",
+      "fullTextUrl": "https://arxiv.org/pdf/2312.13178",
+      "publicationUrl": "https://acm-stoc.org/stoc2024/toc.html"
+    },
+    "ahn-et-al-2015-stream-mis": {
+      "id": "ahn-et-al-2015-stream-mis",
+      "title": "Correlation Clustering in Data Streams",
+      "authors": [
+        "Kook Jin Ahn",
+        "Graham Cormode",
+        "Sudipto Guha",
+        "Andrew McGregor",
+        "Anthony Wirth"
+      ],
+      "year": 2015,
+      "venue": "ICML 2015",
+      "publicationStatus": "conference",
+      "url": "https://proceedings.mlr.press/v37/ahn15.html",
+      "verifiedOn": "2026-10-20",
+      "fullTextUrl": "https://proceedings.mlr.press/v37/ahn15.pdf"
+    },
+    "cormode-dark-konrad-2019-stream": {
+      "id": "cormode-dark-konrad-2019-stream",
+      "title": "Independent Sets in Vertex-Arrival Streams",
+      "authors": [
+        "Graham Cormode",
+        "Jacques Dark",
+        "Christian Konrad"
+      ],
+      "year": 2019,
+      "venue": "ICALP 2019",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2019.45",
+      "verifiedOn": "2026-10-20",
+      "fullTextUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol132-icalp2019/LIPIcs.ICALP.2019.45/LIPIcs.ICALP.2019.45.pdf"
+    },
+    "assadi-chen-khanna-2019-polynomial-passes": {
+      "id": "assadi-chen-khanna-2019-polynomial-passes",
+      "title": "Polynomial Pass Lower Bounds for Graph Streaming Algorithms",
+      "authors": [
+        "Sepehr Assadi",
+        "Yu Chen",
+        "Sanjeev Khanna"
+      ],
+      "year": 2019,
+      "venue": "STOC 2019",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1904.04720",
+      "verifiedOn": "2026-10-20",
+      "fullTextUrl": "https://arxiv.org/pdf/1904.04720",
+      "publicationUrl": "https://doi.org/10.1145/3313276.3316361"
+    }
+  },
+  "verifiedRecords": [
+    {
+      "id": "mis-stream-ahn-et-al-upper",
+      "sourceId": "ahn-et-al-2015-stream-mis",
+      "sliceId": "mis-stream-semistreaming-passes",
+      "kind": "upper",
+      "panel": "semi",
+      "xCategory": "semi",
+      "yCategory": "loglog",
+      "shortLabel": "ACGMW15",
+      "plotLabel": "ACGMW15",
+      "bound": "O(log log n) passes; O(n polylog n) space",
+      "displayBound": "O(n polylog n) bits",
+      "space": "O(n polylog n) bits",
+      "passes": "O(log log n)",
+      "output": "Explicit maximal independent set",
+      "graph": "General simple undirected n-vertex graphs",
+      "arrival": "Insertion-only edges in arbitrary order",
+      "probability": "With high probability",
+      "theorem": "§4.1, Lemma 19 and Theorem 20; MIS extraction confirmed by CDK19 Theorem 17",
+      "notes": "The pivot set is a random-order greedy MIS. This is a direct inference from the algorithm and is stated explicitly as an MIS theorem in CDK19, Theorem 17. Random vertex order is internal randomness; the edge stream remains arbitrary order.",
+      "assumptions": [
+        "Insertion-only edges in arbitrary order",
+        "General simple undirected n-vertex graphs",
+        "Explicit maximal independent set"
+      ],
+      "evidenceStatus": "theorem_verified",
+      "quality": "Exact maximality (inclusion-maximal)",
+      "verificationUrl": "https://proceedings.mlr.press/v37/ahn15.pdf",
+      "resourceModel": "Working memory in bits; sequential passes over a fixed stream"
+    },
+    {
+      "id": "mis-stream-assadi-et-al-lower",
+      "sourceId": "assadi-et-al-2024-stream-mis",
+      "sliceId": "mis-stream-semistreaming-passes",
+      "kind": "lower",
+      "panel": "semi",
+      "xCategory": "semi",
+      "yCategory": "loglog",
+      "shortLabel": "AKNS24",
+      "plotLabel": "AKNS24",
+      "bound": "Ω(log log n) passes",
+      "displayBound": "O(n polylog n) bits (space restriction)",
+      "space": "O(n polylog n) bits (space restriction)",
+      "passes": "Ω(log log n)",
+      "output": "Explicit maximal independent set",
+      "graph": "General simple undirected n-vertex graphs",
+      "arrival": "Insertion-only edges in arbitrary order",
+      "probability": "Any fixed success probability strictly above zero",
+      "theorem": "Corollary 2, PDF p.24 (printed p.22)",
+      "notes": "Applies even to insertion-only streams. The lower bound is on passes under semi-streaming space, not a linear-space lower bound.",
+      "assumptions": [
+        "Insertion-only edges in arbitrary order",
+        "General simple undirected n-vertex graphs",
+        "Explicit maximal independent set"
+      ],
+      "evidenceStatus": "theorem_verified",
+      "quality": "Exact maximality (inclusion-maximal)",
+      "verificationUrl": "https://arxiv.org/pdf/2312.13178",
+      "resourceModel": "Working memory in bits; sequential passes over a fixed stream"
+    },
+    {
+      "id": "mis-stream-cormode-2019-onepass",
+      "sourceId": "cormode-dark-konrad-2019-stream",
+      "sliceId": "mis-stream-edge-onepass-explicit",
+      "kind": "lower",
+      "panel": "one",
+      "xCategory": "edge",
+      "yCategory": "quadratic",
+      "shortLabel": "CDK19",
+      "plotLabel": "CDK19",
+      "bound": "Ω(n²) bits in one pass",
+      "displayBound": "Ω(n²) bits",
+      "space": "Ω(n²) bits",
+      "passes": "1",
+      "output": "Explicit maximal independent set",
+      "graph": "General simple undirected n-vertex graphs",
+      "arrival": "Insertion-only edges in arbitrary order",
+      "probability": "Randomized constant error",
+      "theorem": "Theorem 10, PDF p.9",
+      "notes": "This theorem concerns an inclusion-maximal independent set, not maximum cardinality.",
+      "assumptions": [
+        "Insertion-only edges in arbitrary order",
+        "General simple undirected n-vertex graphs",
+        "Explicit maximal independent set"
+      ],
+      "evidenceStatus": "theorem_verified",
+      "quality": "Exact maximality (inclusion-maximal)",
+      "verificationUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol132-icalp2019/LIPIcs.ICALP.2019.45/LIPIcs.ICALP.2019.45.pdf",
+      "resourceModel": "Working memory in bits; sequential passes over a fixed stream"
+    },
+    {
+      "id": "mis-stream-cormode-vertex-greedy",
+      "sourceId": "cormode-dark-konrad-2019-stream",
+      "sliceId": "mis-stream-vertex-arrival-explicit",
+      "kind": "upper",
+      "panel": "one",
+      "xCategory": "vertex",
+      "yCategory": "linear",
+      "shortLabel": "Greedy · CDK19",
+      "plotLabel": "Greedy · CDK19",
+      "bound": "O(n log n) bits (store selected vertex IDs); one pass",
+      "displayBound": "O(n log n) bits",
+      "space": "O(n log n) bits",
+      "passes": "1",
+      "output": "Explicit maximal independent set",
+      "graph": "General simple undirected n-vertex graphs",
+      "arrival": "Explicit vertex arrival; each vertex reveals edges to earlier vertices",
+      "probability": "Deterministic; always correct",
+      "theorem": "Fact 1, PDF p.9",
+      "notes": "Store the selected vertex IDs, adding an arriving vertex exactly when no prior selected neighbor is revealed. O(n log n) counts O(log n)-bit IDs; no matching memory lower bound is asserted.",
+      "assumptions": [
+        "Explicit vertex arrival; each vertex reveals edges to earlier vertices",
+        "General simple undirected n-vertex graphs",
+        "Explicit maximal independent set"
+      ],
+      "evidenceStatus": "theorem_verified",
+      "quality": "Exact maximality (inclusion-maximal)",
+      "verificationUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol132-icalp2019/LIPIcs.ICALP.2019.45/LIPIcs.ICALP.2019.45.pdf",
+      "resourceModel": "Working memory in bits; sequential passes over a fixed stream"
+    },
+    {
+      "id": "mis-stream-assadi-2024-tradeoff",
+      "sourceId": "assadi-et-al-2024-stream-mis",
+      "sliceId": "mis-stream-p-pass-tradeoff",
+      "kind": "lower",
+      "panel": "tradeoff",
+      "xCategory": "p",
+      "yCategory": "exponential",
+      "shortLabel": "AKNS24",
+      "plotLabel": "AKNS24",
+      "bound": "n^(1+1/(2^p−1)−o(1)) bits for p passes",
+      "displayBound": "n^{1+1/(2^p−1)−o(1)} bits",
+      "space": "n^{1+1/(2^p−1)−o(1)} bits",
+      "passes": "p ≥ 1",
+      "output": "Explicit maximal independent set",
+      "graph": "General simple undirected n-vertex graphs",
+      "arrival": "Insertion-only edges in arbitrary order",
+      "probability": "Any fixed success probability strictly above zero",
+      "theorem": "Corollary 2, PDF p.24 (printed p.22)",
+      "notes": "Exact form: Ω(n^{1+1/(2^p−1)} / 2^{Θ(p (log n)^{5/6})}) bits. The n^{-o(1)} form is the source’s asymptotic summary (e.g. fixed p); use the exact denominator when p varies.",
+      "assumptions": [
+        "Insertion-only edges in arbitrary order",
+        "General simple undirected n-vertex graphs",
+        "Explicit maximal independent set"
+      ],
+      "evidenceStatus": "theorem_verified",
+      "exactBound": "Ω(n^{1+1/(2^p−1)} / 2^{Θ(p (log n)^{5/6})}) bits",
+      "quality": "Exact maximality (inclusion-maximal)",
+      "verificationUrl": "https://arxiv.org/pdf/2312.13178",
+      "resourceModel": "Working memory in bits; sequential passes over a fixed stream"
+    },
+    {
+      "id": "mis-stream-assadi-2019-lfmis",
+      "sourceId": "assadi-chen-khanna-2019-polynomial-passes",
+      "sliceId": "mis-stream-lexicographic-first",
+      "kind": "lower",
+      "panel": "lex",
+      "xCategory": "p",
+      "yCategory": "polynomial",
+      "shortLabel": "ACK19",
+      "plotLabel": "ACK19",
+      "bound": "Ω(n²/p⁵) bits for p passes",
+      "displayBound": "Ω(n²/p⁵) bits",
+      "space": "Ω(n²/p⁵) bits",
+      "passes": "p ≥ 1",
+      "output": "Lexicographically first MIS in a prescribed vertex order",
+      "graph": "General simple undirected n-vertex graphs",
+      "arrival": "Insertion-only edges in arbitrary order",
+      "probability": "Constant success probability",
+      "theorem": "Theorem 7, PDF p.33; proof §6.2",
+      "notes": "The output is the greedy MIS for a prescribed vertex-ID ordering. This lower bound must never be applied to an arbitrary MIS. It implies Ω̃(n^{1/5}) passes at semi-streaming space.",
+      "assumptions": [
+        "Insertion-only edges in arbitrary order",
+        "General simple undirected n-vertex graphs",
+        "Lexicographically first MIS in a prescribed vertex order"
+      ],
+      "evidenceStatus": "theorem_verified",
+      "quality": "Exact prescribed-order greedy MIS",
+      "verificationUrl": "https://arxiv.org/pdf/1904.04720",
+      "resourceModel": "Working memory in bits; sequential passes over a fixed stream"
+    },
+    {
+      "id": "mis-stream-store-graph-onepass",
+      "sourceId": "cormode-dark-konrad-2019-stream",
+      "sliceId": "mis-stream-edge-onepass-explicit",
+      "kind": "upper",
+      "panel": "one",
+      "xCategory": "edge",
+      "yCategory": "quadratic",
+      "shortLabel": "Store graph",
+      "plotLabel": "Store graph",
+      "bound": "O(n²) bits; one pass",
+      "displayBound": "O(n²) bits",
+      "space": "O(n²) bits",
+      "passes": "1 (also at most p passes for every p ≥ 1)",
+      "output": "Explicit maximal independent set",
+      "graph": "General simple undirected n-vertex graphs",
+      "arrival": "Insertion-only edges in arbitrary order",
+      "probability": "Deterministic; always correct",
+      "theorem": "Elementary adjacency-matrix storage baseline",
+      "notes": "Atlas baseline, not a new theorem attributed to CDK19: store one adjacency bit per unordered pair, then run greedy on the stored graph. For prescribed-order output, run greedy in that order. O(n²) bits includes the O(n)-bit selected-set array. The primary paper motivates this full-storage comparison.",
+      "assumptions": [
+        "Simple graph",
+        "Known vertex universe [n]",
+        "Postprocessing allowed",
+        "Insertion-only edges in arbitrary order",
+        "General simple undirected n-vertex graphs",
+        "Explicit maximal independent set"
+      ],
+      "evidenceStatus": "elementary_baseline_verified",
+      "quality": "Exact maximality (inclusion-maximal)",
+      "verificationUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol132-icalp2019/LIPIcs.ICALP.2019.45/LIPIcs.ICALP.2019.45.pdf",
+      "resourceModel": "Working memory in bits; sequential passes over a fixed stream"
+    },
+    {
+      "id": "mis-stream-store-graph-passes",
+      "sourceId": "cormode-dark-konrad-2019-stream",
+      "sliceId": "mis-stream-p-pass-tradeoff",
+      "kind": "upper",
+      "panel": "tradeoff",
+      "xCategory": "p",
+      "yCategory": "quadratic",
+      "shortLabel": "Store graph",
+      "plotLabel": "Store graph",
+      "bound": "O(n²) bits; one pass",
+      "displayBound": "O(n²) bits",
+      "space": "O(n²) bits",
+      "passes": "1 (also at most p passes for every p ≥ 1)",
+      "output": "Explicit maximal independent set",
+      "graph": "General simple undirected n-vertex graphs",
+      "arrival": "Insertion-only edges in arbitrary order",
+      "probability": "Deterministic; always correct",
+      "theorem": "Elementary adjacency-matrix storage baseline",
+      "notes": "Atlas baseline, not a new theorem attributed to CDK19: store one adjacency bit per unordered pair, then run greedy on the stored graph. For prescribed-order output, run greedy in that order. O(n²) bits includes the O(n)-bit selected-set array. The primary paper motivates this full-storage comparison.",
+      "assumptions": [
+        "Simple graph",
+        "Known vertex universe [n]",
+        "Postprocessing allowed",
+        "Insertion-only edges in arbitrary order",
+        "General simple undirected n-vertex graphs",
+        "Explicit maximal independent set"
+      ],
+      "evidenceStatus": "elementary_baseline_verified",
+      "quality": "Exact maximality (inclusion-maximal)",
+      "verificationUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol132-icalp2019/LIPIcs.ICALP.2019.45/LIPIcs.ICALP.2019.45.pdf",
+      "resourceModel": "Working memory in bits; sequential passes over a fixed stream"
+    },
+    {
+      "id": "mis-stream-store-graph-lfmis",
+      "sourceId": "cormode-dark-konrad-2019-stream",
+      "sliceId": "mis-stream-lexicographic-first",
+      "kind": "upper",
+      "panel": "lex",
+      "xCategory": "p",
+      "yCategory": "quadratic",
+      "shortLabel": "Store graph",
+      "plotLabel": "Store graph",
+      "bound": "O(n²) bits; one pass",
+      "displayBound": "O(n²) bits",
+      "space": "O(n²) bits",
+      "passes": "1 (also at most p passes for every p ≥ 1)",
+      "output": "Lexicographically first MIS in a prescribed vertex order",
+      "graph": "General simple undirected n-vertex graphs",
+      "arrival": "Insertion-only edges in arbitrary order",
+      "probability": "Deterministic; always correct",
+      "theorem": "Elementary adjacency-matrix storage baseline",
+      "notes": "Atlas baseline, not a new theorem attributed to CDK19: store one adjacency bit per unordered pair, then run greedy on the stored graph. For prescribed-order output, run greedy in that order. O(n²) bits includes the O(n)-bit selected-set array. The primary paper motivates this full-storage comparison.",
+      "assumptions": [
+        "Simple graph",
+        "Known vertex universe [n]",
+        "Postprocessing allowed",
+        "Insertion-only edges in arbitrary order",
+        "General simple undirected n-vertex graphs",
+        "Lexicographically first MIS in a prescribed vertex order"
+      ],
+      "evidenceStatus": "elementary_baseline_verified",
+      "quality": "Exact prescribed-order greedy MIS",
+      "verificationUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol132-icalp2019/LIPIcs.ICALP.2019.45/LIPIcs.ICALP.2019.45.pdf",
+      "resourceModel": "Working memory in bits; sequential passes over a fixed stream"
+    }
+  ],
+  "relatedResults": [
+    {
+      "id": "mis-stream-assadi-2024-p1",
+      "sourceId": "assadi-et-al-2024-stream-mis",
+      "sliceId": "mis-stream-edge-onepass-explicit",
+      "kind": "lower",
+      "panel": "one",
+      "xCategory": "edge",
+      "yCategory": "quadratic",
+      "shortLabel": "AKNS24 · p = 1",
+      "plotLabel": "AKNS24 · p = 1",
+      "bound": "n^(2-o(1)) bits for p=1",
+      "displayBound": "n^{2−o(1)} bits",
+      "space": "n^{2−o(1)} bits",
+      "passes": "1",
+      "output": "Explicit maximal independent set",
+      "graph": "General simple undirected n-vertex graphs",
+      "arrival": "Insertion-only edges in arbitrary order",
+      "probability": "Any fixed success probability strictly above zero",
+      "theorem": "Corollary 2 at p = 1",
+      "notes": "Historical/general-theorem specialization; CDK19 already gives the sharper Ω(n²) one-pass result.",
+      "assumptions": [
+        "Insertion-only edges in arbitrary order",
+        "General simple undirected n-vertex graphs",
+        "Explicit maximal independent set"
+      ],
+      "evidenceStatus": "theorem_verified",
+      "historical": true,
+      "quality": "Exact maximality (inclusion-maximal)",
+      "verificationUrl": "https://arxiv.org/pdf/2312.13178",
+      "resourceModel": "Working memory in bits; sequential passes over a fixed stream"
+    }
+  ],
+  "figureAxes": {
+    "semi": {
+      "title": "Semi-streaming · any MIS",
+      "subtitle": "Arbitrary edge order · the pass bound is tight",
+      "x": {
+        "label": "Memory allowance",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "semi",
+            "label": "O(n polylog n) bits"
+          }
+        ]
+      },
+      "y": {
+        "label": "Pass complexity",
+        "kind": "symbolic",
+        "categories": [
+          {
+            "id": "loglog",
+            "label": "log log n"
+          }
+        ]
+      }
+    },
+    "one": {
+      "title": "One pass · any MIS",
+      "subtitle": "Arrival models change the memory requirement",
+      "x": {
+        "label": "Arrival model",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "edge",
+            "label": "Edges"
+          },
+          {
+            "id": "vertex",
+            "label": "Explicit vertices"
+          }
+        ]
+      },
+      "y": {
+        "label": "Memory in bits",
+        "kind": "symbolic",
+        "categories": [
+          {
+            "id": "quadratic",
+            "label": "n²"
+          },
+          {
+            "id": "linear",
+            "label": "n log n"
+          }
+        ]
+      }
+    },
+    "tradeoff": {
+      "title": "p passes · any MIS",
+      "subtitle": "Arbitrary edge order · exact p dependence in inspection",
+      "x": {
+        "label": "Pass budget",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "p",
+            "label": "fixed p ≥ 1"
+          }
+        ]
+      },
+      "y": {
+        "label": "Memory in bits",
+        "kind": "symbolic",
+        "categories": [
+          {
+            "id": "quadratic",
+            "label": "O(n²)"
+          },
+          {
+            "id": "exponential",
+            "label": "n^{1+1/(2^p−1)−o(1)}"
+          }
+        ]
+      }
+    },
+    "lex": {
+      "title": "p passes · prescribed greedy MIS",
+      "subtitle": "Lexicographically first output is a stronger contract",
+      "x": {
+        "label": "Pass budget",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "p",
+            "label": "p ≥ 1"
+          }
+        ]
+      },
+      "y": {
+        "label": "Memory in bits",
+        "kind": "symbolic",
+        "categories": [
+          {
+            "id": "quadratic",
+            "label": "O(n²)"
+          },
+          {
+            "id": "polynomial",
+            "label": "Ω(n²/p⁵)"
+          }
+        ]
+      }
+    }
+  },
+  "axisSummary": {
+    "x": "Memory allowance, arrival model or pass budget (scoped panels)",
+    "y": "Pass complexity or symbolic memory bounds (bits)"
+  },
+  "scopeNote": "Exact inclusion-maximal independent set. Edge order is arbitrary; randomized vertex priority is internal. Prescribed greedy output and explicit vertex arrival retain separate panels.",
+  "coverageNote": "Bounded review of the four supplied primary sources; an absent lower bound is not a claim that none exists.",
+  "sourceVerification": [
+    {
+      "sourceId": "assadi-et-al-2024-stream-mis",
+      "url": "https://arxiv.org/pdf/2312.13178",
+      "theoremNotes": [
+        "Corollary 2, PDF p.24 (printed p.22)",
+        "Corollary 2, PDF p.24 (printed p.22)",
+        "Corollary 2 at p = 1"
+      ],
+      "verifiedOn": "2026-10-20"
+    },
+    {
+      "sourceId": "ahn-et-al-2015-stream-mis",
+      "url": "https://proceedings.mlr.press/v37/ahn15.pdf",
+      "theoremNotes": [
+        "§4.1, Lemma 19 and Theorem 20; MIS extraction confirmed by CDK19 Theorem 17"
+      ],
+      "verifiedOn": "2026-10-20"
+    },
+    {
+      "sourceId": "cormode-dark-konrad-2019-stream",
+      "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol132-icalp2019/LIPIcs.ICALP.2019.45/LIPIcs.ICALP.2019.45.pdf",
+      "theoremNotes": [
+        "Theorem 10, PDF p.9",
+        "Fact 1, PDF p.9",
+        "Elementary adjacency-matrix storage baseline",
+        "Elementary adjacency-matrix storage baseline",
+        "Elementary adjacency-matrix storage baseline"
+      ],
+      "verifiedOn": "2026-10-20"
+    },
+    {
+      "sourceId": "assadi-chen-khanna-2019-polynomial-passes",
+      "url": "https://arxiv.org/pdf/1904.04720",
+      "theoremNotes": [
+        "Theorem 7, PDF p.33; proof §6.2"
+      ],
+      "verifiedOn": "2026-10-20"
+    }
+  ]
+}

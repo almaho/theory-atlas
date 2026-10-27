@@ -1,0 +1,55 @@
+
+.vdy-view,.vdy-map,.vdy-summary{--vdy-adaptive:light-dark(#4c6eaa,#9cbae8);--vdy-oblivious:light-dark(#8b639f,#ccabe0);--vdy-deterministic:light-dark(#967238,#e5c080)}
+.vdy-view .f-hero h1{font-size:32px}.vdy-toolbar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;margin:18px 0 12px;font-size:11px}.vdy-legend,.vdy-filters{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center}.vdy-legend i{display:inline-block;width:8px;height:8px;margin-right:6px}.vdy-key-alg{background:var(--green);border-radius:50%}.vdy-key-lower{border:1.5px solid var(--red);transform:rotate(45deg);box-sizing:border-box}.vdy-filters select{font-size:11px;min-height:32px;margin-left:5px}.vdy-scroll{overflow-x:auto;overscroll-behavior-x:contain;border:1px solid var(--line);border-radius:7px;background:var(--surface)}.vdy-plot{min-width:800px;padding:8px}.vdy-map{display:block;width:100%;height:auto}
+svg.vdy-map text,svg.vdy-summary text,.cell svg.vdy-summary text{font:11px ui-sans-serif,system-ui,sans-serif;fill:var(--ink)}
+svg.vdy-summary .vdy-heading,.cell svg.vdy-summary .vdy-heading{font-size:16px;font-weight:600}
+svg.vdy-map .vdy-heading{font:500 25px Georgia,serif}
+svg.vdy-map .vdy-muted,svg.vdy-summary .vdy-muted,.cell svg.vdy-summary .vdy-muted{font-size:9.5px;fill:var(--muted)}
+svg.vdy-map .vdy-muted{font-size:12px}
+svg.vdy-map .vdy-query-title,svg.vdy-summary .vdy-query-title,.cell svg.vdy-summary .vdy-query-title{font-size:12px;font-weight:600;fill:var(--green)}
+svg.vdy-map .vdy-query-title{font-size:16px}
+svg.vdy-map .vdy-axis-title,svg.vdy-summary .vdy-axis-title,.cell svg.vdy-summary .vdy-axis-title{font-size:10px;fill:var(--muted)}
+svg.vdy-map .vdy-axis-title{font-size:13px}
+svg.vdy-map .vdy-cost,svg.vdy-summary .vdy-cost,.cell svg.vdy-summary .vdy-cost{font-size:10px}
+svg.vdy-map .vdy-cost{font-size:13px}
+svg.vdy-map .vdy-paper-label,svg.vdy-summary .vdy-paper-label,.cell svg.vdy-summary .vdy-paper-label{font-size:9px;font-weight:600;fill:var(--green)}
+svg.vdy-map .vdy-paper-label{font-size:12px}
+svg.vdy-map .vdy-tag,svg.vdy-summary .vdy-tag,.cell svg.vdy-summary .vdy-tag{font-size:8.3px;fill:var(--muted)}
+svg.vdy-map .vdy-tag{font-size:11px}
+svg.vdy-map .vdy-palette,svg.vdy-summary .vdy-palette,.cell svg.vdy-summary .vdy-palette{font-size:12px;font-weight:600}
+svg.vdy-map .vdy-palette{font-size:16px}
+svg.vdy-map .vdy-palette-sub,svg.vdy-summary .vdy-palette-sub,.cell svg.vdy-summary .vdy-palette-sub{font-size:8px;fill:var(--muted)}
+svg.vdy-map .vdy-palette-sub{font-size:11px}
+svg.vdy-map .vdy-lower-note,svg.vdy-summary .vdy-lower-note,.cell svg.vdy-summary .vdy-lower-note{font-size:8px;fill:var(--red)}
+svg.vdy-map .vdy-lower-note{font-size:11px}
+svg.vdy-map .vdy-legend,svg.vdy-summary .vdy-legend,.cell svg.vdy-summary .vdy-legend{font-size:9px;fill:var(--muted)}
+svg.vdy-map .vdy-legend{font-size:11px}
+svg.vdy-summary[data-detail-level=compact] .vdy-heading,.cell svg.vdy-summary[data-detail-level=compact] .vdy-heading{font-size:10px}
+svg.vdy-summary[data-detail-level=compact] .vdy-query-title,.cell svg.vdy-summary[data-detail-level=compact] .vdy-query-title{font-size:9px}
+svg.vdy-summary[data-detail-level=compact] .vdy-cost,.cell svg.vdy-summary[data-detail-level=compact] .vdy-cost{font-size:8px}
+svg.vdy-summary[data-detail-level=compact] .vdy-palette,.cell svg.vdy-summary[data-detail-level=compact] .vdy-palette{font-size:8.2px}
+svg.vdy-summary[data-detail-level=compact] .vdy-legend,.cell svg.vdy-summary[data-detail-level=compact] .vdy-legend{font-size:7.5px}
+.vdy-upper{color:var(--green)}.vdy-lower{color:var(--red)}
+svg.vdy-map .vdy-lower,svg.vdy-summary .vdy-lower,.cell svg.vdy-summary .vdy-lower{fill:var(--red)}
+.vdy-axis{stroke:var(--muted);stroke-width:.8;fill:none}.vdy-grid{stroke:var(--line);stroke-width:.7;stroke-dasharray:3 5;fill:none}.vdy-result[role=button]{cursor:pointer;outline:none}.vdy-result[role=button]:focus{outline:1px dotted var(--ink)}.vdy-result[role=button]:hover{filter:brightness(1.1)}
+.vdy-notes{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:14px 0}.vdy-notes p,.vdy-coverage{font-size:11px;line-height:1.65;color:var(--muted);margin:0}.vdy-theorem{border:1px solid var(--line);border-radius:7px;padding:16px;margin-top:16px;background:var(--bg)}.vdy-detail-top{display:flex;flex-wrap:wrap;gap:12px 20px;font-size:12px}.vdy-detail-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;margin-top:14px}.vdy-detail-grid small{display:block;font-size:10px;color:var(--muted);margin-bottom:5px}.vdy-detail-grid strong{font-size:14px;font-weight:500}.vdy-theorem p,.vdy-theorem li{font-size:11px;line-height:1.7}.vdy-theorem h3{font:17px/1.5 Georgia,serif}.vdy-theorem summary{font-size:11px;cursor:pointer}.vdy-section-title{font:19px Georgia,serif;margin:22px 0 12px}.vdy-records{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}.vdy-record{display:flex;flex-direction:column;gap:7px;padding:14px;text-align:left;border-left:2px solid currentColor}.vdy-record span,.vdy-record small{font-size:11px}.vdy-record strong{font-size:14px;font-weight:500}.vdy-record small{color:var(--muted)}.vdy-record[aria-pressed=true]{background:var(--bg)}
+@media(max-width:750px){.vdy-notes{grid-template-columns:1fr;gap:10px}.vdy-view .f-hero h1{font-size:28px}}
+@media(max-width:510px){.vdy-detail-grid,.vdy-records{grid-template-columns:1fr}.vdy-scroll:before{content:'Swipe to compare dynamic guarantees →';position:sticky;left:0;display:block;padding:9px 12px;background:var(--bg);font-size:10px;color:var(--muted)}}
+@media print{.vdy-toolbar{display:none}.vdy-plot{min-width:0}.vdy-scroll{overflow:visible}.vdy-map{break-inside:avoid}}
+
+svg.vdy-map .vdy-exp,svg.vdy-summary .vdy-exp,.cell svg.vdy-summary .vdy-exp{font-size:.75em;baseline-shift:super}
+
+svg.vdy-map .vdy-setup-adaptive,svg.vdy-summary .vdy-setup-adaptive,.cell svg.vdy-summary .vdy-setup-adaptive{fill:var(--vdy-adaptive)}
+svg.vdy-map .vdy-setup-oblivious,svg.vdy-summary .vdy-setup-oblivious,.cell svg.vdy-summary .vdy-setup-oblivious{fill:var(--vdy-oblivious)}
+svg.vdy-map .vdy-setup-deterministic,svg.vdy-summary .vdy-setup-deterministic,.cell svg.vdy-summary .vdy-setup-deterministic{fill:var(--vdy-deterministic)}
+svg.vdy-map .vdy-col-label,svg.vdy-summary .vdy-col-label,.cell svg.vdy-summary .vdy-col-label{font-size:10px}
+svg.vdy-map .vdy-col-label{font-size:13px}
+svg.vdy-map .vdy-lower-title,svg.vdy-summary .vdy-lower-title,.cell svg.vdy-summary .vdy-lower-title{font-size:11px;fill:var(--red);font-weight:600}
+svg.vdy-map .vdy-lower-title{font-size:15px}
+svg.vdy-map .vdy-related-note,svg.vdy-summary .vdy-related-note,.cell svg.vdy-summary .vdy-related-note{font-size:9px;fill:var(--muted)}
+svg.vdy-map .vdy-related-note{font-size:12px}
+svg.vdy-map .vdy-footnote,svg.vdy-summary .vdy-footnote,.cell svg.vdy-summary .vdy-footnote{font-size:10px;fill:var(--muted)}
+svg.vdy-map .vdy-footnote{font-size:12px}
+svg.vdy-summary[data-detail-level=compact] .vdy-col-label,.cell svg.vdy-summary[data-detail-level=compact] .vdy-col-label{font-size:7px}
+svg.vdy-summary[data-detail-level=compact] .vdy-lower-title,.cell svg.vdy-summary[data-detail-level=compact] .vdy-lower-title{font-size:8px}
+svg.vdy-summary[data-detail-level=compact] .vdy-related-note,.cell svg.vdy-summary[data-detail-level=compact] .vdy-related-note{font-size:7px}

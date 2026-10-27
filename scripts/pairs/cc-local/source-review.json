@@ -1,0 +1,140 @@
+{
+  "schemaVersion": 1,
+  "pair": "cc-local",
+  "status": "source-reviewed",
+  "reviewedAt": "2026-10-26",
+  "scope": {
+    "suppliedSourceKeys": [
+      "Behnezhad2022"
+    ],
+    "finiteSourceSetOnly": true,
+    "sharedProjectEdited": false,
+    "rendererPrepared": true,
+    "browserQA": "not performed; research only",
+    "pendingUserChoice": null,
+    "acceptedUserChoice": "Approximation factor and round tradeoff"
+  },
+  "primarySource": {
+    "id": "behnezhad-2022-constant-rounds",
+    "title": "Almost 3-Approximate Correlation Clustering in Constant Rounds",
+    "authors": [
+      "Soheil Behnezhad",
+      "Moses Charikar",
+      "Weiyun Ma",
+      "Li-Yang Tan"
+    ],
+    "year": 2022,
+    "venue": "FOCS 2022",
+    "abstractUrl": "https://arxiv.org/abs/2205.03710",
+    "fullTextUrl": "https://arxiv.org/pdf/2205.03710",
+    "inspectedVersion": "arXiv:2205.03710v1",
+    "versionDate": "2022-05-07",
+    "inspectedLocations": [
+      "Introduction: input encoding and objective, printed p. 1",
+      "Theorem 1.1 and Corollaries 1.2 / 1.5, printed p. 4",
+      "Section 4: r-Pivot-Variant and Claim 4.1, printed pp. 23–24",
+      "Section 4: LOCAL implementation / proof of Corollary 1.5, printed pp. 25–26",
+      "Appendix B: Lemma B.1, printed pp. 30–31"
+    ]
+  },
+  "contract": {
+    "problem": "Correlation clustering: approximately minimize disagreements.",
+    "instance": "Unweighted complete signed graph; every unordered vertex pair is positive or negative.",
+    "encoding": "An ordinary graph G=(V,E) contains exactly the positive pairs; nonedges represent negative pairs.",
+    "objective": "Number of positive edges crossing clusters plus number of negative pairs inside clusters.",
+    "output": "A partition into any number of clusters; each vertex learns its own cluster ID.",
+    "communicationGraph": "The positive-edge graph G itself, not the complete signed graph and not an arbitrary external network.",
+    "model": "Synchronous LOCAL: one computationally unbounded processor per vertex; communication with neighbors in G.",
+    "messageSize": "The implementation uses O(log n)-bit messages, so its bandwidth also fits CONGEST.",
+    "randomized": true,
+    "guaranteeType": "Expected objective approximation, not a claimed high-probability approximation ratio.",
+    "measuredResource": "Elapsed synchronous communication rounds only."
+  },
+  "theorems": [
+    {
+      "id": "cc-local-corollary-1-5",
+      "sourceLocation": "Corollary 1.5, printed p. 4; proof in Section 4, printed pp. 25–26",
+      "url": "https://arxiv.org/pdf/2205.03710#page=5",
+      "role": "algorithm",
+      "statement": "For any epsilon > 0, there is a randomized O(1/epsilon)-round LOCAL algorithm for a (3+epsilon)-approximation using O(log n)-bit messages.",
+      "interpretation": "Expected approximation; this expectation is explicit in the implementation theorem and follows from Corollary 1.2 / Claim 4.1.",
+      "approximation": "3+epsilon",
+      "cost": "O(1/epsilon) rounds",
+      "epsilonScope": "The source states any epsilon > 0. A displayed interval such as 0 < epsilon <= 1 would be a plotting restriction, not a theorem restriction."
+    },
+    {
+      "id": "cc-local-explicit-implementation",
+      "sourceLocation": "Section 4, LOCAL implementation, printed pp. 25–26",
+      "url": "https://arxiv.org/pdf/2205.03710#page=27",
+      "role": "algorithm",
+      "parameter": "Integer r >= 1",
+      "exactRoundCount": "T = 2r+1",
+      "approximationUpperBound": "E[COST] <= (3 + 8/(2r-1) + n^{-Omega(1)}) OPT",
+      "equivalentRoundExpression": "E[COST] <= (3 + 8/(T-2) + n^{-Omega(1)}) OPT for odd integer T >= 3",
+      "denominatorWarning": "2r-1 is linear in r, not 2^r-1.",
+      "implementation": "Each of r Pivot phases uses two communication rounds; one final round assigns clusters.",
+      "randomness": "Vertices independently choose ranks uniformly from {0,...,n^c-1}, for sufficiently large constant c, with rank ties broken by vertex ID.",
+      "epsilonReduction": "Choose r=O(1/epsilon) so 8/(2r-1)+n^{-Omega(1)} < epsilon.",
+      "finiteRankCaution": "Do not advertise an exact 3+epsilon guarantee at r=ceil(4/epsilon+1/2) while dropping the rank-collision correction."
+    },
+    {
+      "id": "cc-local-rank-correction",
+      "sourceLocation": "Claim 4.1 and proof, printed pp. 23–24",
+      "url": "https://arxiv.org/pdf/2205.03710#page=24",
+      "role": "supporting proof",
+      "rankCollisionProbabilityUpperBound": "n^{2-c}",
+      "expectedCorrectionUpperBoundFromProof": "n^{4-c}, written n^{-Omega(1)} for sufficiently large constant c",
+      "exactZeroOptHandling": "If every connected component is a clique, both variants recover the optimum with probability 1. Otherwise OPT >= 1, allowing the collision-event cost to be bounded relative to OPT.",
+      "caution": "High probability that ranks are distinct does not turn the expected approximation theorem into a high-probability approximation theorem."
+    },
+    {
+      "id": "cc-local-ideal-permutation-family",
+      "sourceLocation": "Theorem 1.1 and Corollary 1.2, printed p. 4",
+      "url": "https://arxiv.org/pdf/2205.03710#page=5",
+      "role": "supporting proof",
+      "parameter": "Integer r >= 1",
+      "statement": "With a globally uniform random permutation, r-Pivot has expected approximation at most 3+8/(2r-1).",
+      "caveat": "The LOCAL implementation uses independently generated finite ranks and therefore includes the additional vanishing correction."
+    }
+  ],
+  "lowerBoundAudit": {
+    "generalLocalRoundLowerBoundInSuppliedSource": false,
+    "generalApproximationHardnessThresholdVerifiedInSuppliedSource": false,
+    "mainFigureLowerBoundRecords": [],
+    "mainFigureNote": "No general LOCAL round lower bound is proved in the supplied source.",
+    "excludedClaims": [
+      {
+        "sourceLocation": "Introduction, printed p. 3",
+        "claim": "A cited Omega(log n) lower bound for completing parallel greedy MIS / the full Pivot construction.",
+        "reasonExcluded": "This is not a round lower bound for all LOCAL correlation-clustering algorithms."
+      },
+      {
+        "sourceLocation": "Appendix B, Lemma B.1, printed pp. 30–31",
+        "claim": "A bad-permutation example for r-Pivot, with claimed cost Omega((n^2/r) OPT) for r<n/2.",
+        "reasonExcluded": "Algorithm-specific and permutation-specific; not an expected approximation lower bound and not a universal LOCAL round lower bound."
+      },
+      {
+        "sourceLocation": "Introduction / conclusion",
+        "claim": "Approximation 3 is described as a combinatorial barrier or target.",
+        "reasonExcluded": "This is not a proved universal hardness boundary and must not be drawn as a red lower-bound line."
+      }
+    ],
+    "additionalSetupNotMerged": {
+      "claim": "Approximately 2.06+epsilon rounding given a suitable LP solution.",
+      "reason": "Computing the LP is not included; this is an incompatible extra-input contract, not the same end-to-end LOCAL guarantee."
+    }
+  },
+  "representationProposal": {
+    "recommended": "Discrete expected-approximation versus elapsed-round tradeoff family.",
+    "costAxis": "Elapsed communication rounds T=2r+1.",
+    "approximationAxis": "Expected approximation upper guarantee; equivalently epsilon above 3.",
+    "algorithmColor": "green",
+    "lowerBoundColor": "red reserved for actual verified lower bounds; none supplied here",
+    "approximationThreeReference": "Neutral reference only, explicitly not a hardness bound.",
+    "correctionDisplay": "Keep +n^{-Omega(1)} explicit in caption/inspection; if the base curve 3+8/(T-2) is drawn, label it as the main term plus vanishing rank correction.",
+    "noNumericSubstitution": "Do not assign a numerical exponent to Omega(1) or silently evaluate the correction.",
+    "fullAtlas": "Retain the green tradeoff and concise labels '(3+epsilon) expected' and 'O(1/epsilon) rounds'; hide theorem detail at distant zoom.",
+    "meaningfulClarification": "Should the figure show how rounds grow as expected approximation approaches 3, or fix an approximation target such as 3.1?",
+    "recommendationReason": "A single constant-in-n category hides the only researched tradeoff."
+  }
+}

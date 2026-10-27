@@ -1,0 +1,938 @@
+{
+  "title": "One fewer color changes the round complexity",
+  "problem": "edge",
+  "model": "local",
+  "reviewedOn": "2026-10-27",
+  "defaultView": "bounded",
+  "defaultSelected": "local-two-delta-minus-two-upper-2025",
+  "coverageNote": "Bounded review of 17 supplied results in 12 primary papers; no claim of exhaustive literature coverage.",
+  "lowerBoundStatus": "The existing lower-bound theorem covers 2Δ−2 colors; no 2Δ−1 lower-bound marker is claimed from this source set.",
+  "sources": {
+    "jakob-maus-schager-2025-local": {
+      "id": "jakob-maus-schager-2025-local",
+      "title": "Towards Optimal Distributed Edge Coloring with Fewer Colors",
+      "authors": [
+        "Manuel Jakob",
+        "Yannic Maus",
+        "Florian Schager"
+      ],
+      "year": 2025,
+      "venue": "DISC 2025",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.DISC.2025.37",
+      "verifiedOn": "2026-10-27",
+      "verificationUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol356-disc2025/html/LIPIcs.DISC.2025.37/LIPIcs.DISC.2025.37.html"
+    },
+    "blikstad-maus-devos-2026-distributed": {
+      "id": "blikstad-maus-devos-2026-distributed",
+      "title": "Deterministic Edge Coloring with few Colors in CONGEST",
+      "authors": [
+        "Joakim Blikstad",
+        "Yannic Maus",
+        "Tijn de Vos"
+      ],
+      "year": 2026,
+      "venue": "DISC 2026 (accepted); arXiv:2603.02689v2",
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/abs/2603.02689",
+      "verifiedOn": "2026-10-27",
+      "verificationUrl": "https://arxiv.org/html/2603.02689v2"
+    },
+    "chang-he-li-pettie-uitto-2020-local": {
+      "id": "chang-he-li-pettie-uitto-2020-local",
+      "title": "Distributed Edge Coloring and a Special Case of the Constructive Lovász Local Lemma",
+      "authors": [
+        "Yi-Jun Chang",
+        "Qizheng He",
+        "Wenzheng Li",
+        "Seth Pettie",
+        "Jara Uitto"
+      ],
+      "year": 2020,
+      "venue": "ACM Transactions on Algorithms 16(1); arXiv v3 revised 2026",
+      "publicationStatus": "journal",
+      "url": "https://arxiv.org/abs/1708.04290",
+      "verifiedOn": "2026-10-27",
+      "verificationUrl": "https://arxiv.org/html/1708.04290v3"
+    },
+    "fischer-ghaffari-kuhn-2017": {
+      "id": "fischer-ghaffari-kuhn-2017",
+      "title": "Deterministic Distributed Edge-Coloring via Hypergraph Maximal Matching",
+      "authors": [
+        "Manuela Fischer",
+        "Mohsen Ghaffari",
+        "Fabian Kuhn"
+      ],
+      "year": 2017,
+      "venue": "FOCS 2017",
+      "publicationStatus": "conference",
+      "url": "https://ieee-focs.org/FOCS-2017-Papers/3464a180.pdf",
+      "verifiedOn": "2026-10-27",
+      "verificationUrl": "https://ieee-focs.org/FOCS-2017-Papers/3464a180.pdf"
+    },
+    "ghaffari-kuhn-maus-uitto-2018": {
+      "id": "ghaffari-kuhn-maus-uitto-2018",
+      "title": "Deterministic Distributed Edge-Coloring with Fewer Colors",
+      "authors": [
+        "Mohsen Ghaffari",
+        "Fabian Kuhn",
+        "Yannic Maus",
+        "Jara Uitto"
+      ],
+      "year": 2018,
+      "venue": "STOC 2018",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1711.05469",
+      "verifiedOn": "2026-10-27",
+      "verificationUrl": "https://arxiv.org/html/1711.05469v1"
+    },
+    "balliu-kuhn-olivetti-2020": {
+      "id": "balliu-kuhn-olivetti-2020",
+      "title": "Distributed Edge Coloring in Time Quasi-Polylogarithmic in Delta",
+      "authors": [
+        "Alkida Balliu",
+        "Fabian Kuhn",
+        "Dennis Olivetti"
+      ],
+      "year": 2020,
+      "venue": "PODC 2020",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2002.10780",
+      "verifiedOn": "2026-10-27",
+      "verificationUrl": "https://arxiv.org/abs/2002.10780"
+    },
+    "balliu-brandt-kuhn-olivetti-2022": {
+      "id": "balliu-brandt-kuhn-olivetti-2022",
+      "title": "Distributed Edge Coloring in Time Polylogarithmic in Δ",
+      "authors": [
+        "Alkida Balliu",
+        "Sebastian Brandt",
+        "Fabian Kuhn",
+        "Dennis Olivetti"
+      ],
+      "year": 2022,
+      "venue": "PODC 2022",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2206.00976",
+      "verifiedOn": "2026-10-27",
+      "verificationUrl": "https://arxiv.org/html/2206.00976"
+    },
+    "bernshteyn-2022-local-vizing": {
+      "id": "bernshteyn-2022-local-vizing",
+      "title": "A Fast Distributed Algorithm for (Δ+1)-Edge-Coloring",
+      "authors": [
+        "Anton Bernshteyn"
+      ],
+      "year": 2022,
+      "venue": "Journal of Combinatorial Theory, Series B 152 (2022)",
+      "publicationStatus": "journal",
+      "url": "https://arxiv.org/abs/2006.15703",
+      "verifiedOn": "2026-10-27",
+      "verificationUrl": "https://arxiv.org/pdf/2006.15703"
+    },
+    "davies-2023-lll-edge": {
+      "id": "davies-2023-lll-edge",
+      "title": "Improved Distributed Algorithms for the Lovász Local Lemma and Edge Coloring",
+      "authors": [
+        "Peter Davies"
+      ],
+      "year": 2023,
+      "venue": "SODA 2023",
+      "publicationStatus": "conference",
+      "url": "https://epubs.siam.org/doi/10.1137/1.9781611977554.ch163",
+      "verifiedOn": "2026-10-27",
+      "verificationUrl": "https://arxiv.org/html/2208.08701v2"
+    },
+    "brandt-et-al-2025-threehalves": {
+      "id": "brandt-et-al-2025-threehalves",
+      "title": "On the Locality of Hall’s Theorem",
+      "authors": [
+        "Sebastian Brandt",
+        "Yannic Maus",
+        "Ananth Narayanan",
+        "Florian Schager",
+        "Jara Uitto"
+      ],
+      "year": 2025,
+      "venue": "SODA 2025; arXiv:2501.03649",
+      "publicationStatus": "conference",
+      "url": "https://epubs.siam.org/doi/10.1137/1.9781611978322.143",
+      "verifiedOn": "2026-10-27",
+      "verificationUrl": "https://arxiv.org/html/2501.03649v1"
+    },
+    "dhawan-2024-multigraph": {
+      "id": "dhawan-2024-multigraph",
+      "title": "Edge-Coloring Algorithms for Bounded Degree Multigraphs",
+      "authors": [
+        "Abhishek Dhawan"
+      ],
+      "year": 2024,
+      "venue": "SODA 2024",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2307.06579",
+      "verifiedOn": "2026-10-27",
+      "verificationUrl": "https://arxiv.org/html/2307.06579v3"
+    },
+    "kuhn-2020-recursive-list": {
+      "id": "kuhn-2020-recursive-list",
+      "title": "Faster Deterministic Distributed Coloring Through Recursive List Coloring",
+      "authors": [
+        "Fabian Kuhn"
+      ],
+      "year": 2020,
+      "venue": "SODA 2020",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1907.03797",
+      "verifiedOn": "2026-10-27",
+      "verificationUrl": "https://arxiv.org/abs/1907.03797"
+    }
+  },
+  "verifiedRecords": [
+    {
+      "id": "local-two-delta-minus-two-upper-2025",
+      "sourceId": "jakob-maus-schager-2025-local",
+      "sliceId": "edge-local-two-delta-minus-two",
+      "kind": "algorithm",
+      "family": "greedy-minus",
+      "mode": "deterministic",
+      "panel": "bounded",
+      "displayBound": "O(log¹²Δ + log n) or Õ(log^(5/3)n)",
+      "boundedBound": "O(log n)",
+      "theorem": "Corollary 3",
+      "quality": "q = 2Δ−2",
+      "shortLabel": "Jakob–Maus–Schager 2025",
+      "notes": "Two alternative instantiations. The constant-degree main view specializes the first. O(log n) is tight here only after fixing Δ. A bound on reduction overhead alone is not a bound on the whole algorithm.",
+      "output": "Proper edge coloring: each edge receives a color and incident edges have distinct colors.",
+      "graph": "Simple graph, n vertices, maximum degree Δ",
+      "probability": "Deterministic; correctness probability 1.",
+      "assumptions": [
+        "Simple graph, n vertices, maximum degree Δ.",
+        "Synchronous LOCAL model; unrestricted message size and local computation.",
+        "Distinct identifiers as in the standard LOCAL model.",
+        "Main view fixes Δ ≥ 3 independently of n."
+      ],
+      "resourceModel": "Number of synchronous LOCAL communication rounds.",
+      "verificationUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol356-disc2025/html/LIPIcs.DISC.2025.37/LIPIcs.DISC.2025.37.html",
+      "evidenceStatus": "verified",
+      "frontierStatus": "candidate"
+    },
+    {
+      "id": "local-two-delta-minus-two-lower-2020",
+      "sourceId": "chang-he-li-pettie-uitto-2020-local",
+      "sliceId": "edge-local-two-delta-minus-two",
+      "kind": "lower",
+      "family": "greedy-minus",
+      "mode": "both",
+      "panel": "bounded",
+      "displayBound": "Ω(log_Δ n) deterministic; Ω(log_Δ log n) randomized",
+      "boundedBound": "Ω(log n) deterministic; Ω(log log n) randomized",
+      "theorem": "Theorem 2, arXiv v3",
+      "quality": "q = 2Δ−2",
+      "shortLabel": "Chang et al. 2020",
+      "notes": "Even on 2-vertex-colored trees. Randomized lower bound uses the high-probability RandLOCAL correctness requirement. The 2026 erratum changes a network-decomposition claim; it explicitly leaves the edge-coloring bounds unchanged.",
+      "output": "Proper edge coloring: each edge receives a color and incident edges have distinct colors.",
+      "graph": "Simple graph, n vertices, maximum degree Δ",
+      "probability": "Deterministic and randomized LOCAL lower bounds; randomized correctness is required with high probability in n.",
+      "assumptions": [
+        "Simple graph, n vertices, maximum degree Δ.",
+        "Synchronous LOCAL model; unrestricted message size and local computation.",
+        "Distinct identifiers as in the standard LOCAL model.",
+        "Main view fixes Δ ≥ 3 independently of n."
+      ],
+      "resourceModel": "Number of synchronous LOCAL communication rounds.",
+      "verificationUrl": "https://arxiv.org/html/1708.04290v3",
+      "evidenceStatus": "verified",
+      "frontierStatus": "current_best_verified"
+    },
+    {
+      "id": "edge-local-jakob25-random",
+      "sourceId": "jakob-maus-schager-2025-local",
+      "sliceId": "edge-local-two-delta-minus-two",
+      "kind": "algorithm",
+      "family": "greedy-minus",
+      "mode": "randomized",
+      "panel": "bounded",
+      "displayBound": "O(log¹²Δ + log log n) or Õ((log log n)^(5/3))",
+      "boundedBound": "O(log log n)",
+      "theorem": "Theorem 4 and Corollary 5",
+      "quality": "q = 2Δ−2",
+      "shortLabel": "Jakob–Maus–Schager 2025",
+      "notes": "Total randomized runtime includes the residual (2Δ−1)-edge-coloring subroutine. Fixing Δ reduces the first instantiation to O(log log n).",
+      "output": "Proper edge coloring: each edge receives a color and incident edges have distinct colors.",
+      "graph": "Simple graph, n vertices, maximum degree Δ",
+      "probability": "Correct with high probability in n; Corollary 5, Theorem 4 proof and Appendix B's high-probability HSO theorem. No fixed failure exponent is chosen.",
+      "assumptions": [
+        "Simple graph, n vertices, maximum degree Δ.",
+        "Synchronous LOCAL model; unrestricted message size and local computation.",
+        "Distinct identifiers as in the standard LOCAL model.",
+        "Main view fixes Δ ≥ 3 independently of n."
+      ],
+      "resourceModel": "Number of synchronous LOCAL communication rounds.",
+      "verificationUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol356-disc2025/html/LIPIcs.DISC.2025.37/LIPIcs.DISC.2025.37.html",
+      "evidenceStatus": "verified",
+      "frontierStatus": "candidate"
+    },
+    {
+      "id": "edge-local-bbko22",
+      "sourceId": "balliu-brandt-kuhn-olivetti-2022",
+      "sliceId": "edge-local-two-delta-minus-one-history",
+      "kind": "algorithm",
+      "family": "greedy",
+      "mode": "deterministic",
+      "panel": "bounded",
+      "displayBound": "O(log¹²Δ + log* n)",
+      "boundedBound": "O(log* n)",
+      "theorem": "Theorem D.4, with color universe C = 2Δ−1",
+      "quality": "q = 2Δ−1",
+      "shortLabel": "Balliu et al. 2022",
+      "notes": "Original theorem gives O(log⁷C · log⁵Δ + log* n), yielding the displayed instantiation. The deterministic algorithm also works in randomized LOCAL with probability 1. No matching lower bound for this palette is asserted from the supplied source set.",
+      "output": "Proper edge coloring: each edge receives a color and incident edges have distinct colors.",
+      "graph": "Simple graph, n vertices, maximum degree Δ",
+      "probability": "Deterministic; correctness probability 1.",
+      "assumptions": [
+        "Simple graph, n vertices, maximum degree Δ.",
+        "Synchronous LOCAL model; unrestricted message size and local computation.",
+        "Distinct identifiers as in the standard LOCAL model.",
+        "Main view fixes Δ ≥ 3 independently of n."
+      ],
+      "resourceModel": "Number of synchronous LOCAL communication rounds.",
+      "verificationUrl": "https://arxiv.org/html/2206.00976",
+      "evidenceStatus": "verified",
+      "frontierStatus": "candidate"
+    }
+  ],
+  "relatedResults": [
+    {
+      "id": "local-near-delta-disc26",
+      "sourceId": "blikstad-maus-devos-2026-distributed",
+      "sliceId": "edge-local-near-delta-deterministic-2026",
+      "kind": "algorithm",
+      "family": "near",
+      "mode": "deterministic",
+      "panel": "variable",
+      "displayBound": "O(log²n) + Õ(log²Δ · log n)",
+      "theorem": "Theorem 3 and the following additive-term discussion",
+      "quality": "q = (1+ε)Δ + O(√log n)",
+      "shortLabel": "Blikstad–Maus–de Vos 2026",
+      "extraAssumptions": [
+        "ε > 0 is fixed.",
+        "Exactly (1+ε)Δ colors requires Δ ≥ c√log n for sufficiently large c."
+      ],
+      "notes": "The all-degree statement contains an additive palette term. It cannot be plotted as a fixed near-Δ palette in the bounded-degree main view. When Δ = 2^{O(√log n)}, runtime is O(log²n). This is the LOCAL theorem, not the slower CONGEST theorem. Full proof is the accepted DISC 2026 preprint, distinct from the published PODC brief announcement.",
+      "output": "Proper edge coloring: each edge receives a color and incident edges have distinct colors.",
+      "graph": "Simple graph, n vertices, maximum degree Δ",
+      "probability": "Deterministic; correctness probability 1.",
+      "assumptions": [
+        "Simple graph, n vertices, maximum degree Δ.",
+        "Synchronous LOCAL model; unrestricted message size and local computation.",
+        "Distinct identifiers as in the standard LOCAL model.",
+        "ε > 0 is fixed.",
+        "Exactly (1+ε)Δ colors requires Δ ≥ c√log n for sufficiently large c."
+      ],
+      "resourceModel": "Number of synchronous LOCAL communication rounds.",
+      "verificationUrl": "https://arxiv.org/html/2603.02689v2",
+      "evidenceStatus": "verified",
+      "frontierStatus": "current_best_verified"
+    },
+    {
+      "id": "edge-local-fgk17-deterministic",
+      "sourceId": "fischer-ghaffari-kuhn-2017",
+      "sliceId": "edge-local-two-delta-minus-one-history",
+      "kind": "algorithm",
+      "family": "greedy",
+      "mode": "deterministic",
+      "panel": "variable",
+      "displayBound": "O(log⁸Δ · log n)",
+      "boundedBound": "O(log n)",
+      "theorem": "Theorem I.1",
+      "quality": "q = 2Δ−1",
+      "shortLabel": "Fischer–Ghaffari–Kuhn 2017",
+      "notes": "Historical deterministic algorithm. Its list version uses line-graph degree deg_L(G)(e)+1, not vertex degree plus one.",
+      "output": "Proper edge coloring: each edge receives a color and incident edges have distinct colors.",
+      "graph": "Simple graph, n vertices, maximum degree Δ",
+      "probability": "Deterministic; correctness probability 1.",
+      "assumptions": [
+        "Simple graph, n vertices, maximum degree Δ.",
+        "Synchronous LOCAL model; unrestricted message size and local computation.",
+        "Distinct identifiers as in the standard LOCAL model."
+      ],
+      "resourceModel": "Number of synchronous LOCAL communication rounds.",
+      "verificationUrl": "https://ieee-focs.org/FOCS-2017-Papers/3464a180.pdf",
+      "evidenceStatus": "verified",
+      "frontierStatus": "historical"
+    },
+    {
+      "id": "edge-local-fgk17-random",
+      "sourceId": "fischer-ghaffari-kuhn-2017",
+      "sliceId": "edge-local-two-delta-minus-one-history",
+      "kind": "algorithm",
+      "family": "greedy",
+      "mode": "randomized",
+      "panel": "variable",
+      "displayBound": "O((log log n)⁹)",
+      "theorem": "Corollary I.2",
+      "quality": "q = 2Δ−1",
+      "shortLabel": "Fischer–Ghaffari–Kuhn 2017",
+      "notes": "Historical randomized algorithm; bounded-degree main view uses the faster deterministic 2022 algorithm in both models.",
+      "output": "Proper edge coloring: each edge receives a color and incident edges have distinct colors.",
+      "graph": "Simple graph, n vertices, maximum degree Δ",
+      "probability": "Randomized; correct with high probability in n.",
+      "assumptions": [
+        "Simple graph, n vertices, maximum degree Δ.",
+        "Synchronous LOCAL model; unrestricted message size and local computation.",
+        "Distinct identifiers as in the standard LOCAL model."
+      ],
+      "resourceModel": "Number of synchronous LOCAL communication rounds.",
+      "verificationUrl": "https://ieee-focs.org/FOCS-2017-Papers/3464a180.pdf",
+      "evidenceStatus": "verified",
+      "frontierStatus": "historical"
+    },
+    {
+      "id": "edge-local-kuhn20-recursive",
+      "sourceId": "kuhn-2020-recursive-list",
+      "sliceId": "edge-local-two-delta-minus-one-history",
+      "kind": "algorithm",
+      "family": "greedy",
+      "mode": "deterministic",
+      "panel": "variable",
+      "displayBound": "2^{O(√log Δ)} + O(log* n)",
+      "boundedBound": "O(log* n)",
+      "theorem": "Abstract; line-graph consequence of bounded neighborhood independence",
+      "quality": "q = 2Δ−1",
+      "shortLabel": "Kuhn 2020",
+      "evidenceStatus": "abstract_verified",
+      "notes": "Original edge-coloring consequence verified in the author preprint abstract; no exponent hidden in O(√log Δ) is chosen.",
+      "output": "Proper edge coloring: each edge receives a color and incident edges have distinct colors.",
+      "graph": "Simple graph, n vertices, maximum degree Δ",
+      "probability": "Deterministic; correctness probability 1.",
+      "assumptions": [
+        "Simple graph, n vertices, maximum degree Δ.",
+        "Synchronous LOCAL model; unrestricted message size and local computation.",
+        "Distinct identifiers as in the standard LOCAL model."
+      ],
+      "resourceModel": "Number of synchronous LOCAL communication rounds.",
+      "verificationUrl": "https://arxiv.org/abs/1907.03797",
+      "frontierStatus": "historical"
+    },
+    {
+      "id": "edge-local-bko20",
+      "sourceId": "balliu-kuhn-olivetti-2020",
+      "sliceId": "edge-local-two-delta-minus-one-history",
+      "kind": "algorithm",
+      "family": "greedy",
+      "mode": "deterministic",
+      "panel": "variable",
+      "displayBound": "log^{O(log log Δ)}Δ + O(log* n)",
+      "boundedBound": "O(log* n)",
+      "theorem": "Abstract; main list edge-coloring result",
+      "quality": "q = 2Δ−1",
+      "shortLabel": "Balliu–Kuhn–Olivetti 2020",
+      "evidenceStatus": "abstract_verified",
+      "notes": "Historical quasi-polylogarithmic dependence on degree. Kept symbolic; no polynomial exponent is inferred.",
+      "output": "Proper edge coloring: each edge receives a color and incident edges have distinct colors.",
+      "graph": "Simple graph, n vertices, maximum degree Δ",
+      "probability": "Deterministic; correctness probability 1.",
+      "assumptions": [
+        "Simple graph, n vertices, maximum degree Δ.",
+        "Synchronous LOCAL model; unrestricted message size and local computation.",
+        "Distinct identifiers as in the standard LOCAL model."
+      ],
+      "resourceModel": "Number of synchronous LOCAL communication rounds.",
+      "verificationUrl": "https://arxiv.org/abs/2002.10780",
+      "frontierStatus": "historical"
+    },
+    {
+      "id": "edge-local-bernshteyn22-vizing",
+      "sourceId": "bernshteyn-2022-local-vizing",
+      "sliceId": "edge-local-delta-plus-one",
+      "kind": "algorithm",
+      "family": "vizing",
+      "mode": "deterministic",
+      "panel": "variable",
+      "displayBound": "poly(Δ, log n)",
+      "theorem": "Theorem 1.1",
+      "quality": "q = Δ+1",
+      "shortLabel": "Bernshteyn 2022",
+      "notes": "Polynomial factors remain symbolic. No numeric exponent or fixed log-power coordinate is assigned.",
+      "output": "Proper edge coloring: each edge receives a color and incident edges have distinct colors.",
+      "graph": "Simple graph, n vertices, maximum degree Δ",
+      "probability": "Deterministic; correctness probability 1.",
+      "assumptions": [
+        "Simple graph, n vertices, maximum degree Δ.",
+        "Synchronous LOCAL model; unrestricted message size and local computation.",
+        "Distinct identifiers as in the standard LOCAL model."
+      ],
+      "resourceModel": "Number of synchronous LOCAL communication rounds.",
+      "verificationUrl": "https://arxiv.org/pdf/2006.15703",
+      "evidenceStatus": "verified",
+      "frontierStatus": "candidate"
+    },
+    {
+      "id": "edge-local-gkmu18-near",
+      "sourceId": "ghaffari-kuhn-maus-uitto-2018",
+      "sliceId": "edge-local-near-delta-history",
+      "kind": "algorithm",
+      "family": "near",
+      "mode": "deterministic",
+      "panel": "variable",
+      "displayBound": "poly(log n)",
+      "theorem": "Abstract; high-degree result",
+      "quality": "q = (1+o(1))Δ",
+      "shortLabel": "Ghaffari et al. 2018",
+      "evidenceStatus": "abstract_verified",
+      "extraAssumptions": [
+        "Δ = Õ(Ω(log n)); the high-degree condition is required."
+      ],
+      "notes": "High-degree theorem; not a bounded-Δ specialization. The small-degree palette is a separate retained record. Hidden polynomial and vanishing slack remain symbolic.",
+      "output": "Proper edge coloring: each edge receives a color and incident edges have distinct colors.",
+      "graph": "Simple graph, n vertices, maximum degree Δ",
+      "probability": "Deterministic; correctness probability 1.",
+      "assumptions": [
+        "Simple graph, n vertices, maximum degree Δ.",
+        "Synchronous LOCAL model; unrestricted message size and local computation.",
+        "Distinct identifiers as in the standard LOCAL model.",
+        "Δ = Õ(Ω(log n)); the high-degree condition is required."
+      ],
+      "resourceModel": "Number of synchronous LOCAL communication rounds.",
+      "verificationUrl": "https://arxiv.org/html/1711.05469v1",
+      "frontierStatus": "historical"
+    },
+    {
+      "id": "edge-local-davies23-near",
+      "sourceId": "davies-2023-lll-edge",
+      "sliceId": "edge-local-near-delta-history",
+      "kind": "algorithm",
+      "family": "near",
+      "mode": "randomized",
+      "panel": "variable",
+      "displayBound": "log^{O(1)} log n",
+      "theorem": "Corollary 4",
+      "quality": "q = Δ+o(Δ)",
+      "shortLabel": "Davies 2023",
+      "notes": "The asymptotic palette slack is not a Δ+1 guarantee. Neither the polynomial exponent nor a numeric ε-range is selected.",
+      "output": "Proper edge coloring: each edge receives a color and incident edges have distinct colors.",
+      "graph": "Simple graph, n vertices, maximum degree Δ",
+      "probability": "Randomized; correct with high probability in n.",
+      "assumptions": [
+        "Simple graph, n vertices, maximum degree Δ.",
+        "Synchronous LOCAL model; unrestricted message size and local computation.",
+        "Distinct identifiers as in the standard LOCAL model."
+      ],
+      "resourceModel": "Number of synchronous LOCAL communication rounds.",
+      "verificationUrl": "https://arxiv.org/html/2208.08701v2",
+      "evidenceStatus": "verified",
+      "frontierStatus": "candidate"
+    },
+    {
+      "id": "edge-local-gkmu18-lowdegree",
+      "sourceId": "ghaffari-kuhn-maus-uitto-2018",
+      "sliceId": "edge-local-three-halves",
+      "kind": "algorithm",
+      "family": "shannon",
+      "mode": "deterministic",
+      "panel": "variable",
+      "displayBound": "poly(log n)",
+      "theorem": "Abstract; smaller-degree result",
+      "quality": "q ≤ 3Δ/2",
+      "shortLabel": "Ghaffari et al. 2018",
+      "evidenceStatus": "abstract_verified",
+      "extraAssumptions": [
+        "The smaller-degree regime of the source's split into two algorithms."
+      ],
+      "notes": "Historical small-degree guarantee. The original source states 3Δ/2 colors; the palette size is integer. Kept separate from its high-degree near-Δ theorem.",
+      "output": "Proper edge coloring: each edge receives a color and incident edges have distinct colors.",
+      "graph": "Simple graph, n vertices, maximum degree Δ",
+      "probability": "Deterministic; correctness probability 1.",
+      "assumptions": [
+        "Simple graph, n vertices, maximum degree Δ.",
+        "Synchronous LOCAL model; unrestricted message size and local computation.",
+        "Distinct identifiers as in the standard LOCAL model.",
+        "The smaller-degree regime of the source's split into two algorithms."
+      ],
+      "resourceModel": "Number of synchronous LOCAL communication rounds.",
+      "verificationUrl": "https://arxiv.org/html/1711.05469v1",
+      "frontierStatus": "historical"
+    },
+    {
+      "id": "edge-local-brandt25-threehalves",
+      "sourceId": "brandt-et-al-2025-threehalves",
+      "sliceId": "edge-local-three-halves",
+      "kind": "algorithm",
+      "family": "shannon",
+      "mode": "deterministic",
+      "panel": "variable",
+      "displayBound": "O(Δ² log n)",
+      "boundedBound": "O(log n)",
+      "theorem": "Theorem 1.2 and proof §5.1",
+      "quality": "q = ⌊3Δ/2⌋",
+      "shortLabel": "Brandt et al. 2025",
+      "notes": "The proof yields the integer floor palette. This agrees with 2Δ−2 at Δ=3 or 4; separate categorical families are not a claim of different numerical positions.",
+      "output": "Proper edge coloring: each edge receives a color and incident edges have distinct colors.",
+      "graph": "Simple graph, n vertices, maximum degree Δ",
+      "probability": "Deterministic; correctness probability 1.",
+      "assumptions": [
+        "Simple graph, n vertices, maximum degree Δ.",
+        "Synchronous LOCAL model; unrestricted message size and local computation.",
+        "Distinct identifiers as in the standard LOCAL model."
+      ],
+      "resourceModel": "Number of synchronous LOCAL communication rounds.",
+      "verificationUrl": "https://arxiv.org/html/2501.03649v1",
+      "evidenceStatus": "verified",
+      "frontierStatus": "candidate"
+    },
+    {
+      "id": "edge-local-brandt25-epsilon",
+      "sourceId": "brandt-et-al-2025-threehalves",
+      "sliceId": "edge-local-three-halves",
+      "kind": "algorithm",
+      "family": "shannon",
+      "mode": "deterministic",
+      "panel": "variable",
+      "displayBound": "O(ε⁻² log²Δ · poly(log log Δ) · log n)",
+      "theorem": "Corollary 1.2",
+      "quality": "q = (3/2+ε)Δ",
+      "shortLabel": "Brandt et al. 2025",
+      "extraAssumptions": [
+        "ε > 1/Δ."
+      ],
+      "notes": "Extra palette slack improves the degree dependence. The unspecified poly(log log Δ) factor remains symbolic.",
+      "output": "Proper edge coloring: each edge receives a color and incident edges have distinct colors.",
+      "graph": "Simple graph, n vertices, maximum degree Δ",
+      "probability": "Deterministic; correctness probability 1.",
+      "assumptions": [
+        "Simple graph, n vertices, maximum degree Δ.",
+        "Synchronous LOCAL model; unrestricted message size and local computation.",
+        "Distinct identifiers as in the standard LOCAL model.",
+        "ε > 1/Δ."
+      ],
+      "resourceModel": "Number of synchronous LOCAL communication rounds.",
+      "verificationUrl": "https://arxiv.org/html/2501.03649v1",
+      "evidenceStatus": "verified",
+      "frontierStatus": "historical"
+    },
+    {
+      "id": "edge-local-dhawan24-random",
+      "sourceId": "dhawan-2024-multigraph",
+      "sliceId": "edge-local-multigraph-shannon",
+      "kind": "algorithm",
+      "family": "multigraph",
+      "mode": "randomized",
+      "panel": "multigraph",
+      "displayBound": "O(log²n)",
+      "theorem": "Theorem 1.5(2), with high-probability proof in §5.2",
+      "quality": "q = ⌊3Δ/2⌋",
+      "shortLabel": "Dhawan 2024",
+      "probability": "At least 1−1/poly(n), as proved in §5.2 for the distributed algorithm.",
+      "extraAssumptions": [
+        "Δ = O(1); the multigraph facet fixes Δ ≥ 3."
+      ],
+      "notes": "Loopless multigraphs. The proof gives O(Δ³⁶ log²n); the displayed theorem hides degree dependence by fixing Δ. The sequential algorithm's 1−1/Δⁿ success probability is not used here.",
+      "output": "Proper edge coloring: each edge receives a color and incident edges have distinct colors.",
+      "graph": "Loopless multigraph, n vertices, maximum degree Δ = O(1)",
+      "assumptions": [
+        "Loopless multigraph, n vertices, maximum degree Δ = O(1).",
+        "Synchronous LOCAL model; unrestricted message size and local computation.",
+        "Distinct identifiers as in the standard LOCAL model.",
+        "Δ = O(1); the multigraph facet fixes Δ ≥ 3."
+      ],
+      "resourceModel": "Number of synchronous LOCAL communication rounds.",
+      "verificationUrl": "https://arxiv.org/html/2307.06579v3",
+      "evidenceStatus": "verified",
+      "frontierStatus": "candidate"
+    },
+    {
+      "id": "edge-local-dhawan24-deterministic",
+      "sourceId": "dhawan-2024-multigraph",
+      "sliceId": "edge-local-multigraph-shannon",
+      "kind": "algorithm",
+      "family": "multigraph",
+      "mode": "deterministic",
+      "panel": "multigraph",
+      "displayBound": "Õ(log⁵n)",
+      "theorem": "Theorem 1.5(3), distributed proof §5.2",
+      "quality": "q = ⌊3Δ/2⌋",
+      "shortLabel": "Dhawan 2024",
+      "extraAssumptions": [
+        "Δ = O(1); the multigraph facet fixes Δ ≥ 3."
+      ],
+      "notes": "Loopless multigraphs. Degree factors are hidden by fixed Δ; the tilde hides poly(log log n). Retain the theorem's tilde even though the last proof line suppresses it.",
+      "output": "Proper edge coloring: each edge receives a color and incident edges have distinct colors.",
+      "graph": "Loopless multigraph, n vertices, maximum degree Δ = O(1)",
+      "probability": "Deterministic; correctness probability 1.",
+      "assumptions": [
+        "Loopless multigraph, n vertices, maximum degree Δ = O(1).",
+        "Synchronous LOCAL model; unrestricted message size and local computation.",
+        "Distinct identifiers as in the standard LOCAL model.",
+        "Δ = O(1); the multigraph facet fixes Δ ≥ 3."
+      ],
+      "resourceModel": "Number of synchronous LOCAL communication rounds.",
+      "verificationUrl": "https://arxiv.org/html/2307.06579v3",
+      "evidenceStatus": "verified",
+      "frontierStatus": "historical"
+    }
+  ],
+  "figureAxes": {
+    "bounded": {
+      "x": {
+        "label": "Exact palette q (categorical)",
+        "kind": "categorical",
+        "categories": [
+          "2Δ−1",
+          "2Δ−2"
+        ]
+      },
+      "y": {
+        "label": "Communication rounds at fixed Δ ≥ 3 (symbolic order)",
+        "kind": "symbolic",
+        "categories": [
+          "log* n",
+          "log log n",
+          "log n"
+        ]
+      },
+      "note": "Two setup panels: deterministic and randomized. Equal vertical positions mean matching asymptotic orders, not identical constants."
+    },
+    "variable": {
+      "x": {
+        "label": "Palette family (categorical; no numerical spacing)",
+        "kind": "categorical",
+        "categories": [
+          "2Δ−1",
+          "2Δ−2",
+          "Δ+1",
+          "Near Δ",
+          "3Δ/2 family"
+        ]
+      },
+      "y": {
+        "label": "Algorithm model (categorical); inspect exact round formulas",
+        "kind": "categorical",
+        "categories": [
+          "Deterministic",
+          "Randomized"
+        ]
+      },
+      "note": "Unspecified polynomial exponents and incomparable degree terms stay symbolic. The variable-degree table gives exact formulas."
+    },
+    "multigraph": {
+      "x": {
+        "label": "LOCAL model at q = ⌊3Δ/2⌋ (categorical)",
+        "kind": "categorical",
+        "categories": [
+          "Deterministic",
+          "Randomized"
+        ]
+      },
+      "y": {
+        "label": "Communication rounds at fixed Δ ≥ 3 (symbolic order)",
+        "kind": "symbolic",
+        "categories": [
+          "log log n",
+          "log n",
+          "log²n",
+          "Õ(log⁵n)"
+        ]
+      },
+      "note": "Lower bounds transferred from the existing simple-tree theorem by class inclusion and palette monotonicity; this is a stated deduction, not a separate paper."
+    }
+  },
+  "sourceVerification": [
+    {
+      "sourceId": "jakob-maus-schager-2025-local",
+      "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol356-disc2025/html/LIPIcs.DISC.2025.37/LIPIcs.DISC.2025.37.html",
+      "verifiedOn": "2026-10-27",
+      "notes": [
+        {
+          "recordId": "local-two-delta-minus-two-upper-2025",
+          "theorem": "Corollary 3",
+          "evidenceStatus": "verified",
+          "correction": "Two alternative instantiations. The constant-degree main view specializes the first. O(log n) is tight here only after fixing Δ. A bound on reduction overhead alone is not a bound on the whole algorithm."
+        },
+        {
+          "recordId": "edge-local-jakob25-random",
+          "theorem": "Theorem 4 and Corollary 5",
+          "evidenceStatus": "verified",
+          "correction": "Total randomized runtime includes the residual (2Δ−1)-edge-coloring subroutine. Fixing Δ reduces the first instantiation to O(log log n)."
+        }
+      ]
+    },
+    {
+      "sourceId": "blikstad-maus-devos-2026-distributed",
+      "url": "https://arxiv.org/html/2603.02689v2",
+      "verifiedOn": "2026-10-27",
+      "notes": [
+        {
+          "recordId": "local-near-delta-disc26",
+          "theorem": "Theorem 3 and the following additive-term discussion",
+          "evidenceStatus": "verified",
+          "correction": "The all-degree statement contains an additive palette term. It cannot be plotted as a fixed near-Δ palette in the bounded-degree main view. When Δ = 2^{O(√log n)}, runtime is O(log²n). This is the LOCAL theorem, not the slower CONGEST theorem. Full proof is the accepted DISC 2026 preprint, distinct from the published PODC brief announcement."
+        }
+      ]
+    },
+    {
+      "sourceId": "chang-he-li-pettie-uitto-2020-local",
+      "url": "https://arxiv.org/html/1708.04290v3",
+      "verifiedOn": "2026-10-27",
+      "notes": [
+        {
+          "recordId": "local-two-delta-minus-two-lower-2020",
+          "theorem": "Theorem 2, arXiv v3",
+          "evidenceStatus": "verified",
+          "correction": "Even on 2-vertex-colored trees. Randomized lower bound uses the high-probability RandLOCAL correctness requirement. The 2026 erratum changes a network-decomposition claim; it explicitly leaves the edge-coloring bounds unchanged."
+        }
+      ]
+    },
+    {
+      "sourceId": "fischer-ghaffari-kuhn-2017",
+      "url": "https://ieee-focs.org/FOCS-2017-Papers/3464a180.pdf",
+      "verifiedOn": "2026-10-27",
+      "notes": [
+        {
+          "recordId": "edge-local-fgk17-deterministic",
+          "theorem": "Theorem I.1",
+          "evidenceStatus": "verified",
+          "correction": "Historical deterministic algorithm. Its list version uses line-graph degree deg_L(G)(e)+1, not vertex degree plus one."
+        },
+        {
+          "recordId": "edge-local-fgk17-random",
+          "theorem": "Corollary I.2",
+          "evidenceStatus": "verified",
+          "correction": "Historical randomized algorithm; bounded-degree main view uses the faster deterministic 2022 algorithm in both models."
+        }
+      ]
+    },
+    {
+      "sourceId": "ghaffari-kuhn-maus-uitto-2018",
+      "url": "https://arxiv.org/html/1711.05469v1",
+      "verifiedOn": "2026-10-27",
+      "notes": [
+        {
+          "recordId": "edge-local-gkmu18-near",
+          "theorem": "Abstract; high-degree result",
+          "evidenceStatus": "abstract_verified",
+          "correction": "High-degree theorem; not a bounded-Δ specialization. The small-degree palette is a separate retained record. Hidden polynomial and vanishing slack remain symbolic."
+        },
+        {
+          "recordId": "edge-local-gkmu18-lowdegree",
+          "theorem": "Abstract; smaller-degree result",
+          "evidenceStatus": "abstract_verified",
+          "correction": "Historical small-degree guarantee. The original source states 3Δ/2 colors; the palette size is integer. Kept separate from its high-degree near-Δ theorem."
+        }
+      ]
+    },
+    {
+      "sourceId": "balliu-kuhn-olivetti-2020",
+      "url": "https://arxiv.org/abs/2002.10780",
+      "verifiedOn": "2026-10-27",
+      "notes": [
+        {
+          "recordId": "edge-local-bko20",
+          "theorem": "Abstract; main list edge-coloring result",
+          "evidenceStatus": "abstract_verified",
+          "correction": "Historical quasi-polylogarithmic dependence on degree. Kept symbolic; no polynomial exponent is inferred."
+        }
+      ]
+    },
+    {
+      "sourceId": "balliu-brandt-kuhn-olivetti-2022",
+      "url": "https://arxiv.org/html/2206.00976",
+      "verifiedOn": "2026-10-27",
+      "notes": [
+        {
+          "recordId": "edge-local-bbko22",
+          "theorem": "Theorem D.4, with color universe C = 2Δ−1",
+          "evidenceStatus": "verified",
+          "correction": "Original theorem gives O(log⁷C · log⁵Δ + log* n), yielding the displayed instantiation. The deterministic algorithm also works in randomized LOCAL with probability 1. No matching lower bound for this palette is asserted from the supplied source set."
+        }
+      ]
+    },
+    {
+      "sourceId": "bernshteyn-2022-local-vizing",
+      "url": "https://arxiv.org/pdf/2006.15703",
+      "verifiedOn": "2026-10-27",
+      "notes": [
+        {
+          "recordId": "edge-local-bernshteyn22-vizing",
+          "theorem": "Theorem 1.1",
+          "evidenceStatus": "verified",
+          "correction": "Polynomial factors remain symbolic. No numeric exponent or fixed log-power coordinate is assigned."
+        }
+      ]
+    },
+    {
+      "sourceId": "davies-2023-lll-edge",
+      "url": "https://arxiv.org/html/2208.08701v2",
+      "verifiedOn": "2026-10-27",
+      "notes": [
+        {
+          "recordId": "edge-local-davies23-near",
+          "theorem": "Corollary 4",
+          "evidenceStatus": "verified",
+          "correction": "The asymptotic palette slack is not a Δ+1 guarantee. Neither the polynomial exponent nor a numeric ε-range is selected."
+        }
+      ]
+    },
+    {
+      "sourceId": "brandt-et-al-2025-threehalves",
+      "url": "https://arxiv.org/html/2501.03649v1",
+      "verifiedOn": "2026-10-27",
+      "notes": [
+        {
+          "recordId": "edge-local-brandt25-threehalves",
+          "theorem": "Theorem 1.2 and proof §5.1",
+          "evidenceStatus": "verified",
+          "correction": "The proof yields the integer floor palette. This agrees with 2Δ−2 at Δ=3 or 4; separate categorical families are not a claim of different numerical positions."
+        },
+        {
+          "recordId": "edge-local-brandt25-epsilon",
+          "theorem": "Corollary 1.2",
+          "evidenceStatus": "verified",
+          "correction": "Extra palette slack improves the degree dependence. The unspecified poly(log log Δ) factor remains symbolic."
+        }
+      ]
+    },
+    {
+      "sourceId": "dhawan-2024-multigraph",
+      "url": "https://arxiv.org/html/2307.06579v3",
+      "verifiedOn": "2026-10-27",
+      "notes": [
+        {
+          "recordId": "edge-local-dhawan24-random",
+          "theorem": "Theorem 1.5(2), with high-probability proof in §5.2",
+          "evidenceStatus": "verified",
+          "correction": "Loopless multigraphs. The proof gives O(Δ³⁶ log²n); the displayed theorem hides degree dependence by fixing Δ. The sequential algorithm's 1−1/Δⁿ success probability is not used here."
+        },
+        {
+          "recordId": "edge-local-dhawan24-deterministic",
+          "theorem": "Theorem 1.5(3), distributed proof §5.2",
+          "evidenceStatus": "verified",
+          "correction": "Loopless multigraphs. Degree factors are hidden by fixed Δ; the tilde hides poly(log log n). Retain the theorem's tilde even though the last proof line suppresses it."
+        }
+      ]
+    },
+    {
+      "sourceId": "kuhn-2020-recursive-list",
+      "url": "https://arxiv.org/abs/1907.03797",
+      "verifiedOn": "2026-10-27",
+      "notes": [
+        {
+          "recordId": "edge-local-kuhn20-recursive",
+          "theorem": "Abstract; line-graph consequence of bounded neighborhood independence",
+          "evidenceStatus": "abstract_verified",
+          "correction": "Original edge-coloring consequence verified in the author preprint abstract; no exponent hidden in O(√log Δ) is chosen."
+        }
+      ]
+    }
+  ],
+  "mainComparison": {
+    "fixedDegree": "Δ ≥ 3 is a constant independent of n.",
+    "palettes": [
+      "2Δ−1",
+      "2Δ−2"
+    ],
+    "randomizedGreedyReuse": "The deterministic O(log* n) algorithm is also a randomized-model upper bound with probability 1.",
+    "lowerReuse": "One lower-bound record contains two distinct model statements; separate visual markers preserve its original ID."
+  },
+  "multigraphLowerDerivation": "For integer Δ≥3, ⌊3Δ/2⌋≤2Δ−2. A coloring with fewer colors is also a (2Δ−2)-coloring, and simple trees belong to the loopless multigraph class. The fixed-degree deterministic Ω(log n) and randomized Ω(log log n) lower bounds therefore apply to this facet. This derivation does not claim a matching upper bound.",
+  "userSetupChoice": "Bounded degree as the main view; variable-degree formulas secondary; multigraphs separate."
+}

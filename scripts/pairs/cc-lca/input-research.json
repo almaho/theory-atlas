@@ -1,0 +1,204 @@
+{
+  "problem": "cc",
+  "model": "lca",
+  "slices": [
+    {
+      "id": "cc-lca-pruned-degree",
+      "problem": "cc",
+      "model": "lca",
+      "label": "Local computation, bounded positive degree",
+      "task": "Answer consistent cluster-membership queries for an implicit (3+ε)-approximate clustering",
+      "assumptions": [
+        "Unweighted signed complete graph represented by positive-edge graph",
+        "Maximum positive degree Δ",
+        "Randomized per-query probes; local space O((Δ/ε)polylog n)"
+      ],
+      "xAxis": {
+        "label": "Approximation factor α = cost / OPT",
+        "kind": "approximation",
+        "min": 1,
+        "max": 6,
+        "ticks": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "yAxis": {
+        "label": "Probe ladder in Δ (per answered query)",
+        "kind": "probes",
+        "min": 0,
+        "max": 4,
+        "ticks": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "tickLabels": [
+          "polylog n",
+          "poly(Δ)",
+          "Δ^{O(log log Δ)}",
+          "Δ^{O(log Δ)}",
+          "Δ^{O(log²Δ)}"
+        ]
+      },
+      "parameters": {
+        "epsilon": "fixed positive constant",
+        "Delta": "maximum positive degree",
+        "coordinateConvention": "Only the stated fixed ε or δ instance is colored; the table retains the theorem’s free parameters and output assumptions."
+      },
+      "results": [
+        {
+          "id": "cc-lca-pruned-3plus",
+          "paperId": "dalirrooyfard-2024-pruned-pivot",
+          "kind": "upper",
+          "bound": "O(Δ/ε) probes per local output query; O((Δ/ε)polylog n) local space",
+          "guarantee": "(3+ε)-approximation",
+          "sourceLocation": "Theorem 1.3; footnote 3",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Degree dependence prevents honest placement on an n-only exponent chart; LCA probes are not LOCAL rounds. Chart: Fix ε=1/4; O(Δ/ε) probes is in the poly(Δ) tier; local space is stated separately.",
+          "plot": {
+            "x": 3.25,
+            "y": 1,
+            "closure": "upper-right",
+            "strictX": false,
+            "strictY": false,
+            "label": "α=3.25"
+          }
+        }
+      ]
+    },
+    {
+      "id": "cc-lca-matrix-additive",
+      "problem": "cc",
+      "model": "lca",
+      "label": "Adjacency-matrix local cluster labels with additive error",
+      "task": "Return a consistent cluster label for queried vertex v",
+      "assumptions": [
+        "Only pairwise similarity/matrix oracle; common random seed shared across vertex queries",
+        "(c,ε) means clustering cost at most c·OPT+εn²"
+      ],
+      "xAxis": {
+        "label": "Approximation factor α = cost / OPT",
+        "kind": "approximation",
+        "min": 1,
+        "max": 6,
+        "ticks": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "yAxis": {
+        "label": "Probe ladder in Δ (per answered query)",
+        "kind": "probes",
+        "min": 0,
+        "max": 4,
+        "ticks": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "tickLabels": [
+          "polylog n",
+          "poly(Δ)",
+          "Δ^{O(log log Δ)}",
+          "Δ^{O(log Δ)}",
+          "Δ^{O(log²Δ)}"
+        ]
+      },
+      "parameters": {},
+      "results": [
+        {
+          "id": "cc-lca-bonchi-four",
+          "paperId": "bonchi-2013-local",
+          "kind": "upper",
+          "bound": "O(1/ε²) time; O(1/ε) after O(1/ε²) nonadaptive preprocessing",
+          "guarantee": "With constant success, globally consistent clustering cost ≤4·OPT+εn²",
+          "sourceLocation": "Theorems 3.3–3.4",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Expected factor 3 stated separately; 4 is the constant-success factor; labels consistent with shared random seed.",
+          "plot": null
+        },
+        {
+          "id": "cc-lca-bonchi-one-additive",
+          "paperId": "bonchi-2013-local",
+          "kind": "upper",
+          "bound": "poly(1/ε) per-label time after poly(1/ε) probes and 2^{poly(1/ε)} time preprocessing",
+          "guarantee": "Clustering cost ≤OPT+εn²",
+          "sourceLocation": "Theorem 3.6",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Pure additive error, with expensive preprocessing; different task guarantee from 3+ε multiplicative Pruned Pivot.",
+          "plot": null
+        },
+        {
+          "id": "cc-lca-bonchi-lb",
+          "paperId": "bonchi-2013-local",
+          "kind": "lower",
+          "bound": "Ω(1/(ε c²)) probes per label for c≥1 and ε∈(1/n,1/(100c))",
+          "guarantee": "For a (c,ε) local clustering algorithm, even with ε-only preprocessing",
+          "sourceLocation": "Theorem 6.1",
+          "evidenceStatus": "verified",
+          "frontierStatus": "current_best_verified",
+          "notes": "The 2020 WWW analysis clarifies this earlier proof only covers algorithms with deterministic per-vertex query budgets; its stronger adaptive global lower bound is separately cited.",
+          "plot": null
+        },
+        {
+          "id": "cc-lca-bonchi-constant-lb",
+          "paperId": "bonchi-2013-local",
+          "kind": "lower",
+          "bound": "Ω(1/ε) adaptive probes per local query",
+          "guarantee": "Necessary for any O(1) multiplicative plus εn² additive guarantee",
+          "sourceLocation": "Theorem 3.4",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "Restricts local matrix model; positive-degree neighbor access changes power.",
+          "plot": null
+        }
+      ]
+    }
+  ],
+  "papers": [
+    {
+      "id": "dalirrooyfard-2024-pruned-pivot",
+      "title": "Pruned Pivot: Correlation Clustering Algorithm for Dynamic, Parallel, and Local Computation Models",
+      "authors": [
+        "Mina Dalirrooyfard",
+        "Konstantin Makarychev",
+        "Slobodan Mitrović"
+      ],
+      "year": 2024,
+      "venue": "ICML 2024",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/html/2402.15668v2",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "bonchi-2013-local",
+      "title": "Local Correlation Clustering",
+      "authors": [
+        "Francesco Bonchi",
+        "David García-Soriano",
+        "Konstantin Kutzkov"
+      ],
+      "year": 2013,
+      "venue": "arXiv 2013",
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/html/1312.5105v1",
+      "verifiedOn": "2026-09-27"
+    }
+  ]
+}

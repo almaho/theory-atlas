@@ -1,0 +1,37 @@
+.vst-view,.vst-map,.vst-summary{--vst-turnstile:light-dark(#4874ad,#a8c5ef);--vst-insertion:light-dark(#9b752d,#dec391);--vst-free:light-dark(#936ba4,#cfa9e0);--vst-counted:var(--vst-turnstile);--vst-random:var(--vst-free)}
+.vst-toolbar,.vst-filters,.vst-modes,.vst-tabs{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.vst-toolbar{justify-content:space-between;margin:18px 0 12px}.vst-tabs{margin:12px 0}.vst-tabs button,.vst-modes button{padding:8px 13px;font-size:11px}.vst-tabs button[aria-pressed=true],.vst-modes button[aria-pressed=true]{border-color:var(--ink);background:var(--bg);font-weight:600}.vst-filters{font-size:11px}.vst-filters select{min-height:32px;font-size:11px;margin-left:5px}
+.vst-scroll{overflow-x:auto;overscroll-behavior-x:contain;border:1px solid var(--line);border-radius:8px;background:var(--surface)}.vst-plot{min-width:850px;padding:8px}.vst-map{display:block;width:100%;height:auto}
+svg.vst-map text,svg.vst-summary text,.cell svg.vst-summary text{font:9px ui-sans-serif,system-ui,sans-serif;fill:var(--ink)}
+svg.vst-map text{font-size:12px}
+svg.vst-map .vst-heading{font:500 24px Georgia,serif}
+svg.vst-summary .vst-heading,.cell svg.vst-summary .vst-heading{font-size:16px;font-weight:600}
+svg.vst-map .vst-panel-title{font-size:16px;font-weight:600}
+svg.vst-summary .vst-panel-title,.cell svg.vst-summary .vst-panel-title{font-size:12px;font-weight:600}
+svg.vst-map .vst-subtitle,svg.vst-map .vst-legend,svg.vst-map .vst-footer{font-size:11px;fill:var(--muted)}
+svg.vst-summary .vst-subtitle,.cell svg.vst-summary .vst-subtitle,svg.vst-summary .vst-legend,.cell svg.vst-summary .vst-legend,svg.vst-summary .vst-footer,.cell svg.vst-summary .vst-footer{font-size:9px;fill:var(--muted)}
+svg.vst-map .vst-note{font-size:10px;fill:var(--muted)}
+svg.vst-summary .vst-note,.cell svg.vst-summary .vst-note{font-size:8px;fill:var(--muted)}
+svg.vst-map .vst-tick{font-size:12px}
+svg.vst-summary .vst-tick,.cell svg.vst-summary .vst-tick{font-size:9px}
+svg.vst-map .vst-source-label{font-size:10px;font-weight:600}
+svg.vst-summary .vst-source-label,.cell svg.vst-summary .vst-source-label{font-size:8px;font-weight:600}
+svg.vst-map .vst-formula{font-size:12px;font-weight:600}
+svg.vst-summary .vst-formula,.cell svg.vst-summary .vst-formula{font-size:9px;font-weight:600}
+svg.vst-map .vst-algorithm,svg.vst-summary .vst-algorithm,.cell svg.vst-summary .vst-algorithm{fill:var(--green)}
+svg.vst-map .vst-lower,svg.vst-summary .vst-lower,.cell svg.vst-summary .vst-lower{fill:var(--red)}
+svg.vst-map .vst-scope-final,svg.vst-summary .vst-scope-final,.cell svg.vst-summary .vst-scope-final{fill:var(--vst-turnstile)}
+svg.vst-map .vst-scope-passes,svg.vst-summary .vst-scope-passes,.cell svg.vst-summary .vst-scope-passes{fill:var(--vst-insertion)}
+svg.vst-map .vst-scope-robust,svg.vst-summary .vst-scope-robust,.cell svg.vst-summary .vst-scope-robust{fill:var(--vst-free)}
+svg.vst-map .vst-exp,svg.vst-summary .vst-exp,.cell svg.vst-summary .vst-exp{font-size:.73em;baseline-shift:super}
+.vst-panel-bg{fill:var(--surface);stroke:var(--line);stroke-width:.8}.vst-axis{stroke:var(--muted);stroke-width:.8;fill:none}.vst-grid{stroke:var(--line);stroke-width:.7;stroke-dasharray:3 4;fill:none}.vst-lower-rule{stroke:var(--red);stroke-width:1.5;fill:none}.vst-result[role=button]{cursor:pointer;outline:none}.vst-result[role=button]:focus{outline:1px dotted var(--ink)}.vst-result[role=button]:hover{filter:brightness(1.15)}
+svg.vst-summary[data-detail-level=compact] .vst-heading,.cell svg.vst-summary[data-detail-level=compact] .vst-heading{font-size:11px}
+svg.vst-summary[data-detail-level=compact] .vst-panel-title,.cell svg.vst-summary[data-detail-level=compact] .vst-panel-title{font-size:9px}
+svg.vst-summary[data-detail-level=compact] .vst-tick,.cell svg.vst-summary[data-detail-level=compact] .vst-tick{font-size:7px}
+.vst-context{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:16px 0}.vst-context p,.vst-coverage{font-size:11px;line-height:1.7;color:var(--muted);margin:0}
+.vst-theorem{border:1px solid var(--line);border-radius:7px;padding:16px;background:var(--bg)}.vst-detail-top{display:flex;gap:20px;flex-wrap:wrap;font-size:12px}.vst-detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:16px 0}.vst-detail-grid small{display:block;font-size:10px;color:var(--muted);margin-bottom:5px}.vst-detail-grid strong{font-size:15px;font-weight:500}.vst-theorem p,.vst-theorem li{font-size:11px;line-height:1.7}.vst-theorem h3{font:18px/1.5 Georgia,serif}.vst-theorem summary{font-size:11px;cursor:pointer}.vst-record-id{overflow-wrap:anywhere;color:var(--muted)}.vst-section-title{font:20px Georgia,serif;margin:22px 0 12px}.vst-records{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}.vst-record{display:flex;flex-direction:column;gap:7px;padding:14px;text-align:left;border-left:2px solid currentColor}.vst-record span,.vst-record small{font-size:11px}.vst-record strong{font-size:14px;font-weight:500}.vst-record small{color:var(--muted)}.vst-record[aria-pressed=true]{background:var(--bg)}.vst-algorithm{color:var(--green)}.vst-lower{color:var(--red)}
+@media(max-width:700px){.vst-context{grid-template-columns:1fr;gap:10px}}
+@media(max-width:510px){.vst-detail-grid,.vst-records{grid-template-columns:1fr}.vst-scroll:before{content:'Swipe to compare streaming contracts →';display:block;position:sticky;left:0;background:var(--bg);font-size:10px;padding:9px;color:var(--muted)}}
+@media print{.vst-toolbar,.vst-tabs{display:none}.vst-scroll{overflow:visible}.vst-plot{min-width:0}.vst-map{break-inside:avoid}}
+
+svg.vst-map .vst-axis-label{font-size:10px;fill:var(--muted)}
+svg.vst-summary .vst-axis-label,.cell svg.vst-summary .vst-axis-label{font-size:8px;fill:var(--muted)}

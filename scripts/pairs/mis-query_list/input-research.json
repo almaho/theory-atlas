@@ -1,0 +1,83 @@
+{
+  "problem": "mis",
+  "model": "query_list",
+  "slices": [
+    {
+      "id": "mis-query-adjarray-bni",
+      "problem": "mis",
+      "model": "query_list",
+      "label": "Adjacency-array explicit construction with bounded neighborhood independence",
+      "task": "Output an explicit maximal independent set",
+      "assumptions": [
+        "Degree and i-th-neighbor queries in O(1) time, adjacency-array representation",
+        "β(G) is maximum size of an independent set inside the neighborhood of any vertex",
+        "n-vertex graph; deterministic algorithm"
+      ],
+      "parameters": {
+        "β(G)": "Neighborhood independence number"
+      },
+      "results": [
+        {
+          "id": "mis-query-assadi-solomon-upper",
+          "paperId": "assadi-solomon-2019-query-mis",
+          "kind": "upper",
+          "bound": "O(n β(G)) time",
+          "guarantee": "Explicit maximal independent set, deterministically",
+          "sourceLocation": "Result 1; input access specified after Result 1",
+          "evidenceStatus": "verified",
+          "frontierStatus": "current_best_verified",
+          "notes": "Sublinear in m only when β(G) is sufficiently small; not an adjacency-matrix guarantee.",
+          "plot": null
+        },
+        {
+          "id": "mis-query-assadi-solomon-lower",
+          "paperId": "assadi-solomon-2019-query-mis",
+          "kind": "lower",
+          "bound": "Ω(n β(G)) time for β from constant to Θ(n)",
+          "guarantee": "Explicit maximal independent set in the stated adjacency-array model",
+          "sourceLocation": "Result 1, Optimality of Our Bounds (pages 17:2–17:3)",
+          "evidenceStatus": "verified",
+          "frontierStatus": "current_best_verified",
+          "notes": "Hard instances parameterized by β(G); use with the matching upper only under the same input-access model. The proof extends an earlier general-graph lower bound.",
+          "plot": null
+        }
+      ],
+      "mode": "1d",
+      "axis": {
+        "label": "Query exponent p in Õ(n^p)",
+        "kind": "exponent",
+        "min": 0,
+        "max": 2,
+        "ticks": [
+          0,
+          0.5,
+          1,
+          1.5,
+          2
+        ],
+        "tickLabels": [
+          "polylog",
+          "√n",
+          "n",
+          "n^{3/2}",
+          "n²"
+        ]
+      }
+    }
+  ],
+  "papers": [
+    {
+      "id": "assadi-solomon-2019-query-mis",
+      "title": "When Algorithms for Maximal Independent Set and Maximal Matching Run in Sublinear Time",
+      "authors": [
+        "Sepehr Assadi",
+        "Shay Solomon"
+      ],
+      "year": 2019,
+      "venue": "ICALP 2019",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2019.17",
+      "verifiedOn": "2026-09-27"
+    }
+  ]
+}

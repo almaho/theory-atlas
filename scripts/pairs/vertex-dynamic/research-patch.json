@@ -1,0 +1,453 @@
+{
+  "problem": "vertex",
+  "model": "dynamic",
+  "reviewedThrough": "2026-10-27",
+  "upsertPapers": [
+    {
+      "id": "flin-halldorsson-2025-dynamic-coloring",
+      "title": "Faster Dynamic (Δ+1)-Coloring Against Adaptive Adversaries",
+      "authors": [
+        "Maxime Flin",
+        "Magnús M. Halldórsson"
+      ],
+      "year": 2025,
+      "venue": "ICALP 2025",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2025.79",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "behnezhad-rajaraman-wasim-2025-dynamic-coloring",
+      "title": "Fully Dynamic (Δ+1) Coloring Against Adaptive Adversaries",
+      "authors": [
+        "Soheil Behnezhad",
+        "Rajmohan Rajaraman",
+        "Omer Wasim"
+      ],
+      "year": 2025,
+      "venue": "SODA 2025",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2411.04418",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "bhattacharya-grandoni-kulkarni-liu-solomon-2022-dynamic",
+      "title": "Fully Dynamic (Δ+1)-Coloring in O(1) Update Time",
+      "authors": [
+        "Sayan Bhattacharya",
+        "Fabrizio Grandoni",
+        "Janardhan Kulkarni",
+        "Quanquan C. Liu",
+        "Shay Solomon"
+      ],
+      "year": 2022,
+      "venue": "ACM Transactions on Algorithms 18(2)",
+      "publicationStatus": "journal",
+      "url": "https://doi.org/10.1145/3494539",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "bhattacharya-chakrabarty-henzinger-nanongkai-2018-dynamic",
+      "title": "Dynamic Algorithms for Graph Coloring",
+      "authors": [
+        "Sayan Bhattacharya",
+        "Deeparnab Chakrabarty",
+        "Monika Henzinger",
+        "Danupon Nanongkai"
+      ],
+      "year": 2018,
+      "venue": "SODA 2018",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1711.04355",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "henzinger-peng-2022-dynamic-color",
+      "title": "Constant-Time Dynamic (Δ+1)-Coloring and Weight Approximation for Minimum Spanning Forest: Dynamic Algorithms Meet Property Testing",
+      "authors": [
+        "Monika Henzinger",
+        "Pan Peng"
+      ],
+      "year": 2022,
+      "venue": "ACM Transactions on Algorithms 18(2)",
+      "publicationStatus": "journal",
+      "url": "https://arxiv.org/abs/1907.04745",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "ghaffari-koo-2026-dynamic-vertex",
+      "title": "Dynamic Graph Coloring: Sequential, Parallel, and Distributed",
+      "authors": [
+        "Mohsen Ghaffari",
+        "Jaehyun Koo"
+      ],
+      "year": 2026,
+      "venue": "arXiv v3 (15 October 2026)",
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/abs/2512.09218",
+      "verifiedOn": "2026-10-27",
+      "version": "2512.09218v3"
+    }
+  ],
+  "upsertSlices": [
+    {
+      "id": "vertex-dynamic-adaptive-delta-plus-one",
+      "problem": "vertex",
+      "model": "dynamic",
+      "label": "Fully dynamic (Δ+1) coloring, adaptive adversary",
+      "task": "Maintain an explicit proper vertex coloring after each edge update",
+      "assumptions": [
+        "Fixed n-vertex graph",
+        "Maximum degree at most Δ at all times; Δ known in advance",
+        "Adaptive adversary; edge insertions and deletions"
+      ],
+      "xAxis": {
+        "label": "Adversary, palette and averaging contract (categorical)",
+        "categories": [
+          {
+            "id": "adaptive",
+            "label": "Adaptive; Δ+1"
+          },
+          {
+            "id": "oblivious_expected",
+            "label": "Oblivious · expected amortized; Δ+1"
+          },
+          {
+            "id": "oblivious_whp",
+            "label": "Oblivious · expected and WHP amortized; Δ+1"
+          },
+          {
+            "id": "oblivious_each",
+            "label": "Oblivious · expected per update; Δ+1"
+          },
+          {
+            "id": "deterministic",
+            "label": "Deterministic · amortized; (1+o(1))Δ"
+          }
+        ],
+        "kind": "categorical"
+      },
+      "yAxis": {
+        "label": "Symbolic update-time classes; not a universal asymptotic ranking",
+        "categories": [
+          {
+            "id": "n89",
+            "label": "Õ(n^{8/9})",
+            "short": "n^{8/9}"
+          },
+          {
+            "id": "n23",
+            "label": "Õ(n^{2/3})",
+            "short": "n^{2/3}"
+          },
+          {
+            "id": "polylog",
+            "label": "O(polylog Δ)",
+            "short": "polylog Δ"
+          },
+          {
+            "id": "log",
+            "label": "O(log⁺Δ)",
+            "short": "log⁺Δ"
+          },
+          {
+            "id": "constant",
+            "label": "O(1)",
+            "short": "1"
+          }
+        ],
+        "kind": "categorical"
+      },
+      "parameters": {
+        "n": "fixed vertex count",
+        "Delta": "fixed known maximum degree bound throughout updates",
+        "coordinateConvention": "Categorical formula classes and time contracts; no invented numeric exponent."
+      },
+      "results": [
+        {
+          "id": "vertex-dynamic-adaptive-flin-2025",
+          "paperId": "flin-halldorsson-2025-dynamic-coloring",
+          "kind": "upper",
+          "bound": "Õ(n^{2/3}); Amortized update time, with high probability",
+          "guarantee": "Explicit proper vertex coloring maintained after every edge insertion or deletion; Δ+1 colors; Adaptive: updates may depend on past outputs.",
+          "sourceLocation": "Theorem 1; §4.4 proof",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Uses ordinary O(Δ) recoloring for Δ=O(n^{2/3}). The n^{2/3} discussion in §1.1 is a technique barrier and open question, not a proved dynamic lower bound. Phase initialization is included through amortization; this is not a per-update worst-case guarantee.",
+          "plot": null,
+          "sourceUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol334-icalp2025/html/LIPIcs.ICALP.2025.79/LIPIcs.ICALP.2025.79.html"
+        },
+        {
+          "id": "vertex-dynamic-adaptive-brw-2025",
+          "paperId": "behnezhad-rajaraman-wasim-2025-dynamic-coloring",
+          "kind": "upper",
+          "bound": "Õ(n^{8/9}); Amortized update time, with high probability",
+          "guarantee": "Explicit proper vertex coloring maintained after every edge insertion or deletion; Δ+1 colors; Adaptive: updates may depend on past outputs.",
+          "sourceLocation": "Theorem 1, PDF p.3; proof in §5.4",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "Restores the amortized qualifier omitted from the input abstract-only record. FH2025 improves the same adaptive contract. Periodic rebuilding is amortized over phases; §5.4.1 notes sufficiently long sequences for matching initialization.",
+          "plot": null,
+          "sourceUrl": "https://arxiv.org/pdf/2411.04418v2"
+        }
+      ]
+    },
+    {
+      "id": "vertex-dynamic-oblivious-delta-plus-one",
+      "problem": "vertex",
+      "model": "dynamic",
+      "label": "Fully dynamic (Δ+1), oblivious updates",
+      "task": "Maintain explicit proper colors after each edge update",
+      "assumptions": [
+        "Randomized",
+        "Update sequence oblivious to algorithmic choices",
+        "Edge insertion/deletion; graph maximum degree bounded by Δ"
+      ],
+      "xAxis": {
+        "label": "Adversary, palette and averaging contract (categorical)",
+        "categories": [
+          {
+            "id": "adaptive",
+            "label": "Adaptive; Δ+1"
+          },
+          {
+            "id": "oblivious_expected",
+            "label": "Oblivious · expected amortized; Δ+1"
+          },
+          {
+            "id": "oblivious_whp",
+            "label": "Oblivious · expected and WHP amortized; Δ+1"
+          },
+          {
+            "id": "oblivious_each",
+            "label": "Oblivious · expected per update; Δ+1"
+          },
+          {
+            "id": "deterministic",
+            "label": "Deterministic · amortized; (1+o(1))Δ"
+          }
+        ],
+        "kind": "categorical"
+      },
+      "yAxis": {
+        "label": "Symbolic update-time classes; not a universal asymptotic ranking",
+        "categories": [
+          {
+            "id": "n89",
+            "label": "Õ(n^{8/9})",
+            "short": "n^{8/9}"
+          },
+          {
+            "id": "n23",
+            "label": "Õ(n^{2/3})",
+            "short": "n^{2/3}"
+          },
+          {
+            "id": "polylog",
+            "label": "O(polylog Δ)",
+            "short": "polylog Δ"
+          },
+          {
+            "id": "log",
+            "label": "O(log⁺Δ)",
+            "short": "log⁺Δ"
+          },
+          {
+            "id": "constant",
+            "label": "O(1)",
+            "short": "1"
+          }
+        ],
+        "kind": "categorical"
+      },
+      "parameters": {
+        "n": "fixed vertex count",
+        "Delta": "fixed known maximum degree bound throughout updates",
+        "coordinateConvention": "Categorical formula classes and time contracts; no invented numeric exponent."
+      },
+      "results": [
+        {
+          "id": "vertex-dynamic-oblivious-constant-2022",
+          "paperId": "bhattacharya-grandoni-kulkarni-liu-solomon-2022-dynamic",
+          "kind": "upper",
+          "bound": "O(1)*; Expected and high-probability amortized; O(1) requires t=Ω(n log n+nΔ)",
+          "guarantee": "Explicit proper vertex coloring maintained after every edge insertion or deletion; Δ+1 colors; Oblivious: update sequence independent of algorithm randomness.",
+          "sourceLocation": "Theorem 1.2, accepted manuscript p.3; Lemma 2.1",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "The constant marker has a sequence-length footnote. For shorter sequences retain the additive n log n+nΔ overhead; this is not constant expected time at every update position. For t updates: total O(n log n+nΔ+t); space O(nΔ+m_max). Initially empty graph.",
+          "plot": null,
+          "sourceUrl": "https://wrap.warwick.ac.uk/id/eprint/163819/1/WRAP-Fully-Dynamic-1-Coloring-in-O1-Update-Time-2022.pdf"
+        },
+        {
+          "id": "vertex-result-19",
+          "paperId": "bhattacharya-chakrabarty-henzinger-nanongkai-2018-dynamic",
+          "kind": "upper",
+          "bound": "O(log⁺Δ); Expected amortized update time",
+          "guarantee": "Explicit proper vertex coloring maintained after every edge insertion or deletion; Δ+1 colors; Oblivious: update sequence independent of algorithm randomness.",
+          "sourceLocation": "Theorem 3.1; §1 footnote 2",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "The source writes O(log Δ); log⁺Δ=max{1,log Δ} covers trivial constant-degree cases. §6 treats changing Δ separately; this comparison fixes Δ. The paper's amortized convention starts with an empty graph. Main fixed-Δ version shown.",
+          "plot": null,
+          "sourceUrl": "https://arxiv.org/html/1711.04355v1"
+        },
+        {
+          "id": "vertex-extended-vertex-dynamic-oblivious-delta-plus-one-12",
+          "paperId": "henzinger-peng-2022-dynamic-color",
+          "kind": "upper",
+          "bound": "O(1); Expected amortized update time",
+          "guarantee": "Explicit proper vertex coloring maintained after every edge insertion or deletion; Δ+1 colors; Oblivious: update sequence independent of algorithm randomness.",
+          "sourceLocation": "Theorem 1.1; §1.1 footnote 1; §3",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "Independent constant-time approach. It is a separate theorem from BGKLS2022 with a different time guarantee; both original records remain visible. Empty-graph initialization with independently sampled vertex ranks; preprocessing is distinct from update cost.",
+          "plot": null,
+          "sourceUrl": "https://arxiv.org/html/1907.04745"
+        },
+        {
+          "id": "vertex-extended-vertex-dynamic-oblivious-delta-plus-one-13",
+          "paperId": "ghaffari-koo-2026-dynamic-vertex",
+          "kind": "upper",
+          "bound": "O(1); Expected worst-case per-update time; not amortized",
+          "guarantee": "Explicit proper vertex coloring maintained after every edge insertion or deletion; Δ+1 colors; Oblivious: update sequence independent of algorithm randomness.",
+          "sourceLocation": "Theorem 1.1, arXiv:2512.09218v3 (15 October 2026); §3",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Worst-case refers to the update position before expectation over random choices. This is neither a deterministic nor a high-probability O(1) bound, nor a conditional expectation for every realized random history. O(n) initialization. §3 restarts on rare failures to remove the polynomial sequence-length restriction without changing O(1) expectation.",
+          "plot": null,
+          "sourceUrl": "https://arxiv.org/html/2512.09218v3"
+        }
+      ]
+    },
+    {
+      "id": "vertex-dynamic-deterministic-palette",
+      "problem": "vertex",
+      "model": "dynamic",
+      "label": "Deterministic dynamic degree-based palette",
+      "task": "Maintain explicit colors after edge insertion/deletion",
+      "assumptions": [
+        "Deterministic algorithm",
+        "Graph degree bounded by Δ",
+        "Palette larger than Δ+1"
+      ],
+      "xAxis": {
+        "label": "Adversary, palette and averaging contract (categorical)",
+        "categories": [
+          {
+            "id": "adaptive",
+            "label": "Adaptive; Δ+1"
+          },
+          {
+            "id": "oblivious_expected",
+            "label": "Oblivious · expected amortized; Δ+1"
+          },
+          {
+            "id": "oblivious_whp",
+            "label": "Oblivious · expected and WHP amortized; Δ+1"
+          },
+          {
+            "id": "oblivious_each",
+            "label": "Oblivious · expected per update; Δ+1"
+          },
+          {
+            "id": "deterministic",
+            "label": "Deterministic · amortized; (1+o(1))Δ"
+          }
+        ],
+        "kind": "categorical"
+      },
+      "yAxis": {
+        "label": "Symbolic update-time classes; not a universal asymptotic ranking",
+        "categories": [
+          {
+            "id": "n89",
+            "label": "Õ(n^{8/9})",
+            "short": "n^{8/9}"
+          },
+          {
+            "id": "n23",
+            "label": "Õ(n^{2/3})",
+            "short": "n^{2/3}"
+          },
+          {
+            "id": "polylog",
+            "label": "O(polylog Δ)",
+            "short": "polylog Δ"
+          },
+          {
+            "id": "log",
+            "label": "O(log⁺Δ)",
+            "short": "log⁺Δ"
+          },
+          {
+            "id": "constant",
+            "label": "O(1)",
+            "short": "1"
+          }
+        ],
+        "kind": "categorical"
+      },
+      "parameters": {
+        "n": "fixed vertex count",
+        "Delta": "fixed known maximum degree bound throughout updates",
+        "coordinateConvention": "Categorical formula classes and time contracts; no invented numeric exponent."
+      },
+      "results": [
+        {
+          "id": "vertex-result-22",
+          "paperId": "bhattacharya-chakrabarty-henzinger-nanongkai-2018-dynamic",
+          "kind": "upper",
+          "bound": "O(polylog Δ); Deterministic amortized update time",
+          "guarantee": "Explicit proper vertex coloring maintained after every edge insertion or deletion; (1+o(1))Δ colors; Arbitrary updates; deterministic algorithm permits adaptive choices.",
+          "sourceLocation": "Theorem 4.1; §4.3 concluding proof; §4.1 constant-degree footnote",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "The o(1) tends to zero as Δ grows. This palette family is not an ε tradeoff and does not promise Δ+1 colors. Constant-degree cases use ordinary O(Δ) updates. Determinism permits updates based on past outputs. Initially empty graph under the paper's amortization convention.",
+          "plot": null,
+          "sourceUrl": "https://arxiv.org/html/1711.04355v1"
+        }
+      ]
+    }
+  ],
+  "recordPreservation": [
+    {
+      "id": "vertex-dynamic-adaptive-flin-2025",
+      "action": "preserved_and_verified",
+      "reason": "Uses ordinary O(Δ) recoloring for Δ=O(n^{2/3}). The n^{2/3} discussion in §1.1 is a technique barrier and open question, not a proved dynamic lower bound."
+    },
+    {
+      "id": "vertex-dynamic-adaptive-brw-2025",
+      "action": "preserved_and_verified",
+      "reason": "Restores the amortized qualifier omitted from the input abstract-only record. FH2025 improves the same adaptive contract."
+    },
+    {
+      "id": "vertex-dynamic-oblivious-constant-2022",
+      "action": "preserved_and_verified",
+      "reason": "The constant marker has a sequence-length footnote. For shorter sequences retain the additive n log n+nΔ overhead; this is not constant expected time at every update position."
+    },
+    {
+      "id": "vertex-result-19",
+      "action": "preserved_and_verified",
+      "reason": "The source writes O(log Δ); log⁺Δ=max{1,log Δ} covers trivial constant-degree cases. §6 treats changing Δ separately; this comparison fixes Δ."
+    },
+    {
+      "id": "vertex-extended-vertex-dynamic-oblivious-delta-plus-one-12",
+      "action": "preserved_and_verified",
+      "reason": "Independent constant-time approach. It is a separate theorem from BGKLS2022 with a different time guarantee; both original records remain visible."
+    },
+    {
+      "id": "vertex-extended-vertex-dynamic-oblivious-delta-plus-one-13",
+      "action": "preserved_and_verified",
+      "reason": "Worst-case refers to the update position before expectation over random choices. This is neither a deterministic nor a high-probability O(1) bound, nor a conditional expectation for every realized random history."
+    },
+    {
+      "id": "vertex-result-22",
+      "action": "preserved_and_verified",
+      "reason": "The o(1) tends to zero as Δ grows. This palette family is not an ε tradeoff and does not promise Δ+1 colors. Constant-degree cases use ordinary O(Δ) updates. Determinism permits updates based on past outputs."
+    }
+  ],
+  "relatedOnly": [
+    "vertex-dynamic-hp-delta-colorability-lower"
+  ]
+}

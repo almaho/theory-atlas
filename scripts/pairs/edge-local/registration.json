@@ -1,0 +1,76 @@
+{
+  "id": "edge-local",
+  "dataFile": "edge-local.json",
+  "javascript": "edge-local.js",
+  "css": "edge-local.css",
+  "routes": [
+    {
+      "key": "edge-local",
+      "sliceId": "edge-local-two-delta-minus-two",
+      "label": "Edge coloring · LOCAL · bounded degree",
+      "visible": true,
+      "problem": "edge",
+      "model": "local"
+    },
+    {
+      "key": "edge-local-variable",
+      "sliceId": "edge-local-near-delta-deterministic-2026",
+      "label": "Edge coloring · LOCAL · variable degree",
+      "visible": false,
+      "problem": "edge",
+      "model": "local"
+    },
+    {
+      "key": "edge-local-history",
+      "sliceId": "edge-local-two-delta-minus-one-history",
+      "label": "Edge coloring · LOCAL · 2Δ−1 history",
+      "visible": false,
+      "problem": "edge",
+      "model": "local"
+    },
+    {
+      "key": "edge-local-vizing",
+      "sliceId": "edge-local-delta-plus-one",
+      "label": "Edge coloring · LOCAL · Δ+1",
+      "visible": false,
+      "problem": "edge",
+      "model": "local"
+    },
+    {
+      "key": "edge-local-near",
+      "sliceId": "edge-local-near-delta-history",
+      "label": "Edge coloring · LOCAL · near Δ",
+      "visible": false,
+      "problem": "edge",
+      "model": "local"
+    },
+    {
+      "key": "edge-local-three-halves",
+      "sliceId": "edge-local-three-halves",
+      "label": "Edge coloring · LOCAL · 3Δ/2",
+      "visible": false,
+      "problem": "edge",
+      "model": "local"
+    },
+    {
+      "key": "edge-local-multigraph",
+      "sliceId": "edge-local-multigraph-shannon",
+      "label": "Edge coloring · LOCAL · multigraphs",
+      "visible": true,
+      "problem": "edge",
+      "model": "local"
+    }
+  ],
+  "canonicalAliases": {
+    "edge-local-variable": "edge-local",
+    "edge-local-history": "edge-local",
+    "edge-local-vizing": "edge-local",
+    "edge-local-near": "edge-local",
+    "edge-local-three-halves": "edge-local"
+  },
+  "axisSummary": {
+    "x": "Exact palette q at fixed degree Δ≥3, with deterministic/randomized setup panels",
+    "y": "Symbolic communication-round order; green upper bounds and red lower bounds",
+    "note": "Variable-degree formulas are secondary; constant-degree multigraphs have their own scoped facet."
+  }
+}

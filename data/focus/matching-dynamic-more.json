@@ -1,0 +1,858 @@
+{
+  "id": "matching-dynamic",
+  "title": "Dynamic matching: the remaining regimes",
+  "reviewedOn": "2026-10-20",
+  "scope": "Five existing researched variants; the completed edge/value frontiers remain separate.",
+  "lowerBoundStatus": "No lower-bound theorem for these exact scopes was verified in this bounded source set. Exact-maximum OMv barriers and vertex-cover UGC barriers are not transferred to approximate matching.",
+  "sources": {
+    "assadi-khanna-kiss-2025-ors": {
+      "id": "assadi-khanna-kiss-2025-ors",
+      "title": "Improved Bounds for Fully Dynamic Matching via Ordered Ruzsa-Szemerédi Graphs",
+      "authors": [
+        "Sepehr Assadi",
+        "Sanjeev Khanna",
+        "Peter Kiss"
+      ],
+      "year": 2025,
+      "venue": "SODA 2025",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2406.13573",
+      "verifiedOn": "2026-10-20",
+      "shortLabel": "AKK · 2025",
+      "fullTextUrl": "https://arxiv.org/html/2406.13573"
+    },
+    "chuzhoy-khanna-song-2026-maximal": {
+      "id": "chuzhoy-khanna-song-2026-maximal",
+      "title": "A Faster Deterministic Algorithm for Fully Dynamic Maximal Matching",
+      "authors": [
+        "Julia Chuzhoy",
+        "Sanjeev Khanna",
+        "Junkai Song"
+      ],
+      "year": 2026,
+      "venue": "STOC 2026",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2605.00797",
+      "verifiedOn": "2026-10-20",
+      "shortLabel": "CKS · 2026",
+      "fullTextUrl": "https://arxiv.org/html/2605.00797"
+    },
+    "gupta-peng-2013-dynamic": {
+      "id": "gupta-peng-2013-dynamic",
+      "title": "Fully Dynamic (1+ε)-Approximate Matchings",
+      "authors": [
+        "Manoj Gupta",
+        "Richard Peng"
+      ],
+      "year": 2013,
+      "venue": "FOCS 2013",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1304.0378",
+      "verifiedOn": "2026-10-20",
+      "shortLabel": "Gupta–Peng · 2013",
+      "fullTextUrl": "https://arxiv.org/pdf/1304.0378"
+    },
+    "behnezhad-ghafari-2024-ors": {
+      "id": "behnezhad-ghafari-2024-ors",
+      "title": "Fully Dynamic Matching and Ordered Ruzsa-Szemerédi Graphs",
+      "authors": [
+        "Soheil Behnezhad",
+        "Alma Ghafari"
+      ],
+      "year": 2024,
+      "venue": "FOCS 2024",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2404.06069",
+      "verifiedOn": "2026-10-20",
+      "shortLabel": "BG · 2024",
+      "fullTextUrl": "https://arxiv.org/html/2404.06069"
+    },
+    "bhattacharya-henzinger-nanongkai-2016": {
+      "id": "bhattacharya-henzinger-nanongkai-2016",
+      "title": "New Deterministic Approximation Algorithms for Fully Dynamic Matching",
+      "authors": [
+        "Sayan Bhattacharya",
+        "Monika Henzinger",
+        "Danupon Nanongkai"
+      ],
+      "year": 2016,
+      "venue": "STOC 2016",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1604.05765",
+      "verifiedOn": "2026-10-20",
+      "shortLabel": "BHN · 2016",
+      "fullTextUrl": "https://arxiv.org/html/1604.05765"
+    },
+    "charikar-solomon-2018-almost-maximal": {
+      "id": "charikar-solomon-2018-almost-maximal",
+      "title": "Fully Dynamic Almost-Maximal Matching: Breaking the Polynomial Barrier for Worst-Case Time Bounds",
+      "authors": [
+        "Moses Charikar",
+        "Shay Solomon"
+      ],
+      "year": 2018,
+      "venue": "ICALP 2018",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1711.06883",
+      "verifiedOn": "2026-10-20",
+      "shortLabel": "Charikar–Solomon · 2018",
+      "fullTextUrl": "https://arxiv.org/html/1711.06883"
+    },
+    "baswana-gupta-sen-2011-maximal": {
+      "id": "baswana-gupta-sen-2011-maximal",
+      "title": "Fully dynamic maximal matching in O(log n) update time",
+      "authors": [
+        "Surender Baswana",
+        "Manoj Gupta",
+        "Sandeep Sen"
+      ],
+      "year": 2011,
+      "venue": "FOCS 2011",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1103.1109",
+      "verifiedOn": "2026-10-20",
+      "shortLabel": "BGS · 2011",
+      "fullTextUrl": "https://arxiv.org/pdf/1103.1109"
+    },
+    "solomon-2016-constant": {
+      "id": "solomon-2016-constant",
+      "title": "Fully Dynamic Maximal Matching in Constant Update Time",
+      "authors": [
+        "Shay Solomon"
+      ],
+      "year": 2016,
+      "venue": "FOCS 2016",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1604.08491",
+      "verifiedOn": "2026-10-20",
+      "shortLabel": "Solomon · 2016",
+      "fullTextUrl": "https://arxiv.org/html/1604.08491"
+    },
+    "bernstein-bhattacharya-kiss-saranurak-2025-maximal": {
+      "id": "bernstein-bhattacharya-kiss-saranurak-2025-maximal",
+      "title": "Deterministic Dynamic Maximal Matching in Sublinear Update Time",
+      "authors": [
+        "Aaron Bernstein",
+        "Sayan Bhattacharya",
+        "Peter Kiss",
+        "Thatchaphol Saranurak"
+      ],
+      "year": 2025,
+      "venue": "STOC 2025",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2504.20780",
+      "verifiedOn": "2026-10-20",
+      "shortLabel": "BBKS · 2025",
+      "fullTextUrl": "https://arxiv.org/html/2504.20780"
+    }
+  },
+  "verifiedRecords": [
+    {
+      "id": "matching-dynamic-ors-akk25",
+      "paperId": "assadi-khanna-kiss-2025-ors",
+      "kind": "upper",
+      "bound": "O(n^{o(1)} · ORS(n, Θε(n)))",
+      "guarantee": "|M| ≥ (1−ε)·OPT, explicitly maintained",
+      "sourceLocation": "Result 1; Theorem 1 and §5.1",
+      "evidenceStatus": "verified",
+      "frontierStatus": "current_best_verified",
+      "notes": "ORS retains its linear matching-size parameter. No unconditional polynomial exponent is asserted.",
+      "plot": null,
+      "adversary": "Adaptive",
+      "updateAccounting": "Amortized",
+      "panel": "near-adaptive",
+      "column": "randomized",
+      "displayBound": "n^{o(1)} · ORS(n, Θε(n))",
+      "theorem": "Result 1; Theorem 1 and §5.1",
+      "randomization": "Randomized",
+      "clock": "Amortized",
+      "probability": "High probability",
+      "sourceId": "assadi-khanna-kiss-2025-ors",
+      "sliceId": "matching-dynamic-explicit-nearopt-adaptive",
+      "quality": "|M| ≥ (1−ε)·OPT, explicitly maintained",
+      "output": "Explicit matching edges",
+      "graph": "General unweighted n-vertex graph; fixed vertices, edge insertions/deletions",
+      "initialization": "Initially empty graph; preprocessing is not a new update-time guarantee",
+      "recourse": "No independent recourse guarantee asserted in this view.",
+      "assumptions": [
+        "General n-vertex graph initially empty",
+        "Fixed ε>0",
+        "Randomized, high probability even against adaptive adversary",
+        "Amortized update time"
+      ],
+      "verification": "Primary full-text statement inspected; see sourceVerification."
+    },
+    {
+      "id": "matching-dynamic-bg24-ors",
+      "paperId": "behnezhad-ghafari-2024-ors",
+      "kind": "upper",
+      "bound": "O(√(n^{1+ε} · ORS_n(Θ(ε²n))) · poly(log n))",
+      "guarantee": "Explicit (1−ε)-approximate maximum matching",
+      "sourceLocation": "Theorem 1",
+      "evidenceStatus": "verified",
+      "frontierStatus": "historical",
+      "notes": "ORS_n(r) counts ordered induced matchings of size r. Its value is unresolved; no n^{1/2} coordinate is substituted.",
+      "plot": null,
+      "adversary": "Adaptive",
+      "updateAccounting": "Amortized",
+      "panel": "near-adaptive",
+      "column": "randomized",
+      "displayBound": "Õ(√(n^{1+ε} · ORS_n(Θ(ε²n))))",
+      "theorem": "Theorem 1",
+      "randomization": "Randomized",
+      "clock": "Amortized",
+      "probability": "High probability; probability analysis in §4",
+      "sourceId": "behnezhad-ghafari-2024-ors",
+      "sliceId": "matching-dynamic-explicit-nearopt-adaptive",
+      "quality": "Explicit (1−ε)-approximate maximum matching",
+      "output": "Explicit matching edges",
+      "graph": "General unweighted n-vertex graph; fixed vertices, edge insertions/deletions",
+      "initialization": "Initially empty graph; preprocessing is not a new update-time guarantee",
+      "recourse": "No independent recourse guarantee asserted in this view.",
+      "assumptions": [
+        "General n-vertex graph initially empty",
+        "Fixed ε>0",
+        "Randomized, high probability even against adaptive adversary",
+        "Amortized update time"
+      ],
+      "verification": "Primary full-text statement inspected; see sourceVerification."
+    },
+    {
+      "id": "matching-dynamic-maximal-cks26",
+      "paperId": "chuzhoy-khanna-song-2026-maximal",
+      "kind": "upper",
+      "bound": "n^{1/2+o(1)} amortized update time",
+      "guarantee": "Exact maximal matching maintained explicitly",
+      "sourceLocation": "Theorem 1.1",
+      "evidenceStatus": "verified",
+      "frontierStatus": "current_best_verified",
+      "notes": "Exact maximality; the subpolynomial factor is not asserted to be polylogarithmic.",
+      "plot": null,
+      "adversary": "Adaptive",
+      "updateAccounting": "Amortized",
+      "panel": "maximal-adaptive",
+      "column": "deterministic",
+      "displayBound": "n^{1/2+o(1)}",
+      "theorem": "Theorem 1.1",
+      "randomization": "Deterministic",
+      "clock": "Amortized",
+      "probability": "Deterministic",
+      "sourceId": "chuzhoy-khanna-song-2026-maximal",
+      "sliceId": "matching-dynamic-maximal-adaptive",
+      "quality": "Exact maximal matching maintained explicitly",
+      "output": "Explicit matching edges",
+      "graph": "General unweighted n-vertex graph; fixed vertices, edge insertions/deletions",
+      "initialization": "Initially empty graph; preprocessing is not a new update-time guarantee",
+      "recourse": "No independent recourse guarantee asserted in this view.",
+      "assumptions": [
+        "General n-vertex graph initially empty",
+        "Deterministic or randomized as stated in each result; guarantees handle adaptive update sequences",
+        "Amortized update time"
+      ],
+      "verification": "Primary full-text statement inspected; see sourceVerification."
+    },
+    {
+      "id": "matching-dynamic-bbks25-deterministic",
+      "paperId": "bernstein-bhattacharya-kiss-saranurak-2025-maximal",
+      "kind": "upper",
+      "bound": "Õ(n^{8/9}) amortized update time",
+      "guarantee": "Exact maximal matching, deterministic",
+      "sourceLocation": "Theorem 1.1",
+      "evidenceStatus": "verified",
+      "frontierStatus": "historical",
+      "notes": "Historical result; preserves exact maximality, not only a factor-two approximation.",
+      "plot": null,
+      "adversary": "Adaptive",
+      "updateAccounting": "Amortized",
+      "panel": "maximal-adaptive",
+      "column": "deterministic",
+      "displayBound": "Õ(n^{8/9})",
+      "theorem": "Theorem 1.1",
+      "randomization": "Deterministic",
+      "clock": "Amortized",
+      "probability": "Deterministic",
+      "sourceId": "bernstein-bhattacharya-kiss-saranurak-2025-maximal",
+      "sliceId": "matching-dynamic-maximal-adaptive",
+      "quality": "Exact maximal matching, deterministic",
+      "output": "Explicit matching edges",
+      "graph": "General unweighted n-vertex graph; fixed vertices, edge insertions/deletions",
+      "initialization": "Initially empty graph; preprocessing is not a new update-time guarantee",
+      "recourse": "No independent recourse guarantee asserted in this view.",
+      "assumptions": [
+        "General n-vertex graph initially empty",
+        "Deterministic or randomized as stated in each result; guarantees handle adaptive update sequences",
+        "Amortized update time"
+      ],
+      "verification": "Primary full-text statement inspected; see sourceVerification."
+    },
+    {
+      "id": "matching-dynamic-bbks25-randomized",
+      "paperId": "bernstein-bhattacharya-kiss-saranurak-2025-maximal",
+      "kind": "upper",
+      "bound": "Õ(n^{3/4}) amortized update time",
+      "guarantee": "Exact maximal matching, randomized against adaptive adversary",
+      "sourceLocation": "Theorem 1.1",
+      "evidenceStatus": "verified",
+      "frontierStatus": "historical",
+      "notes": "Historical randomized adaptive guarantee.",
+      "plot": null,
+      "adversary": "Adaptive",
+      "updateAccounting": "Amortized",
+      "panel": "maximal-adaptive",
+      "column": "randomized",
+      "displayBound": "Õ(n^{3/4})",
+      "theorem": "Theorem 1.1",
+      "randomization": "Randomized",
+      "clock": "Amortized",
+      "probability": "High probability",
+      "sourceId": "bernstein-bhattacharya-kiss-saranurak-2025-maximal",
+      "sliceId": "matching-dynamic-maximal-adaptive",
+      "quality": "Exact maximal matching, randomized against adaptive adversary",
+      "output": "Explicit matching edges",
+      "graph": "General unweighted n-vertex graph; fixed vertices, edge insertions/deletions",
+      "initialization": "Initially empty graph; preprocessing is not a new update-time guarantee",
+      "recourse": "No independent recourse guarantee asserted in this view.",
+      "assumptions": [
+        "General n-vertex graph initially empty",
+        "Deterministic or randomized as stated in each result; guarantees handle adaptive update sequences",
+        "Amortized update time"
+      ],
+      "verification": "Primary full-text statement inspected; see sourceVerification."
+    },
+    {
+      "id": "matching-dynamic-gupta-peng-13",
+      "paperId": "gupta-peng-2013-dynamic",
+      "kind": "upper",
+      "bound": "O(√m·ε⁻²) worst-case update time",
+      "guarantee": "(1+ε)-approximate matching edges maintained",
+      "sourceLocation": "Theorem 1.1; §3.3; abstract for ε dependence",
+      "evidenceStatus": "verified",
+      "frontierStatus": "historical",
+      "notes": "m is the dynamic edge count. No sparse-graph assumption or n^{1/2} coordinate is imposed; ε is a fixed positive constant.",
+      "plot": null,
+      "adversary": "Adaptive",
+      "updateAccounting": "Worst-case",
+      "panel": "near-worst",
+      "column": "deterministic",
+      "displayBound": "O(√m · ε^{-2})",
+      "theorem": "Theorem 1.1; §3.3; abstract for ε dependence",
+      "randomization": "Deterministic",
+      "clock": "Worst-case",
+      "probability": "Deterministic",
+      "sourceId": "gupta-peng-2013-dynamic",
+      "sliceId": "matching-dynamic-explicit-nearopt-worstcase",
+      "quality": "(1+ε)-approximate matching edges maintained",
+      "output": "Explicit matching edges",
+      "graph": "General unweighted n-vertex graph; fixed vertices, edge insertions/deletions",
+      "initialization": "Initially empty graph; preprocessing is not a new update-time guarantee",
+      "recourse": "No independent recourse guarantee asserted in this view.",
+      "assumptions": [
+        "General graph",
+        "Deterministic data structure",
+        "Worst-case per edge update; m is current number of edges"
+      ],
+      "verification": "Primary full-text statement inspected; see sourceVerification."
+    },
+    {
+      "id": "matching-dynamic-bhn16",
+      "paperId": "bhattacharya-henzinger-nanongkai-2016",
+      "kind": "upper",
+      "bound": "O(poly(log n, 1/ε)) amortized update time",
+      "guarantee": "Explicit (2+ε)-approximate maximum matching, deterministic",
+      "sourceLocation": "Theorem 1.1; §§2.4.4 and 7.6 (amortization)",
+      "evidenceStatus": "verified",
+      "frontierStatus": "historical",
+      "notes": "Maintains an integral matching. The separate bipartite value theorem is not this record.",
+      "plot": null,
+      "adversary": "Adaptive",
+      "updateAccounting": "Amortized",
+      "panel": "constant",
+      "column": "deterministic",
+      "displayBound": "O(poly(log n, 1/ε))",
+      "theorem": "Theorem 1.1; §§2.4.4 and 7.6 (amortization)",
+      "randomization": "Deterministic",
+      "clock": "Amortized",
+      "probability": "Deterministic",
+      "sourceId": "bhattacharya-henzinger-nanongkai-2016",
+      "sliceId": "matching-dynamic-explicit-polylog",
+      "quality": "Explicit (2+ε)-approximate maximum matching, deterministic",
+      "output": "Explicit matching edges",
+      "graph": "General unweighted n-vertex graph; fixed vertices, edge insertions/deletions",
+      "initialization": "Initially empty graph; preprocessing is not a new update-time guarantee",
+      "recourse": "No independent recourse guarantee asserted in this view.",
+      "assumptions": [
+        "General graph",
+        "Deterministic or randomized as specified",
+        "Amortized versus worst-case update time kept in each result"
+      ],
+      "verification": "Primary full-text statement inspected; see sourceVerification."
+    },
+    {
+      "id": "matching-dynamic-charikar-solomon18",
+      "paperId": "charikar-solomon-2018-almost-maximal",
+      "kind": "upper",
+      "bound": "O(max{log⁷ n / ε, log⁵ n / ε⁴}) worst-case update time",
+      "guarantee": "Randomized almost-maximal matching implies (2+ε)-approximate cardinality matching",
+      "sourceLocation": "Theorem 6.5 and remarks (1)–(3)",
+      "evidenceStatus": "verified",
+      "frontierStatus": "historical",
+      "notes": "Almost-maximality implies (2+ε)-approximation; it is not exact maximality. The oblivious adversary is part of the theorem.",
+      "plot": null,
+      "adversary": "Oblivious",
+      "updateAccounting": "Worst-case",
+      "panel": "constant",
+      "column": "randomized",
+      "displayBound": "O(max{log⁷n/ε, log⁵n/ε⁴})",
+      "theorem": "Theorem 6.5 and remarks (1)–(3)",
+      "randomization": "Randomized",
+      "clock": "Worst-case",
+      "probability": "Time bound is deterministic; almost-maximality holds in expectation and with high probability",
+      "recourse": "Remark (2): the cited transformation bounds replacements by O(update time) in the worst case.",
+      "sourceId": "charikar-solomon-2018-almost-maximal",
+      "sliceId": "matching-dynamic-explicit-polylog",
+      "quality": "Randomized almost-maximal matching implies (2+ε)-approximate cardinality matching",
+      "output": "Explicit matching edges",
+      "graph": "General unweighted n-vertex graph; fixed vertices, edge insertions/deletions",
+      "initialization": "Initially empty graph; preprocessing is not a new update-time guarantee",
+      "assumptions": [
+        "General graph",
+        "Deterministic or randomized as specified",
+        "Amortized versus worst-case update time kept in each result"
+      ],
+      "verification": "Primary full-text statement inspected; see sourceVerification."
+    },
+    {
+      "id": "matching-dynamic-bgs11",
+      "paperId": "baswana-gupta-sen-2011-maximal",
+      "kind": "upper",
+      "bound": "O(log n) expected amortized update time",
+      "guarantee": "Exact maximal matching",
+      "sourceLocation": "Theorem 5.1; abstract",
+      "evidenceStatus": "verified",
+      "frontierStatus": "historical",
+      "notes": "Starts empty. Solomon 2016 §1.1 explicitly identifies the oblivious model for this result.",
+      "plot": null,
+      "adversary": "Oblivious",
+      "updateAccounting": "Expected amortized",
+      "panel": "maximal-oblivious",
+      "column": "randomized",
+      "displayBound": "O(log n)",
+      "theorem": "Theorem 5.1; abstract",
+      "randomization": "Randomized",
+      "clock": "Expected amortized",
+      "probability": "Expected total O(t log n); exact maximality is maintained",
+      "sourceId": "baswana-gupta-sen-2011-maximal",
+      "sliceId": "matching-dynamic-maximal-oblivious",
+      "quality": "Exact maximal matching",
+      "output": "Explicit matching edges",
+      "graph": "General unweighted n-vertex graph; fixed vertices, edge insertions/deletions",
+      "initialization": "Initially empty graph; preprocessing is not a new update-time guarantee",
+      "recourse": "No independent recourse guarantee asserted in this view.",
+      "assumptions": [
+        "General graph",
+        "Randomized; fixed update sequence independent of random coins",
+        "Expected amortized update time"
+      ],
+      "verification": "Primary full-text statement inspected; see sourceVerification."
+    },
+    {
+      "id": "matching-dynamic-solomon16",
+      "paperId": "solomon-2016-constant",
+      "kind": "upper",
+      "bound": "O(1) expected amortized update time",
+      "guarantee": "Exact maximal matching",
+      "sourceLocation": "Theorem 4.7",
+      "evidenceStatus": "verified",
+      "frontierStatus": "current_best_verified",
+      "notes": "The update sequence must be independent of the maintained random matching. Exact maximality is maintained.",
+      "plot": null,
+      "adversary": "Oblivious",
+      "updateAccounting": "Expected amortized",
+      "panel": "maximal-oblivious",
+      "column": "randomized",
+      "displayBound": "O(1)",
+      "theorem": "Theorem 4.7",
+      "randomization": "Randomized",
+      "clock": "Expected amortized",
+      "probability": "Total time O(t) in expectation and with high probability",
+      "sourceId": "solomon-2016-constant",
+      "sliceId": "matching-dynamic-maximal-oblivious",
+      "quality": "Exact maximal matching",
+      "output": "Explicit matching edges",
+      "graph": "General unweighted n-vertex graph; fixed vertices, edge insertions/deletions",
+      "initialization": "Initially empty graph; preprocessing is not a new update-time guarantee",
+      "recourse": "No independent recourse guarantee asserted in this view.",
+      "assumptions": [
+        "General graph",
+        "Randomized; fixed update sequence independent of random coins",
+        "Expected amortized update time"
+      ],
+      "verification": "Primary full-text statement inspected; see sourceVerification."
+    },
+    {
+      "id": "matching-dynamic-maximal-cks26-randomized",
+      "paperId": "chuzhoy-khanna-song-2026-maximal",
+      "kind": "upper",
+      "bound": "Õ(√n) amortized update time",
+      "guarantee": "Exact maximal matching maintained explicitly",
+      "sourceLocation": "§2, remark immediately after Theorem 2.4",
+      "evidenceStatus": "verified",
+      "frontierStatus": "current_best_verified",
+      "notes": "The authors explicitly state the adaptive Õ(√n) variant obtained by using the randomized edge-coloring subroutine. Retained separately from the deterministic theorem.",
+      "plot": null,
+      "adversary": "Adaptive",
+      "updateAccounting": "Amortized",
+      "panel": "maximal-adaptive",
+      "column": "randomized",
+      "displayBound": "Õ(√n)",
+      "theorem": "§2, remark immediately after Theorem 2.4",
+      "randomization": "Randomized",
+      "clock": "Amortized",
+      "probability": "Randomized edge-coloring variant; the remark does not state a separate success exponent",
+      "sourceId": "chuzhoy-khanna-song-2026-maximal",
+      "sliceId": "matching-dynamic-maximal-adaptive",
+      "quality": "Exact maximal matching maintained explicitly",
+      "output": "Explicit matching edges",
+      "graph": "General unweighted n-vertex graph; fixed vertices, edge insertions/deletions",
+      "initialization": "Initially empty graph; preprocessing is not a new update-time guarantee",
+      "recourse": "No independent recourse guarantee asserted in this view.",
+      "assumptions": [
+        "General n-vertex graph initially empty",
+        "Deterministic or randomized as stated in each result; guarantees handle adaptive update sequences",
+        "Amortized update time"
+      ],
+      "verification": "Primary full-text statement inspected; see sourceVerification."
+    }
+  ],
+  "relatedResults": [],
+  "figureAxes": {
+    "near-adaptive": {
+      "x": {
+        "label": "Randomization and update regime",
+        "kind": "categorical",
+        "categories": [
+          "Randomized"
+        ]
+      },
+      "y": {
+        "label": "Symbolic update-time formula",
+        "kind": "categorical",
+        "categories": [
+          "n^{o(1)} · ORS(n, Θε(n))",
+          "Õ(√(n^{1+ε} · ORS_n(Θ(ε²n))))"
+        ]
+      }
+    },
+    "maximal-adaptive": {
+      "x": {
+        "label": "Randomization and update regime",
+        "kind": "categorical",
+        "categories": [
+          "Deterministic",
+          "Randomized"
+        ]
+      },
+      "y": {
+        "label": "Symbolic update-time formula",
+        "kind": "categorical",
+        "categories": [
+          "n^{1/2+o(1)}",
+          "Õ(n^{8/9})",
+          "Õ(n^{3/4})",
+          "Õ(√n)"
+        ]
+      }
+    },
+    "near-worst": {
+      "x": {
+        "label": "Randomization and update regime",
+        "kind": "categorical",
+        "categories": [
+          "Deterministic"
+        ]
+      },
+      "y": {
+        "label": "Symbolic update-time formula",
+        "kind": "categorical",
+        "categories": [
+          "O(√m · ε^{-2})"
+        ]
+      }
+    },
+    "constant": {
+      "x": {
+        "label": "Randomization and update regime",
+        "kind": "categorical",
+        "categories": [
+          "Det. · adaptive · amortized",
+          "Rand. · oblivious · worst-case"
+        ]
+      },
+      "y": {
+        "label": "Symbolic update-time formula",
+        "kind": "categorical",
+        "categories": [
+          "O(poly(log n, 1/ε))",
+          "O(max{log⁷n/ε, log⁵n/ε⁴})"
+        ]
+      }
+    },
+    "maximal-oblivious": {
+      "x": {
+        "label": "Randomization and update regime",
+        "kind": "categorical",
+        "categories": [
+          "Randomized"
+        ]
+      },
+      "y": {
+        "label": "Symbolic update-time formula",
+        "kind": "categorical",
+        "categories": [
+          "O(log n)",
+          "O(1)"
+        ]
+      }
+    }
+  },
+  "panels": [
+    {
+      "id": "near-adaptive",
+      "title": "Near-optimal · adaptive updates",
+      "subtitle": "Explicit (1−ε)-approximation · amortized · fixed ε",
+      "columns": [
+        "randomized"
+      ],
+      "columnLabels": {
+        "randomized": "Randomized"
+      },
+      "shortTitle": "Near-optimal · adaptive",
+      "recordIds": [
+        "matching-dynamic-ors-akk25",
+        "matching-dynamic-bg24-ors"
+      ],
+      "xAxis": {
+        "label": "Randomization and update regime",
+        "kind": "categorical",
+        "categories": [
+          "Randomized"
+        ]
+      },
+      "yAxis": {
+        "label": "Symbolic update-time formula",
+        "kind": "categorical",
+        "categories": [
+          "n^{o(1)} · ORS(n, Θε(n))",
+          "Õ(√(n^{1+ε} · ORS_n(Θ(ε²n))))"
+        ]
+      }
+    },
+    {
+      "id": "maximal-adaptive",
+      "title": "Exact maximal · adaptive updates",
+      "subtitle": "Maximality implies ≥ ½ OPT · amortized",
+      "columns": [
+        "deterministic",
+        "randomized"
+      ],
+      "columnLabels": {
+        "deterministic": "Deterministic",
+        "randomized": "Randomized"
+      },
+      "shortTitle": "Maximal · adaptive",
+      "recordIds": [
+        "matching-dynamic-maximal-cks26",
+        "matching-dynamic-bbks25-deterministic",
+        "matching-dynamic-bbks25-randomized",
+        "matching-dynamic-maximal-cks26-randomized"
+      ],
+      "xAxis": {
+        "label": "Randomization and update regime",
+        "kind": "categorical",
+        "categories": [
+          "Deterministic",
+          "Randomized"
+        ]
+      },
+      "yAxis": {
+        "label": "Symbolic update-time formula",
+        "kind": "categorical",
+        "categories": [
+          "n^{1/2+o(1)}",
+          "Õ(n^{8/9})",
+          "Õ(n^{3/4})",
+          "Õ(√n)"
+        ]
+      }
+    },
+    {
+      "id": "near-worst",
+      "title": "Near-optimal · worst-case updates",
+      "subtitle": "Explicit (1+ε)-approximation · m = current edges",
+      "columns": [
+        "deterministic"
+      ],
+      "columnLabels": {
+        "deterministic": "Deterministic"
+      },
+      "shortTitle": "Near-optimal · worst-case",
+      "recordIds": [
+        "matching-dynamic-gupta-peng-13"
+      ],
+      "xAxis": {
+        "label": "Randomization and update regime",
+        "kind": "categorical",
+        "categories": [
+          "Deterministic"
+        ]
+      },
+      "yAxis": {
+        "label": "Symbolic update-time formula",
+        "kind": "categorical",
+        "categories": [
+          "O(√m · ε^{-2})"
+        ]
+      }
+    },
+    {
+      "id": "constant",
+      "title": "Constant approximation · polylog update time",
+      "subtitle": "Explicit (2+ε)-approximation · time accounting stays separate",
+      "columns": [
+        "deterministic",
+        "randomized"
+      ],
+      "columnLabels": {
+        "deterministic": "Det. · adaptive · amortized",
+        "randomized": "Rand. · oblivious · worst-case"
+      },
+      "shortTitle": "(2+ε)-approximation",
+      "recordIds": [
+        "matching-dynamic-bhn16",
+        "matching-dynamic-charikar-solomon18"
+      ],
+      "xAxis": {
+        "label": "Randomization and update regime",
+        "kind": "categorical",
+        "categories": [
+          "Det. · adaptive · amortized",
+          "Rand. · oblivious · worst-case"
+        ]
+      },
+      "yAxis": {
+        "label": "Symbolic update-time formula",
+        "kind": "categorical",
+        "categories": [
+          "O(poly(log n, 1/ε))",
+          "O(max{log⁷n/ε, log⁵n/ε⁴})"
+        ]
+      }
+    },
+    {
+      "id": "maximal-oblivious",
+      "title": "Exact maximal · oblivious updates",
+      "subtitle": "Fixed sequence independent of random coins · expected amortized",
+      "columns": [
+        "randomized"
+      ],
+      "columnLabels": {
+        "randomized": "Randomized"
+      },
+      "shortTitle": "Maximal · oblivious",
+      "recordIds": [
+        "matching-dynamic-bgs11",
+        "matching-dynamic-solomon16"
+      ],
+      "xAxis": {
+        "label": "Randomization and update regime",
+        "kind": "categorical",
+        "categories": [
+          "Randomized"
+        ]
+      },
+      "yAxis": {
+        "label": "Symbolic update-time formula",
+        "kind": "categorical",
+        "categories": [
+          "O(log n)",
+          "O(1)"
+        ]
+      }
+    }
+  ],
+  "sourceVerification": [
+    {
+      "sourceId": "assadi-khanna-kiss-2025-ors",
+      "url": "https://arxiv.org/html/2406.13573",
+      "theorems": [
+        "Result 1; Theorem 1 and §5.1"
+      ],
+      "verifiedOn": "2026-10-20"
+    },
+    {
+      "sourceId": "chuzhoy-khanna-song-2026-maximal",
+      "url": "https://arxiv.org/html/2605.00797",
+      "theorems": [
+        "Theorem 1.1",
+        "§2, remark immediately after Theorem 2.4"
+      ],
+      "verifiedOn": "2026-10-20"
+    },
+    {
+      "sourceId": "gupta-peng-2013-dynamic",
+      "url": "https://arxiv.org/pdf/1304.0378",
+      "theorems": [
+        "Theorem 1.1; §3.3; abstract for ε dependence"
+      ],
+      "verifiedOn": "2026-10-20"
+    },
+    {
+      "sourceId": "behnezhad-ghafari-2024-ors",
+      "url": "https://arxiv.org/html/2404.06069",
+      "theorems": [
+        "Theorem 1"
+      ],
+      "verifiedOn": "2026-10-20"
+    },
+    {
+      "sourceId": "bhattacharya-henzinger-nanongkai-2016",
+      "url": "https://arxiv.org/html/1604.05765",
+      "theorems": [
+        "Theorem 1.1; §§2.4.4 and 7.6 (amortization)"
+      ],
+      "verifiedOn": "2026-10-20"
+    },
+    {
+      "sourceId": "charikar-solomon-2018-almost-maximal",
+      "url": "https://arxiv.org/html/1711.06883",
+      "theorems": [
+        "Theorem 6.5 and remarks (1)–(3)"
+      ],
+      "verifiedOn": "2026-10-20"
+    },
+    {
+      "sourceId": "baswana-gupta-sen-2011-maximal",
+      "url": "https://arxiv.org/pdf/1103.1109",
+      "theorems": [
+        "Theorem 5.1; abstract"
+      ],
+      "verifiedOn": "2026-10-20"
+    },
+    {
+      "sourceId": "solomon-2016-constant",
+      "url": "https://arxiv.org/html/1604.08491",
+      "theorems": [
+        "Theorem 4.7"
+      ],
+      "verifiedOn": "2026-10-20"
+    },
+    {
+      "sourceId": "bernstein-bhattacharya-kiss-saranurak-2025-maximal",
+      "url": "https://arxiv.org/html/2504.20780",
+      "theorems": [
+        "Theorem 1.1"
+      ],
+      "verifiedOn": "2026-10-20"
+    }
+  ]
+}

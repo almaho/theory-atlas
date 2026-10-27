@@ -1,0 +1,32 @@
+{
+  "id": "cc-lca",
+  "dataFile": "cc-lca.json",
+  "javascript": "cc-lca.js",
+  "css": "cc-lca.css",
+  "routes": [
+    {
+      "key": "cc-lca",
+      "sliceId": "cc-lca-pruned-degree",
+      "label": "Correlation clustering · local labels",
+      "problem": "cc",
+      "model": "lca",
+      "visible": true
+    },
+    {
+      "key": "cc-lca-matrix-additive",
+      "sliceId": "cc-lca-matrix-additive",
+      "label": "Correlation clustering · matrix local labels",
+      "problem": "cc",
+      "model": "lca",
+      "visible": false
+    }
+  ],
+  "canonicalAliases": {
+    "cc-lca-matrix-additive": "cc-lca"
+  },
+  "axisSummary": {
+    "x": "Per-label probes, symbolic 1/ε → 1/ε² → n/ε for 1/n<ε<1",
+    "y": "Positive-list and matrix access, quality guarantees, and preprocessing policies",
+    "note": "Degree-dependent band; algorithms green, scoped non-adaptive lower bounds red; unranked symbolic insets retain unspecified polynomial and general-c formulas."
+  }
+}

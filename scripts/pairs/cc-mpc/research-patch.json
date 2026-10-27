@@ -1,0 +1,650 @@
+{
+  "problem": "cc",
+  "model": "mpc",
+  "upsertPapers": [
+    {
+      "id": "behnezhad-2022-constant-rounds",
+      "title": "Almost 3-Approximate Correlation Clustering in Constant Rounds",
+      "authors": [
+        "Soheil Behnezhad",
+        "Moses Charikar",
+        "Weiyun Ma",
+        "Li-Yang Tan"
+      ],
+      "year": 2022,
+      "venue": "FOCS 2022",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2205.03710",
+      "verifiedOn": "2026-10-26",
+      "publicationUrl": "https://arxiv.org/abs/2205.03710",
+      "fullTextUrl": "https://arxiv.org/pdf/2205.03710"
+    },
+    {
+      "id": "cohenaddad-2021-mpc",
+      "title": "Correlation Clustering in Constant Many Parallel Rounds",
+      "authors": [
+        "Vincent Cohen-Addad",
+        "Silvio Lattanzi",
+        "Slobodan Mitrović",
+        "Ashkan Norouzi-Fard",
+        "Nikos Parotsidis",
+        "Jakub Tarnawski"
+      ],
+      "year": 2021,
+      "venue": "ICML 2021",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2106.08448",
+      "verifiedOn": "2026-10-26",
+      "publicationUrl": "https://arxiv.org/abs/2106.08448",
+      "fullTextUrl": "https://arxiv.org/pdf/2106.08448"
+    },
+    {
+      "id": "dalirrooyfard-2024-pruned-pivot",
+      "title": "Pruned Pivot: Correlation Clustering Algorithm for Dynamic, Parallel, and Local Computation Models",
+      "authors": [
+        "Mina Dalirrooyfard",
+        "Konstantin Makarychev",
+        "Slobodan Mitrović"
+      ],
+      "year": 2024,
+      "venue": "ICML 2024",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/html/2402.15668v2",
+      "verifiedOn": "2026-10-26",
+      "publicationUrl": "https://arxiv.org/html/2402.15668v2",
+      "fullTextUrl": "https://arxiv.org/html/2402.15668v2"
+    },
+    {
+      "id": "assadi-2025-desparsification",
+      "title": "Correlation Clustering and (De)Sparsification: Graph Sketches Can Match Classical Algorithms",
+      "authors": [
+        "Sepehr Assadi",
+        "Sanjeev Khanna",
+        "Aaron Putterman"
+      ],
+      "year": 2025,
+      "venue": "STOC 2025; arXiv v1",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/html/2504.04258v1",
+      "verifiedOn": "2026-10-26",
+      "publicationUrl": "https://arxiv.org/html/2504.04258v1",
+      "fullTextUrl": "https://arxiv.org/html/2504.04258v1"
+    },
+    {
+      "id": "cohenaddad-2024-combinatorial",
+      "title": "Combinatorial Correlation Clustering",
+      "authors": [
+        "Vincent Cohen-Addad",
+        "David Rasmussen Lolck",
+        "Marcin Pilipczuk",
+        "Mikkel Thorup",
+        "Shuyi Yan",
+        "Hanwen Zhang"
+      ],
+      "year": 2024,
+      "venue": "STOC 2024",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2404.05433",
+      "verifiedOn": "2026-10-26",
+      "publicationUrl": "https://arxiv.org/abs/2404.05433",
+      "fullTextUrl": "https://arxiv.org/pdf/2404.05433"
+    },
+    {
+      "id": "cao-2024-parallel",
+      "title": "Breaking 3-Factor Approximation for Correlation Clustering in Polylogarithmic Rounds",
+      "authors": [
+        "Nairen Cao",
+        "Shang-En Huang",
+        "Hsin-Hao Su"
+      ],
+      "year": 2024,
+      "venue": "SODA 2024",
+      "publicationStatus": "conference",
+      "url": "https://epubs.siam.org/doi/10.1137/1.9781611977912.143",
+      "verifiedOn": "2026-10-26",
+      "publicationUrl": "https://epubs.siam.org/doi/10.1137/1.9781611977912.143",
+      "fullTextUrl": "https://arxiv.org/pdf/2307.06723"
+    },
+    {
+      "id": "cambus-2021-arboricity",
+      "title": "Massively Parallel Correlation Clustering in Bounded Arboricity Graphs",
+      "authors": [
+        "Mélanie Cambus",
+        "Davin Choo",
+        "Havu Miikonen",
+        "Jara Uitto"
+      ],
+      "year": 2021,
+      "venue": "DISC 2021",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.DISC.2021.15",
+      "verifiedOn": "2026-10-26",
+      "publicationUrl": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.DISC.2021.15",
+      "fullTextUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol209-disc2021/LIPIcs.DISC.2021.15/LIPIcs.DISC.2021.15.pdf",
+      "fullVersionUrl": "https://arxiv.org/pdf/2102.11660"
+    },
+    {
+      "id": "cao-2025-all-norms",
+      "title": "Simultaneously Approximating All Norms for Massively Parallel Correlation Clustering",
+      "authors": [
+        "Nairen Cao",
+        "Shi Li",
+        "Jia Ye"
+      ],
+      "year": 2025,
+      "venue": "ICALP 2025",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol334-icalp2025/html/LIPIcs.ICALP.2025.40/LIPIcs.ICALP.2025.40.html",
+      "verifiedOn": "2026-10-26",
+      "publicationUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol334-icalp2025/html/LIPIcs.ICALP.2025.40/LIPIcs.ICALP.2025.40.html",
+      "fullTextUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol334-icalp2025/html/LIPIcs.ICALP.2025.40/LIPIcs.ICALP.2025.40.html"
+    }
+  ],
+  "upsertSlices": [
+    {
+      "id": "cc-mpc-constant-sublinear",
+      "problem": "cc",
+      "model": "mpc",
+      "label": "Constant-round MPC with sublinear per-machine memory",
+      "task": "Output a constant-factor approximation to minimum disagreements",
+      "assumptions": [
+        "Unweighted complete signed graph; positive edges distributed, negative edges implicit",
+        "m=|E⁺| counts positive edges; explicit partition",
+        "O(n^δ) local memory for fixed 0<δ<1; aggregate memory depends on the specific record"
+      ],
+      "parameters": {
+        "epsilon": "Fixed positive accuracy parameter, when used",
+        "delta": "Fixed local-memory exponent in (0,1), when memory is bounded",
+        "m": "Number of positive edges",
+        "lambda": "Positive-edge arboricity; fixed λ≥2 in the main visual’s arboric rows"
+      },
+      "results": [
+        {
+          "id": "cc-mpc-constant",
+          "paperId": "cohenaddad-2021-mpc",
+          "kind": "upper",
+          "bound": "O(1)",
+          "guarantee": "C=O(1) approximation",
+          "sourceLocation": "Theorem 1.1; §3.2.3 MPC implementation (paper pp. 2 and 11)",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "verified_comparison",
+          "notes": "The sampled MPC implementation changes the agreement threshold. Keep its theorem factor symbolic: do not import the approximate factor 701 of the exact-agreement analysis.",
+          "plot": null,
+          "assumptions": [
+            "Positive edges initially distributed across machines",
+            "Fixed accuracy ε>0 and fixed 0<δ<1, where used",
+            "m counts positive edges; 0≤m≤n(n−1)/2",
+            "Output bookkeeping for isolated vertices is separate from the theorem’s edge-based O(m log n) storage expression."
+          ],
+          "localMemory": "O(n^δ)",
+          "totalMemory": "O(m log n)",
+          "probability": "Approximation succeeds with probability at least 1−1/n.",
+          "work": null,
+          "communication": null,
+          "sourceUrl": "https://arxiv.org/pdf/2106.08448",
+          "conditional": false,
+          "correction": null
+        },
+        {
+          "id": "cc-mpc-focs22-3plus",
+          "paperId": "behnezhad-2022-constant-rounds",
+          "kind": "upper",
+          "bound": "O(1/ε)",
+          "guarantee": "Expected cost ≤(3+ε)OPT",
+          "sourceLocation": "Corollary 1.3 (MPC), Corollary 1.2 and §4 proof",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "verified_comparison",
+          "notes": "The expected-cost calculation underlying the MPC corollary includes the negligible rank-collision error. O(m) is the stated edge-based global storage bound.",
+          "plot": null,
+          "assumptions": [
+            "Positive edges initially distributed across machines",
+            "Fixed accuracy ε>0 and fixed 0<δ<1, where used",
+            "m counts positive edges; 0≤m≤n(n−1)/2"
+          ],
+          "localMemory": "O(n^δ)",
+          "totalMemory": "O(m)",
+          "probability": "Expected approximation guarantee; no high-probability quality claim.",
+          "work": null,
+          "communication": null,
+          "sourceUrl": "https://arxiv.org/pdf/2205.03710",
+          "conditional": false,
+          "correction": null
+        },
+        {
+          "id": "cc-mpc-combinatorial-1876",
+          "paperId": "cohenaddad-2024-combinatorial",
+          "kind": "upper",
+          "bound": "(εδ)^(−O(1))",
+          "guarantee": "(2−1/8+ε) approximation",
+          "sourceLocation": "Theorem 1, MPC clause (arXiv v2, printed p. 2); §2.1",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "verified_comparison",
+          "notes": "The MPC factor is 2−1/8+ε. The factor 2−2/13+ε belongs to sequential and streaming clauses, not this MPC theorem. Original result ID is retained for compatibility.",
+          "plot": null,
+          "assumptions": [
+            "Positive edges initially distributed across machines",
+            "Fixed accuracy ε>0 and fixed 0<δ<1, where used",
+            "m counts positive edges; 0≤m≤n(n−1)/2",
+            "Unknown polynomial exponents in ε and δ remain symbolic."
+          ],
+          "localMemory": "n^δ",
+          "totalMemory": "O(ε^(−O(1))·m log n)",
+          "probability": "With high probability.",
+          "work": null,
+          "communication": null,
+          "sourceUrl": "https://arxiv.org/pdf/2404.05433",
+          "conditional": false,
+          "correction": "Corrected the previously conflated 2−2/13+ε MPC claim."
+        }
+      ],
+      "mode": "1d",
+      "axis": {
+        "label": "MPC rounds · exact symbolic formulas",
+        "kind": "symbolic"
+      }
+    },
+    {
+      "id": "cc-mpc-pruned-sublinear",
+      "problem": "cc",
+      "model": "mpc",
+      "label": "Strictly sublinear per-machine memory, Pivot quality",
+      "task": "Output explicit approximate clustering",
+      "assumptions": [
+        "Unweighted complete signed graph; positive edges distributed, negative edges implicit",
+        "m=|E⁺| counts positive edges; explicit partition",
+        "O(n^δ) local memory for fixed 0<δ<1; aggregate memory depends on the specific record"
+      ],
+      "parameters": {
+        "epsilon": "Fixed positive accuracy parameter, when used",
+        "delta": "Fixed local-memory exponent in (0,1), when memory is bounded",
+        "m": "Number of positive edges",
+        "lambda": "Positive-edge arboricity; fixed λ≥2 in the main visual’s arboric rows"
+      },
+      "results": [
+        {
+          "id": "cc-mpc-pruned-3plus",
+          "paperId": "dalirrooyfard-2024-pruned-pivot",
+          "kind": "upper",
+          "bound": "O(log(1/ε))",
+          "guarantee": "Expected cost ≤(3+ε)OPT",
+          "sourceLocation": "Theorem 1.2; Theorem 4.1; §5 MPC application",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "verified_comparison",
+          "notes": "Sorting costs O(m) total memory; k-hop gathering costs O(n·k^(k+1)). The sum is derived from these two explicit steps, rather than advertised as a uniform near-linear-in-ε bound.",
+          "plot": null,
+          "assumptions": [
+            "Positive edges initially distributed across machines",
+            "Fixed accuracy ε>0 and fixed 0<δ<1, where used",
+            "m counts positive edges; 0≤m≤n(n−1)/2",
+            "k=O(1/ε) is fixed as n grows",
+            "The k-hop neighborhood must fit on one machine",
+            "Logarithms in round bounds are bounded below by a positive constant."
+          ],
+          "localMemory": "n^δ, for fixed ε and sufficiently large n",
+          "totalMemory": "O(m+n·k^(k+1)), k=O(1/ε)",
+          "probability": "Expected approximation; Theorem 4.1 bounds expected cost. MPC sorting and gathering are the stated implementations.",
+          "work": null,
+          "communication": null,
+          "sourceUrl": "https://arxiv.org/html/2402.15668v2",
+          "conditional": false,
+          "correction": null
+        }
+      ],
+      "mode": "1d",
+      "axis": {
+        "label": "MPC rounds · exact symbolic formulas",
+        "kind": "symbolic"
+      }
+    },
+    {
+      "id": "cc-mpc-sketch-linear-memory",
+      "problem": "cc",
+      "model": "mpc",
+      "label": "Near-linear per-machine communication; polynomial recovery space",
+      "task": "Output explicit approximate clustering",
+      "assumptions": [
+        "Unweighted complete signed graph; positive edges distributed, negative edges implicit",
+        "m=|E⁺| counts positive edges; explicit partition",
+        "Õ(n)-size messages only; internal recovery memory is unrestricted within polynomial space",
+        "Polynomial local computation; α_best kept symbolic"
+      ],
+      "parameters": {
+        "epsilon": "Fixed positive accuracy parameter, when used",
+        "delta": "Fixed local-memory exponent in (0,1), when memory is bounded",
+        "m": "Number of positive edges",
+        "lambda": "Positive-edge arboricity; fixed λ≥2 in the main visual’s arboric rows"
+      },
+      "results": [
+        {
+          "id": "cc-mpc-alphabest",
+          "paperId": "assadi-2025-desparsification",
+          "kind": "upper",
+          "bound": "O(1)",
+          "guarantee": "(α_best+o(1)) approximation",
+          "sourceLocation": "Corollary 1.2; Remark 1.5; §5.1 and §5.3",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "verified_comparison",
+          "notes": "α_best stays symbolic and means the best polynomial-time classical approximation. The central recovery routine may use polynomial space. A message-size theorem is not a near-linear local-memory theorem.",
+          "plot": null,
+          "assumptions": [
+            "Positive edges initially distributed across machines",
+            "Fixed accuracy ε>0 and fixed 0<δ<1, where used",
+            "m counts positive edges; 0≤m≤n(n−1)/2",
+            "Polynomial-time local recovery",
+            "Only sketch/message sizes, not internal memory, obey the Õ(n) bound"
+          ],
+          "localMemory": "Not bounded by the corollary; polynomial internal recovery space allowed",
+          "totalMemory": "No global internal-memory cap established by this communication corollary",
+          "probability": "With high probability.",
+          "work": null,
+          "communication": "Õ(n)-size incoming/outgoing messages per machine per round",
+          "sourceUrl": "https://arxiv.org/html/2504.04258v1",
+          "conditional": false,
+          "correction": null
+        }
+      ],
+      "mode": "1d",
+      "axis": {
+        "label": "MPC rounds · exact symbolic formulas",
+        "kind": "symbolic"
+      }
+    },
+    {
+      "id": "cc-mpc-polylog-below-three",
+      "problem": "cc",
+      "model": "mpc",
+      "label": "Polylog-round MPC, below-Pivot factor",
+      "task": "Output a signed complete-graph MinDisagree partition",
+      "assumptions": [
+        "Unweighted complete signed graph; positive edges distributed, negative edges implicit",
+        "m=|E⁺| counts positive edges; explicit partition",
+        "O(n^δ) local memory for fixed 0<δ<1; aggregate memory depends on the specific record"
+      ],
+      "parameters": {
+        "epsilon": "Fixed positive accuracy parameter, when used",
+        "delta": "Fixed local-memory exponent in (0,1), when memory is bounded",
+        "m": "Number of positive edges",
+        "lambda": "Positive-edge arboricity; fixed λ≥2 in the main visual’s arboric rows"
+      },
+      "results": [
+        {
+          "id": "cc-mpc-cao-24",
+          "paperId": "cao-2024-parallel",
+          "kind": "upper",
+          "bound": "Õ(ε^(−4)) for fixed δ; O(1/δ) simulation overhead",
+          "guarantee": "Expected cost ≤(2.4+ε)OPT",
+          "sourceLocation": "Corollary 1.2; Lemma 1.4 / Lemma 4.1; Appendix A MPC simulation",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "verified_comparison",
+          "notes": "Tilde hides polylog(n) factors without supplying a numeric exponent. Total work, total memory and per-machine memory are different resources. Appendix A contributes a factor O(1/δ) in rounds.",
+          "plot": null,
+          "assumptions": [
+            "Positive edges initially distributed across machines",
+            "Fixed accuracy ε>0 and fixed 0<δ<1, where used",
+            "m counts positive edges; 0≤m≤n(n−1)/2"
+          ],
+          "localMemory": "O(n^δ)",
+          "totalMemory": "Õ(ε^(−3)·m^(3/2))",
+          "probability": "Expected approximation (Lemma 1.4 and Lemma 4.1); randomized parallel subroutines have high-probability runtime.",
+          "work": "Õ(ε^(−7)·m^(3/2)) total work",
+          "communication": null,
+          "sourceUrl": "https://arxiv.org/pdf/2307.06723",
+          "conditional": false,
+          "correction": null
+        }
+      ],
+      "mode": "1d",
+      "axis": {
+        "label": "MPC rounds · exact symbolic formulas",
+        "kind": "symbolic"
+      }
+    },
+    {
+      "id": "cc-mpc-bounded-arboricity",
+      "problem": "cc",
+      "model": "mpc",
+      "label": "Bounded positive-graph arboricity",
+      "task": "Output a minimum-disagreement partition",
+      "assumptions": [
+        "Unweighted complete signed graph; positive edges distributed, negative edges implicit",
+        "m=|E⁺| counts positive edges; explicit partition",
+        "Arboricity refers to the positive graph; λ≥2 for arboric results and λ=1 for forests",
+        "Cambus et al. Model 1; S=Õ(n^δ), M≥Ω(N/S), N≥n",
+        "Trees are included among forests",
+        "Do not infer a tight O(m) total-memory upper bound from the model definition"
+      ],
+      "parameters": {
+        "epsilon": "Fixed positive accuracy parameter, when used",
+        "delta": "Fixed local-memory exponent in (0,1), when memory is bounded",
+        "m": "Number of positive edges",
+        "lambda": "Positive-edge arboricity; fixed λ≥2 in the main visual’s arboric rows"
+      },
+      "results": [
+        {
+          "id": "cc-mpc-cambus-arboricity",
+          "paperId": "cambus-2021-arboricity",
+          "kind": "upper",
+          "bound": "O(log λ·log³log n)",
+          "guarantee": "Expected cost ≤3·OPT",
+          "sourceLocation": "Corollary 28; Model 1 (DISC pp. 15:4 and 15:15)",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "verified_comparison",
+          "notes": "Positive-edge graph has arboricity λ. The main shared axis fixes λ≥2. The λ=1 case is represented by separate forest theorems, not by substituting log 1=0.",
+          "plot": null,
+          "assumptions": [
+            "Positive edges initially distributed across machines",
+            "Fixed accuracy ε>0 and fixed 0<δ<1, where used",
+            "m counts positive edges; 0≤m≤n(n−1)/2",
+            "Positive graph has arboricity λ≥2",
+            "λ is fixed for the n-growth axis",
+            "Model 1; total-machine budget is not silently equated with another paper’s O(m) cap"
+          ],
+          "localMemory": "S=Õ(n^δ), Model 1",
+          "totalMemory": "M·S; Model 1 specifies M≥Ω(N/S), N≥n. No explicit tight global upper cap is inferred.",
+          "probability": "Expected approximation; stated round bound with high probability.",
+          "work": null,
+          "communication": null,
+          "sourceUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol209-disc2021/LIPIcs.DISC.2021.15/LIPIcs.DISC.2021.15.pdf",
+          "conditional": false,
+          "correction": null
+        },
+        {
+          "id": "cc-mpc-cambus-forest",
+          "paperId": "cambus-2021-arboricity",
+          "kind": "upper",
+          "bound": "Õ(log n)",
+          "guarantee": "Exact minimum-disagreement clustering",
+          "sourceLocation": "Corollary 27 and Corollary 31(1)",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "verified_comparison",
+          "notes": "Maximum matching of the positive forest gives an exact optimum clustering. The formal theorem’s Õ(log n) is retained rather than the informal summary’s O(log n).",
+          "plot": null,
+          "assumptions": [
+            "Positive edges initially distributed across machines",
+            "Fixed accuracy ε>0 and fixed 0<δ<1, where used",
+            "m counts positive edges; 0≤m≤n(n−1)/2",
+            "Positive graph is a forest, including trees",
+            "Exactness does not extend to arbitrary arboricity"
+          ],
+          "localMemory": "S=Õ(n^δ), Model 1",
+          "totalMemory": "M·S under Model 1; matching-subroutine resources apply",
+          "probability": "Randomized maximum-matching algorithm; formal corollary does not provide an explicit failure exponent.",
+          "work": null,
+          "communication": null,
+          "sourceUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol209-disc2021/LIPIcs.DISC.2021.15/LIPIcs.DISC.2021.15.pdf",
+          "conditional": false,
+          "correction": null
+        },
+        {
+          "id": "cc-mpc-cambus-arboricity-det",
+          "paperId": "cambus-2021-arboricity",
+          "kind": "upper",
+          "bound": "O(1)",
+          "guarantee": "O(λ²) worst-case approximation",
+          "sourceLocation": "Corollary 32; Appendix A.3 of the full version",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "verified_comparison",
+          "notes": "Clique connected components are clusters and remaining vertices become singletons. O(λ²) remains symbolic, without a numeric factor coordinate.",
+          "plot": null,
+          "assumptions": [
+            "Positive edges initially distributed across machines",
+            "Fixed accuracy ε>0 and fixed 0<δ<1, where used",
+            "m counts positive edges; 0≤m≤n(n−1)/2",
+            "Positive graph has arboricity λ≥2; fixed λ on the main n-growth axis"
+          ],
+          "localMemory": "S=Õ(n^δ), Model 1",
+          "totalMemory": "M·S under Model 1; no exact near-linear total upper cap claimed",
+          "probability": "Deterministic worst-case approximation.",
+          "work": null,
+          "communication": null,
+          "sourceUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol209-disc2021/LIPIcs.DISC.2021.15/LIPIcs.DISC.2021.15.pdf",
+          "conditional": false,
+          "correction": null
+        },
+        {
+          "id": "cc-mpc-cambus-forest-approx-rand",
+          "paperId": "cambus-2021-arboricity",
+          "kind": "upper",
+          "bound": "O(log log(1/ε))",
+          "guarantee": "(1+ε) worst-case approximation guarantee",
+          "sourceLocation": "Corollary 31(3); full-version Appendix A.3",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "verified_comparison",
+          "notes": "Forest matching reduction. The theorem assumes constant 0<ε≤1; iterated logarithms are floored by a positive constant to avoid zero/negative round counts.",
+          "plot": null,
+          "assumptions": [
+            "Positive edges initially distributed across machines",
+            "Fixed accuracy ε>0 and fixed 0<δ<1, where used",
+            "m counts positive edges; 0≤m≤n(n−1)/2",
+            "Positive graph is a forest, including trees",
+            "ε is a fixed constant; no uniform growing-1/ε memory claim"
+          ],
+          "localMemory": "S=Õ(n^δ), Model 1",
+          "totalMemory": "M·S under Model 1; ε-dependent neighborhood constants apply",
+          "probability": "Randomized algorithm. Corollary 31 labels the approximation ‘worst case’; it does not state a numeric failure probability.",
+          "work": null,
+          "communication": null,
+          "sourceUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol209-disc2021/LIPIcs.DISC.2021.15/LIPIcs.DISC.2021.15.pdf",
+          "conditional": false,
+          "correction": null
+        },
+        {
+          "id": "cc-mpc-cambus-forest-approx-det",
+          "paperId": "cambus-2021-arboricity",
+          "kind": "upper",
+          "bound": "O((1/ε)(log(1/ε)+log log* n))",
+          "guarantee": "(1+ε) worst-case approximation",
+          "sourceLocation": "Corollary 31(2); full-version Appendix A.3",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "verified_comparison",
+          "notes": "For fixed ε, its n-dependent symbolic class is log log* n. The complete expression stays visible.",
+          "plot": null,
+          "assumptions": [
+            "Positive edges initially distributed across machines",
+            "Fixed accuracy ε>0 and fixed 0<δ<1, where used",
+            "m counts positive edges; 0≤m≤n(n−1)/2",
+            "Positive graph is a forest, including trees",
+            "Fixed 0<ε≤1; logarithmic round factors floored at a positive constant"
+          ],
+          "localMemory": "S=Õ(n^δ), Model 1",
+          "totalMemory": "M·S under Model 1; ε-dependent neighborhood constants apply",
+          "probability": "Deterministic worst-case approximation.",
+          "work": null,
+          "communication": null,
+          "sourceUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol209-disc2021/LIPIcs.DISC.2021.15/LIPIcs.DISC.2021.15.pdf",
+          "conditional": false,
+          "correction": null
+        }
+      ],
+      "mode": "1d",
+      "axis": {
+        "label": "MPC rounds · exact symbolic formulas",
+        "kind": "symbolic"
+      }
+    },
+    {
+      "id": "cc-mpc-all-symmetric-norms",
+      "problem": "cc",
+      "model": "mpc",
+      "label": "All monotone symmetric norms simultaneously",
+      "task": "Output one partition that approximates each norm of the per-vertex disagreement vector",
+      "assumptions": [
+        "Unweighted complete signed graph; positive edges distributed, negative edges implicit",
+        "m=|E⁺| counts positive edges; explicit partition",
+        "One partition approximates each monotone symmetric norm relative to its own optimum",
+        "O(n^δ) local memory; fixed 0<δ<1"
+      ],
+      "parameters": {
+        "epsilon": "Fixed positive accuracy parameter, when used",
+        "delta": "Fixed local-memory exponent in (0,1), when memory is bounded",
+        "m": "Number of positive edges",
+        "lambda": "Positive-edge arboricity; fixed λ≥2 in the main visual’s arboric rows"
+      },
+      "results": [
+        {
+          "id": "cc-mpc-allnorms-63",
+          "paperId": "cao-2025-all-norms",
+          "kind": "upper",
+          "bound": "O(log³ n)",
+          "guarantee": "One partition simultaneously (63.3+O(ε))-approximates every monotone symmetric norm",
+          "sourceLocation": "Theorem 3; MPC model paragraph",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "verified_comparison",
+          "notes": "Each norm is compared with its own optimum over clusterings. This is a stronger simultaneous output contract than total disagreements alone.",
+          "plot": null,
+          "assumptions": [
+            "Positive edges initially distributed across machines",
+            "Fixed accuracy ε>0 and fixed 0<δ<1, where used",
+            "m counts positive edges; 0≤m≤n(n−1)/2",
+            "Monotone symmetric norm of the per-vertex disagreement vector"
+          ],
+          "localMemory": "O(n^δ)",
+          "totalMemory": "Õ(m/ε⁶)",
+          "probability": "With high probability.",
+          "work": "Õ(m/ε⁶) total work",
+          "communication": null,
+          "sourceUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol334-icalp2025/html/LIPIcs.ICALP.2025.40/LIPIcs.ICALP.2025.40.html",
+          "conditional": false,
+          "correction": null
+        },
+        {
+          "id": "cc-mpc-allnorms-359",
+          "paperId": "cao-2025-all-norms",
+          "kind": "upper",
+          "bound": "O(1)",
+          "guarantee": "One partition simultaneously (359+ε)-approximates every monotone symmetric norm",
+          "sourceLocation": "Theorem 5; MPC model paragraph",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "verified_comparison",
+          "notes": "The theorem requires constant ε∈(0,1). Its O(1) notation must not be interpreted as an unspecified uniform constant as ε tends to zero.",
+          "plot": null,
+          "assumptions": [
+            "Positive edges initially distributed across machines",
+            "Fixed accuracy ε>0 and fixed 0<δ<1, where used",
+            "m counts positive edges; 0≤m≤n(n−1)/2",
+            "Fixed ε∈(0,1)",
+            "Monotone symmetric norm of the per-vertex disagreement vector"
+          ],
+          "localMemory": "O(n^δ)",
+          "totalMemory": "Õ(m/ε²)",
+          "probability": "With high probability.",
+          "work": "Õ(m/ε²) total work",
+          "communication": null,
+          "sourceUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol334-icalp2025/html/LIPIcs.ICALP.2025.40/LIPIcs.ICALP.2025.40.html",
+          "conditional": false,
+          "correction": null
+        }
+      ],
+      "mode": "1d",
+      "axis": {
+        "label": "MPC rounds · simultaneous-norm objective",
+        "kind": "symbolic"
+      }
+    }
+  ],
+  "notes": [
+    "Preserve all original result IDs. Update only these six CC–MPC slices.",
+    "Communication-only, all-norm and memory-Model-2 claims are never imported into sublinear local-memory total-disagreement assumptions.",
+    "Restricted lower barriers and Model-2 variant remain scoped related focus records; do not add them as general CC–MPC round lower bounds."
+  ]
+}

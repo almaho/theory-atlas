@@ -1,0 +1,604 @@
+{
+  "id": "cc-query_combined",
+  "title": "Correlation clustering · queries and optimal-cluster oracles",
+  "description": "Ordinary graph access and an oracle for the optimal partition are distinct resources. Each facet keeps its output and accuracy contract visible.",
+  "coverage": "Bounded review of the five supplied primary sources, checked 26 October 2026. Eight supplied records preserved and one lower bound added from the same source set; not a claim of exhaustive literature coverage.",
+  "sources": {
+    "garg-2026-query-lb": {
+      "id": "garg-2026-query-lb",
+      "title": "Query Lower Bounds for Correlation Clustering under Memory Constraints",
+      "authors": [
+        "Sumegha Garg",
+        "Songhua He",
+        "Periklis A. Papakonstantinou"
+      ],
+      "year": 2026,
+      "venue": "ITCS 2026",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ITCS.2026.67",
+      "verifiedOn": "2026-10-26",
+      "sourceUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol362-itcs2026/html/LIPIcs.ITCS.2026.67/LIPIcs.ITCS.2026.67.html"
+    },
+    "garciasoriano-2026-cluster-lp": {
+      "id": "garciasoriano-2026-cluster-lp",
+      "title": "Approximate Dual Separation for the Cluster LP: a 1.387 approximation for Correlation Clustering",
+      "authors": [
+        "David García-Soriano",
+        "Antoine Schohn"
+      ],
+      "year": 2026,
+      "venue": "arXiv v2 revised Aug 31, 2026",
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/pdf/2607.27829v2",
+      "verifiedOn": "2026-10-26",
+      "sourceUrl": "https://arxiv.org/html/2607.27829v2"
+    },
+    "cao-2025-sublinear-lp": {
+      "id": "cao-2025-sublinear-lp",
+      "title": "Solving the Correlation Cluster LP in Sublinear Time",
+      "authors": [
+        "Nairen Cao",
+        "Vincent Cohen-Addad",
+        "Euiwoong Lee",
+        "Shi Li",
+        "David Rasmussen Lolck",
+        "Alantha Newman",
+        "Mikkel Thorup",
+        "Lukas Vogl",
+        "Shuyi Yan",
+        "Hanwen Zhang"
+      ],
+      "year": 2025,
+      "venue": "STOC 2025; corrected arXiv v5 Nov 4, 2025",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2503.20883",
+      "verifiedOn": "2026-10-26",
+      "sourceUrl": "https://arxiv.org/html/2503.20883v5"
+    },
+    "saha-2019-same-cluster": {
+      "id": "saha-2019-same-cluster",
+      "title": "Correlation Clustering with Same-Cluster Queries Bounded by Optimal Cost",
+      "authors": [
+        "Barna Saha",
+        "Sanjay Subramanian"
+      ],
+      "year": 2019,
+      "venue": "ESA 2019",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ESA.2019.81",
+      "verifiedOn": "2026-10-26",
+      "sourceUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol144-esa2019/LIPIcs.ESA.2019.81/LIPIcs.ESA.2019.81.pdf"
+    },
+    "ailon-2018-same-cluster": {
+      "id": "ailon-2018-same-cluster",
+      "title": "Approximate Correlation Clustering Using Same-Cluster Queries",
+      "authors": [
+        "Nir Ailon",
+        "Anup Bhattacharya",
+        "Ragesh Jaiswal"
+      ],
+      "year": 2018,
+      "venue": "LATIN 2018",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1712.06865",
+      "verifiedOn": "2026-10-26",
+      "sourceUrl": "https://arxiv.org/pdf/1712.06865"
+    }
+  },
+  "verifiedRecords": [
+    {
+      "graph": "Unweighted complete signed graph; disagreements count positive pairs separated plus negative pairs joined.",
+      "scope": "main",
+      "numericApproximation": null,
+      "id": "cc-query-combined-1485",
+      "sourceId": "cao-2025-sublinear-lp",
+      "sliceId": "cc-query-combined-multiplicative",
+      "panel": "multiplicative",
+      "setup": "graph-access",
+      "kind": "algorithm",
+      "shortLabel": "Cao et al. · 2025",
+      "algorithmLabel": "Corrected cluster LP",
+      "resource": "Time",
+      "displayBound": "Õ(2^{poly(1/ε)} n)",
+      "queryComplexity": "Expected Õ(2^{poly(1/ε)} n) graph-query upper bound inherited from runtime",
+      "timeComplexity": "Expected Õ(2^{poly(1/ε)} n); §9.2 rounding analysis",
+      "quality": "Expected cost ≤ (1.485+ε)OPT",
+      "qualityLabel": "1.485+ε",
+      "approximationBase": 1.485,
+      "probability": "Expected approximation guarantee; randomized sublinear solver and rounding.",
+      "oracle": "Each positive degree, indexed positive neighbor, and positive-edge pair test costs O(1).",
+      "output": "Explicit partition; its disagreement cost is not returned.",
+      "theorem": "Corrected arXiv v5: Theorems 1–2, Corollary 3, §2.1",
+      "assumptions": [
+        "Sufficiently small constant ε>0.",
+        "All three graph-query operations are available.",
+        "Guarantee is relative to integral OPT."
+      ],
+      "notes": "Display the corrected factor 1.485+ε, not the withdrawn 1.437 value. Keeping ε symbolic avoids an unverified choice ε=1/4. The sublinear rounding runtime analysis in §9.2 is in expectation; do not read this as a worst-case query cap.",
+      "evidenceStatus": "verified",
+      "frontierStatus": "historical"
+    },
+    {
+      "graph": "Unweighted complete signed graph; disagreements count positive pairs separated plus negative pairs joined.",
+      "scope": "main",
+      "numericApproximation": null,
+      "id": "cc-query-combined-13865",
+      "sourceId": "garciasoriano-2026-cluster-lp",
+      "sliceId": "cc-query-combined-multiplicative",
+      "panel": "multiplicative",
+      "setup": "graph-access",
+      "kind": "algorithm",
+      "shortLabel": "García-Soriano–Schohn · 2026",
+      "algorithmLabel": "New rounding + Cao solver",
+      "resource": "Time",
+      "displayBound": "Õ(2^{poly(1/ε)} n)",
+      "queryComplexity": "Õ(2^{poly(1/ε)} n) via stated fast composition; inherits solver randomness",
+      "timeComplexity": "Õ(2^{poly(1/ε)} n)",
+      "quality": "(1.3865+ε) approximation against integral OPT",
+      "qualityLabel": "1.3865+ε",
+      "approximationBase": 1.3865,
+      "probability": "Randomized composition: primal solver is randomized; new rounding is deterministic.",
+      "oracle": "Cao et al. combined positive-degree, indexed-positive-neighbor, and pair-label access.",
+      "output": "Explicit partition; no per-instance primal–dual certificate for this fast composition.",
+      "theorem": "arXiv v2: Theorem 1.3 and paragraph after Corollary 1.4",
+      "assumptions": [
+        "Sufficiently small fixed ε>0 for the inherited sublinear solver.",
+        "Use the stated near-linear composition, not the paper’s separate polynomial-time dual solver."
+      ],
+      "notes": "The source explicitly states the fast composition. The certified deterministic dual algorithm takes 2^{poly(1/ε)}poly(n) time and is a different resource claim.",
+      "evidenceStatus": "verified",
+      "frontierStatus": "current_best_verified"
+    },
+    {
+      "graph": "Unweighted complete signed graph; disagreements count positive pairs separated plus negative pairs joined.",
+      "scope": "main",
+      "numericApproximation": null,
+      "id": "cc-query-general-garg-lb",
+      "sourceId": "garg-2026-query-lb",
+      "sliceId": "cc-query-general-additive",
+      "panel": "additive",
+      "setup": "graph-access",
+      "kind": "lower",
+      "shortLabel": "Garg–He–Papakonstantinou · 2026",
+      "algorithmLabel": "Additive partition barrier",
+      "resource": "Graph queries",
+      "displayBound": "Ω(n/ε)",
+      "queryComplexity": "Ω(n/ε)",
+      "timeComplexity": "No running-time restriction stated in informal theorem",
+      "quality": "Partition cost ≤ OPT+εn²",
+      "qualityLabel": "Additive εn²",
+      "probability": "Informal Theorem 3 does not specify a formal success threshold.",
+      "oracle": "Adaptive pair, positive-degree, and indexed-positive-neighbor queries.",
+      "output": "Explicit partition.",
+      "theorem": "ITCS 2026, Introduction, Theorem 3 (informal)",
+      "assumptions": [
+        "Additive error contract; not multiplicative approximation.",
+        "Formal parameter range and success constants are not supplied in this short statement."
+      ],
+      "notes": "Announced theorem: the conference paper explicitly defers the formal statement and complete proof. No numeric ε range or power-of-n curve is inferred.",
+      "evidenceStatus": "announced-proof-deferred",
+      "sourceLimit": "Full statement and proof deferred by the authors.",
+      "frontierStatus": "candidate"
+    },
+    {
+      "graph": "Unweighted complete signed graph; disagreements count positive pairs separated plus negative pairs joined.",
+      "scope": "main",
+      "numericApproximation": null,
+      "id": "cc-query-saha-optimal",
+      "sourceId": "saha-2019-same-cluster",
+      "sliceId": "cc-query-same-cluster-oracle",
+      "panel": "oracle-opt",
+      "setup": "optimum-oracle",
+      "kind": "algorithm",
+      "shortLabel": "Saha–Subramanian · 2019",
+      "algorithmLabel": "QueryPivot",
+      "resource": "Same-cluster oracle calls",
+      "displayBound": "≤ 2OPT",
+      "queryComplexity": "At most 2OPT oracle queries (worst case)",
+      "timeComplexity": "Polynomial time",
+      "quality": "Exact optimum",
+      "qualityLabel": "Exact · factor 1",
+      "probability": "Deterministic.",
+      "oracle": "Perfect same-cluster answers consistent with one fixed unknown optimal partition; signed input labels are available separately.",
+      "output": "An optimal partition.",
+      "theorem": "ESA 2019, Theorem 3.1",
+      "assumptions": [
+        "OPT is the minimum number of disagreements.",
+        "Oracle-query count excludes reading and processing the signed input.",
+        "No fixed cluster count is required."
+      ],
+      "notes": "At OPT=0 no oracle calls are required. The oracle supplies optimum-cluster membership, not an edge label.",
+      "evidenceStatus": "verified",
+      "budgetTier": "linear",
+      "guaranteeCategory": "exact"
+    },
+    {
+      "graph": "Unweighted complete signed graph; disagreements count positive pairs separated plus negative pairs joined.",
+      "scope": "main",
+      "numericApproximation": null,
+      "id": "cc-query-saha-two",
+      "sourceId": "saha-2019-same-cluster",
+      "sliceId": "cc-query-same-cluster-oracle",
+      "panel": "oracle-opt",
+      "setup": "optimum-oracle",
+      "kind": "algorithm",
+      "shortLabel": "Saha–Subramanian · 2019",
+      "algorithmLabel": "RandomQueryPivot",
+      "resource": "Same-cluster oracle calls",
+      "displayBound": "E[Q] ≤ OPT",
+      "queryComplexity": "At most OPT oracle queries in expectation",
+      "timeComplexity": "Polynomial time",
+      "quality": "Expected cost ≤ 2OPT",
+      "qualityLabel": "Expected factor 2",
+      "probability": "Both approximation cost and query budget are in expectation; p=1/4 in Corollary 4.2.",
+      "oracle": "Perfect same-cluster answers consistent with one fixed unknown optimal partition; signed input labels are available separately.",
+      "output": "Explicit partition.",
+      "theorem": "ESA 2019, Corollary 4.2 (from Theorem 4.1)",
+      "assumptions": [
+        "No fixed number of clusters.",
+        "Expected query budget is not a worst-case cap."
+      ],
+      "notes": "This point has two expectation qualifiers. It does not assert a worst-case OPT-query 2-approximation.",
+      "evidenceStatus": "verified",
+      "budgetTier": "linear",
+      "guaranteeCategory": "two"
+    },
+    {
+      "graph": "Unweighted complete signed graph; disagreements count positive pairs separated plus negative pairs joined.",
+      "scope": "main",
+      "numericApproximation": null,
+      "id": "cc-query-saha-conditional-lb",
+      "sourceId": "saha-2019-same-cluster",
+      "sliceId": "cc-query-same-cluster-oracle",
+      "panel": "oracle-opt",
+      "setup": "optimum-oracle",
+      "kind": "lower",
+      "conditional": true,
+      "shortLabel": "Saha–Subramanian · 2019",
+      "algorithmLabel": "Gap-ETH barrier",
+      "resource": "Same-cluster oracle calls",
+      "displayBound": "No o(OPT) queries",
+      "queryComplexity": "No o(OPT) oracle-query algorithm in polynomial time",
+      "timeComplexity": "Polynomial-time algorithms",
+      "quality": "Factor 1+γ/10 for the positive constant γ from Gap-ETH",
+      "qualityLabel": "1+γ/10",
+      "probability": "Theorem 5.3 as stated; do not reinterpret as an expected-query lower bound.",
+      "oracle": "Same-cluster oracle for an unknown optimum; signed input available separately.",
+      "output": "Approximate explicit partition.",
+      "theorem": "ESA 2019, Hypothesis 5.1, Lemma 5.2, Theorem 5.3",
+      "assumptions": [
+        "Gap-ETH.",
+        "γ is the unspecified absolute constant in Gap-ETH.",
+        "Lower bound concerns sufficiently near-optimal polynomial-time approximation, not every factor 1+α."
+      ],
+      "notes": "Conditional exclusion of sublinear-in-OPT query complexity. No numeric γ, hidden constant, or lower bound at factor 2 is claimed.",
+      "evidenceStatus": "verified-conditional",
+      "budgetTier": "sublinear",
+      "guaranteeCategory": "near"
+    },
+    {
+      "graph": "Unweighted complete signed graph; disagreements count positive pairs separated plus negative pairs joined.",
+      "scope": "main",
+      "numericApproximation": null,
+      "id": "cc-query-ailon-2018",
+      "sourceId": "ailon-2018-same-cluster",
+      "sliceId": "cc-query-same-cluster-oracle",
+      "panel": "oracle-k",
+      "setup": "k-optimum-oracle",
+      "kind": "algorithm",
+      "shortLabel": "Ailon–Bhattacharya–Jaiswal · 2018",
+      "algorithmLabel": "MinDisAgree[k] PTAS",
+      "resource": "Same-cluster oracle calls",
+      "displayBound": "O(k¹⁴ log k log n / ε⁶)",
+      "queryComplexity": "O(k¹⁴ log k log n / ε⁶)",
+      "timeComplexity": "O(n k¹⁴ log k log n / ε⁶)",
+      "quality": "(1+ε)-approximate MinDisAgree[k]",
+      "qualityLabel": "1+ε · w.h.p.",
+      "probability": "Randomized; success with high probability.",
+      "oracle": "Perfect same-cluster oracle consistent with a fixed optimal partition into at most k clusters; full signed input separately available.",
+      "output": "Partition into at most k clusters.",
+      "theorem": "Author arXiv 1712.06865v1, Theorem 2; §3.2 analysis",
+      "assumptions": [
+        "k≥2.",
+        "ε>0; the detailed proof states 0<ε≤1/2.",
+        "Benchmark is the best partition with at most k clusters."
+      ],
+      "notes": "Theorem numbering is 2 in the inspected author preprint, not 1.2. The query parameter k is not OPT.",
+      "evidenceStatus": "verified",
+      "budgetTier": "upper"
+    },
+    {
+      "graph": "Unweighted complete signed graph; disagreements count positive pairs separated plus negative pairs joined.",
+      "scope": "main",
+      "numericApproximation": null,
+      "id": "cc-query-ailon-2018-eth-lower",
+      "sourceId": "ailon-2018-same-cluster",
+      "sliceId": "cc-query-same-cluster-oracle",
+      "panel": "oracle-k",
+      "setup": "k-optimum-oracle",
+      "kind": "lower",
+      "conditional": true,
+      "shortLabel": "Ailon–Bhattacharya–Jaiswal · 2018",
+      "algorithmLabel": "ETH barrier",
+      "resource": "Same-cluster oracle calls",
+      "displayBound": "Ω(k / polylog k)",
+      "queryComplexity": "Ω(k / polylog k)",
+      "timeComplexity": "Polynomial-time algorithms",
+      "quality": "For some constant δ>0, factor 1+δ (and any stronger accuracy)",
+      "qualityLabel": "1+δ · some δ>0",
+      "probability": "Conditional lower theorem as stated.",
+      "oracle": "SSAC optimum same-cluster oracle for MinDisAgree[k]; full signed input separately available.",
+      "output": "Approximate partition into at most k clusters.",
+      "theorem": "Author arXiv 1712.06865v1, Theorem 3",
+      "assumptions": [
+        "ETH.",
+        "Some absolute δ>0, not every user-chosen constant.",
+        "Compare the algorithm at 0<ε≤min{δ,1/2}."
+      ],
+      "notes": "This lower bound comes from the already supplied Ailon source. It cannot be plotted on an OPT axis without an additional relation between k and OPT.",
+      "evidenceStatus": "verified-conditional",
+      "budgetTier": "lower",
+      "addedFromExistingSource": true
+    }
+  ],
+  "relatedResults": [
+    {
+      "graph": "Unweighted complete signed graph; disagreements count positive pairs separated plus negative pairs joined.",
+      "scope": "hidden-reference",
+      "numericApproximation": null,
+      "id": "cc-query-garg-memory-lb",
+      "sourceId": "garg-2026-query-lb",
+      "sliceId": "cc-query-random-memory-value",
+      "panel": "memory",
+      "setup": "random-pair-memory",
+      "kind": "lower",
+      "shortLabel": "Garg–He–Papakonstantinou · 2026",
+      "algorithmLabel": "Random-query memory tradeoff",
+      "resource": "i.i.d. random-pair queries",
+      "displayBound": "Ω(min{n/(ε²√γ), n^{3/2}/γ}) if γ<1; Ω(min{n/(ε²γ²), n^{3/2}/γ}) if γ≥1",
+      "queryComplexity": "γ<1: Ω(min{n/(ε²√γ),n^{3/2}/γ}); γ≥1: Ω(min{n/(ε²γ²),n^{3/2}/γ})",
+      "timeComplexity": "No polynomial-time restriction",
+      "quality": "Estimate OPT within ±εn²",
+      "qualityLabel": "Value only · ±εn²",
+      "probability": "Success at least 99/100; worst-case query complexity.",
+      "oracle": "Each query returns an independent uniformly random pair and its edge label; cannot adaptively choose pairs.",
+      "output": "Scalar estimate of OPT; no partition.",
+      "theorem": "ITCS 2026, §3, Theorem 1 (formal)",
+      "assumptions": [
+        "Memory ≤γ√n bits.",
+        "ε∈(ω(n^(−1/2)),0.05).",
+        "γ∈(ω(log n/√n),o(√n)].",
+        "Value output and random-pair access differ from the graph-access main panels."
+      ],
+      "notes": "The memory tradeoff is a related result. Its lower bound does not apply to unrestricted adaptive pair queries. The hidden detail chart substitutes ε=n^(−a), γ=n^b, 0<a<1/2 and −1/2<b<1/2; its exponent is algebraically derived, never fitted.",
+      "evidenceStatus": "verified",
+      "userExcludedFromViews": true
+    }
+  ],
+  "figureAxes": {
+    "multiplicative": {
+      "x": {
+        "label": "Base c in (c+ε)-approximation",
+        "kind": "numeric",
+        "domain": [
+          1.35,
+          1.53
+        ],
+        "min": 1.35,
+        "max": 1.53,
+        "ticks": [
+          1.35,
+          1.53
+        ]
+      },
+      "y": {
+        "label": "Total time at sufficiently small fixed ε",
+        "kind": "symbolic",
+        "ticks": [
+          "Õ(n)",
+          "n²"
+        ],
+        "categories": [
+          "Õ(n)",
+          "n²"
+        ]
+      },
+      "warning": "The plotted c is the base constant, not a chosen full ratio. Both markers retain the ε-dependent time formula."
+    },
+    "additive": {
+      "x": {
+        "label": "Output error contract",
+        "kind": "categorical",
+        "ticks": [
+          "OPT+εn²"
+        ],
+        "categories": [
+          "OPT+εn²"
+        ]
+      },
+      "y": {
+        "label": "Required graph queries",
+        "kind": "symbolic",
+        "ticks": [
+          "Ω(n/ε)"
+        ],
+        "categories": [
+          "Ω(n/ε)"
+        ]
+      },
+      "warning": "The theorem is informal; no invented ε domain or numerical curve."
+    },
+    "oracle-opt": {
+      "x": {
+        "label": "Approximation target · categories",
+        "kind": "categorical",
+        "ticks": [
+          "Exact",
+          "1+γ/10",
+          "Expected 2"
+        ],
+        "categories": [
+          "Exact",
+          "1+γ/10",
+          "Expected 2"
+        ]
+      },
+      "y": {
+        "label": "Oracle-query order in OPT",
+        "kind": "symbolic",
+        "ticks": [
+          "o(OPT)",
+          "O(OPT)"
+        ],
+        "categories": [
+          "o(OPT)",
+          "O(OPT)"
+        ]
+      },
+      "warning": "Linear-query markers do not give the same constant; labels distinguish ≤2OPT and E[Q]≤OPT. Lower bound forbids sublinear order only at the near-optimal target under Gap-ETH."
+    },
+    "oracle-k": {
+      "x": {
+        "label": "Near-optimal MinDisAgree[k]",
+        "kind": "categorical",
+        "ticks": [
+          "0<ε≤δ"
+        ],
+        "categories": [
+          "0<ε≤δ"
+        ]
+      },
+      "y": {
+        "label": "Oracle-query complexity",
+        "kind": "symbolic",
+        "ticks": [
+          "Ω(k/polylog k)",
+          "O(k¹⁴ log k log n/ε⁶)"
+        ],
+        "categories": [
+          "Ω(k/polylog k)",
+          "O(k¹⁴ log k log n/ε⁶)"
+        ]
+      },
+      "warning": "δ is the unknown positive constant in the ETH theorem. Symbolic spacing expresses a gap, not a numeric exponent."
+    },
+    "memory": {
+      "x": {
+        "label": "Accuracy exponent a: ε=n^(−a)",
+        "kind": "numeric",
+        "domain": [
+          0,
+          0.5
+        ],
+        "openEndpoints": true,
+        "min": 0,
+        "max": 0.5,
+        "ticks": [
+          0,
+          0.5
+        ]
+      },
+      "y": {
+        "label": "Lower-bound query exponent p",
+        "kind": "derived-exponent",
+        "formula": "p=min{1+2a−b/2,3/2−b} for b<0; min{1+2a−2b,3/2−b} for b≥0",
+        "domain": [
+          0,
+          2
+        ],
+        "min": 0,
+        "max": 2,
+        "ticks": [
+          0,
+          0.5,
+          1,
+          1.5,
+          2
+        ]
+      },
+      "parameter": "γ=n^b, −1/2<b<1/2; memory=n^(1/2+b) bits."
+    }
+  },
+  "lowerBoundStatus": "Graph-access multiplicative panel has no same-contract lower bound in this source set. Additive graph-query lower bound is announced with proof deferred. Oracle comparisons include explicitly conditional lower bounds.",
+  "sourceVerification": {
+    "verifiedOn": "2026-10-26",
+    "primaryOnly": true,
+    "sources": [
+      {
+        "sourceId": "garg-2026-query-lb",
+        "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol362-itcs2026/html/LIPIcs.ITCS.2026.67/LIPIcs.ITCS.2026.67.html",
+        "theorems": [
+          {
+            "id": "cc-query-general-garg-lb",
+            "theorem": "ITCS 2026, Introduction, Theorem 3 (informal)",
+            "evidenceStatus": "announced-proof-deferred"
+          },
+          {
+            "id": "cc-query-garg-memory-lb",
+            "theorem": "ITCS 2026, §3, Theorem 1 (formal)",
+            "evidenceStatus": "verified"
+          }
+        ]
+      },
+      {
+        "sourceId": "garciasoriano-2026-cluster-lp",
+        "url": "https://arxiv.org/html/2607.27829v2",
+        "theorems": [
+          {
+            "id": "cc-query-combined-13865",
+            "theorem": "arXiv v2: Theorem 1.3 and paragraph after Corollary 1.4",
+            "evidenceStatus": "verified"
+          }
+        ]
+      },
+      {
+        "sourceId": "cao-2025-sublinear-lp",
+        "url": "https://arxiv.org/html/2503.20883v5",
+        "theorems": [
+          {
+            "id": "cc-query-combined-1485",
+            "theorem": "Corrected arXiv v5: Theorems 1–2, Corollary 3, §2.1",
+            "evidenceStatus": "verified"
+          }
+        ]
+      },
+      {
+        "sourceId": "saha-2019-same-cluster",
+        "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol144-esa2019/LIPIcs.ESA.2019.81/LIPIcs.ESA.2019.81.pdf",
+        "theorems": [
+          {
+            "id": "cc-query-saha-optimal",
+            "theorem": "ESA 2019, Theorem 3.1",
+            "evidenceStatus": "verified"
+          },
+          {
+            "id": "cc-query-saha-two",
+            "theorem": "ESA 2019, Corollary 4.2 (from Theorem 4.1)",
+            "evidenceStatus": "verified"
+          },
+          {
+            "id": "cc-query-saha-conditional-lb",
+            "theorem": "ESA 2019, Hypothesis 5.1, Lemma 5.2, Theorem 5.3",
+            "evidenceStatus": "verified-conditional"
+          }
+        ]
+      },
+      {
+        "sourceId": "ailon-2018-same-cluster",
+        "url": "https://arxiv.org/pdf/1712.06865",
+        "theorems": [
+          {
+            "id": "cc-query-ailon-2018",
+            "theorem": "Author arXiv 1712.06865v1, Theorem 2; §3.2 analysis",
+            "evidenceStatus": "verified"
+          },
+          {
+            "id": "cc-query-ailon-2018-eth-lower",
+            "theorem": "Author arXiv 1712.06865v1, Theorem 3",
+            "evidenceStatus": "verified-conditional"
+          }
+        ]
+      }
+    ]
+  }
+}

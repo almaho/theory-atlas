@@ -1,0 +1,31 @@
+{
+  "id": "edge-query_list",
+  "dataFile": "edge-query_list.json",
+  "javascript": "edge-query_list.js",
+  "css": "edge-query_list.css",
+  "routes": [
+    {
+      "key": "edge-query_list",
+      "sliceId": "edge-query-list-full-output-baseline",
+      "label": "Edge coloring · adjacency lists",
+      "problem": "edge",
+      "model": "query_list",
+      "visible": true
+    },
+    {
+      "key": "edge-query-list-enumerated",
+      "sliceId": "edge-query-adjlist-enumerate-plus-static",
+      "label": "Full scan + static coloring",
+      "problem": "edge",
+      "model": "query_list",
+      "visible": false
+    }
+  ],
+  "canonicalAliases": {
+    "edge-query-list-enumerated": "edge-query_list"
+  },
+  "axisSummary": {
+    "x": "Palette categories with exact symbolic guarantees",
+    "y": "Exact n+2m degree/neighbor queries; computation in theorem details"
+  }
+}

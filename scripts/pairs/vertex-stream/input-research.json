@@ -1,0 +1,1028 @@
+{
+  "problem": "vertex",
+  "model": "stream",
+  "slices": [
+    {
+      "id": "vertex-stream-dynamic-one-pass-delta-plus-one",
+      "problem": "vertex",
+      "model": "stream",
+      "label": "One-pass turnstile stream, explicit (Δ+1) coloring",
+      "task": "Output a proper coloring of the final graph",
+      "assumptions": [
+        "One pass",
+        "Dynamic edge insertion/deletion stream",
+        "Randomized, high probability",
+        "Δ is the maximum degree in the final graph"
+      ],
+      "xAxis": {
+        "label": "Palette slack c in q = Δ + c",
+        "kind": "palette",
+        "min": 0,
+        "max": 8,
+        "ticks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          6,
+          8
+        ]
+      },
+      "yAxis": {
+        "label": "Space exponent p in Õ(n^p) bits",
+        "kind": "exponent",
+        "min": 0,
+        "max": 2,
+        "ticks": [
+          0,
+          0.5,
+          1,
+          1.5,
+          2
+        ],
+        "tickLabels": [
+          "polylog",
+          "√n",
+          "n",
+          "n^{3/2}",
+          "n²"
+        ]
+      },
+      "parameters": {
+        "n": "number of vertices",
+        "Delta": "final maximum degree",
+        "coordinateConvention": "The x coordinate is the additive palette slack c=1. The table retains the exact quality and model assumptions. Ordinal round positions are asymptotic categories."
+      },
+      "results": [
+        {
+          "id": "vertex-stream-ack-2019",
+          "paperId": "assadi-chen-khanna-2019-sublinear-coloring",
+          "kind": "upper",
+          "bound": "Õ(n) space, one pass",
+          "guarantee": "Explicit proper (Δ+1)-coloring with high probability",
+          "sourceLocation": "Theorem 2, Section 4.1",
+          "evidenceStatus": "verified",
+          "frontierStatus": "current_best_verified",
+          "notes": "Dynamic streams allow edge deletions; paper also gives polynomial postprocessing. This is a palette guarantee, not approximation to χ(G).",
+          "plot": {
+            "x": 1,
+            "y": 1,
+            "closure": "upper-right",
+            "strictX": false,
+            "strictY": false,
+            "label": "O resource 1"
+          }
+        }
+      ]
+    },
+    {
+      "id": "vertex-stream-deterministic-multipass-degree-palette",
+      "problem": "vertex",
+      "model": "stream",
+      "label": "Deterministic multipass semi-streaming, linear-in-Δ palette",
+      "task": "Output a proper coloring of the final graph",
+      "assumptions": [
+        "Insertion-only edge stream",
+        "Deterministic algorithm",
+        "Õ(n) bits of space",
+        "Multiple passes"
+      ],
+      "xAxis": {
+        "label": "Palette ratio r = q/Δ",
+        "kind": "palette",
+        "min": 1,
+        "max": 2.25,
+        "ticks": [
+          1,
+          1.25,
+          1.5,
+          1.75,
+          2,
+          2.25
+        ],
+        "tickLabels": [
+          "Δ",
+          "5Δ/4",
+          "3Δ/2",
+          "7Δ/4",
+          "2Δ",
+          "9Δ/4"
+        ]
+      },
+      "yAxis": {
+        "label": "Passes",
+        "kind": "passes",
+        "min": 1,
+        "max": 8,
+        "ticks": [
+          1,
+          2,
+          3,
+          4,
+          6,
+          8
+        ]
+      },
+      "parameters": {
+        "n": "vertices",
+        "Delta": "maximum degree"
+      },
+      "results": [
+        {
+          "id": "vertex-stream-deterministic-odelta-2026",
+          "paperId": "chechik-chen-zhang-2026-streaming",
+          "kind": "upper",
+          "bound": "O(√(log Δ)) passes and Õ(n) bits",
+          "guarantee": "Proper O(Δ)-coloring",
+          "sourceLocation": "ICALP 2026 abstract and main theorem",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "candidate",
+          "notes": "The hidden constant in O(Δ) colors is unspecified; this does not give exactly Δ+1. For Δ+1, Assadi–Chakrabarti–Ghosh–Stoeckl (PODS 2023) provide O(log Δ loglog Δ) passes, cited in the paper. Do not infer a numeric palette ratio.",
+          "plot": null
+        },
+        {
+          "id": "vertex-result-23",
+          "paperId": "assadi-chen-sun-2022-deterministic",
+          "kind": "upper",
+          "bound": "O(log Δ) passes; O(n log n) bits",
+          "guarantee": "Proper O(Δ)-coloring, including dynamic streams",
+          "sourceLocation": "Abstract; main upper-bound theorems",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "historical",
+          "notes": "Earlier degree-linear deterministic tradeoff; ICALP 2026 improves pass count in insertion-only streams.",
+          "plot": null
+        },
+        {
+          "id": "vertex-extended-vertex-stream-deterministic-multipass-degree-palette-16",
+          "paperId": "assadi-chen-sun-2022-deterministic",
+          "kind": "upper",
+          "bound": "2 passes; Õ(n) bits",
+          "guarantee": "Proper O(Δ²)-coloring",
+          "sourceLocation": "Abstract, two-pass upper bound",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "historical",
+          "notes": "Larger palette than O(Δ) result; still a useful pass–palette tradeoff.",
+          "plot": null
+        },
+        {
+          "id": "vertex-extended-vertex-stream-deterministic-multipass-degree-palette-17",
+          "paperId": "assadi-chakrabarti-ghosh-stoeckl-2023-robust",
+          "kind": "upper",
+          "bound": "O(log Δ loglog Δ) passes; Õ(n) bits",
+          "guarantee": "Proper exactly (Δ+1)-coloring",
+          "sourceLocation": "Abstract; deterministic semi-streaming theorem",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "candidate",
+          "notes": "Optimal degree-based palette, with more passes than linear-in-Δ palette algorithms.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "vertex-stream-random-order-chromatic-gap",
+      "problem": "vertex",
+      "model": "stream",
+      "label": "Random-order insertion stream, chromatic-number gap decision",
+      "task": "Distinguish low versus high chromatic number, return a decision rather than explicit colors",
+      "assumptions": [
+        "One-pass random-order edges",
+        "Promise χ(G)≤q versus χ(G)>q^t",
+        "Integers q,t≥2; randomized",
+        "Lower bound applies only to the q vs Ω(q²) separation with q fixed constant"
+      ],
+      "xAxis": {
+        "label": "Palette ratio r = q/Δ",
+        "kind": "palette",
+        "min": 1,
+        "max": 2.25,
+        "ticks": [
+          1,
+          1.25,
+          1.5,
+          1.75,
+          2,
+          2.25
+        ],
+        "tickLabels": [
+          "Δ",
+          "5Δ/4",
+          "3Δ/2",
+          "7Δ/4",
+          "2Δ",
+          "9Δ/4"
+        ]
+      },
+      "yAxis": {
+        "label": "Space exponent p in Õ(n^p) bits",
+        "kind": "exponent",
+        "min": 0,
+        "max": 2,
+        "ticks": [
+          0,
+          0.5,
+          1,
+          1.5,
+          2
+        ],
+        "tickLabels": [
+          "polylog",
+          "√n",
+          "n",
+          "n^{3/2}",
+          "n²"
+        ]
+      },
+      "parameters": {
+        "q": "low-chromatic-number threshold",
+        "t": "gap exponent",
+        "n": "vertices"
+      },
+      "results": [
+        {
+          "id": "vertex-stream-random-order-chromatic-2026",
+          "paperId": "assadi-sundaresan-yazdanyar-2026-streaming-few-colors",
+          "kind": "upper",
+          "bound": "Õ(n^(1+1/t)) space",
+          "guarantee": "Distinguishes q-colorable graphs from graphs not q^t-colorable",
+          "sourceLocation": "Abstract; Theorem 4",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "candidate",
+          "notes": "Promise-decision output; q is a chromatic threshold, never the Δ+1 palette. Random edge order is crucial.",
+          "plot": null
+        },
+        {
+          "id": "vertex-extra-62",
+          "paperId": "assadi-sundaresan-yazdanyar-2026-streaming-few-colors",
+          "kind": "lower",
+          "bound": "Ω(n²) bits for constant q and high-χ threshold Ω(q²)",
+          "guarantee": "Distinguish q-colorability from Ω(q²)-chromatic graphs in random edge order",
+          "sourceLocation": "SODA 2026 abstract, random-order lower-bound statement",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Lower-bound constants in Ω(q²) prevent claiming a pointwise match to the upper bound for arbitrary t.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "vertex-stream-dynamic-chromatic-gap",
+      "problem": "vertex",
+      "model": "stream",
+      "label": "Turnstile stream, chromatic-number gap decision",
+      "task": "Distinguish χ(G)≤q from χ(G)>q·t",
+      "assumptions": [
+        "Edge insertions and deletions",
+        "Promise gap q versus q·t",
+        "q≥3 and t≥1; randomized",
+        "Nonvacuous range q·t≤n when interpreting the high-χ promise"
+      ],
+      "xAxis": {
+        "label": "Palette ratio r = q/Δ",
+        "kind": "palette",
+        "min": 1,
+        "max": 2.25,
+        "ticks": [
+          1,
+          1.25,
+          1.5,
+          1.75,
+          2,
+          2.25
+        ],
+        "tickLabels": [
+          "Δ",
+          "5Δ/4",
+          "3Δ/2",
+          "7Δ/4",
+          "2Δ",
+          "9Δ/4"
+        ]
+      },
+      "yAxis": {
+        "label": "Space exponent p in Õ(n^p) bits",
+        "kind": "exponent",
+        "min": 0,
+        "max": 2,
+        "ticks": [
+          0,
+          0.5,
+          1,
+          1.5,
+          2
+        ],
+        "tickLabels": [
+          "polylog",
+          "√n",
+          "n",
+          "n^{3/2}",
+          "n²"
+        ]
+      },
+      "parameters": {
+        "q": "low-chromatic threshold",
+        "t": "multiplicative separation",
+        "n": "vertices"
+      },
+      "results": [
+        {
+          "id": "vertex-stream-turnstile-chromatic-upper-2026",
+          "paperId": "assadi-sundaresan-yazdanyar-2026-streaming-few-colors",
+          "kind": "upper",
+          "bound": "Õ(n²/t²) space",
+          "guarantee": "Distinguishes q-colorable graphs from graphs not (q·t)-colorable",
+          "sourceLocation": "Abstract; dynamic-stream theorem",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "candidate",
+          "notes": "Nearly matching lower bound in the source, up to suppressed polylogarithmic factors. Decision-only task, not outputting a coloring.",
+          "plot": null
+        },
+        {
+          "id": "vertex-extra-61",
+          "paperId": "assadi-sundaresan-yazdanyar-2026-streaming-few-colors",
+          "kind": "lower",
+          "bound": "Õ-matching Ω̃(n²/t²) bits",
+          "guarantee": "Distinguish χ(G)≤q from χ(G)>qt in dynamic streams",
+          "sourceLocation": "SODA 2026 abstract, upper/lower dynamic-stream results",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Matching up to polylogarithmic factors; q≥3, t≥1, q·t≤n for nonvacuous promise.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "vertex-stream-deterministic-one-pass-lower",
+      "problem": "vertex",
+      "model": "stream",
+      "label": "Deterministic one-pass palette barrier",
+      "task": "Output explicit proper coloring",
+      "assumptions": [
+        "Insertion-only edge stream",
+        "Deterministic, one pass",
+        "Õ(n) bits of working space"
+      ],
+      "xAxis": {
+        "label": "Palette ratio r = q/Δ",
+        "kind": "palette",
+        "min": 1,
+        "max": 2.25,
+        "ticks": [
+          1,
+          1.25,
+          1.5,
+          1.75,
+          2,
+          2.25
+        ],
+        "tickLabels": [
+          "Δ",
+          "5Δ/4",
+          "3Δ/2",
+          "7Δ/4",
+          "2Δ",
+          "9Δ/4"
+        ]
+      },
+      "yAxis": {
+        "label": "Space exponent p in Õ(n^p) bits",
+        "kind": "exponent",
+        "min": 0,
+        "max": 2,
+        "ticks": [
+          0,
+          0.5,
+          1,
+          1.5,
+          2
+        ],
+        "tickLabels": [
+          "polylog",
+          "√n",
+          "n",
+          "n^{3/2}",
+          "n²"
+        ]
+      },
+      "parameters": {
+        "Delta": "maximum degree",
+        "n": "vertices"
+      },
+      "results": [
+        {
+          "id": "vertex-result-26",
+          "paperId": "assadi-chen-sun-2022-deterministic",
+          "kind": "lower",
+          "bound": "No Õ(n)-space deterministic one-pass coloring with exp(Δ^{o(1)}) colors",
+          "guarantee": "Proper explicit coloring with a subpolynomial exponent in Δ palette",
+          "sourceLocation": "Result 1 and Corollary 4.7",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Formal theorem rules out exp(Δ^{o(1)}) colors; it does not establish a bound of exp(Ω(Δ)) colors.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "vertex-stream-robust-incremental",
+      "problem": "vertex",
+      "model": "stream",
+      "label": "Adaptive-output robust stream: palette versus space",
+      "task": "Maintain a proper coloring visible after each insertion",
+      "assumptions": [
+        "Insertion-only edge stream",
+        "Updates may react to previously output colors",
+        "Adversarial robustness",
+        "Degree bounded by Δ"
+      ],
+      "xAxis": {
+        "label": "Palette ratio r = q/Δ",
+        "kind": "palette",
+        "min": 1,
+        "max": 2.25,
+        "ticks": [
+          1,
+          1.25,
+          1.5,
+          1.75,
+          2,
+          2.25
+        ],
+        "tickLabels": [
+          "Δ",
+          "5Δ/4",
+          "3Δ/2",
+          "7Δ/4",
+          "2Δ",
+          "9Δ/4"
+        ]
+      },
+      "yAxis": {
+        "label": "Space exponent p in Õ(n^p) bits",
+        "kind": "exponent",
+        "min": 0,
+        "max": 2,
+        "ticks": [
+          0,
+          0.5,
+          1,
+          1.5,
+          2
+        ],
+        "tickLabels": [
+          "polylog",
+          "√n",
+          "n",
+          "n^{3/2}",
+          "n²"
+        ]
+      },
+      "parameters": {
+        "n": "vertices",
+        "Delta": "maximum degree"
+      },
+      "results": [
+        {
+          "id": "vertex-result-27",
+          "paperId": "chakrabarti-ghosh-stoeckl-2022-robust",
+          "kind": "lower",
+          "bound": "Ω(nΔ) space for robust O(Δ)-coloring; almost Ω(Δ²) colors necessary with Õ(n) space",
+          "guarantee": "Adaptive-output robust coloring throughout the stream",
+          "sourceLocation": "ITCS 2022 abstract; tradeoff lower-bound theorem",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "candidate",
+          "notes": "Two distinct lower-bound regimes from the same work; no two-dimensional shaded region because hidden constants/logarithms affect exact boundary.",
+          "plot": null
+        },
+        {
+          "id": "vertex-extended-vertex-stream-robust-incremental-37",
+          "paperId": "chakrabarti-ghosh-stoeckl-2022-robust",
+          "kind": "upper",
+          "bound": "Õ(n) space; O(Δ³) colors",
+          "guarantee": "Adaptive-output robust proper coloring",
+          "sourceLocation": "ITCS 2022 abstract, positive results",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "historical",
+          "notes": "Superseded in palette by PODS 2023 at similar semi-streaming space.",
+          "plot": null
+        },
+        {
+          "id": "vertex-extended-vertex-stream-robust-incremental-38",
+          "paperId": "chakrabarti-ghosh-stoeckl-2022-robust",
+          "kind": "upper",
+          "bound": "Õ(n√Δ) space; O(Δ²) colors",
+          "guarantee": "Adaptive-output robust proper coloring",
+          "sourceLocation": "ITCS 2022 abstract, positive results",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "historical",
+          "notes": "Different point in space/palette tradeoff.",
+          "plot": null
+        },
+        {
+          "id": "vertex-extended-vertex-stream-robust-incremental-39",
+          "paperId": "assadi-chakrabarti-ghosh-stoeckl-2023-robust",
+          "kind": "upper",
+          "bound": "Õ(n) space; O(Δ^(5/2)) colors",
+          "guarantee": "Adaptive-output robust proper coloring",
+          "sourceLocation": "PODS 2023 abstract, robust semi-streaming theorem",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "candidate",
+          "notes": "Improves the O(Δ³) colors point; lower bound remains widely separated.",
+          "plot": null
+        },
+        {
+          "id": "vertex-extended-vertex-stream-robust-incremental-40",
+          "paperId": "assadi-chakrabarti-ghosh-stoeckl-2023-robust",
+          "kind": "upper",
+          "bound": "Space/palette tradeoff; Õ(n Δ^(1/3)) for Õ(Δ²) colors and Õ(n√Δ) for Õ(Δ^(7/4)) colors",
+          "guarantee": "Adaptive-output robust proper coloring",
+          "sourceLocation": "PODS 2023 abstract, tradeoff results",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "candidate",
+          "notes": "Both are examples of the theorem; no numeric shading without full parameter quantifiers.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "vertex-stream-insertion-near-delta",
+      "problem": "vertex",
+      "model": "stream",
+      "label": "One-pass insertion stream, degree-near palette",
+      "task": "Output explicit proper coloring",
+      "assumptions": [
+        "Insertion-only edges in adversarial order",
+        "Randomized, high probability",
+        "Constant ε>0",
+        "Space measured in words up to polylog factors"
+      ],
+      "xAxis": {
+        "label": "Palette ratio r = q/Δ",
+        "kind": "palette",
+        "min": 1,
+        "max": 2.25,
+        "ticks": [
+          1,
+          1.25,
+          1.5,
+          1.75,
+          2,
+          2.25
+        ],
+        "tickLabels": [
+          "Δ",
+          "5Δ/4",
+          "3Δ/2",
+          "7Δ/4",
+          "2Δ",
+          "9Δ/4"
+        ]
+      },
+      "yAxis": {
+        "label": "Space exponent p in Õ(n^p) bits",
+        "kind": "exponent",
+        "min": 0,
+        "max": 2,
+        "ticks": [
+          0,
+          0.5,
+          1,
+          1.5,
+          2
+        ],
+        "tickLabels": [
+          "polylog",
+          "√n",
+          "n",
+          "n^{3/2}",
+          "n²"
+        ]
+      },
+      "parameters": {
+        "Delta": "maximum degree",
+        "epsilon": "fixed positive constant"
+      },
+      "results": [
+        {
+          "id": "vertex-result-32",
+          "paperId": "bera-ghosh-2018-color-stream",
+          "kind": "upper",
+          "bound": "O(ε^−1 n polylog n) space; one pass",
+          "guarantee": "Proper (1+ε)Δ-coloring",
+          "sourceLocation": "Abstract, first algorithm",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "historical",
+          "notes": "For small Δ, integer palette rounding and relation to Δ+1 must be kept explicit.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "vertex-stream-brooks",
+      "problem": "vertex",
+      "model": "stream",
+      "label": "One-pass semi-streaming at and below Brooks palette",
+      "task": "Output explicit colors or certify non-colorability",
+      "assumptions": [
+        "Insertion-only stream",
+        "Randomized, high probability",
+        "Potential clique/odd-cycle obstruction for Δ colors"
+      ],
+      "xAxis": {
+        "label": "Palette ratio r = q/Δ",
+        "kind": "palette",
+        "min": 1,
+        "max": 2.25,
+        "ticks": [
+          1,
+          1.25,
+          1.5,
+          1.75,
+          2,
+          2.25
+        ],
+        "tickLabels": [
+          "Δ",
+          "5Δ/4",
+          "3Δ/2",
+          "7Δ/4",
+          "2Δ",
+          "9Δ/4"
+        ]
+      },
+      "yAxis": {
+        "label": "Space exponent p in Õ(n^p) bits",
+        "kind": "exponent",
+        "min": 0,
+        "max": 2,
+        "ticks": [
+          0,
+          0.5,
+          1,
+          1.5,
+          2
+        ],
+        "tickLabels": [
+          "polylog",
+          "√n",
+          "n",
+          "n^{3/2}",
+          "n²"
+        ]
+      },
+      "parameters": {
+        "Delta": "maximum degree",
+        "n": "vertices"
+      },
+      "results": [
+        {
+          "id": "vertex-result-33",
+          "paperId": "assadi-kumar-mittal-2022-brooks",
+          "kind": "upper",
+          "bound": "Õ(n) space; one pass",
+          "guarantee": "Either return a proper Δ-coloring or correctly declare graph is not Δ-colorable",
+          "sourceLocation": "STOC 2022 abstract, main theorem",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "candidate",
+          "notes": "This Δ result is separate from Δ+1 on arbitrary graphs; it handles Brooks exceptions explicitly.",
+          "plot": null
+        },
+        {
+          "id": "vertex-extended-vertex-stream-brooks-43",
+          "paperId": "flin-halldorsson-2026-beyond-brooks",
+          "kind": "upper",
+          "bound": "Õ(n) space; one pass",
+          "guarantee": "Proper (Δ−1)-coloring for Δ≥10^14 and no Δ-clique",
+          "sourceLocation": "ICALP 2026 abstract, main theorem",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "candidate",
+          "notes": "Graph-class and very-large-degree promise matter; this does not color all graphs.",
+          "plot": null
+        },
+        {
+          "id": "vertex-extended-vertex-stream-brooks-44",
+          "paperId": "flin-halldorsson-2026-beyond-brooks",
+          "kind": "lower",
+          "bound": "Ω(n(k+1)) space for any one-pass (Δ−k)-coloring, 0≤k<(Δ+1)/2",
+          "guarantee": "Generic guarantee with Δ−k colors",
+          "sourceLocation": "ICALP 2026 abstract, lower-bound theorem",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "candidate",
+          "notes": "Specializing k=0 gives Ω(n), matching semi-streaming Δ-coloring in n dependence; ensure graph family/parameter quantifiers from full theorem.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "vertex-stream-degeneracy",
+      "problem": "vertex",
+      "model": "stream",
+      "label": "Degeneracy κ palette, one-pass tradeoff",
+      "task": "Output explicit proper coloring",
+      "assumptions": [
+        "Graph degeneracy κ(G)",
+        "One-pass dynamic edge insertion/deletion stream for upper bound",
+        "One-pass insertion-only streams suffice for lower bound",
+        "Randomized high-probability upper; randomized constant-success lower"
+      ],
+      "xAxis": {
+        "label": "Palette ratio r = q/Δ",
+        "kind": "palette",
+        "min": 1,
+        "max": 2.25,
+        "ticks": [
+          1,
+          1.25,
+          1.5,
+          1.75,
+          2,
+          2.25
+        ],
+        "tickLabels": [
+          "Δ",
+          "5Δ/4",
+          "3Δ/2",
+          "7Δ/4",
+          "2Δ",
+          "9Δ/4"
+        ]
+      },
+      "yAxis": {
+        "label": "Space exponent p in Õ(n^p) bits",
+        "kind": "exponent",
+        "min": 0,
+        "max": 2,
+        "ticks": [
+          0,
+          0.5,
+          1,
+          1.5,
+          2
+        ],
+        "tickLabels": [
+          "polylog",
+          "√n",
+          "n",
+          "n^{3/2}",
+          "n²"
+        ]
+      },
+      "parameters": {
+        "kappa": "graph degeneracy"
+      },
+      "results": [
+        {
+          "id": "vertex-result-36",
+          "paperId": "bera-chakrabarti-ghosh-2020-degeneracy",
+          "kind": "upper",
+          "bound": "O(ε^−2 n log^4 n) bits; one pass; Õ(n) when ε=1/log n",
+          "guarantee": "Proper at most (1+O(ε))κ coloring, in particular κ+o(κ)",
+          "sourceLocation": "Theorem 10, Section 4.2",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Turnstile stream; graph produced at end; source has Õ(1) per-update and Õ(n) postprocessing. Lower bound holds even in insertion-only streams.",
+          "plot": null
+        },
+        {
+          "id": "vertex-extended-vertex-stream-degeneracy-46",
+          "paperId": "bera-chakrabarti-ghosh-2020-degeneracy",
+          "kind": "lower",
+          "bound": "Ω(n²/λ²) bits for a (κ+λ)-coloring, integer λ>1",
+          "guarantee": "Any randomized one-pass κ+λ coloring with success probability ≥2/3",
+          "sourceLocation": "Theorems 20–21",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Applies even if κ known in advance and even on insertion-only streams; λ=O(1) gives Ω(n²).",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "vertex-stream-degree-one-list",
+      "problem": "vertex",
+      "model": "stream",
+      "label": "One-pass dynamic stream, degree+1 list coloring",
+      "task": "Output a proper global list coloring",
+      "assumptions": [
+        "Dynamic edge insertions and deletions",
+        "Vertex v has a list of deg(v)+1 admissible colors",
+        "Randomized, semi-streaming"
+      ],
+      "xAxis": {
+        "label": "Palette ratio r = q/Δ",
+        "kind": "palette",
+        "min": 1,
+        "max": 2.25,
+        "ticks": [
+          1,
+          1.25,
+          1.5,
+          1.75,
+          2,
+          2.25
+        ],
+        "tickLabels": [
+          "Δ",
+          "5Δ/4",
+          "3Δ/2",
+          "7Δ/4",
+          "2Δ",
+          "9Δ/4"
+        ]
+      },
+      "yAxis": {
+        "label": "Space exponent p in Õ(n^p) bits",
+        "kind": "exponent",
+        "min": 0,
+        "max": 2,
+        "ticks": [
+          0,
+          0.5,
+          1,
+          1.5,
+          2
+        ],
+        "tickLabels": [
+          "polylog",
+          "√n",
+          "n",
+          "n^{3/2}",
+          "n²"
+        ]
+      },
+      "parameters": {
+        "d_v": "degree of vertex v"
+      },
+      "results": [
+        {
+          "id": "vertex-result-39",
+          "paperId": "halldorsson-kuhn-nolin-tonoyan-2022-degree",
+          "kind": "upper",
+          "bound": "Õ(n) bits; one pass",
+          "guarantee": "Proper degree+1 list coloring",
+          "sourceLocation": "STOC 2022 abstract, palette-sparsification consequence",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "candidate",
+          "notes": "Stronger palette/list task than globally shared Δ+1; source names dynamic streams.",
+          "plot": null
+        }
+      ]
+    }
+  ],
+  "papers": [
+    {
+      "id": "assadi-chen-khanna-2019-sublinear-coloring",
+      "title": "Sublinear Algorithms for (Δ+1) Vertex Coloring",
+      "authors": [
+        "Sepehr Assadi",
+        "Yu Chen",
+        "Sanjeev Khanna"
+      ],
+      "year": 2019,
+      "venue": "SODA 2019",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1807.08886",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "chechik-chen-zhang-2026-streaming",
+      "title": "Faster Deterministic Streaming Vertex Coloring",
+      "authors": [
+        "Shiri Chechik",
+        "Hongyi Chen",
+        "Tianyi Zhang"
+      ],
+      "year": 2026,
+      "venue": "ICALP 2026",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2026.56",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "assadi-sundaresan-yazdanyar-2026-streaming-few-colors",
+      "title": "Coloring Graphs with Few Colors in the Streaming Model",
+      "authors": [
+        "Sepehr Assadi",
+        "Janani Sundaresan",
+        "Helia Yazdanyar"
+      ],
+      "year": 2026,
+      "venue": "SODA 2026",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2510.18177",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "bera-ghosh-2018-color-stream",
+      "title": "Coloring in Graph Streams",
+      "authors": [
+        "Suman Kalyan Bera",
+        "Prantar Ghosh"
+      ],
+      "year": 2018,
+      "venue": "arXiv",
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/abs/1807.07640",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "bera-chakrabarti-ghosh-2020-degeneracy",
+      "title": "Graph Coloring via Degeneracy in Streaming and Other Space-Conscious Models",
+      "authors": [
+        "Suman K. Bera",
+        "Amit Chakrabarti",
+        "Prantar Ghosh"
+      ],
+      "year": 2020,
+      "venue": "ICALP 2020",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2020.11",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "assadi-chen-sun-2022-deterministic",
+      "title": "Deterministic Graph Coloring in the Streaming Model",
+      "authors": [
+        "Sepehr Assadi",
+        "Andrew Chen",
+        "Glenn Sun"
+      ],
+      "year": 2022,
+      "venue": "STOC 2022",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2109.14891",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "assadi-chakrabarti-ghosh-stoeckl-2023-robust",
+      "title": "Coloring in Graph Streams via Deterministic and Adversarially Robust Algorithms",
+      "authors": [
+        "Sepehr Assadi",
+        "Amit Chakrabarti",
+        "Prantar Ghosh",
+        "Manuel Stoeckl"
+      ],
+      "year": 2023,
+      "venue": "PODS 2023",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2212.10641",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "chakrabarti-ghosh-stoeckl-2022-robust",
+      "title": "Adversarially Robust Coloring for Graph Streams",
+      "authors": [
+        "Amit Chakrabarti",
+        "Prantar Ghosh",
+        "Manuel Stoeckl"
+      ],
+      "year": 2022,
+      "venue": "ITCS 2022",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ITCS.2022.37",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "assadi-kumar-mittal-2022-brooks",
+      "title": "Brooks’ Theorem in Graph Streams: A Single-Pass Semi-Streaming Algorithm for Δ-Coloring",
+      "authors": [
+        "Sepehr Assadi",
+        "Pankaj Kumar",
+        "Parth Mittal"
+      ],
+      "year": 2022,
+      "venue": "STOC 2022",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2203.10984",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "flin-halldorsson-2026-beyond-brooks",
+      "title": "Beyond Brooks: (Δ−1)-Coloring in Semi-Streaming",
+      "authors": [
+        "Maxime Flin",
+        "Magnús M. Halldórsson"
+      ],
+      "year": 2026,
+      "venue": "ICALP 2026",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2605.07774",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "halldorsson-kuhn-nolin-tonoyan-2022-degree",
+      "title": "Near-Optimal Distributed Degree+1 Coloring",
+      "authors": [
+        "Magnús M. Halldórsson",
+        "Fabian Kuhn",
+        "Alexandre Nolin",
+        "Tigran Tonoyan"
+      ],
+      "year": 2022,
+      "venue": "STOC 2022",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2112.00604",
+      "verifiedOn": "2026-09-27"
+    }
+  ]
+}

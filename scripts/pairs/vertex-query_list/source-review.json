@@ -1,0 +1,55 @@
+{
+  "pair": "vertex-query_list",
+  "reviewedOn": "2026-10-27",
+  "boundedSources": 1,
+  "originalRecords": 1,
+  "preservedResultIds": [
+    "vertex-query-list-greedy"
+  ],
+  "primaryEvidence": [
+    {
+      "sourceId": "ferber-hardiman-chen-2025-sublinear-coloring",
+      "url": "https://arxiv.org/html/2502.06024#S1",
+      "verifiedOn": "2026-10-27",
+      "locations": [
+        "§1 neighborhood-query definition",
+        "§1 greedy baseline",
+        "Table 1",
+        "g(Δ)=nΔ before Corollary 2"
+      ],
+      "notes": "Neighbor-only deterministic scan. Broader source results using adjacency queries and quantum access are outside this pair."
+    }
+  ],
+  "versionEvidence": "The HTML displays arXiv:2502.06024v1 (9 February 2025) and an internal manuscript date of 24 August 2026. The abstract history lists only v1; no later revision number is asserted.",
+  "scope": {
+    "graph": "Undirected simple graph with known labeled vertex set [n], n≥1, m edges, maximum degree Δ.",
+    "access": "Neighbor(v,j) returns the j-th neighbor in a fixed arbitrary ordering, or ⊥ when j>d(v).",
+    "output": "An explicit color for every vertex; n vertex–color assignments.",
+    "correctness": "Deterministic; correct on every input satisfying the graph and oracle promises."
+  },
+  "derivations": {
+    "queryCount": "Sum of undirected degrees is 2m; add one list-end test per known vertex.",
+    "time": "Timestamp marks and scanning for an available color cost O(d(v)+1) per vertex.",
+    "palette": "Previously colored neighbors forbid at most d(v) colors.",
+    "bounds": "2m≤nΔ and Δ≤n−1 yield n+2m≤n(Δ+1)≤n²."
+  },
+  "corrections": [
+    {
+      "id": "vertex-query-list-greedy",
+      "change": "Replaced a forced quadratic-exponent point with exact n+2m neighbor calls. Retained O(nΔ) as the source's coarse Δ≥1 convention; added end tests and isolated-vertex accounting."
+    }
+  ],
+  "noLowerTransfer": "No applicable neighbor-only query lower bound is verified by this bounded one-record review. No matrix, combined-access or quantum lower bound is transferred.",
+  "excluded": [
+    "Matrix/combined-access randomized and quantum algorithms from the paper are not plotted in this neighbor-only deterministic baseline.",
+    "No claim that n+2m is necessary for arbitrary coloring algorithms.",
+    "No assumed degree oracle, known Δ, or hidden list-length metadata."
+  ],
+  "unresolvedFactualIssues": [],
+  "validation": {
+    "isolatedTests": "Passed: 12 viewport sizes; all 1,099 labeled simple graphs with 1≤n≤5 verify exact n+2m calls, n end tests and proper Δ+1 coloring; source filtering, keyboard inspector and lifecycle.",
+    "schema": "In-memory build.validate/load_pairs overlay passed: 231 papers, 151 slices, 406 results and 30 registered pairs.",
+    "staticVisuals": "738×548 detail and 330×245 compact inspected in light/dark; overview is textless. CSS provides horizontal scrolling for a 360px focus container.",
+    "pending": "Root shared integration, live browser QA, output refresh and completion notification."
+  }
+}

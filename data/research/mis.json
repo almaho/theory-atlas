@@ -1,0 +1,4677 @@
+{
+  "problem": "mis",
+  "reviewedThrough": "2026-10-20",
+  "searchSummary": "Expanded primary-source survey through 2026-09-27. Inclusion-maximal independent set, maximum-cardinality independent set, lexicographically first MIS, and cardinality estimation have different outputs. Dynamic adversary, stream order and passes, LCA oracle and random seed, LOCAL elapsed/awake rounds, MPC local/global memory, graph classes and matrix/list access remain separated. Historical papers and incomparable bounds are visible; symbolic expressions are not converted to invented numeric regions. This is a substantial curated collection, not a claim of exhaustive coverage of every restricted graph family.",
+  "coverage": [
+    {
+      "model": "dynamic",
+      "status": "researched",
+      "note": "Centralized deterministic, oblivious randomized, adaptive incremental conditional hardness, and parallel batch update are separated. Dynamic distributed messages/rounds and vertex updates remain outside this survey."
+    },
+    {
+      "model": "stream",
+      "status": "researched",
+      "note": "Exact MIS in edge- and vertex-arrival streams; p-pass space tradeoff and lexicographically first MIS have separate tasks. Maximum independent set and approximate maximality are not conflated."
+    },
+    {
+      "model": "lca",
+      "status": "researched",
+      "note": "Bounded-degree randomized and stateless deterministic consistent membership, later Δ-sensitive LCA and random-graph joint generation. Lower bounds for exact LCA membership need further review."
+    },
+    {
+      "model": "local",
+      "status": "researched",
+      "note": "Classic randomized upper/lower, degree-sensitive bounds, deterministic network decomposition progression, and sleeping awake-complexity side measure. Specialized classes omitted."
+    },
+    {
+      "model": "mpc",
+      "status": "researched",
+      "note": "Linear-memory general graph and strongly sublinear local-memory settings including arboricity and tree restrictions; component-stability conditional hardness retained separately."
+    },
+    {
+      "model": "query_list",
+      "status": "researched",
+      "note": "Adjacency-list/array slices are separated below; inspect each oracle and output assumption."
+    },
+    {
+      "model": "query_matrix",
+      "status": "researched",
+      "note": "Adjacency-matrix slices are separated below; inspect pair-query and output assumptions."
+    },
+    {
+      "model": "query_combined",
+      "status": "not_assessed",
+      "note": "No scoped records assigned to this access category yet."
+    }
+  ],
+  "papers": [
+    {
+      "id": "chechik-zhang-2019-dynamic-mis",
+      "title": "Fully Dynamic Maximal Independent Set in Expected Poly-Log Update Time",
+      "authors": [
+        "Shiri Chechik",
+        "Tianyi Zhang"
+      ],
+      "year": 2019,
+      "venue": "FOCS 2019",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1909.03445",
+      "verifiedOn": "2026-10-20",
+      "fullTextUrl": "https://arxiv.org/html/1909.03445v2"
+    },
+    {
+      "id": "behnezhad-et-al-2019-dynamic-mis",
+      "title": "Fully Dynamic Maximal Independent Set with Polylogarithmic Update Time",
+      "authors": [
+        "Soheil Behnezhad",
+        "Mahsa Derakhshan",
+        "MohammadTaghi Hajiaghayi",
+        "Cliff Stein",
+        "Madhu Sudan"
+      ],
+      "year": 2019,
+      "venue": "FOCS 2019",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1909.03478",
+      "verifiedOn": "2026-10-20",
+      "fullTextUrl": "https://arxiv.org/html/1909.03478v1"
+    },
+    {
+      "id": "assadi-et-al-2024-stream-mis",
+      "title": "O(log log n) Passes is Optimal for Semi-Streaming Maximal Independent Set",
+      "authors": [
+        "Sepehr Assadi",
+        "Christian Konrad",
+        "Kheeran K. Naidu",
+        "Janani Sundaresan"
+      ],
+      "year": 2024,
+      "venue": "STOC 2024",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2312.13178",
+      "verifiedOn": "2026-10-20",
+      "fullTextUrl": "https://arxiv.org/pdf/2312.13178",
+      "publicationUrl": "https://acm-stoc.org/stoc2024/toc.html"
+    },
+    {
+      "id": "ghaffari-2022-lca-mis",
+      "title": "Local Computation of Maximal Independent Set",
+      "authors": [
+        "Mohsen Ghaffari"
+      ],
+      "year": 2022,
+      "venue": "FOCS 2022",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2210.01104",
+      "verifiedOn": "2026-10-20",
+      "fullTextUrl": "https://arxiv.org/html/2210.01104v1"
+    },
+    {
+      "id": "ghaffari-et-al-2018-mpc-mis",
+      "title": "Improved Massively Parallel Computation Algorithms for MIS, Matching, and Vertex Cover",
+      "authors": [
+        "Mohsen Ghaffari",
+        "Themis Gouleakis",
+        "Christian Konrad",
+        "Slobodan Mitrović",
+        "Ronitt Rubinfeld"
+      ],
+      "year": 2018,
+      "venue": "PODC 2018",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1802.08237",
+      "verifiedOn": "2026-10-26"
+    },
+    {
+      "id": "ghaffari-grunau-2024-local-mis",
+      "title": "Near-Optimal Deterministic Network Decomposition and Ruling Set, and Improved MIS",
+      "authors": [
+        "Mohsen Ghaffari",
+        "Christoph Grunau"
+      ],
+      "year": 2024,
+      "venue": "FOCS 2024",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2410.19516",
+      "verifiedOn": "2026-10-26",
+      "fullTextUrl": "https://arxiv.org/html/2410.19516v1"
+    },
+    {
+      "id": "ghaffari-2016-local-mis",
+      "title": "An Improved Distributed Algorithm for Maximal Independent Set",
+      "authors": [
+        "Mohsen Ghaffari"
+      ],
+      "year": 2016,
+      "venue": "SODA 2016",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1506.05093",
+      "verifiedOn": "2026-10-26",
+      "fullTextUrl": "https://arxiv.org/pdf/1506.05093"
+    },
+    {
+      "id": "czumaj-davies-peck-parter-2024-mpc",
+      "title": "Component stability in low-space massively parallel computation",
+      "authors": [
+        "Artur Czumaj",
+        "Peter Davies-Peck",
+        "Merav Parter"
+      ],
+      "year": 2024,
+      "venue": "Distributed Computing 37 (2024)",
+      "publicationStatus": "journal",
+      "url": "https://link.springer.com/article/10.1007/s00446-024-00461-9",
+      "verifiedOn": "2026-10-26"
+    },
+    {
+      "id": "mahabadi-et-al-2026-matrix-mis-size",
+      "title": "Sublinear Metric Steiner Forest via Maximal Independent Set",
+      "authors": [
+        "Sepideh Mahabadi",
+        "Mohammad Roghani",
+        "Jakub Tarnawski",
+        "Ali Vakilian"
+      ],
+      "year": 2026,
+      "venue": "SODA 2026",
+      "publicationStatus": "conference",
+      "url": "https://epubs.siam.org/doi/10.1137/1.9781611978971.211",
+      "verifiedOn": "2026-10-26",
+      "shortLabel": "Mahabadi et al. 2026",
+      "fullTextUrl": "https://arxiv.org/pdf/2510.11627v1",
+      "publicationUrl": "https://epubs.siam.org/doi/10.1137/1.9781611978971.211",
+      "verificationVersion": "Author manuscript arXiv:2510.11627v1; SODA 2026 publication confirmed by SIAM and author publication list"
+    },
+    {
+      "id": "assadi-solomon-2019-query-mis",
+      "title": "When Algorithms for Maximal Independent Set and Maximal Matching Run in Sublinear Time",
+      "authors": [
+        "Sepehr Assadi",
+        "Shay Solomon"
+      ],
+      "year": 2019,
+      "venue": "ICALP 2019",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2019.17",
+      "verifiedOn": "2026-10-26",
+      "shortLabel": "Assadi–Solomon 2019",
+      "fullTextUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol132-icalp2019/LIPIcs.ICALP.2019.17/LIPIcs.ICALP.2019.17.pdf",
+      "publicationUrl": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2019.17"
+    },
+    {
+      "id": "ahn-et-al-2015-stream-mis",
+      "title": "Correlation Clustering in Data Streams",
+      "authors": [
+        "Kook Jin Ahn",
+        "Graham Cormode",
+        "Sudipto Guha",
+        "Andrew McGregor",
+        "Anthony Wirth"
+      ],
+      "year": 2015,
+      "venue": "ICML 2015",
+      "publicationStatus": "conference",
+      "url": "https://proceedings.mlr.press/v37/ahn15.html",
+      "verifiedOn": "2026-10-20",
+      "fullTextUrl": "https://proceedings.mlr.press/v37/ahn15.pdf"
+    },
+    {
+      "id": "bernstein-et-al-2026-dynamic-separation",
+      "title": "Separations between Oblivious and Adaptive Adversaries for Natural Dynamic Graph Problems",
+      "authors": [
+        "Aaron Bernstein",
+        "Sayan Bhattacharya",
+        "Nick Fischer",
+        "Peter Kiss",
+        "Thatchaphol Saranurak"
+      ],
+      "year": 2026,
+      "venue": "SODA 2026",
+      "publicationStatus": "conference",
+      "url": "https://epubs.siam.org/doi/10.1137/1.9781611978971.202",
+      "verifiedOn": "2026-10-20",
+      "fullTextUrl": "https://arxiv.org/html/2510.20341v1"
+    },
+    {
+      "id": "assadi-onak-schieber-solomon-2018-dynamic",
+      "title": "Fully Dynamic Maximal Independent Set with Sublinear Update Time",
+      "authors": [
+        "Sepehr Assadi",
+        "Krzysztof Onak",
+        "Baruch Schieber",
+        "Shay Solomon"
+      ],
+      "year": 2018,
+      "venue": "STOC 2018",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1802.09709",
+      "verifiedOn": "2026-10-20",
+      "fullTextUrl": "https://arxiv.org/html/1802.09709v1"
+    },
+    {
+      "id": "gupta-khan-2021-simple-dynamic",
+      "title": "Simple Dynamic Algorithms for Maximal Independent Set, Maximum Flow and Maximum Matching",
+      "authors": [
+        "Manoj Gupta",
+        "Shahbaz Khan"
+      ],
+      "year": 2021,
+      "venue": "SOSA 2021",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1804.01823",
+      "verifiedOn": "2026-10-20",
+      "fullTextUrl": "https://arxiv.org/html/1804.01823v2"
+    },
+    {
+      "id": "du-zhang-2018-dynamic",
+      "title": "Improved Algorithms for Fully Dynamic Maximal Independent Set",
+      "authors": [
+        "Yuhao Du",
+        "Hengjie Zhang"
+      ],
+      "year": 2018,
+      "venue": "arXiv 2018",
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/abs/1804.08908",
+      "verifiedOn": "2026-10-20",
+      "fullTextUrl": "https://arxiv.org/html/1804.08908v1"
+    },
+    {
+      "id": "assadi-onak-schieber-solomon-2019-dynamic",
+      "title": "Fully Dynamic Maximal Independent Set with Sublinear in n Update Time",
+      "authors": [
+        "Sepehr Assadi",
+        "Krzysztof Onak",
+        "Baruch Schieber",
+        "Shay Solomon"
+      ],
+      "year": 2019,
+      "venue": "SODA 2019",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1806.10051",
+      "verifiedOn": "2026-10-20",
+      "fullTextUrl": "https://arxiv.org/html/1806.10051v1"
+    },
+    {
+      "id": "gupta-khan-surendra-2026-dynamic",
+      "title": "Dynamic MIS Revisited: Incremental, Fault Tolerant and Fully Dynamic",
+      "authors": [
+        "Manoj Gupta",
+        "Shahbaz Khan",
+        "Madhu Surendra"
+      ],
+      "year": 2026,
+      "venue": "SWAT 2026",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.SWAT.2026.21",
+      "verifiedOn": "2026-10-20",
+      "fullTextUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol370-swat2026/html/LIPIcs.SWAT.2026.21/LIPIcs.SWAT.2026.21.html"
+    },
+    {
+      "id": "blelloch-et-al-2026-batch-dynamic",
+      "title": "Parallel Batch-Dynamic Maximal Independent Set",
+      "authors": [
+        "Guy E. Blelloch",
+        "Andrew Brady",
+        "Laxman Dhulipala",
+        "Jeremy Fineman",
+        "Jared Lo"
+      ],
+      "year": 2026,
+      "venue": "arXiv 2026",
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/abs/2604.07515",
+      "verifiedOn": "2026-10-20",
+      "fullTextUrl": "https://arxiv.org/html/2604.07515v1"
+    },
+    {
+      "id": "cormode-dark-konrad-2019-stream",
+      "title": "Independent Sets in Vertex-Arrival Streams",
+      "authors": [
+        "Graham Cormode",
+        "Jacques Dark",
+        "Christian Konrad"
+      ],
+      "year": 2019,
+      "venue": "ICALP 2019",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2019.45",
+      "verifiedOn": "2026-10-20",
+      "fullTextUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol132-icalp2019/LIPIcs.ICALP.2019.45/LIPIcs.ICALP.2019.45.pdf"
+    },
+    {
+      "id": "assadi-chen-khanna-2019-polynomial-passes",
+      "title": "Polynomial Pass Lower Bounds for Graph Streaming Algorithms",
+      "authors": [
+        "Sepehr Assadi",
+        "Yu Chen",
+        "Sanjeev Khanna"
+      ],
+      "year": 2019,
+      "venue": "STOC 2019",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1904.04720",
+      "verifiedOn": "2026-10-20",
+      "fullTextUrl": "https://arxiv.org/pdf/1904.04720",
+      "publicationUrl": "https://doi.org/10.1145/3313276.3316361"
+    },
+    {
+      "id": "rubinfeld-tamir-vardi-xie-2011-lca",
+      "title": "Fast Local Computation Algorithms",
+      "authors": [
+        "Ronitt Rubinfeld",
+        "Gil Tamir",
+        "Shai Vardi",
+        "Ning Xie"
+      ],
+      "year": 2011,
+      "venue": "ICS 2011",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1104.1377",
+      "verifiedOn": "2026-10-20",
+      "fullTextUrl": "https://arxiv.org/html/1104.1377v1"
+    },
+    {
+      "id": "alon-rubinfeld-vardi-xie-2012-lca",
+      "title": "Space-Efficient Local Computation Algorithms",
+      "authors": [
+        "Noga Alon",
+        "Ronitt Rubinfeld",
+        "Shai Vardi",
+        "Ning Xie"
+      ],
+      "year": 2012,
+      "venue": "SODA 2012",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1109.6178",
+      "verifiedOn": "2026-10-20",
+      "fullTextUrl": "https://arxiv.org/html/1109.6178v2"
+    },
+    {
+      "id": "even-medina-ron-2018-local",
+      "title": "Best of Two Local Models: Local Centralized and Local Distributed Algorithms",
+      "authors": [
+        "Guy Even",
+        "Moti Medina",
+        "Dana Ron"
+      ],
+      "year": 2018,
+      "venue": "Information and Computation 2018",
+      "publicationStatus": "journal",
+      "url": "https://arxiv.org/abs/1402.3796",
+      "verifiedOn": "2026-10-20",
+      "fullTextUrl": "https://arxiv.org/html/1402.3796v3"
+    },
+    {
+      "id": "levi-rubinfeld-yodpinyanee-2017-lca",
+      "title": "Local Computation Algorithms for Graphs of Non-Constant Degrees",
+      "authors": [
+        "Reut Levi",
+        "Ronitt Rubinfeld",
+        "Anak Yodpinyanee"
+      ],
+      "year": 2017,
+      "venue": "Algorithmica 2017",
+      "publicationStatus": "journal",
+      "url": "https://arxiv.org/abs/1502.04022",
+      "verifiedOn": "2026-10-20",
+      "fullTextUrl": "https://arxiv.org/html/1502.04022v1"
+    },
+    {
+      "id": "ghaffari-uitto-2019-sparsify",
+      "title": "Sparsifying Distributed Algorithms with Ramifications in Massively Parallel Computation and Centralized Local Computation",
+      "authors": [
+        "Mohsen Ghaffari",
+        "Jara Uitto"
+      ],
+      "year": 2019,
+      "venue": "SODA 2019",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1807.06251",
+      "verifiedOn": "2026-10-26"
+    },
+    {
+      "id": "biswas-et-al-2025-beyondworst-lca",
+      "title": "Beyond Worst Case Local Computation Algorithms",
+      "authors": [
+        "Amartya Shankha Biswas",
+        "Ruidi Cao",
+        "Cassandra Marcussen",
+        "Edward Pyne",
+        "Ronitt Rubinfeld",
+        "Asaf Shapira",
+        "Shlomo Tauber"
+      ],
+      "year": 2025,
+      "venue": "arXiv 2025 revision",
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/abs/2403.00129",
+      "verifiedOn": "2026-10-20",
+      "fullTextUrl": "https://arxiv.org/html/2403.00129v2"
+    },
+    {
+      "id": "luby-1985-mis",
+      "title": "A Simple Parallel Algorithm for the Maximal Independent Set Problem",
+      "authors": [
+        "Michael Luby"
+      ],
+      "year": 1985,
+      "venue": "STOC 1985 / SIAM J. Comput. 1986",
+      "publicationStatus": "conference",
+      "url": "https://dl.acm.org/doi/10.1145/22145.22146",
+      "verifiedOn": "2026-10-26",
+      "fullTextUrl": "https://www.cs.cmu.edu/~guyb/paralg/papers/Luby86.pdf",
+      "publicationUrl": "https://doi.org/10.1137/0215074"
+    },
+    {
+      "id": "kuhn-moscibroda-wattenhofer-2016-local-lower",
+      "title": "Local Computation: Lower and Upper Bounds",
+      "authors": [
+        "Fabian Kuhn",
+        "Thomas Moscibroda",
+        "Roger Wattenhofer"
+      ],
+      "year": 2016,
+      "venue": "Journal of the ACM 2016",
+      "publicationStatus": "journal",
+      "url": "https://arxiv.org/abs/1011.5470",
+      "verifiedOn": "2026-10-26",
+      "fullTextUrl": "https://arxiv.org/pdf/1011.5470"
+    },
+    {
+      "id": "balliu-et-al-2021-mis-lower",
+      "title": "Lower Bounds for Maximal Matchings and Maximal Independent Sets",
+      "authors": [
+        "Alkida Balliu",
+        "Sebastian Brandt",
+        "Juho Hirvonen",
+        "Dennis Olivetti",
+        "Mikaël Rabie",
+        "Jukka Suomela"
+      ],
+      "year": 2021,
+      "venue": "Journal of the ACM 2021 (FOCS 2019)",
+      "publicationStatus": "journal",
+      "url": "https://arxiv.org/abs/1901.02441",
+      "verifiedOn": "2026-10-26",
+      "fullTextUrl": "https://arxiv.org/pdf/1901.02441"
+    },
+    {
+      "id": "rozhon-ghaffari-2020-network",
+      "title": "Polylogarithmic-Time Deterministic Network Decomposition and Distributed Derandomization",
+      "authors": [
+        "Václav Rozhoň",
+        "Mohsen Ghaffari"
+      ],
+      "year": 2020,
+      "venue": "STOC 2020",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1907.10937",
+      "verifiedOn": "2026-10-26",
+      "fullTextUrl": "https://arxiv.org/pdf/1907.10937"
+    },
+    {
+      "id": "ghaffari-grunau-2023-mis",
+      "title": "Faster Deterministic Distributed MIS and Approximate Matching",
+      "authors": [
+        "Mohsen Ghaffari",
+        "Christoph Grunau"
+      ],
+      "year": 2023,
+      "venue": "STOC 2023",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2303.16043",
+      "verifiedOn": "2026-10-26",
+      "fullTextUrl": "https://arxiv.org/pdf/2303.16043"
+    },
+    {
+      "id": "dufoulon-moses-pandurangan-2023-awake",
+      "title": "Distributed MIS in O(log log n) Awake Complexity",
+      "authors": [
+        "Fabien Dufoulon",
+        "William K. Moses Jr.",
+        "Gopal Pandurangan"
+      ],
+      "year": 2023,
+      "venue": "PODC 2023 / Distributed Computing 2026",
+      "publicationStatus": "journal",
+      "url": "https://arxiv.org/abs/2204.08359",
+      "verifiedOn": "2026-10-26",
+      "fullTextUrl": "https://link.springer.com/article/10.1007/s00446-025-00498-4",
+      "publicationUrl": "https://doi.org/10.1007/s00446-025-00498-4"
+    },
+    {
+      "id": "ghaffari-portmann-2023-awake",
+      "title": "Distributed MIS with Low Energy and Time Complexities",
+      "authors": [
+        "Mohsen Ghaffari",
+        "Julian Portmann"
+      ],
+      "year": 2023,
+      "venue": "PODC 2023",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2305.11639",
+      "verifiedOn": "2026-10-26",
+      "fullTextUrl": "https://arxiv.org/html/2305.11639v2",
+      "publicationUrl": "https://doi.org/10.1145/3583668.3594587"
+    },
+    {
+      "id": "brandt-fischer-uitto-2019-tree-mpc",
+      "title": "Breaking the Linear-Memory Barrier in MPC: Fast MIS on Trees with Strongly Sublinear Memory",
+      "authors": [
+        "Sebastian Brandt",
+        "Manuela Fischer",
+        "Jara Uitto"
+      ],
+      "year": 2019,
+      "venue": "SIROCCO 2019",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1802.06748",
+      "verifiedOn": "2026-10-26"
+    },
+    {
+      "id": "brandt-fischer-uitto-2019-sparse-mpc",
+      "title": "Matching and MIS for Uniformly Sparse Graphs in the Low-Memory MPC Model",
+      "authors": [
+        "Sebastian Brandt",
+        "Manuela Fischer",
+        "Jara Uitto"
+      ],
+      "year": 2018,
+      "venue": "arXiv 2018; merged into PODC 2019 joint paper",
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/abs/1807.05374",
+      "verifiedOn": "2026-10-26"
+    },
+    {
+      "id": "behnezhad-et-al-2019-sparse-mpc",
+      "title": "Massively Parallel Symmetry Breaking on Sparse Graphs: MIS and Maximal Matching",
+      "authors": [
+        "Soheil Behnezhad",
+        "Mahsa Derakhshan",
+        "MohammadTaghi Hajiaghayi",
+        "Richard M. Karp"
+      ],
+      "year": 2018,
+      "venue": "Author manuscript; merged into PODC 2019 joint paper",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1807.06701",
+      "verifiedOn": "2026-10-26",
+      "publicationUrl": "https://doi.org/10.1145/3293611.3331609"
+    },
+    {
+      "id": "ghaffari-grunau-jin-2020-mpc-trees",
+      "title": "Improved MPC Algorithms for MIS, Matching, and Coloring on Trees and Beyond",
+      "authors": [
+        "Mohsen Ghaffari",
+        "Christoph Grunau",
+        "Ce Jin"
+      ],
+      "year": 2020,
+      "venue": "DISC 2020",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.DISC.2020.34",
+      "verifiedOn": "2026-10-26"
+    },
+    {
+      "id": "latypov-uitto-2021-mpc-trees",
+      "title": "Coloring Trees in Massively Parallel Computation",
+      "authors": [
+        "Rustam Latypov",
+        "Jara Uitto"
+      ],
+      "year": 2021,
+      "venue": "arXiv 2021",
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/abs/2105.13980",
+      "verifiedOn": "2026-10-26"
+    },
+    {
+      "id": "goos-hirvonen-levi-medina-suomela-2016-nonlocal",
+      "title": "Non-local Probes Do Not Help with Many Graph Problems",
+      "authors": [
+        "Mika Göös",
+        "Juho Hirvonen",
+        "Reut Levi",
+        "Moti Medina",
+        "Jukka Suomela"
+      ],
+      "year": 2016,
+      "venue": "DISC 2016",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1512.05411",
+      "publicationUrl": "https://link.springer.com/chapter/10.1007/978-3-662-53426-7_15",
+      "verifiedOn": "2026-10-20",
+      "fullTextUrl": "https://arxiv.org/html/1512.05411v1"
+    }
+  ],
+  "slices": [
+    {
+      "id": "mis-dynamic-randomized-oblivious",
+      "problem": "mis",
+      "model": "dynamic",
+      "label": "Fully dynamic, randomized, oblivious adversary",
+      "task": "Maintain an MIS: explicit expected-time algorithms and high-probability membership data structures",
+      "assumptions": [
+        "n vertices; edge insertions and deletions",
+        "Oblivious adversary; randomized algorithms",
+        "High-probability conversion does not promise few explicit membership changes"
+      ],
+      "parameters": {},
+      "results": [
+        {
+          "id": "mis-dynamic-chechik-zhang-expected",
+          "paperId": "chechik-zhang-2019-dynamic-mis",
+          "kind": "upper",
+          "bound": "O(log⁴ n) update time",
+          "guarantee": "Explicit MIS after each update",
+          "sourceLocation": "Theorem 2",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "candidate",
+          "notes": "Expected time for every update; random vertex order; oblivious sequence.",
+          "plot": null
+        },
+        {
+          "id": "mis-dynamic-chechik-zhang-whp",
+          "paperId": "chechik-zhang-2019-dynamic-mis",
+          "kind": "upper",
+          "bound": "O(log⁶ n) update time",
+          "guarantee": "Maintained MIS data structure; membership queries",
+          "sourceLocation": "Corollary 4; Theorem 3 reduction",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "candidate",
+          "notes": "Worst-case update time with high probability; constant-time MIS membership queries. The reduction may switch between maintained copies; it does not bound explicit recourse.",
+          "plot": null
+        },
+        {
+          "id": "mis-dynamic-behnezhad-et-al-expected",
+          "paperId": "behnezhad-et-al-2019-dynamic-mis",
+          "kind": "upper",
+          "bound": "O(log² Δ · log² n) update time",
+          "guarantee": "Explicit MIS after each update",
+          "sourceLocation": "Theorem 1",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "candidate",
+          "notes": "Expected cost per update without amortization; O(1) expected adjustments.",
+          "plot": null
+        },
+        {
+          "id": "mis-dynamic-behnezhad-et-al-whp",
+          "paperId": "behnezhad-et-al-2019-dynamic-mis",
+          "kind": "upper",
+          "bound": "O(log² Δ · log⁴ n)",
+          "guarantee": "Maintained MIS data structure; membership access",
+          "sourceLocation": "Corollary 1.1",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "candidate",
+          "notes": "The black-box conversion loses the expected-adjustment guarantee; keep separate from explicit-recourse algorithms.",
+          "plot": null
+        },
+        {
+          "id": "mis-dyn-blelloch-2026-single",
+          "paperId": "blelloch-et-al-2026-batch-dynamic",
+          "kind": "upper",
+          "bound": "O(log² n · log Δ)",
+          "guarantee": "Explicit random-order lexicographically first MIS",
+          "sourceLocation": "Theorem 6.14, specialized to b = 1; Section 6.3 final paragraph",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "candidate",
+          "notes": "The paper explicitly observes the sequential specialization. With b = 1 its total expected work is sequential update time; no parallel-depth claim is used here.",
+          "plot": null
+        }
+      ],
+      "mode": "categorical",
+      "figureAxes": {
+        "x": {
+          "label": "Guarantee / output contract",
+          "kind": "categorical",
+          "categories": [
+            {
+              "id": "expected",
+              "label": "Expected per update"
+            },
+            {
+              "id": "whp",
+              "label": "W.h.p. · membership"
+            }
+          ]
+        },
+        "y": {
+          "label": "Sequential update-time bounds",
+          "kind": "symbolic",
+          "categories": [
+            {
+              "id": "O(log⁴ n)",
+              "label": "O(log⁴ n)"
+            },
+            {
+              "id": "O(log⁶ n)",
+              "label": "O(log⁶ n)"
+            },
+            {
+              "id": "O(log² Δ · log² n)",
+              "label": "O(log² Δ · log² n)"
+            },
+            {
+              "id": "O(log² Δ · log⁴ n)",
+              "label": "O(log² Δ · log⁴ n)"
+            },
+            {
+              "id": "O(log² n · log Δ)",
+              "label": "O(log² n · log Δ)"
+            }
+          ]
+        },
+        "note": "Symbolic formula rows are categories, not a numerical scale or a cross-parameter ranking."
+      },
+      "xAxis": {
+        "label": "Guarantee / output contract",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "expected",
+            "label": "Expected per update"
+          },
+          {
+            "id": "whp",
+            "label": "W.h.p. · membership"
+          }
+        ]
+      },
+      "yAxis": {
+        "label": "Sequential update-time bounds",
+        "kind": "symbolic",
+        "categories": [
+          {
+            "id": "O(log⁴ n)",
+            "label": "O(log⁴ n)"
+          },
+          {
+            "id": "O(log⁶ n)",
+            "label": "O(log⁶ n)"
+          },
+          {
+            "id": "O(log² Δ · log² n)",
+            "label": "O(log² Δ · log² n)"
+          },
+          {
+            "id": "O(log² Δ · log⁴ n)",
+            "label": "O(log² Δ · log⁴ n)"
+          },
+          {
+            "id": "O(log² n · log Δ)",
+            "label": "O(log² n · log Δ)"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mis-stream-semistreaming-passes",
+      "problem": "mis",
+      "model": "stream",
+      "label": "Semi-streaming, explicit MIS",
+      "task": "Output a maximal independent set of an arbitrary n-vertex graph",
+      "assumptions": [
+        "Arbitrary-order edge stream",
+        "O(n polylog n) space",
+        "Constant success probability for randomized lower bound"
+      ],
+      "parameters": {},
+      "results": [
+        {
+          "id": "mis-stream-ahn-et-al-upper",
+          "paperId": "ahn-et-al-2015-stream-mis",
+          "kind": "upper",
+          "bound": "O(log log n) passes; O(n polylog n) space",
+          "guarantee": "Explicit random-order greedy maximal independent set of the positive-edge graph, with high probability",
+          "sourceLocation": "§4.1, Lemma 19 and Theorem 20; MIS extraction confirmed by CDK19 Theorem 17",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "current_best_verified",
+          "notes": "The pivot set is a random-order greedy MIS. This is a direct inference from the algorithm and is stated explicitly as an MIS theorem in CDK19, Theorem 17. Random vertex order is internal randomness; the edge stream remains arbitrary order.",
+          "plot": null
+        },
+        {
+          "id": "mis-stream-assadi-et-al-lower",
+          "paperId": "assadi-et-al-2024-stream-mis",
+          "kind": "lower",
+          "bound": "Ω(log log n) passes",
+          "guarantee": "Explicit maximal independent set with constant probability of success",
+          "sourceLocation": "Corollary 2, PDF p.24 (printed p.22)",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "current_best_verified",
+          "notes": "Applies even to insertion-only streams. The lower bound is on passes under semi-streaming space, not a linear-space lower bound.",
+          "plot": null
+        }
+      ],
+      "mode": "2d",
+      "figureAxes": {
+        "title": "Semi-streaming · any MIS",
+        "subtitle": "Arbitrary edge order · the pass bound is tight",
+        "x": {
+          "label": "Memory allowance",
+          "kind": "categorical",
+          "categories": [
+            {
+              "id": "semi",
+              "label": "O(n polylog n) bits"
+            }
+          ]
+        },
+        "y": {
+          "label": "Pass complexity",
+          "kind": "symbolic",
+          "categories": [
+            {
+              "id": "loglog",
+              "label": "log log n"
+            }
+          ]
+        }
+      },
+      "xAxis": {
+        "label": "Memory allowance",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "semi",
+            "label": "O(n polylog n) bits"
+          }
+        ]
+      },
+      "yAxis": {
+        "label": "Pass complexity",
+        "kind": "symbolic",
+        "categories": [
+          {
+            "id": "loglog",
+            "label": "log log n"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mis-lca-adjlist-membership",
+      "problem": "mis",
+      "model": "lca",
+      "label": "Adjacency-list LCA membership",
+      "task": "Answer consistent vertex-membership queries for one maximal independent set",
+      "assumptions": [
+        "Adjacency-list access",
+        "Maximum degree Δ; n vertices",
+        "Randomized, high probability"
+      ],
+      "parameters": {
+        "Δ": "Maximum degree"
+      },
+      "results": [
+        {
+          "id": "mis-lca-ghaffari-polydeg",
+          "paperId": "ghaffari-2022-lca-mis",
+          "kind": "upper",
+          "bound": "poly(Δ) · log n; Neighbor probes per membership query",
+          "guarantee": "Exact maximal independent set; Consistent YES/NO membership in one maximal independent set",
+          "sourceLocation": "Theorems 1.1 and 2.16; Section 1.1 defines the shared-tape adjacency-list model",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "The expected cost for a fixed queried vertex is poly(Δ), retained separately. The exponent of Δ is unspecified and is never assigned a numeric coordinate.",
+          "plot": null,
+          "sourceUrl": "https://arxiv.org/html/2210.01104v1",
+          "verifiedOn": "2026-10-20",
+          "assumptions": [
+            "n is the vertex count; Δ is the maximum degree",
+            "The input graph is fixed before the random tape",
+            "Membership refers to a maximal independent set, not a maximum independent set"
+          ],
+          "oracle": "Adjacency-list neighbor probes: (v,i) returns the ith neighbor",
+          "probability": "For each fixed v and η>0, poly(Δ) log(1/η) probes suffice with probability ≥1−η. Setting inverse-polynomial η and union bounding gives the high-probability all-vertex budget.",
+          "output": "Consistent YES/NO membership in one maximal independent set"
+        },
+        {
+          "id": "mis-lca-ghaffari-2016-intermediate",
+          "paperId": "ghaffari-2016-local-mis",
+          "kind": "upper",
+          "bound": "Δ^{O(log Δ)} · log³ n; Time per query; space Δ^{O(log Δ)} · log² n",
+          "guarantee": "Exact maximal independent set; Consistent YES/NO membership in one maximal independent set",
+          "sourceLocation": "Section 1.3, Corollary (C5)",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "The paper states time 2^{O(log² Δ)} log³ n and space 2^{O(log² Δ)} log² n. The display rewrites the degree factor equivalently; a time guarantee also bounds the number of neighbor probes, but does not equate time with probes.",
+          "plot": null,
+          "sourceUrl": "https://arxiv.org/html/1506.05093v2",
+          "verifiedOn": "2026-10-20",
+          "assumptions": [
+            "n is the vertex count; Δ is the maximum degree",
+            "The input graph is fixed before the random tape",
+            "Membership refers to a maximal independent set, not a maximum independent set"
+          ],
+          "oracle": "Adjacency-list neighbor probes: (v,i) returns the ith neighbor",
+          "probability": "High probability in the cited LCA construction",
+          "output": "Consistent YES/NO membership in one maximal independent set"
+        },
+        {
+          "id": "mis-lca-levi-2017-quasipoly",
+          "paperId": "levi-rubinfeld-yodpinyanee-2017-lca",
+          "kind": "upper",
+          "bound": "Δ^{O(log² Δ)} · log³ n; Time per query; seed/space Δ^{O(log² Δ)} · log² n",
+          "guarantee": "Exact maximal independent set; Consistent YES/NO membership in one maximal independent set",
+          "sourceLocation": "Theorem 5 and Section 3.5 (space reduction); Theorem 4 is the full-randomness variant",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "Theorem 5 gives time 2^{O(log³ Δ)} log³ n and seed length 2^{O(log³ Δ)} log² n. This refines the supplied poly(log n) factors. The seed guarantee is preserved, not hidden behind a probe-only comparison.",
+          "plot": null,
+          "sourceUrl": "https://arxiv.org/html/1502.04022v1",
+          "verifiedOn": "2026-10-20",
+          "assumptions": [
+            "n is the vertex count; Δ is the maximum degree",
+            "The input graph is fixed before the random tape",
+            "Membership refers to a maximal independent set, not a maximum independent set"
+          ],
+          "oracle": "Adjacency-list neighbor probes: (v,i) returns the ith neighbor",
+          "probability": "Failure at most 1/poly(n) in Theorems 3–5 construction",
+          "output": "Consistent YES/NO membership in one maximal independent set"
+        },
+        {
+          "id": "mis-lca-ghaffari-uitto-2019",
+          "paperId": "ghaffari-uitto-2019-sparsify",
+          "kind": "upper",
+          "bound": "Δ^{O(log log Δ)} · poly(log n); Probes per membership query",
+          "guarantee": "Exact maximal independent set; Consistent YES/NO membership in one maximal independent set",
+          "sourceLocation": "Theorem 1.2",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "Sparsification reduces the information gathered from a distributed neighborhood. The distributed-radius barrier is not a lower bound on all LCAs.",
+          "plot": null,
+          "sourceUrl": "https://arxiv.org/html/1807.06251v1",
+          "verifiedOn": "2026-10-20",
+          "assumptions": [
+            "n is the vertex count; Δ is the maximum degree",
+            "The input graph is fixed before the random tape",
+            "Membership refers to a maximal independent set, not a maximum independent set"
+          ],
+          "oracle": "Adjacency-list neighbor probes: (v,i) returns the ith neighbor",
+          "probability": "At least 1−1/n¹⁰ for consistent answers within the query bound",
+          "output": "Consistent YES/NO membership in one maximal independent set"
+        }
+      ],
+      "mode": "curated",
+      "axis": {
+        "label": "Exact symbolic resource bounds by contract",
+        "kind": "categorical",
+        "scaleNote": "See recorded figureAxes. No numeric exponent ladder or inferred degree coordinate."
+      },
+      "focusPairId": "mis-lca",
+      "figureAxes": {
+        "cost": {
+          "x": {
+            "label": "Probe budget / time upper bound per query",
+            "kind": "symbolic-growth-classes",
+            "categories": [
+              {
+                "id": "constant",
+                "label": "1"
+              },
+              {
+                "id": "logstar",
+                "label": "log* n"
+              },
+              {
+                "id": "logn",
+                "label": "log n"
+              },
+              {
+                "id": "polylog",
+                "label": "poly(log n)"
+              },
+              {
+                "id": "polynomial",
+                "label": "n^{O(1)}"
+              },
+              {
+                "id": "quasiLL",
+                "label": "n^{O(log log n)}"
+              },
+              {
+                "id": "quasiL",
+                "label": "n^{O(log n)}"
+              },
+              {
+                "id": "quasiL2",
+                "label": "n^{O(log² n)}"
+              }
+            ]
+          },
+          "y": {
+            "label": "Named theorem and setup",
+            "kind": "categorical",
+            "categories": [
+              {
+                "id": "mis-lca-ghaffari-polydeg",
+                "label": "Ghaffari 2022"
+              },
+              {
+                "id": "mis-lca-ghaffari-uitto-2019",
+                "label": "Ghaffari–Uitto 2019"
+              },
+              {
+                "id": "mis-lca-ghaffari-2016-intermediate",
+                "label": "Ghaffari 2016"
+              },
+              {
+                "id": "mis-lca-levi-2017-quasipoly",
+                "label": "Levi–Rubinfeld–Yodpinyanee 2017"
+              },
+              {
+                "id": "mis-lca-rubinfeld-2011",
+                "label": "Rubinfeld et al. 2011"
+              },
+              {
+                "id": "mis-lca-alon-2012-space",
+                "label": "Alon et al. 2012"
+              },
+              {
+                "id": "mis-lca-even-2018-det",
+                "label": "Even–Medina–Ron 2018"
+              },
+              {
+                "id": "mis-lca-nonlocal-2016-lower",
+                "label": "Göös et al. 2016"
+              },
+              {
+                "id": "mis-lca-ghaffari-polydeg-expected",
+                "label": "Ghaffari 2022 · expectation"
+              }
+            ]
+          },
+          "scaleNote": "Expression envelopes under 1≤Δ<n, not runtime lower bounds or numerical locations. Asymptotic classes overlap; exponent constants are unknown."
+        }
+      },
+      "reviewedOn": "2026-10-20",
+      "xAxis": {
+        "label": "Probe budget / time upper bound per query",
+        "kind": "symbolic-growth-classes",
+        "categories": [
+          {
+            "id": "constant",
+            "label": "1"
+          },
+          {
+            "id": "logstar",
+            "label": "log* n"
+          },
+          {
+            "id": "logn",
+            "label": "log n"
+          },
+          {
+            "id": "polylog",
+            "label": "poly(log n)"
+          },
+          {
+            "id": "polynomial",
+            "label": "n^{O(1)}"
+          },
+          {
+            "id": "quasiLL",
+            "label": "n^{O(log log n)}"
+          },
+          {
+            "id": "quasiL",
+            "label": "n^{O(log n)}"
+          },
+          {
+            "id": "quasiL2",
+            "label": "n^{O(log² n)}"
+          }
+        ]
+      },
+      "yAxis": {
+        "label": "Named theorem and setup",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "mis-lca-ghaffari-polydeg",
+            "label": "Ghaffari 2022"
+          },
+          {
+            "id": "mis-lca-ghaffari-uitto-2019",
+            "label": "Ghaffari–Uitto 2019"
+          },
+          {
+            "id": "mis-lca-ghaffari-2016-intermediate",
+            "label": "Ghaffari 2016"
+          },
+          {
+            "id": "mis-lca-levi-2017-quasipoly",
+            "label": "Levi–Rubinfeld–Yodpinyanee 2017"
+          },
+          {
+            "id": "mis-lca-rubinfeld-2011",
+            "label": "Rubinfeld et al. 2011"
+          },
+          {
+            "id": "mis-lca-alon-2012-space",
+            "label": "Alon et al. 2012"
+          },
+          {
+            "id": "mis-lca-even-2018-det",
+            "label": "Even–Medina–Ron 2018"
+          },
+          {
+            "id": "mis-lca-nonlocal-2016-lower",
+            "label": "Göös et al. 2016"
+          },
+          {
+            "id": "mis-lca-ghaffari-polydeg-expected",
+            "label": "Ghaffari 2022 · expectation"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mis-mpc-linear-memory",
+      "problem": "mis",
+      "model": "mpc",
+      "label": "Linear memory per machine MPC",
+      "task": "Construct a maximal independent set",
+      "assumptions": [
+        "n-vertex graph",
+        "Õ(n) memory per machine",
+        "Randomized MPC algorithm"
+      ],
+      "parameters": {},
+      "results": [
+        {
+          "id": "mis-mpc-ghaffari-et-al-rounds",
+          "paperId": "ghaffari-et-al-2018-mpc-mis",
+          "kind": "upper",
+          "bound": "O(log log Δ) rounds",
+          "guarantee": "Exact maximal independent set",
+          "sourceLocation": "Theorem 1.1; Sections 1.1.1 and 3.2",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "candidate",
+          "notes": "The theorem is degree-sensitive. The old abstract O(log log n) bound is a valid weaker consequence because Δ<n.",
+          "plot": null,
+          "assumptions": [
+            "Near-linear local memory"
+          ],
+          "localMemory": "Õ(n) bits (Section 3.2 uses O(n log n) bits)",
+          "totalMemory": "Õ(m+n), including isolated vertices"
+        }
+      ],
+      "mode": "1d",
+      "axis": {
+        "label": "Communication rounds: exact symbolic formula rows",
+        "kind": "symbolic",
+        "scaleNote": "Shared round-cost formulas, not a numerical ranking. Green is O(·), red is Ω(·). Graph, stability, randomness and global space must match before reading a gap."
+      },
+      "figureAxes": {
+        "landscape": {
+          "x": {
+            "label": "Graph and local-memory setup",
+            "kind": "categorical",
+            "categories": [
+              {
+                "id": "nearlinear",
+                "label": "Near-linear",
+                "short": "≈ n",
+                "detail": "General graphs; Õ(n) local memory",
+                "color": "#466ab3"
+              },
+              {
+                "id": "general",
+                "label": "Low-space",
+                "short": "General",
+                "detail": "General graphs; n^δ local memory",
+                "color": "#8b5daa"
+              },
+              {
+                "id": "degree",
+                "label": "Restricted Δ",
+                "short": "Small Δ",
+                "detail": "Δ=2^(log^o(1) n); n^δ local memory",
+                "color": "#b06b2d"
+              },
+              {
+                "id": "arboricity",
+                "label": "Arboricity α",
+                "short": "α",
+                "detail": "Variable arboricity; n^δ local memory",
+                "color": "#42828b"
+              },
+              {
+                "id": "bounded",
+                "label": "Bounded α",
+                "short": "α=O(1)",
+                "detail": "Fixed arboricity; n^δ local memory",
+                "color": "#9a7182"
+              },
+              {
+                "id": "trees",
+                "label": "Trees",
+                "short": "Trees",
+                "detail": "Trees; strongly sublinear local memory",
+                "color": "#727844"
+              }
+            ]
+          },
+          "y": {
+            "label": "Communication rounds: exact symbolic formula rows",
+            "kind": "symbolic",
+            "categories": [
+              {
+                "id": "general-det",
+                "label": "log Δ + log(log* n)"
+              },
+              {
+                "id": "general-rand",
+                "label": "√log Δ · log log Δ + √log log n"
+              },
+              {
+                "id": "arbor-old",
+                "label": "√log α · log log α + log² log n"
+              },
+              {
+                "id": "arbor-new",
+                "label": "√log α · log log α + log log n"
+              },
+              {
+                "id": "tree-old",
+                "label": "log³ log n"
+              },
+              {
+                "id": "tree-det",
+                "label": "log² log n"
+              },
+              {
+                "id": "small-degree",
+                "label": "log log Δ + log log log n"
+              },
+              {
+                "id": "degree-lower",
+                "label": "min{log Δ, log log n}"
+              },
+              {
+                "id": "doublelogn",
+                "label": "log log n"
+              },
+              {
+                "id": "doublelogdegree",
+                "label": "log log Δ"
+              }
+            ],
+            "scaleNote": "Shared round-cost formulas, not a numerical ranking. Green is O(·), red is Ω(·). Graph, stability, randomness and global space must match before reading a gap."
+          }
+        }
+      }
+    },
+    {
+      "id": "mis-local-deterministic-general",
+      "problem": "mis",
+      "model": "local",
+      "label": "Deterministic LOCAL, general graphs",
+      "task": "All vertices output consistent membership in an explicit MIS",
+      "assumptions": [
+        "n-node general graph",
+        "Synchronous LOCAL model with unbounded message size",
+        "Deterministic"
+      ],
+      "parameters": {},
+      "results": [
+        {
+          "id": "mis-local-ghaffari-grunau-2024",
+          "paperId": "ghaffari-grunau-2024-local-mis",
+          "kind": "upper",
+          "bound": "Õ(log^{5/3} n)",
+          "guarantee": "Explicit maximal independent set; each vertex outputs its membership",
+          "sourceLocation": "Theorem 1.3 / Theorem 6.1",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Õ hides lower-order polyloglog factors.",
+          "plot": null
+        },
+        {
+          "id": "mis-local-rozhon-2020-det",
+          "paperId": "rozhon-ghaffari-2020-network",
+          "kind": "upper",
+          "bound": "O(log^7 n)",
+          "guarantee": "Explicit maximal independent set; each vertex outputs its membership",
+          "sourceLocation": "Corollary 3.1 and its proof, PDF p.15",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "Proof explicitly adds O(log^7 n) network decomposition and O(log^4 n) MIS phases.",
+          "plot": null
+        },
+        {
+          "id": "mis-local-ghaffari-grunau-2023-det",
+          "paperId": "ghaffari-grunau-2023-mis",
+          "kind": "upper",
+          "bound": "Õ(log^2 n)",
+          "guarantee": "Explicit maximal independent set; each vertex outputs its membership",
+          "sourceLocation": "Theorem 1.1, PDF p.5",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "Historical upper improved by GG24.",
+          "plot": null
+        },
+        {
+          "id": "mis-local-balliu-2021-det-lower",
+          "paperId": "balliu-et-al-2021-mis-lower",
+          "kind": "lower",
+          "bound": "Ω(min{Δ, log n / log log n})",
+          "guarantee": "Explicit maximal independent set; each vertex outputs its membership",
+          "sourceLocation": "Corollary 4.17, PDF p.26",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Worst-case maximum-degree bound; the cap is not asserted for every Δ.",
+          "plot": null
+        }
+      ],
+      "mode": "diagram",
+      "figureAxes": {
+        "title": "Elapsed rounds · explicit algorithm and communication contracts",
+        "x": {
+          "label": "Algorithm / success / communication contract",
+          "kind": "categorical",
+          "categories": [
+            {
+              "id": "det",
+              "label": "Deterministic LOCAL"
+            },
+            {
+              "id": "rand",
+              "label": "Randomized LOCAL · general"
+            },
+            {
+              "id": "degree",
+              "label": "Randomized LOCAL · degree-sensitive"
+            },
+            {
+              "id": "sleep",
+              "label": "Sleeping CONGEST · randomized"
+            }
+          ]
+        },
+        "y": {
+          "label": "Total elapsed synchronous rounds · symbolic growth families",
+          "kind": "categorical",
+          "categories": [
+            {
+              "id": "one",
+              "label": "1"
+            },
+            {
+              "id": "loglogratio",
+              "label": "log log n / log log log n"
+            },
+            {
+              "id": "sqrt",
+              "label": "√(log n / log log n)"
+            },
+            {
+              "id": "logoverlog",
+              "label": "log n / log log n"
+            },
+            {
+              "id": "log",
+              "label": "log n"
+            },
+            {
+              "id": "logllstar",
+              "label": "log n · log log n · log* n"
+            },
+            {
+              "id": "log53",
+              "label": "Õ(log^{5/3} n)"
+            },
+            {
+              "id": "log2",
+              "label": "log^2 n (up to polyloglog factors)"
+            },
+            {
+              "id": "log3llstar",
+              "label": "log^3 n · log log n · log* n"
+            },
+            {
+              "id": "log7",
+              "label": "log^7 n"
+            },
+            {
+              "id": "log7ll",
+              "label": "log^7 n · log log n"
+            }
+          ]
+        }
+      },
+      "xAxis": {
+        "label": "Algorithm / success / communication contract",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "det",
+            "label": "Deterministic LOCAL"
+          },
+          {
+            "id": "rand",
+            "label": "Randomized LOCAL · general"
+          },
+          {
+            "id": "degree",
+            "label": "Randomized LOCAL · degree-sensitive"
+          },
+          {
+            "id": "sleep",
+            "label": "Sleeping CONGEST · randomized"
+          }
+        ]
+      },
+      "yAxis": {
+        "label": "Total elapsed synchronous rounds · symbolic growth families",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "one",
+            "label": "1"
+          },
+          {
+            "id": "loglogratio",
+            "label": "log log n / log log log n"
+          },
+          {
+            "id": "sqrt",
+            "label": "√(log n / log log n)"
+          },
+          {
+            "id": "logoverlog",
+            "label": "log n / log log n"
+          },
+          {
+            "id": "log",
+            "label": "log n"
+          },
+          {
+            "id": "logllstar",
+            "label": "log n · log log n · log* n"
+          },
+          {
+            "id": "log53",
+            "label": "Õ(log^{5/3} n)"
+          },
+          {
+            "id": "log2",
+            "label": "log^2 n (up to polyloglog factors)"
+          },
+          {
+            "id": "log3llstar",
+            "label": "log^3 n · log log n · log* n"
+          },
+          {
+            "id": "log7",
+            "label": "log^7 n"
+          },
+          {
+            "id": "log7ll",
+            "label": "log^7 n · log log n"
+          }
+        ]
+      },
+      "axisSummary": {
+        "x": "Algorithm / success / communication contract",
+        "y": "Total elapsed synchronous rounds · symbolic growth families"
+      }
+    },
+    {
+      "id": "mis-local-randomized-degree",
+      "problem": "mis",
+      "model": "local",
+      "label": "Randomized LOCAL, degree-sensitive",
+      "task": "All vertices output consistent membership in an explicit MIS",
+      "assumptions": [
+        "n-node graph with maximum degree Δ",
+        "Synchronous LOCAL model with unbounded messages",
+        "Global success with high probability"
+      ],
+      "parameters": {
+        "Δ": "Maximum degree"
+      },
+      "results": [
+        {
+          "id": "mis-local-ghaffari-2016-global",
+          "paperId": "ghaffari-2016-local-mis",
+          "kind": "upper",
+          "bound": "O(log Δ) + 2^{O(√(log log n))}",
+          "guarantee": "Explicit maximal independent set; each vertex outputs its membership",
+          "sourceLocation": "Theorem 1.2, PDF p.4",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "RG20 Corollary 3.2 improves the n-dependent term. Preserved for historical inspection without inventing an exponent.",
+          "plot": null
+        },
+        {
+          "id": "mis-local-luby-1985-baseline",
+          "paperId": "luby-1985-mis",
+          "kind": "upper",
+          "bound": "O(log n)",
+          "guarantee": "Explicit maximal independent set; each vertex outputs its membership",
+          "sourceLocation": "§3.2–3.4, Theorem 1 and following high-probability discussion, journal pp.1039–1041",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Same algorithm as the general-graph point; preserve source alias without duplicating the plotted marker.",
+          "plot": null
+        },
+        {
+          "id": "mis-local-balliu-2021-degree-lower",
+          "paperId": "balliu-et-al-2021-mis-lower",
+          "kind": "lower",
+          "bound": "Ω(min{Δ, log log n / log log log n})",
+          "guarantee": "Explicit maximal independent set; each vertex outputs its membership",
+          "sourceLocation": "Corollary 4.16, PDF p.26",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "The bound expression varies with Δ; the interval is not a uniform lower bound of its cap.",
+          "plot": null
+        },
+        {
+          "id": "mis-local-rozhon-2020-randomized",
+          "paperId": "rozhon-ghaffari-2020-network",
+          "kind": "upper",
+          "bound": "O(log Δ + poly(log log n))",
+          "guarantee": "Explicit maximal independent set; each vertex outputs its membership",
+          "sourceLocation": "Corollary 3.2, PDF p.15",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "For 1≤Δ<n the expression is enclosed by the conservative constant-to-log n band. This does not claim the constant endpoint is attained. The unspecified polynomial exponent is not placed at a fixed coordinate.",
+          "plot": null
+        }
+      ],
+      "mode": "diagram",
+      "figureAxes": {
+        "title": "Elapsed rounds · explicit algorithm and communication contracts",
+        "x": {
+          "label": "Algorithm / success / communication contract",
+          "kind": "categorical",
+          "categories": [
+            {
+              "id": "det",
+              "label": "Deterministic LOCAL"
+            },
+            {
+              "id": "rand",
+              "label": "Randomized LOCAL · general"
+            },
+            {
+              "id": "degree",
+              "label": "Randomized LOCAL · degree-sensitive"
+            },
+            {
+              "id": "sleep",
+              "label": "Sleeping CONGEST · randomized"
+            }
+          ]
+        },
+        "y": {
+          "label": "Total elapsed synchronous rounds · symbolic growth families",
+          "kind": "categorical",
+          "categories": [
+            {
+              "id": "one",
+              "label": "1"
+            },
+            {
+              "id": "loglogratio",
+              "label": "log log n / log log log n"
+            },
+            {
+              "id": "sqrt",
+              "label": "√(log n / log log n)"
+            },
+            {
+              "id": "logoverlog",
+              "label": "log n / log log n"
+            },
+            {
+              "id": "log",
+              "label": "log n"
+            },
+            {
+              "id": "logllstar",
+              "label": "log n · log log n · log* n"
+            },
+            {
+              "id": "log53",
+              "label": "Õ(log^{5/3} n)"
+            },
+            {
+              "id": "log2",
+              "label": "log^2 n (up to polyloglog factors)"
+            },
+            {
+              "id": "log3llstar",
+              "label": "log^3 n · log log n · log* n"
+            },
+            {
+              "id": "log7",
+              "label": "log^7 n"
+            },
+            {
+              "id": "log7ll",
+              "label": "log^7 n · log log n"
+            }
+          ]
+        }
+      },
+      "xAxis": {
+        "label": "Algorithm / success / communication contract",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "det",
+            "label": "Deterministic LOCAL"
+          },
+          {
+            "id": "rand",
+            "label": "Randomized LOCAL · general"
+          },
+          {
+            "id": "degree",
+            "label": "Randomized LOCAL · degree-sensitive"
+          },
+          {
+            "id": "sleep",
+            "label": "Sleeping CONGEST · randomized"
+          }
+        ]
+      },
+      "yAxis": {
+        "label": "Total elapsed synchronous rounds · symbolic growth families",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "one",
+            "label": "1"
+          },
+          {
+            "id": "loglogratio",
+            "label": "log log n / log log log n"
+          },
+          {
+            "id": "sqrt",
+            "label": "√(log n / log log n)"
+          },
+          {
+            "id": "logoverlog",
+            "label": "log n / log log n"
+          },
+          {
+            "id": "log",
+            "label": "log n"
+          },
+          {
+            "id": "logllstar",
+            "label": "log n · log log n · log* n"
+          },
+          {
+            "id": "log53",
+            "label": "Õ(log^{5/3} n)"
+          },
+          {
+            "id": "log2",
+            "label": "log^2 n (up to polyloglog factors)"
+          },
+          {
+            "id": "log3llstar",
+            "label": "log^3 n · log log n · log* n"
+          },
+          {
+            "id": "log7",
+            "label": "log^7 n"
+          },
+          {
+            "id": "log7ll",
+            "label": "log^7 n · log log n"
+          }
+        ]
+      },
+      "axisSummary": {
+        "x": "Algorithm / success / communication contract",
+        "y": "Total elapsed synchronous rounds · symbolic growth families"
+      }
+    },
+    {
+      "id": "mis-mpc-lowspace-boundeddegree",
+      "problem": "mis",
+      "model": "mpc",
+      "label": "Low-space MPC, restricted maximum degree",
+      "task": "Construct an explicit maximal independent set",
+      "assumptions": [
+        "For any fixed φ>0, O(n^φ) local space and O(n^(1+φ)) global space",
+        "Maximum degree Δ=2^(log^(o(1)) n)",
+        "Deterministic; component-unstable algorithms and component-stable conditional lower bounds are distinguished"
+      ],
+      "parameters": {
+        "φ": "Any fixed positive constant",
+        "Δ": "Maximum degree subject to stated regime"
+      },
+      "results": [
+        {
+          "id": "mis-mpc-czumaj-2024-lowspace",
+          "paperId": "czumaj-davies-peck-parter-2024-mpc",
+          "kind": "upper",
+          "bound": "O(log log Δ + log log log n) rounds",
+          "guarantee": "Exact maximal independent set",
+          "sourceLocation": "Theorem 25",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "candidate",
+          "notes": "The restricted degree and component-instability are essential; local computation may be expensive.",
+          "plot": null,
+          "assumptions": [
+            "Fixed local-memory exponent 0<δ<1"
+          ],
+          "localMemory": "O(n^δ), any fixed 0<δ<1",
+          "totalMemory": "O(n^(1+δ)) in the stated degree regime"
+        },
+        {
+          "id": "mis-mpc-czumaj-2024-stable-lower",
+          "paperId": "czumaj-davies-peck-parter-2024-mpc",
+          "kind": "lower",
+          "bound": "Ω(min{log Δ, log log n}) rounds",
+          "guarantee": "Exact maximal independent set",
+          "sourceLocation": "Theorem 26, proof: conservative explicit expression",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "candidate",
+          "notes": "The headline rules out o(log Δ + log log n); the proof explicitly derives the displayed min expression, which is the conservative formula plotted.",
+          "plot": null,
+          "assumptions": [
+            "Fixed local-memory exponent 0<δ<1",
+            "Connectivity conjecture",
+            "Component-stable algorithm"
+          ],
+          "localMemory": "O(n^δ), any fixed 0<δ<1",
+          "totalMemory": "Polynomial global memory",
+          "conditional": true,
+          "condition": "Connectivity conjecture: randomized low-space MPC distinguishing one n-cycle from two n/2-cycles with failure at most 1/n requires Ω(log n) rounds."
+        }
+      ],
+      "mode": "1d",
+      "axis": {
+        "label": "Communication rounds: exact symbolic formula rows",
+        "kind": "symbolic",
+        "scaleNote": "Shared round-cost formulas, not a numerical ranking. Green is O(·), red is Ω(·). Graph, stability, randomness and global space must match before reading a gap."
+      },
+      "figureAxes": {
+        "landscape": {
+          "x": {
+            "label": "Graph and local-memory setup",
+            "kind": "categorical",
+            "categories": [
+              {
+                "id": "nearlinear",
+                "label": "Near-linear",
+                "short": "≈ n",
+                "detail": "General graphs; Õ(n) local memory",
+                "color": "#466ab3"
+              },
+              {
+                "id": "general",
+                "label": "Low-space",
+                "short": "General",
+                "detail": "General graphs; n^δ local memory",
+                "color": "#8b5daa"
+              },
+              {
+                "id": "degree",
+                "label": "Restricted Δ",
+                "short": "Small Δ",
+                "detail": "Δ=2^(log^o(1) n); n^δ local memory",
+                "color": "#b06b2d"
+              },
+              {
+                "id": "arboricity",
+                "label": "Arboricity α",
+                "short": "α",
+                "detail": "Variable arboricity; n^δ local memory",
+                "color": "#42828b"
+              },
+              {
+                "id": "bounded",
+                "label": "Bounded α",
+                "short": "α=O(1)",
+                "detail": "Fixed arboricity; n^δ local memory",
+                "color": "#9a7182"
+              },
+              {
+                "id": "trees",
+                "label": "Trees",
+                "short": "Trees",
+                "detail": "Trees; strongly sublinear local memory",
+                "color": "#727844"
+              }
+            ]
+          },
+          "y": {
+            "label": "Communication rounds: exact symbolic formula rows",
+            "kind": "symbolic",
+            "categories": [
+              {
+                "id": "general-det",
+                "label": "log Δ + log(log* n)"
+              },
+              {
+                "id": "general-rand",
+                "label": "√log Δ · log log Δ + √log log n"
+              },
+              {
+                "id": "arbor-old",
+                "label": "√log α · log log α + log² log n"
+              },
+              {
+                "id": "arbor-new",
+                "label": "√log α · log log α + log log n"
+              },
+              {
+                "id": "tree-old",
+                "label": "log³ log n"
+              },
+              {
+                "id": "tree-det",
+                "label": "log² log n"
+              },
+              {
+                "id": "small-degree",
+                "label": "log log Δ + log log log n"
+              },
+              {
+                "id": "degree-lower",
+                "label": "min{log Δ, log log n}"
+              },
+              {
+                "id": "doublelogn",
+                "label": "log log n"
+              },
+              {
+                "id": "doublelogdegree",
+                "label": "log log Δ"
+              }
+            ],
+            "scaleNote": "Shared round-cost formulas, not a numerical ranking. Green is O(·), red is Ω(·). Graph, stability, randomness and global space must match before reading a gap."
+          }
+        }
+      }
+    },
+    {
+      "id": "mis-query-adjarray-bni",
+      "problem": "mis",
+      "model": "query_list",
+      "label": "Adjacency-array explicit construction with bounded neighborhood independence",
+      "task": "Output an explicit maximal independent set",
+      "assumptions": [
+        "Simple undirected n-vertex graph, with at least one edge",
+        "Degree and indexed-neighbor access in O(1) time",
+        "β is neighborhood independence; 1 ≤ β ≤ Δ < n",
+        "Output the complete MIS; total time is measured"
+      ],
+      "parameters": {
+        "β(G)": "Neighborhood independence number"
+      },
+      "results": [
+        {
+          "id": "mis-query-assadi-solomon-upper",
+          "paperId": "assadi-solomon-2019-query-mis",
+          "kind": "upper",
+          "bound": "O(nβ) total time",
+          "guarantee": "Explicit list of vertices in one MIS",
+          "sourceLocation": "Theorem 1 and Claims 2–3, pp. 17:6–17:7",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "current_best_verified",
+          "notes": "Greedy marking gives this bound without knowing β. Claim 2 retains O(n) initialization, so edgeless graphs (β = 0) take O(n); the complete expression is O(n(1+β)).",
+          "plot": null,
+          "sourceUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol132-icalp2019/LIPIcs.ICALP.2019.17/LIPIcs.ICALP.2019.17.pdf#page=6",
+          "verifiedOn": "2026-10-26",
+          "assumptions": [
+            "Simple undirected n-vertex graph, with at least one edge",
+            "Degree and indexed-neighbor access in O(1) time",
+            "β is neighborhood independence; 1 ≤ β ≤ Δ < n",
+            "Output the complete MIS; total time is measured",
+            "β need not be known to the algorithm"
+          ]
+        },
+        {
+          "id": "mis-query-assadi-solomon-lower",
+          "paperId": "assadi-solomon-2019-query-mis",
+          "kind": "lower",
+          "bound": "Ω(nβ) total time",
+          "guarantee": "Explicit list of vertices in one MIS",
+          "sourceLocation": "Optimality of Our Bounds, p. 17:3; independent-copy argument",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "current_best_verified",
+          "notes": "The paper extends its cited general-graph lower bound using disjoint hard instances. The figure pairs only the common deterministic contract; no unverified randomized probability is added.",
+          "plot": null,
+          "sourceUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol132-icalp2019/LIPIcs.ICALP.2019.17/LIPIcs.ICALP.2019.17.pdf#page=3",
+          "verifiedOn": "2026-10-26",
+          "assumptions": [
+            "Simple undirected n-vertex graph, with at least one edge",
+            "Degree and indexed-neighbor access in O(1) time",
+            "β is neighborhood independence; 1 ≤ β ≤ Δ < n",
+            "Output the complete MIS; total time is measured",
+            "Worst-case graph-class bound, not a per-instance lower bound"
+          ]
+        }
+      ],
+      "mode": "curated",
+      "figureAxes": {
+        "title": "Explicit MIS · matching time bounds",
+        "x": {
+          "label": "Neighborhood independence β",
+          "kind": "derived-power",
+          "min": 0,
+          "max": 1,
+          "ticks": [
+            0,
+            0.5,
+            1
+          ],
+          "tickLabels": [
+            "Θ(1)",
+            "Θ(√n)",
+            "Θ(n)"
+          ],
+          "parameter": "β = Θ(n^a)"
+        },
+        "y": {
+          "label": "Total time",
+          "kind": "derived-power",
+          "min": 1,
+          "max": 2,
+          "ticks": [
+            1,
+            1.5,
+            2
+          ],
+          "tickLabels": [
+            "n",
+            "n³ᐟ²",
+            "n²"
+          ],
+          "relation": "nβ = Θ(n^(1+a))"
+        },
+        "scaleNote": "Asymptotic powers, not empirical runtimes. Both bounds share the nβ curve. β ≤ Δ < n; β = Θ(n) denotes an asymptotic regime, not β = n."
+      },
+      "xAxis": {
+        "label": "Neighborhood independence β",
+        "kind": "derived-power",
+        "min": 0,
+        "max": 1,
+        "ticks": [
+          0,
+          0.5,
+          1
+        ],
+        "tickLabels": [
+          "Θ(1)",
+          "Θ(√n)",
+          "Θ(n)"
+        ],
+        "parameter": "β = Θ(n^a)"
+      },
+      "yAxis": {
+        "label": "Total time",
+        "kind": "derived-power",
+        "min": 1,
+        "max": 2,
+        "ticks": [
+          1,
+          1.5,
+          2
+        ],
+        "tickLabels": [
+          "n",
+          "n³ᐟ²",
+          "n²"
+        ],
+        "relation": "nβ = Θ(n^(1+a))"
+      },
+      "focusPairId": "mis-query_list",
+      "reviewedOn": "2026-10-26"
+    },
+    {
+      "id": "mis-query-matrix-rgmis-size",
+      "problem": "mis",
+      "model": "query_matrix",
+      "label": "Adjacency matrix · generated greedy-MIS size · precision tradeoff",
+      "task": "Estimate the size of the random greedy MIS induced by an algorithm-generated random vertex permutation",
+      "assumptions": [
+        "General simple undirected graph",
+        "Only adjacency-matrix pair queries",
+        "MIS means inclusion-maximal, not maximum independent set",
+        "0 < ε < 1",
+        "High probability; algorithm-generated π",
+        "Scalar size output, not the expectation over π"
+      ],
+      "xAxis": {
+        "label": "Requested precision ε = (1/4)n^(−a) → tighter",
+        "kind": "derived-precision-exponent",
+        "min": 0,
+        "max": 0.5,
+        "ticks": [
+          0,
+          0.25,
+          0.5
+        ],
+        "tickLabels": [
+          "1/4",
+          "(1/4)n^(-1/4)",
+          "(1/4)n^(-1/2)"
+        ],
+        "parameter": "a",
+        "fixedAccuracyReference": {
+          "a": 0,
+          "epsilon": 0.25,
+          "meaning": "Illustrative fixed accuracy, not a new theorem"
+        }
+      },
+      "yAxis": {
+        "label": "Pair-query cost (powers of n)",
+        "kind": "exponent",
+        "min": 1.5,
+        "max": 2,
+        "ticks": [
+          1.5,
+          1.75,
+          2
+        ],
+        "tickLabels": [
+          "n^(3/2)",
+          "n^(7/4)",
+          "n²"
+        ],
+        "suppressed": "Constants and polylogarithmic factors; not an exact finite-n runtime crossover",
+        "viewDomain": [
+          1.4,
+          2.12
+        ],
+        "viewDomainNote": "Curated renderer adds framing space outside the data tick extent."
+      },
+      "parameters": {
+        "epsilon": "0 < ε < 1",
+        "precisionAxis": "ε=(1/4)n^(-a); a∈[0,1/2] displayed",
+        "plotInterpretation": "Theorem exponent 3/2+2a capped at 2 by an elementary full scan; logarithmic factors suppressed.",
+        "fixedAccuracyReference": "ε=1/4 is an explicitly labelled illustration"
+      },
+      "results": [
+        {
+          "id": "mis-query-mahabadi-2026-matrix-estimator",
+          "paperId": "mahabadi-et-al-2026-matrix-mis-size",
+          "kind": "upper",
+          "bound": "Õ(n^(3/2)/ε²)",
+          "guarantee": "|RGMIS(π)| ≤ estimate ≤ (1+ε)|RGMIS(π)|",
+          "sourceLocation": "Theorem 1.3; Algorithm 4 and its following note; author manuscript printed pp. 3, 18–19",
+          "evidenceStatus": "verified",
+          "frontierStatus": "current_best_verified",
+          "notes": "The target is a generated permutation's greedy MIS size, not maximum independent set size or the expectation over permutations. The published time bound also bounds pair queries. The plotted segment uses the theorem where it improves on scanning.",
+          "assumptions": [
+            "General simple undirected graph",
+            "Only adjacency-matrix pair queries",
+            "MIS means inclusion-maximal, not maximum independent set",
+            "0 < ε < 1",
+            "π is algorithm-generated; not a permutation fixed externally",
+            "No additive error"
+          ],
+          "output": "One scalar estimating an algorithm-generated random greedy MIS size",
+          "probability": "High probability for correctness and running time; the proof uses parallel independent instances for the runtime guarantee",
+          "derivationStatus": "primary_theorem",
+          "curve": {
+            "parameter": "a",
+            "epsilon": "ε = (1/4)n^(-a)",
+            "domain": [
+              0,
+              0.25
+            ],
+            "queryExponent": "3/2+2a",
+            "rawDomain": [
+              0,
+              0.5
+            ],
+            "rawQueryExponent": "3/2+2a"
+          }
+        },
+        {
+          "id": "mis-query-matrix-size-full-scan-baseline",
+          "paperId": "mahabadi-et-al-2026-matrix-mis-size",
+          "kind": "upper",
+          "bound": "O(n²)",
+          "guarantee": "Exact size of the greedy MIS for its own generated π",
+          "sourceLocation": "Elementary full-scan derivation from the adjacency-matrix model and greedy MIS definition",
+          "evidenceStatus": "verified",
+          "frontierStatus": "baseline",
+          "notes": "After at most n(n−1)/2 pair queries, greedy construction and counting use no further oracle queries. This baseline may choose its own π. Combining valid scalar-output algorithms gives the displayed query cap; this is an elementary derivation, not an additional theorem from the paper.",
+          "assumptions": [
+            "General simple undirected graph",
+            "Only adjacency-matrix pair queries",
+            "MIS means inclusion-maximal, not maximum independent set",
+            "Generate a permutation, read all unordered pairs, and execute greedy MIS",
+            "No claim to reproduce the amplified estimator's first-finishing permutation"
+          ],
+          "output": "One exact scalar cardinality",
+          "probability": "Always correct for the chosen permutation",
+          "derivationStatus": "elementary_baseline",
+          "curve": {
+            "parameter": "a",
+            "epsilon": "ε = (1/4)n^(-a)",
+            "domain": [
+              0.25,
+              0.5
+            ],
+            "queryExponent": "2"
+          }
+        }
+      ],
+      "mode": "curated",
+      "focusPairId": "mis-query_matrix",
+      "figureAxes": {
+        "x": {
+          "label": "Requested precision ε = (1/4)n^(−a) → tighter",
+          "kind": "derived-precision-exponent",
+          "min": 0,
+          "max": 0.5,
+          "ticks": [
+            0,
+            0.25,
+            0.5
+          ],
+          "tickLabels": [
+            "1/4",
+            "(1/4)n^(-1/4)",
+            "(1/4)n^(-1/2)"
+          ],
+          "parameter": "a",
+          "fixedAccuracyReference": {
+            "a": 0,
+            "epsilon": 0.25,
+            "meaning": "Illustrative fixed accuracy, not a new theorem"
+          }
+        },
+        "y": {
+          "label": "Pair-query cost (powers of n)",
+          "kind": "exponent",
+          "min": 1.4,
+          "max": 2.12,
+          "ticks": [
+            1.5,
+            1.75,
+            2
+          ],
+          "tickLabels": [
+            "n^(3/2)",
+            "n^(7/4)",
+            "n²"
+          ],
+          "suppressed": "Constants and polylogarithmic factors; not an exact finite-n runtime crossover"
+        }
+      }
+    },
+    {
+      "id": "mis-dynamic-incremental-adaptive-conditional",
+      "problem": "mis",
+      "model": "dynamic",
+      "label": "Incremental adaptive adversary, conditional hardness",
+      "task": "Maintain an explicit maximal independent set under edge insertions",
+      "assumptions": [
+        "Adaptive adversary",
+        "Incremental edge insertions; amortized update time"
+      ],
+      "parameters": {},
+      "results": [
+        {
+          "id": "mis-dyn-gupta-surendra-2026-inc",
+          "paperId": "gupta-khan-surendra-2026-dynamic",
+          "kind": "upper",
+          "bound": "O(√m) update time",
+          "guarantee": "Explicit MIS after each update",
+          "sourceLocation": "Theorem 1",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "current_best_verified",
+          "notes": "Deterministic incremental MIS; m is the number of inserted edges.",
+          "plot": null,
+          "assumptions": [
+            "Adaptive adversary",
+            "Incremental edge insertions; amortized update time"
+          ]
+        },
+        {
+          "id": "mis-dynamic-bernstein-2026-adaptive-lower",
+          "paperId": "bernstein-et-al-2026-dynamic-separation",
+          "kind": "lower",
+          "bound": "Ω(n^{1−o(1)}) update time",
+          "guarantee": "Explicit MIS after each update",
+          "sourceLocation": "Theorem 1.1; Hypothesis 2.2",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "candidate",
+          "notes": "Conditional on combinatorial BMM; only combinatorial algorithms; adaptive edge insertions. On dense graphs O(√m)=O(n).",
+          "plot": null,
+          "assumptions": [
+            "Combinatorial Boolean matrix multiplication hypothesis",
+            "Combinatorial dynamic algorithm",
+            "Adaptive adversary",
+            "Incremental edge insertions; amortized update time"
+          ]
+        }
+      ],
+      "mode": "categorical",
+      "figureAxes": {
+        "x": {
+          "label": "Update contract",
+          "kind": "categorical",
+          "categories": [
+            {
+              "id": "amortized",
+              "label": "Amortized · adaptive"
+            }
+          ]
+        },
+        "y": {
+          "label": "Amortized update-time bounds",
+          "kind": "symbolic",
+          "categories": [
+            {
+              "id": "O(√m)",
+              "label": "O(√m)"
+            },
+            {
+              "id": "Ω(n^{1−o(1)})",
+              "label": "Ω(n^{1−o(1)})"
+            }
+          ]
+        },
+        "note": "Symbolic formula rows are categories, not a numerical scale or a cross-parameter ranking."
+      },
+      "xAxis": {
+        "label": "Update contract",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "amortized",
+            "label": "Amortized · adaptive"
+          }
+        ]
+      },
+      "yAxis": {
+        "label": "Amortized update-time bounds",
+        "kind": "symbolic",
+        "categories": [
+          {
+            "id": "O(√m)",
+            "label": "O(√m)"
+          },
+          {
+            "id": "Ω(n^{1−o(1)})",
+            "label": "Ω(n^{1−o(1)})"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mis-query-matrix-explicit",
+      "problem": "mis",
+      "model": "query_matrix",
+      "label": "Adjacency matrix · explicit MIS · tight quadratic queries",
+      "task": "Output the vertex set of an explicit maximal independent set",
+      "assumptions": [
+        "General simple undirected graph",
+        "Only adjacency-matrix pair queries",
+        "MIS means inclusion-maximal, not maximum independent set",
+        "Constant-probability success for the lower bound",
+        "Exact full-vertex-set output"
+      ],
+      "parameters": {
+        "epsilon": "0 < ε < 1",
+        "precisionAxis": "ε=(1/4)n^(-a); a∈[0,1/2] displayed",
+        "plotInterpretation": "Exact output is independent of ε; aligned axis enables visual comparison of query cost.",
+        "fixedAccuracyReference": "ε=1/4 is an explicitly labelled illustration"
+      },
+      "results": [
+        {
+          "id": "mis-query-matrix-explicit-full-scan-baseline",
+          "paperId": "mahabadi-et-al-2026-matrix-mis-size",
+          "kind": "upper",
+          "bound": "O(n²)",
+          "guarantee": "Exact inclusion-maximal independent set",
+          "sourceLocation": "Elementary full-scan and greedy-construction baseline",
+          "evidenceStatus": "verified",
+          "frontierStatus": "baseline",
+          "notes": "The same complete matrix scan permits exact explicit construction. This is a direct baseline, not a new paper theorem. Its query order is independent of ε.",
+          "assumptions": [
+            "General simple undirected graph",
+            "Only adjacency-matrix pair queries",
+            "MIS means inclusion-maximal, not maximum independent set",
+            "Read all unordered pairs, then run greedy in any fixed order",
+            "No ε approximation is required for explicit output"
+          ],
+          "output": "The full vertex set of one MIS",
+          "probability": "Deterministic, always correct",
+          "derivationStatus": "elementary_baseline",
+          "curve": {
+            "parameter": "a",
+            "domain": [
+              0,
+              0.5
+            ],
+            "queryExponent": "2",
+            "epsilonIndependent": true
+          }
+        },
+        {
+          "id": "mis-query-mahabadi-2026-matrix-construction-lower",
+          "paperId": "mahabadi-et-al-2026-matrix-mis-size",
+          "kind": "lower",
+          "bound": "Ω(n²)",
+          "guarantee": "Exact inclusion-maximal independent set",
+          "sourceLocation": "Introduction, footnote 1 (author manuscript printed p. 2)",
+          "evidenceStatus": "verified",
+          "frontierStatus": "baseline",
+          "notes": "The source gives the hidden-edge construction obstruction. The pair-query interpretation follows the same search argument: a correct explicit MIS must exclude exactly one endpoint and include every other vertex. This does not lower-bound estimating its size; on that promised family the size is always n−1.",
+          "assumptions": [
+            "General simple undirected graph",
+            "Only adjacency-matrix pair queries",
+            "MIS means inclusion-maximal, not maximum independent set",
+            "Explicit-output contract only",
+            "The hard input has a single edge at a random pair",
+            "Constant success probability bounded away from zero"
+          ],
+          "output": "The full vertex set of one MIS",
+          "probability": "Worst-case query lower bound for constant-probability successful randomized construction; deterministic algorithms are included",
+          "derivationStatus": "primary_lower_bound_with_query_interpretation",
+          "curve": {
+            "parameter": "a",
+            "domain": [
+              0,
+              0.5
+            ],
+            "queryExponent": "2",
+            "epsilonIndependent": true
+          }
+        }
+      ],
+      "mode": "curated",
+      "focusPairId": "mis-query_matrix",
+      "xAxis": {
+        "label": "Requested precision ε = (1/4)n^(−a) → tighter",
+        "kind": "derived-precision-exponent",
+        "min": 0,
+        "max": 0.5,
+        "ticks": [
+          0,
+          0.25,
+          0.5
+        ],
+        "tickLabels": [
+          "1/4",
+          "(1/4)n^(-1/4)",
+          "(1/4)n^(-1/2)"
+        ],
+        "parameter": "a",
+        "fixedAccuracyReference": {
+          "a": 0,
+          "epsilon": 0.25,
+          "meaning": "Illustrative fixed accuracy, not a new theorem"
+        }
+      },
+      "yAxis": {
+        "label": "Pair-query cost (powers of n)",
+        "kind": "exponent",
+        "min": 1.5,
+        "max": 2,
+        "ticks": [
+          1.5,
+          1.75,
+          2
+        ],
+        "tickLabels": [
+          "n^(3/2)",
+          "n^(7/4)",
+          "n²"
+        ],
+        "suppressed": "Constants and polylogarithmic factors; not an exact finite-n runtime crossover",
+        "viewDomain": [
+          1.4,
+          2.12
+        ],
+        "viewDomainNote": "Curated renderer adds framing space outside the data tick extent."
+      },
+      "figureAxes": {
+        "x": {
+          "label": "Requested precision ε = (1/4)n^(−a) → tighter",
+          "kind": "derived-precision-exponent",
+          "min": 0,
+          "max": 0.5,
+          "ticks": [
+            0,
+            0.25,
+            0.5
+          ],
+          "tickLabels": [
+            "1/4",
+            "(1/4)n^(-1/4)",
+            "(1/4)n^(-1/2)"
+          ],
+          "parameter": "a",
+          "fixedAccuracyReference": {
+            "a": 0,
+            "epsilon": 0.25,
+            "meaning": "Illustrative fixed accuracy, not a new theorem"
+          }
+        },
+        "y": {
+          "label": "Pair-query cost (powers of n)",
+          "kind": "exponent",
+          "min": 1.4,
+          "max": 2.12,
+          "ticks": [
+            1.5,
+            1.75,
+            2
+          ],
+          "tickLabels": [
+            "n^(3/2)",
+            "n^(7/4)",
+            "n²"
+          ],
+          "suppressed": "Constants and polylogarithmic factors; not an exact finite-n runtime crossover"
+        },
+        "note": "The aligned precision axis is a visual reference; explicit construction is exact and independent of ε."
+      }
+    },
+    {
+      "id": "mis-dynamic-deterministic-centralized",
+      "problem": "mis",
+      "model": "dynamic",
+      "label": "Fully dynamic deterministic, centralized",
+      "task": "Maintain an explicit MIS after edge insertions and deletions",
+      "assumptions": [
+        "Sequential centralized RAM; n vertices, m current edges, maximum degree Δ",
+        "Deterministic, arbitrary update sequence",
+        "Amortized update time"
+      ],
+      "parameters": {
+        "Δ": "Maximum degree bound",
+        "m": "Current number of edges"
+      },
+      "results": [
+        {
+          "id": "mis-dyn-assadi-2018-det",
+          "paperId": "assadi-onak-schieber-solomon-2018-dynamic",
+          "kind": "upper",
+          "bound": "O(min{Δ, m^{3/4}}) update time",
+          "guarantee": "Explicit MIS after each update",
+          "sourceLocation": "Theorem 1 and following degree-cap combination",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "historical",
+          "notes": "Deterministic; Δ is a fixed maximum-degree cap and m is the current edge count.",
+          "plot": null
+        },
+        {
+          "id": "mis-dyn-du-2018-det",
+          "paperId": "du-zhang-2018-dynamic",
+          "kind": "upper",
+          "bound": "O(m^{2/3} √log m) update time",
+          "guarantee": "Explicit MIS after each update",
+          "sourceLocation": "Theorem 1",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "historical",
+          "notes": "Historical deterministic bound; an arXiv preprint.",
+          "plot": null
+        },
+        {
+          "id": "mis-dyn-gupta-khan-2021",
+          "paperId": "gupta-khan-2021-simple-dynamic",
+          "kind": "upper",
+          "bound": "O(min{Δ, m^{2/3}}) update time",
+          "guarantee": "Explicit MIS after each update",
+          "sourceLocation": "Theorem 1.1 in author preprint",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "current_best_verified",
+          "notes": "Deterministic fully dynamic edge updates; degree-sensitive bound.",
+          "plot": null
+        },
+        {
+          "id": "mis-dyn-gupta-surendra-2026-fully",
+          "paperId": "gupta-khan-surendra-2026-dynamic",
+          "kind": "upper",
+          "bound": "O(m^{2/3}) update time",
+          "guarantee": "Explicit MIS after each update",
+          "sourceLocation": "Theorem 5",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "candidate",
+          "notes": "Alternative deterministic construction; same m-dependence as GK21, without its degree cap improvement.",
+          "plot": null
+        }
+      ],
+      "mode": "categorical",
+      "figureAxes": {
+        "x": {
+          "label": "Update contract",
+          "kind": "categorical",
+          "categories": [
+            {
+              "id": "amortized",
+              "label": "Amortized · arbitrary updates"
+            }
+          ]
+        },
+        "y": {
+          "label": "Amortized update-time bounds",
+          "kind": "symbolic",
+          "categories": [
+            {
+              "id": "O(min{Δ, m^{3/4}})",
+              "label": "O(min{Δ, m^{3/4}})"
+            },
+            {
+              "id": "O(m^{2/3} √log m)",
+              "label": "O(m^{2/3} √log m)"
+            },
+            {
+              "id": "O(min{Δ, m^{2/3}})",
+              "label": "O(min{Δ, m^{2/3}})"
+            },
+            {
+              "id": "O(m^{2/3})",
+              "label": "O(m^{2/3})"
+            }
+          ]
+        },
+        "note": "Symbolic formula rows are categories, not a numerical scale or a cross-parameter ranking."
+      },
+      "xAxis": {
+        "label": "Update contract",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "amortized",
+            "label": "Amortized · arbitrary updates"
+          }
+        ]
+      },
+      "yAxis": {
+        "label": "Amortized update-time bounds",
+        "kind": "symbolic",
+        "categories": [
+          {
+            "id": "O(min{Δ, m^{3/4}})",
+            "label": "O(min{Δ, m^{3/4}})"
+          },
+          {
+            "id": "O(m^{2/3} √log m)",
+            "label": "O(m^{2/3} √log m)"
+          },
+          {
+            "id": "O(min{Δ, m^{2/3}})",
+            "label": "O(min{Δ, m^{2/3}})"
+          },
+          {
+            "id": "O(m^{2/3})",
+            "label": "O(m^{2/3})"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mis-dynamic-randomized-oblivious-amortized",
+      "problem": "mis",
+      "model": "dynamic",
+      "label": "Fully dynamic randomized, oblivious, amortized",
+      "task": "Maintain an explicit MIS after edge updates",
+      "assumptions": [
+        "Sequential centralized RAM; oblivious update sequence",
+        "Randomized expected amortized cost; m current edge count",
+        "Distinct from expected worst-case per-update guarantees"
+      ],
+      "parameters": {
+        "m": "Current edges",
+        "n": "Vertices"
+      },
+      "results": [
+        {
+          "id": "mis-dyn-du-2018-rand",
+          "paperId": "du-zhang-2018-dynamic",
+          "kind": "upper",
+          "bound": "O(√m · log^{3/2} m) update time",
+          "guarantee": "Explicit MIS after each update",
+          "sourceLocation": "Section 3.2 and Theorem 5",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "historical",
+          "notes": "Expected amortized cost; oblivious sequence. Theorem 4 only bounds a vertex probability, not update time.",
+          "plot": null
+        },
+        {
+          "id": "mis-dyn-aoss-2019-m13",
+          "paperId": "assadi-onak-schieber-solomon-2019-dynamic",
+          "kind": "upper",
+          "bound": "O(m^{1/3} log m) update time",
+          "guarantee": "Explicit MIS after each update",
+          "sourceLocation": "Theorem 3",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "historical",
+          "notes": "Expected amortized time; the high-probability total-time statement has a sequence-length condition (Lemma 4.1).",
+          "plot": null
+        },
+        {
+          "id": "mis-dyn-aoss-2019-sqrtn",
+          "paperId": "assadi-onak-schieber-solomon-2019-dynamic",
+          "kind": "upper",
+          "bound": "Õ(√n) update time",
+          "guarantee": "Explicit MIS after each update",
+          "sourceLocation": "Theorem 4",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "historical",
+          "notes": "Expected amortized O(√n log² n log log n). Its high-probability total bound includes an additive n² log³ n term.",
+          "plot": null
+        }
+      ],
+      "mode": "categorical",
+      "figureAxes": {
+        "x": {
+          "label": "Update contract",
+          "kind": "categorical",
+          "categories": [
+            {
+              "id": "amortized",
+              "label": "Expected amortized"
+            }
+          ]
+        },
+        "y": {
+          "label": "Historical update-time bounds",
+          "kind": "symbolic",
+          "categories": [
+            {
+              "id": "O(√m · log^{3/2} m)",
+              "label": "O(√m · log^{3/2} m)"
+            },
+            {
+              "id": "O(m^{1/3} log m)",
+              "label": "O(m^{1/3} log m)"
+            },
+            {
+              "id": "Õ(√n)",
+              "label": "Õ(√n)"
+            }
+          ]
+        },
+        "note": "Symbolic formula rows are categories, not a numerical scale or a cross-parameter ranking."
+      },
+      "xAxis": {
+        "label": "Update contract",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "amortized",
+            "label": "Expected amortized"
+          }
+        ]
+      },
+      "yAxis": {
+        "label": "Historical update-time bounds",
+        "kind": "symbolic",
+        "categories": [
+          {
+            "id": "O(√m · log^{3/2} m)",
+            "label": "O(√m · log^{3/2} m)"
+          },
+          {
+            "id": "O(m^{1/3} log m)",
+            "label": "O(m^{1/3} log m)"
+          },
+          {
+            "id": "Õ(√n)",
+            "label": "Õ(√n)"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mis-dynamic-batch-parallel-oblivious",
+      "problem": "mis",
+      "model": "dynamic",
+      "label": "Parallel batch dynamic, random vertex order",
+      "task": "Maintain an MIS after each batch of b edge insertions/deletions",
+      "assumptions": [
+        "Parallel batch updates; n-vertex graph",
+        "Oblivious adversary and random vertex priority order",
+        "Work and depth are separate complexity measures",
+        "Binary fork-join model with standard atomic primitives; work and depth remain separate"
+      ],
+      "parameters": {
+        "b": "Number of updates in one batch"
+      },
+      "results": [
+        {
+          "id": "mis-dyn-blelloch-2026-batch",
+          "paperId": "blelloch-et-al-2026-batch-dynamic",
+          "kind": "upper",
+          "bound": "O(b log² n · log Δ) expected work per batch; O(log⁵ n) depth w.h.p.",
+          "guarantee": "Random-order lexicographically first MIS after a batch",
+          "sourceLocation": "Theorem 6.14 and Lemma 6.8",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "candidate",
+          "notes": "Expected work per batch, with O(log⁵ n) depth w.h.p.; binary fork-join model. Improves the abstract’s O(b log³ n) formulation.",
+          "plot": null
+        }
+      ],
+      "mode": "categorical",
+      "figureAxes": {
+        "x": {
+          "label": "Parallel resource",
+          "kind": "categorical",
+          "categories": [
+            {
+              "id": "work",
+              "label": "Expected work"
+            },
+            {
+              "id": "depth",
+              "label": "Depth w.h.p."
+            }
+          ]
+        },
+        "y": {
+          "label": "Work and depth bounds",
+          "kind": "symbolic",
+          "categories": [
+            {
+              "id": "O(b log² n · log Δ)",
+              "label": "O(b log² n · log Δ)"
+            },
+            {
+              "id": "O(log⁵ n)",
+              "label": "O(log⁵ n)"
+            }
+          ]
+        },
+        "note": "Symbolic formula rows are categories, not a numerical scale or a cross-parameter ranking."
+      },
+      "xAxis": {
+        "label": "Parallel resource",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "work",
+            "label": "Expected work"
+          },
+          {
+            "id": "depth",
+            "label": "Depth w.h.p."
+          }
+        ]
+      },
+      "yAxis": {
+        "label": "Work and depth bounds",
+        "kind": "symbolic",
+        "categories": [
+          {
+            "id": "O(b log² n · log Δ)",
+            "label": "O(b log² n · log Δ)"
+          },
+          {
+            "id": "O(log⁵ n)",
+            "label": "O(log⁵ n)"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mis-stream-edge-onepass-explicit",
+      "problem": "mis",
+      "model": "stream",
+      "label": "One-pass arbitrary-order edge stream",
+      "task": "Output any exact maximal independent set",
+      "assumptions": [
+        "Insertion-only arbitrary-order edge stream",
+        "Randomized constant success probability; n vertices",
+        "Storage bits, one pass"
+      ],
+      "parameters": {},
+      "results": [
+        {
+          "id": "mis-stream-cormode-2019-onepass",
+          "paperId": "cormode-dark-konrad-2019-stream",
+          "kind": "lower",
+          "bound": "Ω(n²) bits in one pass",
+          "guarantee": "Explicit exact MIS with constant success probability",
+          "sourceLocation": "Theorem 10, PDF p.9",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "current_best_verified",
+          "notes": "This theorem concerns an inclusion-maximal independent set, not maximum cardinality.",
+          "plot": null
+        },
+        {
+          "id": "mis-stream-assadi-2024-p1",
+          "paperId": "assadi-et-al-2024-stream-mis",
+          "kind": "lower",
+          "bound": "n^(2-o(1)) bits for p=1",
+          "guarantee": "Explicit exact MIS with constant success probability",
+          "sourceLocation": "Corollary 2 at p = 1",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "historical",
+          "notes": "Historical/general-theorem specialization; CDK19 already gives the sharper Ω(n²) one-pass result.",
+          "plot": null
+        },
+        {
+          "id": "mis-stream-store-graph-onepass",
+          "paperId": "cormode-dark-konrad-2019-stream",
+          "kind": "upper",
+          "bound": "O(n²) bits; one pass",
+          "guarantee": "Explicit maximal independent set",
+          "sourceLocation": "Elementary adjacency-matrix storage baseline",
+          "evidenceStatus": "elementary_baseline_verified",
+          "frontierStatus": "baseline",
+          "notes": "Atlas baseline, not a new theorem attributed to CDK19: store one adjacency bit per unordered pair, then run greedy on the stored graph. For prescribed-order output, run greedy in that order. O(n²) bits includes the O(n)-bit selected-set array. The primary paper motivates this full-storage comparison.",
+          "plot": null
+        }
+      ],
+      "mode": "2d",
+      "figureAxes": {
+        "title": "One pass · any MIS",
+        "subtitle": "Arrival models change the memory requirement",
+        "x": {
+          "label": "Arrival model",
+          "kind": "categorical",
+          "categories": [
+            {
+              "id": "edge",
+              "label": "Edges"
+            },
+            {
+              "id": "vertex",
+              "label": "Explicit vertices"
+            }
+          ]
+        },
+        "y": {
+          "label": "Memory in bits",
+          "kind": "symbolic",
+          "categories": [
+            {
+              "id": "quadratic",
+              "label": "n²"
+            },
+            {
+              "id": "linear",
+              "label": "n log n"
+            }
+          ]
+        }
+      },
+      "xAxis": {
+        "label": "Arrival model",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "edge",
+            "label": "Edges"
+          },
+          {
+            "id": "vertex",
+            "label": "Explicit vertices"
+          }
+        ]
+      },
+      "yAxis": {
+        "label": "Memory in bits",
+        "kind": "symbolic",
+        "categories": [
+          {
+            "id": "quadratic",
+            "label": "n²"
+          },
+          {
+            "id": "linear",
+            "label": "n log n"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mis-stream-p-pass-tradeoff",
+      "problem": "mis",
+      "model": "stream",
+      "label": "Arbitrary passes, space tradeoff",
+      "task": "Output any maximal independent set",
+      "assumptions": [
+        "p≥1 passes over insertion-only arbitrary-order edge stream",
+        "Randomized constant success probability",
+        "Space measured in bits; n vertices"
+      ],
+      "parameters": {
+        "p": "Number of passes"
+      },
+      "results": [
+        {
+          "id": "mis-stream-assadi-2024-tradeoff",
+          "paperId": "assadi-et-al-2024-stream-mis",
+          "kind": "lower",
+          "bound": "n^(1+1/(2^p−1)−o(1)) bits for p passes",
+          "guarantee": "Any exact MIS with constant success probability",
+          "sourceLocation": "Corollary 2, PDF p.24 (printed p.22)",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "current_best_verified",
+          "notes": "Exact form: Ω(n^{1+1/(2^p−1)} / 2^{Θ(p (log n)^{5/6})}) bits. The n^{-o(1)} form is the source’s asymptotic summary (e.g. fixed p); use the exact denominator when p varies.",
+          "plot": null,
+          "exactBound": "Ω(n^{1+1/(2^p−1)} / 2^{Θ(p (log n)^{5/6})}) bits"
+        },
+        {
+          "id": "mis-stream-store-graph-passes",
+          "paperId": "cormode-dark-konrad-2019-stream",
+          "kind": "upper",
+          "bound": "O(n²) bits; one pass",
+          "guarantee": "Explicit maximal independent set",
+          "sourceLocation": "Elementary adjacency-matrix storage baseline",
+          "evidenceStatus": "elementary_baseline_verified",
+          "frontierStatus": "baseline",
+          "notes": "Atlas baseline, not a new theorem attributed to CDK19: store one adjacency bit per unordered pair, then run greedy on the stored graph. For prescribed-order output, run greedy in that order. O(n²) bits includes the O(n)-bit selected-set array. The primary paper motivates this full-storage comparison.",
+          "plot": null
+        }
+      ],
+      "mode": "2d",
+      "figureAxes": {
+        "title": "p passes · any MIS",
+        "subtitle": "Arbitrary edge order · exact p dependence in inspection",
+        "x": {
+          "label": "Pass budget",
+          "kind": "categorical",
+          "categories": [
+            {
+              "id": "p",
+              "label": "fixed p ≥ 1"
+            }
+          ]
+        },
+        "y": {
+          "label": "Memory in bits",
+          "kind": "symbolic",
+          "categories": [
+            {
+              "id": "quadratic",
+              "label": "O(n²)"
+            },
+            {
+              "id": "exponential",
+              "label": "n^{1+1/(2^p−1)−o(1)}"
+            }
+          ]
+        }
+      },
+      "xAxis": {
+        "label": "Pass budget",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "p",
+            "label": "fixed p ≥ 1"
+          }
+        ]
+      },
+      "yAxis": {
+        "label": "Memory in bits",
+        "kind": "symbolic",
+        "categories": [
+          {
+            "id": "quadratic",
+            "label": "O(n²)"
+          },
+          {
+            "id": "exponential",
+            "label": "n^{1+1/(2^p−1)−o(1)}"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mis-stream-vertex-arrival-explicit",
+      "problem": "mis",
+      "model": "stream",
+      "label": "One-pass explicit vertex arrival",
+      "task": "Output any maximal independent set",
+      "assumptions": [
+        "On arrival, each vertex reveals all edges to previous vertices",
+        "One pass, arbitrary vertex order, n vertices"
+      ],
+      "parameters": {},
+      "results": [
+        {
+          "id": "mis-stream-cormode-vertex-greedy",
+          "paperId": "cormode-dark-konrad-2019-stream",
+          "kind": "upper",
+          "bound": "O(n log n) bits (store selected vertex IDs); one pass",
+          "guarantee": "Explicit exact MIS using greedy vertex arrival",
+          "sourceLocation": "Fact 1, PDF p.9",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "baseline",
+          "notes": "Store the selected vertex IDs, adding an arriving vertex exactly when no prior selected neighbor is revealed. O(n log n) counts O(log n)-bit IDs; no matching memory lower bound is asserted.",
+          "plot": null
+        }
+      ],
+      "mode": "2d",
+      "figureAxes": {
+        "title": "One pass · any MIS",
+        "subtitle": "Arrival models change the memory requirement",
+        "x": {
+          "label": "Arrival model",
+          "kind": "categorical",
+          "categories": [
+            {
+              "id": "edge",
+              "label": "Edges"
+            },
+            {
+              "id": "vertex",
+              "label": "Explicit vertices"
+            }
+          ]
+        },
+        "y": {
+          "label": "Memory in bits",
+          "kind": "symbolic",
+          "categories": [
+            {
+              "id": "quadratic",
+              "label": "n²"
+            },
+            {
+              "id": "linear",
+              "label": "n log n"
+            }
+          ]
+        }
+      },
+      "xAxis": {
+        "label": "Arrival model",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "edge",
+            "label": "Edges"
+          },
+          {
+            "id": "vertex",
+            "label": "Explicit vertices"
+          }
+        ]
+      },
+      "yAxis": {
+        "label": "Memory in bits",
+        "kind": "symbolic",
+        "categories": [
+          {
+            "id": "quadratic",
+            "label": "n²"
+          },
+          {
+            "id": "linear",
+            "label": "n log n"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mis-stream-lexicographic-first",
+      "problem": "mis",
+      "model": "stream",
+      "label": "Lexicographically first MIS, p-pass edge stream",
+      "task": "Output the MIS produced by greedy order on vertex IDs",
+      "assumptions": [
+        "p-pass arbitrary-order edge stream; n vertices",
+        "Constant success probability",
+        "Unlike arbitrary MIS, the output is uniquely constrained by vertex order"
+      ],
+      "parameters": {
+        "p": "Number of passes"
+      },
+      "results": [
+        {
+          "id": "mis-stream-assadi-2019-lfmis",
+          "paperId": "assadi-chen-khanna-2019-polynomial-passes",
+          "kind": "lower",
+          "bound": "Ω(n²/p⁵) bits for p passes",
+          "guarantee": "Lexicographically first maximal independent set",
+          "sourceLocation": "Theorem 7, PDF p.33; proof §6.2",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "current_best_verified",
+          "notes": "The output is the greedy MIS for a prescribed vertex-ID ordering. This lower bound must never be applied to an arbitrary MIS. It implies Ω̃(n^{1/5}) passes at semi-streaming space.",
+          "plot": null
+        },
+        {
+          "id": "mis-stream-store-graph-lfmis",
+          "paperId": "cormode-dark-konrad-2019-stream",
+          "kind": "upper",
+          "bound": "O(n²) bits; one pass",
+          "guarantee": "Lexicographically first MIS in a prescribed vertex order",
+          "sourceLocation": "Elementary adjacency-matrix storage baseline",
+          "evidenceStatus": "elementary_baseline_verified",
+          "frontierStatus": "baseline",
+          "notes": "Atlas baseline, not a new theorem attributed to CDK19: store one adjacency bit per unordered pair, then run greedy on the stored graph. For prescribed-order output, run greedy in that order. O(n²) bits includes the O(n)-bit selected-set array. The primary paper motivates this full-storage comparison.",
+          "plot": null
+        }
+      ],
+      "mode": "2d",
+      "figureAxes": {
+        "title": "p passes · prescribed greedy MIS",
+        "subtitle": "Lexicographically first output is a stronger contract",
+        "x": {
+          "label": "Pass budget",
+          "kind": "categorical",
+          "categories": [
+            {
+              "id": "p",
+              "label": "p ≥ 1"
+            }
+          ]
+        },
+        "y": {
+          "label": "Memory in bits",
+          "kind": "symbolic",
+          "categories": [
+            {
+              "id": "quadratic",
+              "label": "O(n²)"
+            },
+            {
+              "id": "polynomial",
+              "label": "Ω(n²/p⁵)"
+            }
+          ]
+        }
+      },
+      "xAxis": {
+        "label": "Pass budget",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "p",
+            "label": "p ≥ 1"
+          }
+        ]
+      },
+      "yAxis": {
+        "label": "Memory in bits",
+        "kind": "symbolic",
+        "categories": [
+          {
+            "id": "quadratic",
+            "label": "O(n²)"
+          },
+          {
+            "id": "polynomial",
+            "label": "Ω(n²/p⁵)"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mis-lca-constantdegree-original",
+      "problem": "mis",
+      "model": "lca",
+      "label": "Bounded-degree LCA, classic and deterministic",
+      "task": "Answer consistent MIS membership on bounded-degree graph",
+      "assumptions": [
+        "Fixed maximum degree Δ",
+        "Randomized classic time/space guarantees and deterministic probe guarantees are separate panels",
+        "The lower bound requires deterministic query-order-oblivious answers, including stateless algorithms"
+      ],
+      "parameters": {
+        "Δ": "Maximum degree"
+      },
+      "results": [
+        {
+          "id": "mis-lca-rubinfeld-2011",
+          "paperId": "rubinfeld-tamir-vardi-xie-2011-lca",
+          "kind": "upper",
+          "bound": "O_Δ(log n) time; O(n) space; Time per query and total local computation memory",
+          "guarantee": "Exact maximal independent set; Consistent YES/NO membership in one maximal independent set",
+          "sourceLocation": "Theorem 4.1; Definition 2.2",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "Theorem 4.1 gives O(Δ^{O(Δ log Δ)} log n) time, O(n) space, and failure 1/n. Fixing Δ gives the displayed O(log n) time. The algorithm stores randomness; it is not the deterministic stateless contract.",
+          "plot": null,
+          "sourceUrl": "https://arxiv.org/html/1104.1377v1",
+          "verifiedOn": "2026-10-20",
+          "assumptions": [
+            "n is the vertex count; Δ is the maximum degree",
+            "The input graph is fixed before the random tape",
+            "Membership refers to a maximal independent set, not a maximum independent set"
+          ],
+          "oracle": "Adjacency-list neighbor probes: (v,i) returns the ith neighbor",
+          "probability": "Success at least 1−1/n over all queries",
+          "output": "Consistent YES/NO membership in one maximal independent set"
+        },
+        {
+          "id": "mis-lca-alon-2012-space",
+          "paperId": "alon-rubinfeld-vardi-xie-2012-lca",
+          "kind": "upper",
+          "bound": "O_Δ(log³ n) time; O_Δ(log² n) space; Time per query and local memory including compact randomness",
+          "guarantee": "Exact maximal independent set; Consistent YES/NO membership in one maximal independent set",
+          "sourceLocation": "Theorem 6.1; Section 1.1 on query-order obliviousness and parallelizability",
+          "evidenceStatus": "verified",
+          "frontierStatus": "baseline",
+          "notes": "The fixed-degree n-dependence avoids an inconsistent Δ exponent between the printed Theorem 6.1 space component and its preceding derivation. Both give log² n space for fixed Δ. The algorithm is query-order oblivious and parallelizable. The time bound is Δ^{O(Δ log Δ)} log³ n.",
+          "plot": null,
+          "sourceUrl": "https://arxiv.org/html/1109.6178v2",
+          "verifiedOn": "2026-10-20",
+          "assumptions": [
+            "n is the vertex count; Δ is the maximum degree",
+            "The input graph is fixed before the random tape",
+            "Membership refers to a maximal independent set, not a maximum independent set"
+          ],
+          "oracle": "Adjacency-list neighbor probes: (v,i) returns the ith neighbor",
+          "probability": "Success at least 1−1/n over all queries",
+          "output": "Consistent YES/NO membership in one maximal independent set"
+        },
+        {
+          "id": "mis-lca-even-2018-det",
+          "paperId": "even-medina-ron-2018-local",
+          "kind": "upper",
+          "bound": "O_Δ(log* n); Neighbor probes per membership query",
+          "guarantee": "Exact maximal independent set; Consistent YES/NO membership in one maximal independent set",
+          "sourceLocation": "Corollary 11; Section 2.2 defines CentLocal probes and statelessness",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "The full degree-sensitive bound is Δ^{O(Δ²)} · log* n. This panel fixes Δ, so the result is O(log* n). No polynomial-in-Δ claim is made.",
+          "plot": null,
+          "sourceUrl": "https://arxiv.org/html/1402.3796v3",
+          "verifiedOn": "2026-10-20",
+          "assumptions": [
+            "Distinct vertex IDs; known n and maximum degree bound Δ",
+            "Δ is held fixed for the displayed n-dependence",
+            "Deterministic, stateless: no state retained between membership queries",
+            "Membership refers to a maximal independent set, not a maximum independent set"
+          ],
+          "oracle": "Adjacency-list neighbor probes; the source also returns a reverse port, simulable with at most Δ neighbor probes",
+          "probability": "Deterministic: all answers correct",
+          "output": "Consistent YES/NO membership in one maximal independent set"
+        },
+        {
+          "id": "mis-lca-nonlocal-2016-lower",
+          "paperId": "goos-hirvonen-levi-medina-suomela-2016-nonlocal",
+          "kind": "lower",
+          "bound": "Ω(log* n) probes per query",
+          "guarantee": "Exact maximal independent set",
+          "sourceLocation": "Theorem 2 and Table 1, Section 5.2 (MIS row)",
+          "sourceUrl": "https://arxiv.org/html/1512.05411v1",
+          "evidenceStatus": "verified",
+          "verifiedOn": "2026-10-20",
+          "frontierStatus": "lower_bound",
+          "notes": "The source explicitly transfers its Table 1 LOCAL lower bounds to deterministic query-order-oblivious CentLOCAL. For fixed Δ, strong and single-neighbor probes differ by only a constant factor. This pairs with the stateless upper bound in n, not in Δ.",
+          "plot": null,
+          "assumptions": [
+            "Fixed degree bound",
+            "Deterministic and query-order oblivious; no claim for arbitrary stateful randomized LCAs",
+            "Probe locations may be nonlocal",
+            "The stronger full-neighbor probe lower bound also applies to single-neighbor probes"
+          ],
+          "oracle": "Lower bound permits strong probes revealing all neighbors of any chosen vertex",
+          "probability": "Deterministic correctness on all valid inputs and queries",
+          "output": "Consistent YES/NO membership in one maximal independent set"
+        }
+      ],
+      "mode": "curated",
+      "axis": {
+        "label": "Exact symbolic resource bounds by contract",
+        "kind": "categorical",
+        "scaleNote": "See recorded figureAxes. No numeric exponent ladder or inferred degree coordinate."
+      },
+      "focusPairId": "mis-lca",
+      "figureAxes": {
+        "cost": {
+          "x": {
+            "label": "Probe budget / time upper bound per query",
+            "kind": "symbolic-growth-classes",
+            "categories": [
+              {
+                "id": "constant",
+                "label": "1"
+              },
+              {
+                "id": "logstar",
+                "label": "log* n"
+              },
+              {
+                "id": "logn",
+                "label": "log n"
+              },
+              {
+                "id": "polylog",
+                "label": "poly(log n)"
+              },
+              {
+                "id": "polynomial",
+                "label": "n^{O(1)}"
+              },
+              {
+                "id": "quasiLL",
+                "label": "n^{O(log log n)}"
+              },
+              {
+                "id": "quasiL",
+                "label": "n^{O(log n)}"
+              },
+              {
+                "id": "quasiL2",
+                "label": "n^{O(log² n)}"
+              }
+            ]
+          },
+          "y": {
+            "label": "Named theorem and setup",
+            "kind": "categorical",
+            "categories": [
+              {
+                "id": "mis-lca-ghaffari-polydeg",
+                "label": "Ghaffari 2022"
+              },
+              {
+                "id": "mis-lca-ghaffari-uitto-2019",
+                "label": "Ghaffari–Uitto 2019"
+              },
+              {
+                "id": "mis-lca-ghaffari-2016-intermediate",
+                "label": "Ghaffari 2016"
+              },
+              {
+                "id": "mis-lca-levi-2017-quasipoly",
+                "label": "Levi–Rubinfeld–Yodpinyanee 2017"
+              },
+              {
+                "id": "mis-lca-rubinfeld-2011",
+                "label": "Rubinfeld et al. 2011"
+              },
+              {
+                "id": "mis-lca-alon-2012-space",
+                "label": "Alon et al. 2012"
+              },
+              {
+                "id": "mis-lca-even-2018-det",
+                "label": "Even–Medina–Ron 2018"
+              },
+              {
+                "id": "mis-lca-nonlocal-2016-lower",
+                "label": "Göös et al. 2016"
+              },
+              {
+                "id": "mis-lca-ghaffari-polydeg-expected",
+                "label": "Ghaffari 2022 · expectation"
+              }
+            ]
+          },
+          "scaleNote": "Expression envelopes under 1≤Δ<n, not runtime lower bounds or numerical locations. Asymptotic classes overlap; exponent constants are unknown."
+        }
+      },
+      "reviewedOn": "2026-10-20",
+      "xAxis": {
+        "label": "Probe budget / time upper bound per query",
+        "kind": "symbolic-growth-classes",
+        "categories": [
+          {
+            "id": "constant",
+            "label": "1"
+          },
+          {
+            "id": "logstar",
+            "label": "log* n"
+          },
+          {
+            "id": "logn",
+            "label": "log n"
+          },
+          {
+            "id": "polylog",
+            "label": "poly(log n)"
+          },
+          {
+            "id": "polynomial",
+            "label": "n^{O(1)}"
+          },
+          {
+            "id": "quasiLL",
+            "label": "n^{O(log log n)}"
+          },
+          {
+            "id": "quasiL",
+            "label": "n^{O(log n)}"
+          },
+          {
+            "id": "quasiL2",
+            "label": "n^{O(log² n)}"
+          }
+        ]
+      },
+      "yAxis": {
+        "label": "Named theorem and setup",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "mis-lca-ghaffari-polydeg",
+            "label": "Ghaffari 2022"
+          },
+          {
+            "id": "mis-lca-ghaffari-uitto-2019",
+            "label": "Ghaffari–Uitto 2019"
+          },
+          {
+            "id": "mis-lca-ghaffari-2016-intermediate",
+            "label": "Ghaffari 2016"
+          },
+          {
+            "id": "mis-lca-levi-2017-quasipoly",
+            "label": "Levi–Rubinfeld–Yodpinyanee 2017"
+          },
+          {
+            "id": "mis-lca-rubinfeld-2011",
+            "label": "Rubinfeld et al. 2011"
+          },
+          {
+            "id": "mis-lca-alon-2012-space",
+            "label": "Alon et al. 2012"
+          },
+          {
+            "id": "mis-lca-even-2018-det",
+            "label": "Even–Medina–Ron 2018"
+          },
+          {
+            "id": "mis-lca-nonlocal-2016-lower",
+            "label": "Göös et al. 2016"
+          },
+          {
+            "id": "mis-lca-ghaffari-polydeg-expected",
+            "label": "Ghaffari 2022 · expectation"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mis-lca-random-graph-cogeneration",
+      "problem": "mis",
+      "model": "lca",
+      "label": "Erdős–Rényi joint graph and MIS access",
+      "task": "Generate consistent access to a sampled random graph and one MIS",
+      "assumptions": [
+        "The graph is sampled as G(n,q), with q the edge probability; n is the number of vertices",
+        "Joint local access generator and LCA; not worst-case arbitrary input",
+        "Sampling within n^{−c} total variation of G(n,q); memoryless on a fixed random tape"
+      ],
+      "parameters": {
+        "q": "Erdős–Rényi edge probability"
+      },
+      "results": [
+        {
+          "id": "mis-lca-biswas-2025-generator",
+          "paperId": "biswas-et-al-2025-beyondworst-lca",
+          "kind": "upper",
+          "bound": "polylog(n) / q; Work per graph-edge or MIS-membership query",
+          "guarantee": "A sampled graph together with one exact MIS; Joint graph adjacency answers and MIS membership answers",
+          "sourceLocation": "Definition 1.11, Theorem 1.12 and Section 8",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "The near-G(n,q) sampling guarantee from Definition 1.11 is part of the theorem contract. The theorem supplies a work bound, not an input-adjacency-probe bound. No comparable lower bound is verified in this source set.",
+          "plot": null,
+          "sourceUrl": "https://arxiv.org/html/2403.00129v2",
+          "verifiedOn": "2026-10-20",
+          "assumptions": [
+            "q is the edge probability (called p in the source)",
+            "Graph and MIS are generated together",
+            "No assertion for a fixed adversarial graph",
+            "For q≥1/polylog(n), the work simplifies to polylog(n)"
+          ],
+          "oracle": "Local Access Generator: the graph is generated by the oracle, not supplied as a fixed input",
+          "probability": "Per-query complexity holds with high probability; generated graph distribution is within n^{−c} total variation of G(n,q), for desired constant c",
+          "output": "Joint graph adjacency answers and MIS membership answers"
+        }
+      ],
+      "mode": "curated",
+      "axis": {
+        "label": "Exact symbolic resource bounds by contract",
+        "kind": "categorical",
+        "scaleNote": "See recorded figureAxes. No numeric exponent ladder or inferred degree coordinate."
+      },
+      "focusPairId": "mis-lca",
+      "figureAxes": [
+        {
+          "id": "generator",
+          "group": "generator",
+          "title": "Jointly generate the graph and its MIS",
+          "note": "G(n,q) local access generation; a separate input/output contract.",
+          "x": {
+            "label": "Output contract",
+            "kind": "categorical",
+            "categories": [
+              {
+                "id": "joint",
+                "label": "Graph edges + MIS membership"
+              }
+            ]
+          },
+          "y": {
+            "label": "Work per query",
+            "kind": "symbolic-categorical",
+            "categories": [
+              {
+                "id": "mis-lca-biswas-2025-generator",
+                "label": "polylog(n) / q"
+              }
+            ]
+          },
+          "scaleNote": "Rows are exact symbolic theorem formulas, not numerical or dominance ranks."
+        }
+      ],
+      "reviewedOn": "2026-10-20",
+      "xAxis": {
+        "label": "Resource or memory contract (see scoped figure axes)",
+        "kind": "categorical"
+      },
+      "yAxis": {
+        "label": "Exact symbolic probe, time or work bounds (see scoped figure axes)",
+        "kind": "categorical"
+      }
+    },
+    {
+      "id": "mis-local-randomized-general-lower",
+      "problem": "mis",
+      "model": "local",
+      "label": "Randomized LOCAL, general graphs",
+      "task": "All vertices output a consistent explicit MIS",
+      "assumptions": [
+        "Synchronous LOCAL, n-node general graphs",
+        "High-probability global success",
+        "Unbounded messages"
+      ],
+      "parameters": {},
+      "results": [
+        {
+          "id": "mis-local-luby-general",
+          "paperId": "luby-1985-mis",
+          "kind": "upper",
+          "bound": "O(log n)",
+          "guarantee": "Explicit maximal independent set; each vertex outputs its membership",
+          "sourceLocation": "§3.2–3.4, Theorem 1 and following high-probability discussion",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "LOCAL implementation uses O(1) rounds per iteration. Ghaffari 2016 introduction states this consequence explicitly.",
+          "plot": null
+        },
+        {
+          "id": "mis-local-kmw-general-lower",
+          "paperId": "kuhn-moscibroda-wattenhofer-2016-local-lower",
+          "kind": "lower",
+          "bound": "Ω(√(log n / log log n))",
+          "guarantee": "Explicit maximal independent set; each vertex outputs its membership",
+          "sourceLocation": "Theorem 23, PDF p.28 (printed p.27)",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Worst-case hard graph family. Expected-time lower and high-probability upper are explicitly distinguished.",
+          "plot": null
+        }
+      ],
+      "mode": "diagram",
+      "figureAxes": {
+        "title": "Elapsed rounds · explicit algorithm and communication contracts",
+        "x": {
+          "label": "Algorithm / success / communication contract",
+          "kind": "categorical",
+          "categories": [
+            {
+              "id": "det",
+              "label": "Deterministic LOCAL"
+            },
+            {
+              "id": "rand",
+              "label": "Randomized LOCAL · general"
+            },
+            {
+              "id": "degree",
+              "label": "Randomized LOCAL · degree-sensitive"
+            },
+            {
+              "id": "sleep",
+              "label": "Sleeping CONGEST · randomized"
+            }
+          ]
+        },
+        "y": {
+          "label": "Total elapsed synchronous rounds · symbolic growth families",
+          "kind": "categorical",
+          "categories": [
+            {
+              "id": "one",
+              "label": "1"
+            },
+            {
+              "id": "loglogratio",
+              "label": "log log n / log log log n"
+            },
+            {
+              "id": "sqrt",
+              "label": "√(log n / log log n)"
+            },
+            {
+              "id": "logoverlog",
+              "label": "log n / log log n"
+            },
+            {
+              "id": "log",
+              "label": "log n"
+            },
+            {
+              "id": "logllstar",
+              "label": "log n · log log n · log* n"
+            },
+            {
+              "id": "log53",
+              "label": "Õ(log^{5/3} n)"
+            },
+            {
+              "id": "log2",
+              "label": "log^2 n (up to polyloglog factors)"
+            },
+            {
+              "id": "log3llstar",
+              "label": "log^3 n · log log n · log* n"
+            },
+            {
+              "id": "log7",
+              "label": "log^7 n"
+            },
+            {
+              "id": "log7ll",
+              "label": "log^7 n · log log n"
+            }
+          ]
+        }
+      },
+      "xAxis": {
+        "label": "Algorithm / success / communication contract",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "det",
+            "label": "Deterministic LOCAL"
+          },
+          {
+            "id": "rand",
+            "label": "Randomized LOCAL · general"
+          },
+          {
+            "id": "degree",
+            "label": "Randomized LOCAL · degree-sensitive"
+          },
+          {
+            "id": "sleep",
+            "label": "Sleeping CONGEST · randomized"
+          }
+        ]
+      },
+      "yAxis": {
+        "label": "Total elapsed synchronous rounds · symbolic growth families",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "one",
+            "label": "1"
+          },
+          {
+            "id": "loglogratio",
+            "label": "log log n / log log log n"
+          },
+          {
+            "id": "sqrt",
+            "label": "√(log n / log log n)"
+          },
+          {
+            "id": "logoverlog",
+            "label": "log n / log log n"
+          },
+          {
+            "id": "log",
+            "label": "log n"
+          },
+          {
+            "id": "logllstar",
+            "label": "log n · log log n · log* n"
+          },
+          {
+            "id": "log53",
+            "label": "Õ(log^{5/3} n)"
+          },
+          {
+            "id": "log2",
+            "label": "log^2 n (up to polyloglog factors)"
+          },
+          {
+            "id": "log3llstar",
+            "label": "log^3 n · log log n · log* n"
+          },
+          {
+            "id": "log7",
+            "label": "log^7 n"
+          },
+          {
+            "id": "log7ll",
+            "label": "log^7 n · log log n"
+          }
+        ]
+      },
+      "axisSummary": {
+        "x": "Algorithm / success / communication contract",
+        "y": "Total elapsed synchronous rounds · symbolic growth families"
+      }
+    },
+    {
+      "id": "mis-local-awake-energy",
+      "problem": "mis",
+      "model": "local",
+      "label": "Sleeping CONGEST, elapsed rounds",
+      "task": "All vertices output consistent membership in an explicit MIS; measure total elapsed rounds of sleeping algorithms",
+      "assumptions": [
+        "General n-node graph",
+        "Sleeping CONGEST with O(log n)-bit messages",
+        "Randomized global high-probability success",
+        "Plotted cost is total elapsed rounds; awake quantities are secondary theorem details"
+      ],
+      "parameters": {},
+      "results": [
+        {
+          "id": "mis-local-dufoulon-awake",
+          "paperId": "dufoulon-moses-pandurangan-2023-awake",
+          "kind": "upper",
+          "bound": "O(log^7 n · log log n)",
+          "guarantee": "Explicit maximal independent set; each vertex outputs its membership",
+          "sourceLocation": "Journal Theorem 1 (arXiv v3 Lemma 13)",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Use revised/journal theorem. Earlier polynomial-time or large-message restrictions do not describe this version. Awake guarantee O(log log n) is retained for theorem inspection only; the plotted cost is total elapsed rounds.",
+          "plot": null
+        },
+        {
+          "id": "mis-local-ghaffari-portmann-awake",
+          "paperId": "ghaffari-portmann-2023-awake",
+          "kind": "upper",
+          "bound": "O(log^2 n)",
+          "guarantee": "Explicit maximal independent set; each vertex outputs its membership",
+          "sourceLocation": "Theorem 1.1",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Published at PODC 2023. Energy is maximum per-node awake rounds, not node average. Awake guarantee O(log log n) is retained for theorem inspection only; the plotted cost is total elapsed rounds.",
+          "plot": null
+        },
+        {
+          "id": "mis-local-dufoulon-awake-fast",
+          "paperId": "dufoulon-moses-pandurangan-2023-awake",
+          "kind": "upper",
+          "bound": "O(log^3 n · log log n · log* n)",
+          "guarantee": "Explicit maximal independent set; each vertex outputs its membership",
+          "sourceLocation": "Journal Corollary 2 (arXiv v3 Corollary 14)",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Second tradeoff from the same source, also using O(log n)-bit messages. Awake guarantee O(log log n · log* n) is retained for theorem inspection only; the plotted cost is total elapsed rounds.",
+          "plot": null
+        },
+        {
+          "id": "mis-local-ghaffari-portmann-awake-fast",
+          "paperId": "ghaffari-portmann-2023-awake",
+          "kind": "upper",
+          "bound": "O(log n · log log n · log* n)",
+          "guarantee": "Explicit maximal independent set; each vertex outputs its membership",
+          "sourceLocation": "Theorem 1.2",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Second tradeoff from the same paper. No awake lower bound is asserted here. Awake guarantee O((log log n)^2) is retained for theorem inspection only; the plotted cost is total elapsed rounds.",
+          "plot": null
+        }
+      ],
+      "mode": "diagram",
+      "figureAxes": {
+        "title": "Elapsed rounds · explicit algorithm and communication contracts",
+        "x": {
+          "label": "Algorithm / success / communication contract",
+          "kind": "categorical",
+          "categories": [
+            {
+              "id": "det",
+              "label": "Deterministic LOCAL"
+            },
+            {
+              "id": "rand",
+              "label": "Randomized LOCAL · general"
+            },
+            {
+              "id": "degree",
+              "label": "Randomized LOCAL · degree-sensitive"
+            },
+            {
+              "id": "sleep",
+              "label": "Sleeping CONGEST · randomized"
+            }
+          ]
+        },
+        "y": {
+          "label": "Total elapsed synchronous rounds · symbolic growth families",
+          "kind": "categorical",
+          "categories": [
+            {
+              "id": "one",
+              "label": "1"
+            },
+            {
+              "id": "loglogratio",
+              "label": "log log n / log log log n"
+            },
+            {
+              "id": "sqrt",
+              "label": "√(log n / log log n)"
+            },
+            {
+              "id": "logoverlog",
+              "label": "log n / log log n"
+            },
+            {
+              "id": "log",
+              "label": "log n"
+            },
+            {
+              "id": "logllstar",
+              "label": "log n · log log n · log* n"
+            },
+            {
+              "id": "log53",
+              "label": "Õ(log^{5/3} n)"
+            },
+            {
+              "id": "log2",
+              "label": "log^2 n (up to polyloglog factors)"
+            },
+            {
+              "id": "log3llstar",
+              "label": "log^3 n · log log n · log* n"
+            },
+            {
+              "id": "log7",
+              "label": "log^7 n"
+            },
+            {
+              "id": "log7ll",
+              "label": "log^7 n · log log n"
+            }
+          ]
+        }
+      },
+      "xAxis": {
+        "label": "Algorithm / success / communication contract",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "det",
+            "label": "Deterministic LOCAL"
+          },
+          {
+            "id": "rand",
+            "label": "Randomized LOCAL · general"
+          },
+          {
+            "id": "degree",
+            "label": "Randomized LOCAL · degree-sensitive"
+          },
+          {
+            "id": "sleep",
+            "label": "Sleeping CONGEST · randomized"
+          }
+        ]
+      },
+      "yAxis": {
+        "label": "Total elapsed synchronous rounds · symbolic growth families",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "one",
+            "label": "1"
+          },
+          {
+            "id": "loglogratio",
+            "label": "log log n / log log log n"
+          },
+          {
+            "id": "sqrt",
+            "label": "√(log n / log log n)"
+          },
+          {
+            "id": "logoverlog",
+            "label": "log n / log log n"
+          },
+          {
+            "id": "log",
+            "label": "log n"
+          },
+          {
+            "id": "logllstar",
+            "label": "log n · log log n · log* n"
+          },
+          {
+            "id": "log53",
+            "label": "Õ(log^{5/3} n)"
+          },
+          {
+            "id": "log2",
+            "label": "log^2 n (up to polyloglog factors)"
+          },
+          {
+            "id": "log3llstar",
+            "label": "log^3 n · log log n · log* n"
+          },
+          {
+            "id": "log7",
+            "label": "log^7 n"
+          },
+          {
+            "id": "log7ll",
+            "label": "log^7 n · log log n"
+          }
+        ]
+      },
+      "axisSummary": {
+        "x": "Algorithm / success / communication contract",
+        "y": "Total elapsed synchronous rounds · symbolic growth families"
+      }
+    },
+    {
+      "id": "mis-mpc-lowspace-general",
+      "problem": "mis",
+      "model": "mpc",
+      "label": "Strongly sublinear memory MPC, general graphs",
+      "task": "Output an explicit MIS on an arbitrary n-vertex graph",
+      "assumptions": [
+        "Per-machine local memory n^φ for fixed φ∈(0,1)",
+        "Randomization, success, component stability and global memory are stated per theorem"
+      ],
+      "parameters": {
+        "φ": "Any fixed constant (0,1)",
+        "Δ": "Maximum degree"
+      },
+      "results": [
+        {
+          "id": "mis-mpc-ghaffari-uitto-2019-lowspace",
+          "paperId": "ghaffari-uitto-2019-sparsify",
+          "kind": "upper",
+          "bound": "O(√log Δ · log log Δ + √log log n) rounds",
+          "guarantee": "Exact maximal independent set",
+          "sourceLocation": "Theorems 1.1 and 3.7; Section 1.1",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "candidate",
+          "notes": "Retains the additive √log log n term suppressed by the Õ shorthand.",
+          "plot": null,
+          "assumptions": [
+            "Fixed local-memory exponent 0<δ<1"
+          ],
+          "localMemory": "O(n^δ), any fixed 0<δ<1",
+          "totalMemory": "Õ(m+n), including isolated vertices"
+        },
+        {
+          "id": "mis-mpc-cdp24-general-det",
+          "paperId": "czumaj-davies-peck-parter-2024-mpc",
+          "kind": "upper",
+          "bound": "O(log Δ + log(log* n)) rounds",
+          "guarantee": "Exact maximal independent set",
+          "sourceLocation": "Lemma 27; input-inclusive memory convention in Section 1.1",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "candidate",
+          "notes": "The stable lower bound does not constrain this component-unstable algorithm.",
+          "plot": null,
+          "assumptions": [
+            "Fixed local-memory exponent 0<δ<1"
+          ],
+          "localMemory": "O(n^δ), any fixed 0<δ<1",
+          "totalMemory": "O(m+n^(1+δ))"
+        },
+        {
+          "id": "mis-mpc-cdp24-general-lower",
+          "paperId": "czumaj-davies-peck-parter-2024-mpc",
+          "kind": "lower",
+          "bound": "Ω(log log n) rounds",
+          "guarantee": "Exact maximal independent set",
+          "sourceLocation": "Theorem 12 (MIS); Theorem 5 success convention",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "candidate",
+          "notes": "The forests qualifier in Theorem 12 belongs to matching, not MIS; no tree-specific MIS lower bound is inferred.",
+          "plot": null,
+          "assumptions": [
+            "Fixed local-memory exponent 0<δ<1",
+            "Connectivity conjecture",
+            "Component-stable algorithm"
+          ],
+          "localMemory": "O(n^δ), any fixed 0<δ<1",
+          "totalMemory": "Polynomial global memory",
+          "conditional": true,
+          "condition": "Connectivity conjecture: randomized low-space MPC distinguishing one n-cycle from two n/2-cycles with failure at most 1/n requires Ω(log n) rounds."
+        }
+      ],
+      "mode": "1d",
+      "axis": {
+        "label": "Communication rounds: exact symbolic formula rows",
+        "kind": "symbolic",
+        "scaleNote": "Shared round-cost formulas, not a numerical ranking. Green is O(·), red is Ω(·). Graph, stability, randomness and global space must match before reading a gap."
+      },
+      "figureAxes": {
+        "landscape": {
+          "x": {
+            "label": "Graph and local-memory setup",
+            "kind": "categorical",
+            "categories": [
+              {
+                "id": "nearlinear",
+                "label": "Near-linear",
+                "short": "≈ n",
+                "detail": "General graphs; Õ(n) local memory",
+                "color": "#466ab3"
+              },
+              {
+                "id": "general",
+                "label": "Low-space",
+                "short": "General",
+                "detail": "General graphs; n^δ local memory",
+                "color": "#8b5daa"
+              },
+              {
+                "id": "degree",
+                "label": "Restricted Δ",
+                "short": "Small Δ",
+                "detail": "Δ=2^(log^o(1) n); n^δ local memory",
+                "color": "#b06b2d"
+              },
+              {
+                "id": "arboricity",
+                "label": "Arboricity α",
+                "short": "α",
+                "detail": "Variable arboricity; n^δ local memory",
+                "color": "#42828b"
+              },
+              {
+                "id": "bounded",
+                "label": "Bounded α",
+                "short": "α=O(1)",
+                "detail": "Fixed arboricity; n^δ local memory",
+                "color": "#9a7182"
+              },
+              {
+                "id": "trees",
+                "label": "Trees",
+                "short": "Trees",
+                "detail": "Trees; strongly sublinear local memory",
+                "color": "#727844"
+              }
+            ]
+          },
+          "y": {
+            "label": "Communication rounds: exact symbolic formula rows",
+            "kind": "symbolic",
+            "categories": [
+              {
+                "id": "general-det",
+                "label": "log Δ + log(log* n)"
+              },
+              {
+                "id": "general-rand",
+                "label": "√log Δ · log log Δ + √log log n"
+              },
+              {
+                "id": "arbor-old",
+                "label": "√log α · log log α + log² log n"
+              },
+              {
+                "id": "arbor-new",
+                "label": "√log α · log log α + log log n"
+              },
+              {
+                "id": "tree-old",
+                "label": "log³ log n"
+              },
+              {
+                "id": "tree-det",
+                "label": "log² log n"
+              },
+              {
+                "id": "small-degree",
+                "label": "log log Δ + log log log n"
+              },
+              {
+                "id": "degree-lower",
+                "label": "min{log Δ, log log n}"
+              },
+              {
+                "id": "doublelogn",
+                "label": "log log n"
+              },
+              {
+                "id": "doublelogdegree",
+                "label": "log log Δ"
+              }
+            ],
+            "scaleNote": "Shared round-cost formulas, not a numerical ranking. Green is O(·), red is Ω(·). Graph, stability, randomness and global space must match before reading a gap."
+          }
+        }
+      }
+    },
+    {
+      "id": "mis-mpc-lowspace-arboricity",
+      "problem": "mis",
+      "model": "mpc",
+      "label": "Low-space MPC, bounded arboricity",
+      "task": "Output an explicit MIS",
+      "assumptions": [
+        "n vertices, m edges, arboricity λ or α",
+        "Local memory O(n^φ), fixed φ∈(0,1)",
+        "Preserve global memory requirement per theorem"
+      ],
+      "parameters": {
+        "λ": "Arboricity",
+        "φ": "Fixed local-memory exponent"
+      },
+      "results": [
+        {
+          "id": "mis-mpc-brandt-2019-arbor",
+          "paperId": "brandt-fischer-uitto-2019-sparse-mpc",
+          "kind": "upper",
+          "bound": "O(log² log n + T(poly(α,log n))) rounds",
+          "guarantee": "Exact maximal independent set",
+          "sourceLocation": "Theorem 1.1: degree reduction",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "candidate",
+          "notes": "T(D) is the full round complexity of a bounded-degree MIS subroutine. Formal reduction retains log n in residual degree; abstract T(poly α) shorthand is not plotted as an exact cost. Printed Theorem 1.3 predates the retained GU logarithmic factors.",
+          "plot": null,
+          "assumptions": [
+            "Fixed local-memory exponent 0<δ<1"
+          ],
+          "localMemory": "O(n^δ), fixed 0<δ≤1/2",
+          "totalMemory": "Õ(m), or Õ(m+n) including isolated vertices"
+        },
+        {
+          "id": "mis-mpc-behnezhad-2019-arbor",
+          "paperId": "behnezhad-et-al-2019-sparse-mpc",
+          "kind": "upper",
+          "bound": "O(√log α · log log α + log² log n) rounds",
+          "guarantee": "Exact maximal independent set",
+          "sourceLocation": "Theorem 1; PODC 2019 joint-paper abstract",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "candidate",
+          "notes": "The published joint paper combines the BDHK and BFU manuscripts.",
+          "plot": null,
+          "assumptions": [
+            "Fixed local-memory exponent 0<δ<1"
+          ],
+          "localMemory": "O(n^δ), any fixed 0<δ<1",
+          "totalMemory": "Õ(m+n), including isolated vertices"
+        },
+        {
+          "id": "mis-mpc-ghaffari2020-arbor",
+          "paperId": "ghaffari-grunau-jin-2020-mpc-trees",
+          "kind": "upper",
+          "bound": "O(log log n) rounds",
+          "guarantee": "Exact maximal independent set",
+          "sourceLocation": "Theorem 1, α=O(1)",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "candidate",
+          "notes": "No compatible MIS lower bound on fixed-arboricity graphs was verified in this bounded source set.",
+          "plot": null,
+          "assumptions": [
+            "Fixed local-memory exponent 0<δ<1"
+          ],
+          "localMemory": "O(n^δ), any fixed 0<δ<1",
+          "totalMemory": "Õ(m+n), including isolated vertices"
+        },
+        {
+          "id": "mis-mpc-ggj20-variable-arboricity",
+          "paperId": "ghaffari-grunau-jin-2020-mpc-trees",
+          "kind": "upper",
+          "bound": "O(√log α · log log α + log log n) rounds",
+          "guarantee": "Exact maximal independent set",
+          "sourceLocation": "Theorem 1",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "candidate",
+          "notes": "Keep α-dependence explicit; only fixed α gives the O(log log n) specialization.",
+          "plot": null,
+          "assumptions": [
+            "Fixed local-memory exponent 0<δ<1"
+          ],
+          "localMemory": "O(n^δ), any fixed 0<δ<1",
+          "totalMemory": "Õ(m+n), including isolated vertices"
+        }
+      ],
+      "mode": "1d",
+      "axis": {
+        "label": "Communication rounds: exact symbolic formula rows",
+        "kind": "symbolic",
+        "scaleNote": "Shared round-cost formulas, not a numerical ranking. Green is O(·), red is Ω(·). Graph, stability, randomness and global space must match before reading a gap."
+      },
+      "figureAxes": {
+        "landscape": {
+          "x": {
+            "label": "Graph and local-memory setup",
+            "kind": "categorical",
+            "categories": [
+              {
+                "id": "nearlinear",
+                "label": "Near-linear",
+                "short": "≈ n",
+                "detail": "General graphs; Õ(n) local memory",
+                "color": "#466ab3"
+              },
+              {
+                "id": "general",
+                "label": "Low-space",
+                "short": "General",
+                "detail": "General graphs; n^δ local memory",
+                "color": "#8b5daa"
+              },
+              {
+                "id": "degree",
+                "label": "Restricted Δ",
+                "short": "Small Δ",
+                "detail": "Δ=2^(log^o(1) n); n^δ local memory",
+                "color": "#b06b2d"
+              },
+              {
+                "id": "arboricity",
+                "label": "Arboricity α",
+                "short": "α",
+                "detail": "Variable arboricity; n^δ local memory",
+                "color": "#42828b"
+              },
+              {
+                "id": "bounded",
+                "label": "Bounded α",
+                "short": "α=O(1)",
+                "detail": "Fixed arboricity; n^δ local memory",
+                "color": "#9a7182"
+              },
+              {
+                "id": "trees",
+                "label": "Trees",
+                "short": "Trees",
+                "detail": "Trees; strongly sublinear local memory",
+                "color": "#727844"
+              }
+            ]
+          },
+          "y": {
+            "label": "Communication rounds: exact symbolic formula rows",
+            "kind": "symbolic",
+            "categories": [
+              {
+                "id": "general-det",
+                "label": "log Δ + log(log* n)"
+              },
+              {
+                "id": "general-rand",
+                "label": "√log Δ · log log Δ + √log log n"
+              },
+              {
+                "id": "arbor-old",
+                "label": "√log α · log log α + log² log n"
+              },
+              {
+                "id": "arbor-new",
+                "label": "√log α · log log α + log log n"
+              },
+              {
+                "id": "tree-old",
+                "label": "log³ log n"
+              },
+              {
+                "id": "tree-det",
+                "label": "log² log n"
+              },
+              {
+                "id": "small-degree",
+                "label": "log log Δ + log log log n"
+              },
+              {
+                "id": "degree-lower",
+                "label": "min{log Δ, log log n}"
+              },
+              {
+                "id": "doublelogn",
+                "label": "log log n"
+              },
+              {
+                "id": "doublelogdegree",
+                "label": "log log Δ"
+              }
+            ],
+            "scaleNote": "Shared round-cost formulas, not a numerical ranking. Green is O(·), red is Ω(·). Graph, stability, randomness and global space must match before reading a gap."
+          }
+        }
+      }
+    },
+    {
+      "id": "mis-mpc-lowspace-trees-randomized",
+      "problem": "mis",
+      "model": "mpc",
+      "label": "Low-space MPC on trees, randomized",
+      "task": "Output explicit MIS on a tree",
+      "assumptions": [
+        "Tree input; local memory n^φ, fixed φ∈(0,1)",
+        "Randomized; complete tree restriction essential"
+      ],
+      "parameters": {
+        "φ": "Fixed local-memory exponent"
+      },
+      "results": [
+        {
+          "id": "mis-mpc-brandt-tree-2019",
+          "paperId": "brandt-fischer-uitto-2019-tree-mpc",
+          "kind": "upper",
+          "bound": "O(log³ log n) rounds",
+          "guarantee": "Exact maximal independent set",
+          "sourceLocation": "Theorem 1.3",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "candidate",
+          "notes": "Historical near-linear-global-memory bound. Polylog local factors can be absorbed by a slightly smaller fixed exponent.",
+          "plot": null,
+          "assumptions": [
+            "Fixed local-memory exponent 0<δ<1"
+          ],
+          "localMemory": "Õ(n^ε), any fixed 0<ε<1",
+          "totalMemory": "Õ(n): Õ(n^(1−ε)) machines"
+        },
+        {
+          "id": "mis-mpc-ghaffari-tree-2020",
+          "paperId": "ghaffari-grunau-jin-2020-mpc-trees",
+          "kind": "upper",
+          "bound": "O(log log n) rounds",
+          "guarantee": "Exact maximal independent set",
+          "sourceLocation": "Theorem 1, α=1",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "candidate",
+          "notes": "Tree specialization of the bounded-arboricity theorem.",
+          "plot": null,
+          "assumptions": [
+            "Fixed local-memory exponent 0<δ<1"
+          ],
+          "localMemory": "O(n^δ), any fixed 0<δ<1",
+          "totalMemory": "Õ(m+n), including isolated vertices"
+        },
+        {
+          "id": "mis-mpc-bfu19-extra-global-memory",
+          "paperId": "brandt-fischer-uitto-2019-tree-mpc",
+          "kind": "upper",
+          "bound": "O(log² log n) rounds",
+          "guarantee": "Exact maximal independent set",
+          "sourceLocation": "Theorem 1.2",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "historical",
+          "notes": "Faster historical tree algorithm with superlinear total memory; kept outside the main near-linear-global-memory tree comparison.",
+          "plot": null,
+          "assumptions": [
+            "Fixed local-memory exponent 0<δ<1"
+          ],
+          "localMemory": "Õ(n^ε), any fixed 0<ε<1",
+          "totalMemory": "Õ(n^(1+2ε/3)): Õ(n^(1−ε/3)) machines"
+        }
+      ],
+      "mode": "1d",
+      "axis": {
+        "label": "Communication rounds: exact symbolic formula rows",
+        "kind": "symbolic",
+        "scaleNote": "Shared round-cost formulas, not a numerical ranking. Green is O(·), red is Ω(·). Graph, stability, randomness and global space must match before reading a gap."
+      },
+      "figureAxes": {
+        "landscape": {
+          "x": {
+            "label": "Graph and local-memory setup",
+            "kind": "categorical",
+            "categories": [
+              {
+                "id": "nearlinear",
+                "label": "Near-linear",
+                "short": "≈ n",
+                "detail": "General graphs; Õ(n) local memory",
+                "color": "#466ab3"
+              },
+              {
+                "id": "general",
+                "label": "Low-space",
+                "short": "General",
+                "detail": "General graphs; n^δ local memory",
+                "color": "#8b5daa"
+              },
+              {
+                "id": "degree",
+                "label": "Restricted Δ",
+                "short": "Small Δ",
+                "detail": "Δ=2^(log^o(1) n); n^δ local memory",
+                "color": "#b06b2d"
+              },
+              {
+                "id": "arboricity",
+                "label": "Arboricity α",
+                "short": "α",
+                "detail": "Variable arboricity; n^δ local memory",
+                "color": "#42828b"
+              },
+              {
+                "id": "bounded",
+                "label": "Bounded α",
+                "short": "α=O(1)",
+                "detail": "Fixed arboricity; n^δ local memory",
+                "color": "#9a7182"
+              },
+              {
+                "id": "trees",
+                "label": "Trees",
+                "short": "Trees",
+                "detail": "Trees; strongly sublinear local memory",
+                "color": "#727844"
+              }
+            ]
+          },
+          "y": {
+            "label": "Communication rounds: exact symbolic formula rows",
+            "kind": "symbolic",
+            "categories": [
+              {
+                "id": "general-det",
+                "label": "log Δ + log(log* n)"
+              },
+              {
+                "id": "general-rand",
+                "label": "√log Δ · log log Δ + √log log n"
+              },
+              {
+                "id": "arbor-old",
+                "label": "√log α · log log α + log² log n"
+              },
+              {
+                "id": "arbor-new",
+                "label": "√log α · log log α + log log n"
+              },
+              {
+                "id": "tree-old",
+                "label": "log³ log n"
+              },
+              {
+                "id": "tree-det",
+                "label": "log² log n"
+              },
+              {
+                "id": "small-degree",
+                "label": "log log Δ + log log log n"
+              },
+              {
+                "id": "degree-lower",
+                "label": "min{log Δ, log log n}"
+              },
+              {
+                "id": "doublelogn",
+                "label": "log log n"
+              },
+              {
+                "id": "doublelogdegree",
+                "label": "log log Δ"
+              }
+            ],
+            "scaleNote": "Shared round-cost formulas, not a numerical ranking. Green is O(·), red is Ω(·). Graph, stability, randomness and global space must match before reading a gap."
+          }
+        }
+      }
+    },
+    {
+      "id": "mis-mpc-lowspace-trees-deterministic",
+      "problem": "mis",
+      "model": "mpc",
+      "label": "Low-space MPC on trees, deterministic",
+      "task": "Output explicit MIS on a tree",
+      "assumptions": [
+        "Tree input, arbitrary degree",
+        "Local memory O(n^δ) for δ∈(0,1); global memory O(m)",
+        "Deterministic"
+      ],
+      "parameters": {
+        "δ": "Fixed local-memory exponent"
+      },
+      "results": [
+        {
+          "id": "mis-mpc-latypov-tree-2021",
+          "paperId": "latypov-uitto-2021-mpc-trees",
+          "kind": "upper",
+          "bound": "O(log² log n) rounds",
+          "guarantee": "Exact maximal independent set",
+          "sourceLocation": "Theorem 4.10",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "candidate",
+          "notes": "MIS follows from deterministic 3-coloring. Publication venue remains unverified; retained as author preprint.",
+          "plot": null,
+          "assumptions": [
+            "Fixed local-memory exponent 0<δ<1"
+          ],
+          "localMemory": "O(n^δ), any fixed 0<δ<1",
+          "totalMemory": "O(m) words; O(n) for a nontrivial tree"
+        },
+        {
+          "id": "mis-mpc-latypov-constant-degree-tree",
+          "paperId": "latypov-uitto-2021-mpc-trees",
+          "kind": "upper",
+          "bound": "O(log log n) rounds",
+          "guarantee": "Exact maximal independent set",
+          "sourceLocation": "Theorem 3.4",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "candidate",
+          "notes": "Additional constant-degree restriction; not the arbitrary-degree deterministic theorem.",
+          "plot": null,
+          "assumptions": [
+            "Fixed local-memory exponent 0<δ<1"
+          ],
+          "localMemory": "O(n^δ), any fixed 0<δ<1",
+          "totalMemory": "O(m) words; O(n) for a nontrivial tree"
+        }
+      ],
+      "mode": "1d",
+      "axis": {
+        "label": "Communication rounds: exact symbolic formula rows",
+        "kind": "symbolic",
+        "scaleNote": "Shared round-cost formulas, not a numerical ranking. Green is O(·), red is Ω(·). Graph, stability, randomness and global space must match before reading a gap."
+      },
+      "figureAxes": {
+        "landscape": {
+          "x": {
+            "label": "Graph and local-memory setup",
+            "kind": "categorical",
+            "categories": [
+              {
+                "id": "nearlinear",
+                "label": "Near-linear",
+                "short": "≈ n",
+                "detail": "General graphs; Õ(n) local memory",
+                "color": "#466ab3"
+              },
+              {
+                "id": "general",
+                "label": "Low-space",
+                "short": "General",
+                "detail": "General graphs; n^δ local memory",
+                "color": "#8b5daa"
+              },
+              {
+                "id": "degree",
+                "label": "Restricted Δ",
+                "short": "Small Δ",
+                "detail": "Δ=2^(log^o(1) n); n^δ local memory",
+                "color": "#b06b2d"
+              },
+              {
+                "id": "arboricity",
+                "label": "Arboricity α",
+                "short": "α",
+                "detail": "Variable arboricity; n^δ local memory",
+                "color": "#42828b"
+              },
+              {
+                "id": "bounded",
+                "label": "Bounded α",
+                "short": "α=O(1)",
+                "detail": "Fixed arboricity; n^δ local memory",
+                "color": "#9a7182"
+              },
+              {
+                "id": "trees",
+                "label": "Trees",
+                "short": "Trees",
+                "detail": "Trees; strongly sublinear local memory",
+                "color": "#727844"
+              }
+            ]
+          },
+          "y": {
+            "label": "Communication rounds: exact symbolic formula rows",
+            "kind": "symbolic",
+            "categories": [
+              {
+                "id": "general-det",
+                "label": "log Δ + log(log* n)"
+              },
+              {
+                "id": "general-rand",
+                "label": "√log Δ · log log Δ + √log log n"
+              },
+              {
+                "id": "arbor-old",
+                "label": "√log α · log log α + log² log n"
+              },
+              {
+                "id": "arbor-new",
+                "label": "√log α · log log α + log log n"
+              },
+              {
+                "id": "tree-old",
+                "label": "log³ log n"
+              },
+              {
+                "id": "tree-det",
+                "label": "log² log n"
+              },
+              {
+                "id": "small-degree",
+                "label": "log log Δ + log log log n"
+              },
+              {
+                "id": "degree-lower",
+                "label": "min{log Δ, log log n}"
+              },
+              {
+                "id": "doublelogn",
+                "label": "log log n"
+              },
+              {
+                "id": "doublelogdegree",
+                "label": "log log Δ"
+              }
+            ],
+            "scaleNote": "Shared round-cost formulas, not a numerical ranking. Green is O(·), red is Ω(·). Graph, stability, randomness and global space must match before reading a gap."
+          }
+        }
+      }
+    }
+  ]
+}

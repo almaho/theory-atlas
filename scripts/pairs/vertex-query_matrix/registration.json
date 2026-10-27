@@ -1,0 +1,22 @@
+{
+  "id": "vertex-query_matrix",
+  "dataFile": "vertex-query-matrix.json",
+  "javascript": "vertex-query-matrix.js",
+  "css": "vertex-query-matrix.css",
+  "routes": [
+    {
+      "key": "vertex-query_matrix",
+      "sliceId": "vertex-query-average-case-k-color",
+      "label": "Vertex coloring · adjacency matrix · average-input k-coloring",
+      "visible": true,
+      "problem": "vertex",
+      "model": "query_matrix"
+    }
+  ],
+  "axisSummary": {
+    "x": "Colorability parameter k · symbolic domain",
+    "y": "Average cost divided by nk · symbolic order",
+    "note": "Randomized and deterministic algorithms with zero-error lower bound. Common range ends at n^(1/37); lower bound continues to n^(1/3). Query/time switch preserves distinct resource claims."
+  },
+  "canonicalAliases": {}
+}

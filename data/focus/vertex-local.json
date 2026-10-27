@@ -1,0 +1,961 @@
+{
+  "id": "vertex-local",
+  "title": "Vertex coloring · LOCAL rounds",
+  "reviewedOn": "2026-10-27",
+  "defaultSelected": "vertex-local-deterministic-ghaffari-grunau-2024",
+  "defaultView": "variable",
+  "userSetup": {
+    "question": "Variable Δ main with bounded-degree reference, or bounded-degree main?",
+    "choice": "variable degree with a cycle reference",
+    "status": "Reversible default after optional question waiting period, authorized by root",
+    "date": "2026-10-27"
+  },
+  "sources": {
+    "ghaffari-grunau-2024-network-decomposition": {
+      "id": "ghaffari-grunau-2024-network-decomposition",
+      "title": "Near-Optimal Deterministic Network Decomposition and Ruling Set, and Improved MIS",
+      "authors": [
+        "Mohsen Ghaffari",
+        "Christoph Grunau"
+      ],
+      "year": 2024,
+      "venue": "FOCS 2024",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2410.19516",
+      "verifiedOn": "2026-10-27",
+      "verificationUrl": "https://arxiv.org/html/2410.19516v1",
+      "theorem": "Theorem 1.3; Corollary 1.4",
+      "verificationNote": "The deterministic theorem includes degree+1 lists. The randomized corollary states ordinary Δ+1 coloring through CLP shattering; preserve that stated contract."
+    },
+    "halldorsson-kuhn-nolin-tonoyan-2022-degree": {
+      "id": "halldorsson-kuhn-nolin-tonoyan-2022-degree",
+      "title": "Near-Optimal Distributed Degree+1 Coloring",
+      "authors": [
+        "Magnús M. Halldórsson",
+        "Fabian Kuhn",
+        "Alexandre Nolin",
+        "Tigran Tonoyan"
+      ],
+      "year": 2022,
+      "venue": "STOC 2022",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2112.00604",
+      "verifiedOn": "2026-10-27",
+      "verificationUrl": "https://arxiv.org/html/2112.00604v1",
+      "theorem": "Theorems 1–2; Corollary 1",
+      "verificationNote": "Theorem 1 colors a high-degree subset with local failure Δ^{-c}; setting the degree upper bound to n yields simultaneous high-degree coverage. Theorem 2 completes all vertices."
+    },
+    "harris-schneider-su-2018-local-color": {
+      "id": "harris-schneider-su-2018-local-color",
+      "title": "Distributed (Δ+1)-Coloring in Sublogarithmic Rounds",
+      "authors": [
+        "David G. Harris",
+        "Johannes Schneider",
+        "Hsin-Hao Su"
+      ],
+      "year": 2018,
+      "venue": "Journal of the ACM 65(4)",
+      "publicationStatus": "journal",
+      "url": "https://arxiv.org/abs/1603.01486",
+      "verifiedOn": "2026-10-27",
+      "verificationUrl": "https://arxiv.org/html/1603.01486v4",
+      "theorem": "§1.2; §4 runtime argument; Theorem 7.6",
+      "verificationNote": "Randomized Δ+1-list coloring; retains the exact degree-dependent historical formula."
+    },
+    "chang-li-pettie-2020-color": {
+      "id": "chang-li-pettie-2020-color",
+      "title": "Distributed (Δ+1)-Coloring via Ultrafast Graph Shattering",
+      "authors": [
+        "Yi-Jun Chang",
+        "Wenzheng Li",
+        "Seth Pettie"
+      ],
+      "year": 2020,
+      "venue": "SIAM Journal on Computing",
+      "publicationStatus": "journal",
+      "url": "https://arxiv.org/abs/1711.01361",
+      "verifiedOn": "2026-10-27",
+      "verificationUrl": "https://arxiv.org/html/1711.01361v3",
+      "theorem": "Theorem 1 (§4.4)",
+      "verificationNote": "Randomized Δ+1-list coloring reduces to deterministic degree+1-list coloring on polylogarithmic-size graphs. Keep Det_d symbolic rather than assigning an invented exponent."
+    },
+    "ghaffari-kuhn-2021-deterministic": {
+      "id": "ghaffari-kuhn-2021-deterministic",
+      "title": "Deterministic Distributed Vertex Coloring: Simpler, Faster, and without Network Decomposition",
+      "authors": [
+        "Mohsen Ghaffari",
+        "Fabian Kuhn"
+      ],
+      "year": 2021,
+      "venue": "FOCS 2021",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2011.04511",
+      "verifiedOn": "2026-10-27",
+      "verificationUrl": "https://arxiv.org/html/2011.04511v2",
+      "theorem": "Theorem 4.1; Corollary 1.2",
+      "verificationNote": "The LOCAL deterministic bound applies to degree+1 lists. The randomized corollary states ordinary Δ+1 coloring with global high probability."
+    },
+    "halldorsson-nolin-tonoyan-2021-ultrafast": {
+      "id": "halldorsson-nolin-tonoyan-2021-ultrafast",
+      "title": "Ultrafast Distributed Coloring of High Degree Graphs",
+      "authors": [
+        "Magnús M. Halldórsson",
+        "Alexandre Nolin",
+        "Tigran Tonoyan"
+      ],
+      "year": 2021,
+      "venue": "arXiv",
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/abs/2105.04700",
+      "verifiedOn": "2026-10-27",
+      "verificationUrl": "https://arxiv.org/html/2105.04700v1",
+      "theorem": "Theorem 1; §§4, 6.2",
+      "verificationNote": "Full Δ+1-list coloring requires maximum degree at least log^{2+δ}n for fixed δ>0. Theorem is stronger CONGEST. HKNT22 incorporates this report's LOCAL work; do not count it as an independent frontier."
+    },
+    "flin-halldorsson-jakob-maus-2026-optimal": {
+      "id": "flin-halldorsson-jakob-maus-2026-optimal",
+      "title": "Sublogarithmic Distributed Vertex Coloring with Optimal Number of Colors",
+      "authors": [
+        "Maxime Flin",
+        "Magnús M. Halldórsson",
+        "Manuel Jakob",
+        "Yannic Maus"
+      ],
+      "year": 2026,
+      "venue": "STOC 2026",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2603.28637",
+      "verifiedOn": "2026-10-27",
+      "verificationUrl": "https://arxiv.org/html/2603.28637v2",
+      "theorem": "Theorem 1; §4.3",
+      "verificationNote": "Sufficiently large Δ; q≥Δ−k_Δ+1. Output is a valid q-coloring or a local non-colorability certificate. The exceptional Δ≥log^{50}n regime is faster. No imported boundary hardness."
+    },
+    "linial-1992-locality": {
+      "id": "linial-1992-locality",
+      "title": "Locality in Distributed Graph Algorithms",
+      "authors": [
+        "Nathan Linial"
+      ],
+      "year": 1992,
+      "venue": "SIAM Journal on Computing 21(1)",
+      "publicationStatus": "journal",
+      "url": "https://epubs.siam.org/doi/10.1137/0221015",
+      "verifiedOn": "2026-10-27",
+      "verificationUrl": "https://courses.csail.mit.edu/6.852/08/papers/Linial.pdf",
+      "theorem": "Theorem 2.1, printed p.195",
+      "verificationNote": "Three-coloring an n-cycle takes at least (log* n−3)/2 rounds. Use only the deterministic case here, even with a consistent orientation. No all-degree/palette lower projection."
+    },
+    "flin-ghaffari-halldorsson-kuhn-nolin-2024-palette": {
+      "id": "flin-ghaffari-halldorsson-kuhn-nolin-2024-palette",
+      "title": "A Distributed Palette Sparsification Theorem",
+      "authors": [
+        "Maxime Flin",
+        "Mohsen Ghaffari",
+        "Magnús M. Halldórsson",
+        "Fabian Kuhn",
+        "Alexandre Nolin"
+      ],
+      "year": 2024,
+      "venue": "SODA 2024",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2301.06457",
+      "verifiedOn": "2026-10-27",
+      "verificationUrl": "https://arxiv.org/html/2301.06457v2",
+      "theorem": "Theorems 1–2; precise Theorem 7; §5 proof",
+      "verificationNote": "Strict sampled-edge upper: Δ≥C log⁴n, O(log²Δ) rounds. The all-degree O(log²Δ+log³log n) implementation may retain original edges in its low-degree branch. The lower remains for sampled cliques with Bernoulli palette sampling and success 2/3, not ordinary LOCAL."
+    },
+    "barenboim-elkin-kuhn-2014-linear-degree": {
+      "id": "barenboim-elkin-kuhn-2014-linear-degree",
+      "title": "Distributed (Δ+1)-Coloring in Linear (in Δ) Time",
+      "authors": [
+        "Leonid Barenboim",
+        "Michael Elkin",
+        "Fabian Kuhn"
+      ],
+      "year": 2014,
+      "venue": "SIAM Journal on Computing 43(1)",
+      "publicationStatus": "journal",
+      "url": "https://doi.org/10.1137/12088848X",
+      "verifiedOn": "2026-10-27",
+      "verificationUrl": "https://www.cs.bgu.ac.il/~elkinm/Bar_E_Kuhn.SICOMP.pdf",
+      "theorem": "Theorem 4.6, printed p.87",
+      "verificationNote": "Full journal theorem confirms O(Δ)+(1/2)log* n rounds for ordinary Δ+1 coloring. Specializing Δ=2 supplies the cycle upper in the reference inset."
+    },
+    "fraigniaud-heinrich-kosowski-2016-conflict": {
+      "id": "fraigniaud-heinrich-kosowski-2016-conflict",
+      "title": "Local Conflict Coloring",
+      "authors": [
+        "Pierre Fraigniaud",
+        "Marc Heinrich",
+        "Adrian Kosowski"
+      ],
+      "year": 2016,
+      "venue": "FOCS 2016",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1511.01287",
+      "verifiedOn": "2026-10-27",
+      "verificationUrl": "https://arxiv.org/html/1511.01287v2",
+      "theorem": "Theorem 4.1; Corollary 4.1",
+      "verificationNote": "Set conflict degree d=1 in Theorem 4.1: lists of size degree(v)+1 suffice; exact bound is O(√Δ log^{5/2}Δ)+log* n."
+    }
+  },
+  "verifiedRecords": [
+    {
+      "id": "vertex-local-randomized-ghaffari-grunau-2024",
+      "paperId": "ghaffari-grunau-2024-network-decomposition",
+      "kind": "upper",
+      "bound": "Õ((loglog n)^{5/3})",
+      "guarantee": "Proper (Δ+1)-coloring with high probability",
+      "sourceLocation": "Theorem 1.3; Corollary 1.4",
+      "evidenceStatus": "theorem_verified",
+      "frontierStatus": "candidate",
+      "notes": "Corollary 1.4 states ordinary coloring. No stronger list guarantee is silently assigned to this record.",
+      "plot": null,
+      "sliceId": "vertex-local-randomized-delta-plus-one",
+      "sourceId": "ghaffari-grunau-2024-network-decomposition",
+      "assumptions": [
+        "LOCAL rounds; unbounded local computation"
+      ],
+      "graph": "Simple n-vertex graphs with maximum degree Δ",
+      "output": "Every vertex outputs a proper color",
+      "probability": "Global high probability through the stated CLP shattering reduction",
+      "mode": "randomized",
+      "panel": "main",
+      "contractKey": "ordinary",
+      "displayBound": "Õ((loglog n)^{5/3})",
+      "quality": "Common palette [Δ+1]",
+      "theorem": "Theorem 1.3; Corollary 1.4",
+      "verificationUrl": "https://arxiv.org/html/2410.19516v1",
+      "shortLabel": "GG24",
+      "rowKey": "r-53"
+    },
+    {
+      "id": "vertex-result-44",
+      "paperId": "harris-schneider-su-2018-local-color",
+      "kind": "upper",
+      "bound": "O(√log Δ) + 2^{O(√loglog n)}",
+      "guarantee": "Proper (Δ+1)-list coloring, randomized",
+      "sourceLocation": "§1.2; §4 runtime argument; Theorem 7.6",
+      "evidenceStatus": "theorem_verified",
+      "frontierStatus": "historical",
+      "notes": "Historical bound with explicit Δ dependence. This expression is a symbolic row, not a numerical rank.",
+      "plot": null,
+      "sliceId": "vertex-local-randomized-delta-plus-one",
+      "sourceId": "harris-schneider-su-2018-local-color",
+      "assumptions": [
+        "LOCAL rounds; unbounded local computation"
+      ],
+      "graph": "Simple n-vertex graphs with maximum degree Δ",
+      "output": "Every vertex outputs a proper color",
+      "probability": "With high probability, all vertices are properly colored",
+      "mode": "randomized",
+      "panel": "main",
+      "contractKey": "delta-list",
+      "displayBound": "O(√log Δ) + 2^{O(√loglog n)}",
+      "quality": "|L(v)|≥Δ+1",
+      "theorem": "§1.2; §4 runtime argument; Theorem 7.6",
+      "verificationUrl": "https://arxiv.org/html/1603.01486v4",
+      "shortLabel": "HSS18",
+      "rowKey": "r-hss"
+    },
+    {
+      "id": "vertex-extended-vertex-local-randomized-delta-plus-one-25",
+      "paperId": "chang-li-pettie-2020-color",
+      "kind": "upper",
+      "bound": "O(Det_d(polylog n))",
+      "guarantee": "Proper (Δ+1)-list coloring, randomized",
+      "sourceLocation": "Theorem 1 (§4.4)",
+      "evidenceStatus": "theorem_verified",
+      "frontierStatus": "historical",
+      "notes": "Det_d(N) is deterministic degree+1-list-coloring complexity on N-vertex graphs. The row is a reduction formula, not a fixed exponent.",
+      "plot": null,
+      "sliceId": "vertex-local-randomized-delta-plus-one",
+      "sourceId": "chang-li-pettie-2020-color",
+      "assumptions": [
+        "LOCAL rounds; unbounded local computation"
+      ],
+      "graph": "Simple n-vertex graphs with maximum degree Δ",
+      "output": "Every vertex outputs a proper color",
+      "probability": "With high probability, all vertices are properly colored",
+      "mode": "randomized",
+      "panel": "main",
+      "contractKey": "delta-list",
+      "displayBound": "O(Det_d(polylog n))",
+      "quality": "|L(v)|≥Δ+1",
+      "theorem": "Theorem 1 (§4.4)",
+      "verificationUrl": "https://arxiv.org/html/1711.01361v3",
+      "shortLabel": "CLP20",
+      "rowKey": "r-det"
+    },
+    {
+      "id": "vertex-extended-vertex-local-randomized-delta-plus-one-26",
+      "paperId": "ghaffari-kuhn-2021-deterministic",
+      "kind": "upper",
+      "bound": "O(log³log n)",
+      "guarantee": "Proper (Δ+1)-coloring, randomized",
+      "sourceLocation": "Theorem 4.1; Corollary 1.2",
+      "evidenceStatus": "theorem_verified",
+      "frontierStatus": "historical",
+      "notes": "Corollary 1.2 follows by applying Theorem 4.1 after CLP shattering.",
+      "plot": null,
+      "sliceId": "vertex-local-randomized-delta-plus-one",
+      "sourceId": "ghaffari-kuhn-2021-deterministic",
+      "assumptions": [
+        "LOCAL rounds; unbounded local computation"
+      ],
+      "graph": "Simple n-vertex graphs with maximum degree Δ",
+      "output": "Every vertex outputs a proper color",
+      "probability": "At least 1−n^{-c}, for a desirably large constant c≥2",
+      "mode": "randomized",
+      "panel": "main",
+      "contractKey": "ordinary",
+      "displayBound": "O(log³log n)",
+      "quality": "Common palette [Δ+1]",
+      "theorem": "Theorem 4.1; Corollary 1.2",
+      "verificationUrl": "https://arxiv.org/html/2011.04511v2",
+      "shortLabel": "GK21",
+      "rowKey": "r-3"
+    },
+    {
+      "id": "vertex-extended-vertex-local-randomized-delta-plus-one-27",
+      "paperId": "halldorsson-kuhn-nolin-tonoyan-2022-degree",
+      "kind": "upper",
+      "bound": "O(log³log n)",
+      "guarantee": "Proper degree+1 list coloring, randomized",
+      "sourceLocation": "Theorems 1–2; Corollary 1",
+      "evidenceStatus": "theorem_verified",
+      "frontierStatus": "candidate",
+      "notes": "Theorem 2 completes every vertex, unlike the separate high-degree partial-output record.",
+      "plot": null,
+      "sliceId": "vertex-local-randomized-delta-plus-one",
+      "sourceId": "halldorsson-kuhn-nolin-tonoyan-2022-degree",
+      "assumptions": [
+        "LOCAL rounds; unbounded local computation"
+      ],
+      "graph": "Simple n-vertex graphs with maximum degree Δ",
+      "output": "Every vertex outputs a proper color",
+      "probability": "With high probability, the entire graph is properly list-colored",
+      "mode": "randomized",
+      "panel": "main",
+      "contractKey": "degree-list",
+      "displayBound": "O(log³log n)",
+      "quality": "|L(v)|≥degree(v)+1",
+      "theorem": "Theorems 1–2; Corollary 1",
+      "verificationUrl": "https://arxiv.org/html/2112.00604v1",
+      "shortLabel": "HKNT22",
+      "rowKey": "r-3"
+    },
+    {
+      "id": "vertex-local-deterministic-ghaffari-grunau-2024",
+      "paperId": "ghaffari-grunau-2024-network-decomposition",
+      "kind": "upper",
+      "bound": "Õ((log n)^{5/3})",
+      "guarantee": "Proper (Δ+1)-coloring",
+      "sourceLocation": "Theorem 1.3; Corollary 1.4",
+      "evidenceStatus": "theorem_verified",
+      "frontierStatus": "candidate",
+      "notes": "Theorem 1.3 explicitly includes degree+1 list coloring via the MIS reduction. Corrected the supplied weaker ordinary-only description.",
+      "plot": null,
+      "sliceId": "vertex-local-deterministic-delta-plus-one",
+      "sourceId": "ghaffari-grunau-2024-network-decomposition",
+      "assumptions": [
+        "LOCAL rounds; unbounded local computation"
+      ],
+      "graph": "Simple n-vertex graphs with maximum degree Δ",
+      "output": "Every vertex outputs a proper color",
+      "probability": "Deterministic; correctness probability 1",
+      "mode": "deterministic",
+      "panel": "main",
+      "contractKey": "degree-list",
+      "displayBound": "Õ((log n)^{5/3})",
+      "quality": "|L(v)|≥degree(v)+1",
+      "theorem": "Theorem 1.3; Corollary 1.4",
+      "verificationUrl": "https://arxiv.org/html/2410.19516v1",
+      "shortLabel": "GG24",
+      "rowKey": "d-53"
+    },
+    {
+      "id": "vertex-result-48",
+      "paperId": "barenboim-elkin-kuhn-2014-linear-degree",
+      "kind": "upper",
+      "bound": "O(Δ) + ½ log* n",
+      "guarantee": "Proper (Δ+1)-coloring, deterministic",
+      "sourceLocation": "Theorem 4.6, printed p.87",
+      "evidenceStatus": "theorem_verified",
+      "frontierStatus": "historical",
+      "notes": "Journal Theorem 4.6. At Δ=2 this yields O(log* n) for three-coloring cycles; the reference inset reuses this record.",
+      "plot": null,
+      "sliceId": "vertex-local-deterministic-delta-plus-one",
+      "sourceId": "barenboim-elkin-kuhn-2014-linear-degree",
+      "assumptions": [
+        "LOCAL rounds; unbounded local computation"
+      ],
+      "graph": "Simple n-vertex graphs with maximum degree Δ",
+      "output": "Every vertex outputs a proper color",
+      "probability": "Deterministic; correctness probability 1",
+      "mode": "deterministic",
+      "panel": "main",
+      "contractKey": "ordinary",
+      "displayBound": "O(Δ) + ½ log* n",
+      "quality": "Common palette [Δ+1]",
+      "theorem": "Theorem 4.6, printed p.87",
+      "verificationUrl": "https://www.cs.bgu.ac.il/~elkinm/Bar_E_Kuhn.SICOMP.pdf",
+      "shortLabel": "BEK14",
+      "rowKey": "d-linear"
+    },
+    {
+      "id": "vertex-extended-vertex-local-deterministic-delta-plus-one-30",
+      "paperId": "ghaffari-kuhn-2021-deterministic",
+      "kind": "upper",
+      "bound": "O(log²Δ · log n)",
+      "guarantee": "Proper (Δ+1)-coloring, deterministic",
+      "sourceLocation": "Theorem 4.1; Corollary 1.2",
+      "evidenceStatus": "theorem_verified",
+      "frontierStatus": "historical",
+      "notes": "Theorem 4.1 is a LOCAL degree+1-list theorem; its messages may depend on the full color universe. Only communication rounds are plotted.",
+      "plot": null,
+      "sliceId": "vertex-local-deterministic-delta-plus-one",
+      "sourceId": "ghaffari-kuhn-2021-deterministic",
+      "assumptions": [
+        "LOCAL rounds; unbounded local computation"
+      ],
+      "graph": "Simple n-vertex graphs with maximum degree Δ",
+      "output": "Every vertex outputs a proper color",
+      "probability": "Deterministic; correctness probability 1",
+      "mode": "deterministic",
+      "panel": "main",
+      "contractKey": "degree-list",
+      "displayBound": "O(log²Δ · log n)",
+      "quality": "|L(v)|≥degree(v)+1",
+      "theorem": "Theorem 4.1; Corollary 1.2",
+      "verificationUrl": "https://arxiv.org/html/2011.04511v2",
+      "shortLabel": "GK21",
+      "rowKey": "d-log"
+    },
+    {
+      "id": "vertex-local-deterministic-conflict-2016",
+      "paperId": "fraigniaud-heinrich-kosowski-2016-conflict",
+      "kind": "upper",
+      "bound": "O(√Δ log^{5/2}Δ) + log* n",
+      "guarantee": "Proper (Δ+1)-coloring, deterministic",
+      "sourceLocation": "Theorem 4.1; Corollary 4.1",
+      "evidenceStatus": "theorem_verified",
+      "frontierStatus": "historical",
+      "notes": "Theorem 4.1 with d=1 gives the stronger degree+1-list contract. No fictitious pure √Δ exponent drops the logarithmic factor or log* n term.",
+      "plot": null,
+      "sliceId": "vertex-local-deterministic-delta-plus-one",
+      "sourceId": "fraigniaud-heinrich-kosowski-2016-conflict",
+      "assumptions": [
+        "LOCAL rounds; unbounded local computation"
+      ],
+      "graph": "Simple n-vertex graphs with maximum degree Δ",
+      "output": "Every vertex outputs a proper color",
+      "probability": "Deterministic; correctness probability 1",
+      "mode": "deterministic",
+      "panel": "main",
+      "contractKey": "degree-list",
+      "displayBound": "O(√Δ log^{5/2}Δ) + log* n",
+      "quality": "|L(v)|≥degree(v)+1",
+      "theorem": "Theorem 4.1; Corollary 4.1",
+      "verificationUrl": "https://arxiv.org/html/1511.01287v2",
+      "shortLabel": "FHK16",
+      "rowKey": "d-root"
+    },
+    {
+      "id": "vertex-result-50",
+      "paperId": "halldorsson-nolin-tonoyan-2021-ultrafast",
+      "kind": "upper",
+      "bound": "O(log* n)",
+      "guarantee": "Proper (Δ+1)-list coloring, with high probability",
+      "sourceLocation": "Theorem 1; §§4, 6.2",
+      "evidenceStatus": "theorem_verified",
+      "frontierStatus": "candidate",
+      "notes": "Full-graph output, even when individual vertices have low degree. Uses maximum-degree-sized lists. A CONGEST theorem is also valid in LOCAL; no minimum-degree premise is substituted.",
+      "plot": null,
+      "sliceId": "vertex-local-high-degree-degree-one",
+      "sourceId": "halldorsson-nolin-tonoyan-2021-ultrafast",
+      "assumptions": [
+        "LOCAL rounds; unbounded local computation",
+        "Fixed δ>0; threshold constants depend on δ",
+        "Original technical-report identity retained; LOCAL work incorporated in HKNT22"
+      ],
+      "graph": "Simple graphs with maximum degree Δ≥log^{2+δ}n, for a fixed constant δ>0",
+      "output": "Every vertex outputs a proper color",
+      "probability": "Global high probability",
+      "mode": "randomized",
+      "panel": "high",
+      "contractKey": "full",
+      "displayBound": "O(log* n)",
+      "quality": "|L(v)|≥Δ+1",
+      "theorem": "Theorem 1; §§4, 6.2",
+      "verificationUrl": "https://arxiv.org/html/2105.04700v1",
+      "shortLabel": "HNT21",
+      "rowKey": "logstar"
+    },
+    {
+      "id": "vertex-extended-vertex-local-high-degree-degree-one-51",
+      "paperId": "halldorsson-kuhn-nolin-tonoyan-2022-degree",
+      "kind": "upper",
+      "bound": "O(log* n)",
+      "guarantee": "Colors high-degree nodes from deg(v)+1 lists",
+      "sourceLocation": "Theorems 1–2; Corollary 1",
+      "evidenceStatus": "theorem_verified",
+      "frontierStatus": "candidate",
+      "notes": "Full-graph output only if every vertex satisfies this threshold (Corollary 1). Theorem 1 itself uses degree(v)≥log⁷Δ and per-vertex failure Δ^{-c}, even conditioned on random bits outside distance two.",
+      "plot": null,
+      "sliceId": "vertex-local-high-degree-degree-one",
+      "sourceId": "halldorsson-kuhn-nolin-tonoyan-2022-degree",
+      "assumptions": [
+        "LOCAL rounds; unbounded local computation",
+        "Partial output must not be confused with a complete coloring"
+      ],
+      "graph": "Simple graph; target vertices satisfy degree(v)≥log⁷n",
+      "output": "A proper partial coloring covering all target high-degree vertices; low-degree vertices may remain uncolored",
+      "probability": "Simultaneous target coverage with high probability; from Theorem 1 with degree upper bound n",
+      "mode": "randomized",
+      "panel": "high",
+      "contractKey": "partial",
+      "displayBound": "O(log* n)",
+      "quality": "|L(v)|≥degree(v)+1",
+      "theorem": "Theorems 1–2; Corollary 1",
+      "verificationUrl": "https://arxiv.org/html/2112.00604v1",
+      "shortLabel": "HKNT22",
+      "rowKey": "logstar"
+    },
+    {
+      "id": "vertex-result-52",
+      "paperId": "flin-halldorsson-jakob-maus-2026-optimal",
+      "kind": "upper",
+      "bound": "Õ(log⁴log n); O(log* n) if Δ≥(log n)^{50}",
+      "guarantee": "Proper (Δ−k)-coloring for any k<k_Δ, if one exists",
+      "sourceLocation": "Theorem 1; §4.3",
+      "evidenceStatus": "theorem_verified",
+      "frontierStatus": "candidate",
+      "notes": "Theorem 1 uses q≥Δ−k_Δ+1. This does not promise Δ-coloring for every small Δ or colorability for arbitrary input. The Ω(n/Δ) boundary hardness quoted in the introduction is outside this theorem and is not added.",
+      "plot": null,
+      "sliceId": "vertex-local-brooks-delta-minus-k",
+      "sourceId": "flin-halldorsson-jakob-maus-2026-optimal",
+      "assumptions": [
+        "LOCAL rounds; unbounded local computation",
+        "Sufficiently large Δ",
+        "Finite colorability certificates may use unbounded LOCAL computation"
+      ],
+      "graph": "Simple graphs, sufficiently large Δ; q-colorable input when a coloring is required",
+      "output": "A proper q-coloring, or some vertex supplies a certificate of non-q-colorability",
+      "probability": "With high probability",
+      "mode": "randomized",
+      "panel": "brooks",
+      "contractKey": "deficit",
+      "displayBound": "Õ(log⁴log n); O(log* n) if Δ≥(log n)^{50}",
+      "quality": "q=Δ−k, 0≤k<k_Δ; (k_Δ+1)(k_Δ+2)≤Δ, k_Δ maximal",
+      "theorem": "Theorem 1; §4.3",
+      "verificationUrl": "https://arxiv.org/html/2603.28637v2",
+      "shortLabel": "FHJM26",
+      "rowKey": "brooks-general",
+      "specializations": [
+        {
+          "id": "brooks-high",
+          "bound": "O(log* n)",
+          "condition": "Δ≥(log n)^{50}"
+        }
+      ]
+    },
+    {
+      "id": "vertex-result-53",
+      "paperId": "linial-1992-locality",
+      "kind": "lower",
+      "bound": "Ω(log* n)",
+      "guarantee": "Proper three-coloring on an n-cycle",
+      "sourceLocation": "Theorem 2.1, printed p.195",
+      "evidenceStatus": "theorem_verified",
+      "frontierStatus": "candidate",
+      "notes": "Theorem 2.1 gives the exact lower (log* n−3)/2. A cycle is not a valid hardness witness for an arbitrary larger palette.",
+      "plot": null,
+      "sliceId": "vertex-local-cycle-lower",
+      "sourceId": "linial-1992-locality",
+      "assumptions": [
+        "LOCAL rounds; unbounded local computation",
+        "Distinct node identifiers",
+        "Only the deterministic case is represented"
+      ],
+      "graph": "Labeled n-cycles, even with a consistent clockwise orientation",
+      "output": "Each node outputs a proper three-coloring",
+      "probability": "Deterministic case of the source theorem",
+      "mode": "deterministic",
+      "panel": "cycle",
+      "contractKey": "three",
+      "displayBound": "Ω(log* n)",
+      "quality": "q=3; Δ=2",
+      "theorem": "Theorem 2.1, printed p.195",
+      "verificationUrl": "https://courses.csail.mit.edu/6.852/08/papers/Linial.pdf",
+      "shortLabel": "Linial92",
+      "rowKey": "logstar"
+    },
+    {
+      "id": "vertex-result-54",
+      "paperId": "flin-ghaffari-halldorsson-kuhn-nolin-2024-palette",
+      "kind": "upper",
+      "bound": "O(log²Δ)",
+      "guarantee": "Proper Δ+1 coloring, using O(log n)-bit messages",
+      "sourceLocation": "Theorem 1; §4.2 sampled-edge implementation and §5 large-degree branch",
+      "evidenceStatus": "theorem_verified",
+      "frontierStatus": "candidate",
+      "notes": "The plotted strict sampled-edge bound uses Δ≥C log⁴n for a sufficiently large constant C. Theorem 1 samples Θ(log²n) colors per node and uses O(log n)-bit messages. Its all-degree O(log²Δ+log³log n) implementation retains original edges when Δ=O(log⁴n); that mixed-network variant is kept separately below. The lower bound is not for unrestricted communication on G.",
+      "plot": null,
+      "sliceId": "vertex-local-sparsified-input",
+      "sourceId": "flin-ghaffari-halldorsson-kuhn-nolin-2024-palette",
+      "assumptions": [
+        "LOCAL rounds; unbounded local computation",
+        "Sampled-color communication model",
+        "Only round complexity shown; sample size and message bounds remain in details",
+        "§4.2 gives an implementation of decomposition using palette-sampled edges; its independently sampled-edge presentation is not required.",
+        "The plotted strict sampled-edge upper requires Δ≥C log⁴n for a sufficiently large constant C."
+      ],
+      "graph": "Original simple graph G with Δ≥C log⁴n for a sufficiently large constant C; communication restricted to the palette-sparsified network G̃",
+      "output": "Every vertex outputs a proper color",
+      "probability": "Global high probability over sampling and algorithm coins",
+      "mode": "randomized",
+      "panel": "sparse",
+      "contractKey": "sampled",
+      "displayBound": "O(log²Δ)",
+      "quality": "Colors from sampled subsets of [Δ+1]",
+      "theorem": "Theorem 1; §4.2 sampled-edge implementation and §5 large-degree branch",
+      "verificationUrl": "https://arxiv.org/html/2301.06457v2",
+      "shortLabel": "FGHKN24",
+      "rowKey": "sparse-upper",
+      "allDegreeVariant": {
+        "displayBound": "O(log²Δ + log³log n)",
+        "graph": "All maximum-degree regimes",
+        "communication": "Palette-sampled edges in the large-degree branch; original edges may be retained when Δ=O(log⁴n)",
+        "theorem": "Theorem 1 and §5 proof",
+        "notes": "This all-degree implementation is not plotted as a strict sampled-edge upper for every Δ."
+      }
+    },
+    {
+      "id": "vertex-extended-vertex-local-sparsified-input-55",
+      "paperId": "flin-ghaffari-halldorsson-kuhn-nolin-2024-palette",
+      "kind": "lower",
+      "bound": "Ω(log Δ / loglog n)",
+      "guarantee": "Proper Δ+1 coloring on palette-sparsified graph",
+      "sourceLocation": "Theorems 1–2; precise Theorem 7; §5 proof",
+      "evidenceStatus": "theorem_verified",
+      "frontierStatus": "candidate",
+      "notes": "Precise Theorem 7 takes n=Δ+1 and independent inclusion probability f(n)/n, with c log n≤f(n)≤polylog n. Messages may be unbounded. Do not transfer to the original clique's unrestricted LOCAL communication.",
+      "plot": null,
+      "sliceId": "vertex-local-sparsified-input",
+      "sourceId": "flin-ghaffari-halldorsson-kuhn-nolin-2024-palette",
+      "assumptions": [
+        "LOCAL rounds; unbounded local computation",
+        "Independent uniform/Bernoulli palette sampling",
+        "Algorithms communicate only on edges whose endpoint samples intersect"
+      ],
+      "graph": "Worst-case palette-sparsified network, even when original G is a clique K_{Δ+1}",
+      "output": "Proper coloring respecting the sampled palettes",
+      "probability": "Lower bound even for randomized algorithms with success probability 2/3",
+      "mode": "randomized",
+      "panel": "sparse",
+      "contractKey": "sampled",
+      "displayBound": "Ω(log Δ / loglog n)",
+      "quality": "Use the sampled colors from [Δ+1]",
+      "theorem": "Theorems 1–2; precise Theorem 7; §5 proof",
+      "verificationUrl": "https://arxiv.org/html/2301.06457v2",
+      "shortLabel": "FGHKN24",
+      "rowKey": "sparse-lower"
+    }
+  ],
+  "relatedResults": [],
+  "figureAxes": {
+    "main": {
+      "x": {
+        "label": "Strongest verified coloring contract",
+        "kind": "symbolic",
+        "categories": [
+          {
+            "id": "ordinary",
+            "label": "Common Δ+1 palette"
+          },
+          {
+            "id": "delta-list",
+            "label": "Δ+1 lists"
+          },
+          {
+            "id": "degree-list",
+            "label": "degree+1 lists"
+          }
+        ]
+      },
+      "y": {
+        "label": "Rounds · exact formula categories, not ranked",
+        "kind": "symbolic",
+        "categories": [
+          {
+            "id": "d-linear",
+            "label": "O(Δ) + ½ log* n",
+            "mode": "Det."
+          },
+          {
+            "id": "d-root",
+            "label": "O(√Δ log^{5/2}Δ) + log* n",
+            "mode": "Det."
+          },
+          {
+            "id": "d-log",
+            "label": "O(log²Δ · log n)",
+            "mode": "Det."
+          },
+          {
+            "id": "d-53",
+            "label": "Õ((log n)^{5/3})",
+            "mode": "Det."
+          },
+          {
+            "id": "r-hss",
+            "label": "O(√log Δ) + 2^{O(√loglog n)}",
+            "mode": "Rand."
+          },
+          {
+            "id": "r-det",
+            "label": "O(Det_d(polylog n))",
+            "mode": "Rand."
+          },
+          {
+            "id": "r-3",
+            "label": "O(log³log n)",
+            "mode": "Rand."
+          },
+          {
+            "id": "r-53",
+            "label": "Õ((loglog n)^{5/3})",
+            "mode": "Rand."
+          }
+        ]
+      }
+    },
+    "cycle": {
+      "x": {
+        "label": "Exact task",
+        "kind": "symbolic",
+        "categories": [
+          {
+            "id": "three",
+            "label": "Three-coloring cycles · Δ=2"
+          }
+        ]
+      },
+      "y": {
+        "label": "Rounds",
+        "kind": "symbolic",
+        "categories": [
+          {
+            "id": "logstar",
+            "label": "log* n"
+          }
+        ]
+      }
+    },
+    "high": {
+      "x": {
+        "label": "Output and lists",
+        "kind": "symbolic",
+        "categories": [
+          {
+            "id": "full",
+            "label": "Full · Δ+1 lists"
+          },
+          {
+            "id": "partial",
+            "label": "Partial · degree+1 lists"
+          }
+        ]
+      },
+      "y": {
+        "label": "Rounds",
+        "kind": "symbolic",
+        "categories": [
+          {
+            "id": "logstar",
+            "label": "log* n"
+          }
+        ]
+      }
+    },
+    "brooks": {
+      "x": {
+        "label": "Exact palette",
+        "kind": "symbolic",
+        "categories": [
+          {
+            "id": "deficit",
+            "label": "q=Δ−k, 0≤k<k_Δ"
+          }
+        ]
+      },
+      "y": {
+        "label": "Rounds · separate degree regimes",
+        "kind": "symbolic",
+        "categories": [
+          {
+            "id": "brooks-general",
+            "label": "Õ(log⁴log n)"
+          },
+          {
+            "id": "brooks-high",
+            "label": "O(log* n), Δ≥log^{50}n"
+          }
+        ]
+      }
+    },
+    "sparse": {
+      "x": {
+        "label": "Communication network",
+        "kind": "symbolic",
+        "categories": [
+          {
+            "id": "sampled",
+            "label": "Palette-sparsified graph"
+          }
+        ]
+      },
+      "y": {
+        "label": "Rounds · symbolic bounds",
+        "kind": "symbolic",
+        "categories": [
+          {
+            "id": "sparse-upper",
+            "label": "O(log²Δ), Δ≥C log⁴n"
+          },
+          {
+            "id": "sparse-lower",
+            "label": "Ω(log Δ/loglog n)"
+          }
+        ]
+      }
+    }
+  },
+  "mainRows": [
+    {
+      "id": "d-linear",
+      "label": "O(Δ) + ½ log* n",
+      "mode": "Det."
+    },
+    {
+      "id": "d-root",
+      "label": "O(√Δ log^{5/2}Δ) + log* n",
+      "mode": "Det."
+    },
+    {
+      "id": "d-log",
+      "label": "O(log²Δ · log n)",
+      "mode": "Det."
+    },
+    {
+      "id": "d-53",
+      "label": "Õ((log n)^{5/3})",
+      "mode": "Det."
+    },
+    {
+      "id": "r-hss",
+      "label": "O(√log Δ) + 2^{O(√loglog n)}",
+      "mode": "Rand."
+    },
+    {
+      "id": "r-det",
+      "label": "O(Det_d(polylog n))",
+      "mode": "Rand."
+    },
+    {
+      "id": "r-3",
+      "label": "O(log³log n)",
+      "mode": "Rand."
+    },
+    {
+      "id": "r-53",
+      "label": "Õ((loglog n)^{5/3})",
+      "mode": "Rand."
+    }
+  ],
+  "coverageNote": "All 15 supplied records retained across six setups; coverage is limited to the 11 supplied primary papers.",
+  "lowerBoundStatus": "Only scoped cycle and palette-sparsified-network lower bounds are shown. No variable-degree ordinary-LOCAL lower frontier is asserted.",
+  "sourceVerification": [
+    {
+      "sourceId": "ghaffari-grunau-2024-network-decomposition",
+      "url": "https://arxiv.org/html/2410.19516v1",
+      "theorem": "Theorem 1.3; Corollary 1.4",
+      "note": "The deterministic theorem includes degree+1 lists. The randomized corollary states ordinary Δ+1 coloring through CLP shattering; preserve that stated contract.",
+      "checked": "2026-10-27"
+    },
+    {
+      "sourceId": "halldorsson-kuhn-nolin-tonoyan-2022-degree",
+      "url": "https://arxiv.org/html/2112.00604v1",
+      "theorem": "Theorems 1–2; Corollary 1",
+      "note": "Theorem 1 colors a high-degree subset with local failure Δ^{-c}; setting the degree upper bound to n yields simultaneous high-degree coverage. Theorem 2 completes all vertices.",
+      "checked": "2026-10-27"
+    },
+    {
+      "sourceId": "harris-schneider-su-2018-local-color",
+      "url": "https://arxiv.org/html/1603.01486v4",
+      "theorem": "§1.2; §4 runtime argument; Theorem 7.6",
+      "note": "Randomized Δ+1-list coloring; retains the exact degree-dependent historical formula.",
+      "checked": "2026-10-27"
+    },
+    {
+      "sourceId": "chang-li-pettie-2020-color",
+      "url": "https://arxiv.org/html/1711.01361v3",
+      "theorem": "Theorem 1 (§4.4)",
+      "note": "Randomized Δ+1-list coloring reduces to deterministic degree+1-list coloring on polylogarithmic-size graphs. Keep Det_d symbolic rather than assigning an invented exponent.",
+      "checked": "2026-10-27"
+    },
+    {
+      "sourceId": "ghaffari-kuhn-2021-deterministic",
+      "url": "https://arxiv.org/html/2011.04511v2",
+      "theorem": "Theorem 4.1; Corollary 1.2",
+      "note": "The LOCAL deterministic bound applies to degree+1 lists. The randomized corollary states ordinary Δ+1 coloring with global high probability.",
+      "checked": "2026-10-27"
+    },
+    {
+      "sourceId": "halldorsson-nolin-tonoyan-2021-ultrafast",
+      "url": "https://arxiv.org/html/2105.04700v1",
+      "theorem": "Theorem 1; §§4, 6.2",
+      "note": "Full Δ+1-list coloring requires maximum degree at least log^{2+δ}n for fixed δ>0. Theorem is stronger CONGEST. HKNT22 incorporates this report's LOCAL work; do not count it as an independent frontier.",
+      "checked": "2026-10-27"
+    },
+    {
+      "sourceId": "flin-halldorsson-jakob-maus-2026-optimal",
+      "url": "https://arxiv.org/html/2603.28637v2",
+      "theorem": "Theorem 1; §4.3",
+      "note": "Sufficiently large Δ; q≥Δ−k_Δ+1. Output is a valid q-coloring or a local non-colorability certificate. The exceptional Δ≥log^{50}n regime is faster. No imported boundary hardness.",
+      "checked": "2026-10-27"
+    },
+    {
+      "sourceId": "linial-1992-locality",
+      "url": "https://courses.csail.mit.edu/6.852/08/papers/Linial.pdf",
+      "theorem": "Theorem 2.1, printed p.195",
+      "note": "Three-coloring an n-cycle takes at least (log* n−3)/2 rounds. Use only the deterministic case here, even with a consistent orientation. No all-degree/palette lower projection.",
+      "checked": "2026-10-27"
+    },
+    {
+      "sourceId": "flin-ghaffari-halldorsson-kuhn-nolin-2024-palette",
+      "url": "https://arxiv.org/html/2301.06457v2",
+      "theorem": "Theorems 1–2; precise Theorem 7; §5 proof",
+      "note": "Strict sampled-edge upper: Δ≥C log⁴n, O(log²Δ) rounds. The all-degree O(log²Δ+log³log n) implementation may retain original edges in its low-degree branch. The lower remains for sampled cliques with Bernoulli palette sampling and success 2/3, not ordinary LOCAL.",
+      "checked": "2026-10-27"
+    },
+    {
+      "sourceId": "barenboim-elkin-kuhn-2014-linear-degree",
+      "url": "https://www.cs.bgu.ac.il/~elkinm/Bar_E_Kuhn.SICOMP.pdf",
+      "theorem": "Theorem 4.6, printed p.87",
+      "note": "Full journal theorem confirms O(Δ)+(1/2)log* n rounds for ordinary Δ+1 coloring. Specializing Δ=2 supplies the cycle upper in the reference inset.",
+      "checked": "2026-10-27"
+    },
+    {
+      "sourceId": "fraigniaud-heinrich-kosowski-2016-conflict",
+      "url": "https://arxiv.org/html/1511.01287v2",
+      "theorem": "Theorem 4.1; Corollary 4.1",
+      "note": "Set conflict degree d=1 in Theorem 4.1: lists of size degree(v)+1 suffice; exact bound is O(√Δ log^{5/2}Δ)+log* n.",
+      "checked": "2026-10-27"
+    }
+  ],
+  "representationNote": "Exact round formulas are categorical coordinates, not a universal ordering in n and Δ. A degree+1-list theorem also solves Δ+1 lists and ordinary Δ+1 coloring; points mark the strongest verified contract once.",
+  "problem": "vertex",
+  "model": "local"
+}

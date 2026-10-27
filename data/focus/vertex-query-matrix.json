@@ -1,0 +1,190 @@
+{
+  "title": "Average cost of full k-coloring",
+  "problem": "vertex",
+  "model": "query_matrix",
+  "reviewedOn": "2026-10-27",
+  "defaultResource": "queries",
+  "defaultSelected": "vertex-query-average-k-upper-2026",
+  "defaultMode": "randomized",
+  "coverageNote": "Two supplied records in one primary paper; randomized and deterministic upper statements remain separately inspectable. This is a bounded source review.",
+  "sources": {
+    "marcussen-pyne-rubinfeld-shapira-tauber-2026-average": {
+      "id": "marcussen-pyne-rubinfeld-shapira-tauber-2026-average",
+      "title": "Graph k-Coloring in Average Sublinear Time",
+      "authors": [
+        "Cassandra Marcussen",
+        "Edward Pyne",
+        "Ronitt Rubinfeld",
+        "Asaf Shapira",
+        "Shlomo Tauber"
+      ],
+      "year": 2026,
+      "venue": "FOCS 2026",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2607.26592",
+      "verifiedOn": "2026-10-27",
+      "verificationUrl": "https://arxiv.org/html/2607.26592v1",
+      "version": "arXiv:2607.26592v1, 29 July 2026",
+      "publicationEvidence": "The author paper record states FOCS 2026."
+    }
+  },
+  "verifiedRecords": [
+    {
+      "sliceId": "vertex-query-average-case-k-color",
+      "sourceId": "marcussen-pyne-rubinfeld-shapira-tauber-2026-average",
+      "panel": "average",
+      "quality": "Proper k-coloring, using colors from [k]",
+      "output": "Explicit color for every vertex; n vertex–color assignments. Unused colors are allowed.",
+      "graph": "Undirected simple labeled graph on [n], promised k-colorable; k is known and at least 2.",
+      "oracle": "Adjacency-matrix Pair(u,v) query answers whether an edge exists, at unit cost.",
+      "distribution": "Uniform over all labeled k-colorable graphs on [n]. This is not a planted-partition distribution or G(n,p).",
+      "verificationUrl": "https://arxiv.org/html/2607.26592v1",
+      "evidenceStatus": "verified",
+      "frontierStatus": "current_best_verified",
+      "id": "vertex-query-average-k-upper-2026",
+      "kind": "algorithm",
+      "shortLabel": "Marcussen et al. 2026",
+      "displayBound": "Randomized O(nk); deterministic Õ(nk) average runtime",
+      "queryComplexity": "Randomized O(nk); deterministic Õ(nk) average pair queries, implied by the corresponding runtime bounds",
+      "theorem": "Theorems 1–2; §1.1 matrix-access statement and §§5.2–5.3 correctness/runtime proofs",
+      "probability": "Zero error: every k-colorable input and every random string produce a proper full coloring. Runtime is averaged over the random input and, for the randomized algorithm, its coins. FAIL occurs only inside subroutines; exhaustive fallback completes the coloring.",
+      "kRange": "2 ≤ k ≤ n^(1/37)",
+      "assumptions": [
+        "Known n and k; 2 ≤ k ≤ n^(1/37).",
+        "Input G is uniformly distributed over all labeled k-colorable graphs on [n] for the average complexity statement.",
+        "The algorithms must output a proper coloring on every promised graph, not merely with high probability over G.",
+        "Randomized average is E_{G∼U} E_r T(G,r); deterministic average is E_{G∼U} T(G).",
+        "One matrix-entry query costs constant time. Thus query count is bounded above by total runtime.",
+        "Internal failure triggers further stages and ultimately exhaustive search; external output is a full coloring, never FAIL."
+      ],
+      "notes": "These are average-input bounds, not worst-case runtime guarantees and not per-vertex LCA bounds. The tilde hides polylog(n); no particular logarithmic exponent is inferred. k is a colorability promise, not maximum degree or a claim that every color must be used.",
+      "variants": {
+        "randomized": {
+          "theorem": "Theorem 1; Algorithm 11 and its correctness/runtime proof in §5.2",
+          "displayBound": "O(nk)",
+          "expectation": "E_{G∼U} E_r T(G,r) = O(nk)",
+          "queryBound": "E_{G∼U} E_r Q(G,r) = O(nk)",
+          "probability": "Zero-error randomized; correct on every promised G and every random string r.",
+          "mode": "randomized"
+        },
+        "deterministic": {
+          "theorem": "Theorem 2; Algorithm 13 and §5.3 proof",
+          "displayBound": "Õ(nk)",
+          "expectation": "E_{G∼U} T(G) = Õ(nk)",
+          "queryBound": "E_{G∼U} Q(G) = Õ(nk)",
+          "probability": "Deterministic; correct on every promised G.",
+          "mode": "deterministic"
+        }
+      }
+    },
+    {
+      "sliceId": "vertex-query-average-case-k-color",
+      "sourceId": "marcussen-pyne-rubinfeld-shapira-tauber-2026-average",
+      "panel": "average",
+      "quality": "Proper k-coloring, using colors from [k]",
+      "output": "Explicit color for every vertex; n vertex–color assignments. Unused colors are allowed.",
+      "graph": "Undirected simple labeled graph on [n], promised k-colorable; k is known and at least 2.",
+      "oracle": "Adjacency-matrix Pair(u,v) query answers whether an edge exists, at unit cost.",
+      "distribution": "Uniform over all labeled k-colorable graphs on [n]. This is not a planted-partition distribution or G(n,p).",
+      "verificationUrl": "https://arxiv.org/html/2607.26592v1",
+      "evidenceStatus": "verified",
+      "frontierStatus": "current_best_verified",
+      "id": "vertex-query-average-k-lower-2026",
+      "kind": "lower",
+      "shortLabel": "Marcussen et al. 2026",
+      "displayBound": "Ω(nk) pair queries and time on every input; therefore also on average",
+      "queryComplexity": "Ω(nk) matrix queries on every input and random string, under zero-error correctness",
+      "theorem": "Theorem 3; stronger Theorem 9 and matrix-query adversary proof in §6; §2.4 query statement",
+      "probability": "Requires worst-case correctness: for every k-colorable input and every random string the algorithm outputs a proper full k-coloring. Applies to deterministic and zero-error randomized algorithms, not an unqualified bounded-error model.",
+      "kRange": "2 ≤ k ≤ n^(1/3)",
+      "assumptions": [
+        "Known n and k; 2 ≤ k ≤ n^(1/3).",
+        "The output must be a proper k-coloring of every promised graph, for every fixed random string.",
+        "In the pair-query model, fewer than the required number of inspected entries leave a transcript compatible with another k-colorable graph on which the same output fails.",
+        "The bound holds per input and per random string; averaging over U and/or coins preserves it.",
+        "k=1 is excluded: an edgeless graph is promised and no adjacency queries are needed to color it."
+      ],
+      "notes": "This strengthens the original average-runtime wording. The proof directly bounds matrix queries and hence time. Its larger k-range is shown beyond the upper-bound range, without implying that this source supplies an algorithm there. The theorem also discusses unsorted-list access, but the figure restricts to matrix pair queries. No NP-hardness assumption is needed."
+    }
+  ],
+  "relatedResults": [],
+  "figureAxes": {
+    "average": {
+      "x": {
+        "label": "Colorability parameter k · symbolic domain",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "start",
+            "label": "2"
+          },
+          {
+            "id": "upper-end",
+            "label": "n^(1/37)"
+          },
+          {
+            "id": "lower-end",
+            "label": "n^(1/3)"
+          }
+        ],
+        "note": "Intervals show theorem validity ranges; horizontal distances do not encode ratios of k."
+      },
+      "y": {
+        "label": "Average cost divided by nk · symbolic order",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "constant",
+            "label": "1"
+          },
+          {
+            "id": "polylog",
+            "label": "polylog n"
+          }
+        ],
+        "note": "Order classes only. A polylogarithmic upper bound does not assert a separation or fix a logarithmic exponent."
+      }
+    }
+  },
+  "sourceVerification": [
+    {
+      "sourceId": "marcussen-pyne-rubinfeld-shapira-tauber-2026-average",
+      "url": "https://arxiv.org/html/2607.26592v1",
+      "verifiedOn": "2026-10-27",
+      "locations": [
+        "Theorems 1–3, §1.1",
+        "§3.1 labeled uniform input distribution",
+        "Algorithms 11 and 13, §§5.2–5.3",
+        "Theorem 9 and proof, §6"
+      ],
+      "notes": "Randomized O(nk) and deterministic Õ(nk) total average runtime through k≤n^(1/37). Unit-cost pair access implies the same query upper bounds. Zero-error lower bound applies on every input/random string through k≤n^(1/3). Full algorithms always finish with a coloring; no external FAIL. Appendix A LCA bounds are not included."
+    }
+  ],
+  "resourceViews": {
+    "queries": {
+      "label": "Average pair queries",
+      "normalizedAxis": "Average pair queries / (nk)",
+      "upperProvenance": "Query upper bounds follow from the runtime theorems under unit-cost matrix access.",
+      "lowerProvenance": "The §6 adversary proof directly bounds matrix entries queried."
+    },
+    "time": {
+      "label": "Average total time",
+      "normalizedAxis": "Average total time / (nk)",
+      "upperProvenance": "Theorems 1 and 2 directly bound total average runtime, including explicit output.",
+      "lowerProvenance": "The query lower bound also bounds total time."
+    }
+  },
+  "comparison": {
+    "commonRange": "2 ≤ k ≤ n^(1/37)",
+    "lowerOnlyRange": "n^(1/37) < k ≤ n^(1/3)",
+    "tightRandomized": "Θ(nk) average pair queries and total time in the common range",
+    "deterministic": "Between Ω(nk) and Õ(nk); a polylogarithmic gap is not resolved by these sources",
+    "constantK": "For fixed k≥2: randomized Θ(n), deterministic upper Õ(n), lower Ω(n).",
+    "correctness": "Zero error on every promised input; only the running cost is averaged.",
+    "excluded": "k=1, unpromised inputs, bounded-error algorithms, per-vertex LCA cost, and a worst-case upper time guarantee."
+  },
+  "userSetupChoice": {
+    "choice": "Show k tradeoff with a constant-k reference",
+    "confirmedOn": "2026-10-27"
+  }
+}

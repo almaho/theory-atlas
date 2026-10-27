@@ -1,0 +1,31 @@
+{
+  "id": "cc-query_matrix",
+  "dataFile": "cc-query-matrix.json",
+  "javascript": "cc-query-matrix.js",
+  "css": "cc-query-matrix.css",
+  "routes": [
+    {
+      "key": "cc-query_matrix",
+      "sliceId": "cc-query-matrix-additive-partition",
+      "label": "Correlation clustering · matrix queries",
+      "problem": "cc",
+      "model": "query_matrix",
+      "visible": true
+    },
+    {
+      "key": "cc-query_matrix-mixed",
+      "sliceId": "cc-query-matrix-additive-explicit",
+      "label": "Correlation clustering · matrix queries · mixed error",
+      "problem": "cc",
+      "model": "query_matrix",
+      "visible": false
+    }
+  ],
+  "canonicalAliases": {
+    "cc-query_matrix-mixed": "cc-query_matrix"
+  },
+  "axisSummary": {
+    "x": "Requested precision ε = ε₀ n^(−a)",
+    "y": "Pair queries (powers of n)"
+  }
+}

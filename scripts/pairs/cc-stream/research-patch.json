@@ -1,0 +1,1334 @@
+{
+  "upsertPapers": [
+    {
+      "id": "chakrabarty-2023-stream-pivot",
+      "title": "Single-Pass Pivot Algorithm for Correlation Clustering. Keep it simple!",
+      "authors": [
+        "Sayak Chakrabarty",
+        "Konstantin Makarychev"
+      ],
+      "year": 2023,
+      "venue": "NeurIPS 2023",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2305.13560",
+      "verifiedOn": "2026-10-26",
+      "verificationStatus": "primary_full_text"
+    },
+    {
+      "id": "behnezhad-2022-constant-rounds",
+      "title": "Almost 3-Approximate Correlation Clustering in Constant Rounds",
+      "authors": [
+        "Soheil Behnezhad",
+        "Moses Charikar",
+        "Weiyun Ma",
+        "Li-Yang Tan"
+      ],
+      "year": 2022,
+      "venue": "FOCS 2022",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2205.03710",
+      "verifiedOn": "2026-10-26",
+      "verificationStatus": "primary_full_text"
+    },
+    {
+      "id": "assadi-2025-desparsification",
+      "title": "Correlation Clustering and (De)Sparsification: Graph Sketches Can Match Classical Algorithms",
+      "authors": [
+        "Sepehr Assadi",
+        "Sanjeev Khanna",
+        "Aaron Putterman"
+      ],
+      "year": 2025,
+      "venue": "STOC 2025; arXiv v1",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/html/2504.04258v1",
+      "verifiedOn": "2026-10-26",
+      "verificationStatus": "primary_full_text"
+    },
+    {
+      "id": "cambus-2025-dynamic-stream",
+      "title": "A (3+ε)-Approximate Correlation Clustering Algorithm in Dynamic Streams",
+      "authors": [
+        "Mélanie Cambus",
+        "Fabian Kuhn",
+        "Etna Lindy",
+        "Shreyas Pai",
+        "Jara Uitto"
+      ],
+      "year": 2025,
+      "venue": "TheoretiCS 4 (2025); SODA 2024 version",
+      "publicationStatus": "journal",
+      "url": "https://arxiv.org/html/2205.07593v6",
+      "verifiedOn": "2026-10-26",
+      "verificationStatus": "primary_full_text"
+    },
+    {
+      "id": "chierichetti-2014-mapreduce",
+      "title": "Correlation Clustering in MapReduce",
+      "authors": [
+        "Flavio Chierichetti",
+        "Nilesh N. Dalvi",
+        "Ravi Kumar"
+      ],
+      "year": 2014,
+      "venue": "KDD 2014",
+      "publicationStatus": "conference",
+      "url": "https://doi.org/10.1145/2623330.2623743",
+      "verifiedOn": "2026-10-26",
+      "verificationStatus": "cited_bound_only"
+    },
+    {
+      "id": "ahn-2015-streams",
+      "title": "Correlation Clustering in Data Streams",
+      "authors": [
+        "KookJin Ahn",
+        "Graham Cormode",
+        "Sudipto Guha",
+        "Andrew McGregor",
+        "Anthony Wirth"
+      ],
+      "year": 2021,
+      "venue": "Algorithmica 2021; ICML 2015 preliminary",
+      "publicationStatus": "journal",
+      "url": "https://link.springer.com/article/10.1007/s00453-021-00816-9",
+      "verifiedOn": "2026-10-26",
+      "verificationStatus": "primary_full_text"
+    },
+    {
+      "id": "bonchi-2013-local",
+      "title": "Local Correlation Clustering",
+      "authors": [
+        "Francesco Bonchi",
+        "David García-Soriano",
+        "Konstantin Kutzkov"
+      ],
+      "year": 2013,
+      "venue": "arXiv 2013",
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/html/1312.5105v1",
+      "verifiedOn": "2026-10-26",
+      "verificationStatus": "primary_full_text"
+    },
+    {
+      "id": "assadi-2022-sparse-dense",
+      "title": "Sublinear Time and Space Algorithms for Correlation Clustering via Sparse-Dense Decompositions",
+      "authors": [
+        "Sepehr Assadi",
+        "Chen Wang"
+      ],
+      "year": 2022,
+      "venue": "ITCS 2022",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ITCS.2022.10",
+      "verifiedOn": "2026-10-26",
+      "verificationStatus": "primary_full_text"
+    },
+    {
+      "id": "behnezhad-2023-single-pass",
+      "title": "Single-Pass Streaming Algorithms for Correlation Clustering",
+      "authors": [
+        "Soheil Behnezhad",
+        "Moses Charikar",
+        "Weiyun Ma",
+        "Li-Yang Tan"
+      ],
+      "year": 2023,
+      "venue": "SODA 2023",
+      "publicationStatus": "conference",
+      "url": "https://epubs.siam.org/doi/10.1137/1.9781611977554.ch33",
+      "verifiedOn": "2026-10-26",
+      "verificationStatus": "abstract_only"
+    },
+    {
+      "id": "assadi-2023-cost-estimation",
+      "title": "Streaming Algorithms and Lower Bounds for Estimating Correlation Clustering Cost",
+      "authors": [
+        "Sepehr Assadi",
+        "Vihan Shah",
+        "Chen Wang"
+      ],
+      "year": 2023,
+      "venue": "NeurIPS 2023",
+      "publicationStatus": "conference",
+      "url": "https://papers.nips.cc/paper/2023/hash/ee1a1ecc92f35702b5c29dad3dc909ea-Abstract-Conference.html",
+      "verifiedOn": "2026-10-26",
+      "verificationStatus": "primary_full_text"
+    },
+    {
+      "id": "cohenaddad-2024-combinatorial",
+      "title": "Combinatorial Correlation Clustering",
+      "authors": [
+        "Vincent Cohen-Addad",
+        "David Rasmussen Lolck",
+        "Marcin Pilipczuk",
+        "Mikkel Thorup",
+        "Shuyi Yan",
+        "Hanwen Zhang"
+      ],
+      "year": 2024,
+      "venue": "STOC 2024",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2404.05433",
+      "verifiedOn": "2026-10-26",
+      "verificationStatus": "primary_full_text"
+    },
+    {
+      "id": "bhaskara-2018-coresets",
+      "title": "Sublinear Algorithms for MAXCUT and Correlation Clustering",
+      "authors": [
+        "Aditya Bhaskara",
+        "Samira Daruki",
+        "Suresh Venkatasubramanian"
+      ],
+      "year": 2018,
+      "venue": "ICALP 2018",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2018.16",
+      "verifiedOn": "2026-10-26",
+      "verificationStatus": "primary_full_text"
+    },
+    {
+      "id": "liu-2026-node-arrival",
+      "title": "Estimating Correlation Clustering Cost in Node-Arrival Stream",
+      "authors": [
+        "Kaiwen Liu",
+        "Seba Daniela Villalobos",
+        "Qin Zhang"
+      ],
+      "year": 2026,
+      "venue": "ICML 2026; arXiv",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/html/2605.07091v1",
+      "verifiedOn": "2026-10-26",
+      "verificationStatus": "primary_full_text"
+    },
+    {
+      "id": "garciasoriano-2020-query-efficient",
+      "title": "Query-Efficient Correlation Clustering",
+      "authors": [
+        "David García-Soriano",
+        "Konstantin Kutzkov",
+        "Francesco Bonchi",
+        "Charalampos E. Tsourakakis"
+      ],
+      "year": 2020,
+      "venue": "The Web Conference 2020",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2002.11557",
+      "verifiedOn": "2026-10-26",
+      "verificationStatus": "primary_full_text"
+    }
+  ],
+  "upsertSlices": [
+    {
+      "id": "cc-stream-single-pass-pivot",
+      "problem": "cc",
+      "model": "stream",
+      "label": "Single-pass insertion-only positive-edge stream, explicit clustering",
+      "task": "Output complete-graph minimum-disagreement partition",
+      "assumptions": [
+        "Unweighted complete signed graph; positive pairs encode edges and all other pairs are negative",
+        "Single-pass insertion-only positive-edge stream, explicit clustering",
+        "Parameters follow the cited theorem"
+      ],
+      "xAxis": {
+        "label": "Theorem guarantee; formula rows retain incompatible contracts",
+        "kind": "categorical",
+        "categories": [
+          "3+ε",
+          "O(1) approximation",
+          "5 approximation (abstract)",
+          "24/13+ε",
+          "Expected 3OPT+εn²",
+          "Expected 3OPT+n³/(2Q)"
+        ]
+      },
+      "yAxis": {
+        "label": "Exact memory and pass formulas; no assumed numeric ranking",
+        "kind": "categorical",
+        "categories": [
+          "cc-stream-pivot-3plus",
+          "cc-stream-sparse-dense-first",
+          "cc-stream-5-linear",
+          "cc-stream-combinatorial-1847",
+          "cc-stream-bonchi-additive",
+          "cc-stream-queryefficient-2020"
+        ]
+      },
+      "parameters": {
+        "epsilon": "fixed positive constant"
+      },
+      "results": [
+        {
+          "id": "cc-stream-pivot-3plus",
+          "paperId": "chakrabarty-2023-stream-pivot",
+          "kind": "upper",
+          "bound": "O(n/ε) words; 1 pass",
+          "guarantee": "Expected (3+ε)-approximation",
+          "sourceLocation": "Theorem 1.1; Section 2 expectation analysis",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "historical",
+          "notes": "Arbitrary-order positive-edge insertions; one word has O(log n) bits. Polynomial postprocessing.",
+          "plot": null,
+          "sliceId": "cc-stream-single-pass-pivot",
+          "panel": "partition",
+          "graph": "Unweighted complete signed graph; positive pairs encode edges and all other pairs are negative",
+          "output": "Output complete-graph minimum-disagreement partition",
+          "resourceModel": "Single-pass insertion-only positive-edge stream, explicit clustering",
+          "assumptions": [
+            "Unweighted complete signed graph; positive pairs encode edges and all other pairs are negative",
+            "Single-pass insertion-only positive-edge stream, explicit clustering",
+            "Parameters follow the cited theorem"
+          ],
+          "quality": "3+ε",
+          "displayBound": "O(n/ε) words",
+          "exactBound": "For integer k≥2: O(kn) words; E[cost]≤(3+6/(k−1))OPT. Choose k=1+⌈6/ε⌉.",
+          "theorem": "Theorem 1.1; Section 2 expectation analysis",
+          "verificationUrl": "https://arxiv.org/html/2305.13560",
+          "probability": "Expected objective bound",
+          "shortLabel": "CM23",
+          "plotRole": "single-insertion"
+        },
+        {
+          "id": "cc-stream-sparse-dense-first",
+          "paperId": "assadi-2022-sparse-dense",
+          "kind": "upper",
+          "bound": "O(n log n) words for labeled-edge stream; Õ(n) for positive-only and dynamic variants",
+          "guarantee": "O(1)-approximate MinDisagree partition with high probability",
+          "sourceLocation": "Theorems 2 and 7; §2.2; Appendix B.2",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "historical",
+          "notes": "The numerical approximation constant stays symbolic. The original exact theorem streams labeled edges; variants may add polylogarithmic memory.",
+          "plot": null,
+          "sliceId": "cc-stream-single-pass-pivot",
+          "panel": "related",
+          "graph": "Unweighted complete signed graph; positive pairs encode edges and all other pairs are negative",
+          "output": "Output complete-graph minimum-disagreement partition",
+          "resourceModel": "Single-pass insertion-only positive-edge stream, explicit clustering",
+          "assumptions": [
+            "Unweighted complete signed graph; positive pairs encode edges and all other pairs are negative",
+            "Single-pass insertion-only positive-edge stream, explicit clustering",
+            "Parameters follow the cited theorem"
+          ],
+          "quality": "O(1) approximation",
+          "displayBound": "O(n log n) words · 1 pass",
+          "exactBound": "Theorem 7: O(n log n) words; O(log n) update; O(n log²n) postprocessing. Appendix B.2 gives positive-only/dynamic variants in Õ(n).",
+          "theorem": "Theorems 2 and 7; §2.2; Appendix B.2",
+          "verificationUrl": "https://arxiv.org/html/2109.14528",
+          "probability": "High probability",
+          "shortLabel": "AW22",
+          "relatedGroup": "Symbolic partition guarantees"
+        },
+        {
+          "id": "cc-stream-5-linear",
+          "paperId": "behnezhad-2023-single-pass",
+          "kind": "upper",
+          "bound": "O(n) space; 1 pass (abstract)",
+          "guarantee": "5-approximate MinDisagree partition",
+          "sourceLocation": "Publisher abstract only",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "historical",
+          "notes": "Full theorem and probability were unavailable in bounded review. This record stays outside the theorem plot.",
+          "plot": null,
+          "sliceId": "cc-stream-single-pass-pivot",
+          "panel": "related",
+          "graph": "Unweighted complete signed graph; positive pairs encode edges and all other pairs are negative",
+          "output": "Output complete-graph minimum-disagreement partition",
+          "resourceModel": "Single-pass insertion-only positive-edge stream, explicit clustering",
+          "assumptions": [
+            "Unweighted complete signed graph; positive pairs encode edges and all other pairs are negative",
+            "Single-pass insertion-only positive-edge stream, explicit clustering",
+            "Parameters follow the cited theorem"
+          ],
+          "quality": "5 approximation (abstract)",
+          "displayBound": "O(n) space · 1 pass",
+          "exactBound": "O(n) space; 1 pass (abstract)",
+          "theorem": "Publisher abstract only",
+          "verificationUrl": "https://epubs.siam.org/doi/10.1137/1.9781611977554.ch33",
+          "probability": "Not specified in accessible abstract; not plotted as expected or high-probability",
+          "shortLabel": "BCMT23",
+          "relatedGroup": "Evidence gaps"
+        },
+        {
+          "id": "cc-stream-combinatorial-1847",
+          "paperId": "cohenaddad-2024-combinatorial",
+          "kind": "upper",
+          "bound": "O(2^{ε^{−O(1)}} n log n) space and time; 1 pass",
+          "guarantee": "(2−2/13+ε)-approximate MinDisagree partition with high probability; <1.847 at ε=0.0008",
+          "sourceLocation": "Theorem 1; Section 2.1 one-pass sampling",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "candidate",
+          "notes": "Insertion-only positive edges. Source states space without an explicit bit/word convention; do not equate it with a precise bit bound. The ε exponent remains symbolic.",
+          "plot": null,
+          "sliceId": "cc-stream-single-pass-pivot",
+          "panel": "partition",
+          "graph": "Unweighted complete signed graph; positive pairs encode edges and all other pairs are negative",
+          "output": "Output complete-graph minimum-disagreement partition",
+          "resourceModel": "Single-pass insertion-only positive-edge stream, explicit clustering",
+          "assumptions": [
+            "Unweighted complete signed graph; positive pairs encode edges and all other pairs are negative",
+            "Single-pass insertion-only positive-edge stream, explicit clustering",
+            "Parameters follow the cited theorem"
+          ],
+          "quality": "24/13+ε",
+          "displayBound": "O(2^{ε^{−O(1)}} n log n) space",
+          "exactBound": "O(2^{ε^{−O(1)}} n log n) space and time; 1 pass",
+          "theorem": "Theorem 1; Section 2.1 one-pass sampling",
+          "verificationUrl": "https://arxiv.org/html/2404.05433",
+          "probability": "High probability",
+          "shortLabel": "CLPTYZ24",
+          "plotRole": "single-insertion"
+        },
+        {
+          "id": "cc-stream-bonchi-additive",
+          "paperId": "bonchi-2013-local",
+          "kind": "upper",
+          "bound": "O(n/ε) stored words in 1 pass; O(n+ε^{−2}) in 2 passes",
+          "guarantee": "Expected cost ≤3OPT+εn²",
+          "sourceLocation": "§3 footnote 4; §7 streaming implementation",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "historical",
+          "notes": "0<ε<1; additive error is essential. Storage counts sampled incident edges/vertex IDs. Query lower bounds are not streaming-space lower bounds.",
+          "plot": null,
+          "sliceId": "cc-stream-single-pass-pivot",
+          "panel": "related",
+          "graph": "Unweighted complete signed graph; positive pairs encode edges and all other pairs are negative",
+          "output": "Output complete-graph minimum-disagreement partition",
+          "resourceModel": "Single-pass insertion-only positive-edge stream, explicit clustering",
+          "assumptions": [
+            "Unweighted complete signed graph; positive pairs encode edges and all other pairs are negative",
+            "Single-pass insertion-only positive-edge stream, explicit clustering",
+            "Parameters follow the cited theorem"
+          ],
+          "quality": "Expected 3OPT+εn²",
+          "displayBound": "1 pass O(n/ε); 2 passes O(n+ε^{−2}) words",
+          "exactBound": "O(n/ε) stored words in 1 pass; O(n+ε^{−2}) in 2 passes",
+          "theorem": "§3 footnote 4; §7 streaming implementation",
+          "verificationUrl": "https://arxiv.org/html/1312.5105v1",
+          "probability": "Expected objective; paper separately offers (4,ε) with constant success",
+          "shortLabel": "BGK13",
+          "relatedGroup": "Explicit partitions with additive error"
+        },
+        {
+          "id": "cc-stream-queryefficient-2020",
+          "paperId": "garciasoriano-2020-query-efficient",
+          "kind": "upper",
+          "bound": "Derived O(n+Q) words; 1 insertion-only pass",
+          "guarantee": "Expected cost ≤3OPT+n³/(2Q)",
+          "sourceLocation": "Theorem 3.4; streaming reduction derived here",
+          "evidenceStatus": "derived_from_verified_theorem",
+          "frontierStatus": "historical",
+          "notes": "Source is a query theorem, not an explicit streaming theorem. One positive-edge pass resolves the preselected pairs; absent pairs are negative. O(Q) alone requires Q≥n.",
+          "plot": null,
+          "sliceId": "cc-stream-single-pass-pivot",
+          "panel": "related",
+          "graph": "Unweighted complete signed graph; positive pairs encode edges and all other pairs are negative",
+          "output": "Output complete-graph minimum-disagreement partition",
+          "resourceModel": "Single-pass insertion-only positive-edge stream, explicit clustering",
+          "assumptions": [
+            "Unweighted complete signed graph; positive pairs encode edges and all other pairs are negative",
+            "Single-pass insertion-only positive-edge stream, explicit clustering",
+            "Parameters follow the cited theorem"
+          ],
+          "quality": "Expected 3OPT+n³/(2Q)",
+          "displayBound": "O(n+Q) words · derived 1 pass",
+          "exactBound": "Theorem 3.4: ≤Q nonadaptive pair queries and E[cost]≤3OPT+n³/(2Q). Preselect and store those answers; materialized output uses O(n+Q) words.",
+          "theorem": "Theorem 3.4; streaming reduction derived here",
+          "verificationUrl": "https://arxiv.org/html/2002.11557",
+          "probability": "Expected objective bound",
+          "shortLabel": "GKBT20",
+          "relatedGroup": "Explicit partitions with additive error"
+        }
+      ]
+    },
+    {
+      "id": "cc-stream-turnstile-explicit",
+      "problem": "cc",
+      "model": "stream",
+      "label": "Single-pass edge-insertion/deletion stream, explicit clustering",
+      "task": "At end of turnstile stream output a partition with small disagreements",
+      "assumptions": [
+        "Unweighted complete signed graph; positive pairs encode edges and all other pairs are negative",
+        "Single-pass edge-insertion/deletion stream, explicit clustering",
+        "0<ε<1/4",
+        "One-pass dynamic stream; synopsis memory only, not total working memory",
+        "Parameters follow the cited theorem"
+      ],
+      "xAxis": {
+        "label": "Theorem guarantee; formula rows retain incompatible contracts",
+        "kind": "categorical",
+        "categories": [
+          "3+ε",
+          "α_best+o(1)"
+        ]
+      },
+      "yAxis": {
+        "label": "Exact memory and pass formulas; no assumed numeric ranking",
+        "kind": "categorical",
+        "categories": [
+          "cc-stream-turnstile-3plus",
+          "cc-stream-turnstile-alphabest"
+        ]
+      },
+      "parameters": {
+        "epsilon": "fixed positive constant for baseline; sketch accuracy tends slowly to zero",
+        "coordinateConvention": "Only the stated fixed ε or δ instance is colored; the table retains the theorem’s free parameters and output assumptions."
+      },
+      "results": [
+        {
+          "id": "cc-stream-turnstile-3plus",
+          "paperId": "cambus-2025-dynamic-stream",
+          "kind": "upper",
+          "bound": "O(n log²n/ε) words; 1 pass",
+          "guarantee": "(3+ε)-approximation in expectation",
+          "sourceLocation": "Theorems 2.1 and 2.5",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "historical",
+          "notes": "The old display ε=1/4 was outside the strict theorem range. Figure uses ε=1/8. Remark 3.17 discusses a vanishing failure contribution and handles OPT=0 with high probability.",
+          "plot": null,
+          "sliceId": "cc-stream-turnstile-explicit",
+          "panel": "partition",
+          "graph": "Unweighted complete signed graph; positive pairs encode edges and all other pairs are negative",
+          "output": "At end of turnstile stream output a partition with small disagreements",
+          "resourceModel": "Single-pass edge-insertion/deletion stream, explicit clustering",
+          "assumptions": [
+            "Unweighted complete signed graph; positive pairs encode edges and all other pairs are negative",
+            "Single-pass edge-insertion/deletion stream, explicit clustering",
+            "0<ε<1/4"
+          ],
+          "quality": "3+ε",
+          "displayBound": "O(n log²n/ε) words",
+          "exactBound": "O(n log²n/ε) words; 1 pass",
+          "theorem": "Theorems 2.1 and 2.5",
+          "verificationUrl": "https://arxiv.org/html/2205.07593v6",
+          "probability": "Expected objective bound as stated in theorem",
+          "shortLabel": "CKLPU25",
+          "plotRole": "single-turnstile",
+          "parameterDomain": "0<ε<1/4"
+        },
+        {
+          "id": "cc-stream-turnstile-alphabest",
+          "paperId": "assadi-2025-desparsification",
+          "kind": "upper",
+          "bound": "Õ(n) streaming memory; polynomial-space postprocessing",
+          "guarantee": "(α_best+o(1))-approximation with high probability, α_best best polynomial-time offline approximation factor",
+          "sourceLocation": "Corollary 1.3; Remark 1.5",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "current_best_verified",
+          "notes": "α_best is the applicable offline polynomial-time approximation factor, retained symbolically; no numerical current-best factor is assigned.",
+          "plot": null,
+          "sliceId": "cc-stream-turnstile-explicit",
+          "panel": "related",
+          "graph": "Unweighted complete signed graph; positive pairs encode edges and all other pairs are negative",
+          "output": "At end of turnstile stream output a partition with small disagreements",
+          "resourceModel": "One-pass dynamic stream; synopsis memory only, not total working memory",
+          "assumptions": [
+            "Unweighted complete signed graph; positive pairs encode edges and all other pairs are negative",
+            "One-pass dynamic stream; synopsis memory only, not total working memory",
+            "Parameters follow the cited theorem"
+          ],
+          "quality": "α_best+o(1)",
+          "displayBound": "Õ(n) synopsis → polynomial recovery space",
+          "exactBound": "Corollary 1.3: α_best+o(1), one turnstile pass; Remark 1.5 permits larger polynomial postprocessing memory.",
+          "theorem": "Corollary 1.3; Remark 1.5",
+          "verificationUrl": "https://arxiv.org/html/2504.04258v1",
+          "probability": "High probability after randomized recovery",
+          "shortLabel": "AKP25",
+          "relatedGroup": "Streaming synopsis; larger recovery memory"
+        }
+      ]
+    },
+    {
+      "id": "cc-stream-insertion-deterministic-sketch",
+      "problem": "cc",
+      "model": "stream",
+      "label": "Insertion-only stream, deterministic synopsis",
+      "task": "Output an approximately optimal explicit partition after one pass",
+      "assumptions": [
+        "Unweighted complete signed graph; positive pairs encode edges and all other pairs are negative",
+        "Insertion-only state-observing stream; bound is synopsis memory",
+        "Parameters follow the cited theorem"
+      ],
+      "xAxis": {
+        "label": "Theorem guarantee; formula rows retain incompatible contracts",
+        "kind": "categorical",
+        "categories": [
+          "α_best+o(1)"
+        ]
+      },
+      "yAxis": {
+        "label": "Exact memory and pass formulas; no assumed numeric ranking",
+        "kind": "categorical",
+        "categories": [
+          "cc-stream-det-summary"
+        ]
+      },
+      "parameters": {},
+      "results": [
+        {
+          "id": "cc-stream-det-summary",
+          "paperId": "assadi-2025-desparsification",
+          "kind": "upper",
+          "bound": "Õ(n) deterministic synopsis; polynomial-space randomized recovery",
+          "guarantee": "(α_best+o(1))-approximation with high probability after stream; deterministic streaming state",
+          "sourceLocation": "Corollary 1.4; Remarks 1.5 and 5.3; Lemma 5.4",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "current_best_verified",
+          "notes": "Lemma 5.4 gives Õ(n/ε²) bits for fixed sketch accuracy. The polynomial-space recovery is a distinct resource contract.",
+          "plot": null,
+          "sliceId": "cc-stream-insertion-deterministic-sketch",
+          "panel": "related",
+          "graph": "Unweighted complete signed graph; positive pairs encode edges and all other pairs are negative",
+          "output": "Output an approximately optimal explicit partition after one pass",
+          "resourceModel": "Insertion-only state-observing stream; bound is synopsis memory",
+          "assumptions": [
+            "Unweighted complete signed graph; positive pairs encode edges and all other pairs are negative",
+            "Insertion-only state-observing stream; bound is synopsis memory",
+            "Parameters follow the cited theorem"
+          ],
+          "quality": "α_best+o(1)",
+          "displayBound": "Õ(n) deterministic state → larger recovery",
+          "exactBound": "Õ(n) deterministic synopsis; polynomial-space randomized recovery",
+          "theorem": "Corollary 1.4; Remarks 1.5 and 5.3; Lemma 5.4",
+          "verificationUrl": "https://arxiv.org/html/2504.04258v1",
+          "probability": "High probability over post-stream recovery; state itself deterministic",
+          "shortLabel": "AKP25 deterministic state",
+          "relatedGroup": "Streaming synopsis; larger recovery memory"
+        }
+      ]
+    },
+    {
+      "id": "cc-stream-multipass-min-disagree",
+      "problem": "cc",
+      "model": "stream",
+      "label": "Multipass semi-streaming, MinDisagree explicit partition",
+      "task": "Output an unweighted complete-signed-graph partition; quality in expected cost",
+      "assumptions": [
+        "Unweighted complete signed graph; positive pairs encode edges and all other pairs are negative",
+        "Multipass semi-streaming, MinDisagree explicit partition",
+        "Parameters follow the cited theorem"
+      ],
+      "xAxis": {
+        "label": "Theorem guarantee; formula rows retain incompatible contracts",
+        "kind": "categorical",
+        "categories": [
+          "3+ε",
+          "Expected 3 approximation (conservative reading)",
+          "3+8/(2r−1)"
+        ]
+      },
+      "yAxis": {
+        "label": "Exact memory and pass formulas; no assumed numeric ranking",
+        "kind": "categorical",
+        "categories": [
+          "cc-stream-mapreduce-3plus",
+          "cc-stream-ahn-3-multipass",
+          "cc-stream-focs22-3plus"
+        ]
+      },
+      "parameters": {},
+      "results": [
+        {
+          "id": "cc-stream-mapreduce-3plus",
+          "paperId": "chierichetti-2014-mapreduce",
+          "kind": "upper",
+          "bound": "O(ε^{−1} log²n) passes; Õ(n) memory",
+          "guarantee": "(3+ε)-approximation",
+          "sourceLocation": "KDD metadata/abstract; Ahn et al. 2021 Introduction §1",
+          "evidenceStatus": "corroborated_primary_citation",
+          "frontierStatus": "historical",
+          "notes": "Original full theorem unavailable in bounded review. The pass bound is corroborated by a subsequent primary paper; no numerical pass coordinate assigned.",
+          "plot": null,
+          "sliceId": "cc-stream-multipass-min-disagree",
+          "panel": "related",
+          "graph": "Unweighted complete signed graph; positive pairs encode edges and all other pairs are negative",
+          "output": "Output an unweighted complete-signed-graph partition; quality in expected cost",
+          "resourceModel": "Multipass semi-streaming, MinDisagree explicit partition",
+          "assumptions": [
+            "Unweighted complete signed graph; positive pairs encode edges and all other pairs are negative",
+            "Multipass semi-streaming, MinDisagree explicit partition",
+            "Parameters follow the cited theorem"
+          ],
+          "quality": "3+ε",
+          "displayBound": "O(ε^{−1} log²n) passes · Õ(n) memory",
+          "exactBound": "O(ε^{−1} log²n) passes; Õ(n) memory",
+          "theorem": "KDD metadata/abstract; Ahn et al. 2021 Introduction §1",
+          "verificationUrl": "https://link.springer.com/article/10.1007/s00453-021-00816-9",
+          "probability": "Exact probability not verified from original theorem",
+          "shortLabel": "CDK14",
+          "relatedGroup": "Historical multipass guarantees"
+        },
+        {
+          "id": "cc-stream-ahn-3-multipass",
+          "paperId": "ahn-2015-streams",
+          "kind": "upper",
+          "bound": "O(log log n) passes; Õ(n) memory",
+          "guarantee": "3-approximation in expectation",
+          "sourceLocation": "Theorem 12 and proof",
+          "evidenceStatus": "theorem_scope_qualified",
+          "frontierStatus": "historical",
+          "notes": "Theorem wording says high-probability 3-approximation, but proof simulates randomized Pivot and proves memory success. Figure does not promote this to a high-probability factor. Proof stores O(n log n) edges; use Õ(n) rather than silently equating edges and bits.",
+          "plot": null,
+          "sliceId": "cc-stream-multipass-min-disagree",
+          "panel": "related",
+          "graph": "Unweighted complete signed graph; positive pairs encode edges and all other pairs are negative",
+          "output": "Output an unweighted complete-signed-graph partition; quality in expected cost",
+          "resourceModel": "Multipass semi-streaming, MinDisagree explicit partition",
+          "assumptions": [
+            "Unweighted complete signed graph; positive pairs encode edges and all other pairs are negative",
+            "Multipass semi-streaming, MinDisagree explicit partition",
+            "Parameters follow the cited theorem"
+          ],
+          "quality": "Expected 3 approximation (conservative reading)",
+          "displayBound": "O(log log n) passes · Õ(n) memory",
+          "exactBound": "O(log log n) passes; Õ(n) memory",
+          "theorem": "Theorem 12 and proof",
+          "verificationUrl": "https://link.springer.com/article/10.1007/s00453-021-00816-9",
+          "probability": "Expected Pivot approximation; proof controls storage with high probability",
+          "shortLabel": "Ahn+21",
+          "relatedGroup": "Historical multipass guarantees"
+        },
+        {
+          "id": "cc-stream-focs22-3plus",
+          "paperId": "behnezhad-2022-constant-rounds",
+          "kind": "upper",
+          "bound": "2r+1 passes; O(n log n) bits",
+          "guarantee": "(3+ε)-approximation",
+          "sourceLocation": "Corollary 1.4; §4 semi-streaming implementation",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "historical",
+          "notes": "Unlike the LOCAL implementation, streaming stores a global random permutation. No independent-finite-rank correction is added. Positive-edge insertion stream may be revisited.",
+          "plot": null,
+          "sliceId": "cc-stream-multipass-min-disagree",
+          "panel": "partition",
+          "graph": "Unweighted complete signed graph; positive pairs encode edges and all other pairs are negative",
+          "output": "Output an unweighted complete-signed-graph partition; quality in expected cost",
+          "resourceModel": "Multipass semi-streaming, MinDisagree explicit partition",
+          "assumptions": [
+            "Unweighted complete signed graph; positive pairs encode edges and all other pairs are negative",
+            "Multipass semi-streaming, MinDisagree explicit partition",
+            "Parameters follow the cited theorem"
+          ],
+          "quality": "3+8/(2r−1)",
+          "displayBound": "O(n log n) bits",
+          "exactBound": "For integer r≥1: 2r+1 passes and E[cost]≤(3+8/(2r−1))OPT.",
+          "theorem": "Corollary 1.4; §4 semi-streaming implementation",
+          "verificationUrl": "https://arxiv.org/pdf/2205.03710#page=26",
+          "probability": "Expected objective bound",
+          "shortLabel": "BCMT22",
+          "plotRole": "multipass"
+        }
+      ]
+    },
+    {
+      "id": "cc-stream-onepass-weighted-maxagree",
+      "problem": "cc",
+      "model": "stream",
+      "label": "One-pass weighted MaxAgree, output partition",
+      "task": "Output an approximate agreement-maximizing partition",
+      "assumptions": [
+        "Complete signed graph with magnitudes between 1 and a fixed constant; no zero-weight pairs",
+        "One-pass weighted MaxAgree, output partition",
+        "Parameters follow the cited theorem",
+        "Arbitrary polynomially bounded integral signed weights, including zero"
+      ],
+      "xAxis": {
+        "label": "Theorem guarantee; formula rows retain incompatible contracts",
+        "kind": "categorical",
+        "categories": [
+          "At least (1−ε)OPT_agree",
+          "At least 0.7666(1−ε)OPT_agree"
+        ]
+      },
+      "yAxis": {
+        "label": "Exact memory and pass formulas; no assumed numeric ranking",
+        "kind": "categorical",
+        "categories": [
+          "cc-stream-ahn-bounded-ptas",
+          "cc-stream-ahn-arbitrary-07666"
+        ]
+      },
+      "parameters": {},
+      "results": [
+        {
+          "id": "cc-stream-ahn-bounded-ptas",
+          "paperId": "ahn-2015-streams",
+          "kind": "upper",
+          "bound": "Õ(n·poly(k,1/ε)) space; 1 pass",
+          "guarantee": "(1−ε)·OPT agreements for bounded edge weights",
+          "sourceLocation": "Theorem 4; §2.2; footnote 1",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "historical",
+          "notes": "Choose k=O(1/ε) for an unrestricted number of clusters; this is maximization, not MinDisagree.",
+          "plot": null,
+          "sliceId": "cc-stream-onepass-weighted-maxagree",
+          "panel": "related",
+          "graph": "Complete signed graph with magnitudes between 1 and a fixed constant; no zero-weight pairs",
+          "output": "Output an approximate agreement-maximizing partition",
+          "resourceModel": "One-pass weighted MaxAgree, output partition",
+          "assumptions": [
+            "Complete signed graph with magnitudes between 1 and a fixed constant; no zero-weight pairs",
+            "One-pass weighted MaxAgree, output partition",
+            "Parameters follow the cited theorem"
+          ],
+          "quality": "At least (1−ε)OPT_agree",
+          "displayBound": "Õ(n·poly(k,1/ε)) space",
+          "exactBound": "Õ(n·poly(k,1/ε)) space; 1 pass",
+          "theorem": "Theorem 4; §2.2; footnote 1",
+          "verificationUrl": "https://link.springer.com/article/10.1007/s00453-021-00816-9",
+          "probability": "High probability",
+          "shortLabel": "Ahn+21 · bounded weights",
+          "relatedGroup": "Weighted MaxAgree"
+        },
+        {
+          "id": "cc-stream-ahn-arbitrary-07666",
+          "paperId": "ahn-2015-streams",
+          "kind": "upper",
+          "bound": "Õ(nε^{−2}) space; Õ(m+nε^{−10}) time; 1 pass",
+          "guarantee": "≥0.7666(1−ε)·OPT agreements for arbitrary weights",
+          "sourceLocation": "Theorem 11",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "historical",
+          "notes": "Keep the maximization fraction in its original direction; no invented high-probability qualifier.",
+          "plot": null,
+          "sliceId": "cc-stream-onepass-weighted-maxagree",
+          "panel": "related",
+          "graph": "Arbitrary polynomially bounded integral signed weights, including zero",
+          "output": "Output an approximate agreement-maximizing partition",
+          "resourceModel": "One-pass weighted MaxAgree, output partition",
+          "assumptions": [
+            "Arbitrary polynomially bounded integral signed weights, including zero",
+            "One-pass weighted MaxAgree, output partition",
+            "Parameters follow the cited theorem"
+          ],
+          "quality": "At least 0.7666(1−ε)OPT_agree",
+          "displayBound": "Õ(nε^{−2}) space",
+          "exactBound": "Õ(nε^{−2}) space; Õ(m+nε^{−10}) time; 1 pass",
+          "theorem": "Theorem 11",
+          "verificationUrl": "https://link.springer.com/article/10.1007/s00453-021-00816-9",
+          "probability": "Randomized sparsification/rounding; theorem statement does not specify a failure probability",
+          "shortLabel": "Ahn+21 · arbitrary weights",
+          "relatedGroup": "Weighted MaxAgree"
+        }
+      ]
+    },
+    {
+      "id": "cc-stream-onepass-weighted-mindisagree",
+      "problem": "cc",
+      "model": "stream",
+      "label": "One-pass weighted MinDisagree",
+      "task": "Output an approximate partition for arbitrary weights",
+      "assumptions": [
+        "Arbitrary polynomially bounded integral signed weights, including zero",
+        "One-pass weighted MinDisagree",
+        "Parameters follow the cited theorem",
+        "Weights in {−1,0,+1}; zero weights allowed"
+      ],
+      "xAxis": {
+        "label": "Theorem guarantee; formula rows retain incompatible contracts",
+        "kind": "categorical",
+        "categories": [
+          "3(1+ε) log|E⁻| approximation",
+          "Decide whether OPT=0"
+        ]
+      },
+      "yAxis": {
+        "label": "Exact memory and pass formulas; no assumed numeric ranking",
+        "kind": "categorical",
+        "categories": [
+          "cc-stream-ahn-weighted-log",
+          "cc-stream-ahn-arbitrary-lb"
+        ]
+      },
+      "parameters": {},
+      "results": [
+        {
+          "id": "cc-stream-ahn-weighted-log",
+          "paperId": "ahn-2015-streams",
+          "kind": "upper",
+          "bound": "s=Õ(nε^{−2}+|E⁻|) space; Õ(s²ε^{−3}) time; 1 pass",
+          "guarantee": "O(log |E⁻|)-approximate MinDisagree",
+          "sourceLocation": "Theorem 9",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "historical",
+          "notes": "The ε^{−3} time factor was missing in the original record. This model is separate from complete ±1 instances.",
+          "plot": null,
+          "sliceId": "cc-stream-onepass-weighted-mindisagree",
+          "panel": "related",
+          "graph": "Arbitrary polynomially bounded integral signed weights, including zero",
+          "output": "Output an approximate partition for arbitrary weights",
+          "resourceModel": "One-pass weighted MinDisagree",
+          "assumptions": [
+            "Arbitrary polynomially bounded integral signed weights, including zero",
+            "One-pass weighted MinDisagree",
+            "Parameters follow the cited theorem"
+          ],
+          "quality": "3(1+ε) log|E⁻| approximation",
+          "displayBound": "Õ(nε^{−2}+|E⁻|) space",
+          "exactBound": "3(1+ε) log|E⁻| approximation; s=Õ(nε^{−2}+|E⁻|), time Õ(s²ε^{−3}).",
+          "theorem": "Theorem 9",
+          "verificationUrl": "https://link.springer.com/article/10.1007/s00453-021-00816-9",
+          "probability": "Randomized sparsification and rounding; no stronger success probability added",
+          "shortLabel": "Ahn+21 · weighted disagreement",
+          "relatedGroup": "Weighted MinDisagree"
+        },
+        {
+          "id": "cc-stream-ahn-arbitrary-lb",
+          "paperId": "ahn-2015-streams",
+          "kind": "lower",
+          "bound": "Ω(n+|E⁻|) bits; Ω(n²) on dense negative instances",
+          "guarantee": "Memory needed even to decide whether OPT=0 for arbitrary weights",
+          "sourceLocation": "Theorems 14 and 16",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "historical",
+          "notes": "The lower theorem is explicitly a zero-cost decision bound; it does not cover the complete unit-weight partition setting.",
+          "plot": null,
+          "sliceId": "cc-stream-onepass-weighted-mindisagree",
+          "panel": "related",
+          "graph": "Weights in {−1,0,+1}; zero weights allowed",
+          "output": "Zero-cost decision, a scalar task",
+          "resourceModel": "One-pass weighted MinDisagree",
+          "assumptions": [
+            "Weights in {−1,0,+1}; zero weights allowed",
+            "One-pass weighted MinDisagree",
+            "Parameters follow the cited theorem"
+          ],
+          "quality": "Decide whether OPT=0",
+          "displayBound": "Ω(n+|E⁻|) bits",
+          "exactBound": "Ω(n+|E⁻|) bits; Ω(n²) on dense negative instances",
+          "theorem": "Theorems 14 and 16",
+          "verificationUrl": "https://link.springer.com/article/10.1007/s00453-021-00816-9",
+          "probability": "Success at least 0.9",
+          "shortLabel": "Ahn+21 · weighted lower bound",
+          "relatedGroup": "Weighted MinDisagree"
+        }
+      ]
+    },
+    {
+      "id": "cc-stream-value-tiny-space",
+      "problem": "cc",
+      "model": "stream",
+      "label": "Single-pass value estimation, no partition",
+      "task": "Estimate MinDisagree OPT numerically with multiplicative and additive error",
+      "assumptions": [
+        "Unweighted complete signed graph; positive pairs encode edges and all other pairs are negative",
+        "Single-pass value estimation, no partition",
+        "Fixed 0<δ<1; proof union bound assumes 2^{1/δ}≤poly(n)",
+        "0<δ<1; plotted class fixes δ independent of n",
+        "Parameters follow the cited theorem",
+        "Small fixed ε>0; construction K=N^{1/ε−1}; shown instance ε=1/4"
+      ],
+      "xAxis": {
+        "label": "Memory exponent p in n^p, suppressing logarithms; fixed displayed parameters",
+        "kind": "exponent",
+        "min": 0,
+        "max": 1,
+        "ticks": [
+          0,
+          0.25,
+          0.5,
+          0.75,
+          1
+        ],
+        "tickLabels": [
+          "polylog n",
+          "n^{1/4}",
+          "√n",
+          "n^{3/4}",
+          "n"
+        ],
+        "viewDomain": [
+          -0.025,
+          1.04
+        ]
+      },
+      "yAxis": {
+        "label": "Exact memory and pass formulas; no assumed numeric ranking",
+        "kind": "categorical",
+        "categories": [
+          "cc-stream-value-assadi-3-additive",
+          "cc-stream-value-assadi-o1",
+          "cc-stream-value-pure-multiplicative-lb",
+          "cc-stream-value-additive-lb",
+          "cc-stream-value-mixed-lb"
+        ]
+      },
+      "parameters": {},
+      "results": [
+        {
+          "id": "cc-stream-value-assadi-3-additive",
+          "paperId": "assadi-2023-cost-estimation",
+          "kind": "upper",
+          "bound": "O(2^{1/δ} log n/δ⁵) words; 1 turnstile pass",
+          "guarantee": "Value estimator with expected approximation at most 3·OPT+δn²",
+          "sourceLocation": "Supplement Theorem 3 and Claim 4.13",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "candidate",
+          "notes": "At fixed δ this is polylogarithmic in n, but accuracy dependence is exponential. The cost axis suppresses logarithms only after fixing δ.",
+          "plot": null,
+          "sliceId": "cc-stream-value-tiny-space",
+          "panel": "value",
+          "graph": "Unweighted complete signed graph; positive pairs encode edges and all other pairs are negative",
+          "output": "Estimate MinDisagree OPT numerically with multiplicative and additive error",
+          "resourceModel": "Single-pass value estimation, no partition",
+          "assumptions": [
+            "Unweighted complete signed graph; positive pairs encode edges and all other pairs are negative",
+            "Single-pass value estimation, no partition",
+            "Fixed 0<δ<1; proof union bound assumes 2^{1/δ}≤poly(n)"
+          ],
+          "quality": "(3, δn²)",
+          "displayBound": "O(2^{1/δ} log n/δ⁵) words",
+          "exactBound": "O(2^{1/δ} log n/δ⁵) words; 1 turnstile pass",
+          "theorem": "Supplement Theorem 3 and Claim 4.13",
+          "verificationUrl": "https://papers.nips.cc/paper_files/paper/2023/file/ee1a1ecc92f35702b5c29dad3dc909ea-Supplemental-Conference.pdf#page=32",
+          "probability": "E[estimate]≤3OPT+δn²; estimate≥OPT with high probability",
+          "shortLabel": "ASW23 · expected 3",
+          "valueRow": 0,
+          "exponent": 0,
+          "parameterDomain": "Fixed 0<δ<1; proof union bound assumes 2^{1/δ}≤poly(n)"
+        },
+        {
+          "id": "cc-stream-value-assadi-o1",
+          "paperId": "assadi-2023-cost-estimation",
+          "kind": "upper",
+          "bound": "O(log²n/δ⁵) words; 1 turnstile pass",
+          "guarantee": "OPT≤estimate≤O(1)·OPT+δn² with high probability",
+          "sourceLocation": "Theorem 1",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "candidate",
+          "notes": "The approximation constant remains O(1); it is never placed at a made-up numerical factor.",
+          "plot": null,
+          "sliceId": "cc-stream-value-tiny-space",
+          "panel": "value",
+          "graph": "Unweighted complete signed graph; positive pairs encode edges and all other pairs are negative",
+          "output": "Estimate MinDisagree OPT numerically with multiplicative and additive error",
+          "resourceModel": "Single-pass value estimation, no partition",
+          "assumptions": [
+            "Unweighted complete signed graph; positive pairs encode edges and all other pairs are negative",
+            "Single-pass value estimation, no partition",
+            "0<δ<1; plotted class fixes δ independent of n"
+          ],
+          "quality": "(O(1), δn²)",
+          "displayBound": "O(log²n/δ⁵) words",
+          "exactBound": "O(log²n/δ⁵) words; 1 turnstile pass",
+          "theorem": "Theorem 1",
+          "verificationUrl": "https://papers.nips.cc/paper_files/paper/2023/file/ee1a1ecc92f35702b5c29dad3dc909ea-Supplemental-Conference.pdf#page=21",
+          "probability": "At least 1−1/n",
+          "shortLabel": "ASW23 · high probability",
+          "valueRow": 1,
+          "exponent": 0,
+          "parameterDomain": "0<δ<1; plotted class fixes δ independent of n"
+        },
+        {
+          "id": "cc-stream-value-pure-multiplicative-lb",
+          "paperId": "ahn-2015-streams",
+          "kind": "lower",
+          "bound": "Ω(n/p) bits for p passes",
+          "guarantee": "Even distinguishing OPT=0 from OPT>0 needs linear space in unit-weight stream",
+          "sourceLocation": "Theorem 15",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "current_best_verified",
+          "notes": "Already needs this memory to test OPT=0. Plot fixes p=1; bound also gives Ω(n) for constant passes. This is a value bound, not a partition frontier.",
+          "plot": null,
+          "sliceId": "cc-stream-value-tiny-space",
+          "panel": "value",
+          "graph": "Unweighted complete signed graph; positive pairs encode edges and all other pairs are negative",
+          "output": "Estimate MinDisagree OPT numerically with multiplicative and additive error",
+          "resourceModel": "Single-pass value estimation, no partition",
+          "assumptions": [
+            "Unweighted complete signed graph; positive pairs encode edges and all other pairs are negative",
+            "Single-pass value estimation, no partition",
+            "Parameters follow the cited theorem"
+          ],
+          "quality": "(c,0), any fixed finite c",
+          "displayBound": "Ω(n) bits · 1 pass",
+          "exactBound": "Ω(n/p) bits for p passes",
+          "theorem": "Theorem 15",
+          "verificationUrl": "https://link.springer.com/article/10.1007/s00453-021-00816-9",
+          "probability": "Success at least 0.9",
+          "shortLabel": "Ahn+21 · zero additive error",
+          "valueRow": 2,
+          "exponent": 1
+        },
+        {
+          "id": "cc-stream-value-additive-lb",
+          "paperId": "assadi-2023-cost-estimation",
+          "kind": "lower",
+          "bound": "Ω(n^{ε}) bits; 1 pass",
+          "guarantee": "For a theorem constant C>0, purely additive Cn^{2−ε} value error needs Ω(n^{ε}) bits",
+          "sourceLocation": "Supplement Theorem 4; §5 construction",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "historical",
+          "notes": "Formal theorem is quantitative; old vague polylog-space wording replaced. C is a fixed theorem constant, not arbitrary additive coefficient.",
+          "plot": null,
+          "sliceId": "cc-stream-value-tiny-space",
+          "panel": "value",
+          "graph": "Unweighted complete signed graph; positive pairs encode edges and all other pairs are negative",
+          "output": "Estimate MinDisagree OPT numerically with multiplicative and additive error",
+          "resourceModel": "Single-pass value estimation, no partition",
+          "assumptions": [
+            "Unweighted complete signed graph; positive pairs encode edges and all other pairs are negative",
+            "Single-pass value estimation, no partition",
+            "Small fixed ε>0; construction K=N^{1/ε−1}; shown instance ε=1/4"
+          ],
+          "quality": "(1, Cn^{2−ε})",
+          "displayBound": "Ω(n^{ε}) bits",
+          "exactBound": "Ω(n^{ε}) bits; 1 pass",
+          "theorem": "Supplement Theorem 4; §5 construction",
+          "verificationUrl": "https://papers.nips.cc/paper_files/paper/2023/file/ee1a1ecc92f35702b5c29dad3dc909ea-Supplemental-Conference.pdf#page=34",
+          "probability": "Success at least 0.99",
+          "shortLabel": "ASW23 · purely additive",
+          "valueRow": 3,
+          "exponent": 0.25,
+          "parameterDomain": "Small fixed ε>0; construction K=N^{1/ε−1}; shown instance ε=1/4"
+        },
+        {
+          "id": "cc-stream-value-mixed-lb",
+          "paperId": "assadi-2023-cost-estimation",
+          "kind": "lower",
+          "bound": "Ω(√n) bits; 1 pass",
+          "guarantee": "Ω(√n) bits for (c,ηn), 1≤c<6/5 and 0<η<6/5−c",
+          "sourceLocation": "Supplement Theorem 5",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "historical",
+          "notes": "At c=1.19 the additive coefficient must be below 0.01. Display uses η=0.005; arbitrary O(n) additive error is not justified.",
+          "plot": null,
+          "sliceId": "cc-stream-value-tiny-space",
+          "panel": "value",
+          "graph": "Unweighted complete signed graph; positive pairs encode edges and all other pairs are negative",
+          "output": "Estimate MinDisagree OPT numerically with multiplicative and additive error",
+          "resourceModel": "Single-pass value estimation, no partition",
+          "assumptions": [
+            "Unweighted complete signed graph; positive pairs encode edges and all other pairs are negative",
+            "Single-pass value estimation, no partition",
+            "Parameters follow the cited theorem"
+          ],
+          "quality": "(c,ηn), 1≤c<6/5 and 0<η<6/5−c",
+          "displayBound": "Ω(√n) bits",
+          "exactBound": "Ω(√n) bits; 1 pass",
+          "theorem": "Supplement Theorem 5",
+          "verificationUrl": "https://papers.nips.cc/paper_files/paper/2023/file/ee1a1ecc92f35702b5c29dad3dc909ea-Supplemental-Conference.pdf#page=43",
+          "probability": "Success at least 0.99",
+          "shortLabel": "ASW23 · near-optimal factor",
+          "valueRow": 4,
+          "exponent": 0.5
+        }
+      ]
+    },
+    {
+      "id": "cc-stream-node-arrival-cost",
+      "problem": "cc",
+      "model": "stream",
+      "label": "Node-arrival stream, cost value only",
+      "task": "Estimate the minimum disagreement cost from a stream of items and similarity oracle",
+      "assumptions": [
+        "Unweighted complete signed graph; positive pairs encode edges and all other pairs are negative",
+        "Node arrival; similarity queries allowed only between retained items; one word per item assumed",
+        "Constant 0≤α<1; shown α=1/2",
+        "Node arrival; similarity queries only between stored items",
+        "Parameters follow the cited theorem"
+      ],
+      "results": [
+        {
+          "id": "cc-stream-node-arrival-2026",
+          "paperId": "liu-2026-node-arrival",
+          "kind": "upper",
+          "bound": "O(n^{(3+α)/4} log n) words; O(1) passes",
+          "guarantee": "OPT≤estimate≤10·OPT+n^{1−α} with probability at least 0.99",
+          "sourceLocation": "Theorem 2.11 and proof",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "candidate",
+          "notes": "Shown space exponent 7/8 follows exactly from α=1/2. This is not edge arrival and cannot be merged into that frontier.",
+          "plot": null,
+          "sliceId": "cc-stream-node-arrival-cost",
+          "panel": "value",
+          "graph": "Unweighted complete signed graph; positive pairs encode edges and all other pairs are negative",
+          "output": "Estimate the minimum disagreement cost from a stream of items and similarity oracle",
+          "resourceModel": "Node arrival; similarity queries allowed only between retained items; one word per item assumed",
+          "assumptions": [
+            "Unweighted complete signed graph; positive pairs encode edges and all other pairs are negative",
+            "Node arrival; similarity queries allowed only between retained items; one word per item assumed",
+            "Constant 0≤α<1; shown α=1/2"
+          ],
+          "quality": "(10,n^{1−α})",
+          "displayBound": "O(n^{(3+α)/4} log n) words",
+          "exactBound": "O(n^{(3+α)/4} log n) words; O(1) passes",
+          "theorem": "Theorem 2.11 and proof",
+          "verificationUrl": "https://arxiv.org/html/2605.07091v1",
+          "probability": "At least 0.99",
+          "shortLabel": "LVZ26 · node arrival",
+          "valueRow": 5,
+          "exponent": 0.875,
+          "parameterDomain": "Constant 0≤α<1; shown α=1/2"
+        },
+        {
+          "id": "cc-stream-node-arrival-lb",
+          "paperId": "liu-2026-node-arrival",
+          "kind": "lower",
+          "bound": "Ω(n) bits; O(1) passes",
+          "guarantee": "Purely multiplicative cost estimate for any c≥1",
+          "sourceLocation": "Theorem 3.2",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "historical",
+          "notes": "Same node-access model as the upper theorem, different additive-error contract. Theorem 3.1 additionally requires Ω(n) bits in one pass for (c,d), 0<d≤n/3.",
+          "plot": null,
+          "sliceId": "cc-stream-node-arrival-cost",
+          "panel": "value",
+          "graph": "Unweighted complete signed graph; positive pairs encode edges and all other pairs are negative",
+          "output": "Estimate the minimum disagreement cost from a stream of items and similarity oracle",
+          "resourceModel": "Node arrival; similarity queries only between stored items",
+          "assumptions": [
+            "Unweighted complete signed graph; positive pairs encode edges and all other pairs are negative",
+            "Node arrival; similarity queries only between stored items",
+            "Parameters follow the cited theorem"
+          ],
+          "quality": "(c,0), any c≥1",
+          "displayBound": "Ω(n) bits · O(1) passes",
+          "exactBound": "Ω(n) bits; O(1) passes",
+          "theorem": "Theorem 3.2",
+          "verificationUrl": "https://arxiv.org/html/2605.07091v1",
+          "probability": "Error at most 0.49",
+          "shortLabel": "LVZ26 · pure multiplicative",
+          "valueRow": 6,
+          "exponent": 1
+        }
+      ],
+      "mode": "2d",
+      "yAxis": {
+        "label": "Exact memory and pass formulas; no assumed numeric ranking",
+        "kind": "categorical",
+        "categories": [
+          "cc-stream-node-arrival-2026",
+          "cc-stream-node-arrival-lb"
+        ]
+      },
+      "xAxis": {
+        "label": "Memory exponent p in n^p, suppressing logarithms; fixed displayed parameters",
+        "kind": "exponent",
+        "min": 0,
+        "max": 1,
+        "ticks": [
+          0,
+          0.25,
+          0.5,
+          0.75,
+          1
+        ],
+        "tickLabels": [
+          "polylog n",
+          "n^{1/4}",
+          "√n",
+          "n^{3/4}",
+          "n"
+        ],
+        "viewDomain": [
+          -0.025,
+          1.04
+        ]
+      }
+    },
+    {
+      "id": "cc-stream-dense-coreset",
+      "problem": "cc",
+      "model": "stream",
+      "label": "Dense-graph coreset, two passes",
+      "task": "Build and optimize weighted coreset for maximum-agreement correlation clustering",
+      "assumptions": [
+        "Signed weights with magnitude at most 1; weighted average degree Δ=n^{δ}, fixed 0<δ≤1",
+        "Dense-graph coreset, two passes",
+        "Parameters follow the cited theorem"
+      ],
+      "xAxis": {
+        "label": "Theorem guarantee; formula rows retain incompatible contracts",
+        "kind": "categorical",
+        "categories": [
+          "(1+ε)-approximation to MaxAgree objective"
+        ]
+      },
+      "yAxis": {
+        "label": "Exact memory and pass formulas; no assumed numeric ranking",
+        "kind": "categorical",
+        "categories": [
+          "cc-stream-bhaskara-2018"
+        ]
+      },
+      "parameters": {
+        "delta": "average-degree exponent δ>0"
+      },
+      "results": [
+        {
+          "id": "cc-stream-bhaskara-2018",
+          "paperId": "bhaskara-2018-coresets",
+          "kind": "upper",
+          "bound": "Õ(n/Δ)=Õ(n^{1−δ}) space; 2 passes",
+          "guarantee": "(1+ε)-approximate MaxAgree objective via a coreset",
+          "sourceLocation": "Theorems 4.2–4.4; Definition 2.2",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "candidate",
+          "notes": "Two adversarial-order edge passes. Keep ε fixed in the displayed Õ expression; source does not supply polynomial-time exact coreset optimization.",
+          "plot": null,
+          "sliceId": "cc-stream-dense-coreset",
+          "panel": "related",
+          "graph": "Signed weights with magnitude at most 1; weighted average degree Δ=n^{δ}, fixed 0<δ≤1",
+          "output": "Approximate MaxAgree value from a coreset, not an explicit n-label partition in sublinear memory",
+          "resourceModel": "Dense-graph coreset, two passes",
+          "assumptions": [
+            "Signed weights with magnitude at most 1; weighted average degree Δ=n^{δ}, fixed 0<δ≤1",
+            "Dense-graph coreset, two passes",
+            "Parameters follow the cited theorem"
+          ],
+          "quality": "(1+ε)-approximation to MaxAgree objective",
+          "displayBound": "Õ(n^{1−δ}) space · 2 passes",
+          "exactBound": "Õ(n/Δ)=Õ(n^{1−δ}) space; 2 passes",
+          "theorem": "Theorems 4.2–4.4; Definition 2.2",
+          "verificationUrl": "https://arxiv.org/html/1802.06992",
+          "probability": "Coreset correctness at least 1−1/n²",
+          "shortLabel": "BDV18 · dense coreset",
+          "relatedGroup": "Dense weighted objective; two passes"
+        }
+      ]
+    }
+  ],
+  "corrections": [
+    {
+      "id": "cc-stream-5-linear",
+      "to": "5 approximation (abstract)",
+      "reason": "Full theorem and probability were unavailable in bounded review. This record stays outside the theorem plot."
+    },
+    {
+      "id": "cc-stream-queryefficient-2020",
+      "to": "Expected 3OPT+n³/(2Q)",
+      "reason": "Source is a query theorem, not an explicit streaming theorem. One positive-edge pass resolves the preselected pairs; absent pairs are negative. O(Q) alone requires Q≥n."
+    },
+    {
+      "id": "cc-stream-turnstile-3plus",
+      "to": "3+ε",
+      "reason": "The old display ε=1/4 was outside the strict theorem range. Figure uses ε=1/8. Remark 3.17 discusses a vanishing failure contribution and handles OPT=0 with high probability."
+    },
+    {
+      "id": "cc-stream-mapreduce-3plus",
+      "to": "3+ε",
+      "reason": "Original full theorem unavailable in bounded review. The pass bound is corroborated by a subsequent primary paper; no numerical pass coordinate assigned."
+    },
+    {
+      "id": "cc-stream-ahn-3-multipass",
+      "to": "Expected 3 approximation (conservative reading)",
+      "reason": "Theorem wording says high-probability 3-approximation, but proof simulates randomized Pivot and proves memory success. Figure does not promote this to a high-probability factor. Proof stores O(n log n) edges; use Õ(n) rather than silently equating edges and bits."
+    },
+    {
+      "id": "cc-stream-ahn-weighted-log",
+      "to": "3(1+ε) log|E⁻| approximation",
+      "reason": "The ε^{−3} time factor was missing in the original record. This model is separate from complete ±1 instances."
+    },
+    {
+      "id": "cc-stream-value-additive-lb",
+      "to": "(1, Cn^{2−ε})",
+      "reason": "Formal theorem is quantitative; old vague polylog-space wording replaced. C is a fixed theorem constant, not arbitrary additive coefficient."
+    },
+    {
+      "id": "cc-stream-value-mixed-lb",
+      "to": "(c,ηn), 1≤c<6/5 and 0<η<6/5−c",
+      "reason": "At c=1.19 the additive coefficient must be below 0.01. Display uses η=0.005; arbitrary O(n) additive error is not justified."
+    }
+  ]
+}

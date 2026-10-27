@@ -1,0 +1,102 @@
+{
+  "id": "vertex-stream",
+  "dataFile": "vertex-stream.json",
+  "javascript": "vertex-stream.js",
+  "css": "vertex-stream.css",
+  "routes": [
+    {
+      "key": "vertex-stream",
+      "sliceId": "vertex-stream-dynamic-one-pass-delta-plus-one",
+      "label": "Streaming vertex coloring",
+      "problem": "vertex",
+      "model": "stream",
+      "visible": true
+    },
+    {
+      "key": "vertex-stream-1",
+      "sliceId": "vertex-stream-deterministic-multipass-degree-palette",
+      "label": "Deterministic multipass semi-streaming, linear-in-Δ palette",
+      "problem": "vertex",
+      "model": "stream",
+      "visible": false
+    },
+    {
+      "key": "vertex-stream-decision",
+      "sliceId": "vertex-stream-random-order-chromatic-gap",
+      "label": "Streaming chromatic-gap decision",
+      "problem": "vertex",
+      "model": "stream",
+      "visible": true
+    },
+    {
+      "key": "vertex-stream-3",
+      "sliceId": "vertex-stream-dynamic-chromatic-gap",
+      "label": "Turnstile stream, chromatic-number gap decision",
+      "problem": "vertex",
+      "model": "stream",
+      "visible": false
+    },
+    {
+      "key": "vertex-stream-4",
+      "sliceId": "vertex-stream-deterministic-one-pass-lower",
+      "label": "Deterministic one-pass palette barrier",
+      "problem": "vertex",
+      "model": "stream",
+      "visible": false
+    },
+    {
+      "key": "vertex-stream-5",
+      "sliceId": "vertex-stream-robust-incremental",
+      "label": "Adaptive-output robust stream: palette versus space",
+      "problem": "vertex",
+      "model": "stream",
+      "visible": false
+    },
+    {
+      "key": "vertex-stream-6",
+      "sliceId": "vertex-stream-insertion-near-delta",
+      "label": "One-pass insertion stream, degree-near palette",
+      "problem": "vertex",
+      "model": "stream",
+      "visible": false
+    },
+    {
+      "key": "vertex-stream-7",
+      "sliceId": "vertex-stream-brooks",
+      "label": "One-pass semi-streaming at and below Brooks palette",
+      "problem": "vertex",
+      "model": "stream",
+      "visible": false
+    },
+    {
+      "key": "vertex-stream-8",
+      "sliceId": "vertex-stream-degeneracy",
+      "label": "Degeneracy κ palette, one-pass tradeoff",
+      "problem": "vertex",
+      "model": "stream",
+      "visible": false
+    },
+    {
+      "key": "vertex-stream-9",
+      "sliceId": "vertex-stream-degree-one-list",
+      "label": "One-pass dynamic stream, degree+1 list coloring",
+      "problem": "vertex",
+      "model": "stream",
+      "visible": false
+    }
+  ],
+  "canonicalAliases": {
+    "vertex-stream-1": "vertex-stream",
+    "vertex-stream-3": "vertex-stream-decision",
+    "vertex-stream-4": "vertex-stream",
+    "vertex-stream-5": "vertex-stream",
+    "vertex-stream-6": "vertex-stream",
+    "vertex-stream-7": "vertex-stream",
+    "vertex-stream-8": "vertex-stream",
+    "vertex-stream-9": "vertex-stream"
+  },
+  "axisSummary": {
+    "x": "Palette / gap promise, with incompatible contracts separated",
+    "y": "Working space or deterministic passes (symbolic classes)"
+  }
+}

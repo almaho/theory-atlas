@@ -1,0 +1,194 @@
+{
+  "upsertPapers": [
+    {
+      "id": "behnezhad-et-al-2019-mpc-stream",
+      "title": "Streaming and Massively Parallel Algorithms for Edge Coloring",
+      "authors": [
+        "Soheil Behnezhad",
+        "Mahsa Derakhshan",
+        "MohammadTaghi Hajiaghayi",
+        "Marina Knittel",
+        "Hamed Saleh"
+      ],
+      "year": 2019,
+      "venue": "ESA 2019",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ESA.2019.15",
+      "verifiedOn": "2026-10-27",
+      "fullTextUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol144-esa2019/LIPIcs.ESA.2019.15/LIPIcs.ESA.2019.15.pdf"
+    },
+    {
+      "id": "czumaj-davies-parter-2024-mpc",
+      "title": "Component Stability in Low-Space Massively Parallel Computation",
+      "authors": [
+        "Artur Czumaj",
+        "Peter Davies-Peck",
+        "Merav Parter"
+      ],
+      "year": 2024,
+      "venue": "Distributed Computing 37 (2024)",
+      "publicationStatus": "journal",
+      "url": "https://link.springer.com/article/10.1007/s00446-024-00461-9",
+      "verifiedOn": "2026-10-27",
+      "fullTextUrl": "https://link.springer.com/article/10.1007/s00446-024-00461-9"
+    }
+  ],
+  "upsertSlices": [
+    {
+      "id": "edge-mpc-linear-memory",
+      "problem": "edge",
+      "model": "mpc",
+      "label": "MPC; linear memory per machine",
+      "task": "Output explicit proper edge coloring in distributed memory",
+      "assumptions": [
+        "Simple graph; input is an edge list distributed among machines",
+        "O(n) local memory and O(m) total memory, measured in words",
+        "Unlimited local computation in the MPC round model",
+        "No claim that Δ+Õ(Δ³ᐟ⁴) equals Δ+o(Δ) for bounded Δ"
+      ],
+      "xAxis": {
+        "label": "Palette ratio r = q/Δ",
+        "kind": "palette",
+        "min": 1,
+        "max": 2.25,
+        "ticks": [
+          1,
+          1.25,
+          1.5,
+          1.75,
+          2,
+          2.25
+        ],
+        "tickLabels": [
+          "Δ",
+          "5Δ/4",
+          "3Δ/2",
+          "7Δ/4",
+          "2Δ",
+          "9Δ/4"
+        ]
+      },
+      "yAxis": {
+        "label": "Asymptotic round class (ordinal tiers)",
+        "kind": "ordinal",
+        "min": 0,
+        "max": 5,
+        "ticks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "tickLabels": [
+          "O(1)",
+          "log log log n",
+          "log log n",
+          "(log log n)^k",
+          "√log n",
+          "≥ log n"
+        ]
+      },
+      "parameters": {},
+      "results": [
+        {
+          "id": "mpc-near-delta-constant-round-2019",
+          "paperId": "behnezhad-et-al-2019-mpc-stream",
+          "kind": "upper",
+          "bound": "O(1) MPC rounds",
+          "guarantee": "Proper edge coloring using at most Δ+Õ(Δ³ᐟ⁴) colors",
+          "sourceLocation": "Corollary 2, printed p. 15:4; Theorem 1 and Lemma 7",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "verified_scoped",
+          "notes": "The tilde hides factors depending on log n. Corollary 3 separately assumes Δ=n^Ω(1) and obtains sublinear local space with a different palette. That polynomial-degree regime is not the low-degree regime of the other panel.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "edge-mpc-lowspace-component",
+      "problem": "edge",
+      "model": "mpc",
+      "label": "Low-space MPC · component stability",
+      "task": "Color edges in low-space MPC and understand conditional round limits",
+      "assumptions": [
+        "Low-space MPC n^φ words per machine, fixed 0<φ<1",
+        "Upper: deterministic component-unstable, Δ=(log log n)^{o(1)}, n^{1+o(1)} total words, n^{poly(Δ)} local work",
+        "Lower: deterministic component-stable only, connectivity conjecture, even forests; polynomial global space allowed",
+        "Different exact palettes; no matched frontier"
+      ],
+      "xAxis": {
+        "label": "Palette ratio r = q/Δ",
+        "kind": "palette",
+        "min": 1,
+        "max": 2.25,
+        "ticks": [
+          1,
+          1.25,
+          1.5,
+          1.75,
+          2,
+          2.25
+        ],
+        "tickLabels": [
+          "Δ",
+          "5Δ/4",
+          "3Δ/2",
+          "7Δ/4",
+          "2Δ",
+          "9Δ/4"
+        ]
+      },
+      "yAxis": {
+        "label": "Asymptotic round class (ordinal tiers)",
+        "kind": "ordinal",
+        "min": 0,
+        "max": 5,
+        "ticks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "tickLabels": [
+          "O(1)",
+          "log log log n",
+          "log log n",
+          "(log log n)^k",
+          "√log n",
+          "≥ log n"
+        ]
+      },
+      "parameters": {},
+      "results": [
+        {
+          "id": "edge-mpc-cdp24-upper",
+          "paperId": "czumaj-davies-parter-2024-mpc",
+          "kind": "upper",
+          "bound": "O(poly(Δ)+log Δ · log log log n) rounds",
+          "guarantee": "Proper edge coloring with palette Δ+√Δ·log³Δ",
+          "sourceLocation": "Theorem 21 and proof; end of Section 4.2",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "verified_scoped",
+          "notes": "For sufficiently large fixed Δ, the palette is at most 2Δ−2 and the round bound is O(log log log n), with polynomial local computation. This is an asymptotic specialization, not a claim for every small fixed degree. No exponent is specified for poly(Δ).",
+          "plot": null
+        },
+        {
+          "id": "edge-mpc-cdp24-lower",
+          "paperId": "czumaj-davies-parter-2024-mpc",
+          "kind": "lower",
+          "bound": "Ω(log(log_Δ n)) rounds, conditional",
+          "guarantee": "Lower bound for computing a proper (2Δ−2)-edge coloring",
+          "sourceLocation": "Theorem 20 and proof",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "verified_conditional",
+          "notes": "The logarithm is log(log_Δ n), not log_Δ(log n). Component stability permits the global parameters allowed by the paper’s formal definition; it does not mean that machines cannot communicate across components. This is not a matched lower bound for Theorem 21.",
+          "plot": null
+        }
+      ]
+    }
+  ]
+}

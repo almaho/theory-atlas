@@ -1,0 +1,270 @@
+{
+  "problem": "cc",
+  "model": "query_matrix",
+  "slices": [
+    {
+      "id": "cc-query-matrix-additive-partition",
+      "problem": "cc",
+      "model": "query_matrix",
+      "label": "Adjacency-matrix queries, additive-error partition",
+      "task": "Output partition of disagreement cost at most OPT+εn²",
+      "assumptions": [
+        "Matrix queries only",
+        "0<ε<1; asymptotic parameter regime specified by paper"
+      ],
+      "results": [
+        {
+          "id": "cc-query-partition-lb",
+          "paperId": "garg-2026-query-lb",
+          "kind": "lower",
+          "bound": "Ω(n/ε²) adjacency-matrix queries",
+          "guarantee": "Necessary to output a partition with cost ≤OPT+εn²",
+          "sourceLocation": "Abstract, first result",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "current_best_verified",
+          "notes": "Conference ITCS 2026 Theorem 1 informal; formal proof deferred to full version, while Bressan et al. give the matching query upper bound with exponential postprocessing.",
+          "plot": null
+        }
+      ],
+      "mode": "2d",
+      "yAxis": {
+        "label": "Query exponent p in Õ(n^p)",
+        "kind": "exponent",
+        "min": 0,
+        "max": 2,
+        "ticks": [
+          0,
+          0.5,
+          1,
+          1.5,
+          2
+        ],
+        "tickLabels": [
+          "polylog",
+          "√n",
+          "n",
+          "n^{3/2}",
+          "n²"
+        ]
+      },
+      "xAxis": {
+        "label": "Allowed additive error ε in εn²",
+        "kind": "error",
+        "min": 0,
+        "max": 1,
+        "ticks": [
+          0,
+          0.2,
+          0.4,
+          0.6,
+          0.8,
+          1
+        ]
+      }
+    },
+    {
+      "id": "cc-query-matrix-additive-explicit",
+      "problem": "cc",
+      "model": "query_matrix",
+      "label": "Adjacency-matrix queries, additive-error explicit partition",
+      "task": "Output full partition of cost ≤c·OPT+εn²",
+      "assumptions": [
+        "Pairwise similarity/matrix queries only",
+        "ε∈(1/n,1), with regime-specific formal statements"
+      ],
+      "results": [
+        {
+          "id": "cc-query-bonchi-four",
+          "paperId": "bonchi-2013-local",
+          "kind": "upper",
+          "bound": "O(n/ε) matrix queries and time",
+          "guarantee": "Partition cost ≤4·OPT+εn² with constant success",
+          "sourceLocation": "Theorem 3.3",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "Historical weaker multiplicative guarantee; latest ITCS 2026 Ω(n/ε²) lower bound concerns a pure additive guarantee, so no contradiction.",
+          "plot": null
+        },
+        {
+          "id": "cc-query-bonchi-four-lb",
+          "paperId": "bonchi-2013-local",
+          "kind": "lower",
+          "bound": "Ω(n/ε) matrix queries",
+          "guarantee": "Any (O(1),ε) approximate explicit partition needs this order of queries",
+          "sourceLocation": "Theorem 3.3; Theorem 6.1",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "Lower bound for mixed guarantee; tight for c≈4 at n,ε regime.",
+          "plot": null
+        },
+        {
+          "id": "cc-query-bonchi-pure-additive",
+          "paperId": "bonchi-2013-local",
+          "kind": "upper",
+          "bound": "n·poly(1/ε)+2^{poly(1/ε)} time; poly(1/ε) local probes",
+          "guarantee": "Partition cost ≤OPT+εn²",
+          "sourceLocation": "Corollary 3.7",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "Fast n-dependence with high ε dependence; published ITCS 2026 tight matrix-query complexity is stated separately.",
+          "plot": null
+        },
+        {
+          "id": "cc-query-bressan-2019-three",
+          "paperId": "bressan-2019-adaptive-queries",
+          "kind": "upper",
+          "bound": "At most Q=Ω(n) adaptive matrix queries; O(Q) algorithm time",
+          "guarantee": "Expected cost ≤3·OPT+O(n³/Q)",
+          "sourceLocation": "NeurIPS 2019 Theorem 1; Table 1",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "For Q≈n/ε this is a mixed (3,O(ε)) bound; can seek cluster recovery under additional conditions.",
+          "plot": null
+        },
+        {
+          "id": "cc-query-garciasoriano-2020-three",
+          "paperId": "garciasoriano-2020-query-efficient",
+          "kind": "upper",
+          "bound": "At most Q similarity queries; O(Q) running time; nonadaptive variant available",
+          "guarantee": "Expected cost ≤3·OPT+n³/(2Q)",
+          "sourceLocation": "WWW 2020 Theorem 3.1 and nonadaptive variant §3",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "For Q=n/ε gives expected 3·OPT+O(εn²); improves query scheduling and adaptivity clarity.",
+          "plot": null
+        },
+        {
+          "id": "cc-query-bressan-2019-pure-additive",
+          "paperId": "bressan-2019-adaptive-queries",
+          "kind": "upper",
+          "bound": "O(n/ε²) random similarity queries; exponential-time search over partitions",
+          "guarantee": "Partition cost ≤OPT+O(εn²) with high probability",
+          "sourceLocation": "NeurIPS 2019 Theorem 7",
+          "evidenceStatus": "verified",
+          "frontierStatus": "current_best_verified",
+          "notes": "Information-theoretically tight against ITCS 2026 Ω(n/ε²), but exponential postprocessing and hidden constant in additive term.",
+          "plot": null
+        },
+        {
+          "id": "cc-query-bressan-2019-global-lb",
+          "paperId": "bressan-2019-adaptive-queries",
+          "kind": "lower",
+          "bound": "Expected cost ≥OPT+Ω(n³/Q) for Q pair queries",
+          "guarantee": "Any randomized, possibly adaptive algorithm on some instance",
+          "sourceLocation": "NeurIPS 2019 Theorem 9",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "This is a worst-instance error floor for budget Q; compatible with 2026 pure-additive Ω(n/ε²), which uses a different hard distribution.",
+          "plot": null
+        },
+        {
+          "id": "cc-query-garciasoriano-2020-global-lb",
+          "paperId": "garciasoriano-2020-query-efficient",
+          "kind": "lower",
+          "bound": "Expected cost ≥OPT+Ω(n³/Q) on some n-vertex instance",
+          "guarantee": "Any adaptive or nonadaptive pair-query algorithm with budget Q",
+          "sourceLocation": "WWW 2020 lower-bound theorem §4",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "Independent strengthening/streamlining of earlier bound; query budget and error, not an approximation factor for dense high-OPT instances.",
+          "plot": null
+        }
+      ],
+      "mode": "2d",
+      "yAxis": {
+        "label": "Query exponent p in Õ(n^p)",
+        "kind": "exponent",
+        "min": 0,
+        "max": 2,
+        "ticks": [
+          0,
+          0.5,
+          1,
+          1.5,
+          2
+        ],
+        "tickLabels": [
+          "polylog",
+          "√n",
+          "n",
+          "n^{3/2}",
+          "n²"
+        ]
+      },
+      "xAxis": {
+        "label": "Allowed additive error ε in εn²",
+        "kind": "error",
+        "min": 0,
+        "max": 1,
+        "ticks": [
+          0,
+          0.2,
+          0.4,
+          0.6,
+          0.8,
+          1
+        ]
+      }
+    }
+  ],
+  "papers": [
+    {
+      "id": "garg-2026-query-lb",
+      "title": "Query Lower Bounds for Correlation Clustering under Memory Constraints",
+      "authors": [
+        "Sumegha Garg",
+        "Songhua He",
+        "Periklis A. Papakonstantinou"
+      ],
+      "year": 2026,
+      "venue": "ITCS 2026",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ITCS.2026.67",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "bonchi-2013-local",
+      "title": "Local Correlation Clustering",
+      "authors": [
+        "Francesco Bonchi",
+        "David García-Soriano",
+        "Konstantin Kutzkov"
+      ],
+      "year": 2013,
+      "venue": "arXiv 2013",
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/html/1312.5105v1",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "bressan-2019-adaptive-queries",
+      "title": "Correlation Clustering with Adaptive Similarity Queries",
+      "authors": [
+        "Marco Bressan",
+        "Nicolò Cesa-Bianchi",
+        "Andrea Paudice",
+        "Fabio Vitale"
+      ],
+      "year": 2019,
+      "venue": "NeurIPS 2019",
+      "publicationStatus": "conference",
+      "url": "https://proceedings.neurips.cc/paper/2019/hash/b0ba5c44aaf65f6ca34cf116e6d82ebf-Abstract.html",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "garciasoriano-2020-query-efficient",
+      "title": "Query-Efficient Correlation Clustering",
+      "authors": [
+        "David García-Soriano",
+        "Konstantin Kutzkov",
+        "Francesco Bonchi",
+        "Charalampos E. Tsourakakis"
+      ],
+      "year": 2020,
+      "venue": "The Web Conference 2020",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2002.11557",
+      "verifiedOn": "2026-09-27"
+    }
+  ]
+}

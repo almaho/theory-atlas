@@ -1,0 +1,952 @@
+{
+  "problem": "cc",
+  "model": "stream",
+  "slices": [
+    {
+      "id": "cc-stream-single-pass-pivot",
+      "problem": "cc",
+      "model": "stream",
+      "label": "Single-pass insertion-only positive-edge stream, explicit clustering",
+      "task": "Output complete-graph minimum-disagreement partition",
+      "assumptions": [
+        "Positive edges arrive in one insertion-only pass; negative labels implicit",
+        "Fixed ε>0",
+        "Space measured in words",
+        "Approximation bound in expectation"
+      ],
+      "xAxis": {
+        "label": "Approximation factor α = cost / OPT",
+        "kind": "approximation",
+        "min": 1,
+        "max": 6,
+        "ticks": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "yAxis": {
+        "label": "Space exponent p in Õ(n^p) bits",
+        "kind": "exponent",
+        "min": 0,
+        "max": 2,
+        "ticks": [
+          0,
+          0.5,
+          1,
+          1.5,
+          2
+        ],
+        "tickLabels": [
+          "polylog",
+          "√n",
+          "n",
+          "n^{3/2}",
+          "n²"
+        ]
+      },
+      "parameters": {
+        "epsilon": "fixed positive constant"
+      },
+      "results": [
+        {
+          "id": "cc-stream-pivot-3plus",
+          "paperId": "chakrabarty-2023-stream-pivot",
+          "kind": "upper",
+          "bound": "O(n/ε) words",
+          "guarantee": "(3+ε)-approximation",
+          "sourceLocation": "Abstract",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "historical",
+          "notes": "Single-pass semi-streaming algorithm, not a query algorithm.",
+          "plot": null
+        },
+        {
+          "id": "cc-stream-sparse-dense-first",
+          "paperId": "assadi-2022-sparse-dense",
+          "kind": "upper",
+          "bound": "O(n log n) space, one pass",
+          "guarantee": "O(1)-approximate MinDisagree partition with high probability",
+          "sourceLocation": "Abstract, second main result",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "Constant is very large; signed graph is unweighted and complete, positive edges streamed.",
+          "plot": null
+        },
+        {
+          "id": "cc-stream-5-linear",
+          "paperId": "behnezhad-2023-single-pass",
+          "kind": "upper",
+          "bound": "O(n) space, one pass",
+          "guarantee": "5-approximate MinDisagree partition",
+          "sourceLocation": "SODA abstract",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "First stated O(n)-space polynomial-time 5-approximation; subsequent 3+ε and 1.847 algorithms improve quality at different memory/time.",
+          "plot": {
+            "x": 5.0,
+            "y": 1.0,
+            "closure": "upper-right",
+            "strictX": false,
+            "strictY": false,
+            "label": "O(n) space, one pass"
+          }
+        },
+        {
+          "id": "cc-stream-combinatorial-1847",
+          "paperId": "cohenaddad-2024-combinatorial",
+          "kind": "upper",
+          "bound": "O(2^{ε⁻ᴼ⁽¹⁾} n log n) space, one pass",
+          "guarantee": "(2−2/13+ε)-approximate MinDisagree partition with high probability; <1.847 at ε=0.0008",
+          "sourceLocation": "STOC 2024 full arXiv Theorem 1 and one-pass sampling remark §2.1",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Combinatorial sublinear-in-n² sketch; stronger factor than Pivot, yet later α_best black-box results have different postprocessing and memory details.",
+          "plot": null
+        },
+        {
+          "id": "cc-stream-bonchi-additive",
+          "paperId": "bonchi-2013-local",
+          "kind": "upper",
+          "bound": "O(n·poly(1/ε)) space from nonadaptive similarity probes",
+          "guarantee": "Expected cost ≤3·OPT+εn²; implicit labels can be materialized",
+          "sourceLocation": "Section 1.2 Streaming algorithms; Section 3",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "Additive εn² is essential; this is not a 3-multiplicative approximation.",
+          "plot": null
+        },
+        {
+          "id": "cc-stream-queryefficient-2020",
+          "paperId": "garciasoriano-2020-query-efficient",
+          "kind": "upper",
+          "bound": "O(Q) space for preselected nonadaptive pair queries, one pass over stream",
+          "guarantee": "Expected cost ≤3·OPT+O(n³/Q), output explicit partition",
+          "sourceLocation": "WWW 2020 §3 nonadaptive algorithm and one-pass consequence",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "Additive error prevents a pure 3-approximation; Q≈n/ε grows with requested additive accuracy.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "cc-stream-turnstile-explicit",
+      "problem": "cc",
+      "model": "stream",
+      "label": "Single-pass edge-insertion/deletion stream, explicit clustering",
+      "task": "At end of turnstile stream output a partition with small disagreements",
+      "assumptions": [
+        "Positive edges inserted and deleted; negative pairs implicit",
+        "One pass; randomized sketch",
+        "Memory Õ(n) and polynomial-time postprocessing; fixed ε>0"
+      ],
+      "xAxis": {
+        "label": "Approximation factor α = cost / OPT",
+        "kind": "approximation",
+        "min": 1,
+        "max": 6,
+        "ticks": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "yAxis": {
+        "label": "Space exponent p in Õ(n^p) bits",
+        "kind": "exponent",
+        "min": 0,
+        "max": 2,
+        "ticks": [
+          0,
+          0.5,
+          1,
+          1.5,
+          2
+        ],
+        "tickLabels": [
+          "polylog",
+          "√n",
+          "n",
+          "n^{3/2}",
+          "n²"
+        ]
+      },
+      "parameters": {
+        "epsilon": "fixed positive constant for baseline; sketch accuracy tends slowly to zero",
+        "coordinateConvention": "Only the stated fixed ε or δ instance is colored; the table retains the theorem’s free parameters and output assumptions."
+      },
+      "results": [
+        {
+          "id": "cc-stream-turnstile-3plus",
+          "paperId": "cambus-2025-dynamic-stream",
+          "kind": "upper",
+          "bound": "O(n log² n/ε) words",
+          "guarantee": "(3+ε)-approximation in expectation",
+          "sourceLocation": "Theorem 2.5",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "Historical quality benchmark; dynamic graph streams are not the online dynamic data-structure model. Chart: Fix ε=1/4 to display one instance of the (3+ε) guarantee; the space bound is O(n log² n/ε) words.",
+          "plot": {
+            "x": 3.25,
+            "y": 1,
+            "closure": "upper-right",
+            "strictX": false,
+            "strictY": false,
+            "label": "α=3.25"
+          }
+        },
+        {
+          "id": "cc-stream-turnstile-alphabest",
+          "paperId": "assadi-2025-desparsification",
+          "kind": "upper",
+          "bound": "Õ(n) memory; polynomial postprocessing",
+          "guarantee": "(α_best+o(1))-approximation with high probability, α_best best polynomial-time offline approximation factor",
+          "sourceLocation": "Corollary 1.3 and Result 1",
+          "evidenceStatus": "verified",
+          "frontierStatus": "current_best_verified",
+          "notes": "The 2025 version mentioned 1.437 in stale background; theorem is symbolic α_best and continues to hold without that erroneous constant. In 2026 the 1.3865 preprint is a possible instantiation if its polynomial-time algorithm meets the black-box conditions; not asserted as a direct original-paper numerical theorem.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "cc-stream-insertion-deterministic-sketch",
+      "problem": "cc",
+      "model": "stream",
+      "label": "Insertion-only stream, deterministic synopsis",
+      "task": "Output an approximately optimal explicit partition after one pass",
+      "assumptions": [
+        "Only positive-edge insertions",
+        "Synopsis constructed deterministically; randomness allowed after stream",
+        "Space Õ(n); polynomial postprocessing"
+      ],
+      "xAxis": {
+        "label": "Approximation factor α = cost / OPT",
+        "kind": "approximation",
+        "min": 1,
+        "max": 6,
+        "ticks": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "yAxis": {
+        "label": "Space exponent p in Õ(n^p) bits",
+        "kind": "exponent",
+        "min": 0,
+        "max": 2,
+        "ticks": [
+          0,
+          0.5,
+          1,
+          1.5,
+          2
+        ],
+        "tickLabels": [
+          "polylog",
+          "√n",
+          "n",
+          "n^{3/2}",
+          "n²"
+        ]
+      },
+      "parameters": {},
+      "results": [
+        {
+          "id": "cc-stream-det-summary",
+          "paperId": "assadi-2025-desparsification",
+          "kind": "upper",
+          "bound": "Õ(n) memory",
+          "guarantee": "(α_best+o(1))-approximation with high probability after stream; deterministic streaming state",
+          "sourceLocation": "Corollary 1.4; Remark 5.3",
+          "evidenceStatus": "verified",
+          "frontierStatus": "current_best_verified",
+          "notes": "Guarantee is with respect to randomized recovery; during stream synopsis is deterministic even to state-observing adversary.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "cc-stream-multipass-min-disagree",
+      "problem": "cc",
+      "model": "stream",
+      "label": "Multipass semi-streaming, MinDisagree explicit partition",
+      "task": "Output an unweighted complete-signed-graph partition; quality in expected cost",
+      "assumptions": [
+        "Positive graph edge stream; negative labels implicit",
+        "Multiple passes allowed; space Õ(n)"
+      ],
+      "xAxis": {
+        "label": "Approximation factor α = cost / OPT",
+        "kind": "approximation",
+        "min": 1,
+        "max": 6,
+        "ticks": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "yAxis": {
+        "label": "Passes",
+        "kind": "passes",
+        "min": 1,
+        "max": 8,
+        "ticks": [
+          1,
+          2,
+          3,
+          4,
+          6,
+          8
+        ]
+      },
+      "parameters": {},
+      "results": [
+        {
+          "id": "cc-stream-mapreduce-3plus",
+          "paperId": "chierichetti-2014-mapreduce",
+          "kind": "upper",
+          "bound": "O(ε⁻¹ log²n) passes; O(n polylog n) memory",
+          "guarantee": "(3+ε)-approximation",
+          "sourceLocation": "KDD 2014 abstract; Ahn et al., Algorithmica Introduction §1 cites result",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "historical",
+          "notes": "For ±1 complete signed instances. Pass bound verified from subsequent primary research article Ahn et al. 2021; original proceedings metadata link provided.",
+          "plot": null
+        },
+        {
+          "id": "cc-stream-ahn-3-multipass",
+          "paperId": "ahn-2015-streams",
+          "kind": "upper",
+          "bound": "O(log log n) passes; Õ(n) memory",
+          "guarantee": "3-approximation in expectation",
+          "sourceLocation": "Algorithmica extended version Theorem 12",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "Unlike one-pass semi-streaming results this can revisit the stream.",
+          "plot": null
+        },
+        {
+          "id": "cc-stream-focs22-3plus",
+          "paperId": "behnezhad-2022-constant-rounds",
+          "kind": "upper",
+          "bound": "O(1/ε) semi-streaming passes; Õ(n) space",
+          "guarantee": "(3+ε)-approximation",
+          "sourceLocation": "FOCS 2022 abstract; implementation sections",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "This result is quoted as O(1/ε)-pass in Cambus et al. SODA 2024; distinct from one-pass streaming.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "cc-stream-onepass-weighted-maxagree",
+      "problem": "cc",
+      "model": "stream",
+      "label": "One-pass weighted MaxAgree, output partition",
+      "task": "Output an approximate agreement-maximizing partition",
+      "assumptions": [
+        "Turnstile weight updates; bounded-weight and arbitrary-weight settings separated in source results",
+        "Approximation is a fraction β·OPT with β≤1; not the MinDisagree approximation factor"
+      ],
+      "xAxis": {
+        "label": "Agreement factor β = OPT_agree / value (lower is better)",
+        "kind": "approximation",
+        "min": 1,
+        "max": 6,
+        "ticks": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "yAxis": {
+        "label": "Space exponent p in Õ(n^p) bits",
+        "kind": "exponent",
+        "min": 0,
+        "max": 2,
+        "ticks": [
+          0,
+          0.5,
+          1,
+          1.5,
+          2
+        ],
+        "tickLabels": [
+          "polylog",
+          "√n",
+          "n",
+          "n^{3/2}",
+          "n²"
+        ]
+      },
+      "parameters": {},
+      "results": [
+        {
+          "id": "cc-stream-ahn-bounded-ptas",
+          "paperId": "ahn-2015-streams",
+          "kind": "upper",
+          "bound": "Õ(n·poly(k,1/ε)) space; polynomial postprocessing",
+          "guarantee": "(1−ε)·OPT agreements for bounded edge weights",
+          "sourceLocation": "Algorithmica extended version Theorem 4",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "Bounded weights; k parameter arises in stated space. Check theorem scope when filtering by cluster bound.",
+          "plot": null
+        },
+        {
+          "id": "cc-stream-ahn-arbitrary-07666",
+          "paperId": "ahn-2015-streams",
+          "kind": "upper",
+          "bound": "Õ(n ε⁻²) space; Õ(m+n ε⁻¹⁰) time, one pass",
+          "guarantee": "≥0.7666(1−ε)·OPT agreements for arbitrary weights",
+          "sourceLocation": "Algorithmica extended version Theorem 11",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "Arbitrary-weight guarantee and runtime differ from bounded-weight PTAS.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "cc-stream-onepass-weighted-mindisagree",
+      "problem": "cc",
+      "model": "stream",
+      "label": "One-pass weighted MinDisagree",
+      "task": "Output an approximate partition for arbitrary weights",
+      "assumptions": [
+        "Dynamic weight update stream; negative-edge count |E⁻| explicit",
+        "General weighted signed objective differs from ±1 complete graph"
+      ],
+      "xAxis": {
+        "label": "Approximation factor α = cost / OPT",
+        "kind": "approximation",
+        "min": 1,
+        "max": 6,
+        "ticks": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "yAxis": {
+        "label": "Space exponent p in Õ(n^p) bits",
+        "kind": "exponent",
+        "min": 0,
+        "max": 2,
+        "ticks": [
+          0,
+          0.5,
+          1,
+          1.5,
+          2
+        ],
+        "tickLabels": [
+          "polylog",
+          "√n",
+          "n",
+          "n^{3/2}",
+          "n²"
+        ]
+      },
+      "parameters": {},
+      "results": [
+        {
+          "id": "cc-stream-ahn-weighted-log",
+          "paperId": "ahn-2015-streams",
+          "kind": "upper",
+          "bound": "s=Õ(nε⁻²+|E⁻|) space; Õ(s²) time",
+          "guarantee": "O(log |E⁻|)-approximate MinDisagree",
+          "sourceLocation": "Algorithmica extended version Theorem 9",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "Multicut-type hardness prevents comparing this factor to complete ±1 graph results.",
+          "plot": null
+        },
+        {
+          "id": "cc-stream-ahn-arbitrary-lb",
+          "paperId": "ahn-2015-streams",
+          "kind": "lower",
+          "bound": "Ω(n+|E⁻|) bits, and Ω(n²) if negative edges are dense",
+          "guarantee": "Memory needed even to decide whether OPT=0 for arbitrary weights",
+          "sourceLocation": "Algorithmica extended version Theorems 14 and 16",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "Weights/general graph class, not a lower bound for unit-weight positive-edge-only setting.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "cc-stream-value-tiny-space",
+      "problem": "cc",
+      "model": "stream",
+      "label": "Single-pass value estimation, no partition",
+      "task": "Estimate MinDisagree OPT numerically with multiplicative and additive error",
+      "assumptions": [
+        "Complete unweighted signed graph; positive-edge stream",
+        "Polylog-space cannot output a full partition",
+        "Insertion/deletion compatible where paper proves it"
+      ],
+      "xAxis": {
+        "label": "Approximation factor α = cost / OPT",
+        "kind": "approximation",
+        "min": 1,
+        "max": 6,
+        "ticks": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "yAxis": {
+        "label": "Space exponent p in Õ(n^p) bits",
+        "kind": "exponent",
+        "min": 0,
+        "max": 2,
+        "ticks": [
+          0,
+          0.5,
+          1,
+          1.5,
+          2
+        ],
+        "tickLabels": [
+          "polylog",
+          "√n",
+          "n",
+          "n^{3/2}",
+          "n²"
+        ]
+      },
+      "parameters": {},
+      "results": [
+        {
+          "id": "cc-stream-value-assadi-3-additive",
+          "paperId": "assadi-2023-cost-estimation",
+          "kind": "upper",
+          "bound": "2^{O(1/δ)} polylog n space, one pass",
+          "guarantee": "Value estimator with expected approximation at most 3·OPT+δn²",
+          "sourceLocation": "NeurIPS 2023 Result 2, paper pp. 2–3",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Bound is in expectation; exponential dependence on 1/δ; no explicit partition.",
+          "plot": null
+        },
+        {
+          "id": "cc-stream-value-assadi-o1",
+          "paperId": "assadi-2023-cost-estimation",
+          "kind": "upper",
+          "bound": "O(polylog n/δ⁵) words, one pass (also turnstile)",
+          "guarantee": "OPT≤estimate≤O(1)·OPT+δn² with high probability",
+          "sourceLocation": "NeurIPS 2023 Result 1; Theorem 1",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Large unspecified multiplicative constant; allows δ=n⁻⁰·¹⁹ for o(n) space and o(n²) additive error.",
+          "plot": null
+        },
+        {
+          "id": "cc-stream-value-pure-multiplicative-lb",
+          "paperId": "ahn-2015-streams",
+          "kind": "lower",
+          "bound": "Ω(n) bits for any fixed finite purely multiplicative guarantee",
+          "guarantee": "Even distinguishing OPT=0 from OPT>0 needs linear space in unit-weight stream",
+          "sourceLocation": "Algorithmica extended version Theorem 15",
+          "evidenceStatus": "verified",
+          "frontierStatus": "current_best_verified",
+          "notes": "Explains additive term in smaller-space estimators; not a lower bound on semi-streaming.",
+          "plot": null
+        },
+        {
+          "id": "cc-stream-value-additive-lb",
+          "paperId": "assadi-2023-cost-estimation",
+          "kind": "lower",
+          "bound": "Polylog(n)-space one-pass algorithms cannot attain purely additive n^{2−ε} error for the paper’s ε=o(1) range",
+          "guarantee": "Value estimation with factor 1 and stated additive error",
+          "sourceLocation": "NeurIPS 2023 Result 3",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "NeurIPS paper Result 3; deliberately not plotted because quantifiers depend on n and formal parameter range.",
+          "plot": null
+        },
+        {
+          "id": "cc-stream-value-mixed-lb",
+          "paperId": "assadi-2023-cost-estimation",
+          "kind": "lower",
+          "bound": "Ω(√n) space for a (1.19,O(n)) guarantee",
+          "guarantee": "No o(√n)-space single-pass value estimator has that mixed guarantee",
+          "sourceLocation": "NeurIPS 2023 Result 4",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "Output is a scalar; red area cannot be shaded against partition algorithms.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "cc-stream-node-arrival-cost",
+      "problem": "cc",
+      "model": "stream",
+      "label": "Node-arrival stream, cost value only",
+      "task": "Estimate the minimum disagreement cost from a stream of items and similarity oracle",
+      "assumptions": [
+        "Nodes, not explicit labeled edges, arrive in stream; only stored items can be compared",
+        "α∈[0,1) controls additive/space tradeoff; constant passes"
+      ],
+      "results": [
+        {
+          "id": "cc-stream-node-arrival-2026",
+          "paperId": "liu-2026-node-arrival",
+          "kind": "upper",
+          "bound": "O(n^{(3+α)/4} log n) words; O(1) passes",
+          "guarantee": "OPT≤estimate≤10·OPT+n^{1−α} with probability at least 0.99",
+          "sourceLocation": "Theorem 2.11 and proof",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Input grants pairwise similarity calls only for retained nodes; do not compare memory directly to edge-stream estimators.",
+          "plot": null
+        },
+        {
+          "id": "cc-stream-node-arrival-lb",
+          "paperId": "liu-2026-node-arrival",
+          "kind": "lower",
+          "bound": "Ω(n) bits for any O(1)-pass (c,0) value approximation with error ≤0.49",
+          "guarantee": "Purely multiplicative cost estimate for any c≥1",
+          "sourceLocation": "Main contributions §1, lower bound",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "Node-arrival access and zero additive error; distinct from turnstile edge streams.",
+          "plot": null
+        }
+      ],
+      "mode": "2d",
+      "yAxis": {
+        "label": "Space exponent p in Õ(n^p) bits",
+        "kind": "exponent",
+        "min": 0,
+        "max": 2,
+        "ticks": [
+          0,
+          0.5,
+          1,
+          1.5,
+          2
+        ],
+        "tickLabels": [
+          "polylog",
+          "√n",
+          "n",
+          "n^{3/2}",
+          "n²"
+        ]
+      },
+      "xAxis": {
+        "label": "Allowed additive error ε in εn²",
+        "kind": "error",
+        "min": 0,
+        "max": 1,
+        "ticks": [
+          0,
+          0.2,
+          0.4,
+          0.6,
+          0.8,
+          1
+        ]
+      }
+    },
+    {
+      "id": "cc-stream-dense-coreset",
+      "problem": "cc",
+      "model": "stream",
+      "label": "Dense-graph coreset, two passes",
+      "task": "Build and optimize weighted coreset for maximum-agreement correlation clustering",
+      "assumptions": [
+        "Average degree n^δ, δ>0; assumptions in source",
+        "Two passes; output computed using coreset, not a one-pass full-partition claim"
+      ],
+      "xAxis": {
+        "label": "Agreement factor β = OPT_agree / value (lower is better)",
+        "kind": "approximation",
+        "min": 1,
+        "max": 6,
+        "ticks": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "yAxis": {
+        "label": "Space exponent p in Õ(n^p) bits",
+        "kind": "exponent",
+        "min": 0,
+        "max": 2,
+        "ticks": [
+          0,
+          0.5,
+          1,
+          1.5,
+          2
+        ],
+        "tickLabels": [
+          "polylog",
+          "√n",
+          "n",
+          "n^{3/2}",
+          "n²"
+        ]
+      },
+      "parameters": {
+        "delta": "average-degree exponent δ>0"
+      },
+      "results": [
+        {
+          "id": "cc-stream-bhaskara-2018",
+          "paperId": "bhaskara-2018-coresets",
+          "kind": "upper",
+          "bound": "Õ(n^{1−δ}) space; two passes",
+          "guarantee": "(1+ε)-approximate MaxAgree objective via a coreset",
+          "sourceLocation": "ICALP 2018 abstract, main result",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "candidate",
+          "notes": "Average-degree promise crucial; explicitly maximizes agreements, so it does not imply a (1+ε) approximation to MinDisagree.",
+          "plot": null
+        }
+      ]
+    }
+  ],
+  "papers": [
+    {
+      "id": "chakrabarty-2023-stream-pivot",
+      "title": "Single-Pass Pivot Algorithm for Correlation Clustering. Keep it simple!",
+      "authors": [
+        "Sayak Chakrabarty",
+        "Konstantin Makarychev"
+      ],
+      "year": 2023,
+      "venue": "NeurIPS 2023",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2305.13560",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "behnezhad-2022-constant-rounds",
+      "title": "Almost 3-Approximate Correlation Clustering in Constant Rounds",
+      "authors": [
+        "Soheil Behnezhad",
+        "Moses Charikar",
+        "Weiyun Ma",
+        "Li-Yang Tan"
+      ],
+      "year": 2022,
+      "venue": "FOCS 2022",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2205.03710",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "assadi-2025-desparsification",
+      "title": "Correlation Clustering and (De)Sparsification: Graph Sketches Can Match Classical Algorithms",
+      "authors": [
+        "Sepehr Assadi",
+        "Sanjeev Khanna",
+        "Aaron Putterman"
+      ],
+      "year": 2025,
+      "venue": "STOC 2025; arXiv v1",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/html/2504.04258v1",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "cambus-2025-dynamic-stream",
+      "title": "A (3+ε)-Approximate Correlation Clustering Algorithm in Dynamic Streams",
+      "authors": [
+        "Mélanie Cambus",
+        "Fabian Kuhn",
+        "Etna Lindy",
+        "Shreyas Pai",
+        "Jara Uitto"
+      ],
+      "year": 2025,
+      "venue": "TheoretiCS 4 (2025); SODA 2024 version",
+      "publicationStatus": "journal",
+      "url": "https://arxiv.org/html/2205.07593v6",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "chierichetti-2014-mapreduce",
+      "title": "Correlation Clustering in MapReduce",
+      "authors": [
+        "Flavio Chierichetti",
+        "Nilesh N. Dalvi",
+        "Ravi Kumar"
+      ],
+      "year": 2014,
+      "venue": "KDD 2014",
+      "publicationStatus": "conference",
+      "url": "https://doi.org/10.1145/2623330.2623743",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "ahn-2015-streams",
+      "title": "Correlation Clustering in Data Streams",
+      "authors": [
+        "KookJin Ahn",
+        "Graham Cormode",
+        "Sudipto Guha",
+        "Andrew McGregor",
+        "Anthony Wirth"
+      ],
+      "year": 2021,
+      "venue": "Algorithmica 2021; ICML 2015 preliminary",
+      "publicationStatus": "journal",
+      "url": "https://link.springer.com/article/10.1007/s00453-021-00816-9",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "bonchi-2013-local",
+      "title": "Local Correlation Clustering",
+      "authors": [
+        "Francesco Bonchi",
+        "David García-Soriano",
+        "Konstantin Kutzkov"
+      ],
+      "year": 2013,
+      "venue": "arXiv 2013",
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/html/1312.5105v1",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "assadi-2022-sparse-dense",
+      "title": "Sublinear Time and Space Algorithms for Correlation Clustering via Sparse-Dense Decompositions",
+      "authors": [
+        "Sepehr Assadi",
+        "Chen Wang"
+      ],
+      "year": 2022,
+      "venue": "ITCS 2022",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ITCS.2022.10",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "behnezhad-2023-single-pass",
+      "title": "Single-Pass Streaming Algorithms for Correlation Clustering",
+      "authors": [
+        "Soheil Behnezhad",
+        "Moses Charikar",
+        "Weiyun Ma",
+        "Li-Yang Tan"
+      ],
+      "year": 2023,
+      "venue": "SODA 2023",
+      "publicationStatus": "conference",
+      "url": "https://epubs.siam.org/doi/10.1137/1.9781611977554.ch33",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "assadi-2023-cost-estimation",
+      "title": "Streaming Algorithms and Lower Bounds for Estimating Correlation Clustering Cost",
+      "authors": [
+        "Sepehr Assadi",
+        "Vihan Shah",
+        "Chen Wang"
+      ],
+      "year": 2023,
+      "venue": "NeurIPS 2023",
+      "publicationStatus": "conference",
+      "url": "https://papers.nips.cc/paper/2023/hash/ee1a1ecc92f35702b5c29dad3dc909ea-Abstract-Conference.html",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "cohenaddad-2024-combinatorial",
+      "title": "Combinatorial Correlation Clustering",
+      "authors": [
+        "Vincent Cohen-Addad",
+        "David Rasmussen Lolck",
+        "Marcin Pilipczuk",
+        "Mikkel Thorup",
+        "Shuyi Yan",
+        "Hanwen Zhang"
+      ],
+      "year": 2024,
+      "venue": "STOC 2024",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2404.05433",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "bhaskara-2018-coresets",
+      "title": "Sublinear Algorithms for MAXCUT and Correlation Clustering",
+      "authors": [
+        "Aditya Bhaskara",
+        "Samira Daruki",
+        "Suresh Venkatasubramanian"
+      ],
+      "year": 2018,
+      "venue": "ICALP 2018",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2018.16",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "liu-2026-node-arrival",
+      "title": "Estimating Correlation Clustering Cost in Node-Arrival Stream",
+      "authors": [
+        "Kaiwen Liu",
+        "Seba Daniela Villalobos",
+        "Qin Zhang"
+      ],
+      "year": 2026,
+      "venue": "ICML 2026; arXiv",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/html/2605.07091v1",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "garciasoriano-2020-query-efficient",
+      "title": "Query-Efficient Correlation Clustering",
+      "authors": [
+        "David García-Soriano",
+        "Konstantin Kutzkov",
+        "Francesco Bonchi",
+        "Charalampos E. Tsourakakis"
+      ],
+      "year": 2020,
+      "venue": "The Web Conference 2020",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2002.11557",
+      "verifiedOn": "2026-09-27"
+    }
+  ]
+}

@@ -1,0 +1,719 @@
+{
+  "problem": "vertex",
+  "model": "local",
+  "slices": [
+    {
+      "id": "vertex-local-randomized-delta-plus-one",
+      "problem": "vertex",
+      "model": "local",
+      "label": "Randomized LOCAL (Δ+1) coloring",
+      "task": "Each node outputs a proper color after synchronous communication rounds",
+      "assumptions": [
+        "Unbounded messages and local computation (LOCAL model)",
+        "Randomized high-probability algorithm",
+        "Arbitrary n-node graph with maximum degree Δ"
+      ],
+      "xAxis": {
+        "label": "Palette slack c in q = Δ + c",
+        "kind": "palette",
+        "min": 0,
+        "max": 8,
+        "ticks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          6,
+          8
+        ]
+      },
+      "yAxis": {
+        "label": "Asymptotic round class in n (ordinal tiers)",
+        "kind": "ordinal",
+        "min": 0,
+        "max": 5,
+        "ticks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "tickLabels": [
+          "O(1)",
+          "log* n",
+          "polyloglog n",
+          "√log n",
+          "log n",
+          "polylog n"
+        ]
+      },
+      "parameters": {
+        "n": "nodes",
+        "Delta": "maximum degree",
+        "coordinateConvention": "The x coordinate is the additive palette slack c=1. The table retains the exact quality and model assumptions. Ordinal round positions are asymptotic categories."
+      },
+      "results": [
+        {
+          "id": "vertex-local-randomized-ghaffari-grunau-2024",
+          "paperId": "ghaffari-grunau-2024-network-decomposition",
+          "kind": "upper",
+          "bound": "Õ((loglog n)^(5/3)) rounds",
+          "guarantee": "Proper (Δ+1)-coloring with high probability",
+          "sourceLocation": "FOCS 2024 abstract, shattering consequence",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "candidate",
+          "notes": "The result follows the authors' deterministic improvement combined with known shattering reduction. Tilde suppresses lower-order factors; earlier O(log³log n) upper bound remains a simpler baseline.",
+          "plot": {
+            "x": 1,
+            "y": 2,
+            "closure": "upper-right",
+            "strictX": false,
+            "strictY": false,
+            "label": "O resource 2"
+          }
+        },
+        {
+          "id": "vertex-result-44",
+          "paperId": "harris-schneider-su-2018-local-color",
+          "kind": "upper",
+          "bound": "O(√(log Δ))+2^{O(√(loglog n))} rounds",
+          "guarantee": "Proper (Δ+1)-list coloring, randomized",
+          "sourceLocation": "JACM 2018 abstract, main theorem",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "historical",
+          "notes": "Historical sublogarithmic bound; degree dependence explicit.",
+          "plot": null
+        },
+        {
+          "id": "vertex-extended-vertex-local-randomized-delta-plus-one-25",
+          "paperId": "chang-li-pettie-2020-color",
+          "kind": "upper",
+          "bound": "O(Det_d(polylog n))=poly(loglog n) rounds",
+          "guarantee": "Proper (Δ+1)-list coloring, randomized",
+          "sourceLocation": "SIAM J. Comput. 2020 abstract, main theorem",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "historical",
+          "notes": "Det_d denotes deterministic degree+1 list coloring complexity on graphs of specified size; subsequent algorithms instantiate it.",
+          "plot": null
+        },
+        {
+          "id": "vertex-extended-vertex-local-randomized-delta-plus-one-26",
+          "paperId": "ghaffari-kuhn-2021-deterministic",
+          "kind": "upper",
+          "bound": "O(log³log n) rounds, via improved deterministic algorithm",
+          "guarantee": "Proper (Δ+1)-coloring, randomized",
+          "sourceLocation": "FOCS 2021 abstract, reduction consequence",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "historical",
+          "notes": "Source states this via Chang–Li–Pettie reduction; later FOCS 2024 improves the polyloglog exponent.",
+          "plot": {
+            "x": 1,
+            "y": 2,
+            "closure": "upper-right",
+            "strictX": false,
+            "strictY": false,
+            "label": "O resource 2"
+          }
+        },
+        {
+          "id": "vertex-extended-vertex-local-randomized-delta-plus-one-27",
+          "paperId": "halldorsson-kuhn-nolin-tonoyan-2022-degree",
+          "kind": "upper",
+          "bound": "O(log³log n) rounds",
+          "guarantee": "Proper degree+1 list coloring, randomized",
+          "sourceLocation": "STOC 2022 abstract, main theorem",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "candidate",
+          "notes": "Stronger lists; degree at least Ω(log⁷ n) handled in O(log* n).",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "vertex-local-deterministic-delta-plus-one",
+      "problem": "vertex",
+      "model": "local",
+      "label": "Deterministic LOCAL (Δ+1) coloring",
+      "task": "Each node outputs a proper color",
+      "assumptions": [
+        "Deterministic algorithm",
+        "Unbounded messages and computation (LOCAL)",
+        "Arbitrary n-node graph of maximum degree Δ"
+      ],
+      "xAxis": {
+        "label": "Palette ratio r = q/Δ",
+        "kind": "palette",
+        "min": 1,
+        "max": 2.25,
+        "ticks": [
+          1,
+          1.25,
+          1.5,
+          1.75,
+          2,
+          2.25
+        ],
+        "tickLabels": [
+          "Δ",
+          "5Δ/4",
+          "3Δ/2",
+          "7Δ/4",
+          "2Δ",
+          "9Δ/4"
+        ]
+      },
+      "yAxis": {
+        "label": "Δ-dependence exponent t in Õ(Δ^t)",
+        "kind": "exponent",
+        "min": 0,
+        "max": 1,
+        "ticks": [
+          0,
+          0.25,
+          0.5,
+          0.75,
+          1
+        ],
+        "tickLabels": [
+          "polylog Δ",
+          "Δ^{1/4}",
+          "√Δ",
+          "Δ^{3/4}",
+          "Δ"
+        ]
+      },
+      "parameters": {
+        "n": "nodes",
+        "Delta": "maximum degree"
+      },
+      "results": [
+        {
+          "id": "vertex-local-deterministic-ghaffari-grunau-2024",
+          "paperId": "ghaffari-grunau-2024-network-decomposition",
+          "kind": "upper",
+          "bound": "Õ((log n)^(5/3)) rounds",
+          "guarantee": "Proper (Δ+1)-coloring",
+          "sourceLocation": "Theorem 1.3 and FOCS 2024 abstract; reduction from deterministic MIS",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "The coloring guarantee uses a stated standard reduction from the main MIS theorem; do not confuse with Δ-coloring.",
+          "plot": null
+        },
+        {
+          "id": "vertex-result-48",
+          "paperId": "barenboim-elkin-kuhn-2014-linear-degree",
+          "kind": "upper",
+          "bound": "O(Δ)+½ log* n rounds",
+          "guarantee": "Proper (Δ+1)-coloring, deterministic",
+          "sourceLocation": "SIAM J. Comput. 2014 abstract, main theorem",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "historical",
+          "notes": "Faster than generic polylog n for sufficiently small Δ, incomparable for large Δ.",
+          "plot": null
+        },
+        {
+          "id": "vertex-extended-vertex-local-deterministic-delta-plus-one-30",
+          "paperId": "ghaffari-kuhn-2021-deterministic",
+          "kind": "upper",
+          "bound": "O(log² Δ · log n) rounds",
+          "guarantee": "Proper (Δ+1)-coloring, deterministic",
+          "sourceLocation": "FOCS 2021 abstract, main theorem",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "historical",
+          "notes": "Direct network-decomposition-free algorithm, historical relative to FOCS 2024 Õ(log^(5/3)n).",
+          "plot": null
+        },
+        {
+          "id": "vertex-local-deterministic-conflict-2016",
+          "paperId": "fraigniaud-heinrich-kosowski-2016-conflict",
+          "kind": "upper",
+          "bound": "Õ(√Δ)+log* n LOCAL rounds",
+          "guarantee": "Proper (Δ+1)-coloring, deterministic",
+          "sourceLocation": "Abstract; main LOCAL theorem",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "Historical improvement in degree dependence; specialized to conflict-coloring instance with l/d>Δ.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "vertex-local-high-degree-degree-one",
+      "problem": "vertex",
+      "model": "local",
+      "label": "High-degree LOCAL list coloring",
+      "task": "Each vertex outputs a valid color from its list",
+      "assumptions": [
+        "Randomized LOCAL (or stronger result in CONGEST)",
+        "Minimum relevant degree specified in each result",
+        "Per-vertex list size deg(v)+1 or Δ+1, per theorem"
+      ],
+      "xAxis": {
+        "label": "Palette ratio r = q/Δ",
+        "kind": "palette",
+        "min": 1,
+        "max": 2.25,
+        "ticks": [
+          1,
+          1.25,
+          1.5,
+          1.75,
+          2,
+          2.25
+        ],
+        "tickLabels": [
+          "Δ",
+          "5Δ/4",
+          "3Δ/2",
+          "7Δ/4",
+          "2Δ",
+          "9Δ/4"
+        ]
+      },
+      "yAxis": {
+        "label": "Asymptotic round class in n (ordinal tiers)",
+        "kind": "ordinal",
+        "min": 0,
+        "max": 5,
+        "ticks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "tickLabels": [
+          "O(1)",
+          "log* n",
+          "polyloglog n",
+          "√log n",
+          "log n",
+          "polylog n"
+        ]
+      },
+      "parameters": {
+        "Delta": "maximum degree",
+        "n": "vertices"
+      },
+      "results": [
+        {
+          "id": "vertex-result-50",
+          "paperId": "halldorsson-nolin-tonoyan-2021-ultrafast",
+          "kind": "upper",
+          "bound": "O(log* n) rounds when Δ≥log^{2+Ω(1)}n",
+          "guarantee": "Proper (Δ+1)-list coloring, with high probability",
+          "sourceLocation": "Abstract, high-degree theorem",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "candidate",
+          "notes": "The n and Δ threshold matters; this is not a universal bound.",
+          "plot": null
+        },
+        {
+          "id": "vertex-extended-vertex-local-high-degree-degree-one-51",
+          "paperId": "halldorsson-kuhn-nolin-tonoyan-2022-degree",
+          "kind": "upper",
+          "bound": "O(log* n) rounds for nodes of degree Ω(log⁷ n)",
+          "guarantee": "Colors high-degree nodes from deg(v)+1 lists",
+          "sourceLocation": "STOC 2022 abstract, high-degree part",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "candidate",
+          "notes": "Partial high-degree coloring; completion of the whole graph uses O(log³log n).",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "vertex-local-brooks-delta-minus-k",
+      "problem": "vertex",
+      "model": "local",
+      "label": "Fewer than Δ+1 colors in LOCAL",
+      "task": "Find proper Δ−k coloring when such a coloring exists",
+      "assumptions": [
+        "Randomized LOCAL",
+        "Input promises must exclude non-colorable graphs",
+        "k integer smaller than k_Δ defined by (k_Δ+1)(k_Δ+2)≤Δ"
+      ],
+      "xAxis": {
+        "label": "Palette ratio r = q/Δ",
+        "kind": "palette",
+        "min": 1,
+        "max": 2.25,
+        "ticks": [
+          1,
+          1.25,
+          1.5,
+          1.75,
+          2,
+          2.25
+        ],
+        "tickLabels": [
+          "Δ",
+          "5Δ/4",
+          "3Δ/2",
+          "7Δ/4",
+          "2Δ",
+          "9Δ/4"
+        ]
+      },
+      "yAxis": {
+        "label": "Asymptotic round class in n (ordinal tiers)",
+        "kind": "ordinal",
+        "min": 0,
+        "max": 5,
+        "ticks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "tickLabels": [
+          "O(1)",
+          "log* n",
+          "polyloglog n",
+          "√log n",
+          "log n",
+          "polylog n"
+        ]
+      },
+      "parameters": {
+        "Delta": "maximum degree",
+        "k": "palette deficit",
+        "n": "nodes"
+      },
+      "results": [
+        {
+          "id": "vertex-result-52",
+          "paperId": "flin-halldorsson-jakob-maus-2026-optimal",
+          "kind": "upper",
+          "bound": "Õ(log⁴log n) rounds; O(log* n) when Δ≥(log n)^50",
+          "guarantee": "Proper (Δ−k)-coloring for any k<k_Δ, if one exists",
+          "sourceLocation": "STOC 2026 abstract, main theorem",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "candidate",
+          "notes": "Unlike generic Δ+1 coloring, the existence promise is essential; Ω(n/Δ) hardness outside allowed k range is not represented as a lower bound for this slice.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "vertex-local-cycle-lower",
+      "problem": "vertex",
+      "model": "local",
+      "label": "Three-coloring cycles: locality lower bound",
+      "task": "Compute a proper three-coloring on an n-cycle",
+      "assumptions": [
+        "Deterministic LOCAL with unique IDs",
+        "Δ=2, so q=Δ+1=3"
+      ],
+      "xAxis": {
+        "label": "Palette ratio r = q/Δ",
+        "kind": "palette",
+        "min": 1,
+        "max": 2.25,
+        "ticks": [
+          1,
+          1.25,
+          1.5,
+          1.75,
+          2,
+          2.25
+        ],
+        "tickLabels": [
+          "Δ",
+          "5Δ/4",
+          "3Δ/2",
+          "7Δ/4",
+          "2Δ",
+          "9Δ/4"
+        ]
+      },
+      "yAxis": {
+        "label": "Asymptotic round class in n (ordinal tiers)",
+        "kind": "ordinal",
+        "min": 0,
+        "max": 5,
+        "ticks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "tickLabels": [
+          "O(1)",
+          "log* n",
+          "polyloglog n",
+          "√log n",
+          "log n",
+          "polylog n"
+        ]
+      },
+      "parameters": {
+        "n": "cycle length"
+      },
+      "results": [
+        {
+          "id": "vertex-result-53",
+          "paperId": "linial-1992-locality",
+          "kind": "lower",
+          "bound": "Ω(log* n) rounds",
+          "guarantee": "Proper three-coloring on an n-cycle",
+          "sourceLocation": "SIAM J. Comput. 1992 abstract, first result",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "candidate",
+          "notes": "This foundational lower bound cannot be plotted as a general all-degree frontier; scope is cycles and deterministic LOCAL.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "vertex-local-sparsified-input",
+      "problem": "vertex",
+      "model": "local",
+      "label": "LOCAL rounds after distributed palette sparsification",
+      "task": "Compute proper Δ+1 coloring using the sampled-color conflict graph",
+      "assumptions": [
+        "Each node initially samples only poly(log n) colors",
+        "Communication restricted to sparsified graph",
+        "This is a transformed network, not unrestricted LOCAL on original G"
+      ],
+      "xAxis": {
+        "label": "Palette ratio r = q/Δ",
+        "kind": "palette",
+        "min": 1,
+        "max": 2.25,
+        "ticks": [
+          1,
+          1.25,
+          1.5,
+          1.75,
+          2,
+          2.25
+        ],
+        "tickLabels": [
+          "Δ",
+          "5Δ/4",
+          "3Δ/2",
+          "7Δ/4",
+          "2Δ",
+          "9Δ/4"
+        ]
+      },
+      "yAxis": {
+        "label": "Asymptotic round class in n (ordinal tiers)",
+        "kind": "ordinal",
+        "min": 0,
+        "max": 5,
+        "ticks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "tickLabels": [
+          "O(1)",
+          "log* n",
+          "polyloglog n",
+          "√log n",
+          "log n",
+          "polylog n"
+        ]
+      },
+      "parameters": {
+        "Delta": "maximum degree",
+        "n": "nodes"
+      },
+      "results": [
+        {
+          "id": "vertex-result-54",
+          "paperId": "flin-ghaffari-halldorsson-kuhn-nolin-2024-palette",
+          "kind": "upper",
+          "bound": "O(log² Δ + log³log n) rounds with O(log² n) sampled colors/node",
+          "guarantee": "Proper Δ+1 coloring, using O(log n)-bit messages",
+          "sourceLocation": "SODA 2024 abstract, main distributed sparsification theorem",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "candidate",
+          "notes": "Algorithm operates on sparsified conflict graph; not directly comparable to ordinary LOCAL rounds on G.",
+          "plot": null
+        },
+        {
+          "id": "vertex-extended-vertex-local-sparsified-input-55",
+          "paperId": "flin-ghaffari-halldorsson-kuhn-nolin-2024-palette",
+          "kind": "lower",
+          "bound": "Ω(log Δ / loglog n) rounds for any poly(log n) samples/node",
+          "guarantee": "Proper Δ+1 coloring on palette-sparsified graph",
+          "sourceLocation": "SODA 2024 abstract, lower bound",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "candidate",
+          "notes": "Lower bound applies to transformed graph communication, not original-graph LOCAL.",
+          "plot": null
+        }
+      ]
+    }
+  ],
+  "papers": [
+    {
+      "id": "ghaffari-grunau-2024-network-decomposition",
+      "title": "Near-Optimal Deterministic Network Decomposition and Ruling Set, and Improved MIS",
+      "authors": [
+        "Mohsen Ghaffari",
+        "Christoph Grunau"
+      ],
+      "year": 2024,
+      "venue": "FOCS 2024",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2410.19516",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "halldorsson-kuhn-nolin-tonoyan-2022-degree",
+      "title": "Near-Optimal Distributed Degree+1 Coloring",
+      "authors": [
+        "Magnús M. Halldórsson",
+        "Fabian Kuhn",
+        "Alexandre Nolin",
+        "Tigran Tonoyan"
+      ],
+      "year": 2022,
+      "venue": "STOC 2022",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2112.00604",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "harris-schneider-su-2018-local-color",
+      "title": "Distributed (Δ+1)-Coloring in Sublogarithmic Rounds",
+      "authors": [
+        "David G. Harris",
+        "Johannes Schneider",
+        "Hsin-Hao Su"
+      ],
+      "year": 2018,
+      "venue": "Journal of the ACM 65(4)",
+      "publicationStatus": "journal",
+      "url": "https://arxiv.org/abs/1603.01486",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "chang-li-pettie-2020-color",
+      "title": "Distributed (Δ+1)-Coloring via Ultrafast Graph Shattering",
+      "authors": [
+        "Yi-Jun Chang",
+        "Wenzheng Li",
+        "Seth Pettie"
+      ],
+      "year": 2020,
+      "venue": "SIAM Journal on Computing",
+      "publicationStatus": "journal",
+      "url": "https://arxiv.org/abs/1711.01361",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "ghaffari-kuhn-2021-deterministic",
+      "title": "Deterministic Distributed Vertex Coloring: Simpler, Faster, and without Network Decomposition",
+      "authors": [
+        "Mohsen Ghaffari",
+        "Fabian Kuhn"
+      ],
+      "year": 2021,
+      "venue": "FOCS 2021",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2011.04511",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "halldorsson-nolin-tonoyan-2021-ultrafast",
+      "title": "Ultrafast Distributed Coloring of High Degree Graphs",
+      "authors": [
+        "Magnús M. Halldórsson",
+        "Alexandre Nolin",
+        "Tigran Tonoyan"
+      ],
+      "year": 2021,
+      "venue": "arXiv",
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/abs/2105.04700",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "flin-halldorsson-jakob-maus-2026-optimal",
+      "title": "Sublogarithmic Distributed Vertex Coloring with Optimal Number of Colors",
+      "authors": [
+        "Maxime Flin",
+        "Magnús M. Halldórsson",
+        "Manuel Jakob",
+        "Yannic Maus"
+      ],
+      "year": 2026,
+      "venue": "STOC 2026",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2603.28637",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "linial-1992-locality",
+      "title": "Locality in Distributed Graph Algorithms",
+      "authors": [
+        "Nathan Linial"
+      ],
+      "year": 1992,
+      "venue": "SIAM Journal on Computing 21(1)",
+      "publicationStatus": "journal",
+      "url": "https://epubs.siam.org/doi/10.1137/0221015",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "flin-ghaffari-halldorsson-kuhn-nolin-2024-palette",
+      "title": "A Distributed Palette Sparsification Theorem",
+      "authors": [
+        "Maxime Flin",
+        "Mohsen Ghaffari",
+        "Magnús M. Halldórsson",
+        "Fabian Kuhn",
+        "Alexandre Nolin"
+      ],
+      "year": 2024,
+      "venue": "SODA 2024",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2301.06457",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "barenboim-elkin-kuhn-2014-linear-degree",
+      "title": "Distributed (Δ+1)-Coloring in Linear (in Δ) Time",
+      "authors": [
+        "Leonid Barenboim",
+        "Michael Elkin",
+        "Fabian Kuhn"
+      ],
+      "year": 2014,
+      "venue": "SIAM Journal on Computing 43(1)",
+      "publicationStatus": "journal",
+      "url": "https://doi.org/10.1137/12088848X",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "fraigniaud-heinrich-kosowski-2016-conflict",
+      "title": "Local Conflict Coloring",
+      "authors": [
+        "Pierre Fraigniaud",
+        "Marc Heinrich",
+        "Adrian Kosowski"
+      ],
+      "year": 2016,
+      "venue": "FOCS 2016",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1511.01287",
+      "verifiedOn": "2026-09-27"
+    }
+  ]
+}

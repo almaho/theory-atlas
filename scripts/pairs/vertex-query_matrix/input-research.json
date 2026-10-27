@@ -1,0 +1,109 @@
+{
+  "problem": "vertex",
+  "model": "query_matrix",
+  "slices": [
+    {
+      "id": "vertex-query-average-case-k-color",
+      "problem": "vertex",
+      "model": "query_matrix",
+      "label": "Average-case exact k-coloring, adjacency-matrix access",
+      "task": "Output proper exact k-coloring of an entire n-vertex graph",
+      "assumptions": [
+        "Uniform distribution over n-vertex k-colorable graphs",
+        "Correct on every k-colorable input",
+        "k≤n^(1/37) for upper bounds; k≤n^(1/3) for lower bound",
+        "Adjacency matrix pair queries; average runtime over graph distribution"
+      ],
+      "xAxis": {
+        "label": "Palette ratio r = q/Δ",
+        "kind": "palette",
+        "min": 1,
+        "max": 2.25,
+        "ticks": [
+          1,
+          1.25,
+          1.5,
+          1.75,
+          2,
+          2.25
+        ],
+        "tickLabels": [
+          "Δ",
+          "5Δ/4",
+          "3Δ/2",
+          "7Δ/4",
+          "2Δ",
+          "9Δ/4"
+        ]
+      },
+      "yAxis": {
+        "label": "Query exponent p in Õ(n^p)",
+        "kind": "exponent",
+        "min": 0,
+        "max": 2,
+        "ticks": [
+          0,
+          0.5,
+          1,
+          1.5,
+          2
+        ],
+        "tickLabels": [
+          "polylog",
+          "√n",
+          "n",
+          "n^{3/2}",
+          "n²"
+        ]
+      },
+      "parameters": {
+        "k": "colorability promise",
+        "n": "vertices"
+      },
+      "results": [
+        {
+          "id": "vertex-query-average-k-upper-2026",
+          "paperId": "marcussen-pyne-rubinfeld-shapira-tauber-2026-average",
+          "kind": "upper",
+          "bound": "O(nk) randomized average time; Õ(nk) deterministic average time",
+          "guarantee": "Correct exact k-coloring of every k-colorable graph",
+          "sourceLocation": "Theorems 1–2",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Average over uniformly random k-colorable input graphs; both algorithms remain correct on every valid graph.",
+          "plot": null
+        },
+        {
+          "id": "vertex-query-average-k-lower-2026",
+          "paperId": "marcussen-pyne-rubinfeld-shapira-tauber-2026-average",
+          "kind": "lower",
+          "bound": "Ω(nk) average time for k≤n^(1/3)",
+          "guarantee": "Any randomized or deterministic algorithm correct on all k-colorable graphs",
+          "sourceLocation": "Theorem 3",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Applies to average total computation under stated distribution; does not establish worst-case time lower n·k beyond graph-access model.",
+          "plot": null
+        }
+      ]
+    }
+  ],
+  "papers": [
+    {
+      "id": "marcussen-pyne-rubinfeld-shapira-tauber-2026-average",
+      "title": "Graph k-Coloring in Average Sublinear Time",
+      "authors": [
+        "Cassandra Marcussen",
+        "Edward Pyne",
+        "Ronitt Rubinfeld",
+        "Asaf Shapira",
+        "Shlomo Tauber"
+      ],
+      "year": 2026,
+      "venue": "FOCS 2026",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2607.26592",
+      "verifiedOn": "2026-09-27"
+    }
+  ]
+}

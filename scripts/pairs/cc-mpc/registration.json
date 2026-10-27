@@ -1,0 +1,71 @@
+{
+  "id": "cc-mpc",
+  "dataFile": "cc-mpc.json",
+  "javascript": "cc-mpc.js",
+  "css": "cc-mpc.css",
+  "routes": [
+    {
+      "key": "cc-mpc",
+      "sliceId": "cc-mpc-constant-sublinear",
+      "label": "Correlation clustering · MPC",
+      "problem": "cc",
+      "model": "mpc",
+      "visible": true
+    },
+    {
+      "key": "cc-mpc-pruned",
+      "sliceId": "cc-mpc-pruned-sublinear",
+      "label": "Strictly sublinear per-machine memory, Pivot quality",
+      "problem": "cc",
+      "model": "mpc",
+      "visible": false
+    },
+    {
+      "key": "cc-mpc-communication",
+      "sliceId": "cc-mpc-sketch-linear-memory",
+      "label": "Near-linear per-machine communication; polynomial recovery space",
+      "problem": "cc",
+      "model": "mpc",
+      "visible": false
+    },
+    {
+      "key": "cc-mpc-polylog",
+      "sliceId": "cc-mpc-polylog-below-three",
+      "label": "Polylog-round MPC, below-Pivot factor",
+      "problem": "cc",
+      "model": "mpc",
+      "visible": false
+    },
+    {
+      "key": "cc-mpc-arboricity",
+      "sliceId": "cc-mpc-bounded-arboricity",
+      "label": "Bounded positive-graph arboricity",
+      "problem": "cc",
+      "model": "mpc",
+      "visible": false
+    },
+    {
+      "key": "cc-mpc-allnorms",
+      "sliceId": "cc-mpc-all-symmetric-norms",
+      "label": "All monotone symmetric norms simultaneously",
+      "problem": "cc",
+      "model": "mpc",
+      "visible": false
+    }
+  ],
+  "canonicalAliases": {
+    "cc-mpc-pruned": "cc-mpc",
+    "cc-mpc-communication": "cc-mpc",
+    "cc-mpc-polylog": "cc-mpc",
+    "cc-mpc-arboricity": "cc-mpc",
+    "cc-mpc-allnorms": "cc-mpc"
+  },
+  "axisSummary": {
+    "x": "MPC round growth in n for fixed ε, δ and λ≥2; exact formulas retained",
+    "y": "Algorithm and graph setup; quality labels retain expectation / probability"
+  },
+  "pointFields": {
+    "x": "roundClass",
+    "y": "id"
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "pair": "vertex-local",
+  "reviewedOn": "2026-10-27",
+  "scope": "Bounded review of the 11 supplied primary papers; 15 supplied record IDs and six slice IDs retained.",
+  "primarySources": [
+    {
+      "sourceId": "ghaffari-grunau-2024-network-decomposition",
+      "url": "https://arxiv.org/html/2410.19516v1",
+      "theorem": "Theorem 1.3; Corollary 1.4",
+      "note": "The deterministic theorem includes degree+1 lists. The randomized corollary states ordinary Δ+1 coloring through CLP shattering; preserve that stated contract.",
+      "checked": "2026-10-27"
+    },
+    {
+      "sourceId": "halldorsson-kuhn-nolin-tonoyan-2022-degree",
+      "url": "https://arxiv.org/html/2112.00604v1",
+      "theorem": "Theorems 1–2; Corollary 1",
+      "note": "Theorem 1 colors a high-degree subset with local failure Δ^{-c}; setting the degree upper bound to n yields simultaneous high-degree coverage. Theorem 2 completes all vertices.",
+      "checked": "2026-10-27"
+    },
+    {
+      "sourceId": "harris-schneider-su-2018-local-color",
+      "url": "https://arxiv.org/html/1603.01486v4",
+      "theorem": "§1.2; §4 runtime argument; Theorem 7.6",
+      "note": "Randomized Δ+1-list coloring; retains the exact degree-dependent historical formula.",
+      "checked": "2026-10-27"
+    },
+    {
+      "sourceId": "chang-li-pettie-2020-color",
+      "url": "https://arxiv.org/html/1711.01361v3",
+      "theorem": "Theorem 1 (§4.4)",
+      "note": "Randomized Δ+1-list coloring reduces to deterministic degree+1-list coloring on polylogarithmic-size graphs. Keep Det_d symbolic rather than assigning an invented exponent.",
+      "checked": "2026-10-27"
+    },
+    {
+      "sourceId": "ghaffari-kuhn-2021-deterministic",
+      "url": "https://arxiv.org/html/2011.04511v2",
+      "theorem": "Theorem 4.1; Corollary 1.2",
+      "note": "The LOCAL deterministic bound applies to degree+1 lists. The randomized corollary states ordinary Δ+1 coloring with global high probability.",
+      "checked": "2026-10-27"
+    },
+    {
+      "sourceId": "halldorsson-nolin-tonoyan-2021-ultrafast",
+      "url": "https://arxiv.org/html/2105.04700v1",
+      "theorem": "Theorem 1; §§4, 6.2",
+      "note": "Full Δ+1-list coloring requires maximum degree at least log^{2+δ}n for fixed δ>0. Theorem is stronger CONGEST. HKNT22 incorporates this report's LOCAL work; do not count it as an independent frontier.",
+      "checked": "2026-10-27"
+    },
+    {
+      "sourceId": "flin-halldorsson-jakob-maus-2026-optimal",
+      "url": "https://arxiv.org/html/2603.28637v2",
+      "theorem": "Theorem 1; §4.3",
+      "note": "Sufficiently large Δ; q≥Δ−k_Δ+1. Output is a valid q-coloring or a local non-colorability certificate. The exceptional Δ≥log^{50}n regime is faster. No imported boundary hardness.",
+      "checked": "2026-10-27"
+    },
+    {
+      "sourceId": "linial-1992-locality",
+      "url": "https://courses.csail.mit.edu/6.852/08/papers/Linial.pdf",
+      "theorem": "Theorem 2.1, printed p.195",
+      "note": "Three-coloring an n-cycle takes at least (log* n−3)/2 rounds. Use only the deterministic case here, even with a consistent orientation. No all-degree/palette lower projection.",
+      "checked": "2026-10-27"
+    },
+    {
+      "sourceId": "flin-ghaffari-halldorsson-kuhn-nolin-2024-palette",
+      "url": "https://arxiv.org/html/2301.06457v2",
+      "theorem": "Theorems 1–2; precise Theorem 7; §5 proof",
+      "note": "Strict sampled-edge upper: Δ≥C log⁴n, O(log²Δ) rounds. The all-degree O(log²Δ+log³log n) implementation may retain original edges in its low-degree branch. The lower remains for sampled cliques with Bernoulli palette sampling and success 2/3, not ordinary LOCAL.",
+      "checked": "2026-10-27"
+    },
+    {
+      "sourceId": "barenboim-elkin-kuhn-2014-linear-degree",
+      "url": "https://www.cs.bgu.ac.il/~elkinm/Bar_E_Kuhn.SICOMP.pdf",
+      "theorem": "Theorem 4.6, printed p.87",
+      "note": "Full journal theorem confirms O(Δ)+(1/2)log* n rounds for ordinary Δ+1 coloring. Specializing Δ=2 supplies the cycle upper in the reference inset.",
+      "checked": "2026-10-27"
+    },
+    {
+      "sourceId": "fraigniaud-heinrich-kosowski-2016-conflict",
+      "url": "https://arxiv.org/html/1511.01287v2",
+      "theorem": "Theorem 4.1; Corollary 4.1",
+      "note": "Set conflict degree d=1 in Theorem 4.1: lists of size degree(v)+1 suffice; exact bound is O(√Δ log^{5/2}Δ)+log* n.",
+      "checked": "2026-10-27"
+    }
+  ],
+  "corrections": [
+    "Removed every original numerical palette-ratio/ordinal-degree-exponent projection; formulas depend jointly on n and Δ and are not universally ranked.",
+    "GG24 deterministic theorem, GK21 deterministic theorem, and FHK16 general theorem support degree+1 lists; records now show their strongest verified contract.",
+    "FHK16 uses exact O(√Δ log^{5/2}Δ)+log* n; CLP20 retains Det_d rather than an invented polynomial.",
+    "HKNT22 high-degree theorem is a partial-output statement unless every vertex meets the threshold. HNT21 instead colors the full graph with Δ+1 lists under a maximum-degree threshold.",
+    "FHJM26 requires sufficiently large Δ and gives coloring or a non-colorability certificate, with a separate Δ≥log^{50}n specialization.",
+    "Linial92 is shown only for deterministic three-coloring cycles; the upper reuses BEK14 at Δ=2. No all-degree or arbitrary-palette lower projection.",
+    "FGHKN24 lower applies to sampled-color communication, with precise Bernoulli sampling and success 2/3 on cliques; it is not an unrestricted LOCAL bound.",
+    "HNT21 remains identified as its original preprint, noting that HKNT22 incorporates its LOCAL work; published-only hides the original preprint marker.",
+    "The sparse-network upper's §4.2 alternate implementation uses palette-sampled edges; §5 retains original edges in the already-polylog-degree case.",
+    "The plotted sampled-network upper is restricted to the large-degree strict sampled-edge branch. Preserve the all-degree mixed-network implementation under the same original result ID as an inspectable variant."
+  ],
+  "boundedDerivations": [
+    {
+      "source": "BEK14 Theorem 4.6",
+      "claim": "At Δ=2 the same algorithm computes a three-coloring in O(log* n). Combining with Linial92 Theorem 2.1 gives the cycle reference Θ(log* n)."
+    },
+    {
+      "source": "FHK16 Theorem 4.1",
+      "claim": "Conflict degree d=1 gives degree(v)+1 lists and O(√Δ log^{5/2}Δ)+log* n."
+    },
+    {
+      "source": "HKNT22 Theorem 1",
+      "claim": "Set the maximum-degree upper bound to n and union-bound per-vertex n^{-c} failure; target degree(v)≥log⁷n is simultaneously colored."
+    }
+  ],
+  "publicationHandling": "Existing journal/conference/preprint identities preserved. Primary full-text version and theorem are stored separately from the paper record URL.",
+  "unresolvedFactualIssues": [],
+  "knownLimits": [
+    "This is not an exhaustive literature search.",
+    "Constant-factor round distances are not encoded.",
+    "The variable-degree main grid has no verified comparable red frontier in this bounded set.",
+    "Root live-browser full-atlas, mobile and light/dark QA remains required."
+  ]
+}

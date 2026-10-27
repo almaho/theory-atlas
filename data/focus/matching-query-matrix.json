@@ -1,0 +1,526 @@
+{
+  "reviewedOn": "2026-10-20",
+  "problem": "matching",
+  "model": "query_matrix",
+  "title": "Matching size through adjacency-matrix queries",
+  "coverage": "The three existing matrix slices, with their directly cited additive upper counterpart and scope barriers. Six plotted results from five primary sources; not an exhaustive literature survey.",
+  "defaultScope": "Adaptive pair queries to general simple unweighted graphs; output one global size estimate.",
+  "sources": {
+    "beh21": {
+      "title": "Time-Optimal Sublinear Algorithms for Matching and Vertex Cover",
+      "authors": [
+        "Soheil Behnezhad"
+      ],
+      "year": 2021,
+      "venue": "FOCS 2021",
+      "publicationStatus": "published",
+      "url": "https://arxiv.org/abs/2106.02942",
+      "verifiedOn": "2026-10-20",
+      "publicationUrl": "https://doi.org/10.1109/FOCS52979.2021.00089",
+      "paperId": "behnezhad-2021-time-optimal",
+      "shortLabel": "Beh ’21",
+      "fullTextUrl": "https://arxiv.org/pdf/2106.02942v3#page=5"
+    },
+    "mrt25": {
+      "title": "A 0.51-Approximation of Maximum Matching in Sublinear n^{1.5} Time",
+      "authors": [
+        "Sepideh Mahabadi",
+        "Mohammad Roghani",
+        "Jakub Tarnawski"
+      ],
+      "year": 2025,
+      "venue": "ICALP 2025",
+      "publicationStatus": "published",
+      "url": "https://arxiv.org/abs/2506.01669",
+      "verifiedOn": "2026-10-20",
+      "publicationUrl": "https://doi.org/10.4230/LIPIcs.ICALP.2025.116",
+      "paperId": "mahabadi-roghani-tarnawski-2025-051",
+      "shortLabel": "MRT ’25",
+      "fullTextUrl": "https://arxiv.org/html/2506.01669v1"
+    },
+    "bks23stoc": {
+      "title": "Sublinear Algorithms for (1.5+ε)-Approximate Matching",
+      "authors": [
+        "Sayan Bhattacharya",
+        "Peter Kiss",
+        "Thatchaphol Saranurak"
+      ],
+      "year": 2023,
+      "venue": "STOC 2023",
+      "publicationStatus": "published",
+      "url": "https://arxiv.org/abs/2212.00189",
+      "verifiedOn": "2026-10-20",
+      "publicationUrl": "https://doi.org/10.1145/3564246.3585252",
+      "paperId": "bhattacharya-kiss-saranurak-2023-query",
+      "shortLabel": "BKS · STOC ’23",
+      "fullTextUrl": "https://arxiv.org/html/2212.00189v2#S4.SS1"
+    },
+    "abrr25": {
+      "title": "Tight Pair Query Lower Bounds for Matching and Earth Mover’s Distance",
+      "authors": [
+        "Amir Azarmehr",
+        "Soheil Behnezhad",
+        "Mohammad Roghani",
+        "Aviad Rubinstein"
+      ],
+      "year": 2025,
+      "venue": "FOCS 2025",
+      "publicationStatus": "published",
+      "url": "https://arxiv.org/abs/2510.16351",
+      "verifiedOn": "2026-10-20",
+      "paperId": "azarmehr-behnezhad-roghani-rubinstein-2025-pair",
+      "shortLabel": "ABRR ’25",
+      "fullTextUrl": "https://arxiv.org/pdf/2510.16351v1#page=11",
+      "publicationUrl": "https://focs.computer.org/2025/accepted-papers/"
+    },
+    "bks23focs": {
+      "paperId": "bks2023-size-paper",
+      "title": "Dynamic (1+ε)-Approximate Matching Size in Truly Sublinear Update Time",
+      "authors": [
+        "Sayan Bhattacharya",
+        "Peter Kiss",
+        "Thatchaphol Saranurak"
+      ],
+      "year": 2023,
+      "venue": "FOCS 2023",
+      "publicationStatus": "published",
+      "url": "https://arxiv.org/abs/2302.05030",
+      "fullTextUrl": "https://arxiv.org/html/2302.05030v3",
+      "publicationUrl": "https://focs.computer.org/2023/focs-2023-list-of-accepted-papers/",
+      "shortLabel": "BKS · FOCS ’23",
+      "verifiedOn": "2026-10-20"
+    }
+  },
+  "verifiedRecords": [
+    {
+      "id": "matrix-beh21-mixed",
+      "sourceId": "beh21",
+      "kind": "algorithm",
+      "panel": "mixed",
+      "qualityFamily": "half",
+      "resourceLane": "linear-upper",
+      "displayBound": "Õ(n/ε³)",
+      "queryComplexity": "Õ(n/ε³) time; hence at most this many pair queries",
+      "quality": "½ OPT − εn ≤ ŝ ≤ OPT",
+      "theorem": "Theorem 1.4; Lemma 5.4",
+      "output": "Global matching-size estimate ŝ",
+      "graph": "General simple unweighted graphs",
+      "oracle": "Adjacency-matrix pair queries only",
+      "adaptivity": "Adaptive",
+      "probability": "With high probability",
+      "evidenceStatus": "full_text_verified",
+      "assumptions": [],
+      "quantifiers": "Every ε > 0",
+      "researchResultId": "matching-query-behnezhad21-matrix"
+    },
+    {
+      "id": "matrix-folklore-linear",
+      "sourceId": "beh21",
+      "kind": "lower",
+      "panel": "mixed",
+      "qualityFamily": "constant",
+      "resourceLane": "linear-lower",
+      "displayBound": "Ω(n)",
+      "queryComplexity": "Ω(n) pair queries",
+      "quality": "β OPT − εn ≤ ŝ ≤ OPT; fixed β > 0, 0 < ε < β/2",
+      "theorem": "Section 1.1, Application 3: empty graph versus random perfect matching",
+      "output": "Global matching-size estimate ŝ",
+      "graph": "General simple unweighted graphs",
+      "oracle": "Adjacency-matrix pair queries only",
+      "adaptivity": "Adaptive",
+      "probability": "Success at least 2/3",
+      "evidenceStatus": "full_text_verified",
+      "assumptions": [],
+      "notes": "The restriction ε < β/2 keeps the two valid-output intervals disjoint.",
+      "researchResultId": "matching-query-matrix-linear-lb"
+    },
+    {
+      "id": "matrix-mrt25",
+      "sourceId": "mrt25",
+      "kind": "algorithm",
+      "panel": "mixed",
+      "qualityFamily": "point5109",
+      "resourceLane": "n15",
+      "displayBound": "Õ(n^{3/2})",
+      "queryComplexity": "Õ(n^{3/2}) time; hence at most this many pair queries",
+      "quality": "0.5109 OPT − o(n) ≤ ŝ ≤ OPT",
+      "theorem": "Theorem 1.2; Section 7",
+      "output": "Global matching-size estimate ŝ",
+      "graph": "General simple unweighted graphs",
+      "oracle": "Adjacency-matrix pair queries only",
+      "adaptivity": "Adaptive",
+      "probability": "With high probability",
+      "evidenceStatus": "full_text_verified",
+      "assumptions": [],
+      "researchResultId": "matching-query-matrix-051"
+    },
+    {
+      "id": "matrix-bks23-mixed",
+      "sourceId": "bks23stoc",
+      "kind": "algorithm",
+      "panel": "mixed",
+      "qualityFamily": "twothirds",
+      "resourceLane": "epsilon-subquadratic",
+      "displayBound": "Õ_ε(n^{2−Θ(ε²)})",
+      "queryComplexity": "Õ_ε(n^{2−Θ(ε²)}) time; hence at most this many pair queries",
+      "quality": "ŝ ≤ OPT ≤ 1.5 ŝ + εn",
+      "theorem": "Theorem 1.3(3); Theorem 4.1; equation (6)",
+      "output": "Global matching-size estimate ŝ",
+      "graph": "General simple unweighted graphs",
+      "oracle": "Adjacency-matrix pair queries only",
+      "adaptivity": "Adaptive",
+      "probability": "With high probability",
+      "evidenceStatus": "full_text_verified",
+      "assumptions": [],
+      "quantifiers": "Every fixed ε > 0",
+      "notes": "The coefficient εn is on the OPT side of the paper’s inequality; equivalently ŝ ≥ ⅔ OPT − ⅔ εn.",
+      "researchResultId": "matching-query-bks23-matrix"
+    },
+    {
+      "id": "matrix-bks23-additive",
+      "sourceId": "bks23focs",
+      "kind": "algorithm",
+      "panel": "additive",
+      "qualityFamily": "absolute",
+      "resourceLane": "additive-upper",
+      "displayBound": "n^{2−Ω_ε(1)}",
+      "queryComplexity": "n^{2−Ω_ε(1)} time; hence at most this many pair queries",
+      "quality": "OPT − εn ≤ ŝ ≤ OPT",
+      "theorem": "Theorem 1.3, first statement",
+      "output": "Global matching-size estimate ŝ",
+      "graph": "General simple unweighted graphs",
+      "oracle": "Adjacency-matrix pair queries only",
+      "adaptivity": "Adaptive",
+      "probability": "With high probability",
+      "evidenceStatus": "full_text_verified",
+      "assumptions": [],
+      "quantifiers": "Every fixed ε > 0; the exponent saving depends on ε",
+      "notes": "This is the size estimate. The separately stated partner-query oracle requires preprocessing.",
+      "researchResultId": "matching-query-matrix-bks23-additive"
+    },
+    {
+      "id": "matrix-abrr25",
+      "sourceId": "abrr25",
+      "kind": "lower",
+      "panel": "additive",
+      "qualityFamily": "absolute",
+      "resourceLane": "additive-lower",
+      "displayBound": "Ω(n^{2−δ})",
+      "queryComplexity": "Ω(n^{2−δ}) pair queries",
+      "quality": "|ŝ − OPT| ≤ εn",
+      "theorem": "Theorem 1 (PDF p. 11)",
+      "output": "Global matching-size estimate ŝ",
+      "graph": "General simple unweighted graphs",
+      "oracle": "Adjacency-matrix pair queries only",
+      "adaptivity": "Adaptive",
+      "probability": "Success at least 2/3",
+      "evidenceStatus": "full_text_verified",
+      "assumptions": [],
+      "quantifiers": "For every fixed δ > 0 there exists fixed ε = ε(δ) > 0",
+      "notes": "The quantifier order is essential: no common exponent saving works for every accuracy. This does not assert an Ω(n²) lower bound at one fixed ε.",
+      "researchResultId": "matching-query-matrix-nearquadratic-lb"
+    }
+  ],
+  "relatedResults": [
+    {
+      "id": "matrix-pure-multiplicative",
+      "sourceId": "beh21",
+      "kind": "lower",
+      "panel": "related",
+      "qualityFamily": "pure",
+      "resourceLane": "quadratic",
+      "displayBound": "Ω(n²)",
+      "queryComplexity": "Ω(n²) pair queries",
+      "quality": "Any nonzero multiplicative guarantee with no additive slack",
+      "theorem": "Section 1.1, Application 3: empty graph versus one hidden edge",
+      "output": "Global matching-size estimate ŝ",
+      "graph": "General simple unweighted graphs",
+      "oracle": "Adjacency-matrix pair queries only",
+      "adaptivity": "Adaptive",
+      "probability": "Success at least 2/3",
+      "evidenceStatus": "full_text_verified",
+      "assumptions": [],
+      "scope": "Pure multiplicative size",
+      "notes": "Sparse OPT is the obstruction. It is outside both additive panels."
+    },
+    {
+      "id": "matrix-explicit-output",
+      "sourceId": "bks23stoc",
+      "kind": "lower",
+      "panel": "related",
+      "qualityFamily": "edges",
+      "resourceLane": "quadratic",
+      "displayBound": "Ω(n²)",
+      "queryComplexity": "Ω(n²) pair queries",
+      "quality": "Explicit matching of size εn; fixed ε > 0",
+      "theorem": "Fact 1.1; Appendix E, adjacency-matrix case",
+      "output": "Matching edges",
+      "graph": "Already bipartite random-permutation perfect matchings",
+      "oracle": "Adjacency-matrix pair queries only",
+      "adaptivity": "Adaptive",
+      "probability": "Success at least 2/3",
+      "evidenceStatus": "full_text_verified",
+      "assumptions": [],
+      "scope": "Explicit edge output",
+      "notes": "A value estimate does not enumerate edges; this lower bound concerns that stronger output."
+    },
+    {
+      "id": "matrix-bks23-oracle",
+      "sourceId": "bks23focs",
+      "kind": "algorithm",
+      "panel": "related",
+      "qualityFamily": "partner",
+      "resourceLane": "preprocessing",
+      "displayBound": "n^{1+f(ε)}",
+      "queryComplexity": "n^{2−Ω_ε(1)} preprocessing time; then n^{1+f(ε)} time per partner query",
+      "quality": "Implicit matching of size at least OPT − εn",
+      "theorem": "Theorem 1.3, second statement",
+      "output": "One matched neighbor or ⊥ per queried vertex",
+      "graph": "General simple unweighted graphs",
+      "oracle": "Adjacency-matrix pair queries only",
+      "adaptivity": "Adaptive",
+      "probability": "With high probability",
+      "evidenceStatus": "full_text_verified",
+      "assumptions": [],
+      "scope": "Partner oracle after preprocessing",
+      "quantifiers": "f is increasing and f(ε) → 0 as ε → 0",
+      "notes": "A preprocessing-plus-query contract, not a zero-preprocessing LCA bound."
+    }
+  ],
+  "figureAxes": {
+    "mixed": {
+      "title": "Mixed error · matching size",
+      "subtitle": "Three algorithm guarantees; one broad linear lower bound.",
+      "x": {
+        "label": "Guarantee family (categorical)",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "constant",
+            "label": "Fixed β > 0",
+            "note": "with εn slack"
+          },
+          {
+            "id": "half",
+            "label": "½ OPT − εn",
+            "note": "fixed ε > 0"
+          },
+          {
+            "id": "point5109",
+            "label": "0.5109 OPT",
+            "note": "minus o(n)"
+          },
+          {
+            "id": "twothirds",
+            "label": "⅔ OPT − ⅔ εn",
+            "note": "fixed ε > 0"
+          }
+        ]
+      },
+      "y": {
+        "label": "Total pair queries / time upper bounds",
+        "kind": "symbolic",
+        "scaleNote": "Separate formula rows; no numeric exponent is assigned to Θ(ε²).",
+        "categories": [
+          {
+            "id": "linear-lower",
+            "label": "Ω(n)"
+          },
+          {
+            "id": "linear-upper",
+            "label": "Õ(n/ε³)"
+          },
+          {
+            "id": "n15",
+            "label": "Õ(n^{3/2})"
+          },
+          {
+            "id": "epsilon-subquadratic",
+            "label": "Õ_ε(n^{2−Θ(ε²)})"
+          }
+        ]
+      }
+    },
+    "additive": {
+      "title": "Additive error · near exact size",
+      "subtitle": "Upper and lower bounds with their accuracy quantifiers.",
+      "x": {
+        "label": "Absolute error contract",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "absolute",
+            "label": "Additive εn",
+            "note": "one global estimate"
+          }
+        ]
+      },
+      "y": {
+        "label": "Total pair queries / time upper bounds",
+        "kind": "symbolic",
+        "scaleNote": "The exponent savings are symbolic and depend on accuracy. These are not numerical coordinates.",
+        "categories": [
+          {
+            "id": "additive-upper",
+            "label": "n^{2−Ω_ε(1)}"
+          },
+          {
+            "id": "additive-lower",
+            "label": "Ω(n^{2−δ})"
+          }
+        ]
+      }
+    }
+  },
+  "axes": {
+    "mixed": {
+      "title": "Mixed error · matching size",
+      "subtitle": "Three algorithm guarantees; one broad linear lower bound.",
+      "x": {
+        "label": "Guarantee family (categorical)",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "constant",
+            "label": "Fixed β > 0",
+            "note": "with εn slack"
+          },
+          {
+            "id": "half",
+            "label": "½ OPT − εn",
+            "note": "fixed ε > 0"
+          },
+          {
+            "id": "point5109",
+            "label": "0.5109 OPT",
+            "note": "minus o(n)"
+          },
+          {
+            "id": "twothirds",
+            "label": "⅔ OPT − ⅔ εn",
+            "note": "fixed ε > 0"
+          }
+        ]
+      },
+      "y": {
+        "label": "Total pair queries / time upper bounds",
+        "kind": "symbolic",
+        "scaleNote": "Separate formula rows; no numeric exponent is assigned to Θ(ε²).",
+        "categories": [
+          {
+            "id": "linear-lower",
+            "label": "Ω(n)"
+          },
+          {
+            "id": "linear-upper",
+            "label": "Õ(n/ε³)"
+          },
+          {
+            "id": "n15",
+            "label": "Õ(n^{3/2})"
+          },
+          {
+            "id": "epsilon-subquadratic",
+            "label": "Õ_ε(n^{2−Θ(ε²)})"
+          }
+        ]
+      }
+    },
+    "additive": {
+      "title": "Additive error · near exact size",
+      "subtitle": "Upper and lower bounds with their accuracy quantifiers.",
+      "x": {
+        "label": "Absolute error contract",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "absolute",
+            "label": "Additive εn",
+            "note": "one global estimate"
+          }
+        ]
+      },
+      "y": {
+        "label": "Total pair queries / time upper bounds",
+        "kind": "symbolic",
+        "scaleNote": "The exponent savings are symbolic and depend on accuracy. These are not numerical coordinates.",
+        "categories": [
+          {
+            "id": "additive-upper",
+            "label": "n^{2−Ω_ε(1)}"
+          },
+          {
+            "id": "additive-lower",
+            "label": "Ω(n^{2−δ})"
+          }
+        ]
+      }
+    }
+  },
+  "sourceVerification": [
+    {
+      "sourceId": "beh21",
+      "url": "https://arxiv.org/pdf/2106.02942v3#page=5",
+      "locations": [
+        "Theorem 1.4",
+        "Section 1.1 Application 3",
+        "Lemma 5.4"
+      ],
+      "notes": "Pair-query upper and linear/quadratic baseline arguments checked; original (2,εn) display normalized using Lemma 5.4."
+    },
+    {
+      "sourceId": "mrt25",
+      "url": "https://arxiv.org/html/2506.01669v1",
+      "locations": [
+        "Theorem 1.2",
+        "Lemma 4.7",
+        "Section 7"
+      ],
+      "notes": "Matrix guarantee retains o(n) additive slack; exact estimate direction checked."
+    },
+    {
+      "sourceId": "bks23stoc",
+      "url": "https://arxiv.org/html/2212.00189v2",
+      "locations": [
+        "Theorem 1.3(3)",
+        "Theorem 4.1",
+        "Equation (6)",
+        "Fact 1.1 / Appendix E"
+      ],
+      "notes": "Corrected supplied matrix record to (1.5,εn); no silent conversion to a pure multiplicative result."
+    },
+    {
+      "sourceId": "bks23focs",
+      "url": "https://arxiv.org/html/2302.05030v3",
+      "locations": [
+        "Theorem 1.3"
+      ],
+      "notes": "Directly cited upper counterpart of ABRR; size time and preprocessed partner-query time separated.",
+      "publicationEvidence": "https://focs.computer.org/2023/focs-2023-list-of-accepted-papers/"
+    },
+    {
+      "sourceId": "abrr25",
+      "url": "https://arxiv.org/pdf/2510.16351v1#page=11",
+      "locations": [
+        "Theorem 1"
+      ],
+      "notes": "Randomization, success 2/3, and ∀δ∃ε quantifier order checked in full theorem.",
+      "publicationEvidence": "https://focs.computer.org/2025/accepted-papers/"
+    }
+  ],
+  "definitions": {
+    "n": "Number of vertices",
+    "OPT": "Maximum-cardinality matching size",
+    "ŝ": "Reported size estimate",
+    "ε": "Additive-accuracy parameter",
+    "δ": "Exponent-loss parameter in the lower bound",
+    "Õ": "Polylogarithmic factors suppressed",
+    "symbolicAxes": "The displayed guarantee and formula rows are categories, not uniformly spaced numerical measurements."
+  },
+  "comparisonContracts": [
+    "A time upper bound also bounds its number of pair queries; a query lower bound need not be a matching time upper bound.",
+    "Pure additive error, mixed error, pure multiplicative error, and explicit edge output retain separate contracts.",
+    "The ABRR lower bound is unconditional; its accuracy depends on δ.",
+    "No adjacency-list lower bound is transferred to matrix access."
+  ]
+}

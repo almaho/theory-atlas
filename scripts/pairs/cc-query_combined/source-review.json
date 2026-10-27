@@ -1,0 +1,114 @@
+{
+  "id": "cc-query_combined",
+  "verifiedOn": "2026-10-26",
+  "scope": "Five supplied primary papers only; no literature expansion.",
+  "sources": [
+    {
+      "sourceId": "cao-2025-sublinear-lp",
+      "url": "https://arxiv.org/html/2503.20883v5",
+      "locations": [
+        "§2.1 computational model",
+        "Theorems 1–2 and Corollary 3",
+        "§9.2 rounding, Lemma 59 and Expected Guarantee discussion"
+      ],
+      "findings": [
+        "Positive degree, indexed positive neighbor and positive-pair test each cost O(1).",
+        "Corrected ratio 1.485+ε; near-linear time only for fixed sufficiently small ε. All ε factors remain in displayed formula.",
+        "The sublinear rounding proof bounds runtime in expectation; time is not labeled worst-case.",
+        "Delete the old ε=1/4, x=1.735 plot. Theorem 2 requires sufficiently small ε and does not verify that instance."
+      ],
+      "recordIds": [
+        "cc-query-combined-1485"
+      ]
+    },
+    {
+      "sourceId": "garciasoriano-2026-cluster-lp",
+      "url": "https://arxiv.org/html/2607.27829v2",
+      "locations": [
+        "Theorem 1.3",
+        "Corollary 1.4 and immediately following paragraph"
+      ],
+      "findings": [
+        "Deterministic rounding factor 1.3865; paper explicitly composes it with Cao's primal solver in Õ(2^{poly(1/ε)}n) time.",
+        "The fast composition is randomized through the primal solver and lacks per-instance primal–dual certification.",
+        "The separate certified dual solver is polynomial in n, not the fast combined-query point.",
+        "Publication filter retains its preprint status."
+      ],
+      "recordIds": [
+        "cc-query-combined-13865"
+      ]
+    },
+    {
+      "sourceId": "garg-2026-query-lb",
+      "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol362-itcs2026/html/LIPIcs.ITCS.2026.67/LIPIcs.ITCS.2026.67.html",
+      "locations": [
+        "Introduction Theorem 3, informal, and footnote 3",
+        "§3 formal Theorem 1"
+      ],
+      "findings": [
+        "General-query Ω(n/ε) is announced; full statement and proof are explicitly deferred. No success constant or exact ε range is inferred.",
+        "Random-pair value lower uses ≥.99 success, worst-case queries, ≤γ√n bits.",
+        "Formal parameter range: ε∈(ω(n^-1/2),.05), γ∈(ω(log n/√n),o(√n)].",
+        "No adaptive chosen-pair lower bound follows. Memory plot uses exact algebra after substituting ε=n^-a and γ=n^b strictly inside parameter ranges."
+      ],
+      "recordIds": [
+        "cc-query-general-garg-lb",
+        "cc-query-garg-memory-lb"
+      ]
+    },
+    {
+      "sourceId": "saha-2019-same-cluster",
+      "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol144-esa2019/LIPIcs.ESA.2019.81/LIPIcs.ESA.2019.81.pdf",
+      "locations": [
+        "Theorem 3.1, p.81:4",
+        "Theorem 4.1 and Corollary 4.2, p.81:8",
+        "Hypothesis 5.1 and Theorem 5.3, p.81:11"
+      ],
+      "findings": [
+        "Exact recovery uses ≤2OPT same-cluster queries, deterministic.",
+        "Factor 2 and ≤OPT query budget are BOTH in expectation.",
+        "Conditional barrier is Gap-ETH at factor 1+γ/10 for its unspecified γ; not every fixed α and not a factor-2 lower.",
+        "Graph labels are separate input; query count measures knowledge of an optimum partition."
+      ],
+      "recordIds": [
+        "cc-query-saha-optimal",
+        "cc-query-saha-two",
+        "cc-query-saha-conditional-lb"
+      ]
+    },
+    {
+      "sourceId": "ailon-2018-same-cluster",
+      "url": "https://arxiv.org/pdf/1712.06865",
+      "locations": [
+        "Author preprint Theorem 2, p.3",
+        "Theorem 3, p.4",
+        "§3.2 runtime/query recurrence"
+      ],
+      "findings": [
+        "Randomized (1+ε) MinDisAgree[k] with high probability, O(k¹⁴ log k log n/ε⁶) queries and n-times that runtime.",
+        "At most k clusters; k≥2. Detailed proof uses ε≤1/2.",
+        "Theorem 3 gives ETH lower Ω(k/polylog k) for some constant δ>0 at factor 1+δ.",
+        "Added this directly relevant lower record from the same supplied paper; no relation between k and OPT is assumed."
+      ],
+      "recordIds": [
+        "cc-query-ailon-2018",
+        "cc-query-ailon-2018-eth-lower"
+      ]
+    }
+  ],
+  "unresolvedFactualIssues": [],
+  "qualifiedClaims": [
+    "The Garg general-query lower is intentionally marked announced-proof-deferred, not promoted to a fully inspected proof.",
+    "The Saha near-optimal lower is an o(OPT) exclusion; marker does not assign hidden Ω constant 1.",
+    "The same-cluster oracle is not a graph label query."
+  ],
+  "representationDecision": {
+    "mainFacets": [
+      "combined graph access",
+      "same-cluster optimum oracle"
+    ],
+    "related": "Random-pair memory-value theorem is a card, with a separate hidden detail route.",
+    "setupQuestionSentToRoot": "Should the random-pair memory tradeoff be a third main facet instead? Recommendation is related-only.",
+    "noUserAnswerRequiredForThisDefault": true
+  }
+}

@@ -1,0 +1,3570 @@
+{
+  "problem": "edge",
+  "reviewedThrough": "2026-09-27",
+  "searchSummary": "Expanded proper edge-coloring record across dynamic, W-streaming, LOCAL, MPC, line-graph LCA, and full-output graph-query oracles. Includes historical algorithms and later improvements, plus distinct palette (number of colors), update time versus recoloring recourse, random/adversarial edge order, simple versus multigraph, low-space MPC conditional lower bounds. q is a palette, not approximation ratio q/χ′. Query-oracle results explicitly compose edge enumeration with sequential algorithms; they do not assert sublinear query SOTA. LCA remains partial, because direct ordinary-graph oracle results were not verified. SOSA 2021, FOCS 2024 and SODA 2025 predecessor results are retained for navigation through progress.",
+  "coverage": [
+    {
+      "model": "dynamic",
+      "status": "researched",
+      "note": "Dynamic palette/update-time progression (2018–2026) with separate sparse-arboricity and forest recourse slices; randomized versus deterministic and amortized versus worst-case explicit."
+    },
+    {
+      "model": "stream",
+      "status": "researched",
+      "note": "One-pass adversarial and random-order W-stream, deterministic/randomized color/space tradeoffs and stronger online-color-commitment algorithm; unrestricted multi-pass streaming still open for curation."
+    },
+    {
+      "model": "lca",
+      "status": "partial",
+      "note": "Only one theorem-derived line-graph oracle LCA baseline was verified; direct edge-coloring LCAs under ordinary G neighbor probes are not yet sourced. Do not infer a frontier."
+    },
+    {
+      "model": "local",
+      "status": "researched",
+      "note": "Historical and newer palettes (Δ+1, Δ+oΔ, ≈3Δ/2, 2Δ−2, 2Δ−1), randomized/deterministic bounds, one constant-degree multigraph slice. CONGEST stays distinct."
+    },
+    {
+      "model": "mpc",
+      "status": "partial",
+      "note": "ESA 2019 linear local-space constant rounds and 2024 low-space deterministic specialized theorem plus conditional component-stable lower bound; no general low-space MPC optimality claim."
+    },
+    {
+      "model": "query_list",
+      "status": "researched",
+      "note": "Adjacency-list/array slices are separated below; inspect each oracle and output assumption."
+    },
+    {
+      "model": "query_matrix",
+      "status": "researched",
+      "note": "Adjacency-matrix slices are separated below; inspect pair-query and output assumptions."
+    },
+    {
+      "model": "query_combined",
+      "status": "not_assessed",
+      "note": "No scoped records assigned to this access category yet."
+    }
+  ],
+  "papers": [
+    {
+      "id": "kaplan-naori-sadeh-2026-forests",
+      "title": "Dynamic Edge Coloring of Forests",
+      "authors": [
+        "Haim Kaplan",
+        "David Naori",
+        "Yaniv Sadeh"
+      ],
+      "year": 2026,
+      "venue": "arXiv:2605.09711v3",
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/abs/2605.09711",
+      "verifiedOn": "2026-10-27",
+      "fullTextUrl": "https://arxiv.org/html/2605.09711v3"
+    },
+    {
+      "id": "sadeh-kaplan-2026-recourse",
+      "title": "Beyond Vizing Chains: Improved Recourse in Dynamic Edge Coloring",
+      "authors": [
+        "Yaniv Sadeh",
+        "Haim Kaplan"
+      ],
+      "year": 2026,
+      "venue": "arXiv:2602.09497v2",
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/abs/2602.09497",
+      "verifiedOn": "2026-10-27",
+      "fullTextUrl": "https://arxiv.org/html/2602.09497v2"
+    },
+    {
+      "id": "chechik-chen-zhang-2025-stream",
+      "title": "Improved Streaming Edge Coloring",
+      "authors": [
+        "Shiri Chechik",
+        "Hongyi Chen",
+        "Tianyi Zhang"
+      ],
+      "year": 2025,
+      "venue": "ICALP 2025",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2025.48",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "jakob-maus-schager-2025-local",
+      "title": "Towards Optimal Distributed Edge Coloring with Fewer Colors",
+      "authors": [
+        "Manuel Jakob",
+        "Yannic Maus",
+        "Florian Schager"
+      ],
+      "year": 2025,
+      "venue": "DISC 2025",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.DISC.2025.37",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "blikstad-maus-devos-2026-distributed",
+      "title": "Deterministic Edge Coloring with few Colors in CONGEST",
+      "authors": [
+        "Joakim Blikstad",
+        "Yannic Maus",
+        "Tijn de Vos"
+      ],
+      "year": 2026,
+      "venue": "DISC 2026 (accepted); arXiv:2603.02689v2",
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/abs/2603.02689",
+      "verifiedOn": "2026-10-27",
+      "fullTextUrl": "https://arxiv.org/html/2603.02689v2"
+    },
+    {
+      "id": "saneian-behnezhad-2024-stream",
+      "title": "Streaming Edge Coloring with Asymptotically Optimal Colors",
+      "authors": [
+        "Mohammad Saneian",
+        "Soheil Behnezhad"
+      ],
+      "year": 2024,
+      "venue": "ICALP 2024",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2024.121",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "behnezhad-et-al-2019-mpc-stream",
+      "title": "Streaming and Massively Parallel Algorithms for Edge Coloring",
+      "authors": [
+        "Soheil Behnezhad",
+        "Mahsa Derakhshan",
+        "MohammadTaghi Hajiaghayi",
+        "Marina Knittel",
+        "Hamed Saleh"
+      ],
+      "year": 2019,
+      "venue": "ESA 2019",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ESA.2019.15",
+      "verifiedOn": "2026-10-27",
+      "fullTextUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol144-esa2019/LIPIcs.ESA.2019.15/LIPIcs.ESA.2019.15.pdf"
+    },
+    {
+      "id": "fraigniaud-heinrich-kosowski-2017-conflict",
+      "title": "Local Conflict Coloring",
+      "authors": [
+        "Pierre Fraigniaud",
+        "Marc Heinrich",
+        "Adrian Kosowski"
+      ],
+      "year": 2016,
+      "venue": "FOCS 2016; arXiv v2 revised 2017",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1511.01287",
+      "verifiedOn": "2026-10-27",
+      "fullTextUrl": "https://arxiv.org/html/1511.01287v2#S5"
+    },
+    {
+      "id": "chang-he-li-pettie-uitto-2020-local",
+      "title": "Distributed Edge Coloring and a Special Case of the Constructive Lovász Local Lemma",
+      "authors": [
+        "Yi-Jun Chang",
+        "Qizheng He",
+        "Wenzheng Li",
+        "Seth Pettie",
+        "Jara Uitto"
+      ],
+      "year": 2020,
+      "venue": "ACM Transactions on Algorithms 16(1); arXiv v3 revised 2026",
+      "publicationStatus": "journal",
+      "url": "https://arxiv.org/abs/1708.04290",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "bhattacharya-chakrabarty-henzinger-nanongkai-2018",
+      "title": "Dynamic Algorithms for Graph Coloring",
+      "authors": [
+        "Sayan Bhattacharya",
+        "Deeparnab Chakrabarty",
+        "Monika Henzinger",
+        "Danupon Nanongkai"
+      ],
+      "year": 2018,
+      "venue": "SODA 2018",
+      "publicationStatus": "conference",
+      "url": "https://epubs.siam.org/doi/10.1137/1.9781611975031.1",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "duan-he-zhang-2019-dynamic",
+      "title": "Dynamic Edge Coloring with Improved Approximation",
+      "authors": [
+        "Ran Duan",
+        "Haoqing He",
+        "Tianyi Zhang"
+      ],
+      "year": 2019,
+      "venue": "SODA 2019",
+      "publicationStatus": "conference",
+      "url": "https://epubs.siam.org/doi/10.1137/1.9781611975482.117",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "christiansen-2023-vizing-chains",
+      "title": "The Power of Multi-Step Vizing Chains",
+      "authors": [
+        "Aleksander B. G. Christiansen"
+      ],
+      "year": 2023,
+      "venue": "STOC 2023",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2210.07363",
+      "verifiedOn": "2026-10-27",
+      "fullTextUrl": "https://arxiv.org/html/2210.07363"
+    },
+    {
+      "id": "bhattacharya-costa-panski-solomon-2024-nibbling",
+      "title": "Nibbling at Long Cycles: Dynamic (and Static) Edge Coloring in Optimal Time",
+      "authors": [
+        "Sayan Bhattacharya",
+        "Martín Costa",
+        "Nadav Panski",
+        "Shay Solomon"
+      ],
+      "year": 2024,
+      "venue": "SODA 2024",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2311.03267",
+      "verifiedOn": "2026-10-27",
+      "fullTextUrl": "https://arxiv.org/html/2311.03267"
+    },
+    {
+      "id": "christiansen-rotenberg-vlieghe-2024-sparsity",
+      "title": "Sparsity-Parameterised Dynamic Edge Colouring",
+      "authors": [
+        "Aleksander B. G. Christiansen",
+        "Eva Rotenberg",
+        "Juliette Vlieghe"
+      ],
+      "year": 2024,
+      "venue": "SWAT 2024",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.SWAT.2024.20",
+      "verifiedOn": "2026-10-27",
+      "fullTextUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol294-swat2024/LIPIcs.SWAT.2024.20/LIPIcs.SWAT.2024.20.pdf"
+    },
+    {
+      "id": "bhattacharya-costa-panski-solomon-2024-arboricity",
+      "title": "Arboricity-Dependent Algorithms for Edge Coloring",
+      "authors": [
+        "Sayan Bhattacharya",
+        "Martín Costa",
+        "Nadav Panski",
+        "Shay Solomon"
+      ],
+      "year": 2024,
+      "venue": "SWAT 2024",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.SWAT.2024.12",
+      "verifiedOn": "2026-10-27",
+      "fullTextUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol294-swat2024/LIPIcs.SWAT.2024.12/LIPIcs.SWAT.2024.12.pdf"
+    },
+    {
+      "id": "christiansen-2026-deterministic-dynamic",
+      "title": "Deterministic Dynamic Edge-Colouring",
+      "authors": [
+        "Aleksander B. G. Christiansen"
+      ],
+      "year": 2026,
+      "venue": "SODA 2026; full version arXiv:2402.13139",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2402.13139",
+      "verifiedOn": "2026-10-27",
+      "fullTextUrl": "https://arxiv.org/html/2402.13139"
+    },
+    {
+      "id": "ansari-saneian-zarrabi-2022-stream",
+      "title": "Simple Streaming Algorithms for Edge Coloring",
+      "authors": [
+        "Mohammad Ansari",
+        "Mohammad Saneian",
+        "Hamid Zarrabi-Zadeh"
+      ],
+      "year": 2022,
+      "venue": "ESA 2022",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ESA.2022.8",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "chechik-mukhtar-zhang-2024-stream",
+      "title": "Streaming Edge Coloring with Subquadratic Palette Size",
+      "authors": [
+        "Shiri Chechik",
+        "Doron Mukhtar",
+        "Tianyi Zhang"
+      ],
+      "year": 2024,
+      "venue": "ICALP 2024",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2024.40",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "ghosh-stoeckl-2024-low-memory",
+      "title": "Low-Memory Algorithms for Online Edge Coloring",
+      "authors": [
+        "Prantar Ghosh",
+        "Manuel Stoeckl"
+      ],
+      "year": 2024,
+      "venue": "ICALP 2024",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2024.71",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "fischer-ghaffari-kuhn-2017",
+      "title": "Deterministic Distributed Edge-Coloring via Hypergraph Maximal Matching",
+      "authors": [
+        "Manuela Fischer",
+        "Mohsen Ghaffari",
+        "Fabian Kuhn"
+      ],
+      "year": 2017,
+      "venue": "FOCS 2017",
+      "publicationStatus": "conference",
+      "url": "https://ieee-focs.org/FOCS-2017-Papers/3464a180.pdf",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "ghaffari-kuhn-maus-uitto-2018",
+      "title": "Deterministic Distributed Edge-Coloring with Fewer Colors",
+      "authors": [
+        "Mohsen Ghaffari",
+        "Fabian Kuhn",
+        "Yannic Maus",
+        "Jara Uitto"
+      ],
+      "year": 2018,
+      "venue": "STOC 2018",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1711.05469",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "balliu-kuhn-olivetti-2020",
+      "title": "Distributed Edge Coloring in Time Quasi-Polylogarithmic in Delta",
+      "authors": [
+        "Alkida Balliu",
+        "Fabian Kuhn",
+        "Dennis Olivetti"
+      ],
+      "year": 2020,
+      "venue": "PODC 2020",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2002.10780",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "balliu-brandt-kuhn-olivetti-2022",
+      "title": "Distributed Edge Coloring in Time Polylogarithmic in Δ",
+      "authors": [
+        "Alkida Balliu",
+        "Sebastian Brandt",
+        "Fabian Kuhn",
+        "Dennis Olivetti"
+      ],
+      "year": 2022,
+      "venue": "PODC 2022",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2206.00976",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "bernshteyn-2022-local-vizing",
+      "title": "A Fast Distributed Algorithm for (Δ+1)-Edge-Coloring",
+      "authors": [
+        "Anton Bernshteyn"
+      ],
+      "year": 2022,
+      "venue": "Journal of Combinatorial Theory, Series B 152 (2022)",
+      "publicationStatus": "journal",
+      "url": "https://arxiv.org/abs/2006.15703",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "davies-2023-lll-edge",
+      "title": "Improved Distributed Algorithms for the Lovász Local Lemma and Edge Coloring",
+      "authors": [
+        "Peter Davies"
+      ],
+      "year": 2023,
+      "venue": "SODA 2023",
+      "publicationStatus": "conference",
+      "url": "https://epubs.siam.org/doi/10.1137/1.9781611977554.ch163",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "brandt-et-al-2025-threehalves",
+      "title": "On the Locality of Hall’s Theorem",
+      "authors": [
+        "Sebastian Brandt",
+        "Yannic Maus",
+        "Ananth Narayanan",
+        "Florian Schager",
+        "Jara Uitto"
+      ],
+      "year": 2025,
+      "venue": "SODA 2025; arXiv:2501.03649",
+      "publicationStatus": "conference",
+      "url": "https://epubs.siam.org/doi/10.1137/1.9781611978322.143",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "dhawan-2024-multigraph",
+      "title": "Edge-Coloring Algorithms for Bounded Degree Multigraphs",
+      "authors": [
+        "Abhishek Dhawan"
+      ],
+      "year": 2024,
+      "venue": "SODA 2024",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2307.06579",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "czumaj-davies-parter-2024-mpc",
+      "title": "Component Stability in Low-Space Massively Parallel Computation",
+      "authors": [
+        "Artur Czumaj",
+        "Peter Davies-Peck",
+        "Merav Parter"
+      ],
+      "year": 2024,
+      "venue": "Distributed Computing 37 (2024)",
+      "publicationStatus": "journal",
+      "url": "https://link.springer.com/article/10.1007/s00446-024-00461-9",
+      "verifiedOn": "2026-10-27",
+      "fullTextUrl": "https://link.springer.com/article/10.1007/s00446-024-00461-9"
+    },
+    {
+      "id": "assadi-et-al-2025-vizing",
+      "title": "Vizing’s Theorem in Near-Linear Time",
+      "authors": [
+        "Sepehr Assadi",
+        "Soheil Behnezhad",
+        "Sayan Bhattacharya",
+        "Martín Costa",
+        "Shay Solomon",
+        "Tianyi Zhang"
+      ],
+      "year": 2025,
+      "venue": "STOC 2025; Journal of the ACM 2026",
+      "publicationStatus": "journal",
+      "url": "https://arxiv.org/abs/2410.05240",
+      "verifiedOn": "2026-10-27",
+      "verificationUrl": "https://arxiv.org/html/2410.05240v3",
+      "journalUrl": "https://doi.org/10.1145/3806392",
+      "version": "arXiv:2410.05240v3, 14 October 2025",
+      "fullTextUrl": "https://arxiv.org/html/2410.05240v3",
+      "publicationUrl": "https://doi.org/10.1145/3806392"
+    },
+    {
+      "id": "assadi-2025-nearvizing",
+      "title": "Faster Vizing and Near-Vizing Edge Coloring Algorithms",
+      "authors": [
+        "Sepehr Assadi"
+      ],
+      "year": 2025,
+      "venue": "SODA 2025",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2405.13371",
+      "verifiedOn": "2026-10-27",
+      "fullTextUrl": "https://arxiv.org/html/2405.13371"
+    },
+    {
+      "id": "bhattacharya-costa-panski-solomon-2024-density",
+      "title": "Density-Sensitive Algorithms for (Δ+1)-Edge Coloring",
+      "authors": [
+        "Sayan Bhattacharya",
+        "Martín Costa",
+        "Nadav Panski",
+        "Shay Solomon"
+      ],
+      "year": 2024,
+      "venue": "ESA 2024",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ESA.2024.23",
+      "verifiedOn": "2026-10-27",
+      "fullTextUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol308-esa2024/LIPIcs.ESA.2024.23/LIPIcs.ESA.2024.23.pdf"
+    },
+    {
+      "id": "bernshteyn-dhawan-2026-linear-static",
+      "title": "A Linear-Time Algorithm for (1+ε)Δ-Edge-Coloring",
+      "authors": [
+        "Anton Bernshteyn",
+        "Abhishek Dhawan"
+      ],
+      "year": 2026,
+      "venue": "SIAM Journal on Discrete Mathematics 2026",
+      "publicationStatus": "journal",
+      "url": "https://arxiv.org/abs/2407.04887",
+      "verifiedOn": "2026-10-27",
+      "fullTextUrl": "https://arxiv.org/pdf/2407.04887v2",
+      "publicationUrl": "https://epubs.siam.org/doi/10.1137/25M1785241"
+    },
+    {
+      "id": "charikar-liu-2021-wstream",
+      "title": "Improved Algorithms for Edge Colouring in the W-Streaming Model",
+      "authors": [
+        "Moses Charikar",
+        "Paul Liu"
+      ],
+      "year": 2021,
+      "venue": "SOSA 2021",
+      "publicationStatus": "conference",
+      "url": "https://epubs.siam.org/doi/10.1137/1.9781611976496.20",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "kuhn-2020-recursive-list",
+      "title": "Faster Deterministic Distributed Coloring Through Recursive List Coloring",
+      "authors": [
+        "Fabian Kuhn"
+      ],
+      "year": 2020,
+      "venue": "SODA 2020",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1907.03797",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "bhattacharya-costa-solomon-zhang-2025-faster-vizing",
+      "title": "Even Faster (Δ+1)-Edge Coloring via Shorter Multi-Step Vizing Chains",
+      "authors": [
+        "Sayan Bhattacharya",
+        "Martín Costa",
+        "Shay Solomon",
+        "Tianyi Zhang"
+      ],
+      "year": 2025,
+      "venue": "SODA 2025",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2410.12479",
+      "verifiedOn": "2026-10-27",
+      "fullTextUrl": "https://arxiv.org/html/2410.12479"
+    },
+    {
+      "id": "bhattacharya-carmon-costa-solomon-zhang-2024-vizing",
+      "title": "Faster (Δ+1)-Edge Coloring: Breaking the m√n Time Barrier",
+      "authors": [
+        "Sayan Bhattacharya",
+        "Din Carmon",
+        "Martín Costa",
+        "Shay Solomon",
+        "Tianyi Zhang"
+      ],
+      "year": 2024,
+      "venue": "FOCS 2024; arXiv:2405.15449",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2405.15449",
+      "verifiedOn": "2026-10-27",
+      "fullTextUrl": "https://arxiv.org/html/2405.15449"
+    }
+  ],
+  "slices": [
+    {
+      "id": "edge-dynamic-forest-greedy-incremental-recourse",
+      "problem": "edge",
+      "model": "dynamic",
+      "label": "Incremental forest; greedy recourse",
+      "task": "Maintain a proper edge coloring; measure amortized recolorings per insertion",
+      "assumptions": [
+        "Initially empty forest throughout; known maximum degree Δ≥3; palette q=Δ+c with 0≤c≤Δ−2",
+        "Deterministic natural greedy algorithm; tie breaking matters"
+      ],
+      "xAxis": {
+        "label": "Cost formula class (categorical)",
+        "kind": "categorical",
+        "categories": [
+          "epsilon",
+          "inverse",
+          "parameter",
+          "polylog",
+          "subpoly",
+          "polynomial",
+          "fractional",
+          "constant"
+        ]
+      },
+      "yAxis": {
+        "label": "Graph, palette and update setup (categorical)",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "general-near",
+            "label": "General graphs · ⌈(1+ε)Δ⌉ colors"
+          },
+          {
+            "id": "general-greedy",
+            "label": "General graphs · 2Δ−1 colors"
+          },
+          {
+            "id": "general-large",
+            "label": "General graphs · Δ+C · C ≳ 0.618Δ"
+          },
+          {
+            "id": "sparse-four",
+            "label": "Bounded arboricity · Δₜ + O(αₜ)"
+          },
+          {
+            "id": "sparse-two",
+            "label": "Bounded arboricity · Δₜ+C · C≥(2+ε)α−1"
+          },
+          {
+            "id": "forest-greedy",
+            "label": "Forest · insertions · Δ+c · greedy"
+          },
+          {
+            "id": "forest-random",
+            "label": "Forest · insertions · Δ+c · randomized"
+          },
+          {
+            "id": "forest-zero",
+            "label": "Forest · fully dynamic · Δ colors · c=0"
+          },
+          {
+            "id": "forest-positive",
+            "label": "Forest · fully dynamic · Δ+c · c>0"
+          }
+        ]
+      },
+      "parameters": {
+        "c": "nonnegative palette slack",
+        "mainRepresentation": "Aligned time and recourse panels; classes are categorical, not numerical rankings."
+      },
+      "results": [
+        {
+          "output": "Explicit proper edge coloring",
+          "conditional": false,
+          "evidenceStatus": "verified",
+          "notes": "The greedy-specific lower in Theorem 2.2 is a related result, not a universal dynamic lower. Fractional amortized recolorings do not imply subconstant running time.",
+          "assumptions": [
+            "Known degree bound Δ≥3",
+            "0≤c≤Δ−2, integer slack",
+            "Natural Greedy minimizes recolorings; tie-breaking can affect its cost",
+            "Recourse excludes assigning the new edge its first color"
+          ],
+          "id": "forest-greedy-recourse-2026",
+          "paperId": "kaplan-naori-sadeh-2026-forests",
+          "kind": "upper",
+          "bound": "O(1/(c+√Δ)) amortized recourse",
+          "guarantee": "Proper (Δ+c)-edge coloring, Δ≥3",
+          "sourceLocation": "Theorem 2.1; implementation Theorem A.4",
+          "frontierStatus": "candidate",
+          "panel": "recourse",
+          "group": "forest-greedy",
+          "randomized": false,
+          "paletteFamily": "forest",
+          "palette": "q=Δ+c; 0≤c≤Δ−2",
+          "graph": "Initially empty forest, insertions only",
+          "quality": "Proper (Δ+c)-edge coloring, Δ≥3",
+          "probability": "Deterministic; recourse amortized over insertions",
+          "displayBound": "O(1/(c+√Δ)) amortized recourse",
+          "updateTime": "O(Δ⁴n) per update",
+          "recourse": "O(1/(c+√Δ)) amortized recolorings",
+          "theorem": "Theorem 2.1; implementation Theorem A.4",
+          "placements": [
+            {
+              "panel": "time",
+              "group": "forest-greedy",
+              "slot": "fgreedy",
+              "costClass": "polynomial",
+              "label": "Δ⁴n",
+              "tag": "Greedy · worst case"
+            },
+            {
+              "panel": "recourse",
+              "group": "forest-greedy",
+              "slot": "fgreedy",
+              "costClass": "fractional",
+              "label": "1/(c+√Δ)",
+              "tag": "Greedy · amortized"
+            }
+          ],
+          "sourceId": "kaplan-naori-sadeh-2026-forests",
+          "sourceUrl": "https://arxiv.org/html/2605.09711v3"
+        },
+        {
+          "output": "Explicit proper edge coloring",
+          "conditional": false,
+          "evidenceStatus": "verified",
+          "notes": "Algorithm-specific; not a lower bound for every dynamic edge-coloring algorithm.",
+          "assumptions": [
+            "Δ≥3, 0≤c≤Δ−2",
+            "Exists a tie-breaking rule and insertion sequence"
+          ],
+          "id": "edge-forest-greedy-tiebreak-lower-2026",
+          "paperId": "kaplan-naori-sadeh-2026-forests",
+          "kind": "lower",
+          "panel": "recourse",
+          "group": "forest-greedy",
+          "paletteFamily": "forest",
+          "randomized": false,
+          "palette": "q=Δ+c",
+          "graph": "Incremental forest, initially empty",
+          "quality": "Greedy under a particular tie-breaking rule",
+          "probability": "Deterministic amortized lower for the specified algorithm family",
+          "displayBound": "Ω(1/(c+√Δ)) greedy recourse",
+          "recourse": "Ω(1/(c+√Δ)) amortized",
+          "theorem": "Theorem 2.2",
+          "scope": "algorithm_specific",
+          "sourceId": "kaplan-naori-sadeh-2026-forests",
+          "sourceUrl": "https://arxiv.org/html/2605.09711v3",
+          "bound": "Ω(1/(c+√Δ)) greedy recourse",
+          "guarantee": "Greedy under a particular tie-breaking rule",
+          "sourceLocation": "Theorem 2.2",
+          "placements": [],
+          "relatedOnly": true
+        }
+      ],
+      "mode": "curated",
+      "focusPairId": "edge-dynamic"
+    },
+    {
+      "id": "edge-dynamic-forest-fully-random-recourse",
+      "problem": "edge",
+      "model": "dynamic",
+      "label": "Fully dynamic forest; randomized recourse",
+      "task": "Maintain a proper edge coloring under insertions and deletions; measure expected recourse",
+      "assumptions": [
+        "Forest throughout; known maximum degree Δ≥3; palette q=Δ+c, 0<c≤Δ−2",
+        "Randomized distribution-maintaining algorithm against an oblivious adversary"
+      ],
+      "xAxis": {
+        "label": "Cost formula class (categorical)",
+        "kind": "categorical",
+        "categories": [
+          "epsilon",
+          "inverse",
+          "parameter",
+          "polylog",
+          "subpoly",
+          "polynomial",
+          "fractional",
+          "constant"
+        ]
+      },
+      "yAxis": {
+        "label": "Graph, palette and update setup (categorical)",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "general-near",
+            "label": "General graphs · ⌈(1+ε)Δ⌉ colors"
+          },
+          {
+            "id": "general-greedy",
+            "label": "General graphs · 2Δ−1 colors"
+          },
+          {
+            "id": "general-large",
+            "label": "General graphs · Δ+C · C ≳ 0.618Δ"
+          },
+          {
+            "id": "sparse-four",
+            "label": "Bounded arboricity · Δₜ + O(αₜ)"
+          },
+          {
+            "id": "sparse-two",
+            "label": "Bounded arboricity · Δₜ+C · C≥(2+ε)α−1"
+          },
+          {
+            "id": "forest-greedy",
+            "label": "Forest · insertions · Δ+c · greedy"
+          },
+          {
+            "id": "forest-random",
+            "label": "Forest · insertions · Δ+c · randomized"
+          },
+          {
+            "id": "forest-zero",
+            "label": "Forest · fully dynamic · Δ colors · c=0"
+          },
+          {
+            "id": "forest-positive",
+            "label": "Forest · fully dynamic · Δ+c · c>0"
+          }
+        ]
+      },
+      "parameters": {
+        "c": "positive palette slack",
+        "mainRepresentation": "Aligned time and recourse panels; classes are categorical, not numerical rankings."
+      },
+      "results": [
+        {
+          "output": "Explicit proper edge coloring",
+          "conditional": false,
+          "evidenceStatus": "verified",
+          "notes": "The Θ statement describes DistMaint's own cost. Universal optimality is established only at c=0; for positive fixed c the verified general lower is Ω(1). Define M=min{Δ/c, log_(Δ+c−1)n}.",
+          "assumptions": [
+            "Known Δ≥3",
+            "0<c≤Δ−2",
+            "Oblivious adversary",
+            "Unit-cost pointer/arithmetic operations and uniform integer sampling up to Δ+c"
+          ],
+          "id": "forest-random-fully-2026",
+          "paperId": "kaplan-naori-sadeh-2026-forests",
+          "kind": "upper",
+          "bound": "O(min{Δ/c, log_(Δ+c−1)n}) expected recourse",
+          "guarantee": "Proper (Δ+c)-edge coloring, Δ≥3",
+          "sourceLocation": "Theorem 2.11 and implementation Theorem A.1",
+          "frontierStatus": "candidate",
+          "panel": "recourse",
+          "group": "forest-positive",
+          "randomized": true,
+          "paletteFamily": "forest",
+          "palette": "q=Δ+c; 0<c≤Δ−2",
+          "graph": "Initially empty forest, insertions and deletions",
+          "quality": "Proper (Δ+c)-edge coloring, Δ≥3",
+          "probability": "Expected cost of each update, against an oblivious adversary",
+          "displayBound": "O(min{Δ/c, log_(Δ+c−1)n}) expected recourse",
+          "updateTime": "O(1+min{Δ/c, log_(Δ+c−1)n}) expected per-update time",
+          "recourse": "DistMaint has Θ(min{Δ/c, log_(Δ+c−1)n}) expected per-update recourse",
+          "theorem": "Theorem 2.11 and implementation Theorem A.1",
+          "placements": [
+            {
+              "panel": "time",
+              "group": "forest-positive",
+              "slot": "fpositive",
+              "costClass": "parameter",
+              "label": "1+M",
+              "tag": "Expected per update"
+            },
+            {
+              "panel": "recourse",
+              "group": "forest-positive",
+              "slot": "fpositive",
+              "costClass": "parameter",
+              "label": "M",
+              "tag": "Expected per update",
+              "labelSide": "right"
+            }
+          ],
+          "sourceId": "kaplan-naori-sadeh-2026-forests",
+          "sourceUrl": "https://arxiv.org/html/2605.09711v3"
+        },
+        {
+          "output": "Explicit proper edge coloring",
+          "conditional": false,
+          "evidenceStatus": "verified",
+          "notes": "This does not establish a matching universal lower of min{Δ/c,log_(Δ+c−1)n} for positive slack.",
+          "assumptions": [
+            "Fixed constant c>0",
+            "Δ≥3 and c≤Δ−2",
+            "Hidden constant may depend on c"
+          ],
+          "id": "edge-forest-fully-fixed-slack-lower-2026",
+          "paperId": "kaplan-naori-sadeh-2026-forests",
+          "kind": "lower",
+          "panel": "recourse",
+          "group": "forest-positive",
+          "paletteFamily": "forest",
+          "randomized": true,
+          "palette": "q=Δ+c, fixed positive c",
+          "graph": "Initially empty forest; insertions and deletions",
+          "quality": "Any algorithm maintaining a proper (Δ+c)-edge coloring",
+          "probability": "Expected amortized lower bound, even randomized against an oblivious adversary",
+          "displayBound": "Ω(1) expected amortized recourse for fixed c",
+          "recourse": "Ω(1), expected amortized",
+          "updateTime": null,
+          "theorem": "Theorem 2.13",
+          "placements": [
+            {
+              "panel": "recourse",
+              "group": "forest-positive",
+              "slot": "fpositive",
+              "costClass": "constant",
+              "label": "Ω(1)",
+              "tag": "Fixed c",
+              "labelSide": "left"
+            }
+          ],
+          "sourceId": "kaplan-naori-sadeh-2026-forests",
+          "sourceUrl": "https://arxiv.org/html/2605.09711v3",
+          "bound": "Ω(1) expected amortized recourse for fixed c",
+          "guarantee": "Any algorithm maintaining a proper (Δ+c)-edge coloring",
+          "sourceLocation": "Theorem 2.13"
+        }
+      ],
+      "mode": "curated",
+      "focusPairId": "edge-dynamic"
+    },
+    {
+      "id": "edge-dynamic-general-large-palette-recourse",
+      "problem": "edge",
+      "model": "dynamic",
+      "label": "Fully dynamic general graph; large palette",
+      "task": "Maintain a proper edge coloring; minimize recourse",
+      "assumptions": [
+        "General simple graph; maximum degree Δ and fixed palette q=Δ+C",
+        "Integer C with 1≤C≤Δ−2 and C≥Δ/φ+0.724, φ=(1+√5)/2; (C/Δ)−1/φ=Ω(1) for simplified bound",
+        "Δ−C=O(n^(1−δ)) for fixed δ>0; deterministic algorithm"
+      ],
+      "xAxis": {
+        "label": "Cost formula class (categorical)",
+        "kind": "categorical",
+        "categories": [
+          "epsilon",
+          "inverse",
+          "parameter",
+          "polylog",
+          "subpoly",
+          "polynomial",
+          "fractional",
+          "constant"
+        ]
+      },
+      "yAxis": {
+        "label": "Graph, palette and update setup (categorical)",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "general-near",
+            "label": "General graphs · ⌈(1+ε)Δ⌉ colors"
+          },
+          {
+            "id": "general-greedy",
+            "label": "General graphs · 2Δ−1 colors"
+          },
+          {
+            "id": "general-large",
+            "label": "General graphs · Δ+C · C ≳ 0.618Δ"
+          },
+          {
+            "id": "sparse-four",
+            "label": "Bounded arboricity · Δₜ + O(αₜ)"
+          },
+          {
+            "id": "sparse-two",
+            "label": "Bounded arboricity · Δₜ+C · C≥(2+ε)α−1"
+          },
+          {
+            "id": "forest-greedy",
+            "label": "Forest · insertions · Δ+c · greedy"
+          },
+          {
+            "id": "forest-random",
+            "label": "Forest · insertions · Δ+c · randomized"
+          },
+          {
+            "id": "forest-zero",
+            "label": "Forest · fully dynamic · Δ colors · c=0"
+          },
+          {
+            "id": "forest-positive",
+            "label": "Forest · fully dynamic · Δ+c · c>0"
+          }
+        ]
+      },
+      "parameters": {
+        "δ": "fixed positive constant",
+        "mainRepresentation": "Aligned time and recourse panels; classes are categorical, not numerical rankings."
+      },
+      "results": [
+        {
+          "output": "Explicit proper edge coloring",
+          "conditional": false,
+          "evidenceStatus": "verified",
+          "notes": "Write B=C/Δ−1/φ and Λ=log((Δ+C)/(Δ−C)). The structural extension lower is separate; its tightness comparison additionally requires Δ−C=O(n^(1−δ)) for fixed δ>0.",
+          "assumptions": [
+            "Integer C, 1≤C≤Δ−2",
+            "C≥Δ/φ+0.724, φ=(1+√5)/2",
+            "Fixed palette; deletion requires no recoloring",
+            "Dropping 1/(C/Δ−1/φ) requires C/Δ−1/φ=Ω(1)"
+          ],
+          "id": "general-large-palette-recourse-2026",
+          "paperId": "sadeh-kaplan-2026-recourse",
+          "kind": "upper",
+          "bound": "O((log n)/(log((Δ+C)/(Δ−C))) · 1/(C/Δ−1/φ)) recourse",
+          "guarantee": "Proper (Δ+C)-edge coloring; 1≤C≤Δ−2",
+          "sourceLocation": "Theorem 2.5; Appendix B.19 handles small Δ",
+          "frontierStatus": "current_best_verified",
+          "panel": "recourse",
+          "group": "general-large",
+          "randomized": false,
+          "paletteFamily": "large",
+          "palette": "q=Δ+C; C≥Δ/φ+0.724",
+          "graph": "General simple graph, fixed known degree bound Δ",
+          "quality": "Proper (Δ+C)-edge coloring; 1≤C≤Δ−2",
+          "probability": "Deterministic worst-case recourse per insertion",
+          "displayBound": "O((log n)/(log((Δ+C)/(Δ−C))) · 1/(C/Δ−1/φ)) recourse",
+          "updateTime": "O(m+Δ²)",
+          "recourse": "O((log n)/(log((Δ+C)/(Δ−C))) · 1/(C/Δ−1/φ)) worst case",
+          "theorem": "Theorem 2.5; Appendix B.19 handles small Δ",
+          "placements": [
+            {
+              "panel": "time",
+              "group": "general-large",
+              "slot": "large",
+              "costClass": "polynomial",
+              "label": "m+Δ²",
+              "tag": "Deterministic · worst case"
+            },
+            {
+              "panel": "recourse",
+              "group": "general-large",
+              "slot": "large",
+              "costClass": "parameter",
+              "label": "log n/(BΛ)",
+              "tag": "Worst case / insertion"
+            }
+          ],
+          "sourceId": "sadeh-kaplan-2026-recourse",
+          "sourceUrl": "https://arxiv.org/html/2602.09497v2"
+        },
+        {
+          "output": "Explicit proper edge coloring",
+          "conditional": false,
+          "evidenceStatus": "verified",
+          "notes": "The source corrects a missing (Δ−C) factor inside the logarithm in earlier citations. Keep this structural bound outside the main dynamic frontier.",
+          "assumptions": [
+            "1≤C≤Δ−2",
+            "Specified initial partial coloring",
+            "Not an amortized or expected dynamic lower bound",
+            "May be unreachable under a maintained invariant"
+          ],
+          "id": "edge-general-precoloring-extension-lower-2026",
+          "paperId": "sadeh-kaplan-2026-recourse",
+          "kind": "lower",
+          "panel": "recourse",
+          "group": "general-large",
+          "paletteFamily": "large",
+          "randomized": false,
+          "palette": "q=Δ+C",
+          "graph": "A specially chosen partially colored simple graph",
+          "quality": "Extend its prescribed coloring to one uncolored edge",
+          "probability": "Worst-case existential precoloring construction",
+          "displayBound": "Ω(log(nC/(Δ−C)²) / log((Δ+C)/(Δ−C))) recolorings",
+          "recourse": "Ω(log(nC/(Δ−C)²) / log((Δ+C)/(Δ−C)))",
+          "theorem": "Theorem 2.6 and explicit scope warning following it",
+          "scope": "arbitrary_precoloring_extension",
+          "sourceId": "sadeh-kaplan-2026-recourse",
+          "sourceUrl": "https://arxiv.org/html/2602.09497v2",
+          "bound": "Ω(log(nC/(Δ−C)²) / log((Δ+C)/(Δ−C))) recolorings",
+          "guarantee": "Extend its prescribed coloring to one uncolored edge",
+          "sourceLocation": "Theorem 2.6 and explicit scope warning following it",
+          "placements": [],
+          "relatedOnly": true
+        }
+      ],
+      "mode": "curated",
+      "focusPairId": "edge-dynamic"
+    },
+    {
+      "id": "edge-stream-w-onepass-explicit",
+      "problem": "edge",
+      "model": "stream",
+      "label": "One-pass W-streaming; explicit output",
+      "task": "Write a valid color for each edge in an output stream",
+      "assumptions": [
+        "n-vertex simple graph of maximum degree Δ; arbitrary order edge arrivals, one pass",
+        "Working memory Õ(n), output stream is write-only; note each result’s deterministic/randomized guarantee"
+      ],
+      "xAxis": {
+        "label": "Palette ratio r = q/Δ",
+        "kind": "palette",
+        "min": 1,
+        "max": 2.25,
+        "ticks": [
+          1,
+          1.25,
+          1.5,
+          1.75,
+          2,
+          2.25
+        ],
+        "tickLabels": [
+          "Δ",
+          "5Δ/4",
+          "3Δ/2",
+          "7Δ/4",
+          "2Δ",
+          "9Δ/4"
+        ]
+      },
+      "yAxis": {
+        "label": "Space exponent p in Õ(n^p) bits",
+        "kind": "exponent",
+        "min": 0,
+        "max": 2,
+        "ticks": [
+          0,
+          0.5,
+          1,
+          1.5,
+          2
+        ],
+        "tickLabels": [
+          "polylog",
+          "√n",
+          "n",
+          "n^{3/2}",
+          "n²"
+        ]
+      },
+      "parameters": {
+        "ε": "any fixed positive constant"
+      },
+      "results": [
+        {
+          "id": "edge-stream-2019-arbitrary",
+          "paperId": "behnezhad-et-al-2019-mpc-stream",
+          "kind": "upper",
+          "bound": "O(Δ²) colors w.h.p. using Õ(n) space",
+          "guarantee": "Proper explicit W-stream coloring, randomized",
+          "sourceLocation": "ESA 2019 abstract, adversarial-order streaming item",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "Randomized quadratic-palette historical starting point.",
+          "plot": null
+        },
+        {
+          "id": "edge-stream-2022-deterministic",
+          "paperId": "ansari-saneian-zarrabi-2022-stream",
+          "kind": "upper",
+          "bound": "O(Δ²) colors using Õ(n) space",
+          "guarantee": "Proper explicit W-stream coloring, deterministic",
+          "sourceLocation": "ESA 2022 abstract; take space parameter s=1",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "The paper also provides q=O(Δ²/s) with O(ns) space; see its own tradeoff result.",
+          "plot": null
+        },
+        {
+          "id": "edge-stream-2024-subquadratic",
+          "paperId": "chechik-mukhtar-zhang-2024-stream",
+          "kind": "upper",
+          "bound": "Õ(Δ^{3/2}) colors with Õ(n) space",
+          "guarantee": "Proper explicit W-stream coloring, randomized",
+          "sourceLocation": "ICALP 2024 abstract, main theorem",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "For adversarial input order; asymptotic color gain over previous quadratic schemes.",
+          "plot": null
+        },
+        {
+          "id": "edge-stream-2024-bs-linear-space",
+          "paperId": "saneian-behnezhad-2024-stream",
+          "kind": "upper",
+          "bound": "O(Δ^{3/2}+Δ) colors using Õ(n) space",
+          "guarantee": "Proper explicit W-stream coloring, randomized",
+          "sourceLocation": "ICALP 2024 abstract / tradeoff instantiated at s=1",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "Independent 2024 randomized palette bound; stronger theorem at larger memory is shown in separate tradeoff slice.",
+          "plot": null
+        },
+        {
+          "id": "stream-deterministic-four-thirds-2025",
+          "paperId": "chechik-chen-zhang-2025-stream",
+          "kind": "upper",
+          "bound": "Õ(Δ^(4/3+ε)) colors with Õ(n) space",
+          "guarantee": "Proper explicit edge coloring in W-streaming output model",
+          "sourceLocation": "Abstract; main result",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "candidate",
+          "notes": "The tilde hides logarithms; palette q is not q/χ′. Compare only with same output and space conventions.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "edge-local-two-delta-minus-two",
+      "problem": "edge",
+      "model": "local",
+      "label": "LOCAL model; q=2Δ−2",
+      "task": "Distributed proper edge coloring in synchronous rounds",
+      "assumptions": [
+        "Simple graph, n vertices, maximum degree Δ.",
+        "Synchronous LOCAL model; unrestricted message size and local computation.",
+        "Distinct identifiers as in the standard LOCAL model.",
+        "Main view fixes Δ ≥ 3 independently of n."
+      ],
+      "xAxis": {
+        "label": "Exact palette q (categorical)",
+        "kind": "categorical",
+        "categories": [
+          "2Δ−1",
+          "2Δ−2"
+        ]
+      },
+      "yAxis": {
+        "label": "Communication rounds at fixed Δ ≥ 3 (symbolic order)",
+        "kind": "symbolic",
+        "categories": [
+          "log* n",
+          "log log n",
+          "log n"
+        ]
+      },
+      "parameters": {},
+      "results": [
+        {
+          "id": "local-two-delta-minus-two-upper-2025",
+          "paperId": "jakob-maus-schager-2025-local",
+          "kind": "upper",
+          "bound": "O(log¹²Δ + log n) or Õ(log^(5/3)n) LOCAL rounds",
+          "guarantee": "Proper edge coloring with q = 2Δ−2",
+          "sourceLocation": "Corollary 3",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Two alternative instantiations. The constant-degree main view specializes the first. O(log n) is tight here only after fixing Δ. A bound on reduction overhead alone is not a bound on the whole algorithm.",
+          "plot": null
+        },
+        {
+          "id": "local-two-delta-minus-two-lower-2020",
+          "paperId": "chang-he-li-pettie-uitto-2020-local",
+          "kind": "lower",
+          "bound": "Ω(log_Δ n) deterministic; Ω(log_Δ log n) randomized LOCAL rounds",
+          "guarantee": "Proper edge coloring with q = 2Δ−2",
+          "sourceLocation": "Theorem 2, arXiv v3",
+          "evidenceStatus": "verified",
+          "frontierStatus": "current_best_verified",
+          "notes": "Even on 2-vertex-colored trees. Randomized lower bound uses the high-probability RandLOCAL correctness requirement. The 2026 erratum changes a network-decomposition claim; it explicitly leaves the edge-coloring bounds unchanged.",
+          "plot": null
+        },
+        {
+          "id": "edge-local-jakob25-random",
+          "paperId": "jakob-maus-schager-2025-local",
+          "kind": "upper",
+          "bound": "O(log¹²Δ + log log n) or Õ((log log n)^(5/3)) LOCAL rounds",
+          "guarantee": "Proper edge coloring with q = 2Δ−2",
+          "sourceLocation": "Theorem 4 and Corollary 5",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Total randomized runtime includes the residual (2Δ−1)-edge-coloring subroutine. Fixing Δ reduces the first instantiation to O(log log n).",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "edge-dynamic-forest-incremental-random-recourse",
+      "problem": "edge",
+      "model": "dynamic",
+      "label": "Incremental forest; randomized recourse",
+      "task": "Maintain explicit proper edge coloring; expected amortized recolorings per insertion",
+      "assumptions": [
+        "Initially empty forest throughout; known maximum degree Δ≥3",
+        "Palette q=Δ+c, 0≤c≤Δ−2; randomized distribution-maintaining algorithm against an oblivious adversary"
+      ],
+      "xAxis": {
+        "label": "Cost formula class (categorical)",
+        "kind": "categorical",
+        "categories": [
+          "epsilon",
+          "inverse",
+          "parameter",
+          "polylog",
+          "subpoly",
+          "polynomial",
+          "fractional",
+          "constant"
+        ]
+      },
+      "yAxis": {
+        "label": "Graph, palette and update setup (categorical)",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "general-near",
+            "label": "General graphs · ⌈(1+ε)Δ⌉ colors"
+          },
+          {
+            "id": "general-greedy",
+            "label": "General graphs · 2Δ−1 colors"
+          },
+          {
+            "id": "general-large",
+            "label": "General graphs · Δ+C · C ≳ 0.618Δ"
+          },
+          {
+            "id": "sparse-four",
+            "label": "Bounded arboricity · Δₜ + O(αₜ)"
+          },
+          {
+            "id": "sparse-two",
+            "label": "Bounded arboricity · Δₜ+C · C≥(2+ε)α−1"
+          },
+          {
+            "id": "forest-greedy",
+            "label": "Forest · insertions · Δ+c · greedy"
+          },
+          {
+            "id": "forest-random",
+            "label": "Forest · insertions · Δ+c · randomized"
+          },
+          {
+            "id": "forest-zero",
+            "label": "Forest · fully dynamic · Δ colors · c=0"
+          },
+          {
+            "id": "forest-positive",
+            "label": "Forest · fully dynamic · Δ+c · c>0"
+          }
+        ]
+      },
+      "parameters": {
+        "c": "fixed nonnegative integer",
+        "mainRepresentation": "Aligned time and recourse panels; classes are categorical, not numerical rankings."
+      },
+      "results": [
+        {
+          "output": "Explicit proper edge coloring",
+          "conditional": false,
+          "evidenceStatus": "verified",
+          "notes": "Theorem A.2 gives O(α_UF(n)+R), with R=Θ(1/Δ), yielding the displayed time. The matching universal lower only covers fixed c; its hidden constant may depend on c.",
+          "assumptions": [
+            "Known Δ≥3",
+            "0≤c≤Δ−2",
+            "Size-aware rerooting uses union-find",
+            "α_UF is inverse Ackermann, not graph arboricity",
+            "Unit-cost pointer/arithmetic operations and uniform sampling"
+          ],
+          "id": "forest-incremental-random-2026",
+          "paperId": "kaplan-naori-sadeh-2026-forests",
+          "kind": "upper",
+          "bound": "O(1/Δ) expected amortized recourse",
+          "guarantee": "Proper (Δ+c)-edge coloring, Δ≥3",
+          "sourceLocation": "Theorem 2.9; Theorem A.2",
+          "frontierStatus": "candidate",
+          "panel": "recourse",
+          "group": "forest-random",
+          "randomized": true,
+          "paletteFamily": "forest",
+          "palette": "q=Δ+c; 0≤c≤Δ−2",
+          "graph": "Initially empty unrooted forest, insertions only",
+          "quality": "Proper (Δ+c)-edge coloring, Δ≥3",
+          "probability": "Expected amortized cost, oblivious adversary",
+          "displayBound": "O(1/Δ) expected amortized recourse",
+          "updateTime": "O(α_UF(n)) expected amortized time",
+          "recourse": "Θ(1/Δ) expected amortized recourse for DistMaint",
+          "theorem": "Theorem 2.9; Theorem A.2",
+          "placements": [
+            {
+              "panel": "time",
+              "group": "forest-random",
+              "slot": "frandom",
+              "costClass": "inverse",
+              "label": "α_UF(n)",
+              "tag": "Expected amortized"
+            },
+            {
+              "panel": "recourse",
+              "group": "forest-random",
+              "slot": "frandom",
+              "costClass": "fractional",
+              "label": "1/Δ",
+              "tag": "Matching for fixed c"
+            }
+          ],
+          "sourceId": "kaplan-naori-sadeh-2026-forests",
+          "sourceUrl": "https://arxiv.org/html/2605.09711v3"
+        },
+        {
+          "output": "Explicit proper edge coloring",
+          "conditional": false,
+          "evidenceStatus": "verified",
+          "notes": "The main overlapping marker indicates a match only for fixed slack c. This is a universal dynamic lower bound.",
+          "assumptions": [
+            "Fixed constant c≥0",
+            "Δ≥3 and c≤Δ−2",
+            "Hidden constant may depend on c"
+          ],
+          "id": "edge-forest-incremental-universal-lower-2026",
+          "paperId": "kaplan-naori-sadeh-2026-forests",
+          "kind": "lower",
+          "panel": "recourse",
+          "group": "forest-random",
+          "paletteFamily": "forest",
+          "randomized": true,
+          "palette": "q=Δ+c, fixed c≥0",
+          "graph": "Initially empty forest; insertions only",
+          "quality": "Any algorithm maintaining a proper (Δ+c)-edge coloring",
+          "probability": "Expected amortized lower bound, even randomized against an oblivious adversary",
+          "displayBound": "Ω(1/Δ) expected amortized recourse",
+          "recourse": "Ω(1/Δ) expected amortized",
+          "updateTime": null,
+          "theorem": "Theorem 2.10",
+          "placements": [
+            {
+              "panel": "recourse",
+              "group": "forest-random",
+              "slot": "frandom",
+              "costClass": "fractional",
+              "label": "Ω(1/Δ)",
+              "tag": "Fixed c",
+              "hideLabel": true
+            }
+          ],
+          "sourceId": "kaplan-naori-sadeh-2026-forests",
+          "sourceUrl": "https://arxiv.org/html/2605.09711v3",
+          "bound": "Ω(1/Δ) expected amortized recourse",
+          "guarantee": "Any algorithm maintaining a proper (Δ+c)-edge coloring",
+          "sourceLocation": "Theorem 2.10"
+        }
+      ],
+      "mode": "curated",
+      "focusPairId": "edge-dynamic"
+    },
+    {
+      "id": "edge-dynamic-forest-full-optimal-palette-lower",
+      "problem": "edge",
+      "model": "dynamic",
+      "label": "Fully dynamic forest; optimal Δ-color palette",
+      "task": "Maintain proper Δ edge coloring and measure expected recolorings",
+      "assumptions": [
+        "Initially empty forest throughout; known maximum degree Δ≥3; c=0, palette q=Δ",
+        "Fully dynamic edge insertions and deletions; lower bound even for randomized algorithms against oblivious adversary"
+      ],
+      "xAxis": {
+        "label": "Cost formula class (categorical)",
+        "kind": "categorical",
+        "categories": [
+          "epsilon",
+          "inverse",
+          "parameter",
+          "polylog",
+          "subpoly",
+          "polynomial",
+          "fractional",
+          "constant"
+        ]
+      },
+      "yAxis": {
+        "label": "Graph, palette and update setup (categorical)",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "general-near",
+            "label": "General graphs · ⌈(1+ε)Δ⌉ colors"
+          },
+          {
+            "id": "general-greedy",
+            "label": "General graphs · 2Δ−1 colors"
+          },
+          {
+            "id": "general-large",
+            "label": "General graphs · Δ+C · C ≳ 0.618Δ"
+          },
+          {
+            "id": "sparse-four",
+            "label": "Bounded arboricity · Δₜ + O(αₜ)"
+          },
+          {
+            "id": "sparse-two",
+            "label": "Bounded arboricity · Δₜ+C · C≥(2+ε)α−1"
+          },
+          {
+            "id": "forest-greedy",
+            "label": "Forest · insertions · Δ+c · greedy"
+          },
+          {
+            "id": "forest-random",
+            "label": "Forest · insertions · Δ+c · randomized"
+          },
+          {
+            "id": "forest-zero",
+            "label": "Forest · fully dynamic · Δ colors · c=0"
+          },
+          {
+            "id": "forest-positive",
+            "label": "Forest · fully dynamic · Δ+c · c>0"
+          }
+        ]
+      },
+      "parameters": {
+        "mainRepresentation": "Aligned time and recourse panels; classes are categorical, not numerical rankings."
+      },
+      "results": [
+        {
+          "output": "Explicit proper edge coloring",
+          "conditional": false,
+          "evidenceStatus": "verified",
+          "notes": "This lower bound matches the expected amortized consequence of DistMaint's stronger per-update upper guarantee. It is not an update-time theorem.",
+          "assumptions": [
+            "Known Δ≥3",
+            "Zero palette slack",
+            "All randomized dynamic algorithms; oblivious adversary"
+          ],
+          "id": "forest-full-delta-lower-2026",
+          "paperId": "kaplan-naori-sadeh-2026-forests",
+          "kind": "lower",
+          "bound": "Ω(log_(Δ−1)n) expected amortized recourse",
+          "guarantee": "Maintaining a proper Δ-edge coloring",
+          "sourceLocation": "Theorem 2.12",
+          "frontierStatus": "current_best_verified",
+          "panel": "recourse",
+          "group": "forest-zero",
+          "randomized": true,
+          "paletteFamily": "forest",
+          "palette": "q=Δ; c=0",
+          "graph": "Initially empty forest, insertions and deletions",
+          "quality": "Maintaining a proper Δ-edge coloring",
+          "probability": "Expected amortized lower bound; randomized algorithms against an oblivious adversary included",
+          "displayBound": "Ω(log_(Δ−1)n) expected amortized recourse",
+          "updateTime": null,
+          "recourse": "Ω(log_(Δ−1)n) expected amortized recourse",
+          "theorem": "Theorem 2.12",
+          "placements": [
+            {
+              "panel": "recourse",
+              "group": "forest-zero",
+              "slot": "fzero",
+              "costClass": "parameter",
+              "label": "Ω(log_(Δ−1)n)",
+              "tag": "Expected amortized",
+              "hideLabel": true
+            }
+          ],
+          "sourceId": "kaplan-naori-sadeh-2026-forests",
+          "sourceUrl": "https://arxiv.org/html/2605.09711v3"
+        },
+        {
+          "output": "Explicit proper edge coloring",
+          "conditional": false,
+          "evidenceStatus": "verified",
+          "notes": "Matched by Theorem 2.12's expected amortized lower; the upper guarantee is stronger because it holds for each update.",
+          "assumptions": [
+            "Known Δ≥3",
+            "Interpret Δ/c as infinity at c=0",
+            "Unit-cost operations and uniform integer sampling"
+          ],
+          "id": "edge-forest-fully-zero-upper-2026",
+          "paperId": "kaplan-naori-sadeh-2026-forests",
+          "kind": "upper",
+          "panel": "recourse",
+          "group": "forest-zero",
+          "paletteFamily": "forest",
+          "randomized": true,
+          "palette": "q=Δ, c=0",
+          "graph": "Initially empty forest; insertions and deletions",
+          "quality": "Proper Δ-edge coloring",
+          "probability": "Expected cost of each update, oblivious adversary",
+          "displayBound": "O(log_(Δ−1)n) expected recourse per update",
+          "recourse": "Θ(log_(Δ−1)n) expected per-update cost of DistMaint",
+          "updateTime": "O(1+log_(Δ−1)n) expected per-update time",
+          "theorem": "Theorem 2.11 with c=0; Theorem A.1",
+          "placements": [
+            {
+              "panel": "time",
+              "group": "forest-zero",
+              "slot": "fzero",
+              "costClass": "parameter",
+              "label": "1+log_(Δ−1)n",
+              "tag": "Expected per update"
+            },
+            {
+              "panel": "recourse",
+              "group": "forest-zero",
+              "slot": "fzero",
+              "costClass": "parameter",
+              "label": "log_(Δ−1)n",
+              "tag": "Matching amortized bounds"
+            }
+          ],
+          "sourceId": "kaplan-naori-sadeh-2026-forests",
+          "sourceUrl": "https://arxiv.org/html/2605.09711v3",
+          "bound": "O(log_(Δ−1)n) expected recourse per update",
+          "guarantee": "Proper Δ-edge coloring",
+          "sourceLocation": "Theorem 2.11 with c=0; Theorem A.1"
+        }
+      ],
+      "mode": "curated",
+      "focusPairId": "edge-dynamic"
+    },
+    {
+      "id": "edge-stream-w-adversarial-space-tradeoff",
+      "problem": "edge",
+      "model": "stream",
+      "label": "One-pass adversarial-order W-streaming; more space",
+      "task": "Output proper color for every edge to a write-only stream",
+      "assumptions": [
+        "Arbitrary arrival order; randomized",
+        "n vertices, maximum degree Δ, one input pass; Õ(ns) memory"
+      ],
+      "xAxis": {
+        "label": "Palette ratio r = q/Δ",
+        "kind": "palette",
+        "min": 1,
+        "max": 2.25,
+        "ticks": [
+          1,
+          1.25,
+          1.5,
+          1.75,
+          2,
+          2.25
+        ],
+        "tickLabels": [
+          "Δ",
+          "5Δ/4",
+          "3Δ/2",
+          "7Δ/4",
+          "2Δ",
+          "9Δ/4"
+        ]
+      },
+      "yAxis": {
+        "label": "Space exponent p in Õ(n^p) bits",
+        "kind": "exponent",
+        "min": 0,
+        "max": 2,
+        "ticks": [
+          0,
+          0.5,
+          1,
+          1.5,
+          2
+        ],
+        "tickLabels": [
+          "polylog",
+          "√n",
+          "n",
+          "n^{3/2}",
+          "n²"
+        ]
+      },
+      "parameters": {
+        "s": "space parameter as in ICALP 2024 theorem"
+      },
+      "results": [
+        {
+          "id": "stream-space-tradeoff-2024",
+          "paperId": "saneian-behnezhad-2024-stream",
+          "kind": "upper",
+          "bound": "O(Δ^(3/2)/s+Δ) colors with Õ(ns) space",
+          "guarantee": "Proper W-streaming edge coloring; s=√Δ gives O(Δ) colors using Õ(n√Δ) space",
+          "sourceLocation": "Abstract; main space/color tradeoff",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "candidate",
+          "notes": "At s=1, 2025 deterministic Õ(Δ^(4/3+ε)) improves palette under Õ(n) space; this result is pertinent at higher memory budgets. The abstract does not give an explicit s domain, so no plotted range.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "edge-stream-w-random-order",
+      "problem": "edge",
+      "model": "stream",
+      "label": "One-pass random-order W-streaming",
+      "task": "Print valid edge color assignments in a streaming output",
+      "assumptions": [
+        "Edges uniformly random order; n vertices, maximum degree Δ",
+        "Randomized; Õ(n) working space; palette bound with high probability"
+      ],
+      "xAxis": {
+        "label": "Palette ratio r = q/Δ",
+        "kind": "palette",
+        "min": 1,
+        "max": 2.25,
+        "ticks": [
+          1,
+          1.25,
+          1.5,
+          1.75,
+          2,
+          2.25
+        ],
+        "tickLabels": [
+          "Δ",
+          "5Δ/4",
+          "3Δ/2",
+          "7Δ/4",
+          "2Δ",
+          "9Δ/4"
+        ]
+      },
+      "yAxis": {
+        "label": "Space exponent p in Õ(n^p) bits",
+        "kind": "exponent",
+        "min": 0,
+        "max": 2,
+        "ticks": [
+          0,
+          0.5,
+          1,
+          1.5,
+          2
+        ],
+        "tickLabels": [
+          "polylog",
+          "√n",
+          "n",
+          "n^{3/2}",
+          "n²"
+        ]
+      },
+      "parameters": {},
+      "results": [
+        {
+          "id": "stream-random-order-2019",
+          "paperId": "behnezhad-et-al-2019-mpc-stream",
+          "kind": "upper",
+          "bound": "5.44Δ colors with high probability; Õ(n) space",
+          "guarantee": "Always valid proper coloring; color count has high-probability bound",
+          "sourceLocation": "Abstract; graph streaming random-order result",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "historical",
+          "notes": "Random-order assumption differs from the adversarial-order 2025 stream slice.",
+          "plot": null
+        },
+        {
+          "id": "edge-stream-charikarliu21-randomorder",
+          "paperId": "charikar-liu-2021-wstream",
+          "kind": "upper",
+          "bound": "Δ+o(Δ) colors using O(n log² n) space",
+          "guarantee": "Proper random-order W-stream coloring",
+          "sourceLocation": "SOSA 2021 abstract, first algorithm",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "Uniformly random permutation arrival; random-order property is indispensable. Historical improvement to ESA 2019 5.44Δ, and not comparable with adversarial-order bounds.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "edge-local-near-delta-deterministic-2026",
+      "problem": "edge",
+      "model": "local",
+      "label": "LOCAL; deterministic near-Δ palette",
+      "task": "Compute a proper edge coloring in synchronous LOCAL rounds",
+      "assumptions": [
+        "Simple graph, n vertices, maximum degree Δ.",
+        "Synchronous LOCAL model; unrestricted message size and local computation.",
+        "Distinct identifiers as in the standard LOCAL model.",
+        "ε > 0 is fixed.",
+        "Exactly (1+ε)Δ colors requires Δ ≥ c√log n for sufficiently large c."
+      ],
+      "xAxis": {
+        "label": "Palette family (categorical; no numerical spacing)",
+        "kind": "categorical",
+        "categories": [
+          "2Δ−1",
+          "2Δ−2",
+          "Δ+1",
+          "Near Δ",
+          "3Δ/2 family"
+        ]
+      },
+      "yAxis": {
+        "label": "Algorithm model (categorical); inspect exact round formulas",
+        "kind": "categorical",
+        "categories": [
+          "Deterministic",
+          "Randomized"
+        ]
+      },
+      "parameters": {
+        "ε": "fixed positive constant"
+      },
+      "results": [
+        {
+          "id": "local-near-delta-disc26",
+          "paperId": "blikstad-maus-devos-2026-distributed",
+          "kind": "upper",
+          "bound": "O(log²n) + Õ(log²Δ · log n) LOCAL rounds",
+          "guarantee": "Proper edge coloring with q = (1+ε)Δ + O(√log n)",
+          "sourceLocation": "Theorem 3 and the following additive-term discussion",
+          "evidenceStatus": "verified",
+          "frontierStatus": "current_best_verified",
+          "notes": "The all-degree statement contains an additive palette term. It cannot be plotted as a fixed near-Δ palette in the bounded-degree main view. When Δ = 2^{O(√log n)}, runtime is O(log²n). This is the LOCAL theorem, not the slower CONGEST theorem. Full proof is the accepted DISC 2026 preprint, distinct from the published PODC brief announcement.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "edge-mpc-linear-memory",
+      "problem": "edge",
+      "model": "mpc",
+      "label": "MPC; linear memory per machine",
+      "task": "Output explicit proper edge coloring in distributed memory",
+      "assumptions": [
+        "Simple graph; input is an edge list distributed among machines",
+        "O(n) local memory and O(m) total memory, measured in words",
+        "Unlimited local computation in the MPC round model",
+        "No claim that Δ+Õ(Δ³ᐟ⁴) equals Δ+o(Δ) for bounded Δ"
+      ],
+      "xAxis": {
+        "label": "Palette ratio r = q/Δ",
+        "kind": "palette",
+        "min": 1,
+        "max": 2.25,
+        "ticks": [
+          1,
+          1.25,
+          1.5,
+          1.75,
+          2,
+          2.25
+        ],
+        "tickLabels": [
+          "Δ",
+          "5Δ/4",
+          "3Δ/2",
+          "7Δ/4",
+          "2Δ",
+          "9Δ/4"
+        ]
+      },
+      "yAxis": {
+        "label": "Asymptotic round class (ordinal tiers)",
+        "kind": "ordinal",
+        "min": 0,
+        "max": 5,
+        "ticks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "tickLabels": [
+          "O(1)",
+          "log log log n",
+          "log log n",
+          "(log log n)^k",
+          "√log n",
+          "≥ log n"
+        ]
+      },
+      "parameters": {},
+      "results": [
+        {
+          "id": "mpc-near-delta-constant-round-2019",
+          "paperId": "behnezhad-et-al-2019-mpc-stream",
+          "kind": "upper",
+          "bound": "O(1) MPC rounds",
+          "guarantee": "Proper edge coloring using at most Δ+Õ(Δ³ᐟ⁴) colors",
+          "sourceLocation": "Corollary 2, printed p. 15:4; Theorem 1 and Lemma 7",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "verified_scoped",
+          "notes": "The tilde hides factors depending on log n. Corollary 3 separately assumes Δ=n^Ω(1) and obtains sublinear local space with a different palette. That polynomial-degree regime is not the low-degree regime of the other panel.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "edge-lca-line-graph-oblivious-baseline",
+      "problem": "edge",
+      "model": "lca",
+      "label": "LCA; direct line-graph oracle baseline",
+      "task": "One color per queried edge, with all answers consistent with one proper coloring of G",
+      "assumptions": [
+        "Direct line-graph oracle supplied; creating or simulating it from an ordinary adjacency-list or adjacency-matrix representation of G is outside this probe count",
+        "Simple graph; maximum line-graph degree D≥2; trivial D<2 cases are omitted",
+        "Use one fixed identifier assignment, oracle ordering and degree/size parameters for every query",
+        "Deterministic oblivious LCA; no stored state between queries",
+        "The resource is input probes per edge-color query, not total time or total cost for explicitly outputting every edge color"
+      ],
+      "xAxis": {
+        "label": "Palette allowance; exact symbolic category",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "degree-plus-one",
+            "label": "D+1≤2Δ−1"
+          }
+        ]
+      },
+      "yAxis": {
+        "label": "Line-graph oracle probes per edge-color query; symbolic category",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "fhk-probes",
+            "label": "D^{O(√D log^{5/2}D)}·log* m"
+          }
+        ]
+      },
+      "parameters": {
+        "D": "Maximum degree of L(G), with 2≤D≤2Δ−2",
+        "m": "Number of edges of G, equivalently number of vertices of L(G)",
+        "Delta": "Maximum degree of the original graph G"
+      },
+      "results": [
+        {
+          "id": "lca-conflict-linegraph-derived-2017",
+          "paperId": "fraigniaud-heinrich-kosowski-2017-conflict",
+          "kind": "upper",
+          "bound": "D^{O(√D log^{5/2}D)} · log* m line-graph oracle probes per queried edge",
+          "guarantee": "Proper edge coloring from a palette of D+1 colors, at most 2Δ−1",
+          "sourceLocation": "Theorem 5.1 (second case), Section 5; l=D+1 and d=1 on L(G)",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "derived_baseline",
+          "notes": "A direct theorem specialization, not an author-stated edge-LCA optimum. D is the degree of the line graph, not the degree Δ of G. The numerical exponent hidden in O(·) is not specified. The reviewed source provides no matching edge-LCA lower bound for this oracle. Direct oracle access to vertices and neighborhoods of L(G), using the probe convention of Theorem 5.1; line-graph vertices are identified original edges",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "edge-query-list-full-output-baseline",
+      "problem": "edge",
+      "model": "query_list",
+      "label": "Adjacency-list oracle; explicit full output baseline",
+      "task": "Enumerate all edges and produce one proper color per edge",
+      "assumptions": [
+        "Graph supplied through degree(v) and indexed neighbor(v,i) queries, with vertex IDs and known n; no matrix or pair queries",
+        "Simple graph with maximum degree Δ≥1; arbitrary local adjacency order; deterministic, unrestricted internal space"
+      ],
+      "xAxis": {
+        "label": "Palette guarantee categories (not numeric palette ratios)",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "vizing",
+            "label": "Δ+1"
+          },
+          {
+            "id": "additive",
+            "label": "Δ+O(log n)"
+          },
+          {
+            "id": "epsilon",
+            "label": "(1+ε)Δ"
+          },
+          {
+            "id": "greedy",
+            "label": "2Δ−1"
+          }
+        ]
+      },
+      "yAxis": {
+        "label": "Oracle queries per complete explicit coloring; exact symbolic count",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "n-plus-2m",
+            "label": "n+2m"
+          }
+        ]
+      },
+      "parameters": {
+        "coordinateConvention": "Palette categories versus exact n+2m graph-query cost. Computation formulas remain theorem details; no query lower claimed."
+      },
+      "results": [
+        {
+          "kind": "upper",
+          "panel": "computation",
+          "graph": "Undirected simple graph with n known labeled vertices, m edges and maximum degree Δ",
+          "output": "One explicit color assignment for every edge",
+          "oracle": "degree(v) and indexed neighbor(v,i); arbitrary local list order",
+          "queryComplexity": "Exactly n+2m oracle calls for this scan",
+          "queryDerivation": "Ask degree(v) once for each of n vertices; then read all degree(v) list entries. The sum of degrees is 2m. Retain each undirected edge once and make no further external graph queries.",
+          "totalTimeConvention": "Total RAM time includes the O(n+m) scan and the post-scan computation shown separately.",
+          "memory": "Stores the full O(n+m)-word adjacency representation; no auxiliary-space restriction imposed.",
+          "evidenceStatus": "verified",
+          "conditional": false,
+          "id": "query-adjacency-list-greedy-baseline",
+          "paperId": "blikstad-maus-devos-2026-distributed",
+          "bound": "Exactly n+2m oracle calls for this scan; O(mΔ) post-scan time",
+          "guarantee": "Proper coloring using at most 2Δ−1 colors",
+          "sourceLocation": "Greedy palette observation in Introduction; straightforward RAM implementation is an atlas derivation",
+          "frontierStatus": "baseline",
+          "notes": "Each edge has at most 2Δ−2 colored neighbors; scanning these and the 2Δ−1 palette costs O(Δ) per edge. The oracle scan is an atlas composition. The same O(mΔ) greedy bound is explicitly discussed in Bernshteyn–Dhawan §1.1/Table 1.",
+          "paletteCategory": "greedy",
+          "costClass": "degree",
+          "shortName": "Straightforward greedy",
+          "shortTag": "deterministic",
+          "palette": "2Δ−1",
+          "quality": "Proper coloring using at most 2Δ−1 colors",
+          "computation": "O(mΔ)",
+          "displayBound": "O(mΔ) straightforward greedy computation",
+          "probability": "Deterministic worst-case time",
+          "randomized": false,
+          "theorem": "Greedy palette observation in Introduction; straightforward RAM implementation is an atlas derivation",
+          "assumptions": [
+            "Δ≥1; empty graphs handled trivially",
+            "Scan neighboring edge colors and choose a free color for each edge",
+            "This is a straightforward greedy implementation, not an optimal implementation of greedy coloring"
+          ],
+          "supportingSourceIds": [
+            "bernshteyn-dhawan-2026-linear-static"
+          ],
+          "sourceId": "blikstad-maus-devos-2026-distributed",
+          "sourceUrl": "https://arxiv.org/html/2603.02689v2",
+          "totalTime": "O(n+m) scan + O(mΔ) post-scan computation"
+        }
+      ],
+      "mode": "curated",
+      "focusPairId": "edge-query_list"
+    },
+    {
+      "id": "edge-dynamic-low-arboricity-adaptive-recourse",
+      "problem": "edge",
+      "model": "dynamic",
+      "label": "Fully dynamic low-arboricity graph; adaptive palette",
+      "task": "Maintain a proper coloring with palette tied to current maximum degree",
+      "assumptions": [
+        "General simple graph with arboricity at most α throughout",
+        "Deterministic; fixed ε>0; C≥(2+ε)α−1; current maximum degree Δ_t"
+      ],
+      "xAxis": {
+        "label": "Cost formula class (categorical)",
+        "kind": "categorical",
+        "categories": [
+          "epsilon",
+          "inverse",
+          "parameter",
+          "polylog",
+          "subpoly",
+          "polynomial",
+          "fractional",
+          "constant"
+        ]
+      },
+      "yAxis": {
+        "label": "Graph, palette and update setup (categorical)",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "general-near",
+            "label": "General graphs · ⌈(1+ε)Δ⌉ colors"
+          },
+          {
+            "id": "general-greedy",
+            "label": "General graphs · 2Δ−1 colors"
+          },
+          {
+            "id": "general-large",
+            "label": "General graphs · Δ+C · C ≳ 0.618Δ"
+          },
+          {
+            "id": "sparse-four",
+            "label": "Bounded arboricity · Δₜ + O(αₜ)"
+          },
+          {
+            "id": "sparse-two",
+            "label": "Bounded arboricity · Δₜ+C · C≥(2+ε)α−1"
+          },
+          {
+            "id": "forest-greedy",
+            "label": "Forest · insertions · Δ+c · greedy"
+          },
+          {
+            "id": "forest-random",
+            "label": "Forest · insertions · Δ+c · randomized"
+          },
+          {
+            "id": "forest-zero",
+            "label": "Forest · fully dynamic · Δ colors · c=0"
+          },
+          {
+            "id": "forest-positive",
+            "label": "Forest · fully dynamic · Δ+c · c>0"
+          }
+        ]
+      },
+      "parameters": {
+        "ε": "fixed positive constant",
+        "α": "known arboricity upper bound",
+        "mainRepresentation": "Aligned time and recourse panels; classes are categorical, not numerical rankings."
+      },
+      "results": [
+        {
+          "output": "Explicit proper edge coloring",
+          "conditional": false,
+          "evidenceStatus": "verified",
+          "notes": "Unlike the fixed-palette version, this local palette may require recoloring after deletions. The paper's arbitrary-precoloring lower is not asserted for all invariant-maintaining dynamic algorithms.",
+          "assumptions": [
+            "Fixed ε>0",
+            "Known upper bound α throughout sequence",
+            "C≥(2+ε)α−1",
+            "Palette adapts to current Δ_t; α need not be current arboricity"
+          ],
+          "id": "dynamic-arboricity-recourse-2026",
+          "paperId": "sadeh-kaplan-2026-recourse",
+          "kind": "upper",
+          "bound": "O(ε⁻¹ log n) worst-case recourse",
+          "guarantee": "Every edge uv has color at most max{deg_t(u),deg_t(v)}+C",
+          "sourceLocation": "Theorem 2.8",
+          "frontierStatus": "candidate",
+          "panel": "recourse",
+          "group": "sparse-two",
+          "randomized": false,
+          "paletteFamily": "sparse",
+          "palette": "q_t≤Δ_t+C; C≥(2+ε)α−1",
+          "graph": "Fully dynamic simple graph with known arboricity upper bound α",
+          "quality": "Every edge uv has color at most max{deg_t(u),deg_t(v)}+C",
+          "probability": "Deterministic worst-case per-update recourse",
+          "displayBound": "O(ε⁻¹ log n) worst-case recourse",
+          "updateTime": "O(m) per update",
+          "recourse": "O(ε⁻¹ log n) worst-case recolorings per update",
+          "theorem": "Theorem 2.8",
+          "placements": [
+            {
+              "panel": "time",
+              "group": "sparse-two",
+              "slot": "sparse26",
+              "costClass": "polynomial",
+              "label": "m",
+              "tag": "Worst case"
+            },
+            {
+              "panel": "recourse",
+              "group": "sparse-two",
+              "slot": "sparse26",
+              "costClass": "polylog",
+              "label": "ε⁻¹ log n",
+              "tag": "Worst case"
+            }
+          ],
+          "sourceId": "sadeh-kaplan-2026-recourse",
+          "sourceUrl": "https://arxiv.org/html/2602.09497v2"
+        }
+      ],
+      "mode": "curated",
+      "focusPairId": "edge-dynamic"
+    },
+    {
+      "id": "edge-dynamic-general-near-delta-history",
+      "problem": "edge",
+      "model": "dynamic",
+      "label": "General graphs · (1+ε)Δ dynamic progression",
+      "task": "Maintain a proper coloring under insertions and deletions; compare update time only after reading degree, randomness and adversary qualifications",
+      "assumptions": [
+        "General simple graph; n vertices, maximum degree Δ or a known global bound",
+        "Colors q=(1+ε)Δ, ε>0; each result states its separate Δ condition, update-time quantifier and degree adaptivity"
+      ],
+      "xAxis": {
+        "label": "Cost formula class (categorical)",
+        "kind": "categorical",
+        "categories": [
+          "epsilon",
+          "inverse",
+          "parameter",
+          "polylog",
+          "subpoly",
+          "polynomial",
+          "fractional",
+          "constant"
+        ]
+      },
+      "yAxis": {
+        "label": "Graph, palette and update setup (categorical)",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "general-near",
+            "label": "General graphs · ⌈(1+ε)Δ⌉ colors"
+          },
+          {
+            "id": "general-greedy",
+            "label": "General graphs · 2Δ−1 colors"
+          },
+          {
+            "id": "general-large",
+            "label": "General graphs · Δ+C · C ≳ 0.618Δ"
+          },
+          {
+            "id": "sparse-four",
+            "label": "Bounded arboricity · Δₜ + O(αₜ)"
+          },
+          {
+            "id": "sparse-two",
+            "label": "Bounded arboricity · Δₜ+C · C≥(2+ε)α−1"
+          },
+          {
+            "id": "forest-greedy",
+            "label": "Forest · insertions · Δ+c · greedy"
+          },
+          {
+            "id": "forest-random",
+            "label": "Forest · insertions · Δ+c · randomized"
+          },
+          {
+            "id": "forest-zero",
+            "label": "Forest · fully dynamic · Δ colors · c=0"
+          },
+          {
+            "id": "forest-positive",
+            "label": "Forest · fully dynamic · Δ+c · c>0"
+          }
+        ]
+      },
+      "parameters": {
+        "ε": "palette slack; bounds incomparable when assumptions differ",
+        "mainRepresentation": "Aligned time and recourse panels; classes are categorical, not numerical rankings."
+      },
+      "results": [
+        {
+          "output": "Explicit proper edge coloring",
+          "conditional": false,
+          "evidenceStatus": "primary_abstract_verified",
+          "notes": "Only the published abstract was available directly. The record remains historical, with no independent recourse bound plotted.",
+          "assumptions": [
+            "Δ≥Ω(ε⁻² log²n)",
+            "ε>0, fixed constant in the conference abstract",
+            "Palette follows current Δ",
+            "Adversary robustness is not inferred from degree adaptivity"
+          ],
+          "id": "edge-dynamic-duan-2019",
+          "paperId": "duan-he-zhang-2019-dynamic",
+          "kind": "upper",
+          "bound": "O(ε⁻⁴ log⁸n) amortized update time",
+          "guarantee": "Proper near-Δ edge coloring",
+          "sourceLocation": "SODA 2019 abstract; Christiansen 2023 comparison preceding Theorem 6",
+          "frontierStatus": "historical",
+          "panel": "time",
+          "group": "general-near",
+          "randomized": true,
+          "paletteFamily": "near",
+          "palette": "(1+ε)Δ colors (paper notation; integral palette)",
+          "graph": "Fully dynamic simple graph; sufficiently large current maximum degree",
+          "quality": "Proper near-Δ edge coloring",
+          "probability": "Randomized amortized update time; high-probability qualification corroborated by Christiansen 2023",
+          "displayBound": "O(ε⁻⁴ log⁸n) amortized update time",
+          "updateTime": "O(ε⁻⁴ log⁸n) amortized",
+          "recourse": null,
+          "theorem": "SODA 2019 abstract; Christiansen 2023 comparison preceding Theorem 6",
+          "placements": [
+            {
+              "panel": "time",
+              "group": "general-near",
+              "slot": "dhz",
+              "costClass": "polylog",
+              "label": "ε⁻⁴ log⁸n",
+              "tag": "2019 · amortized"
+            }
+          ],
+          "sourceId": "duan-he-zhang-2019-dynamic",
+          "sourceUrl": "https://epubs.siam.org/doi/10.1137/1.9781611975482.117"
+        },
+        {
+          "output": "Explicit proper edge coloring",
+          "conditional": false,
+          "evidenceStatus": "verified",
+          "notes": "Theorem 6 gives the displayed update time. Section 7.1 explicitly restores the ceiling in each local palette [⌈(1+ε)d(v)⌉]; the global ceiling palette follows. Degree-adaptivity does not assert adaptive-adversary robustness.",
+          "assumptions": [
+            "General simple graph; no high-degree promise",
+            "0<ε<1",
+            "Palette adapts to current maximum degree",
+            "Degree-adaptive does not by itself assert adaptive-adversary robustness"
+          ],
+          "id": "edge-dynamic-christiansen-2023",
+          "paperId": "christiansen-2023-vizing-chains",
+          "kind": "upper",
+          "bound": "O(ε⁻⁶ log⁹n log⁶Δ) worst-case time w.h.p.",
+          "guarantee": "Proper near-Δ coloring, degree-adaptive",
+          "sourceLocation": "Theorem 6; Section 7 ε-local palette definitions",
+          "frontierStatus": "historical",
+          "panel": "time",
+          "group": "general-near",
+          "randomized": true,
+          "paletteFamily": "near",
+          "palette": "⌈(1+ε)Δ⌉ colors, with ε-local palette interpretation",
+          "graph": "Fully dynamic general simple graph; current maximum degree Δ",
+          "quality": "Proper near-Δ coloring, degree-adaptive",
+          "probability": "Worst-case update time with high probability",
+          "displayBound": "O(ε⁻⁶ log⁹n log⁶Δ) worst-case time w.h.p.",
+          "updateTime": "O(ε⁻⁶ log⁹n log⁶Δ) worst case w.h.p.",
+          "recourse": null,
+          "theorem": "Theorem 6; Section 7 ε-local palette definitions",
+          "placements": [
+            {
+              "panel": "time",
+              "group": "general-near",
+              "slot": "chr23",
+              "costClass": "polylog",
+              "label": "ε⁻⁶ log⁹n log⁶Δ",
+              "tag": "2023 · worst case w.h.p."
+            }
+          ],
+          "sourceId": "christiansen-2023-vizing-chains",
+          "sourceUrl": "https://arxiv.org/html/2210.07363"
+        },
+        {
+          "output": "Explicit proper edge coloring",
+          "conditional": false,
+          "evidenceStatus": "verified",
+          "notes": "Corollary C.6 gives a high-probability amortized alternative for polynomially many updates. The main marker uses the expected worst-case theorem.",
+          "assumptions": [
+            "Known upper bound Δ on degrees throughout sequence",
+            "Δ≥Δ*=(log n/ε⁴)^{Θ((1/ε)log(1/ε))}",
+            "Oblivious adversary",
+            "For fixed ε, cost is independent of n; no constant-Δ claim"
+          ],
+          "id": "edge-dynamic-nibble-2024",
+          "paperId": "bhattacharya-costa-panski-solomon-2024-nibbling",
+          "kind": "upper",
+          "bound": "O(log⁴(1/ε)/ε⁹) expected worst-case time",
+          "guarantee": "Proper near-Δ coloring",
+          "sourceLocation": "Theorem 1.2; degree threshold immediately before Theorem 1.1",
+          "frontierStatus": "current_best_verified",
+          "panel": "time",
+          "group": "general-near",
+          "randomized": true,
+          "paletteFamily": "near",
+          "palette": "(1+ε)Δ colors (integral palette; known global Δ)",
+          "graph": "Fully dynamic general simple graph with sufficiently large degree bound Δ",
+          "quality": "Proper near-Δ coloring",
+          "probability": "Expected worst-case update time against an oblivious adversary",
+          "displayBound": "O(log⁴(1/ε)/ε⁹) expected worst-case time",
+          "updateTime": "O(log⁴(1/ε)/ε⁹) expected worst case",
+          "recourse": null,
+          "theorem": "Theorem 1.2; degree threshold immediately before Theorem 1.1",
+          "placements": [
+            {
+              "panel": "time",
+              "group": "general-near",
+              "slot": "nibble",
+              "costClass": "epsilon",
+              "label": "log⁴(1/ε)/ε⁹",
+              "tag": "2024 · expected worst case"
+            }
+          ],
+          "sourceId": "bhattacharya-costa-panski-solomon-2024-nibbling",
+          "sourceUrl": "https://arxiv.org/html/2311.03267"
+        },
+        {
+          "output": "Explicit proper edge coloring",
+          "conditional": false,
+          "evidenceStatus": "verified",
+          "notes": "Low-degree branch uses Δ_max+1≤⌈(1+ε)Δ_max⌉. The splitter's own recourse is not substituted for the final coloring's recourse.",
+          "assumptions": [
+            "0<ε<1",
+            "No high-degree promise",
+            "Main result adapts to current Δ",
+            "Subpolynomial in n if ε⁻¹≤2^{O(log^0.49n)}",
+            "Õ hides log log n and log(1/ε) factors"
+          ],
+          "id": "edge-dynamic-deterministic-2026",
+          "paperId": "christiansen-2026-deterministic-dynamic",
+          "kind": "upper",
+          "bound": "2^{Õ_{log(1/ε)}(√log n)} amortized time",
+          "guarantee": "Proper near-Δ edge coloring",
+          "sourceLocation": "Theorem 1.2; Sections 7.1–7.2",
+          "frontierStatus": "candidate",
+          "panel": "time",
+          "group": "general-near",
+          "randomized": false,
+          "paletteFamily": "near",
+          "palette": "⌈(1+ε)Δ⌉ colors",
+          "graph": "Fully dynamic general simple graph; current maximum degree Δ",
+          "quality": "Proper near-Δ edge coloring",
+          "probability": "Deterministic amortized update time",
+          "displayBound": "2^{Õ_{log(1/ε)}(√log n)} amortized time",
+          "updateTime": "2^{Õ_{log(1/ε)}(√log n)} amortized",
+          "recourse": null,
+          "theorem": "Theorem 1.2; Sections 7.1–7.2",
+          "placements": [
+            {
+              "panel": "time",
+              "group": "general-near",
+              "slot": "det26",
+              "costClass": "subpoly",
+              "label": "2^{Õε(√log n)}",
+              "tag": "2026 · deterministic amortized"
+            }
+          ],
+          "sourceId": "christiansen-2026-deterministic-dynamic",
+          "sourceUrl": "https://arxiv.org/html/2402.13139"
+        }
+      ],
+      "mode": "curated",
+      "focusPairId": "edge-dynamic"
+    },
+    {
+      "id": "edge-dynamic-general-greedy",
+      "problem": "edge",
+      "model": "dynamic",
+      "label": "General graphs · 2Δ−1 greedy",
+      "task": "Maintain explicit proper edge coloring under arbitrary graph edge updates",
+      "assumptions": [
+        "Simple graph of maximum current degree Δ; deterministic, no degree lower bound"
+      ],
+      "xAxis": {
+        "label": "Cost formula class (categorical)",
+        "kind": "categorical",
+        "categories": [
+          "epsilon",
+          "inverse",
+          "parameter",
+          "polylog",
+          "subpoly",
+          "polynomial",
+          "fractional",
+          "constant"
+        ]
+      },
+      "yAxis": {
+        "label": "Graph, palette and update setup (categorical)",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "general-near",
+            "label": "General graphs · ⌈(1+ε)Δ⌉ colors"
+          },
+          {
+            "id": "general-greedy",
+            "label": "General graphs · 2Δ−1 colors"
+          },
+          {
+            "id": "general-large",
+            "label": "General graphs · Δ+C · C ≳ 0.618Δ"
+          },
+          {
+            "id": "sparse-four",
+            "label": "Bounded arboricity · Δₜ + O(αₜ)"
+          },
+          {
+            "id": "sparse-two",
+            "label": "Bounded arboricity · Δₜ+C · C≥(2+ε)α−1"
+          },
+          {
+            "id": "forest-greedy",
+            "label": "Forest · insertions · Δ+c · greedy"
+          },
+          {
+            "id": "forest-random",
+            "label": "Forest · insertions · Δ+c · randomized"
+          },
+          {
+            "id": "forest-zero",
+            "label": "Forest · fully dynamic · Δ colors · c=0"
+          },
+          {
+            "id": "forest-positive",
+            "label": "Forest · fully dynamic · Δ+c · c>0"
+          }
+        ]
+      },
+      "parameters": {
+        "mainRepresentation": "Aligned time and recourse panels; classes are categorical, not numerical rankings."
+      },
+      "results": [
+        {
+          "output": "Explicit proper edge coloring",
+          "conditional": false,
+          "evidenceStatus": "primary_abstract_verified",
+          "notes": "An exact palette is 2Δ−1, so the old numeric position at ratio 2 is removed. No independent recourse formula is inferred.",
+          "assumptions": [
+            "Current degree Δ",
+            "No high-degree promise",
+            "Trivial Δ≤1 case handled separately"
+          ],
+          "id": "edge-dynamic-bchn-2018",
+          "paperId": "bhattacharya-chakrabarty-henzinger-nanongkai-2018",
+          "kind": "upper",
+          "bound": "O(log Δ) worst-case update time",
+          "guarantee": "Proper greedy-threshold edge coloring",
+          "sourceLocation": "SODA 2018 abstract, edge-coloring result (3)",
+          "frontierStatus": "baseline",
+          "panel": "time",
+          "group": "general-greedy",
+          "randomized": false,
+          "paletteFamily": "large",
+          "palette": "q≤2Δ_t−1",
+          "graph": "Fully dynamic general simple graph",
+          "quality": "Proper greedy-threshold edge coloring",
+          "probability": "Deterministic worst-case update time",
+          "displayBound": "O(log Δ) worst-case update time",
+          "updateTime": "O(log Δ) worst case",
+          "recourse": null,
+          "theorem": "SODA 2018 abstract, edge-coloring result (3)",
+          "placements": [
+            {
+              "panel": "time",
+              "group": "general-greedy",
+              "slot": "greedy",
+              "costClass": "parameter",
+              "label": "log Δ",
+              "tag": "Deterministic · worst case"
+            }
+          ],
+          "sourceId": "bhattacharya-chakrabarty-henzinger-nanongkai-2018",
+          "sourceUrl": "https://epubs.siam.org/doi/10.1137/1.9781611975031.1"
+        }
+      ],
+      "mode": "curated",
+      "focusPairId": "edge-dynamic"
+    },
+    {
+      "id": "edge-dynamic-arboricity-history",
+      "problem": "edge",
+      "model": "dynamic",
+      "label": "Sparse graphs · Δ+O(α) dynamic",
+      "task": "Maintain a proper edge coloring with a palette depending on arboricity",
+      "assumptions": [
+        "General simple fully dynamic graphs of arboricity at most α; contrast degree adaptivity and guarantees in source"
+      ],
+      "xAxis": {
+        "label": "Cost formula class (categorical)",
+        "kind": "categorical",
+        "categories": [
+          "epsilon",
+          "inverse",
+          "parameter",
+          "polylog",
+          "subpoly",
+          "polynomial",
+          "fractional",
+          "constant"
+        ]
+      },
+      "yAxis": {
+        "label": "Graph, palette and update setup (categorical)",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "general-near",
+            "label": "General graphs · ⌈(1+ε)Δ⌉ colors"
+          },
+          {
+            "id": "general-greedy",
+            "label": "General graphs · 2Δ−1 colors"
+          },
+          {
+            "id": "general-large",
+            "label": "General graphs · Δ+C · C ≳ 0.618Δ"
+          },
+          {
+            "id": "sparse-four",
+            "label": "Bounded arboricity · Δₜ + O(αₜ)"
+          },
+          {
+            "id": "sparse-two",
+            "label": "Bounded arboricity · Δₜ+C · C≥(2+ε)α−1"
+          },
+          {
+            "id": "forest-greedy",
+            "label": "Forest · insertions · Δ+c · greedy"
+          },
+          {
+            "id": "forest-random",
+            "label": "Forest · insertions · Δ+c · randomized"
+          },
+          {
+            "id": "forest-zero",
+            "label": "Forest · fully dynamic · Δ colors · c=0"
+          },
+          {
+            "id": "forest-positive",
+            "label": "Forest · fully dynamic · Δ+c · c>0"
+          }
+        ]
+      },
+      "parameters": {
+        "α": "arboricity",
+        "mainRepresentation": "Aligned time and recourse panels; classes are categorical, not numerical rankings."
+      },
+      "results": [
+        {
+          "output": "Explicit proper edge coloring",
+          "conditional": false,
+          "evidenceStatus": "verified",
+          "notes": "The exact theorem refines the original Õ(1) summary; both costs are known here.",
+          "assumptions": [
+            "ε>0",
+            "Δ_t and α_t are the current maximum degree and arboricity",
+            "Explicit coloring; initially empty graph"
+          ],
+          "id": "edge-dynamic-arbor-bcps-2024",
+          "paperId": "bhattacharya-costa-panski-solomon-2024-arboricity",
+          "kind": "upper",
+          "bound": "O(log⁶n/ε⁶) amortized update time",
+          "guarantee": "Proper coloring with palette adaptive to both Δ_t and α_t",
+          "sourceLocation": "SWAT 2024 Theorem 1",
+          "frontierStatus": "candidate",
+          "panel": "time",
+          "group": "sparse-four",
+          "randomized": false,
+          "paletteFamily": "sparse",
+          "palette": "q_t≤Δ_t+(4+ε)α_t",
+          "graph": "Fully dynamic simple graph; current degree and arboricity",
+          "quality": "Proper coloring with palette adaptive to both Δ_t and α_t",
+          "probability": "Deterministic amortized time and recourse",
+          "displayBound": "O(log⁶n/ε⁶) amortized update time",
+          "updateTime": "O(log⁶n/ε⁶) amortized",
+          "recourse": "O(log⁴n/ε⁵) amortized recolorings",
+          "theorem": "SWAT 2024 Theorem 1",
+          "placements": [
+            {
+              "panel": "time",
+              "group": "sparse-four",
+              "slot": "bcps",
+              "costClass": "polylog",
+              "label": "ε⁻⁶ log⁶n",
+              "tag": "BCPS 2024 · amortized"
+            },
+            {
+              "panel": "recourse",
+              "group": "sparse-four",
+              "slot": "bcps",
+              "costClass": "polylog",
+              "label": "ε⁻⁵ log⁴n",
+              "tag": "BCPS 2024 · amortized"
+            }
+          ],
+          "sourceId": "bhattacharya-costa-panski-solomon-2024-arboricity",
+          "sourceUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol294-swat2024/LIPIcs.SWAT.2024.12/LIPIcs.SWAT.2024.12.pdf"
+        },
+        {
+          "output": "Explicit proper edge coloring",
+          "conditional": false,
+          "evidenceStatus": "verified",
+          "notes": "Theorem 9's faster fixed-bound result is not substituted for this fully adaptive theorem. No separate recourse bound is plotted.",
+          "assumptions": [
+            "Palette adapts to current Δ_t and α_t",
+            "α_max and Δ_max are maxima over the update sequence",
+            "Use log⁺x=max{1,log x} in displayed summaries at α=1"
+          ],
+          "id": "edge-dynamic-sparse-crv-2024",
+          "paperId": "christiansen-rotenberg-vlieghe-2024-sparsity",
+          "kind": "upper",
+          "bound": "O(log²n log α_max log α log Δ_max) deletion time; faster insertions",
+          "guarantee": "Each edge uv uses color at most max{deg_t(u),deg_t(v)}+O(α_t)",
+          "sourceLocation": "SWAT 2024 Theorem 14, printed p.20:14; Table 2",
+          "frontierStatus": "candidate",
+          "panel": "time",
+          "group": "sparse-four",
+          "randomized": false,
+          "paletteFamily": "sparse",
+          "palette": "q_t≤Δ_t+O(α_t)",
+          "graph": "Fully dynamic simple graph; current degree and arboricity",
+          "quality": "Each edge uv uses color at most max{deg_t(u),deg_t(v)}+O(α_t)",
+          "probability": "Deterministic amortized time",
+          "displayBound": "O(log²n log α_max log α log Δ_max) deletion time; faster insertions",
+          "updateTime": "Insertion O(log n log α_max log Δ_max); deletion O(log²n log α_max log α log Δ_max), amortized",
+          "recourse": null,
+          "theorem": "SWAT 2024 Theorem 14, printed p.20:14; Table 2",
+          "placements": [
+            {
+              "panel": "time",
+              "group": "sparse-four",
+              "slot": "crv",
+              "costClass": "polylog",
+              "label": "L² A_max A D_max",
+              "tag": "CRV 2024 · deletion bound"
+            }
+          ],
+          "sourceId": "christiansen-rotenberg-vlieghe-2024-sparsity",
+          "sourceUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol294-swat2024/LIPIcs.SWAT.2024.20/LIPIcs.SWAT.2024.20.pdf"
+        }
+      ],
+      "mode": "curated",
+      "focusPairId": "edge-dynamic"
+    },
+    {
+      "id": "edge-stream-deterministic-space-tradeoff",
+      "problem": "edge",
+      "model": "stream",
+      "label": "Adversarial W-stream · deterministic space/palette",
+      "task": "Write colors while edges arrive; compare deterministic color/space tradeoff",
+      "assumptions": [
+        "One pass; general simple graphs; adversarial edge order",
+        "Deterministic; O(ns) memory for space parameter s in source"
+      ],
+      "xAxis": {
+        "label": "Palette ratio r = q/Δ",
+        "kind": "palette",
+        "min": 1,
+        "max": 2.25,
+        "ticks": [
+          1,
+          1.25,
+          1.5,
+          1.75,
+          2,
+          2.25
+        ],
+        "tickLabels": [
+          "Δ",
+          "5Δ/4",
+          "3Δ/2",
+          "7Δ/4",
+          "2Δ",
+          "9Δ/4"
+        ]
+      },
+      "yAxis": {
+        "label": "Space exponent p in Õ(n^p) bits",
+        "kind": "exponent",
+        "min": 0,
+        "max": 2,
+        "ticks": [
+          0,
+          0.5,
+          1,
+          1.5,
+          2
+        ],
+        "tickLabels": [
+          "polylog",
+          "√n",
+          "n",
+          "n^{3/2}",
+          "n²"
+        ]
+      },
+      "parameters": {
+        "s": "parameter in ESA 2022"
+      },
+      "results": [
+        {
+          "id": "edge-stream-charikarliu21-tradeoff",
+          "paperId": "charikar-liu-2021-wstream",
+          "kind": "upper",
+          "bound": "(1+o(1))Δ²/s colors in Õ(ns) space",
+          "guarantee": "Proper edge coloring, randomized",
+          "sourceLocation": "SOSA 2021 abstract, second algorithm",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "Adversarial edge order; this predecessor was later made deterministic by Ansari–Saneian–Zarrabi-Zadeh ESA 2022.",
+          "plot": null
+        },
+        {
+          "id": "edge-stream-2022-space-tradeoff",
+          "paperId": "ansari-saneian-zarrabi-2022-stream",
+          "kind": "upper",
+          "bound": "O(Δ²/s) colors in O(ns) space",
+          "guarantee": "Proper edge coloring, deterministic",
+          "sourceLocation": "Abstract, ESA 2022",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Parameter regime is bounded by the paper’s stated assumptions; the s=1 point is in the Õ(n) comparison slice.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "edge-stream-low-memory-linear-colors",
+      "problem": "edge",
+      "model": "stream",
+      "label": "W-stream · linear colors with more memory",
+      "task": "Assign an explicit proper coloring in one edge pass",
+      "assumptions": [
+        "Adversarial edge arrivals; simple graph; n vertices and maximum degree Δ",
+        "Randomized online algorithm implies W-stream output; input-time color commitment stronger than delayed W-stream output"
+      ],
+      "xAxis": {
+        "label": "Palette ratio r = q/Δ",
+        "kind": "palette",
+        "min": 1,
+        "max": 2.25,
+        "ticks": [
+          1,
+          1.25,
+          1.5,
+          1.75,
+          2,
+          2.25
+        ],
+        "tickLabels": [
+          "Δ",
+          "5Δ/4",
+          "3Δ/2",
+          "7Δ/4",
+          "2Δ",
+          "9Δ/4"
+        ]
+      },
+      "yAxis": {
+        "label": "Space exponent p in Õ(n^p) bits",
+        "kind": "exponent",
+        "min": 0,
+        "max": 2,
+        "ticks": [
+          0,
+          0.5,
+          1,
+          1.5,
+          2
+        ],
+        "tickLabels": [
+          "polylog",
+          "√n",
+          "n",
+          "n^{3/2}",
+          "n²"
+        ]
+      },
+      "parameters": {},
+      "results": [
+        {
+          "id": "edge-stream-ghosh-stoeckl-2024",
+          "paperId": "ghosh-stoeckl-2024-low-memory",
+          "kind": "upper",
+          "bound": "O(Δ) colors with Õ(n√Δ) memory",
+          "guarantee": "Online coloring, hence one-pass W-stream coloring",
+          "sourceLocation": "Abstract and Theorem 1.1, ICALP 2024",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Does not show O(Δ) colors in Õ(n) memory; online immediate assignment convention differs from delayed W-stream output.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "edge-local-two-delta-minus-one-history",
+      "problem": "edge",
+      "model": "local",
+      "label": "LOCAL · q=2Δ−1 historical algorithms",
+      "task": "Compute a proper edge coloring in synchronous distributed rounds",
+      "assumptions": [
+        "Simple graph, n vertices, maximum degree Δ.",
+        "Synchronous LOCAL model; unrestricted message size and local computation.",
+        "Distinct identifiers as in the standard LOCAL model.",
+        "Main view fixes Δ ≥ 3 independently of n."
+      ],
+      "xAxis": {
+        "label": "Palette family (categorical; no numerical spacing)",
+        "kind": "categorical",
+        "categories": [
+          "2Δ−1",
+          "2Δ−2",
+          "Δ+1",
+          "Near Δ",
+          "3Δ/2 family"
+        ]
+      },
+      "yAxis": {
+        "label": "Algorithm model (categorical); inspect exact round formulas",
+        "kind": "categorical",
+        "categories": [
+          "Deterministic",
+          "Randomized"
+        ]
+      },
+      "parameters": {},
+      "results": [
+        {
+          "id": "edge-local-fgk17-deterministic",
+          "paperId": "fischer-ghaffari-kuhn-2017",
+          "kind": "upper",
+          "bound": "O(log⁸Δ · log n) LOCAL rounds",
+          "guarantee": "Proper edge coloring with q = 2Δ−1",
+          "sourceLocation": "Theorem I.1",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "Historical deterministic algorithm. Its list version uses line-graph degree deg_L(G)(e)+1, not vertex degree plus one.",
+          "plot": null
+        },
+        {
+          "id": "edge-local-fgk17-random",
+          "paperId": "fischer-ghaffari-kuhn-2017",
+          "kind": "upper",
+          "bound": "O((log log n)⁹) LOCAL rounds",
+          "guarantee": "Proper edge coloring with q = 2Δ−1",
+          "sourceLocation": "Corollary I.2",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "Historical randomized algorithm; bounded-degree main view uses the faster deterministic 2022 algorithm in both models.",
+          "plot": null
+        },
+        {
+          "id": "edge-local-kuhn20-recursive",
+          "paperId": "kuhn-2020-recursive-list",
+          "kind": "upper",
+          "bound": "2^{O(√log Δ)} + O(log* n) LOCAL rounds",
+          "guarantee": "Proper edge coloring with q = 2Δ−1",
+          "sourceLocation": "Abstract; line-graph consequence of bounded neighborhood independence",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "historical",
+          "notes": "Original edge-coloring consequence verified in the author preprint abstract; no exponent hidden in O(√log Δ) is chosen.",
+          "plot": null
+        },
+        {
+          "id": "edge-local-bko20",
+          "paperId": "balliu-kuhn-olivetti-2020",
+          "kind": "upper",
+          "bound": "log^{O(log log Δ)}Δ + O(log* n) LOCAL rounds",
+          "guarantee": "Proper edge coloring with q = 2Δ−1",
+          "sourceLocation": "Abstract; main list edge-coloring result",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "historical",
+          "notes": "Historical quasi-polylogarithmic dependence on degree. Kept symbolic; no polynomial exponent is inferred.",
+          "plot": null
+        },
+        {
+          "id": "edge-local-bbko22",
+          "paperId": "balliu-brandt-kuhn-olivetti-2022",
+          "kind": "upper",
+          "bound": "O(log¹²Δ + log* n) LOCAL rounds",
+          "guarantee": "Proper edge coloring with q = 2Δ−1",
+          "sourceLocation": "Theorem D.4, with color universe C = 2Δ−1",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Original theorem gives O(log⁷C · log⁵Δ + log* n), yielding the displayed instantiation. The deterministic algorithm also works in randomized LOCAL with probability 1. No matching lower bound for this palette is asserted from the supplied source set.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "edge-local-delta-plus-one",
+      "problem": "edge",
+      "model": "local",
+      "label": "LOCAL · Vizing palette Δ+1",
+      "task": "Compute proper edge coloring with Δ+1 colors",
+      "assumptions": [
+        "Simple graph, n vertices, maximum degree Δ.",
+        "Synchronous LOCAL model; unrestricted message size and local computation.",
+        "Distinct identifiers as in the standard LOCAL model."
+      ],
+      "xAxis": {
+        "label": "Palette family (categorical; no numerical spacing)",
+        "kind": "categorical",
+        "categories": [
+          "2Δ−1",
+          "2Δ−2",
+          "Δ+1",
+          "Near Δ",
+          "3Δ/2 family"
+        ]
+      },
+      "yAxis": {
+        "label": "Algorithm model (categorical); inspect exact round formulas",
+        "kind": "categorical",
+        "categories": [
+          "Deterministic",
+          "Randomized"
+        ]
+      },
+      "parameters": {},
+      "results": [
+        {
+          "id": "edge-local-bernshteyn22-vizing",
+          "paperId": "bernshteyn-2022-local-vizing",
+          "kind": "upper",
+          "bound": "poly(Δ, log n) LOCAL rounds",
+          "guarantee": "Proper edge coloring with q = Δ+1",
+          "sourceLocation": "Theorem 1.1",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Polynomial factors remain symbolic. No numeric exponent or fixed log-power coordinate is assigned.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "edge-local-near-delta-history",
+      "problem": "edge",
+      "model": "local",
+      "label": "LOCAL · near-Δ colors",
+      "task": "Compute an explicit proper edge coloring with additive or relative palette slack",
+      "assumptions": [
+        "Simple graph, n vertices, maximum degree Δ.",
+        "Synchronous LOCAL model; unrestricted message size and local computation.",
+        "Distinct identifiers as in the standard LOCAL model.",
+        "Δ = Õ(Ω(log n)); the high-degree condition is required."
+      ],
+      "xAxis": {
+        "label": "Palette family (categorical; no numerical spacing)",
+        "kind": "categorical",
+        "categories": [
+          "2Δ−1",
+          "2Δ−2",
+          "Δ+1",
+          "Near Δ",
+          "3Δ/2 family"
+        ]
+      },
+      "yAxis": {
+        "label": "Algorithm model (categorical); inspect exact round formulas",
+        "kind": "categorical",
+        "categories": [
+          "Deterministic",
+          "Randomized"
+        ]
+      },
+      "parameters": {
+        "Δ": "degree regime changes achievable slack"
+      },
+      "results": [
+        {
+          "id": "edge-local-gkmu18-near",
+          "paperId": "ghaffari-kuhn-maus-uitto-2018",
+          "kind": "upper",
+          "bound": "poly(log n) LOCAL rounds",
+          "guarantee": "Proper edge coloring with q = (1+o(1))Δ",
+          "sourceLocation": "Abstract; high-degree result",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "historical",
+          "notes": "High-degree theorem; not a bounded-Δ specialization. The small-degree palette is a separate retained record. Hidden polynomial and vanishing slack remain symbolic.",
+          "plot": null
+        },
+        {
+          "id": "edge-local-davies23-near",
+          "paperId": "davies-2023-lll-edge",
+          "kind": "upper",
+          "bound": "log^{O(1)} log n LOCAL rounds",
+          "guarantee": "Proper edge coloring with q = Δ+o(Δ)",
+          "sourceLocation": "Corollary 4",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "The asymptotic palette slack is not a Δ+1 guarantee. Neither the polynomial exponent nor a numeric ε-range is selected.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "edge-local-three-halves",
+      "problem": "edge",
+      "model": "local",
+      "label": "LOCAL · 3Δ/2 colors and degree tradeoff",
+      "task": "Compute a proper edge coloring with fewer than 2Δ−1 colors",
+      "assumptions": [
+        "Simple graph, n vertices, maximum degree Δ.",
+        "Synchronous LOCAL model; unrestricted message size and local computation.",
+        "Distinct identifiers as in the standard LOCAL model.",
+        "The smaller-degree regime of the source's split into two algorithms.",
+        "ε > 1/Δ."
+      ],
+      "xAxis": {
+        "label": "Palette family (categorical; no numerical spacing)",
+        "kind": "categorical",
+        "categories": [
+          "2Δ−1",
+          "2Δ−2",
+          "Δ+1",
+          "Near Δ",
+          "3Δ/2 family"
+        ]
+      },
+      "yAxis": {
+        "label": "Algorithm model (categorical); inspect exact round formulas",
+        "kind": "categorical",
+        "categories": [
+          "Deterministic",
+          "Randomized"
+        ]
+      },
+      "parameters": {
+        "ε": "palette slack above 3Δ/2"
+      },
+      "results": [
+        {
+          "id": "edge-local-gkmu18-lowdegree",
+          "paperId": "ghaffari-kuhn-maus-uitto-2018",
+          "kind": "upper",
+          "bound": "poly(log n) LOCAL rounds",
+          "guarantee": "Proper edge coloring with q ≤ 3Δ/2",
+          "sourceLocation": "Abstract; smaller-degree result",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "historical",
+          "notes": "Historical small-degree guarantee. The original source states 3Δ/2 colors; the palette size is integer. Kept separate from its high-degree near-Δ theorem.",
+          "plot": null
+        },
+        {
+          "id": "edge-local-brandt25-threehalves",
+          "paperId": "brandt-et-al-2025-threehalves",
+          "kind": "upper",
+          "bound": "O(Δ² log n) LOCAL rounds",
+          "guarantee": "Proper edge coloring with q = ⌊3Δ/2⌋",
+          "sourceLocation": "Theorem 1.2 and proof §5.1",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "The proof yields the integer floor palette. This agrees with 2Δ−2 at Δ=3 or 4; separate categorical families are not a claim of different numerical positions.",
+          "plot": null
+        },
+        {
+          "id": "edge-local-brandt25-epsilon",
+          "paperId": "brandt-et-al-2025-threehalves",
+          "kind": "upper",
+          "bound": "O(ε⁻² log²Δ · poly(log log Δ) · log n) LOCAL rounds",
+          "guarantee": "Proper edge coloring with q = (3/2+ε)Δ",
+          "sourceLocation": "Corollary 1.2",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "Extra palette slack improves the degree dependence. The unspecified poly(log log Δ) factor remains symbolic.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "edge-local-multigraph-shannon",
+      "problem": "edge",
+      "model": "local",
+      "label": "LOCAL · bounded-degree multigraph",
+      "task": "Compute a proper edge coloring allowing parallel edges",
+      "assumptions": [
+        "Loopless multigraph, n vertices, maximum degree Δ = O(1).",
+        "Synchronous LOCAL model; unrestricted message size and local computation.",
+        "Distinct identifiers as in the standard LOCAL model.",
+        "Δ = O(1); the multigraph facet fixes Δ ≥ 3."
+      ],
+      "xAxis": {
+        "label": "LOCAL model at q = ⌊3Δ/2⌋ (categorical)",
+        "kind": "categorical",
+        "categories": [
+          "Deterministic",
+          "Randomized"
+        ]
+      },
+      "yAxis": {
+        "label": "Communication rounds at fixed Δ ≥ 3 (symbolic order)",
+        "kind": "symbolic",
+        "categories": [
+          "log log n",
+          "log n",
+          "log²n",
+          "Õ(log⁵n)"
+        ]
+      },
+      "parameters": {},
+      "results": [
+        {
+          "id": "edge-local-dhawan24-random",
+          "paperId": "dhawan-2024-multigraph",
+          "kind": "upper",
+          "bound": "O(log²n) LOCAL rounds",
+          "guarantee": "Proper edge coloring with q = ⌊3Δ/2⌋",
+          "sourceLocation": "Theorem 1.5(2), with high-probability proof in §5.2",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Loopless multigraphs. The proof gives O(Δ³⁶ log²n); the displayed theorem hides degree dependence by fixing Δ. The sequential algorithm's 1−1/Δⁿ success probability is not used here.",
+          "plot": null
+        },
+        {
+          "id": "edge-local-dhawan24-deterministic",
+          "paperId": "dhawan-2024-multigraph",
+          "kind": "upper",
+          "bound": "Õ(log⁵n) LOCAL rounds",
+          "guarantee": "Proper edge coloring with q = ⌊3Δ/2⌋",
+          "sourceLocation": "Theorem 1.5(3), distributed proof §5.2",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "Loopless multigraphs. Degree factors are hidden by fixed Δ; the tilde hides poly(log log n). Retain the theorem's tilde even though the last proof line suppresses it.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "edge-mpc-lowspace-component",
+      "problem": "edge",
+      "model": "mpc",
+      "label": "Low-space MPC · component stability",
+      "task": "Color edges in low-space MPC and understand conditional round limits",
+      "assumptions": [
+        "Low-space MPC n^φ words per machine, fixed 0<φ<1",
+        "Upper: deterministic component-unstable, Δ=(log log n)^{o(1)}, n^{1+o(1)} total words, n^{poly(Δ)} local work",
+        "Lower: deterministic component-stable only, connectivity conjecture, even forests; polynomial global space allowed",
+        "Different exact palettes; no matched frontier"
+      ],
+      "xAxis": {
+        "label": "Palette ratio r = q/Δ",
+        "kind": "palette",
+        "min": 1,
+        "max": 2.25,
+        "ticks": [
+          1,
+          1.25,
+          1.5,
+          1.75,
+          2,
+          2.25
+        ],
+        "tickLabels": [
+          "Δ",
+          "5Δ/4",
+          "3Δ/2",
+          "7Δ/4",
+          "2Δ",
+          "9Δ/4"
+        ]
+      },
+      "yAxis": {
+        "label": "Asymptotic round class (ordinal tiers)",
+        "kind": "ordinal",
+        "min": 0,
+        "max": 5,
+        "ticks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "tickLabels": [
+          "O(1)",
+          "log log log n",
+          "log log n",
+          "(log log n)^k",
+          "√log n",
+          "≥ log n"
+        ]
+      },
+      "parameters": {},
+      "results": [
+        {
+          "id": "edge-mpc-cdp24-upper",
+          "paperId": "czumaj-davies-parter-2024-mpc",
+          "kind": "upper",
+          "bound": "O(poly(Δ)+log Δ · log log log n) rounds",
+          "guarantee": "Proper edge coloring with palette Δ+√Δ·log³Δ",
+          "sourceLocation": "Theorem 21 and proof; end of Section 4.2",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "verified_scoped",
+          "notes": "For sufficiently large fixed Δ, the palette is at most 2Δ−2 and the round bound is O(log log log n), with polynomial local computation. This is an asymptotic specialization, not a claim for every small fixed degree. No exponent is specified for poly(Δ).",
+          "plot": null
+        },
+        {
+          "id": "edge-mpc-cdp24-lower",
+          "paperId": "czumaj-davies-parter-2024-mpc",
+          "kind": "lower",
+          "bound": "Ω(log(log_Δ n)) rounds, conditional",
+          "guarantee": "Lower bound for computing a proper (2Δ−2)-edge coloring",
+          "sourceLocation": "Theorem 20 and proof",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "verified_conditional",
+          "notes": "The logarithm is log(log_Δ n), not log_Δ(log n). Component stability permits the global parameters allowed by the paper’s formal definition; it does not mean that machines cannot communicate across components. This is not a matched lower bound for Theorem 21.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "edge-query-adjlist-enumerate-plus-static",
+      "problem": "edge",
+      "model": "query_list",
+      "label": "Adjacency-list access · modern full-output algorithms",
+      "task": "Enumerate all edges, then compute and emit a proper coloring",
+      "assumptions": [
+        "Degree(v) and indexed neighbor(v,i) oracle; all vertices known; simple graph with m edges",
+        "Full explicit coloring of all edges; enumeration asks n degree queries and 2m neighbor queries; implementations retain graph in memory"
+      ],
+      "xAxis": {
+        "label": "Palette guarantee categories (not numeric palette ratios)",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "vizing",
+            "label": "Δ+1"
+          },
+          {
+            "id": "additive",
+            "label": "Δ+O(log n)"
+          },
+          {
+            "id": "epsilon",
+            "label": "(1+ε)Δ"
+          },
+          {
+            "id": "greedy",
+            "label": "2Δ−1"
+          }
+        ]
+      },
+      "yAxis": {
+        "label": "Oracle queries per complete explicit coloring; exact symbolic count",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "n-plus-2m",
+            "label": "n+2m"
+          }
+        ]
+      },
+      "parameters": {
+        "α": "graph arboricity",
+        "ε": "positive palette slack",
+        "coordinateConvention": "Palette categories versus exact n+2m graph-query cost. Computation formulas remain theorem details; no query lower claimed."
+      },
+      "results": [
+        {
+          "kind": "upper",
+          "panel": "computation",
+          "graph": "Undirected simple graph with n known labeled vertices, m edges and maximum degree Δ",
+          "output": "One explicit color assignment for every edge",
+          "oracle": "degree(v) and indexed neighbor(v,i); arbitrary local list order",
+          "queryComplexity": "Exactly n+2m oracle calls for this scan",
+          "queryDerivation": "Ask degree(v) once for each of n vertices; then read all degree(v) list entries. The sum of degrees is 2m. Retain each undirected edge once and make no further external graph queries.",
+          "totalTimeConvention": "Total RAM time includes the O(n+m) scan and the post-scan computation shown separately.",
+          "memory": "Stores the full O(n+m)-word adjacency representation; no auxiliary-space restriction imposed.",
+          "evidenceStatus": "verified",
+          "conditional": false,
+          "id": "edge-query-vizing-2025-enumerated",
+          "paperId": "assadi-et-al-2025-vizing",
+          "bound": "Exactly n+2m oracle calls for this scan; O(m log⁺Δ) post-scan time",
+          "guarantee": "Proper coloring using at most Δ+1 colors",
+          "sourceLocation": "arXiv:2410.05240v3, Corollary C.1(i); journal version Corollary B.1(i)",
+          "frontierStatus": "current_best_verified",
+          "notes": "Theorem 1.1 itself states O(m log n); Appendix C supplies the log Δ improvement. Journal appendix numbering is B.1. The n+2m query count is derived by the atlas, not an author-stated query lower or optimum.",
+          "paletteCategory": "vizing",
+          "costClass": "degree_log",
+          "shortName": "Exact Vizing · 2025",
+          "shortTag": "w.h.p.",
+          "palette": "Δ+1",
+          "quality": "Proper coloring using at most Δ+1 colors",
+          "computation": "O(m log⁺Δ)",
+          "displayBound": "O(m log⁺Δ) computation, w.h.p.",
+          "probability": "Randomized runtime and successful coloring with high probability",
+          "randomized": true,
+          "theorem": "arXiv:2410.05240v3, Corollary C.1(i); journal version Corollary B.1(i)",
+          "assumptions": [
+            "General simple graphs",
+            "Δ≤1 is trivial; log⁺Δ=max{1,log Δ} includes that case"
+          ],
+          "sourceId": "assadi-et-al-2025-vizing",
+          "sourceUrl": "https://arxiv.org/html/2410.05240v3",
+          "totalTime": "O(n+m) scan + O(m log⁺Δ) post-scan computation"
+        },
+        {
+          "kind": "upper",
+          "panel": "computation",
+          "graph": "Undirected simple graph with n known labeled vertices, m edges and maximum degree Δ",
+          "output": "One explicit color assignment for every edge",
+          "oracle": "degree(v) and indexed neighbor(v,i); arbitrary local list order",
+          "queryComplexity": "Exactly n+2m oracle calls for this scan",
+          "queryDerivation": "Ask degree(v) once for each of n vertices; then read all degree(v) list entries. The sum of degrees is 2m. Retain each undirected edge once and make no further external graph queries.",
+          "totalTimeConvention": "Total RAM time includes the O(n+m) scan and the post-scan computation shown separately.",
+          "memory": "Stores the full O(n+m)-word adjacency representation; no auxiliary-space restriction imposed.",
+          "evidenceStatus": "verified",
+          "conditional": false,
+          "id": "edge-query-near-vizing-2025-enumerated",
+          "paperId": "assadi-2025-nearvizing",
+          "bound": "Exactly n+2m oracle calls for this scan; O(m log⁺Δ) expected post-scan time",
+          "guarantee": "Proper coloring using Δ+O(log n) colors",
+          "sourceLocation": "Theorem 2 and §4.3 fallback modification",
+          "frontierStatus": "historical",
+          "notes": "The fallback ensures the palette always holds without changing the expected-time order. Do not relabel expectation as the same-time high-probability guarantee.",
+          "paletteCategory": "additive",
+          "costClass": "degree_log",
+          "shortName": "Near Vizing · 2025",
+          "shortTag": "expected",
+          "palette": "Δ+O(log n)",
+          "quality": "Proper coloring using Δ+O(log n) colors",
+          "computation": "O(m log⁺Δ) expected",
+          "displayBound": "O(m log⁺Δ) expected computation",
+          "probability": "Always a valid coloring within the palette; expected runtime",
+          "randomized": true,
+          "theorem": "Theorem 2 and §4.3 fallback modification",
+          "assumptions": [
+            "General simple graphs",
+            "Use the §4.3 fallback when the sampled coloring exceeds the target palette",
+            "Δ≤1 handled trivially"
+          ],
+          "sourceId": "assadi-2025-nearvizing",
+          "sourceUrl": "https://arxiv.org/html/2405.13371",
+          "totalTime": "O(n+m) scan + O(m log⁺Δ) expected post-scan computation"
+        },
+        {
+          "kind": "upper",
+          "panel": "computation",
+          "graph": "Undirected simple graph with n known labeled vertices, m edges and maximum degree Δ",
+          "output": "One explicit color assignment for every edge",
+          "oracle": "degree(v) and indexed neighbor(v,i); arbitrary local list order",
+          "queryComplexity": "Exactly n+2m oracle calls for this scan",
+          "queryDerivation": "Ask degree(v) once for each of n vertices; then read all degree(v) list entries. The sum of degrees is 2m. Retain each undirected edge once and make no further external graph queries.",
+          "totalTimeConvention": "Total RAM time includes the O(n+m) scan and the post-scan computation shown separately.",
+          "memory": "Stores the full O(n+m)-word adjacency representation; no auxiliary-space restriction imposed.",
+          "evidenceStatus": "verified",
+          "conditional": false,
+          "id": "edge-query-density-2024-enumerated",
+          "paperId": "bhattacharya-costa-panski-solomon-2024-density",
+          "bound": "Exactly n+2m oracle calls for this scan; Õ(m + min{m√n,mΔ}·α/Δ) post-scan time",
+          "guarantee": "Proper coloring using at most Δ+1 colors",
+          "sourceLocation": "ESA 2024 Theorem 3, explicit runtime remark; Lemma 24 and Corollary 25",
+          "frontierStatus": "historical",
+          "notes": "Corrects the abstract-level omission of the additive linear term. For a star, the bare density term can be sublinear in m; the actual implementation still includes graph processing and output.",
+          "paletteCategory": "vizing",
+          "costClass": "density",
+          "shortName": "Density-sensitive · 2024",
+          "shortTag": "w.h.p. / expected",
+          "palette": "Δ+1",
+          "quality": "Proper coloring using at most Δ+1 colors",
+          "computation": "Õ(m + min{m√n,mΔ}·α/Δ)",
+          "exactComputation": "High-probability O(min{mΔ log²n, m√n log^(3/2)n}·α/Δ + m log²n), from Corollary 25.",
+          "displayBound": "Õ(m + min{m√n,mΔ}·α/Δ) computation",
+          "probability": "Randomized; soft-O bound holds in expectation and with high probability",
+          "randomized": true,
+          "theorem": "ESA 2024 Theorem 3, explicit runtime remark; Lemma 24 and Corollary 25",
+          "assumptions": [
+            "α is graph arboricity",
+            "Retain the additive m term even when α/Δ is small",
+            "Õ hides polylogarithmic factors in n"
+          ],
+          "sourceId": "bhattacharya-costa-panski-solomon-2024-density",
+          "sourceUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol308-esa2024/LIPIcs.ESA.2024.23/LIPIcs.ESA.2024.23.pdf",
+          "totalTime": "O(n+m) scan + Õ(m + min{m√n,mΔ}·α/Δ) post-scan computation"
+        },
+        {
+          "kind": "upper",
+          "panel": "computation",
+          "graph": "Undirected simple graph with n known labeled vertices, m edges and maximum degree Δ",
+          "output": "One explicit color assignment for every edge",
+          "oracle": "degree(v) and indexed neighbor(v,i); arbitrary local list order",
+          "queryComplexity": "Exactly n+2m oracle calls for this scan",
+          "queryDerivation": "Ask degree(v) once for each of n vertices; then read all degree(v) list entries. The sum of degrees is 2m. Retain each undirected edge once and make no further external graph queries.",
+          "totalTimeConvention": "Total RAM time includes the O(n+m) scan and the post-scan computation shown separately.",
+          "memory": "Stores the full O(n+m)-word adjacency representation; no auxiliary-space restriction imposed.",
+          "evidenceStatus": "verified",
+          "conditional": false,
+          "id": "edge-query-nearlinear-2026-enumerated",
+          "paperId": "bernshteyn-dhawan-2026-linear-static",
+          "bound": "Exactly n+2m oracle calls for this scan; O(m log⁺(1/ε)/ε⁴) post-scan time",
+          "guarantee": "Integer color labels at most (1+ε)Δ",
+          "sourceLocation": "Theorem 1.3 (arXiv:2407.04887v2, printed p.3); Definition 1.1 palette convention",
+          "frontierStatus": "current_best_verified",
+          "notes": "The theorem states the stronger failure bound ε^{Ω(m)}. The source expression uses log(1/ε); the display's log⁺ convention is a safe upper-bound normalization. This is total post-scan computation, not an amortized per-query LCA guarantee.",
+          "paletteCategory": "epsilon",
+          "costClass": "epsilon",
+          "shortName": "Linear time · 2026",
+          "shortTag": "failure ≤ ε^{Ω(m)}",
+          "palette": "(1+ε)Δ",
+          "quality": "Integer color labels at most (1+ε)Δ",
+          "computation": "O(m log⁺(1/ε)/ε⁴)",
+          "sourceComputation": "O(m log(1/ε)/ε⁴)",
+          "displayBound": "O(m log⁺(1/ε)/ε⁴) computation",
+          "probability": "Finishes with a proper coloring within the bound with probability at least 1−ε^{Ω(m)}",
+          "randomized": true,
+          "theorem": "Theorem 1.3 (arXiv:2407.04887v2, printed p.3); Definition 1.1 palette convention",
+          "assumptions": [
+            "0<ε<1 and Δ≥1/ε",
+            "For fixed ε, post-scan runtime is O(m)",
+            "Source allows noninteger q, with integer color labels ≤q (equivalently at most floor(q) colors)",
+            "Display uses log⁺x=max{1,log x} to keep the explicit linear output term visible"
+          ],
+          "sourceId": "bernshteyn-dhawan-2026-linear-static",
+          "sourceUrl": "https://arxiv.org/pdf/2407.04887v2",
+          "totalTime": "O(n+m) scan + O(m log⁺(1/ε)/ε⁴) post-scan computation"
+        },
+        {
+          "kind": "upper",
+          "panel": "computation",
+          "graph": "Undirected simple graph with n known labeled vertices, m edges and maximum degree Δ",
+          "output": "One explicit color assignment for every edge",
+          "oracle": "degree(v) and indexed neighbor(v,i); arbitrary local list order",
+          "queryComplexity": "Exactly n+2m oracle calls for this scan",
+          "queryDerivation": "Ask degree(v) once for each of n vertices; then read all degree(v) list entries. The sum of degrees is 2m. Retain each undirected edge once and make no further external graph queries.",
+          "totalTimeConvention": "Total RAM time includes the O(n+m) scan and the post-scan computation shown separately.",
+          "memory": "Stores the full O(n+m)-word adjacency representation; no auxiliary-space restriction imposed.",
+          "evidenceStatus": "verified",
+          "conditional": false,
+          "id": "edge-query-vizing2024-mnthird",
+          "paperId": "bhattacharya-carmon-costa-solomon-zhang-2024-vizing",
+          "bound": "Exactly n+2m oracle calls for this scan; Õ(m n^{1/3}) post-scan time",
+          "guarantee": "Proper coloring using at most Δ+1 colors",
+          "sourceLocation": "arXiv:2405.15449v1, Theorem 1.1",
+          "frontierStatus": "historical",
+          "notes": "Historical time improvement; all external degree/neighbor access is still the shared full scan.",
+          "paletteCategory": "vizing",
+          "costClass": "third",
+          "shortName": "Vizing · FOCS 2024",
+          "shortTag": "w.h.p.",
+          "palette": "Δ+1",
+          "quality": "Proper coloring using at most Δ+1 colors",
+          "computation": "Õ(m n^{1/3})",
+          "displayBound": "Õ(m n^{1/3}) computation, w.h.p.",
+          "probability": "Randomized computation succeeds in the stated runtime with high probability",
+          "randomized": true,
+          "theorem": "arXiv:2405.15449v1, Theorem 1.1",
+          "assumptions": [
+            "General simple graphs",
+            "Õ hides polylogarithmic factors in n"
+          ],
+          "sourceId": "bhattacharya-carmon-costa-solomon-zhang-2024-vizing",
+          "sourceUrl": "https://arxiv.org/html/2405.15449",
+          "totalTime": "O(n+m) scan + Õ(m n^{1/3}) post-scan computation"
+        },
+        {
+          "kind": "upper",
+          "panel": "computation",
+          "graph": "Undirected simple graph with n known labeled vertices, m edges and maximum degree Δ",
+          "output": "One explicit color assignment for every edge",
+          "oracle": "degree(v) and indexed neighbor(v,i); arbitrary local list order",
+          "queryComplexity": "Exactly n+2m oracle calls for this scan",
+          "queryDerivation": "Ask degree(v) once for each of n vertices; then read all degree(v) list entries. The sum of degrees is 2m. Retain each undirected edge once and make no further external graph queries.",
+          "totalTimeConvention": "Total RAM time includes the O(n+m) scan and the post-scan computation shown separately.",
+          "memory": "Stores the full O(n+m)-word adjacency representation; no auxiliary-space restriction imposed.",
+          "evidenceStatus": "verified",
+          "conditional": false,
+          "id": "edge-query-vizing2025-mnfourth",
+          "paperId": "bhattacharya-costa-solomon-zhang-2025-faster-vizing",
+          "bound": "Exactly n+2m oracle calls for this scan; Õ(m n^{1/4}) post-scan time",
+          "guarantee": "Proper coloring using at most Δ+1 colors",
+          "sourceLocation": "arXiv:2410.12479v1, Theorem 1.1",
+          "frontierStatus": "historical",
+          "notes": "Historical time improvement. Its color-extension subroutine is not a separate adjacency-list query lower bound.",
+          "paletteCategory": "vizing",
+          "costClass": "quarter",
+          "shortName": "Vizing · SODA 2025",
+          "shortTag": "w.h.p.",
+          "palette": "Δ+1",
+          "quality": "Proper coloring using at most Δ+1 colors",
+          "computation": "Õ(m n^{1/4})",
+          "displayBound": "Õ(m n^{1/4}) computation, w.h.p.",
+          "probability": "Randomized computation succeeds in the stated runtime with high probability",
+          "randomized": true,
+          "theorem": "arXiv:2410.12479v1, Theorem 1.1",
+          "assumptions": [
+            "General simple graphs",
+            "Õ hides polylogarithmic factors in n"
+          ],
+          "sourceId": "bhattacharya-costa-solomon-zhang-2025-faster-vizing",
+          "sourceUrl": "https://arxiv.org/html/2410.12479",
+          "totalTime": "O(n+m) scan + Õ(m n^{1/4}) post-scan computation"
+        }
+      ],
+      "mode": "curated",
+      "focusPairId": "edge-query_list"
+    },
+    {
+      "id": "edge-query-adjmatrix-enumerate",
+      "problem": "edge",
+      "model": "query_matrix",
+      "label": "Adjacency-matrix access · enumerate then color",
+      "task": "Enumerate every possible edge then compute a proper coloring",
+      "assumptions": [
+        "Known vertex set; one unit-cost Pair(u,v) query returns adjacency in a fixed undirected simple graph.",
+        "Query every unordered pair u<v once; build a stored graph and compute its maximum degree during the scan.",
+        "All actual edges are retained before the randomized static coloring stage; that stage makes no additional matrix-oracle queries.",
+        "Explicit output includes a color for every actual edge; absent pairs are not output.",
+        "For Δ=0 output is empty; for Δ=1 assign color 1 to each edge in O(m) additional time. The expression log max{2,Δ} extends the displayed time to these trivial cases."
+      ],
+      "xAxis": {
+        "label": "Palette q · exact category",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "delta-plus-one",
+            "label": "Δ+1"
+          }
+        ]
+      },
+      "yAxis": {
+        "label": "Pair queries · symbolic asymptotic order",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "linear",
+            "label": "n"
+          },
+          {
+            "id": "quadratic",
+            "label": "n²"
+          }
+        ],
+        "note": "Ordered asymptotic reference tiers only; the point is Θ(n²), annotated with exact n(n−1)/2. This is not a numeric interpolation or a second result."
+      },
+      "parameters": {
+        "coordinateConvention": "Curated figure uses symbolic asymptotic reference tiers, with the exact n(n−1)/2 count attached to the baseline. The single point is at palette Δ+1 and quadratic query order. Computation and output have separate labels.",
+        "density": "No dependence on m in the scan query count."
+      },
+      "results": [
+        {
+          "id": "edge-query-matrix-vizing-composed",
+          "paperId": "assadi-et-al-2025-vizing",
+          "kind": "upper",
+          "bound": "Exactly n(n−1)/2 pair queries; after scanning: O(m log max{2,Δ}) w.h.p. computation",
+          "guarantee": "Proper q=Δ+1 edge coloring; randomized computation completes w.h.p.; the pair count is deterministic.",
+          "sourceLocation": "Corollary C.1(1), with proof in §C.1; deterministic matrix enumeration is an atlas derivation.",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "The exact matrix-query count is the cost of this full-scan construction, not a matrix-oracle theorem of the cited paper. The same scan runs on sparse and dense graphs. Theorem 1.1 states O(m log n); the sharper degree-sensitive time comes from Corollary C.1(1). The total time includes enumeration. No query lower bound or oracle optimality is claimed. For Δ=0 output is empty; for Δ=1 assign color 1 to each edge in O(m) additional time. The expression log max{2,Δ} extends the displayed time to these trivial cases.",
+          "plot": null
+        }
+      ]
+    }
+  ]
+}

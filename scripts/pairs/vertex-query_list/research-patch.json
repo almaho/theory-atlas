@@ -1,0 +1,77 @@
+{
+  "upsertPapers": [
+    {
+      "id": "ferber-hardiman-chen-2025-sublinear-coloring",
+      "title": "Improved Sublinear Algorithms for Classical and Quantum Graph Coloring",
+      "authors": [
+        "Asaf Ferber",
+        "Liam Hardiman",
+        "Xiaonan Chen"
+      ],
+      "year": 2025,
+      "venue": "arXiv preprint",
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/abs/2502.06024",
+      "verifiedOn": "2026-10-27",
+      "verificationUrl": "https://arxiv.org/html/2502.06024#S1",
+      "versionNote": "The HTML displays arXiv:2502.06024v1 (9 February 2025) and an internal manuscript date of 24 August 2026. The abstract history lists only v1; no later revision number is asserted."
+    }
+  ],
+  "upsertSlices": [
+    {
+      "id": "vertex-query-adjacency-list-only",
+      "problem": "vertex",
+      "model": "query_list",
+      "label": "Adjacency list neighbor queries only",
+      "task": "Output a proper (Δ+1)-color assignment",
+      "assumptions": [
+        "All n vertices are known, including isolates; lists are consistent with one simple undirected graph.",
+        "The oracle returns ⊥ after the end of each finite list. A padded list that never signals termination is a different model.",
+        "No degree or pair queries are used. The implementation does not need Δ in advance.",
+        "The exact count describes this full-scan implementation, not every coloring algorithm and not a query lower bound.",
+        "When m=0, the scan still makes n end tests and outputs n copies of color 1. For Δ≥1, n+2m≤n(Δ+1)≤2nΔ."
+      ],
+      "xAxis": {
+        "label": "Number of colors q · symbolic palette",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "delta-plus-one",
+            "label": "Δ+1"
+          }
+        ]
+      },
+      "yAxis": {
+        "label": "Neighbor calls Q · exact implementation cost",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "scan-cost",
+            "label": "n+2m"
+          }
+        ],
+        "note": "One symbolic formula for an implemented upper bound; no numerical exponent, feasibility region or lower-bound shading."
+      },
+      "parameters": {
+        "n": "Known vertex count, n≥1, including isolates",
+        "m": "Number of undirected edges",
+        "Delta": "Maximum degree; not required as input by greedy",
+        "coordinateConvention": "Symbolic exact scan n+2m paired with Δ+1 colors. No forced quadratic exponent."
+      },
+      "results": [
+        {
+          "id": "vertex-query-list-greedy",
+          "paperId": "ferber-hardiman-chen-2025-sublinear-coloring",
+          "kind": "upper",
+          "bound": "Exactly n+2m neighbor calls for the scan-and-greedy implementation",
+          "guarantee": "Proper vertex coloring from the common palette [Δ+1]; Deterministic; correct on every input satisfying the graph and oracle promises.",
+          "sourceLocation": "§1 query-model definition and greedy baseline; Table 1 and the g(Δ)=nΔ discussion before Corollary 2",
+          "evidenceStatus": "verified",
+          "frontierStatus": "baseline",
+          "notes": "The exact scan formula and RAM implementation are elementary atlas derivations from the source's access definition and greedy baseline. They are not a new author-stated optimality theorem. Sparse graphs can have high Δ, so m is retained instead of plotting every instance at n². Source coarse baseline: O(nΔ) for Δ≥1. Total RAM time O(n+m); output n assignments.",
+          "plot": null
+        }
+      ]
+    }
+  ]
+}

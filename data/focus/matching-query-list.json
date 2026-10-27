@@ -1,0 +1,596 @@
+{
+  "reviewedOn": "2026-10-20",
+  "problem": "matching",
+  "model": "query_list",
+  "title": "Matching size through adjacency-list queries",
+  "coverage": "Eleven scoped entries from six primary sources, covering the five existing adjacency-list settings; three parameterized related results are retained for inspection. This is a curated comparison, not an exhaustive survey.",
+  "defaultScope": "Global maximum-cardinality matching size estimates through degree and indexed-neighbor access. Adaptive simple graphs, bipartite graphs, additive error, and non-adaptive queries have separate contracts.",
+  "sources": {
+    "beh21": {
+      "title": "Time-Optimal Sublinear Algorithms for Matching and Vertex Cover",
+      "authors": [
+        "Soheil Behnezhad"
+      ],
+      "year": 2021,
+      "url": "https://arxiv.org/abs/2106.02942",
+      "paperId": "behnezhad-2021-time-optimal",
+      "shortLabel": "Beh ’21",
+      "fullTextUrl": "https://arxiv.org/html/2106.02942v3",
+      "venue": "FOCS 2021",
+      "publicationStatus": "published",
+      "publicationUrl": "https://doi.org/10.1109/FOCS52979.2021.00089",
+      "verifiedOn": "2026-10-20"
+    },
+    "mrt25": {
+      "title": "A 0.51-Approximation of Maximum Matching in Sublinear n^{1.5} Time",
+      "authors": [
+        "Sepideh Mahabadi",
+        "Mohammad Roghani",
+        "Jakub Tarnawski"
+      ],
+      "year": 2025,
+      "url": "https://arxiv.org/abs/2506.01669",
+      "paperId": "mahabadi-roghani-tarnawski-2025-051",
+      "shortLabel": "MRT ’25",
+      "fullTextUrl": "https://arxiv.org/html/2506.01669v1",
+      "venue": "ICALP 2025",
+      "publicationStatus": "published",
+      "publicationUrl": "https://doi.org/10.4230/LIPIcs.ICALP.2025.116",
+      "verifiedOn": "2026-10-20"
+    },
+    "bks23": {
+      "title": "Sublinear Algorithms for (1.5+ε)-Approximate Matching",
+      "authors": [
+        "Sayan Bhattacharya",
+        "Peter Kiss",
+        "Thatchaphol Saranurak"
+      ],
+      "year": 2023,
+      "url": "https://arxiv.org/abs/2212.00189",
+      "paperId": "bhattacharya-kiss-saranurak-2023-query",
+      "shortLabel": "BKS ’23",
+      "fullTextUrl": "https://arxiv.org/html/2212.00189v2",
+      "venue": "STOC 2023",
+      "publicationStatus": "published",
+      "publicationUrl": "https://doi.org/10.1145/3564246.3585252",
+      "verifiedOn": "2026-10-20"
+    },
+    "brr23": {
+      "title": "Sublinear Time Algorithms and Complexity of Approximate Maximum Matching",
+      "authors": [
+        "Soheil Behnezhad",
+        "Mohammad Roghani",
+        "Aviad Rubinstein"
+      ],
+      "year": 2023,
+      "url": "https://arxiv.org/abs/2211.15843",
+      "paperId": "behnezhad-roghani-rubinstein-2023-query",
+      "shortLabel": "BRR ’23",
+      "fullTextUrl": "https://arxiv.org/html/2211.15843v1",
+      "venue": "STOC 2023",
+      "publicationStatus": "published",
+      "publicationUrl": "https://doi.org/10.1145/3564246.3585231",
+      "verifiedOn": "2026-10-20"
+    },
+    "brr24": {
+      "title": "Approximating Maximum Matching Requires Almost Quadratic Time",
+      "authors": [
+        "Soheil Behnezhad",
+        "Mohammad Roghani",
+        "Aviad Rubinstein"
+      ],
+      "year": 2024,
+      "url": "https://arxiv.org/abs/2406.08595",
+      "paperId": "behnezhad-roghani-rubinstein-2024-quadratic",
+      "shortLabel": "BRR ’24",
+      "fullTextUrl": "https://arxiv.org/html/2406.08595v1",
+      "venue": "STOC 2024",
+      "publicationStatus": "published",
+      "publicationUrl": "https://doi.org/10.1145/3618260.3649785",
+      "verifiedOn": "2026-10-20"
+    },
+    "shah26": {
+      "title": "Sublinear-Time Lower Bounds for Approximating Matching Size using Non-Adaptive Queries",
+      "authors": [
+        "Vihan Shah"
+      ],
+      "year": 2026,
+      "url": "https://arxiv.org/abs/2602.14326",
+      "paperId": "shah-2026-nonadaptive-list",
+      "shortLabel": "Shah ’26",
+      "fullTextUrl": "https://arxiv.org/html/2602.14326v1",
+      "venue": "SODA 2026",
+      "publicationStatus": "published",
+      "publicationUrl": "https://doi.org/10.1137/1.9781611978971.182",
+      "verifiedOn": "2026-10-20"
+    }
+  },
+  "verifiedRecords": [
+    {
+      "id": "list-beh21-multiplicative",
+      "sourceId": "beh21",
+      "kind": "algorithm",
+      "panel": "adaptive",
+      "qualityFamily": "half",
+      "resourceLane": "linear",
+      "displayBound": "Õ(n/ε²)",
+      "queryComplexity": "Õ(n/ε²) time and at most this many queries",
+      "quality": "OPT/(2+ε) ≤ estimate ≤ OPT, for ε>0",
+      "output": "One estimate of the global maximum matching size",
+      "graph": "General simple unweighted graphs",
+      "oracle": "Adjacency-list access: degree and indexed-neighbor queries",
+      "adaptivity": "Adaptive queries allowed",
+      "probability": "With high probability",
+      "theorem": "Theorem 1.2",
+      "summaryLabel": "Beh ’21",
+      "plotLabel": "Beh ’21",
+      "evidenceStatus": "full_text_verified",
+      "notes": "The figure uses Δ≤n; the sharper degree-dependent bound is O(n)+Õ(Δ/ε²).",
+      "assumptions": [],
+      "resourceUnit": "Total cost for one global size estimate; not per local-output query",
+      "exactQueryComplexity": "O(n)+Õ(Δ/ε²)"
+    },
+    {
+      "id": "list-mrt25-multiplicative",
+      "sourceId": "mrt25",
+      "kind": "algorithm",
+      "panel": "adaptive",
+      "qualityFamily": "point5109",
+      "resourceLane": "n15",
+      "displayBound": "Õ(n^{3/2})",
+      "queryComplexity": "Õ(n^{3/2}) time and at most this many queries",
+      "quality": "0.5109·OPT ≤ estimate ≤ OPT",
+      "output": "One estimate of the global maximum matching size",
+      "graph": "General simple unweighted graphs",
+      "oracle": "Adjacency-list access: degree and indexed-neighbor queries",
+      "adaptivity": "Adaptive queries allowed",
+      "probability": "With high probability",
+      "theorem": "Theorem 1.1",
+      "summaryLabel": "MRT ’25",
+      "plotLabel": "MRT ’25",
+      "evidenceStatus": "full_text_verified",
+      "notes": "",
+      "assumptions": [],
+      "resourceUnit": "Total cost for one global size estimate; not per local-output query"
+    },
+    {
+      "id": "list-bks23-multiplicative",
+      "sourceId": "bks23",
+      "kind": "algorithm",
+      "panel": "adaptive",
+      "qualityFamily": "twothirds",
+      "resourceLane": "subquadratic",
+      "displayBound": "Õ_ε(n^{2−Θ(ε²)})",
+      "queryComplexity": "Õ_ε(n^{2−Θ(ε²)}) time and at most this many queries",
+      "quality": "OPT/(1.5+ε) ≤ estimate ≤ OPT, for fixed ε>0",
+      "output": "One estimate of the global maximum matching size",
+      "graph": "General simple unweighted graphs",
+      "oracle": "Adjacency-list access: degree and indexed-neighbor queries",
+      "adaptivity": "Adaptive queries allowed",
+      "probability": "With high probability",
+      "theorem": "Theorem 1.3(1)",
+      "summaryLabel": "BKS ’23",
+      "plotLabel": "BKS ’23",
+      "evidenceStatus": "full_text_verified",
+      "notes": "Using Δ≤n gives the displayed n-only bound. This is a family approaching 2/3 from below, not an exact 2/3 point.",
+      "assumptions": [],
+      "resourceUnit": "Total cost for one global size estimate; not per local-output query",
+      "exactQueryComplexity": "Õ_ε(n·Δ^{1−Θ(ε²)})"
+    },
+    {
+      "id": "list-brr23-multiplicative",
+      "sourceId": "brr23",
+      "kind": "algorithm",
+      "panel": "adaptive",
+      "qualityFamily": "twothirds",
+      "resourceLane": "subquadratic",
+      "displayBound": "n^{2−Ω_ε(1)}",
+      "queryComplexity": "n^{2−Ω_ε(1)} time and at most this many queries",
+      "quality": "(2/3−ε)·OPT ≤ estimate ≤ OPT, for fixed ε>0",
+      "output": "One estimate of the global maximum matching size",
+      "graph": "General simple unweighted graphs",
+      "oracle": "Adjacency-list access: degree and indexed-neighbor queries",
+      "adaptivity": "Adaptive queries allowed",
+      "probability": "With high probability",
+      "theorem": "Theorem 1.2 (adjacency-list clause)",
+      "summaryLabel": "BRR ’23",
+      "plotLabel": "BRR ’23",
+      "evidenceStatus": "full_text_verified",
+      "notes": "The positive exponent saving depends on ε. It is not assigned a numerical exponent in the figure.",
+      "assumptions": [],
+      "resourceUnit": "Total cost for one global size estimate; not per local-output query"
+    },
+    {
+      "id": "list-beh21-linear-lower",
+      "sourceId": "beh21",
+      "kind": "lower",
+      "panel": "adaptive",
+      "qualityFamily": "constant",
+      "resourceLane": "linear",
+      "displayBound": "Ω(n)",
+      "queryComplexity": "Ω(n) queries",
+      "quality": "Any fixed positive multiplicative fraction of OPT",
+      "output": "One estimate of the global maximum matching size",
+      "graph": "General simple unweighted graphs",
+      "oracle": "Adjacency-list access: degree and indexed-neighbor queries",
+      "adaptivity": "Adaptive queries allowed",
+      "probability": "Any fixed success probability greater than 1/2",
+      "theorem": "Observation following Theorem 1.2",
+      "summaryLabel": "Beh ’21",
+      "plotLabel": "Beh ’21",
+      "evidenceStatus": "full_text_verified",
+      "notes": "Empty graph versus one uniformly hidden edge already requires linear queries. This argument permits isolated vertices; it is not a lower bound for promised positive average degree with supplied degree parameters.",
+      "assumptions": [],
+      "resourceUnit": "Total cost for one global size estimate; not per local-output query"
+    },
+    {
+      "id": "list-brr23-bipartite-upper",
+      "sourceId": "brr23",
+      "kind": "algorithm",
+      "panel": "bipartite",
+      "qualityFamily": "above-twothirds",
+      "resourceLane": "subquadratic",
+      "displayBound": "n^{2−Ω(1)}",
+      "queryComplexity": "n^{2−Ω(1)} time and at most this many queries",
+      "quality": "(2/3+c)·OPT ≤ estimate ≤ OPT for some fixed c>0",
+      "output": "One estimate of the global maximum matching size",
+      "graph": "Bipartite simple unweighted graphs",
+      "oracle": "Adjacency-list access: degree and indexed-neighbor queries",
+      "adaptivity": "Adaptive queries allowed",
+      "probability": "With high probability",
+      "theorem": "Theorem 1.3 (adjacency-list clause)",
+      "summaryLabel": "BRR ’23",
+      "plotLabel": "BRR ’23",
+      "evidenceStatus": "full_text_verified",
+      "notes": "An existence result for some positive constant improvement; not every target fraction above 2/3.",
+      "assumptions": [],
+      "resourceUnit": "Total cost for one global size estimate; not per local-output query"
+    },
+    {
+      "id": "list-brr23-bipartite-lower",
+      "sourceId": "brr23",
+      "kind": "lower",
+      "panel": "bipartite",
+      "qualityFamily": "above-twothirds",
+      "resourceLane": "n12",
+      "displayBound": "n^{6/5−o(1)}",
+      "queryComplexity": "n^{6/5−o(1)} queries",
+      "quality": "Any (2/3+γ) multiplicative fraction, for fixed γ>0",
+      "output": "One estimate of the global maximum matching size",
+      "graph": "Bipartite simple graphs, even with OPT=Θ(n)",
+      "oracle": "Adjacency-list access: degree and indexed-neighbor queries",
+      "adaptivity": "Adaptive queries allowed",
+      "probability": "Success at least 0.51 in the lower-bound distribution",
+      "theorem": "Theorem 1.1; Section 4",
+      "summaryLabel": "BRR ’23",
+      "plotLabel": "BRR ’23",
+      "evidenceStatus": "full_text_verified",
+      "notes": "The bound also constrains algorithms for general graphs because bipartite graphs are a subclass.",
+      "assumptions": [],
+      "resourceUnit": "Total cost for one global size estimate; not per local-output query"
+    },
+    {
+      "id": "list-beh21-mixed",
+      "sourceId": "beh21",
+      "kind": "algorithm",
+      "panel": "additive",
+      "qualityFamily": "half-additive",
+      "resourceLane": "average-degree",
+      "displayBound": "Õ((d̄+1)/ε²)",
+      "queryComplexity": "Õ((d̄+1)/ε²) time and at most this many queries",
+      "quality": "OPT/2−εn ≤ estimate ≤ OPT",
+      "output": "One estimate of the global maximum matching size",
+      "graph": "General simple unweighted graphs",
+      "oracle": "Adjacency-list access: degree and indexed-neighbor queries",
+      "adaptivity": "Adaptive queries allowed",
+      "probability": "With high probability",
+      "theorem": "Theorem 1.3; Lemma 4.4",
+      "summaryLabel": "Beh ’21",
+      "plotLabel": "Beh ’21",
+      "evidenceStatus": "full_text_verified",
+      "notes": "d̄ is average degree. Additive slack can make this much cheaper than a purely multiplicative estimate.",
+      "assumptions": [],
+      "resourceUnit": "Total cost for one global size estimate; not per local-output query"
+    },
+    {
+      "id": "list-brr24-additive-lower",
+      "sourceId": "brr24",
+      "kind": "lower",
+      "panel": "additive",
+      "qualityFamily": "pure-additive",
+      "resourceLane": "nearquadratic",
+      "displayBound": "Ω(n^{2−δ})",
+      "queryComplexity": "Ω(n^{2−δ}) queries",
+      "quality": "|estimate−OPT| ≤ ε(δ)n",
+      "output": "One estimate of the global maximum matching size",
+      "graph": "General simple unweighted graphs",
+      "oracle": "Adjacency-list access: degree and indexed-neighbor queries",
+      "adaptivity": "Adaptive queries allowed",
+      "probability": "Success at least 2/3",
+      "theorem": "Theorem 1",
+      "summaryLabel": "BRR ’24",
+      "plotLabel": "BRR ’24",
+      "evidenceStatus": "full_text_verified",
+      "notes": "Quantifiers: ∀δ>0 ∃ε(δ)>0. No uniform near-quadratic bound for every fixed ε is asserted.",
+      "assumptions": [
+        "For every fixed δ>0 there exists a fixed ε=ε(δ)>0"
+      ],
+      "resourceUnit": "Total cost for one global size estimate; not per local-output query"
+    },
+    {
+      "id": "list-shah26-upper",
+      "sourceId": "shah26",
+      "kind": "algorithm",
+      "panel": "nonadaptive",
+      "qualityFamily": "sqrt-factor",
+      "resourceLane": "linear",
+      "displayBound": "O(n log²n)",
+      "queryComplexity": "O(n log²n) time and at most this many queries",
+      "quality": "Approximation factor α=√n (fraction β=1/√n)",
+      "output": "One estimate of the global maximum matching size",
+      "graph": "Simple unweighted graphs (safe scope of the upper-bound proof)",
+      "oracle": "Adjacency-list access: degree and indexed-neighbor queries",
+      "adaptivity": "Fully non-adaptive adjacency-list queries",
+      "probability": "Success at least 1−1/n",
+      "theorem": "Theorem 3, δ=1/2; Section 5",
+      "summaryLabel": "Shah ’26",
+      "plotLabel": "Shah ’26",
+      "evidenceStatus": "full_text_verified",
+      "notes": "Queries are fixed before replies. The algorithm is plotted for simple graphs; the lower-bound marker uses multigraph hard instances. No shared simple-graph lower frontier is asserted.",
+      "assumptions": [],
+      "resourceUnit": "Total cost for one global size estimate; not per local-output query"
+    },
+    {
+      "id": "list-shah26-lower",
+      "sourceId": "shah26",
+      "kind": "lower",
+      "panel": "nonadaptive",
+      "qualityFamily": "cuberoot-factor",
+      "resourceLane": "superlinear",
+      "displayBound": "Ω(n^{1+η})",
+      "queryComplexity": "Ω(n^{1+η}) queries",
+      "quality": "Approximation factor α=n^{1/3−γ}, for fixed 0<γ<1/3",
+      "output": "One estimate of the global maximum matching size",
+      "graph": "Bipartite multigraph hard instances; parallel edges allowed",
+      "oracle": "Adjacency-list access: degree and indexed-neighbor queries",
+      "adaptivity": "Fully non-adaptive adjacency-list queries",
+      "probability": "Success at least 2/3",
+      "theorem": "Theorem 1; multigraph caveat immediately after it",
+      "summaryLabel": "Shah ’26",
+      "plotLabel": "Shah ’26",
+      "evidenceStatus": "full_text_verified",
+      "notes": "This does not prove the same lower bound for simple graphs. The separate fixed-tree probe model is omitted.",
+      "assumptions": [
+        "For every fixed γ>0 in the nontrivial range, a fixed η(γ)>0 exists"
+      ],
+      "resourceUnit": "Total cost for one global size estimate; not per local-output query"
+    }
+  ],
+  "relatedResults": [
+    {
+      "id": "list-bks23-mixed",
+      "sourceId": "bks23",
+      "kind": "algorithm",
+      "panel": "related",
+      "qualityFamily": "twothirds-additive",
+      "resourceLane": "average-degree-subquadratic",
+      "displayBound": "Õ_ε(n·d̄^{1−Θ(ε²)})",
+      "queryComplexity": "Õ_ε(n·d̄^{1−Θ(ε²)}) time and at most this many queries",
+      "quality": "OPT ≤ 1.5·estimate + εn; estimate ≤ OPT",
+      "output": "One estimate of the global maximum matching size",
+      "graph": "General simple unweighted graphs",
+      "oracle": "Adjacency-list access: degree and indexed-neighbor queries",
+      "adaptivity": "Adaptive queries allowed",
+      "probability": "With high probability",
+      "theorem": "Theorem 1.3(2)",
+      "summaryLabel": "BKS ’23",
+      "plotLabel": "BKS ’23",
+      "evidenceStatus": "full_text_verified",
+      "notes": "The paper uses the factor convention OPT≤α·estimate+additive slack. This is distinct from the half-additive column.",
+      "assumptions": [],
+      "resourceUnit": "Total cost for one global size estimate; not per local-output query"
+    },
+    {
+      "id": "list-shah26-upper-tradeoff",
+      "sourceId": "shah26",
+      "kind": "algorithm",
+      "panel": "related",
+      "qualityFamily": "polynomial-factor",
+      "resourceLane": "tradeoff",
+      "displayBound": "O(n^{2−2θ} log²n)",
+      "queryComplexity": "O(n^{2−2θ} log²n) time and at most this many queries",
+      "quality": "Approximation factor α=n^θ, fixed 0<θ≤1/2",
+      "output": "One estimate of the global maximum matching size",
+      "graph": "Simple unweighted graphs (safe scope of the proof)",
+      "oracle": "Adjacency-list access: degree and indexed-neighbor queries",
+      "adaptivity": "Fully non-adaptive adjacency-list queries",
+      "probability": "Success at least 1−1/n",
+      "theorem": "Theorem 3, restricted to 0<θ≤1/2",
+      "summaryLabel": "Shah ’26",
+      "plotLabel": "Shah ’26",
+      "evidenceStatus": "full_text_verified",
+      "notes": "The core diagram shows θ=1/2. Only the θ≤1/2 range is retained here. No multigraph extension is inferred.",
+      "assumptions": [],
+      "resourceUnit": "Total cost for one global size estimate; not per local-output query"
+    },
+    {
+      "id": "list-shah26-lower-tradeoff",
+      "sourceId": "shah26",
+      "kind": "lower",
+      "panel": "related",
+      "qualityFamily": "polynomial-factor",
+      "resourceLane": "tradeoff",
+      "displayBound": "Ω(n^{1+η})",
+      "queryComplexity": "Ω(n^{1+η}) queries",
+      "quality": "Approximation factor α=n^θ",
+      "output": "One estimate of the global maximum matching size",
+      "graph": "Bipartite multigraph hard instances",
+      "oracle": "Adjacency-list access: degree and indexed-neighbor queries",
+      "adaptivity": "Fully non-adaptive adjacency-list queries",
+      "probability": "Success at least 2/3",
+      "theorem": "Theorem 2",
+      "summaryLabel": "Shah ’26",
+      "plotLabel": "Shah ’26",
+      "evidenceStatus": "full_text_verified",
+      "notes": "For fixed exponents this requires 2η+3θ<1. This is a multigraph lower bound, not a simple-graph lower bound.",
+      "assumptions": [
+        "η,θ>0 and n^{2η+3θ}log³n=o(n)"
+      ],
+      "resourceUnit": "Total cost for one global size estimate; not per local-output query"
+    }
+  ],
+  "axes": {
+    "adaptive": {
+      "x": {
+        "label": "Multiplicative guarantee family (categorical)",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "constant",
+            "label": "Any fixed β>0"
+          },
+          {
+            "id": "half",
+            "label": "1/(2+ε)"
+          },
+          {
+            "id": "point5109",
+            "label": "0.5109"
+          },
+          {
+            "id": "twothirds",
+            "label": "Approaching 2/3 from below"
+          }
+        ]
+      },
+      "y": {
+        "label": "Total time upper bounds / query lower bounds (symbolic)",
+        "kind": "symbolic",
+        "categories": [
+          {
+            "id": "subquadratic",
+            "label": "n^{2−Ω_ε(1)} families"
+          },
+          {
+            "id": "n15",
+            "label": "Õ(n^{3/2})"
+          },
+          {
+            "id": "linear",
+            "label": "Near-linear upper / linear lower"
+          }
+        ]
+      }
+    },
+    "bipartite": {
+      "x": {
+        "label": "Multiplicative guarantee family (categorical)",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "above-twothirds",
+            "label": "2/3 + fixed positive gap"
+          }
+        ]
+      },
+      "y": {
+        "label": "Total time / queries (symbolic formulas)",
+        "kind": "symbolic",
+        "categories": [
+          {
+            "id": "subquadratic",
+            "label": "n^{2−Ω(1)} upper"
+          },
+          {
+            "id": "n12",
+            "label": "n^{6/5−o(1)} lower"
+          }
+        ]
+      }
+    },
+    "additive": {
+      "x": {
+        "label": "Estimate guarantee (categorical; different contracts)",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "half-additive",
+            "label": "OPT/2−εn ≤ estimate ≤ OPT"
+          },
+          {
+            "id": "pure-additive",
+            "label": "|estimate−OPT|≤εn"
+          }
+        ]
+      },
+      "y": {
+        "label": "Total time / queries (symbolic formulas)",
+        "kind": "symbolic",
+        "categories": [
+          {
+            "id": "nearquadratic",
+            "label": "Ω(n^{2−δ}), ∀δ∃ε(δ)"
+          },
+          {
+            "id": "average-degree",
+            "label": "Õ((d̄+1)/ε²)"
+          }
+        ]
+      }
+    },
+    "nonadaptive": {
+      "x": {
+        "label": "Approximation factor α (categorical; graph scopes differ)",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "sqrt-factor",
+            "label": "α=√n, simple-graph upper"
+          },
+          {
+            "id": "cuberoot-factor",
+            "label": "α=n^{1/3−γ}, multigraph lower"
+          }
+        ]
+      },
+      "y": {
+        "label": "Total non-adaptive queries (symbolic formulas)",
+        "kind": "symbolic",
+        "categories": [
+          {
+            "id": "superlinear",
+            "label": "Ω(n^{1+η}), η=η(γ)>0"
+          },
+          {
+            "id": "linear",
+            "label": "O(n log²n)"
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "n": "Number of vertices",
+    "OPT": "Maximum matching cardinality",
+    "Δ": "Maximum degree",
+    "d̄": "Average degree",
+    "β": "Achieved fraction of OPT",
+    "α": "Approximation factor; β=1/α for purely multiplicative estimates"
+  },
+  "comparisonContracts": [
+    "Every cost is the total cost of one global size estimate. LCA costs per requested matching edge or vertex and LOCAL communication rounds belong in their own views.",
+    "Rows are symbolic resource families; their separation is not a numerical axis or a claim that unknown exponent savings are equal.",
+    "BKS and BRR approach 2/3 using different parameter conventions. Neither marker means an exact 2/3 algorithm.",
+    "The bipartite lower bound applies to all fixed improvements above 2/3; its upper bound establishes some positive improvement.",
+    "For the additive lower bound, δ is chosen first and ε depends on it.",
+    "The non-adaptive lower bound uses multigraphs. Its transfer to simple graphs is unproved in the source.",
+    "The fixed-tree probe model is omitted as requested."
+  ],
+  "exclusions": [
+    {
+      "topic": "Near-optimal additive size upper bound from Dynamic (1+ε)-Approximate Matching Size in Truly Sublinear Update Time",
+      "reason": "The theorem is stated for adjacency-matrix access. BRR24 footnote 2 describes its adjacency-list extension as believed, not proved; it is not promoted to this figure.",
+      "sourceUrl": "https://arxiv.org/html/2406.08595v1#footnote2"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "id": "vertex-query_list",
+  "dataFile": "vertex-query-list.json",
+  "javascript": "vertex-query-list.js",
+  "css": "vertex-query-list.css",
+  "canonicalAliases": {},
+  "routes": [
+    {
+      "key": "vertex-query_list",
+      "sliceId": "vertex-query-adjacency-list-only",
+      "label": "Vertex coloring · neighbor queries · greedy baseline",
+      "visible": true,
+      "problem": "vertex",
+      "model": "query_list"
+    }
+  ],
+  "axisSummary": {
+    "x": "Palette q = Δ+1",
+    "y": "Exact neighbor scan Q = n+2m",
+    "note": "Deterministic full output; query calls on the main axes, RAM computation in source inspection. No query optimality claim."
+  }
+}

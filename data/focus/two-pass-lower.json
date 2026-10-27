@@ -1,0 +1,88 @@
+{
+  "reviewedOn": "2026-10-20",
+  "setting": "General unweighted maximum-cardinality matching; arbitrary-order insertion-only edge stream; two passes; O(n polylog n) bits; explicit matching output",
+  "currentBarrier": {
+    "ratio": 0.8888888888888888,
+    "formula": "8/9",
+    "strict": true,
+    "resultId": "kn2024"
+  },
+  "results": [
+    {
+      "id": "kn2024",
+      "kind": "barrier",
+      "year": 2024,
+      "dateLabel": "SODA 2024",
+      "authors": "Christian Konrad & Kheeran K. Naidu",
+      "shortTitle": "Unconditional two-pass barrier",
+      "title": "An Unconditional Lower Bound for Two-Pass Streaming Algorithms for Maximum Matching Approximation",
+      "ratio": 0.8888888888888888,
+      "formula": "8/9",
+      "url": "https://epubs.siam.org/doi/10.1137/1.9781611977912.102",
+      "fullTextUrl": "https://kheerannaidu.com/assets/attachments/PhD-Thesis.pdf#page=132",
+      "sourceLocation": "Theorem 6.1 in coauthor Naidu’s thesis, Chapter 6, printed p. 112; proof on pp. 131–133",
+      "publicationStatus": "published",
+      "statement": "For every fixed ε > 0, any constant-error randomized two-pass algorithm guaranteeing |M| ≥ (8/9 + ε) OPT needs n^{1+Ω(1/(log log n)²)} bits, already on bipartite graphs.",
+      "notes": "This rules out every fixed ratio strictly above 8/9 in semi-streaming space, including on general graphs. It does not rule out equality at 8/9. The theorem says constant error; success probability at least 2/3 is covered.",
+      "strict": true,
+      "scope": "all algorithms",
+      "evidenceStatus": "full_text_checked"
+    }
+  ],
+  "relatedResults": [
+    {
+      "id": "ar2020-exact",
+      "kind": "barrier",
+      "year": 2020,
+      "dateLabel": "FOCS 2020",
+      "authors": "Sepehr Assadi & Ran Raz",
+      "shortTitle": "Exact matching needs near-quadratic space",
+      "title": "Near-Quadratic Lower Bounds for Two-Pass Graph Streaming Algorithms",
+      "ratio": 1,
+      "formula": "1 · exact only",
+      "url": "https://arxiv.org/pdf/2009.01161",
+      "sourceLocation": "Theorem 5, Section 6.2, printed p. 25 (PDF page 27)",
+      "publicationStatus": "published",
+      "statement": "Deciding whether an n-vertex bipartite graph has a perfect matching in two passes, with success probability at least 2/3, requires Ω(n² / 2^{Θ(√log n)}) bits.",
+      "notes": "Consequently exact maximum-matching construction cannot use semi-streaming space. This is an endpoint result, not a fixed subunit approximation ceiling; show only a point at β=1 if included.",
+      "plotClosure": "point",
+      "evidenceStatus": "full_text_checked"
+    },
+    {
+      "id": "kn2021-greedy-first",
+      "kind": "restricted_barrier",
+      "year": 2021,
+      "dateLabel": "APPROX 2021",
+      "authors": "Christian Konrad & Kheeran K. Naidu",
+      "shortTitle": "Greedy-first algorithms only",
+      "title": "On Two-Pass Streaming Algorithms for Maximum Bipartite Matching",
+      "ratio": 0.6666666666666666,
+      "formula": "2/3 · restricted class",
+      "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol207-approx-random2021/LIPIcs.APPROX-RANDOM.2021.19/LIPIcs.APPROX-RANDOM.2021.19.pdf",
+      "sourceLocation": "Theorem 1, p. 19:10",
+      "publicationStatus": "published",
+      "statement": "A possibly randomized two-pass algorithm that only retains a greedy maximal matching after its first pass and achieves 2/3 + ε needs n^{1+Ω(1/log log n)} space.",
+      "notes": "The first-pass restriction is essential. This is not an impossibility ceiling for arbitrary two-pass algorithms and must not shade the general-setting frontier.",
+      "scope": "greedy-first algorithms only",
+      "evidenceStatus": "full_text_checked"
+    },
+    {
+      "id": "assadi2022-rs",
+      "kind": "conditional_barrier",
+      "year": 2022,
+      "dateLabel": "SODA 2022 · preprint Aug 2021",
+      "authors": "Sepehr Assadi",
+      "shortTitle": "Earlier RS-dependent barrier",
+      "title": "A Two-Pass Lower Bound for Semi-Streaming Maximum Matching",
+      "ratio": null,
+      "formula": "RS-dependent",
+      "url": "https://arxiv.org/pdf/2108.07187",
+      "sourceLocation": "Corollary 4.1, printed pp. 17–18 (PDF pages 19–20)",
+      "publicationStatus": "published",
+      "statement": "A two-pass semi-streaming algorithm with success probability at least 2/3 is constrained by the density of Ruzsa–Szemerédi graphs. Known constructions give a near-one, n-dependent barrier; stronger RS-density assumptions give a constant barrier.",
+      "notes": "The paper gives 0.98 as an illustrative excluded ratio under RS(n)=n^{1−o(1)}. It is not an unconditional 0.98 threshold. The 2024 unconditional 8/9 ceiling is stronger even than this hypothetical case; retain this as history, not a current numerical frontier.",
+      "evidenceStatus": "full_text_checked"
+    }
+  ],
+  "searchSummary": "Checked original two-pass lower-bound papers, coauthor thesis and publication page, and 2025/2026 searches for subsequent two-pass improvements. No stronger unconditional constant approximation ceiling was located through 2026-10-20. Dynamic insertion-deletion results and greedy-first restricted-class bounds are excluded from the general frontier."
+}

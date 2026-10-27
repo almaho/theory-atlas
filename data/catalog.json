@@ -1,0 +1,222 @@
+{
+  "problems": [
+    {
+      "id": "matching",
+      "name": "Matching",
+      "short": "Matching",
+      "definition": "Find a set of edges with no shared endpoints. Maximum matching maximizes its size; maximal matching only requires that no edge can be added.",
+      "quality": "α ≥ 1: output size ≥ OPT / α. Value estimation and explicit edge output are different tasks.",
+      "variants": "Maximum / maximal · value / explicit edges · weighted / unweighted",
+      "axisLabel": "Approximation / guarantee",
+      "axisShort": "α"
+    },
+    {
+      "id": "mis",
+      "name": "Maximal independent set",
+      "short": "MIS",
+      "definition": "Find an independent vertex set that cannot be extended by adding another vertex. This is a maximality task, not optimization of the largest independent set.",
+      "quality": "For construction: exact maximality. For size estimation: multiplicative error relative to a specified or algorithm-chosen MIS.",
+      "variants": "Construction / size estimation · arbitrary MIS / greedy MIS under an order",
+      "axisLabel": "Approximation / guarantee",
+      "axisShort": "α"
+    },
+    {
+      "id": "cc",
+      "name": "Correlation clustering",
+      "short": "Correlation clustering",
+      "definition": "Partition a complete signed graph into any number of clusters. Minimize positive edges across clusters plus negative edges inside clusters.",
+      "quality": "α ≥ 1: disagreement cost ≤ α · OPT. Expected and high-probability guarantees are distinct.",
+      "variants": "Complete signed graph · weighted / unweighted · label flips / vertex updates",
+      "axisLabel": "Approximation / guarantee",
+      "axisShort": "α"
+    },
+    {
+      "id": "edge",
+      "name": "Edge coloring",
+      "short": "Edge coloring",
+      "definition": "Assign colors to edges so that edges sharing an endpoint receive different colors. Each color class is a matching.",
+      "quality": "Use palette size q, often expressed in terms of maximum degree Δ. A Δ+1 palette is different from an approximation to χ′(G).",
+      "variants": "Palette q · simple graphs / multigraphs · list coloring",
+      "axisLabel": "Number of colors q",
+      "axisShort": "q"
+    },
+    {
+      "id": "vertex",
+      "name": "Vertex coloring",
+      "short": "Vertex coloring",
+      "definition": "Assign colors to vertices so that adjacent vertices receive different colors. Each color class is an independent set.",
+      "quality": "Use palette size q, such as Δ+1, or an explicitly defined approximation to χ(G). These are separate objectives.",
+      "variants": "Palette q · ordinary / list coloring · graph class",
+      "axisLabel": "Number of colors q",
+      "axisShort": "q"
+    }
+  ],
+  "models": [
+    {
+      "id": "dynamic",
+      "name": "Dynamic",
+      "measure": "Update time",
+      "definition": "Maintain a solution while edges are inserted or deleted; for signed graphs, updates may flip labels.",
+      "settings": "Fully / partially dynamic · amortized / worst-case · adversary · recourse",
+      "unit": "Time per update; also query time and recourse",
+      "access": {
+        "interface": "Graph updates",
+        "operations": "Edge insertion/deletion; signed settings may flip an edge label",
+        "resource": "Time per update; report amortized or worst case per setting"
+      }
+    },
+    {
+      "id": "stream",
+      "name": "Streaming",
+      "measure": "Space",
+      "definition": "Process a sequence of graph updates using limited memory, with a specified number of passes.",
+      "settings": "Passes · edge / vertex arrival · order · insertion-only / turnstile",
+      "unit": "Memory in bits; passes fixed",
+      "access": {
+        "interface": "Sequential stream",
+        "operations": "Edge or vertex arrivals; insertion-only and turnstile are distinct settings",
+        "resource": "Memory in bits or words at a stated number of passes"
+      }
+    },
+    {
+      "id": "lca",
+      "name": "LCA",
+      "measure": "Probes per answer",
+      "definition": "Answer a requested local part of one globally consistent solution, using oracle probes to the input graph.",
+      "settings": "Probe access · preprocessing · shared randomness · state · query sequence",
+      "unit": "Probes or time per local answer; space tracked separately",
+      "access": {
+        "interface": "Local computation oracle",
+        "operations": "Answer a requested vertex/edge of one consistent solution by graph probes",
+        "resource": "Probes per answer; preprocessing and state per setting"
+      }
+    },
+    {
+      "id": "local",
+      "name": "LOCAL",
+      "measure": "Rounds",
+      "definition": "Vertices communicate synchronously with neighbors. Messages are unbounded; after r rounds a vertex sees only its radius-r neighborhood.",
+      "settings": "Identifiers · randomization · success probability · degree Δ",
+      "unit": "Communication rounds; degree dependence retained",
+      "access": {
+        "interface": "Neighbor communication",
+        "operations": "Synchronous vertex-to-neighbor messages",
+        "resource": "Communication rounds; degree and probability per setting"
+      }
+    },
+    {
+      "id": "mpc",
+      "name": "MPC",
+      "measure": "Rounds + memory",
+      "definition": "Distribute the graph across machines and communicate in synchronous rounds under per-machine and total memory budgets.",
+      "settings": "Local memory · total memory · component stability · randomness",
+      "unit": "Rounds at fixed local and total space",
+      "access": {
+        "interface": "Distributed machines",
+        "operations": "Synchronous machine communication with local and total memory caps",
+        "resource": "Rounds at the memory budget stated in the setting"
+      }
+    },
+    {
+      "id": "query_list",
+      "name": "Adjacency-list queries",
+      "measure": "Queries / time",
+      "definition": "Learn graph neighborhoods through adjacency-list or adjacency-array probes, with the allowed degree and neighbor operations stated per setting.",
+      "settings": "Neighbor queries · degree queries · adaptive/non-adaptive · explicit/value output",
+      "unit": "Oracle queries and running time",
+      "access": {
+        "interface": "Adjacency list / array",
+        "operations": "Degree and indexed-neighbor access only when the setting allows them",
+        "resource": "Oracle queries; running time separately if stated"
+      }
+    },
+    {
+      "id": "query_matrix",
+      "name": "Adjacency-matrix queries",
+      "measure": "Pair queries / time",
+      "definition": "Inspect entries of the adjacency matrix, usually by pair queries, with the allowed adaptivity and output task stated per setting.",
+      "settings": "Pair queries · adaptive/non-adaptive · explicit/value output",
+      "unit": "Matrix entries queried and running time",
+      "access": {
+        "interface": "Adjacency matrix",
+        "operations": "Pair(u,v) adjacency probes",
+        "resource": "Pair queries; running time separately if stated"
+      }
+    },
+    {
+      "id": "query_combined",
+      "name": "Combined / other queries",
+      "measure": "Queries / time",
+      "definition": "Use multiple oracle types, a same-cluster oracle, or a related communication/query interface. These settings remain separate from pure list and pure matrix access.",
+      "settings": "Combined oracles · pair communication · same-cluster oracle · value/output task",
+      "unit": "Queries, rounds, communication, and running time",
+      "access": {
+        "interface": "Combined / other oracle",
+        "operations": "Exact oracle combination or communication interface specified by each setting",
+        "resource": "Queries, communication bits, or rounds as stated"
+      }
+    }
+  ],
+  "relations": [
+    {
+      "id": "line-mis",
+      "from": "mis",
+      "to": "matching",
+      "label": "MIS → maximal matching",
+      "type": "Reduction",
+      "formula": "Run MIS on the line graph L(G).",
+      "detail": "One vertex of L(G) represents one edge of G; adjacency means shared endpoints. An MIS in L(G) is a maximal matching in G, hence a 2-approximation to maximum matching.",
+      "overhead": "n becomes m; maximum degree is at most 2Δ−2 for a simple graph with edges. Query, update, and memory costs must be translated.",
+      "source": "Elementary line-graph correspondence",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10873458/"
+    },
+    {
+      "id": "line-color",
+      "from": "vertex",
+      "to": "edge",
+      "label": "Vertex coloring → edge coloring",
+      "type": "Reduction",
+      "formula": "Color the vertices of L(G).",
+      "detail": "A proper q-vertex-coloring of L(G) gives a proper q-edge-coloring of G. A generic (Δ(L(G))+1)-coloring yields at most 2Δ−1 colors.",
+      "overhead": "L(G) has m vertices and can have Θ(mΔ) edges. A reduction in one model need not preserve another model’s resource bound.",
+      "source": "Line-graph correspondence; SODA 2015",
+      "url": "https://epubs.siam.org/doi/10.1137/1.9781611973730.26"
+    },
+    {
+      "id": "color-mis",
+      "from": "vertex",
+      "to": "mis",
+      "label": "Vertex coloring → MIS",
+      "type": "LOCAL conversion",
+      "formula": "Process q color classes in order.",
+      "detail": "All vertices of the current color with no selected neighbor join the independent set. Proper coloring prevents conflicts within a phase; after the final phase the set is maximal.",
+      "overhead": "Given a q-coloring, O(q) additional LOCAL rounds. This is a direct construction, not a claim that the overhead is optimal.",
+      "source": "Elementary construction",
+      "url": null
+    },
+    {
+      "id": "color-matching",
+      "from": "edge",
+      "to": "matching",
+      "label": "Edge coloring → maximal matching",
+      "type": "LOCAL conversion",
+      "formula": "Process q edge-color classes in order.",
+      "detail": "For each color, add edges whose endpoints are still unmatched. Edges of that color are disjoint, so they can act together. The final matching is maximal.",
+      "overhead": "Given a q-edge-coloring, O(q) additional LOCAL rounds; the result is a 2-approximation to maximum matching.",
+      "source": "Elementary construction",
+      "url": null
+    },
+    {
+      "id": "pivot",
+      "from": "mis",
+      "to": "cc",
+      "label": "Random greedy MIS → Pivot",
+      "type": "Shared primitive",
+      "formula": "Greedy MIS vertices become Pivot centers.",
+      "detail": "On the positive-edge graph, process a random vertex order. Selected pivots form the corresponding greedy MIS; assign each nonpivot to its earliest selected neighbor. This recovers Pivot’s clustering.",
+      "overhead": "Needs the random order and eliminator assignments, not an arbitrary MIS. Dynamic implementations also maintain auxiliary neighborhood data.",
+      "source": "Dynamic correlation clustering, §5",
+      "url": "https://arxiv.org/html/2404.06797v1#S5"
+    }
+  ]
+}

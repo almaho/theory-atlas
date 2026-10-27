@@ -1,0 +1,220 @@
+{
+  "pair": "cc-stream",
+  "reviewedOn": "2026-10-26",
+  "scope": "Bounded review of 14 supplied sources; no claim of exhaustive or current-best literature coverage.",
+  "records": [
+    {
+      "id": "cc-stream-pivot-3plus",
+      "sourceId": "chakrabarty-2023-stream-pivot",
+      "theorem": "Theorem 1.1; Section 2 expectation analysis",
+      "url": "https://arxiv.org/html/2305.13560",
+      "evidence": "theorem_verified",
+      "correction": "Arbitrary-order positive-edge insertions; one word has O(log n) bits. Polynomial postprocessing."
+    },
+    {
+      "id": "cc-stream-combinatorial-1847",
+      "sourceId": "cohenaddad-2024-combinatorial",
+      "theorem": "Theorem 1; Section 2.1 one-pass sampling",
+      "url": "https://arxiv.org/html/2404.05433",
+      "evidence": "theorem_verified",
+      "correction": "Insertion-only positive edges. Source states space without an explicit bit/word convention; do not equate it with a precise bit bound. The ε exponent remains symbolic."
+    },
+    {
+      "id": "cc-stream-turnstile-3plus",
+      "sourceId": "cambus-2025-dynamic-stream",
+      "theorem": "Theorems 2.1 and 2.5",
+      "url": "https://arxiv.org/html/2205.07593v6",
+      "evidence": "theorem_verified",
+      "correction": "The old display ε=1/4 was outside the strict theorem range. Figure uses ε=1/8. Remark 3.17 discusses a vanishing failure contribution and handles OPT=0 with high probability."
+    },
+    {
+      "id": "cc-stream-focs22-3plus",
+      "sourceId": "behnezhad-2022-constant-rounds",
+      "theorem": "Corollary 1.4; §4 semi-streaming implementation",
+      "url": "https://arxiv.org/pdf/2205.03710#page=26",
+      "evidence": "theorem_verified",
+      "correction": "Unlike the LOCAL implementation, streaming stores a global random permutation. No independent-finite-rank correction is added. Positive-edge insertion stream may be revisited."
+    },
+    {
+      "id": "cc-stream-value-assadi-3-additive",
+      "sourceId": "assadi-2023-cost-estimation",
+      "theorem": "Supplement Theorem 3 and Claim 4.13",
+      "url": "https://papers.nips.cc/paper_files/paper/2023/file/ee1a1ecc92f35702b5c29dad3dc909ea-Supplemental-Conference.pdf#page=32",
+      "evidence": "theorem_verified",
+      "correction": "At fixed δ this is polylogarithmic in n, but accuracy dependence is exponential. The cost axis suppresses logarithms only after fixing δ."
+    },
+    {
+      "id": "cc-stream-value-assadi-o1",
+      "sourceId": "assadi-2023-cost-estimation",
+      "theorem": "Theorem 1",
+      "url": "https://papers.nips.cc/paper_files/paper/2023/file/ee1a1ecc92f35702b5c29dad3dc909ea-Supplemental-Conference.pdf#page=21",
+      "evidence": "theorem_verified",
+      "correction": "The approximation constant remains O(1); it is never placed at a made-up numerical factor."
+    },
+    {
+      "id": "cc-stream-value-pure-multiplicative-lb",
+      "sourceId": "ahn-2015-streams",
+      "theorem": "Theorem 15",
+      "url": "https://link.springer.com/article/10.1007/s00453-021-00816-9",
+      "evidence": "theorem_verified",
+      "correction": "Already needs this memory to test OPT=0. Plot fixes p=1; bound also gives Ω(n) for constant passes. This is a value bound, not a partition frontier."
+    },
+    {
+      "id": "cc-stream-value-additive-lb",
+      "sourceId": "assadi-2023-cost-estimation",
+      "theorem": "Supplement Theorem 4; §5 construction",
+      "url": "https://papers.nips.cc/paper_files/paper/2023/file/ee1a1ecc92f35702b5c29dad3dc909ea-Supplemental-Conference.pdf#page=34",
+      "evidence": "theorem_verified",
+      "correction": "Formal theorem is quantitative; old vague polylog-space wording replaced. C is a fixed theorem constant, not arbitrary additive coefficient."
+    },
+    {
+      "id": "cc-stream-value-mixed-lb",
+      "sourceId": "assadi-2023-cost-estimation",
+      "theorem": "Supplement Theorem 5",
+      "url": "https://papers.nips.cc/paper_files/paper/2023/file/ee1a1ecc92f35702b5c29dad3dc909ea-Supplemental-Conference.pdf#page=43",
+      "evidence": "theorem_verified",
+      "correction": "At c=1.19 the additive coefficient must be below 0.01. Display uses η=0.005; arbitrary O(n) additive error is not justified."
+    },
+    {
+      "id": "cc-stream-node-arrival-2026",
+      "sourceId": "liu-2026-node-arrival",
+      "theorem": "Theorem 2.11 and proof",
+      "url": "https://arxiv.org/html/2605.07091v1",
+      "evidence": "theorem_verified",
+      "correction": "Shown space exponent 7/8 follows exactly from α=1/2. This is not edge arrival and cannot be merged into that frontier."
+    },
+    {
+      "id": "cc-stream-node-arrival-lb",
+      "sourceId": "liu-2026-node-arrival",
+      "theorem": "Theorem 3.2",
+      "url": "https://arxiv.org/html/2605.07091v1",
+      "evidence": "theorem_verified",
+      "correction": "Same node-access model as the upper theorem, different additive-error contract. Theorem 3.1 additionally requires Ω(n) bits in one pass for (c,d), 0<d≤n/3."
+    },
+    {
+      "id": "cc-stream-sparse-dense-first",
+      "sourceId": "assadi-2022-sparse-dense",
+      "theorem": "Theorems 2 and 7; §2.2; Appendix B.2",
+      "url": "https://arxiv.org/html/2109.14528",
+      "evidence": "theorem_verified",
+      "correction": "The numerical approximation constant stays symbolic. The original exact theorem streams labeled edges; variants may add polylogarithmic memory."
+    },
+    {
+      "id": "cc-stream-5-linear",
+      "sourceId": "behnezhad-2023-single-pass",
+      "theorem": "Publisher abstract only",
+      "url": "https://epubs.siam.org/doi/10.1137/1.9781611977554.ch33",
+      "evidence": "abstract_verified",
+      "correction": "Full theorem and probability were unavailable in bounded review. This record stays outside the theorem plot."
+    },
+    {
+      "id": "cc-stream-bonchi-additive",
+      "sourceId": "bonchi-2013-local",
+      "theorem": "§3 footnote 4; §7 streaming implementation",
+      "url": "https://arxiv.org/html/1312.5105v1",
+      "evidence": "theorem_verified",
+      "correction": "0<ε<1; additive error is essential. Storage counts sampled incident edges/vertex IDs. Query lower bounds are not streaming-space lower bounds."
+    },
+    {
+      "id": "cc-stream-queryefficient-2020",
+      "sourceId": "garciasoriano-2020-query-efficient",
+      "theorem": "Theorem 3.4; streaming reduction derived here",
+      "url": "https://arxiv.org/html/2002.11557",
+      "evidence": "derived_from_verified_theorem",
+      "correction": "Source is a query theorem, not an explicit streaming theorem. One positive-edge pass resolves the preselected pairs; absent pairs are negative. O(Q) alone requires Q≥n."
+    },
+    {
+      "id": "cc-stream-turnstile-alphabest",
+      "sourceId": "assadi-2025-desparsification",
+      "theorem": "Corollary 1.3; Remark 1.5",
+      "url": "https://arxiv.org/html/2504.04258v1",
+      "evidence": "theorem_verified",
+      "correction": "α_best is the applicable offline polynomial-time approximation factor, retained symbolically; no numerical current-best factor is assigned."
+    },
+    {
+      "id": "cc-stream-det-summary",
+      "sourceId": "assadi-2025-desparsification",
+      "theorem": "Corollary 1.4; Remarks 1.5 and 5.3; Lemma 5.4",
+      "url": "https://arxiv.org/html/2504.04258v1",
+      "evidence": "theorem_verified",
+      "correction": "Lemma 5.4 gives Õ(n/ε²) bits for fixed sketch accuracy. The polynomial-space recovery is a distinct resource contract."
+    },
+    {
+      "id": "cc-stream-mapreduce-3plus",
+      "sourceId": "chierichetti-2014-mapreduce",
+      "theorem": "KDD metadata/abstract; Ahn et al. 2021 Introduction §1",
+      "url": "https://link.springer.com/article/10.1007/s00453-021-00816-9",
+      "evidence": "corroborated_primary_citation",
+      "correction": "Original full theorem unavailable in bounded review. The pass bound is corroborated by a subsequent primary paper; no numerical pass coordinate assigned."
+    },
+    {
+      "id": "cc-stream-ahn-3-multipass",
+      "sourceId": "ahn-2015-streams",
+      "theorem": "Theorem 12 and proof",
+      "url": "https://link.springer.com/article/10.1007/s00453-021-00816-9",
+      "evidence": "theorem_scope_qualified",
+      "correction": "Theorem wording says high-probability 3-approximation, but proof simulates randomized Pivot and proves memory success. Figure does not promote this to a high-probability factor. Proof stores O(n log n) edges; use Õ(n) rather than silently equating edges and bits."
+    },
+    {
+      "id": "cc-stream-ahn-bounded-ptas",
+      "sourceId": "ahn-2015-streams",
+      "theorem": "Theorem 4; §2.2; footnote 1",
+      "url": "https://link.springer.com/article/10.1007/s00453-021-00816-9",
+      "evidence": "theorem_verified",
+      "correction": "Choose k=O(1/ε) for an unrestricted number of clusters; this is maximization, not MinDisagree."
+    },
+    {
+      "id": "cc-stream-ahn-arbitrary-07666",
+      "sourceId": "ahn-2015-streams",
+      "theorem": "Theorem 11",
+      "url": "https://link.springer.com/article/10.1007/s00453-021-00816-9",
+      "evidence": "theorem_verified",
+      "correction": "Keep the maximization fraction in its original direction; no invented high-probability qualifier."
+    },
+    {
+      "id": "cc-stream-ahn-weighted-log",
+      "sourceId": "ahn-2015-streams",
+      "theorem": "Theorem 9",
+      "url": "https://link.springer.com/article/10.1007/s00453-021-00816-9",
+      "evidence": "theorem_verified",
+      "correction": "The ε^{−3} time factor was missing in the original record. This model is separate from complete ±1 instances."
+    },
+    {
+      "id": "cc-stream-ahn-arbitrary-lb",
+      "sourceId": "ahn-2015-streams",
+      "theorem": "Theorems 14 and 16",
+      "url": "https://link.springer.com/article/10.1007/s00453-021-00816-9",
+      "evidence": "theorem_verified",
+      "correction": "The lower theorem is explicitly a zero-cost decision bound; it does not cover the complete unit-weight partition setting."
+    },
+    {
+      "id": "cc-stream-bhaskara-2018",
+      "sourceId": "bhaskara-2018-coresets",
+      "theorem": "Theorems 4.2–4.4; Definition 2.2",
+      "url": "https://arxiv.org/html/1802.06992",
+      "evidence": "theorem_verified",
+      "correction": "Two adversarial-order edge passes. Keep ε fixed in the displayed Õ expression; source does not supply polynomial-time exact coreset optimization."
+    }
+  ],
+  "materialFindings": [
+    "AKP25 Corollaries 1.3/1.4 bound streaming synopsis memory only; Remark 1.5 permits polynomial postprocessing space. Keep separate from a total-space frontier.",
+    "Cambus et al. require 0<ε<1/4; original ε=1/4 chart point removed. ε=1/8 is the default.",
+    "ASW23 supplement Theorem 4: Ω(n^ε) bits for a fixed-theorem-constant C times n^(2−ε) purely additive error, success≥0.99.",
+    "ASW23 supplement Theorem 5: c∈[1,6/5), 0<η<6/5−c. At c=1.19, η must be below 0.01; arbitrary O(n) error is too broad.",
+    "ASW23 expected value theorem retains lower-side success qualification: estimate≥OPT with high probability, expected upper value≤3OPT+δn².",
+    "Node upper theorem uses retained-item comparisons, O(1) passes, and α∈[0,1). It is not comparable to edge streams without changing access.",
+    "García-Soriano et al. Theorem 3.4 is a nonadaptive query theorem. One-pass streaming is a derived implementation with O(n+Q) words, not a directly stated source theorem.",
+    "Bhaskara et al. dense coreset approximates MaxAgree objective, not a full n-label partition in sublinear memory.",
+    "AW22 Theorem 7 uses O(n log n) machine words; positive-only and turnstile variants may add polylogarithmic factors.",
+    "Ahn Theorem 12 high-probability wording conflicts with the inspected expected-Pivot reasoning; conservatively retained as qualified related evidence.",
+    "SODA 2023 full text and KDD 2014 original theorem were unavailable in bounded review; records explicitly marked as abstract or corroborated citations."
+  ],
+  "unitPolicy": "Words and bits remain in each formula. Only the value chart suppresses logarithms to show the exponent of n; fixed accuracy parameters are declared. No unknown ε exponent or numerical α_best is invented.",
+  "lowerBoundPolicy": "Only verified value and weighted zero-cost decision lower bounds are red. No universal partition barrier or query-to-space lower-bound conversion is drawn.",
+  "representation": {
+    "partition": "Exact approximation/pass coordinates for fixed ε and integer-r instances; each theorem retains its own memory formula.",
+    "value": "Shared exponent-of-n memory axis with distinct error/access rows. Expected, high-probability, purely multiplicative, purely additive, mixed error, and node arrival remain explicit.",
+    "weighted": "Related evidence cards, with green algorithm/red lower-bound styling.",
+    "synopsis": "Related resource contract, clearly labeled larger polynomial recovery memory."
+  }
+}

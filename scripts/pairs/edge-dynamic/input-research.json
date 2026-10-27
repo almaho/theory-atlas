@@ -1,0 +1,764 @@
+{
+  "problem": "edge",
+  "model": "dynamic",
+  "slices": [
+    {
+      "id": "edge-dynamic-forest-greedy-incremental-recourse",
+      "problem": "edge",
+      "model": "dynamic",
+      "label": "Incremental forest; greedy recourse",
+      "task": "Maintain a proper edge coloring; measure amortized recolorings per insertion",
+      "assumptions": [
+        "Initially empty forest throughout; known maximum degree Δ≥3; palette q=Δ+c with 0≤c≤Δ−2",
+        "Deterministic natural greedy algorithm; tie breaking matters"
+      ],
+      "xAxis": {
+        "label": "Palette slack c in q = Δ + c",
+        "kind": "palette",
+        "min": 0,
+        "max": 8,
+        "ticks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          6,
+          8
+        ]
+      },
+      "yAxis": {
+        "label": "Recourse per update",
+        "kind": "recourse",
+        "min": 0,
+        "max": 3,
+        "ticks": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "tickLabels": [
+          "O(1)",
+          "log n",
+          "log² n",
+          "poly"
+        ]
+      },
+      "parameters": {
+        "c": "nonnegative palette slack"
+      },
+      "results": [
+        {
+          "id": "forest-greedy-recourse-2026",
+          "paperId": "kaplan-naori-sadeh-2026-forests",
+          "kind": "upper",
+          "bound": "O(1/(c+√Δ)) amortized recourse",
+          "guarantee": "Proper q=Δ+c edge coloring",
+          "sourceLocation": "Theorems 2.1–2.2 and Table 1, arXiv:2605.09711v3",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "candidate",
+          "notes": "Tight up to tie breaking for natural greedy; amortized recolorings can be fractional across insertions; not an update-time bound.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "edge-dynamic-forest-fully-random-recourse",
+      "problem": "edge",
+      "model": "dynamic",
+      "label": "Fully dynamic forest; randomized recourse",
+      "task": "Maintain a proper edge coloring under insertions and deletions; measure expected recourse",
+      "assumptions": [
+        "Forest throughout; known maximum degree Δ≥3; palette q=Δ+c, 0<c≤Δ−2",
+        "Randomized distribution-maintaining algorithm against an oblivious adversary"
+      ],
+      "xAxis": {
+        "label": "Palette slack c in q = Δ + c",
+        "kind": "palette",
+        "min": 0,
+        "max": 8,
+        "ticks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          6,
+          8
+        ]
+      },
+      "yAxis": {
+        "label": "Recourse per update",
+        "kind": "recourse",
+        "min": 0,
+        "max": 3,
+        "ticks": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "tickLabels": [
+          "O(1)",
+          "log n",
+          "log² n",
+          "poly"
+        ]
+      },
+      "parameters": {
+        "c": "positive palette slack"
+      },
+      "results": [
+        {
+          "id": "forest-random-fully-2026",
+          "paperId": "kaplan-naori-sadeh-2026-forests",
+          "kind": "upper",
+          "bound": "Θ(min{Δ/c, log_(Δ+c−1) n}) expected recourse per update",
+          "guarantee": "Proper q=Δ+c edge coloring",
+          "sourceLocation": "Theorem 2.11 and Table 1, arXiv:2605.09711v3",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "candidate",
+          "notes": "Per-update expectation against an oblivious adversary; c=0 separately has Θ(log_(Δ−1) n). An Ω(1) amortized lower bound holds for every constant c. No generic numeric plot across Δ.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "edge-dynamic-general-large-palette-recourse",
+      "problem": "edge",
+      "model": "dynamic",
+      "label": "Fully dynamic general graph; large palette",
+      "task": "Maintain a proper edge coloring; minimize recourse",
+      "assumptions": [
+        "General simple graph; maximum degree Δ and fixed palette q=Δ+C",
+        "Integer C with 1≤C≤Δ−2 and C≥Δ/φ+0.724, φ=(1+√5)/2; (C/Δ)−1/φ=Ω(1) for simplified bound",
+        "Δ−C=O(n^(1−δ)) for fixed δ>0; deterministic algorithm"
+      ],
+      "xAxis": {
+        "label": "Palette slack c in q = Δ + c",
+        "kind": "palette",
+        "min": 0,
+        "max": 8,
+        "ticks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          6,
+          8
+        ]
+      },
+      "yAxis": {
+        "label": "Recourse per update",
+        "kind": "recourse",
+        "min": 0,
+        "max": 3,
+        "ticks": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "tickLabels": [
+          "O(1)",
+          "log n",
+          "log² n",
+          "poly"
+        ]
+      },
+      "parameters": {
+        "δ": "fixed positive constant"
+      },
+      "results": [
+        {
+          "id": "general-large-palette-recourse-2026",
+          "paperId": "sadeh-kaplan-2026-recourse",
+          "kind": "upper",
+          "bound": "O(log n / log((Δ+C)/(Δ−C))) worst-case recourse per insertion",
+          "guarantee": "Proper q=Δ+C edge coloring",
+          "sourceLocation": "Theorem 2.5 (and Appendix B.19 for small Δ), arXiv:2602.09497v2",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "current_best_verified",
+          "notes": "Under the stated constant separation from 1/φ, the theorem drops its factor 1/((C/Δ)−1/φ); the source gives O(m+Δ²) update time. Deletion needs no recoloring at fixed palette. Δ−C>0 for logarithm; author states tightness subject to the listed regime. q is a palette, not χ′ approximation.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "edge-dynamic-forest-incremental-random-recourse",
+      "problem": "edge",
+      "model": "dynamic",
+      "label": "Incremental forest; randomized recourse",
+      "task": "Maintain explicit proper edge coloring; expected amortized recolorings per insertion",
+      "assumptions": [
+        "Initially empty forest throughout; known maximum degree Δ≥3",
+        "Palette q=Δ+c, 0≤c≤Δ−2; randomized distribution-maintaining algorithm against an oblivious adversary"
+      ],
+      "xAxis": {
+        "label": "Palette slack c in q = Δ + c",
+        "kind": "palette",
+        "min": 0,
+        "max": 8,
+        "ticks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          6,
+          8
+        ]
+      },
+      "yAxis": {
+        "label": "Recourse per update",
+        "kind": "recourse",
+        "min": 0,
+        "max": 3,
+        "ticks": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "tickLabels": [
+          "O(1)",
+          "log n",
+          "log² n",
+          "poly"
+        ]
+      },
+      "parameters": {
+        "c": "fixed nonnegative integer"
+      },
+      "results": [
+        {
+          "id": "forest-incremental-random-2026",
+          "paperId": "kaplan-naori-sadeh-2026-forests",
+          "kind": "upper",
+          "bound": "Θ(1/Δ) expected amortized recourse",
+          "guarantee": "Proper q=Δ+c edge coloring",
+          "sourceLocation": "Theorems 2.9 and 2.10, arXiv:2605.09711v3",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "candidate",
+          "notes": "Optimal for each fixed constant c in the paper; no update-time assertion.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "edge-dynamic-forest-full-optimal-palette-lower",
+      "problem": "edge",
+      "model": "dynamic",
+      "label": "Fully dynamic forest; optimal Δ-color palette",
+      "task": "Maintain proper Δ edge coloring and measure expected recolorings",
+      "assumptions": [
+        "Initially empty forest throughout; known maximum degree Δ≥3; c=0, palette q=Δ",
+        "Fully dynamic edge insertions and deletions; lower bound even for randomized algorithms against oblivious adversary"
+      ],
+      "xAxis": {
+        "label": "Palette slack c in q = Δ + c",
+        "kind": "palette",
+        "min": 0,
+        "max": 8,
+        "ticks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          6,
+          8
+        ]
+      },
+      "yAxis": {
+        "label": "Recourse per update",
+        "kind": "recourse",
+        "min": 0,
+        "max": 3,
+        "ticks": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "tickLabels": [
+          "O(1)",
+          "log n",
+          "log² n",
+          "poly"
+        ]
+      },
+      "parameters": {},
+      "results": [
+        {
+          "id": "forest-full-delta-lower-2026",
+          "paperId": "kaplan-naori-sadeh-2026-forests",
+          "kind": "lower",
+          "bound": "Ω(log_(Δ−1) n) expected amortized recourse",
+          "guarantee": "Lower bound for maintaining a proper Δ-edge coloring",
+          "sourceLocation": "Theorem 2.12, arXiv:2605.09711v3",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "current_best_verified",
+          "notes": "Lower bound is amortized even against an oblivious adversary. The same paper achieves Θ(log_(Δ−1) n) expected recourse per update (Theorem 2.11); no numeric graph across varying Δ.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "edge-dynamic-low-arboricity-adaptive-recourse",
+      "problem": "edge",
+      "model": "dynamic",
+      "label": "Fully dynamic low-arboricity graph; adaptive palette",
+      "task": "Maintain a proper coloring with palette tied to current maximum degree",
+      "assumptions": [
+        "General simple graph with arboricity at most α throughout",
+        "Deterministic; fixed ε>0; C≥(2+ε)α−1; current maximum degree Δ_t"
+      ],
+      "xAxis": {
+        "label": "Palette slack c in q = Δ + c",
+        "kind": "palette",
+        "min": 0,
+        "max": 8,
+        "ticks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          6,
+          8
+        ]
+      },
+      "yAxis": {
+        "label": "Recourse per update",
+        "kind": "recourse",
+        "min": 0,
+        "max": 3,
+        "ticks": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "tickLabels": [
+          "O(1)",
+          "log n",
+          "log² n",
+          "poly"
+        ]
+      },
+      "parameters": {
+        "ε": "fixed positive constant",
+        "α": "known arboricity upper bound"
+      },
+      "results": [
+        {
+          "id": "dynamic-arboricity-recourse-2026",
+          "paperId": "sadeh-kaplan-2026-recourse",
+          "kind": "upper",
+          "bound": "O(ε^(−1) log n) worst-case recourse per update; O(m) time",
+          "guarantee": "Proper edge coloring with colors ≤Δ_t+C at every time t",
+          "sourceLocation": "Theorem 2.8, arXiv:2602.09497v2",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "More strongly each edge uv receives color at most max{deg_t(u),deg_t(v)}+C. Bounds use α as a graph-class promise; not comparable with unrestricted graphs.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "edge-dynamic-general-near-delta-history",
+      "problem": "edge",
+      "model": "dynamic",
+      "label": "General graphs · (1+ε)Δ dynamic progression",
+      "task": "Maintain a proper coloring under insertions and deletions; compare update time only after reading degree, randomness and adversary qualifications",
+      "assumptions": [
+        "General simple graph; n vertices, maximum degree Δ or a known global bound",
+        "Colors q=(1+ε)Δ, ε>0; each result states its separate Δ condition, update-time quantifier and degree adaptivity"
+      ],
+      "xAxis": {
+        "label": "Palette ratio r = q/Δ",
+        "kind": "palette",
+        "min": 1,
+        "max": 2.25,
+        "ticks": [
+          1,
+          1.25,
+          1.5,
+          1.75,
+          2,
+          2.25
+        ],
+        "tickLabels": [
+          "Δ",
+          "5Δ/4",
+          "3Δ/2",
+          "7Δ/4",
+          "2Δ",
+          "9Δ/4"
+        ]
+      },
+      "yAxis": {
+        "label": "Update-time exponent q in Õ(n^q) (lower is faster)",
+        "kind": "exponent",
+        "min": 0,
+        "max": 1.5,
+        "ticks": [
+          0,
+          0.25,
+          0.5,
+          0.75,
+          1,
+          1.25,
+          1.5
+        ],
+        "tickLabels": [
+          "polylog",
+          "n^{1/4}",
+          "√n",
+          "n^{3/4}",
+          "n",
+          "n^{5/4}",
+          "n^{3/2}"
+        ]
+      },
+      "parameters": {
+        "ε": "palette slack; bounds incomparable when assumptions differ"
+      },
+      "results": [
+        {
+          "id": "edge-dynamic-duan-2019",
+          "paperId": "duan-he-zhang-2019-dynamic",
+          "kind": "upper",
+          "bound": "O(log⁸ n / ε⁴) amortized update time",
+          "guarantee": "(1+ε)Δ colors, randomized",
+          "sourceLocation": "Abstract, SODA 2019",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "Only for Δ≥Ω(log² n/ε²); Δ is current maximum degree. Amortized update time, unlike Christiansen STOC’23 worst-case guarantee.",
+          "plot": null
+        },
+        {
+          "id": "edge-dynamic-christiansen-2023",
+          "paperId": "christiansen-2023-vizing-chains",
+          "kind": "upper",
+          "bound": "O(ε⁻⁶ log⁹ n log⁶ Δ) worst-case update time, w.h.p.",
+          "guarantee": "(1+ε)Δ colors, fully adaptive to current Δ",
+          "sourceLocation": "Dynamic-graph contribution in STOC 2023 abstract",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "No lower bound on Δ. Randomized worst-case time with high probability; note exact exponent from the conference/full version.",
+          "plot": null
+        },
+        {
+          "id": "edge-dynamic-nibble-2024",
+          "paperId": "bhattacharya-costa-panski-solomon-2024-nibbling",
+          "kind": "upper",
+          "bound": "O(log⁴(1/ε)/ε⁹) update time",
+          "guarantee": "(1+ε)Δ colors, randomized",
+          "sourceLocation": "Abstract / main dynamic theorem, SODA 2024",
+          "evidenceStatus": "verified",
+          "frontierStatus": "current_best_verified",
+          "notes": "For Δ=Ω_ε(polylog n); degree promise and ε dependence matter. Source does not license a claim for constant Δ.",
+          "plot": null
+        },
+        {
+          "id": "edge-dynamic-deterministic-2026",
+          "paperId": "christiansen-2026-deterministic-dynamic",
+          "kind": "upper",
+          "bound": "2^{Õ_{log(1/ε)}(√log n)} amortized update time",
+          "guarantee": "(1+ε)Δ colors, deterministic",
+          "sourceLocation": "Theorem 1.2, full version of SODA 2026",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Fully dynamic general simple graphs, no high-degree promise; deterministic counterpart to randomized constant-time high-degree result.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "edge-dynamic-general-greedy",
+      "problem": "edge",
+      "model": "dynamic",
+      "label": "General graphs · 2Δ−1 greedy",
+      "task": "Maintain explicit proper edge coloring under arbitrary graph edge updates",
+      "assumptions": [
+        "Simple graph of maximum current degree Δ; deterministic, no degree lower bound"
+      ],
+      "xAxis": {
+        "label": "Palette ratio r = q/Δ",
+        "kind": "palette",
+        "min": 1,
+        "max": 2.25,
+        "ticks": [
+          1,
+          1.25,
+          1.5,
+          1.75,
+          2,
+          2.25
+        ],
+        "tickLabels": [
+          "Δ",
+          "5Δ/4",
+          "3Δ/2",
+          "7Δ/4",
+          "2Δ",
+          "9Δ/4"
+        ]
+      },
+      "yAxis": {
+        "label": "Update-time exponent q in Õ(n^q) (lower is faster)",
+        "kind": "exponent",
+        "min": 0,
+        "max": 1.5,
+        "ticks": [
+          0,
+          0.25,
+          0.5,
+          0.75,
+          1,
+          1.25,
+          1.5
+        ],
+        "tickLabels": [
+          "polylog",
+          "n^{1/4}",
+          "√n",
+          "n^{3/4}",
+          "n",
+          "n^{5/4}",
+          "n^{3/2}"
+        ]
+      },
+      "parameters": {},
+      "results": [
+        {
+          "id": "edge-dynamic-bchn-2018",
+          "paperId": "bhattacharya-chakrabarty-henzinger-nanongkai-2018",
+          "kind": "upper",
+          "bound": "O(log Δ) worst-case update time",
+          "guarantee": "q≤2Δ−1 proper edge coloring",
+          "sourceLocation": "SODA 2018 abstract, edge-coloring contribution",
+          "evidenceStatus": "verified",
+          "frontierStatus": "baseline",
+          "notes": "Classical deterministic fully dynamic baseline; colors adapt to current Δ. For Δ=1, interpret trivial case separately.",
+          "plot": {
+            "x": 2.0,
+            "y": 0.0,
+            "closure": "upper-right",
+            "strictX": false,
+            "strictY": false,
+            "label": "O(log Δ) worst-case update t"
+          }
+        }
+      ]
+    },
+    {
+      "id": "edge-dynamic-arboricity-history",
+      "problem": "edge",
+      "model": "dynamic",
+      "label": "Sparse graphs · Δ+O(α) dynamic",
+      "task": "Maintain a proper edge coloring with a palette depending on arboricity",
+      "assumptions": [
+        "General simple fully dynamic graphs of arboricity at most α; contrast degree adaptivity and guarantees in source"
+      ],
+      "xAxis": {
+        "label": "Palette slack c in q = Δ + c",
+        "kind": "palette",
+        "min": 0,
+        "max": 8,
+        "ticks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          6,
+          8
+        ]
+      },
+      "yAxis": {
+        "label": "Update-time exponent q in Õ(n^q) (lower is faster)",
+        "kind": "exponent",
+        "min": 0,
+        "max": 1.5,
+        "ticks": [
+          0,
+          0.25,
+          0.5,
+          0.75,
+          1,
+          1.25,
+          1.5
+        ],
+        "tickLabels": [
+          "polylog",
+          "n^{1/4}",
+          "√n",
+          "n^{3/4}",
+          "n",
+          "n^{5/4}",
+          "n^{3/2}"
+        ]
+      },
+      "parameters": {
+        "α": "arboricity"
+      },
+      "results": [
+        {
+          "id": "edge-dynamic-arbor-bcps-2024",
+          "paperId": "bhattacharya-costa-panski-solomon-2024-arboricity",
+          "kind": "upper",
+          "bound": "Õ(1) amortized update time",
+          "guarantee": "q=Δ+O(α) proper coloring",
+          "sourceLocation": "Abstract, SWAT 2024",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Sparse graph tradeoff; hides logarithmic factors and is not a claim of constant-time update.",
+          "plot": null
+        },
+        {
+          "id": "edge-dynamic-sparse-crv-2024",
+          "paperId": "christiansen-rotenberg-vlieghe-2024-sparsity",
+          "kind": "upper",
+          "bound": "poly(log n) amortized update time",
+          "guarantee": "q=Δ+O(α), deterministic; palette adapts to current Δ and α",
+          "sourceLocation": "Abstract, SWAT 2024",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "For α=O(1), yields Δ+O(1) coloring of dynamic forests and planar graphs; arboricity and Δ vary with time.",
+          "plot": null
+        }
+      ]
+    }
+  ],
+  "papers": [
+    {
+      "id": "kaplan-naori-sadeh-2026-forests",
+      "title": "Dynamic Edge Coloring of Forests",
+      "authors": [
+        "Haim Kaplan",
+        "David Naori",
+        "Yaniv Sadeh"
+      ],
+      "year": 2026,
+      "venue": "arXiv:2605.09711v3",
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/abs/2605.09711",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "sadeh-kaplan-2026-recourse",
+      "title": "Beyond Vizing Chains: Improved Recourse in Dynamic Edge Coloring",
+      "authors": [
+        "Yaniv Sadeh",
+        "Haim Kaplan"
+      ],
+      "year": 2026,
+      "venue": "arXiv:2602.09497v2",
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/abs/2602.09497",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "bhattacharya-chakrabarty-henzinger-nanongkai-2018",
+      "title": "Dynamic Algorithms for Graph Coloring",
+      "authors": [
+        "Sayan Bhattacharya",
+        "Deeparnab Chakrabarty",
+        "Monika Henzinger",
+        "Danupon Nanongkai"
+      ],
+      "year": 2018,
+      "venue": "SODA 2018",
+      "publicationStatus": "conference",
+      "url": "https://epubs.siam.org/doi/10.1137/1.9781611975031.1",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "duan-he-zhang-2019-dynamic",
+      "title": "Dynamic Edge Coloring with Improved Approximation",
+      "authors": [
+        "Ran Duan",
+        "Haoqing He",
+        "Tianyi Zhang"
+      ],
+      "year": 2019,
+      "venue": "SODA 2019",
+      "publicationStatus": "conference",
+      "url": "https://epubs.siam.org/doi/10.1137/1.9781611975482.117",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "christiansen-2023-vizing-chains",
+      "title": "The Power of Multi-Step Vizing Chains",
+      "authors": [
+        "Aleksander B. G. Christiansen"
+      ],
+      "year": 2023,
+      "venue": "STOC 2023",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2210.07363",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "bhattacharya-costa-panski-solomon-2024-nibbling",
+      "title": "Nibbling at Long Cycles: Dynamic (and Static) Edge Coloring in Optimal Time",
+      "authors": [
+        "Sayan Bhattacharya",
+        "Martín Costa",
+        "Nadav Panski",
+        "Shay Solomon"
+      ],
+      "year": 2024,
+      "venue": "SODA 2024",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2311.03267",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "christiansen-rotenberg-vlieghe-2024-sparsity",
+      "title": "Sparsity-Parameterised Dynamic Edge Colouring",
+      "authors": [
+        "Aleksander B. G. Christiansen",
+        "Eva Rotenberg",
+        "Juliette Vlieghe"
+      ],
+      "year": 2024,
+      "venue": "SWAT 2024",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.SWAT.2024.20",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "bhattacharya-costa-panski-solomon-2024-arboricity",
+      "title": "Arboricity-Dependent Algorithms for Edge Coloring",
+      "authors": [
+        "Sayan Bhattacharya",
+        "Martín Costa",
+        "Nadav Panski",
+        "Shay Solomon"
+      ],
+      "year": 2024,
+      "venue": "SWAT 2024",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.SWAT.2024.12",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "christiansen-2026-deterministic-dynamic",
+      "title": "Deterministic Dynamic Edge-Colouring",
+      "authors": [
+        "Aleksander B. G. Christiansen"
+      ],
+      "year": 2026,
+      "venue": "SODA 2026; full version arXiv:2402.13139",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2402.13139",
+      "verifiedOn": "2026-09-27"
+    }
+  ]
+}

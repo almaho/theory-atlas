@@ -1,0 +1,160 @@
+{
+  "pair": "edge-dynamic",
+  "reviewedOn": "2026-10-27",
+  "boundedScope": "The thirteen supplied records in nine primary sources, plus the forest results required to make honest algorithm/lower-bound comparisons. No unbounded literature expansion.",
+  "representationDecision": {
+    "userChoice": "Both update time and number of recolored existing edges, in aligned panels",
+    "axes": "Categorical cost-formula columns and common graph/palette/update rows. Column order is not a universal asymptotic ranking when Δ and ε vary.",
+    "semanticZoom": "Detail 738×548 restores formula and cost-quantifier labels; compact 330×245 shows setup labels and markers; overview hides all text; focus uses the same chart.",
+    "color": "Green algorithm circles/squares, red lower diamonds. Setup colors are restricted to row labels/brackets.",
+    "resources": "No recourse bound is copied into update time. Recourse excludes the new edge's first color."
+  },
+  "sources": [
+    {
+      "id": "kaplan-naori-sadeh-2026-forests",
+      "url": "https://arxiv.org/html/2605.09711v3",
+      "version": "v3; 2026-08-28",
+      "evidence": "Primary theorem text and Appendix A; independently audited by cc_lca",
+      "theorems": [
+        "2.1: Greedy O(1/(c+√Δ)) amortized for initially empty incremental forests, Δ≥3 and 0≤c≤Δ−2.",
+        "2.2: Matching lower only for a particular tie-breaking rule; kept related-only.",
+        "2.9: DistMaint Θ(1/Δ) expected amortized incremental recourse for all 0≤c≤Δ−2.",
+        "2.10: Universal Ω(1/Δ) expected amortized lower for fixed constant c, even randomized algorithms against oblivious adversary.",
+        "2.11: DistMaint Θ(min{Δ/c,log_(Δ+c−1)n}) expected per-update fully dynamic recourse. For c=0 interpret Δ/c as infinity; this is its own cost, not universal optimality at positive c.",
+        "2.12: Universal Ω(log_(Δ−1)n) amortized fully dynamic lower at c=0; randomized algorithms against oblivious adversary included.",
+        "2.13: Universal Ω(1) lower for fixed c; no parameter-dependent universal match asserted.",
+        "A.1: Fully dynamic implementation O(1+R) time for update recourse R.",
+        "A.2: Incremental implementation O(α_UF(n)+R) expected amortized time; union-find overhead prevents substituting O(1+R).",
+        "A.4: Greedy O(Δ⁴n) update time."
+      ],
+      "machineModel": "O(1) pointer/arithmetic and uniform integer sampling from ranges of size at most Δ+c, as stated in Appendix A."
+    },
+    {
+      "id": "sadeh-kaplan-2026-recourse",
+      "url": "https://arxiv.org/html/2602.09497v2",
+      "version": "v2; 2026-05-10",
+      "evidence": "Primary theorem text",
+      "theorems": [
+        "2.5: For integer 1≤C≤Δ−2 and C≥Δ/φ+0.724, O(m+Δ²) time and O(log n/[log((Δ+C)/(Δ−C))·(C/Δ−1/φ)]) recourse per insertion; fixed palette permits deletion without recoloring.",
+        "2.6: Ω(log(nC/(Δ−C)²)/log((Δ+C)/(Δ−C))) extension barrier for a specified partial coloring. Source warns it is not an amortized/expected dynamic lower and can be avoided by maintained invariants; related-only.",
+        "2.8: Sparse graph Δ-adaptive palette max{deg_t(u),deg_t(v)}+C, C≥(2+ε)α−1, O(m) worst-case time and O(ε⁻¹log n) worst-case recourse."
+      ],
+      "qualifiers": [
+        "Dropping 1/(C/Δ−1/φ) requires constant separation from the threshold.",
+        "The paper's near-tightness comparison also needs Δ−C=O(n^(1−δ)).",
+        "α is a supplied upper bound for the sparse result, while current degree adapts."
+      ]
+    },
+    {
+      "id": "bhattacharya-chakrabarty-henzinger-nanongkai-2018",
+      "url": "https://epubs.siam.org/doi/10.1137/1.9781611975031.1",
+      "evidence": "Primary published abstract; edge-coloring result (3)",
+      "theorems": [
+        "Deterministic (2Δ−1)-edge coloring in O(log Δ) worst-case update time."
+      ],
+      "correction": "Removed the old numeric ratio-2 coordinate. No independent recourse formula inferred.",
+      "limitation": "Full proof theorem numbering was not required to state the published-abstract guarantee; record is explicitly primary_abstract_verified."
+    },
+    {
+      "id": "duan-he-zhang-2019-dynamic",
+      "url": "https://epubs.siam.org/doi/10.1137/1.9781611975482.117",
+      "evidence": "Primary published abstract, with 2023 theorem discussion corroborating high-probability qualification",
+      "theorems": [
+        "Near-(1+ε)Δ coloring in O(ε⁻⁴log⁸n) amortized update time for sufficiently large degree Δ≥Ω(ε⁻²log²n), ε a small constant."
+      ],
+      "limitation": "Primary abstract is the direct evidence; exact proof numbering/adversary strengthening not inferred."
+    },
+    {
+      "id": "christiansen-2023-vizing-chains",
+      "url": "https://arxiv.org/html/2210.07363",
+      "version": "v4 full text",
+      "evidence": "Theorem 6 and §7.1",
+      "theorems": [
+        "O(ε⁻⁶log⁹n log⁶Δ) worst-case update time with high probability; fully dynamic, current-degree adaptive, without a high-degree promise.",
+        "§7.1 explicitly restores local palette ceilings ⌈(1+ε)d(v)⌉; global ⌈(1+ε)Δ⌉ follows."
+      ],
+      "qualifier": "Degree-adaptivity is not taken to mean adaptive-adversary robustness. No final coloring recourse formula inferred."
+    },
+    {
+      "id": "bhattacharya-costa-panski-solomon-2024-nibbling",
+      "url": "https://arxiv.org/html/2311.03267",
+      "version": "2023-11-06 full text; SODA 2024",
+      "evidence": "Theorem 1.2, threshold before Theorem 1.1, Corollary C.6",
+      "theorems": [
+        "O(log⁴(1/ε)/ε⁹) expected worst-case update time against an oblivious adversary with known sequence-wide Δ≥(log n/ε⁴)^{Θ((1/ε)log(1/ε))}.",
+        "A w.h.p. amortized bound for polynomial update sequences is an alternative; main figure uses expected worst-case."
+      ],
+      "qualifier": "No constant-degree guarantee, no absent recourse claim."
+    },
+    {
+      "id": "bhattacharya-costa-panski-solomon-2024-arboricity",
+      "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol294-swat2024/LIPIcs.SWAT.2024.12/LIPIcs.SWAT.2024.12.pdf",
+      "evidence": "Official SWAT 2024 PDF, Theorem 1",
+      "theorems": [
+        "Deterministic, initially empty graph, fully current-Δ_t/current-α_t adaptive palette Δ_t+(4+ε)α_t.",
+        "O(log⁶n/ε⁶) amortized update time and O(log⁴n/ε⁵) amortized recourse."
+      ],
+      "qualifier": "Not replaced with the faster warmup requiring known fixed Δ and α."
+    },
+    {
+      "id": "christiansen-rotenberg-vlieghe-2024-sparsity",
+      "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol294-swat2024/LIPIcs.SWAT.2024.20/LIPIcs.SWAT.2024.20.pdf",
+      "evidence": "Official SWAT 2024 PDF, Theorem 14 printed p.20:14; Table 2; independent audit by cc_lca",
+      "theorems": [
+        "Deterministic amortized insertion O(log n log α_max log Δ_max), deletion O(log²n log α_max log α log Δ_max).",
+        "Each edge uv uses a color at most max{deg_t(u),deg_t(v)}+O(α_t)."
+      ],
+      "qualifiers": [
+        "α_max and Δ_max are sequence maxima; use log⁺x=max{1,log x} in the display.",
+        "Theorem 9's faster known-fixed-bound guarantee has a different palette contract and is not substituted.",
+        "No separate recourse bound recorded."
+      ]
+    },
+    {
+      "id": "christiansen-2026-deterministic-dynamic",
+      "url": "https://arxiv.org/html/2402.13139",
+      "version": "v2; 2025-11-07 full version for SODA 2026",
+      "evidence": "Theorem 1.2, §§7.1–7.2; independent rounding audit by cc_lca",
+      "theorems": [
+        "2^{Õ_{log(1/ε)}(√log n)} deterministic amortized time, no high-degree promise, palette current-degree adaptive.",
+        "§7.1 ceiling convention handles low degree: Δ_max+1≤⌈(1+ε)Δ_max⌉."
+      ],
+      "qualifiers": [
+        "Subpolynomial in n for ε⁻¹≤2^{O(log^0.49 n)}; not a uniform n-only exponent.",
+        "Intermediate splitter recourse in Theorem 1.4 is not the final edge-coloring recourse."
+      ]
+    }
+  ],
+  "preservedOriginalIds": [
+    "forest-greedy-recourse-2026",
+    "forest-random-fully-2026",
+    "general-large-palette-recourse-2026",
+    "forest-incremental-random-2026",
+    "forest-full-delta-lower-2026",
+    "dynamic-arboricity-recourse-2026",
+    "edge-dynamic-duan-2019",
+    "edge-dynamic-christiansen-2023",
+    "edge-dynamic-nibble-2024",
+    "edge-dynamic-deterministic-2026",
+    "edge-dynamic-bchn-2018",
+    "edge-dynamic-arbor-bcps-2024",
+    "edge-dynamic-sparse-crv-2024"
+  ],
+  "addedMainIds": [
+    "edge-forest-incremental-universal-lower-2026",
+    "edge-forest-fully-zero-upper-2026",
+    "edge-forest-fully-fixed-slack-lower-2026"
+  ],
+  "relatedIds": [
+    "edge-forest-greedy-tiebreak-lower-2026",
+    "edge-general-precoloring-extension-lower-2026"
+  ],
+  "unresolvedBlockingFacts": [],
+  "limitedEvidence": "Two historical time records use explicit primary-abstract verification labels. No extra adversary regime or recourse was inferred.",
+  "validation": {
+    "isolatedTests": "Passed tests.cjs in memory with virtual fs",
+    "sharedBuild": "Passed unmodified scripts/build.py validate and load_pairs against virtually patched edge research, registration, focus, JS and CSS; 231 papers,151 slices,406 results,20 focused pairs in snapshot.",
+    "staticLayout": "Raster-inspected 738×548 detail,330×245 compact,180×120 no-text overview,1120×800 focus,and published-only detail. No formula/marker overflow seen.",
+    "browser": "Parent integration and live full-atlas QA still required."
+  }
+}

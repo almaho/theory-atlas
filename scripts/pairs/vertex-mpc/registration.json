@@ -1,0 +1,46 @@
+{
+  "id": "vertex-mpc",
+  "dataFile": "vertex-mpc.json",
+  "javascript": "vertex-mpc.js",
+  "css": "vertex-mpc.css",
+  "routes": [
+    {
+      "key": "vertex-mpc",
+      "sliceId": "vertex-mpc-linear-memory-delta-plus-one",
+      "label": "Vertex coloring · MPC · memory and rounds",
+      "visible": true,
+      "problem": "vertex",
+      "model": "mpc"
+    },
+    {
+      "key": "vertex-mpc-strongly-sublinear-randomized",
+      "sliceId": "vertex-mpc-strongly-sublinear-randomized",
+      "label": "Strongly sublinear local-memory MPC, randomized",
+      "visible": false,
+      "problem": "vertex",
+      "model": "mpc"
+    },
+    {
+      "key": "vertex-mpc-strongly-sublinear-deterministic",
+      "sliceId": "vertex-mpc-strongly-sublinear-deterministic",
+      "label": "Strongly sublinear local-memory MPC, deterministic",
+      "visible": false,
+      "problem": "vertex",
+      "model": "mpc"
+    },
+    {
+      "key": "vertex-mpc-degeneracy",
+      "sliceId": "vertex-mpc-degeneracy",
+      "label": "Near-linear local-memory MPC, degeneracy palette",
+      "visible": false,
+      "problem": "vertex",
+      "model": "mpc"
+    }
+  ],
+  "axisSummary": {
+    "x": "Per-machine memory · symbolic categories",
+    "y": "Communication rounds · symbolic classes",
+    "note": "Distinct palette scopes, random/deterministic shapes, a separate degeneracy row and explicit local-work/memory qualifications."
+  },
+  "canonicalAliases": {}
+}

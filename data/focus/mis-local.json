@@ -1,0 +1,756 @@
+{
+  "id": "mis-local",
+  "title": "How many rounds does an MIS need?",
+  "reviewedOn": "2026-10-26",
+  "sources": {
+    "ghaffari-grunau-2024-local-mis": {
+      "id": "ghaffari-grunau-2024-local-mis",
+      "title": "Near-Optimal Deterministic Network Decomposition and Ruling Set, and Improved MIS",
+      "authors": [
+        "Mohsen Ghaffari",
+        "Christoph Grunau"
+      ],
+      "year": 2024,
+      "venue": "FOCS 2024",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2410.19516",
+      "verifiedOn": "2026-10-26",
+      "fullTextUrl": "https://arxiv.org/html/2410.19516v1"
+    },
+    "ghaffari-2016-local-mis": {
+      "id": "ghaffari-2016-local-mis",
+      "title": "An Improved Distributed Algorithm for Maximal Independent Set",
+      "authors": [
+        "Mohsen Ghaffari"
+      ],
+      "year": 2016,
+      "venue": "SODA 2016",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1506.05093",
+      "verifiedOn": "2026-10-26",
+      "fullTextUrl": "https://arxiv.org/pdf/1506.05093"
+    },
+    "luby-1985-mis": {
+      "id": "luby-1985-mis",
+      "title": "A Simple Parallel Algorithm for the Maximal Independent Set Problem",
+      "authors": [
+        "Michael Luby"
+      ],
+      "year": 1985,
+      "venue": "STOC 1985 / SIAM J. Comput. 1986",
+      "publicationStatus": "conference",
+      "url": "https://dl.acm.org/doi/10.1145/22145.22146",
+      "verifiedOn": "2026-10-26",
+      "fullTextUrl": "https://www.cs.cmu.edu/~guyb/paralg/papers/Luby86.pdf",
+      "publicationUrl": "https://doi.org/10.1137/0215074"
+    },
+    "kuhn-moscibroda-wattenhofer-2016-local-lower": {
+      "id": "kuhn-moscibroda-wattenhofer-2016-local-lower",
+      "title": "Local Computation: Lower and Upper Bounds",
+      "authors": [
+        "Fabian Kuhn",
+        "Thomas Moscibroda",
+        "Roger Wattenhofer"
+      ],
+      "year": 2016,
+      "venue": "Journal of the ACM 2016",
+      "publicationStatus": "journal",
+      "url": "https://arxiv.org/abs/1011.5470",
+      "verifiedOn": "2026-10-26",
+      "fullTextUrl": "https://arxiv.org/pdf/1011.5470"
+    },
+    "balliu-et-al-2021-mis-lower": {
+      "id": "balliu-et-al-2021-mis-lower",
+      "title": "Lower Bounds for Maximal Matchings and Maximal Independent Sets",
+      "authors": [
+        "Alkida Balliu",
+        "Sebastian Brandt",
+        "Juho Hirvonen",
+        "Dennis Olivetti",
+        "Mikaël Rabie",
+        "Jukka Suomela"
+      ],
+      "year": 2021,
+      "venue": "Journal of the ACM 2021 (FOCS 2019)",
+      "publicationStatus": "journal",
+      "url": "https://arxiv.org/abs/1901.02441",
+      "verifiedOn": "2026-10-26",
+      "fullTextUrl": "https://arxiv.org/pdf/1901.02441"
+    },
+    "rozhon-ghaffari-2020-network": {
+      "id": "rozhon-ghaffari-2020-network",
+      "title": "Polylogarithmic-Time Deterministic Network Decomposition and Distributed Derandomization",
+      "authors": [
+        "Václav Rozhoň",
+        "Mohsen Ghaffari"
+      ],
+      "year": 2020,
+      "venue": "STOC 2020",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1907.10937",
+      "verifiedOn": "2026-10-26",
+      "fullTextUrl": "https://arxiv.org/pdf/1907.10937"
+    },
+    "ghaffari-grunau-2023-mis": {
+      "id": "ghaffari-grunau-2023-mis",
+      "title": "Faster Deterministic Distributed MIS and Approximate Matching",
+      "authors": [
+        "Mohsen Ghaffari",
+        "Christoph Grunau"
+      ],
+      "year": 2023,
+      "venue": "STOC 2023",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2303.16043",
+      "verifiedOn": "2026-10-26",
+      "fullTextUrl": "https://arxiv.org/pdf/2303.16043"
+    },
+    "dufoulon-moses-pandurangan-2023-awake": {
+      "id": "dufoulon-moses-pandurangan-2023-awake",
+      "title": "Distributed MIS in O(log log n) Awake Complexity",
+      "authors": [
+        "Fabien Dufoulon",
+        "William K. Moses Jr.",
+        "Gopal Pandurangan"
+      ],
+      "year": 2023,
+      "venue": "PODC 2023 / Distributed Computing 2026",
+      "publicationStatus": "journal",
+      "url": "https://arxiv.org/abs/2204.08359",
+      "verifiedOn": "2026-10-26",
+      "fullTextUrl": "https://link.springer.com/article/10.1007/s00446-025-00498-4",
+      "publicationUrl": "https://doi.org/10.1007/s00446-025-00498-4"
+    },
+    "ghaffari-portmann-2023-awake": {
+      "id": "ghaffari-portmann-2023-awake",
+      "title": "Distributed MIS with Low Energy and Time Complexities",
+      "authors": [
+        "Mohsen Ghaffari",
+        "Julian Portmann"
+      ],
+      "year": 2023,
+      "venue": "PODC 2023",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2305.11639",
+      "verifiedOn": "2026-10-26",
+      "fullTextUrl": "https://arxiv.org/html/2305.11639v2",
+      "publicationUrl": "https://doi.org/10.1145/3583668.3594587"
+    }
+  },
+  "verifiedRecords": [
+    {
+      "id": "mis-local-ghaffari-grunau-2024",
+      "kind": "upper",
+      "bound": "Õ(log^{5/3} n)",
+      "guarantee": "Explicit maximal independent set, deterministically",
+      "sourceLocation": "Theorem 1.3 / Theorem 6.1",
+      "evidenceStatus": "theorem_verified",
+      "frontierStatus": "candidate",
+      "notes": "Õ hides lower-order polyloglog factors.",
+      "sourceId": "ghaffari-grunau-2024-local-mis",
+      "sliceId": "mis-local-deterministic-general",
+      "panel": "elapsed",
+      "xCategory": "det",
+      "yCategory": "log53",
+      "shortLabel": "GG24",
+      "theorem": "Theorem 1.3 / Theorem 6.1",
+      "quality": "Exact maximality (inclusion-maximal)",
+      "output": "Explicit maximal independent set; each vertex outputs its membership",
+      "graph": "General simple undirected n-vertex graphs",
+      "resourceModel": "Elapsed synchronous LOCAL rounds; unbounded messages",
+      "probability": "Deterministic",
+      "displayBound": "Õ(log^{5/3} n)",
+      "exactBound": "Õ(log^{5/3} n)",
+      "verificationUrl": "https://arxiv.org/html/2410.19516v1",
+      "assumptions": [
+        "General simple undirected n-vertex graphs",
+        "Explicit maximal independent set; each vertex outputs its membership",
+        "Elapsed synchronous LOCAL rounds; unbounded messages",
+        "Deterministic"
+      ]
+    },
+    {
+      "id": "mis-local-rozhon-2020-det",
+      "kind": "upper",
+      "bound": "O(log^7 n)",
+      "guarantee": "Deterministic explicit MIS on general graphs",
+      "sourceLocation": "Corollary in full paper following network decomposition",
+      "evidenceStatus": "theorem_verified",
+      "frontierStatus": "historical",
+      "notes": "Proof explicitly adds O(log^7 n) network decomposition and O(log^4 n) MIS phases.",
+      "sourceId": "rozhon-ghaffari-2020-network",
+      "sliceId": "mis-local-deterministic-general",
+      "panel": "elapsed",
+      "xCategory": "det",
+      "yCategory": "log7",
+      "shortLabel": "RG20",
+      "theorem": "Corollary 3.1 and its proof, PDF p.15",
+      "historical": true,
+      "quality": "Exact maximality (inclusion-maximal)",
+      "output": "Explicit maximal independent set; each vertex outputs its membership",
+      "graph": "General simple undirected n-vertex graphs",
+      "resourceModel": "Elapsed synchronous LOCAL rounds; unbounded messages",
+      "probability": "Deterministic",
+      "displayBound": "O(log^7 n)",
+      "exactBound": "O(log^7 n)",
+      "verificationUrl": "https://arxiv.org/pdf/1907.10937",
+      "assumptions": [
+        "General simple undirected n-vertex graphs",
+        "Explicit maximal independent set; each vertex outputs its membership",
+        "Elapsed synchronous LOCAL rounds; unbounded messages",
+        "Deterministic"
+      ]
+    },
+    {
+      "id": "mis-local-ghaffari-grunau-2023-det",
+      "kind": "upper",
+      "bound": "Õ(log^2 n)",
+      "guarantee": "Deterministic explicit MIS on general graphs",
+      "sourceLocation": "Abstract; main theorem",
+      "evidenceStatus": "theorem_verified",
+      "frontierStatus": "historical",
+      "notes": "Historical upper improved by GG24.",
+      "sourceId": "ghaffari-grunau-2023-mis",
+      "sliceId": "mis-local-deterministic-general",
+      "panel": "elapsed",
+      "xCategory": "det",
+      "yCategory": "log2",
+      "shortLabel": "GG23",
+      "theorem": "Theorem 1.1, PDF p.5",
+      "historical": true,
+      "quality": "Exact maximality (inclusion-maximal)",
+      "output": "Explicit maximal independent set; each vertex outputs its membership",
+      "graph": "General simple undirected n-vertex graphs",
+      "resourceModel": "Elapsed synchronous LOCAL rounds; unbounded messages",
+      "probability": "Deterministic",
+      "displayBound": "Õ(log^2 n)",
+      "exactBound": "Õ(log^2 n)",
+      "verificationUrl": "https://arxiv.org/pdf/2303.16043",
+      "assumptions": [
+        "General simple undirected n-vertex graphs",
+        "Explicit maximal independent set; each vertex outputs its membership",
+        "Elapsed synchronous LOCAL rounds; unbounded messages",
+        "Deterministic"
+      ]
+    },
+    {
+      "id": "mis-local-balliu-2021-det-lower",
+      "kind": "lower",
+      "bound": "Ω(min{Δ, log n / log log n})",
+      "guarantee": "Deterministic explicit MIS",
+      "sourceLocation": "Abstract; deterministic corollary",
+      "evidenceStatus": "theorem_verified",
+      "frontierStatus": "candidate",
+      "notes": "Worst-case maximum-degree bound; the cap is not asserted for every Δ.",
+      "sourceId": "balliu-et-al-2021-mis-lower",
+      "sliceId": "mis-local-deterministic-general",
+      "panel": "elapsed",
+      "xCategory": "det",
+      "yCategory": "logoverlog",
+      "shortLabel": "BBH+21",
+      "theorem": "Corollary 4.17, PDF p.26",
+      "rangeFrom": "one",
+      "rangeTo": "logoverlog",
+      "quality": "Exact maximality (inclusion-maximal)",
+      "output": "Explicit maximal independent set; each vertex outputs its membership",
+      "graph": "General simple undirected n-vertex graphs",
+      "resourceModel": "Elapsed synchronous LOCAL rounds; unbounded messages",
+      "probability": "Deterministic",
+      "displayBound": "Ω(min{Δ, log n / log log n})",
+      "exactBound": "Ω(min{Δ, log n / log log n})",
+      "verificationUrl": "https://arxiv.org/pdf/1901.02441",
+      "assumptions": [
+        "General simple undirected n-vertex graphs",
+        "Explicit maximal independent set; each vertex outputs its membership",
+        "Elapsed synchronous LOCAL rounds; unbounded messages",
+        "Deterministic"
+      ]
+    },
+    {
+      "id": "mis-local-balliu-2021-degree-lower",
+      "kind": "lower",
+      "bound": "Ω(min{Δ, log log n / log log log n})",
+      "guarantee": "Randomized MIS with global success ≥1−1/n",
+      "sourceLocation": "Abstract; main randomized lower theorem",
+      "evidenceStatus": "theorem_verified",
+      "frontierStatus": "candidate",
+      "notes": "The bound expression varies with Δ; the interval is not a uniform lower bound of its cap.",
+      "sourceId": "balliu-et-al-2021-mis-lower",
+      "sliceId": "mis-local-randomized-degree",
+      "panel": "elapsed",
+      "xCategory": "degree",
+      "yCategory": "loglogratio",
+      "shortLabel": "BBH+21",
+      "theorem": "Corollary 4.16, PDF p.26",
+      "probability": "Global success probability at least 1−1/n",
+      "rangeFrom": "one",
+      "rangeTo": "loglogratio",
+      "quality": "Exact maximality (inclusion-maximal)",
+      "output": "Explicit maximal independent set; each vertex outputs its membership",
+      "graph": "General simple undirected n-vertex graphs",
+      "resourceModel": "Elapsed synchronous LOCAL rounds; unbounded messages",
+      "displayBound": "Ω(min{Δ, log log n / log log log n})",
+      "exactBound": "Ω(min{Δ, log log n / log log log n})",
+      "verificationUrl": "https://arxiv.org/pdf/1901.02441",
+      "assumptions": [
+        "General simple undirected n-vertex graphs",
+        "Explicit maximal independent set; each vertex outputs its membership",
+        "Elapsed synchronous LOCAL rounds; unbounded messages",
+        "Global success probability at least 1−1/n"
+      ]
+    },
+    {
+      "id": "mis-local-luby-general",
+      "kind": "upper",
+      "bound": "O(log n)",
+      "guarantee": "Explicit MIS on general graphs",
+      "sourceLocation": "Main randomized algorithm; see also Ghaffari 2016 introduction",
+      "evidenceStatus": "theorem_verified",
+      "frontierStatus": "baseline",
+      "notes": "LOCAL implementation uses O(1) rounds per iteration. Ghaffari 2016 introduction states this consequence explicitly.",
+      "sourceId": "luby-1985-mis",
+      "sliceId": "mis-local-randomized-general-lower",
+      "panel": "elapsed",
+      "xCategory": "rand",
+      "yCategory": "log",
+      "shortLabel": "Luby85/86",
+      "theorem": "§3.2–3.4, Theorem 1 and following high-probability discussion",
+      "quality": "Exact maximality (inclusion-maximal)",
+      "output": "Explicit maximal independent set; each vertex outputs its membership",
+      "graph": "General simple undirected n-vertex graphs",
+      "resourceModel": "Elapsed synchronous LOCAL rounds; unbounded messages",
+      "probability": "Global success with high probability",
+      "displayBound": "O(log n)",
+      "exactBound": "O(log n)",
+      "verificationUrl": "https://www.cs.cmu.edu/~guyb/paralg/papers/Luby86.pdf",
+      "assumptions": [
+        "General simple undirected n-vertex graphs",
+        "Explicit maximal independent set; each vertex outputs its membership",
+        "Elapsed synchronous LOCAL rounds; unbounded messages",
+        "Global success with high probability"
+      ]
+    },
+    {
+      "id": "mis-local-kmw-general-lower",
+      "kind": "lower",
+      "bound": "Ω(√(log n / log log n))",
+      "guarantee": "Expected time of any possibly randomized MIS algorithm on suitable hard graphs",
+      "sourceLocation": "Theorem 23 (PDF page 27)",
+      "evidenceStatus": "theorem_verified",
+      "frontierStatus": "current_best_verified",
+      "notes": "Worst-case hard graph family. Expected-time lower and high-probability upper are explicitly distinguished.",
+      "sourceId": "kuhn-moscibroda-wattenhofer-2016-local-lower",
+      "sliceId": "mis-local-randomized-general-lower",
+      "panel": "elapsed",
+      "xCategory": "rand",
+      "yCategory": "sqrt",
+      "shortLabel": "KMW16",
+      "theorem": "Theorem 23, PDF p.28 (printed p.27)",
+      "probability": "Expected-time lower bound for possibly randomized algorithms",
+      "quality": "Exact maximality (inclusion-maximal)",
+      "output": "Explicit maximal independent set; each vertex outputs its membership",
+      "graph": "General simple undirected n-vertex graphs",
+      "resourceModel": "Elapsed synchronous LOCAL rounds; unbounded messages",
+      "displayBound": "Ω(√(log n / log log n))",
+      "exactBound": "Ω(√(log n / log log n))",
+      "verificationUrl": "https://arxiv.org/pdf/1011.5470",
+      "assumptions": [
+        "General simple undirected n-vertex graphs",
+        "Explicit maximal independent set; each vertex outputs its membership",
+        "Elapsed synchronous LOCAL rounds; unbounded messages",
+        "Expected-time lower bound for possibly randomized algorithms"
+      ]
+    },
+    {
+      "id": "mis-local-dufoulon-awake",
+      "kind": "upper",
+      "bound": "O(log^7 n · log log n)",
+      "guarantee": "Explicit MIS; total round bound separately specified by source",
+      "sourceLocation": "Abstract; main awake-complexity theorem",
+      "evidenceStatus": "theorem_verified",
+      "frontierStatus": "baseline",
+      "notes": "Use revised/journal theorem. Earlier polynomial-time or large-message restrictions do not describe this version. Awake guarantee O(log log n) is retained for theorem inspection only; the plotted cost is total elapsed rounds.",
+      "sourceId": "dufoulon-moses-pandurangan-2023-awake",
+      "sliceId": "mis-local-awake-energy",
+      "panel": "elapsed",
+      "xCategory": "sleep",
+      "yCategory": "log7ll",
+      "shortLabel": "DMP23/26 · A",
+      "theorem": "Journal Theorem 1 (arXiv v3 Lemma 13)",
+      "probability": "MIS correct with high probability (at least 1−1/n)",
+      "awake": "O(log log n)",
+      "elapsed": "O(log^7 n · log log n)",
+      "plotLabel": "DMP · A",
+      "quality": "Exact maximality (inclusion-maximal)",
+      "output": "Explicit maximal independent set; each vertex outputs its membership",
+      "graph": "General simple undirected n-vertex graphs",
+      "resourceModel": "Total elapsed synchronous rounds in sleeping CONGEST; O(log n)-bit messages",
+      "displayBound": "O(log^7 n · log log n)",
+      "exactBound": "O(log^7 n · log log n)",
+      "verificationUrl": "https://link.springer.com/article/10.1007/s00446-025-00498-4",
+      "assumptions": [
+        "General simple undirected n-vertex graphs",
+        "Explicit maximal independent set; each vertex outputs its membership",
+        "Total elapsed synchronous rounds in sleeping CONGEST; O(log n)-bit messages",
+        "MIS correct with high probability (at least 1−1/n)"
+      ],
+      "originalTradeoffBound": "O(log log n) awake; O(log^7 n · log log n) elapsed"
+    },
+    {
+      "id": "mis-local-ghaffari-portmann-awake",
+      "kind": "upper",
+      "bound": "O(log^2 n)",
+      "guarantee": "Explicit MIS with reduced energy",
+      "sourceLocation": "Abstract; first algorithm",
+      "evidenceStatus": "theorem_verified",
+      "frontierStatus": "candidate",
+      "notes": "Published at PODC 2023. Energy is maximum per-node awake rounds, not node average. Awake guarantee O(log log n) is retained for theorem inspection only; the plotted cost is total elapsed rounds.",
+      "sourceId": "ghaffari-portmann-2023-awake",
+      "sliceId": "mis-local-awake-energy",
+      "panel": "elapsed",
+      "xCategory": "sleep",
+      "yCategory": "log2",
+      "shortLabel": "GP23 · A",
+      "theorem": "Theorem 1.1",
+      "probability": "Independent set always; maximal with high probability",
+      "awake": "O(log log n)",
+      "elapsed": "O(log^2 n)",
+      "plotLabel": "GP · A",
+      "quality": "Exact maximality (inclusion-maximal)",
+      "output": "Explicit maximal independent set; each vertex outputs its membership",
+      "graph": "General simple undirected n-vertex graphs",
+      "resourceModel": "Total elapsed synchronous rounds in sleeping CONGEST; O(log n)-bit messages",
+      "displayBound": "O(log^2 n)",
+      "exactBound": "O(log^2 n)",
+      "verificationUrl": "https://arxiv.org/html/2305.11639v2",
+      "assumptions": [
+        "General simple undirected n-vertex graphs",
+        "Explicit maximal independent set; each vertex outputs its membership",
+        "Total elapsed synchronous rounds in sleeping CONGEST; O(log n)-bit messages",
+        "Independent set always; maximal with high probability"
+      ],
+      "originalTradeoffBound": "O(log log n) awake; O(log^2 n) elapsed"
+    },
+    {
+      "id": "mis-local-rozhon-2020-randomized",
+      "sourceId": "rozhon-ghaffari-2020-network",
+      "sliceId": "mis-local-randomized-degree",
+      "kind": "upper",
+      "panel": "elapsed",
+      "xCategory": "degree",
+      "yCategory": "log",
+      "shortLabel": "RG20",
+      "bound": "O(log Δ + poly(log log n))",
+      "theorem": "Corollary 3.2, PDF p.15",
+      "probability": "Global success probability at least 1−1/poly(n)",
+      "rangeFrom": "one",
+      "rangeTo": "log",
+      "notes": "For 1≤Δ<n the expression is enclosed by the conservative constant-to-log n band. This does not claim the constant endpoint is attained. The unspecified polynomial exponent is not placed at a fixed coordinate.",
+      "quality": "Exact maximality (inclusion-maximal)",
+      "output": "Explicit maximal independent set; each vertex outputs its membership",
+      "graph": "General simple undirected n-vertex graphs",
+      "resourceModel": "Elapsed synchronous LOCAL rounds; unbounded messages",
+      "displayBound": "O(log Δ + poly(log log n))",
+      "exactBound": "O(log Δ + poly(log log n))",
+      "evidenceStatus": "theorem_verified",
+      "verificationUrl": "https://arxiv.org/pdf/1907.10937",
+      "assumptions": [
+        "General simple undirected n-vertex graphs",
+        "Explicit maximal independent set; each vertex outputs its membership",
+        "Elapsed synchronous LOCAL rounds; unbounded messages",
+        "Global success probability at least 1−1/poly(n)"
+      ]
+    },
+    {
+      "id": "mis-local-dufoulon-awake-fast",
+      "sourceId": "dufoulon-moses-pandurangan-2023-awake",
+      "sliceId": "mis-local-awake-energy",
+      "kind": "upper",
+      "panel": "elapsed",
+      "xCategory": "sleep",
+      "yCategory": "log3llstar",
+      "shortLabel": "DMP23/26 · B",
+      "bound": "O(log^3 n · log log n · log* n)",
+      "theorem": "Journal Corollary 2 (arXiv v3 Corollary 14)",
+      "probability": "MIS correct with high probability",
+      "awake": "O(log log n · log* n)",
+      "elapsed": "O(log^3 n · log log n · log* n)",
+      "plotLabel": "DMP · B",
+      "notes": "Second tradeoff from the same source, also using O(log n)-bit messages. Awake guarantee O(log log n · log* n) is retained for theorem inspection only; the plotted cost is total elapsed rounds.",
+      "quality": "Exact maximality (inclusion-maximal)",
+      "output": "Explicit maximal independent set; each vertex outputs its membership",
+      "graph": "General simple undirected n-vertex graphs",
+      "resourceModel": "Total elapsed synchronous rounds in sleeping CONGEST; O(log n)-bit messages",
+      "displayBound": "O(log^3 n · log log n · log* n)",
+      "exactBound": "O(log^3 n · log log n · log* n)",
+      "evidenceStatus": "theorem_verified",
+      "verificationUrl": "https://link.springer.com/article/10.1007/s00446-025-00498-4",
+      "assumptions": [
+        "General simple undirected n-vertex graphs",
+        "Explicit maximal independent set; each vertex outputs its membership",
+        "Total elapsed synchronous rounds in sleeping CONGEST; O(log n)-bit messages",
+        "MIS correct with high probability"
+      ],
+      "originalTradeoffBound": "O(log log n · log* n) awake; O(log^3 n · log log n · log* n) elapsed"
+    },
+    {
+      "id": "mis-local-ghaffari-portmann-awake-fast",
+      "sourceId": "ghaffari-portmann-2023-awake",
+      "sliceId": "mis-local-awake-energy",
+      "kind": "upper",
+      "panel": "elapsed",
+      "xCategory": "sleep",
+      "yCategory": "logllstar",
+      "shortLabel": "GP23 · B",
+      "bound": "O(log n · log log n · log* n)",
+      "theorem": "Theorem 1.2",
+      "probability": "Independent set always; maximal with high probability",
+      "awake": "O((log log n)^2)",
+      "elapsed": "O(log n · log log n · log* n)",
+      "plotLabel": "GP · B",
+      "notes": "Second tradeoff from the same paper. No awake lower bound is asserted here. Awake guarantee O((log log n)^2) is retained for theorem inspection only; the plotted cost is total elapsed rounds.",
+      "quality": "Exact maximality (inclusion-maximal)",
+      "output": "Explicit maximal independent set; each vertex outputs its membership",
+      "graph": "General simple undirected n-vertex graphs",
+      "resourceModel": "Total elapsed synchronous rounds in sleeping CONGEST; O(log n)-bit messages",
+      "displayBound": "O(log n · log log n · log* n)",
+      "exactBound": "O(log n · log log n · log* n)",
+      "evidenceStatus": "theorem_verified",
+      "verificationUrl": "https://arxiv.org/html/2305.11639v2",
+      "assumptions": [
+        "General simple undirected n-vertex graphs",
+        "Explicit maximal independent set; each vertex outputs its membership",
+        "Total elapsed synchronous rounds in sleeping CONGEST; O(log n)-bit messages",
+        "Independent set always; maximal with high probability"
+      ],
+      "originalTradeoffBound": "O((log log n)^2) awake; O(log n · log log n · log* n) elapsed"
+    }
+  ],
+  "relatedResults": [
+    {
+      "id": "mis-local-ghaffari-2016-global",
+      "kind": "upper",
+      "bound": "O(log Δ) + 2^{O(√(log log n))}",
+      "guarantee": "Explicit maximal independent set with high probability",
+      "sourceLocation": "Abstract, global complexity statement",
+      "evidenceStatus": "theorem_verified",
+      "frontierStatus": "candidate",
+      "notes": "RG20 Corollary 3.2 improves the n-dependent term. Preserved for historical inspection without inventing an exponent.",
+      "sourceId": "ghaffari-2016-local-mis",
+      "sliceId": "mis-local-randomized-degree",
+      "panel": "elapsed",
+      "xCategory": "degree",
+      "yCategory": "log",
+      "shortLabel": "G16",
+      "theorem": "Theorem 1.2, PDF p.4",
+      "historical": true,
+      "related": true,
+      "quality": "Exact maximality (inclusion-maximal)",
+      "output": "Explicit maximal independent set; each vertex outputs its membership",
+      "graph": "General simple undirected n-vertex graphs",
+      "resourceModel": "Elapsed synchronous LOCAL rounds; unbounded messages",
+      "probability": "Global success with high probability",
+      "displayBound": "O(log Δ) + 2^{O(√(log log n))}",
+      "exactBound": "O(log Δ) + 2^{O(√(log log n))}",
+      "verificationUrl": "https://arxiv.org/pdf/1506.05093",
+      "assumptions": [
+        "General simple undirected n-vertex graphs",
+        "Explicit maximal independent set; each vertex outputs its membership",
+        "Elapsed synchronous LOCAL rounds; unbounded messages",
+        "Global success with high probability"
+      ]
+    },
+    {
+      "id": "mis-local-luby-1985-baseline",
+      "kind": "upper",
+      "bound": "O(log n)",
+      "guarantee": "Randomized explicit MIS on all n-vertex graphs",
+      "sourceLocation": "Main randomized MIS algorithm; classical LOCAL interpretation",
+      "evidenceStatus": "theorem_verified",
+      "frontierStatus": "baseline",
+      "notes": "Same algorithm as the general-graph point; preserve source alias without duplicating the plotted marker.",
+      "sourceId": "luby-1985-mis",
+      "sliceId": "mis-local-randomized-degree",
+      "panel": "elapsed",
+      "xCategory": "degree",
+      "yCategory": "log",
+      "shortLabel": "Luby85/86",
+      "theorem": "§3.2–3.4, Theorem 1 and following high-probability discussion, journal pp.1039–1041",
+      "related": true,
+      "duplicateOf": "mis-local-luby-general",
+      "quality": "Exact maximality (inclusion-maximal)",
+      "output": "Explicit maximal independent set; each vertex outputs its membership",
+      "graph": "General simple undirected n-vertex graphs",
+      "resourceModel": "Elapsed synchronous LOCAL rounds; unbounded messages",
+      "probability": "Global success with high probability",
+      "displayBound": "O(log n)",
+      "exactBound": "O(log n)",
+      "verificationUrl": "https://www.cs.cmu.edu/~guyb/paralg/papers/Luby86.pdf",
+      "assumptions": [
+        "General simple undirected n-vertex graphs",
+        "Explicit maximal independent set; each vertex outputs its membership",
+        "Elapsed synchronous LOCAL rounds; unbounded messages",
+        "Global success with high probability"
+      ]
+    }
+  ],
+  "figureAxes": {
+    "elapsed": {
+      "title": "Elapsed rounds · explicit algorithm and communication contracts",
+      "x": {
+        "label": "Algorithm / success / communication contract",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "det",
+            "label": "Deterministic LOCAL"
+          },
+          {
+            "id": "rand",
+            "label": "Randomized LOCAL · general"
+          },
+          {
+            "id": "degree",
+            "label": "Randomized LOCAL · degree-sensitive"
+          },
+          {
+            "id": "sleep",
+            "label": "Sleeping CONGEST · randomized"
+          }
+        ]
+      },
+      "y": {
+        "label": "Total elapsed synchronous rounds · symbolic growth families",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "one",
+            "label": "1"
+          },
+          {
+            "id": "loglogratio",
+            "label": "log log n / log log log n"
+          },
+          {
+            "id": "sqrt",
+            "label": "√(log n / log log n)"
+          },
+          {
+            "id": "logoverlog",
+            "label": "log n / log log n"
+          },
+          {
+            "id": "log",
+            "label": "log n"
+          },
+          {
+            "id": "logllstar",
+            "label": "log n · log log n · log* n"
+          },
+          {
+            "id": "log53",
+            "label": "Õ(log^{5/3} n)"
+          },
+          {
+            "id": "log2",
+            "label": "log^2 n (up to polyloglog factors)"
+          },
+          {
+            "id": "log3llstar",
+            "label": "log^3 n · log log n · log* n"
+          },
+          {
+            "id": "log7",
+            "label": "log^7 n"
+          },
+          {
+            "id": "log7ll",
+            "label": "log^7 n · log log n"
+          }
+        ]
+      }
+    }
+  },
+  "sourceVerification": [
+    {
+      "sourceId": "ghaffari-grunau-2024-local-mis",
+      "url": "https://arxiv.org/html/2410.19516v1",
+      "checkedOn": "2026-10-26",
+      "theorems": [
+        "Theorem 1.3 / Theorem 6.1"
+      ]
+    },
+    {
+      "sourceId": "ghaffari-2016-local-mis",
+      "url": "https://arxiv.org/pdf/1506.05093",
+      "checkedOn": "2026-10-26",
+      "theorems": [
+        "Theorem 1.2, PDF p.4"
+      ]
+    },
+    {
+      "sourceId": "luby-1985-mis",
+      "url": "https://www.cs.cmu.edu/~guyb/paralg/papers/Luby86.pdf",
+      "checkedOn": "2026-10-26",
+      "theorems": [
+        "§3.2–3.4, Theorem 1 and following high-probability discussion, journal pp.1039–1041",
+        "§3.2–3.4, Theorem 1 and following high-probability discussion"
+      ]
+    },
+    {
+      "sourceId": "kuhn-moscibroda-wattenhofer-2016-local-lower",
+      "url": "https://arxiv.org/pdf/1011.5470",
+      "checkedOn": "2026-10-26",
+      "theorems": [
+        "Theorem 23, PDF p.28 (printed p.27)"
+      ]
+    },
+    {
+      "sourceId": "balliu-et-al-2021-mis-lower",
+      "url": "https://arxiv.org/pdf/1901.02441",
+      "checkedOn": "2026-10-26",
+      "theorems": [
+        "Corollary 4.17, PDF p.26",
+        "Corollary 4.16, PDF p.26"
+      ]
+    },
+    {
+      "sourceId": "rozhon-ghaffari-2020-network",
+      "url": "https://arxiv.org/pdf/1907.10937",
+      "checkedOn": "2026-10-26",
+      "theorems": [
+        "Corollary 3.1 and its proof, PDF p.15",
+        "Corollary 3.2, PDF p.15"
+      ]
+    },
+    {
+      "sourceId": "ghaffari-grunau-2023-mis",
+      "url": "https://arxiv.org/pdf/2303.16043",
+      "checkedOn": "2026-10-26",
+      "theorems": [
+        "Theorem 1.1, PDF p.5"
+      ]
+    },
+    {
+      "sourceId": "dufoulon-moses-pandurangan-2023-awake",
+      "url": "https://link.springer.com/article/10.1007/s00446-025-00498-4",
+      "checkedOn": "2026-10-26",
+      "theorems": [
+        "Journal Theorem 1 (arXiv v3 Lemma 13)",
+        "Journal Corollary 2 (arXiv v3 Corollary 14)"
+      ]
+    },
+    {
+      "sourceId": "ghaffari-portmann-2023-awake",
+      "url": "https://arxiv.org/html/2305.11639v2",
+      "checkedOn": "2026-10-26",
+      "theorems": [
+        "Theorem 1.1",
+        "Theorem 1.2"
+      ]
+    }
+  ],
+  "coverageNote": "Bounded review of nine supplied primary sources; not a claim of exhaustive literature coverage.",
+  "lowerBoundStatus": "Elapsed-round lower bounds are shown under their deterministic or randomized contracts. Sleeping points display elapsed-time upper bounds; no separate sleeping-specific lower claim is added.",
+  "axisSemantics": "One elapsed-round axis, with ordinal growth families rather than numerical distances. L² and Õ(L²) share a clearly labeled soft-growth family; exact factors stay on the points and in theorem inspection. Degree-dependent expressions use conservative enclosures under 1≤Δ<n, not achieved-time ranges."
+}

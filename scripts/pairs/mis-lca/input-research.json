@@ -1,0 +1,332 @@
+{
+  "problem": "mis",
+  "model": "lca",
+  "slices": [
+    {
+      "id": "mis-lca-adjlist-membership",
+      "problem": "mis",
+      "model": "lca",
+      "label": "Adjacency-list LCA membership",
+      "task": "Answer consistent vertex-membership queries for one maximal independent set",
+      "assumptions": [
+        "Adjacency-list access",
+        "Maximum degree Δ; n vertices",
+        "Randomized, high probability"
+      ],
+      "parameters": {
+        "Δ": "Maximum degree"
+      },
+      "results": [
+        {
+          "id": "mis-lca-ghaffari-polydeg",
+          "paperId": "ghaffari-2022-lca-mis",
+          "kind": "upper",
+          "bound": "poly(Δ) · log n adjacency-list queries per membership query",
+          "guarantee": "Consistent membership decisions for an MIS, with high probability",
+          "sourceLocation": "Abstract",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "candidate",
+          "notes": "Oracle answers are independently queryable for different vertices; degree dependence prevents a numeric n-only exponent.",
+          "plot": null
+        },
+        {
+          "id": "mis-lca-ghaffari-2016-intermediate",
+          "paperId": "ghaffari-2016-local-mis",
+          "kind": "upper",
+          "bound": "Δ^{O(log Δ)} · poly(log n) adjacency-list queries",
+          "guarantee": "Consistent membership in a maximal independent set",
+          "sourceLocation": "LCA corollary; explicit bound recalled in Ghaffari–Uitto 2019, abstract",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "historical",
+          "notes": "Intermediate improvement before sparsification and the FOCS 2022 poly(Δ log n) result.",
+          "plot": null
+        },
+        {
+          "id": "mis-lca-levi-2017-quasipoly",
+          "paperId": "levi-rubinfeld-yodpinyanee-2017-lca",
+          "kind": "upper",
+          "bound": "Δ^{O(log² Δ)} · poly(log n) time and space",
+          "guarantee": "Consistent MIS vertex membership via adjacency probes",
+          "sourceLocation": "Abstract; prior bound identified in Ghaffari–Uitto 2019 abstract",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "historical",
+          "notes": "Historical degree-sensitive LCA. Δ^{O(log² Δ)} poly(log n) expression is identified by the later primary Ghaffari–Uitto 2019 paper.",
+          "plot": null
+        },
+        {
+          "id": "mis-lca-ghaffari-uitto-2019",
+          "paperId": "ghaffari-uitto-2019-sparsify",
+          "kind": "upper",
+          "bound": "Δ^{O(log log Δ)} · poly(log n) probes",
+          "guarantee": "Consistent MIS vertex membership under graph probe access",
+          "sourceLocation": "Abstract, LCA result",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "historical",
+          "notes": "2019 sparsification breaks direct neighborhood simulation degree barrier.",
+          "plot": null
+        }
+      ],
+      "mode": "1d",
+      "axis": {
+        "label": "Probe ladder in Δ (per answered query)",
+        "kind": "probes",
+        "min": 0,
+        "max": 4,
+        "ticks": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "tickLabels": [
+          "polylog n",
+          "poly(Δ)",
+          "Δ^{O(log log Δ)}",
+          "Δ^{O(log Δ)}",
+          "Δ^{O(log²Δ)}"
+        ],
+        "scaleNote": "The labeled positions are asymptotic categories; symbolic results remain in the table."
+      }
+    },
+    {
+      "id": "mis-lca-constantdegree-original",
+      "problem": "mis",
+      "model": "lca",
+      "label": "Bounded-degree LCA, classic and deterministic",
+      "task": "Answer consistent MIS membership on bounded-degree graph",
+      "assumptions": [
+        "Adjacency-list/neighbor probes; fixed maximum degree Δ",
+        "Randomized algorithms may share a seed across answers; deterministic result is stateless"
+      ],
+      "parameters": {
+        "Δ": "Maximum degree"
+      },
+      "results": [
+        {
+          "id": "mis-lca-rubinfeld-2011",
+          "paperId": "rubinfeld-tamir-vardi-xie-2011-lca",
+          "kind": "upper",
+          "bound": "polylog(n) time per query for constant Δ",
+          "guarantee": "Consistent vertex membership in one maximal independent set",
+          "sourceLocation": "Abstract; Section 4, maximal independent set algorithm",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "2011 first general LCA framework for bounded-degree MIS; exponent depends on fixed Δ.",
+          "plot": null
+        },
+        {
+          "id": "mis-lca-alon-2012-space",
+          "paperId": "alon-rubinfeld-vardi-xie-2012-lca",
+          "kind": "upper",
+          "bound": "polylog(n) time and polylog(n) working space for constant Δ",
+          "guarantee": "Consistent MIS membership, with compact randomness and parallel queries",
+          "sourceLocation": "Abstract; Section 6, MIS LCA",
+          "evidenceStatus": "verified",
+          "frontierStatus": "baseline",
+          "notes": "Additional space and parallel consistency guarantee; not a direct time-only dominance statement.",
+          "plot": null
+        },
+        {
+          "id": "mis-lca-even-2018-det",
+          "paperId": "even-medina-ron-2018-local",
+          "kind": "upper",
+          "bound": "Δ^{O(Δ²)} · log* n probes",
+          "guarantee": "Deterministic stateless membership in an MIS",
+          "sourceLocation": "Corollary 11 (PDF page 14)",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Deterministic and stateless. Degree dependence is exponential in Δ², while n dependence is log* n; a previous poly(Δ,log* n) paraphrase was incorrect.",
+          "plot": null
+        }
+      ],
+      "mode": "1d",
+      "axis": {
+        "label": "Probe ladder in Δ (per answered query)",
+        "kind": "probes",
+        "min": 0,
+        "max": 4,
+        "ticks": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "tickLabels": [
+          "polylog n",
+          "poly(Δ)",
+          "Δ^{O(log log Δ)}",
+          "Δ^{O(log Δ)}",
+          "Δ^{O(log²Δ)}"
+        ],
+        "scaleNote": "The labeled positions are asymptotic categories; symbolic results remain in the table."
+      }
+    },
+    {
+      "id": "mis-lca-random-graph-cogeneration",
+      "problem": "mis",
+      "model": "lca",
+      "label": "Erdős–Rényi joint graph and MIS access",
+      "task": "Generate consistent access to a sampled random graph and one MIS",
+      "assumptions": [
+        "The graph is sampled as G(n,q), with q the edge probability; n is the number of vertices",
+        "Joint local access generator and LCA; not worst-case arbitrary input"
+      ],
+      "parameters": {
+        "q": "Erdős–Rényi edge probability"
+      },
+      "results": [
+        {
+          "id": "mis-lca-biswas-2025-generator",
+          "paperId": "biswas-et-al-2025-beyondworst-lca",
+          "kind": "upper",
+          "bound": "polylog(n)/q work per graph-edge or MIS-membership query, with high probability",
+          "guarantee": "Consistent access to a random graph and a maximal independent set",
+          "sourceLocation": "Theorem 1.12 (PDF page 6)",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Memoryless joint local access generator of graph and its MIS; for q≥1/polylog(n), per-query cost is polylog(n). This is not a fixed worst-case-input LCA.",
+          "plot": null
+        }
+      ],
+      "mode": "1d",
+      "axis": {
+        "label": "Probe ladder in Δ (per answered query)",
+        "kind": "probes",
+        "min": 0,
+        "max": 4,
+        "ticks": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "tickLabels": [
+          "polylog n",
+          "poly(Δ)",
+          "Δ^{O(log log Δ)}",
+          "Δ^{O(log Δ)}",
+          "Δ^{O(log²Δ)}"
+        ],
+        "scaleNote": "The labeled positions are asymptotic categories; symbolic results remain in the table."
+      }
+    }
+  ],
+  "papers": [
+    {
+      "id": "ghaffari-2022-lca-mis",
+      "title": "Local Computation of Maximal Independent Set",
+      "authors": [
+        "Mohsen Ghaffari"
+      ],
+      "year": 2022,
+      "venue": "FOCS 2022",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2210.01104",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "ghaffari-2016-local-mis",
+      "title": "An Improved Distributed Algorithm for Maximal Independent Set",
+      "authors": [
+        "Mohsen Ghaffari"
+      ],
+      "year": 2016,
+      "venue": "SODA 2016",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1506.05093",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "rubinfeld-tamir-vardi-xie-2011-lca",
+      "title": "Fast Local Computation Algorithms",
+      "authors": [
+        "Ronitt Rubinfeld",
+        "Gil Tamir",
+        "Shai Vardi",
+        "Ning Xie"
+      ],
+      "year": 2011,
+      "venue": "ICS 2011",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1104.1377",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "alon-rubinfeld-vardi-xie-2012-lca",
+      "title": "Space-Efficient Local Computation Algorithms",
+      "authors": [
+        "Noga Alon",
+        "Ronitt Rubinfeld",
+        "Shai Vardi",
+        "Ning Xie"
+      ],
+      "year": 2012,
+      "venue": "SODA 2012",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1109.6178",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "even-medina-ron-2018-local",
+      "title": "Best of Two Local Models: Local Centralized and Local Distributed Algorithms",
+      "authors": [
+        "Guy Even",
+        "Moti Medina",
+        "Dana Ron"
+      ],
+      "year": 2018,
+      "venue": "Information and Computation 2018",
+      "publicationStatus": "journal",
+      "url": "https://arxiv.org/abs/1402.3796",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "levi-rubinfeld-yodpinyanee-2017-lca",
+      "title": "Local Computation Algorithms for Graphs of Non-Constant Degrees",
+      "authors": [
+        "Reut Levi",
+        "Ronitt Rubinfeld",
+        "Anak Yodpinyanee"
+      ],
+      "year": 2017,
+      "venue": "Algorithmica 2017",
+      "publicationStatus": "journal",
+      "url": "https://arxiv.org/abs/1502.04022",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "ghaffari-uitto-2019-sparsify",
+      "title": "Sparsifying Distributed Algorithms with Ramifications in Massively Parallel Computation and Centralized Local Computation",
+      "authors": [
+        "Mohsen Ghaffari",
+        "Jara Uitto"
+      ],
+      "year": 2019,
+      "venue": "SODA 2019",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1807.06251",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "biswas-et-al-2025-beyondworst-lca",
+      "title": "Beyond Worst Case Local Computation Algorithms",
+      "authors": [
+        "Amartya Shankha Biswas",
+        "Ruidi Cao",
+        "Cassandra Marcussen",
+        "Edward Pyne",
+        "Ronitt Rubinfeld",
+        "Asaf Shapira",
+        "Shlomo Tauber"
+      ],
+      "year": 2025,
+      "venue": "arXiv 2025 revision",
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/abs/2403.00129",
+      "verifiedOn": "2026-09-27"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+.vmpc-view,.vmpc-map{--vmpc-list:light-dark(#7651a1,#c9b1e8);--vmpc-degree:light-dark(#996000,#efc372);--vmpc-deg:light-dark(#397b7b,#8bd7d3)}
+.vmpc-map{display:block;width:100%;height:auto;background:var(--surface);border-radius:12px}
+.vmpc-map .vmpc-heading{font:650 21px system-ui,sans-serif;fill:var(--ink)}
+.vmpc-map .vmpc-muted{font:14px system-ui,sans-serif;fill:var(--muted)}
+.vmpc-map .vmpc-label,.vmpc-map .vmpc-tick{font:14px system-ui,sans-serif;fill:var(--ink)}
+.vmpc-map .vmpc-axis-title{font:600 13px system-ui,sans-serif;fill:var(--muted)}
+.vmpc-map .vmpc-source-label{font:600 13px system-ui,sans-serif}
+.vmpc-map .vmpc-legend{font:12px system-ui,sans-serif;fill:var(--muted)}
+.vmpc-map .vmpc-note{font:12px system-ui,sans-serif;fill:var(--muted)}
+.vmpc-map .vmpc-degeneracy-title{font:600 15px system-ui,sans-serif;fill:var(--ink)}
+.vmpc-map .vmpc-uniform{color:var(--blue);fill:var(--blue)}
+.vmpc-map .vmpc-delta-list{color:var(--vmpc-list);fill:var(--vmpc-list)}
+.vmpc-map .vmpc-degree-list{color:var(--vmpc-degree);fill:var(--vmpc-degree)}
+.vmpc-map .vmpc-degeneracy{color:var(--vmpc-deg);fill:var(--vmpc-deg)}
+.vmpc-map .vmpc-upper{fill:var(--green);stroke:var(--surface);stroke-width:1.2}
+.vmpc-map .vmpc-contract-ring{fill:none;stroke:currentColor;stroke-width:2}
+.vmpc-map .vmpc-legend-ring{stroke:var(--surface);stroke-width:1}
+.vmpc-map .vmpc-axis{fill:none;stroke:var(--muted);stroke-width:1.2}
+.vmpc-map .vmpc-grid{fill:none;stroke:var(--line);stroke-width:1;stroke-dasharray:3 4}
+.vmpc-map .vmpc-separate{fill:var(--soft);stroke:var(--line);stroke-width:1}
+.vmpc-map .vmpc-hit{fill:transparent;stroke:none}
+.vmpc-map .vmpc-selection{fill:none;stroke:var(--ink);stroke-width:1.3;stroke-dasharray:3 3}
+.vmpc-point[aria-pressed=false] .vmpc-selection{display:none}
+.vmpc-point[role=button]{cursor:pointer;outline:none}
+.vmpc-point[role=button]:focus .vmpc-contract-ring{stroke:var(--ink);stroke-width:4}
+.vmpc-map[data-detail-level=compact] .vmpc-heading{font-size:14px}
+.vmpc-map[data-detail-level=compact] .vmpc-legend{font-size:10px}
+.vmpc-map[data-detail-level=compact] .vmpc-tick{font-size:10px}
+.vmpc-map[data-detail-level=compact] .vmpc-note{font-size:10px}
+.vmpc-map[data-detail-level=compact] .vmpc-degeneracy-title{font-size:11px}
+.vmpc-toolbar{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;margin:18px 0;color:var(--muted)}
+.vmpc-toolbar label{display:flex;align-items:center;gap:8px;font-size:13px}
+.vmpc-toolbar select{background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:7px;padding:8px}
+.vmpc-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+.vmpc-plot{min-width:680px}
+.vmpc-read,.vmpc-coverage{color:var(--muted);font-size:13px;line-height:1.65;margin:14px 0}
+.vmpc-theorem{background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:12px;padding:20px;margin:18px 0;line-height:1.6}
+.vmpc-detail-head{display:flex;gap:13px;align-items:baseline;flex-wrap:wrap}
+.vmpc-detail-head>span:last-child{color:var(--muted);font-size:12px}
+.vmpc-green{color:var(--green)}
+.vmpc-detail-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px;margin:18px 0}
+.vmpc-detail-grid small{display:block;color:var(--muted);font-size:12px}
+.vmpc-detail-grid strong{display:block;overflow-wrap:anywhere}
+.vmpc-theorem h3{font-size:15px;margin:12px 0 6px}
+.vmpc-theorem p,.vmpc-theorem li{font-size:13px;overflow-wrap:anywhere}
+.vmpc-theorem a{color:var(--blue)}
+.vmpc-work-warning,.vmpc-accounting,.vmpc-variant{border-left:3px solid var(--blue);background:var(--soft);padding:10px 14px}
+.vmpc-source-list{color:var(--ink);margin:18px 0}
+.vmpc-source-list summary{cursor:pointer}
+.vmpc-records{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:13px}
+.vmpc-record{display:flex;flex-direction:column;gap:5px;text-align:left;padding:13px;border:1px solid var(--line);border-radius:9px;background:var(--surface);color:var(--ink);cursor:pointer}
+.vmpc-record[aria-pressed=true]{border-color:var(--green);box-shadow:inset 0 0 0 1px var(--green)}
+.vmpc-record span{color:var(--green)}
+.vmpc-record small{color:var(--muted)}
+.vmpc-toolbar select:focus-visible,.vmpc-record:focus-visible,.vmpc-scroll:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+@media(max-width:600px){.vmpc-detail-grid,.vmpc-records{grid-template-columns:1fr}.vmpc-theorem{padding:15px}.vmpc-toolbar label{flex-wrap:wrap}}
+
+.vmpc-map[data-detail-level=compact] .vmpc-axis-title{font-size:9px}

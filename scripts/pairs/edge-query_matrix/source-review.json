@@ -1,0 +1,68 @@
+{
+  "pair": "edge-query_matrix",
+  "reviewedOn": "2026-10-27",
+  "scope": "One supplied full-output enumeration baseline. No literature expansion.",
+  "originalIdsPreserved": {
+    "sliceIds": [
+      "edge-query-adjmatrix-enumerate"
+    ],
+    "resultIds": [
+      "edge-query-matrix-vizing-composed"
+    ],
+    "paperIds": [
+      "assadi-et-al-2025-vizing"
+    ]
+  },
+  "primaryEvidence": [
+    {
+      "sourceId": "assadi-et-al-2025-vizing",
+      "url": "https://arxiv.org/html/2410.05240v3",
+      "paperRecord": "https://arxiv.org/abs/2410.05240",
+      "journalRecord": "https://doi.org/10.1145/3806392",
+      "version": "v3, 14 October 2025",
+      "checks": [
+        {
+          "location": "Theorem 1.1",
+          "finding": "A simple undirected graph admits a randomized (Δ+1)-edge-coloring algorithm in O(m log n) time w.h.p."
+        },
+        {
+          "location": "Corollary C.1(1)",
+          "finding": "The sharpened O(m log Δ) randomized bound w.h.p. applies to simple graphs. Parts (2) and (3) concern multigraphs and are not imported into this binary matrix model."
+        },
+        {
+          "location": "Appendix C.1, including Lemmas C.2 and C.4 and its final proof paragraph",
+          "finding": "The sharpened stage completes w.h.p.; it is not presented here as a merely expected-time bound. No fixed probability exponent or Las Vegas classification is invented."
+        }
+      ]
+    }
+  ],
+  "atlasDerivation": {
+    "enumeration": "Known n-vertex set; query each unordered pair u<v once. There are exactly n(n−1)/2 pairs. Retain m edges and compute Δ during the scan. This is deterministic, independent of graph density.",
+    "composition": "The stored graph is passed to Corollary C.1(1), with no further matrix-oracle calls. Add scan time O(n²) and output m edge–color assignments separately.",
+    "edgeCases": "For Δ=0 there are no output edges; for Δ=1 all edges receive color 1. This yields the explicitly labeled all-degree extension O(m log max{2,Δ}) after scanning.",
+    "lowerBounds": "None added. The exact count of this algorithm is not asserted to be a necessary number of queries for every algorithm.",
+    "storage": "Only O(m) stored edges is recorded; no total-memory theorem is inferred."
+  },
+  "corrections": [
+    {
+      "id": "edge-query-matrix-vizing-composed",
+      "before": "STOC 2025 main coloring theorem; O(m log Δ) computation; numeric exponent plot",
+      "after": "Corollary C.1(1) supplies the degree-sensitive bound. Exact deterministic query count and randomized post-scan time are distinct. Numeric research plot removed; curated axes use symbolic n/n² order with exact query annotation."
+    }
+  ],
+  "representation": {
+    "main": "One green point: exact palette Δ+1 × quadratic query order, annotated n(n−1)/2. The detail view adds density-independent scan explanation and an explicit scan/color/output accounting row.",
+    "semanticZoom": "738×548 detail; 330×245 compact retains exact count, palette, post-scan time and output; overview removes all visible text.",
+    "lowerBoundStatus": "No matrix-query lower bound is verified in the supplied source set. No optimality claim is made."
+  },
+  "verification": {
+    "isolatedRegression": "Passed: 13 viewport sizes, ID preservation, exact query accounting, main and compact axes, no lower marker, source filter including empty state, keyboard inspector, listener cleanup/remount, 360px overflow containment.",
+    "sharedSchema": "Passed current build.py validate and load_pairs using an in-memory overlay only: 231 sources, 151 scoped slices, 406 results, 22 registered pairs at verification time.",
+    "staticVisual": "White-background SVG raster inspection passed at 738×548 and 330×245; labels remain within the figure and green algorithm styling is explicit.",
+    "liveBrowser": "Pending parent integration and browser inspection."
+  },
+  "rootIntegrationNotes": [
+    "Converted all hardcoded light-theme colors to shared theme variables; dark/light export and live dark atlas verified.",
+    "Added explicit empty canonicalAliases registration field for regression contract."
+  ]
+}

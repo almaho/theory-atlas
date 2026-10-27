@@ -1,0 +1,383 @@
+{
+  "problem": "vertex",
+  "model": "dynamic",
+  "slices": [
+    {
+      "id": "vertex-dynamic-adaptive-delta-plus-one",
+      "problem": "vertex",
+      "model": "dynamic",
+      "label": "Fully dynamic (Δ+1) coloring, adaptive adversary",
+      "task": "Maintain an explicit proper vertex coloring after each edge update",
+      "assumptions": [
+        "Fixed n-vertex graph",
+        "Maximum degree at most Δ at all times; Δ known in advance",
+        "Adaptive adversary; edge insertions and deletions"
+      ],
+      "xAxis": {
+        "label": "Palette slack c in q = Δ + c",
+        "kind": "palette",
+        "min": 0,
+        "max": 8,
+        "ticks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          6,
+          8
+        ]
+      },
+      "yAxis": {
+        "label": "Update-time exponent q in Õ(n^q) (lower is faster)",
+        "kind": "exponent",
+        "min": 0,
+        "max": 1.5,
+        "ticks": [
+          0,
+          0.25,
+          0.5,
+          0.75,
+          1,
+          1.25,
+          1.5
+        ],
+        "tickLabels": [
+          "polylog",
+          "n^{1/4}",
+          "√n",
+          "n^{3/4}",
+          "n",
+          "n^{5/4}",
+          "n^{3/2}"
+        ]
+      },
+      "parameters": {
+        "Delta": "maximum degree at every update",
+        "n": "number of vertices",
+        "coordinateConvention": "The x coordinate is the additive palette slack c=1. The table retains the exact quality and model assumptions. Ordinal round positions are asymptotic categories."
+      },
+      "results": [
+        {
+          "id": "vertex-dynamic-adaptive-flin-2025",
+          "paperId": "flin-halldorsson-2025-dynamic-coloring",
+          "kind": "upper",
+          "bound": "Õ(n^(2/3)) amortized update time with high probability",
+          "guarantee": "Randomized fully dynamic proper (Δ+1)-vertex coloring against adaptive adversaries",
+          "sourceLocation": "Theorem 1 and introduction",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Improves the SODA 2025 n^(8/9) adaptive bound. Does not claim to supersede O(1) oblivious-adversary algorithms; 2026 status under review.",
+          "plot": {
+            "x": 1,
+            "y": 0.6666666666666666,
+            "closure": "upper-right",
+            "strictX": false,
+            "strictY": false,
+            "label": "O resource 0.67"
+          }
+        },
+        {
+          "id": "vertex-dynamic-adaptive-brw-2025",
+          "paperId": "behnezhad-rajaraman-wasim-2025-dynamic-coloring",
+          "kind": "upper",
+          "bound": "Õ(n^(8/9)) update time with high probability",
+          "guarantee": "Randomized fully dynamic proper (Δ+1)-vertex coloring against adaptive adversaries",
+          "sourceLocation": "Abstract; Flin–Halldórsson introduction",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "historical",
+          "notes": "Earlier adaptive-adversary breakthrough, improved by Flin–Halldórsson 2025.",
+          "plot": {
+            "x": 1,
+            "y": 0.8888888888888888,
+            "closure": "upper-right",
+            "strictX": false,
+            "strictY": false,
+            "label": "O resource 0.89"
+          }
+        }
+      ]
+    },
+    {
+      "id": "vertex-dynamic-oblivious-delta-plus-one",
+      "problem": "vertex",
+      "model": "dynamic",
+      "label": "Fully dynamic (Δ+1), oblivious updates",
+      "task": "Maintain explicit proper colors after each edge update",
+      "assumptions": [
+        "Randomized",
+        "Update sequence oblivious to algorithmic choices",
+        "Edge insertion/deletion; graph maximum degree bounded by Δ"
+      ],
+      "xAxis": {
+        "label": "Palette slack c in q = Δ + c",
+        "kind": "palette",
+        "min": 0,
+        "max": 8,
+        "ticks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          6,
+          8
+        ]
+      },
+      "yAxis": {
+        "label": "Update-time exponent q in Õ(n^q) (lower is faster)",
+        "kind": "exponent",
+        "min": 0,
+        "max": 1.5,
+        "ticks": [
+          0,
+          0.25,
+          0.5,
+          0.75,
+          1,
+          1.25,
+          1.5
+        ],
+        "tickLabels": [
+          "polylog",
+          "n^{1/4}",
+          "√n",
+          "n^{3/4}",
+          "n",
+          "n^{5/4}",
+          "n^{3/2}"
+        ]
+      },
+      "parameters": {
+        "n": "number of vertices",
+        "Delta": "degree bound",
+        "coordinateConvention": "The x coordinate is the additive palette slack c=1. The table retains the exact quality and model assumptions. Ordinal round positions are asymptotic categories."
+      },
+      "results": [
+        {
+          "id": "vertex-dynamic-oblivious-constant-2022",
+          "paperId": "bhattacharya-grandoni-kulkarni-liu-solomon-2022-dynamic",
+          "kind": "upper",
+          "bound": "O(1) amortized update time",
+          "guarantee": "Proper (Δ+1)-coloring against oblivious updates",
+          "sourceLocation": "Journal abstract; independently confirmed in ICALP 2025 Flin–Halldórsson introduction",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "candidate",
+          "notes": "Incomparable to adaptive-adversary n^(2/3) algorithm; recoloring/reporting costs follow original data-structure conventions.",
+          "plot": {
+            "x": 1,
+            "y": 0,
+            "closure": "upper-right",
+            "strictX": false,
+            "strictY": false,
+            "label": "O resource 0"
+          }
+        },
+        {
+          "id": "vertex-result-19",
+          "paperId": "bhattacharya-chakrabarty-henzinger-nanongkai-2018-dynamic",
+          "kind": "upper",
+          "bound": "O(log Δ) expected amortized update time",
+          "guarantee": "Randomized proper (Δ+1)-coloring",
+          "sourceLocation": "Abstract, result (1)",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "historical",
+          "notes": "Historical precursor to constant amortized update bounds; adaptivity is not implied.",
+          "plot": null
+        },
+        {
+          "id": "vertex-extended-vertex-dynamic-oblivious-delta-plus-one-12",
+          "paperId": "henzinger-peng-2022-dynamic-color",
+          "kind": "upper",
+          "bound": "O(1) expected amortized update time",
+          "guarantee": "Las Vegas fully dynamic (Δ+1)-coloring",
+          "sourceLocation": "Abstract, result (1)",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "historical",
+          "notes": "Independent constant-time approach; distinguish expectation from high-probability amortization in Bhattacharya et al. 2022.",
+          "plot": {
+            "x": 1,
+            "y": 0,
+            "closure": "upper-right",
+            "strictX": false,
+            "strictY": false,
+            "label": "O resource 0"
+          }
+        },
+        {
+          "id": "vertex-extended-vertex-dynamic-oblivious-delta-plus-one-13",
+          "paperId": "ghaffari-koo-2026-dynamic-vertex",
+          "kind": "upper",
+          "bound": "O(1) expected time per update, worst case over update position",
+          "guarantee": "Randomized proper (Δ+1)-coloring",
+          "sourceLocation": "Abstract, sequential result",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "candidate",
+          "notes": "Worst-case refers to expectation conditional on each update position; not a worst-case deterministic or high-probability time bound; version revised August 2026.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "vertex-dynamic-deterministic-palette",
+      "problem": "vertex",
+      "model": "dynamic",
+      "label": "Deterministic dynamic degree-based palette",
+      "task": "Maintain explicit colors after edge insertion/deletion",
+      "assumptions": [
+        "Deterministic algorithm",
+        "Graph degree bounded by Δ",
+        "Palette larger than Δ+1"
+      ],
+      "xAxis": {
+        "label": "Palette ratio r = q/Δ",
+        "kind": "palette",
+        "min": 1,
+        "max": 2.25,
+        "ticks": [
+          1,
+          1.25,
+          1.5,
+          1.75,
+          2,
+          2.25
+        ],
+        "tickLabels": [
+          "Δ",
+          "5Δ/4",
+          "3Δ/2",
+          "7Δ/4",
+          "2Δ",
+          "9Δ/4"
+        ]
+      },
+      "yAxis": {
+        "label": "Update-time exponent q in Õ(n^q) (lower is faster)",
+        "kind": "exponent",
+        "min": 0,
+        "max": 1.5,
+        "ticks": [
+          0,
+          0.25,
+          0.5,
+          0.75,
+          1,
+          1.25,
+          1.5
+        ],
+        "tickLabels": [
+          "polylog",
+          "n^{1/4}",
+          "√n",
+          "n^{3/4}",
+          "n",
+          "n^{5/4}",
+          "n^{3/2}"
+        ]
+      },
+      "parameters": {
+        "Delta": "maximum degree"
+      },
+      "results": [
+        {
+          "id": "vertex-result-22",
+          "paperId": "bhattacharya-chakrabarty-henzinger-nanongkai-2018-dynamic",
+          "kind": "upper",
+          "bound": "O(polylog Δ) amortized update time",
+          "guarantee": "Proper (1+o(1))Δ-vertex coloring",
+          "sourceLocation": "Abstract, result (2)",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "historical",
+          "notes": "The o(1) is a function of Δ; compare with Δ+1 only after specifying the degree regime.",
+          "plot": null
+        }
+      ]
+    }
+  ],
+  "papers": [
+    {
+      "id": "flin-halldorsson-2025-dynamic-coloring",
+      "title": "Faster Dynamic (Δ+1)-Coloring Against Adaptive Adversaries",
+      "authors": [
+        "Maxime Flin",
+        "Magnús M. Halldórsson"
+      ],
+      "year": 2025,
+      "venue": "ICALP 2025",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2025.79",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "behnezhad-rajaraman-wasim-2025-dynamic-coloring",
+      "title": "Fully Dynamic (Δ+1) Coloring Against Adaptive Adversaries",
+      "authors": [
+        "Soheil Behnezhad",
+        "Rajmohan Rajaraman",
+        "Omer Wasim"
+      ],
+      "year": 2025,
+      "venue": "SODA 2025",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2411.04418",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "bhattacharya-grandoni-kulkarni-liu-solomon-2022-dynamic",
+      "title": "Fully Dynamic (Δ+1)-Coloring in O(1) Update Time",
+      "authors": [
+        "Sayan Bhattacharya",
+        "Fabrizio Grandoni",
+        "Janardhan Kulkarni",
+        "Quanquan C. Liu",
+        "Shay Solomon"
+      ],
+      "year": 2022,
+      "venue": "ACM Transactions on Algorithms 18(2)",
+      "publicationStatus": "journal",
+      "url": "https://doi.org/10.1145/3494539",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "bhattacharya-chakrabarty-henzinger-nanongkai-2018-dynamic",
+      "title": "Dynamic Algorithms for Graph Coloring",
+      "authors": [
+        "Sayan Bhattacharya",
+        "Deeparnab Chakrabarty",
+        "Monika Henzinger",
+        "Danupon Nanongkai"
+      ],
+      "year": 2018,
+      "venue": "SODA 2018",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1711.04355",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "henzinger-peng-2022-dynamic-color",
+      "title": "Constant-Time Dynamic (Δ+1)-Coloring and Weight Approximation for Minimum Spanning Forest: Dynamic Algorithms Meet Property Testing",
+      "authors": [
+        "Monika Henzinger",
+        "Pan Peng"
+      ],
+      "year": 2022,
+      "venue": "ACM Transactions on Algorithms 18(2)",
+      "publicationStatus": "journal",
+      "url": "https://arxiv.org/abs/1907.04745",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "ghaffari-koo-2026-dynamic-vertex",
+      "title": "Dynamic Graph Coloring: Sequential, Parallel, and Distributed",
+      "authors": [
+        "Mohsen Ghaffari",
+        "Jaehyun Koo"
+      ],
+      "year": 2026,
+      "venue": "arXiv (revised August 2026)",
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/abs/2512.09218",
+      "verifiedOn": "2026-09-27"
+    }
+  ]
+}

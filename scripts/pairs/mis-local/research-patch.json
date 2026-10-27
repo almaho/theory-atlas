@@ -1,0 +1,978 @@
+{
+  "upsertPapers": [
+    {
+      "id": "ghaffari-grunau-2024-local-mis",
+      "title": "Near-Optimal Deterministic Network Decomposition and Ruling Set, and Improved MIS",
+      "authors": [
+        "Mohsen Ghaffari",
+        "Christoph Grunau"
+      ],
+      "year": 2024,
+      "venue": "FOCS 2024",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2410.19516",
+      "verifiedOn": "2026-10-26",
+      "fullTextUrl": "https://arxiv.org/html/2410.19516v1"
+    },
+    {
+      "id": "ghaffari-2016-local-mis",
+      "title": "An Improved Distributed Algorithm for Maximal Independent Set",
+      "authors": [
+        "Mohsen Ghaffari"
+      ],
+      "year": 2016,
+      "venue": "SODA 2016",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1506.05093",
+      "verifiedOn": "2026-10-26",
+      "fullTextUrl": "https://arxiv.org/pdf/1506.05093"
+    },
+    {
+      "id": "luby-1985-mis",
+      "title": "A Simple Parallel Algorithm for the Maximal Independent Set Problem",
+      "authors": [
+        "Michael Luby"
+      ],
+      "year": 1985,
+      "venue": "STOC 1985 / SIAM J. Comput. 1986",
+      "publicationStatus": "conference",
+      "url": "https://dl.acm.org/doi/10.1145/22145.22146",
+      "verifiedOn": "2026-10-26",
+      "fullTextUrl": "https://www.cs.cmu.edu/~guyb/paralg/papers/Luby86.pdf",
+      "publicationUrl": "https://doi.org/10.1137/0215074"
+    },
+    {
+      "id": "kuhn-moscibroda-wattenhofer-2016-local-lower",
+      "title": "Local Computation: Lower and Upper Bounds",
+      "authors": [
+        "Fabian Kuhn",
+        "Thomas Moscibroda",
+        "Roger Wattenhofer"
+      ],
+      "year": 2016,
+      "venue": "Journal of the ACM 2016",
+      "publicationStatus": "journal",
+      "url": "https://arxiv.org/abs/1011.5470",
+      "verifiedOn": "2026-10-26",
+      "fullTextUrl": "https://arxiv.org/pdf/1011.5470"
+    },
+    {
+      "id": "balliu-et-al-2021-mis-lower",
+      "title": "Lower Bounds for Maximal Matchings and Maximal Independent Sets",
+      "authors": [
+        "Alkida Balliu",
+        "Sebastian Brandt",
+        "Juho Hirvonen",
+        "Dennis Olivetti",
+        "Mikaël Rabie",
+        "Jukka Suomela"
+      ],
+      "year": 2021,
+      "venue": "Journal of the ACM 2021 (FOCS 2019)",
+      "publicationStatus": "journal",
+      "url": "https://arxiv.org/abs/1901.02441",
+      "verifiedOn": "2026-10-26",
+      "fullTextUrl": "https://arxiv.org/pdf/1901.02441"
+    },
+    {
+      "id": "rozhon-ghaffari-2020-network",
+      "title": "Polylogarithmic-Time Deterministic Network Decomposition and Distributed Derandomization",
+      "authors": [
+        "Václav Rozhoň",
+        "Mohsen Ghaffari"
+      ],
+      "year": 2020,
+      "venue": "STOC 2020",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1907.10937",
+      "verifiedOn": "2026-10-26",
+      "fullTextUrl": "https://arxiv.org/pdf/1907.10937"
+    },
+    {
+      "id": "ghaffari-grunau-2023-mis",
+      "title": "Faster Deterministic Distributed MIS and Approximate Matching",
+      "authors": [
+        "Mohsen Ghaffari",
+        "Christoph Grunau"
+      ],
+      "year": 2023,
+      "venue": "STOC 2023",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2303.16043",
+      "verifiedOn": "2026-10-26",
+      "fullTextUrl": "https://arxiv.org/pdf/2303.16043"
+    },
+    {
+      "id": "dufoulon-moses-pandurangan-2023-awake",
+      "title": "Distributed MIS in O(log log n) Awake Complexity",
+      "authors": [
+        "Fabien Dufoulon",
+        "William K. Moses Jr.",
+        "Gopal Pandurangan"
+      ],
+      "year": 2023,
+      "venue": "PODC 2023 / Distributed Computing 2026",
+      "publicationStatus": "journal",
+      "url": "https://arxiv.org/abs/2204.08359",
+      "verifiedOn": "2026-10-26",
+      "fullTextUrl": "https://link.springer.com/article/10.1007/s00446-025-00498-4",
+      "publicationUrl": "https://doi.org/10.1007/s00446-025-00498-4"
+    },
+    {
+      "id": "ghaffari-portmann-2023-awake",
+      "title": "Distributed MIS with Low Energy and Time Complexities",
+      "authors": [
+        "Mohsen Ghaffari",
+        "Julian Portmann"
+      ],
+      "year": 2023,
+      "venue": "PODC 2023",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2305.11639",
+      "verifiedOn": "2026-10-26",
+      "fullTextUrl": "https://arxiv.org/html/2305.11639v2",
+      "publicationUrl": "https://doi.org/10.1145/3583668.3594587"
+    }
+  ],
+  "upsertSlices": [
+    {
+      "id": "mis-local-deterministic-general",
+      "problem": "mis",
+      "model": "local",
+      "label": "Deterministic LOCAL, general graphs",
+      "task": "All vertices output consistent membership in an explicit MIS",
+      "assumptions": [
+        "n-node general graph",
+        "Synchronous LOCAL model with unbounded message size",
+        "Deterministic"
+      ],
+      "parameters": {},
+      "results": [
+        {
+          "id": "mis-local-ghaffari-grunau-2024",
+          "paperId": "ghaffari-grunau-2024-local-mis",
+          "kind": "upper",
+          "bound": "Õ(log^{5/3} n)",
+          "guarantee": "Explicit maximal independent set; each vertex outputs its membership",
+          "sourceLocation": "Theorem 1.3 / Theorem 6.1",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Õ hides lower-order polyloglog factors.",
+          "plot": null
+        },
+        {
+          "id": "mis-local-rozhon-2020-det",
+          "paperId": "rozhon-ghaffari-2020-network",
+          "kind": "upper",
+          "bound": "O(log^7 n)",
+          "guarantee": "Explicit maximal independent set; each vertex outputs its membership",
+          "sourceLocation": "Corollary 3.1 and its proof, PDF p.15",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "Proof explicitly adds O(log^7 n) network decomposition and O(log^4 n) MIS phases.",
+          "plot": null
+        },
+        {
+          "id": "mis-local-ghaffari-grunau-2023-det",
+          "paperId": "ghaffari-grunau-2023-mis",
+          "kind": "upper",
+          "bound": "Õ(log^2 n)",
+          "guarantee": "Explicit maximal independent set; each vertex outputs its membership",
+          "sourceLocation": "Theorem 1.1, PDF p.5",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "Historical upper improved by GG24.",
+          "plot": null
+        },
+        {
+          "id": "mis-local-balliu-2021-det-lower",
+          "paperId": "balliu-et-al-2021-mis-lower",
+          "kind": "lower",
+          "bound": "Ω(min{Δ, log n / log log n})",
+          "guarantee": "Explicit maximal independent set; each vertex outputs its membership",
+          "sourceLocation": "Corollary 4.17, PDF p.26",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Worst-case maximum-degree bound; the cap is not asserted for every Δ.",
+          "plot": null
+        }
+      ],
+      "mode": "diagram",
+      "figureAxes": {
+        "title": "Elapsed rounds · explicit algorithm and communication contracts",
+        "x": {
+          "label": "Algorithm / success / communication contract",
+          "kind": "categorical",
+          "categories": [
+            {
+              "id": "det",
+              "label": "Deterministic LOCAL"
+            },
+            {
+              "id": "rand",
+              "label": "Randomized LOCAL · general"
+            },
+            {
+              "id": "degree",
+              "label": "Randomized LOCAL · degree-sensitive"
+            },
+            {
+              "id": "sleep",
+              "label": "Sleeping CONGEST · randomized"
+            }
+          ]
+        },
+        "y": {
+          "label": "Total elapsed synchronous rounds · symbolic growth families",
+          "kind": "categorical",
+          "categories": [
+            {
+              "id": "one",
+              "label": "1"
+            },
+            {
+              "id": "loglogratio",
+              "label": "log log n / log log log n"
+            },
+            {
+              "id": "sqrt",
+              "label": "√(log n / log log n)"
+            },
+            {
+              "id": "logoverlog",
+              "label": "log n / log log n"
+            },
+            {
+              "id": "log",
+              "label": "log n"
+            },
+            {
+              "id": "logllstar",
+              "label": "log n · log log n · log* n"
+            },
+            {
+              "id": "log53",
+              "label": "Õ(log^{5/3} n)"
+            },
+            {
+              "id": "log2",
+              "label": "log^2 n (up to polyloglog factors)"
+            },
+            {
+              "id": "log3llstar",
+              "label": "log^3 n · log log n · log* n"
+            },
+            {
+              "id": "log7",
+              "label": "log^7 n"
+            },
+            {
+              "id": "log7ll",
+              "label": "log^7 n · log log n"
+            }
+          ]
+        }
+      },
+      "xAxis": {
+        "label": "Algorithm / success / communication contract",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "det",
+            "label": "Deterministic LOCAL"
+          },
+          {
+            "id": "rand",
+            "label": "Randomized LOCAL · general"
+          },
+          {
+            "id": "degree",
+            "label": "Randomized LOCAL · degree-sensitive"
+          },
+          {
+            "id": "sleep",
+            "label": "Sleeping CONGEST · randomized"
+          }
+        ]
+      },
+      "yAxis": {
+        "label": "Total elapsed synchronous rounds · symbolic growth families",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "one",
+            "label": "1"
+          },
+          {
+            "id": "loglogratio",
+            "label": "log log n / log log log n"
+          },
+          {
+            "id": "sqrt",
+            "label": "√(log n / log log n)"
+          },
+          {
+            "id": "logoverlog",
+            "label": "log n / log log n"
+          },
+          {
+            "id": "log",
+            "label": "log n"
+          },
+          {
+            "id": "logllstar",
+            "label": "log n · log log n · log* n"
+          },
+          {
+            "id": "log53",
+            "label": "Õ(log^{5/3} n)"
+          },
+          {
+            "id": "log2",
+            "label": "log^2 n (up to polyloglog factors)"
+          },
+          {
+            "id": "log3llstar",
+            "label": "log^3 n · log log n · log* n"
+          },
+          {
+            "id": "log7",
+            "label": "log^7 n"
+          },
+          {
+            "id": "log7ll",
+            "label": "log^7 n · log log n"
+          }
+        ]
+      },
+      "axisSummary": {
+        "x": "Algorithm / success / communication contract",
+        "y": "Total elapsed synchronous rounds · symbolic growth families"
+      }
+    },
+    {
+      "id": "mis-local-randomized-degree",
+      "problem": "mis",
+      "model": "local",
+      "label": "Randomized LOCAL, degree-sensitive",
+      "task": "All vertices output consistent membership in an explicit MIS",
+      "assumptions": [
+        "n-node graph with maximum degree Δ",
+        "Synchronous LOCAL model with unbounded messages",
+        "Global success with high probability"
+      ],
+      "parameters": {
+        "Δ": "Maximum degree"
+      },
+      "results": [
+        {
+          "id": "mis-local-ghaffari-2016-global",
+          "paperId": "ghaffari-2016-local-mis",
+          "kind": "upper",
+          "bound": "O(log Δ) + 2^{O(√(log log n))}",
+          "guarantee": "Explicit maximal independent set; each vertex outputs its membership",
+          "sourceLocation": "Theorem 1.2, PDF p.4",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "RG20 Corollary 3.2 improves the n-dependent term. Preserved for historical inspection without inventing an exponent.",
+          "plot": null
+        },
+        {
+          "id": "mis-local-luby-1985-baseline",
+          "paperId": "luby-1985-mis",
+          "kind": "upper",
+          "bound": "O(log n)",
+          "guarantee": "Explicit maximal independent set; each vertex outputs its membership",
+          "sourceLocation": "§3.2–3.4, Theorem 1 and following high-probability discussion, journal pp.1039–1041",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Same algorithm as the general-graph point; preserve source alias without duplicating the plotted marker.",
+          "plot": null
+        },
+        {
+          "id": "mis-local-balliu-2021-degree-lower",
+          "paperId": "balliu-et-al-2021-mis-lower",
+          "kind": "lower",
+          "bound": "Ω(min{Δ, log log n / log log log n})",
+          "guarantee": "Explicit maximal independent set; each vertex outputs its membership",
+          "sourceLocation": "Corollary 4.16, PDF p.26",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "The bound expression varies with Δ; the interval is not a uniform lower bound of its cap.",
+          "plot": null
+        },
+        {
+          "id": "mis-local-rozhon-2020-randomized",
+          "paperId": "rozhon-ghaffari-2020-network",
+          "kind": "upper",
+          "bound": "O(log Δ + poly(log log n))",
+          "guarantee": "Explicit maximal independent set; each vertex outputs its membership",
+          "sourceLocation": "Corollary 3.2, PDF p.15",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "For 1≤Δ<n the expression is enclosed by the conservative constant-to-log n band. This does not claim the constant endpoint is attained. The unspecified polynomial exponent is not placed at a fixed coordinate.",
+          "plot": null
+        }
+      ],
+      "mode": "diagram",
+      "figureAxes": {
+        "title": "Elapsed rounds · explicit algorithm and communication contracts",
+        "x": {
+          "label": "Algorithm / success / communication contract",
+          "kind": "categorical",
+          "categories": [
+            {
+              "id": "det",
+              "label": "Deterministic LOCAL"
+            },
+            {
+              "id": "rand",
+              "label": "Randomized LOCAL · general"
+            },
+            {
+              "id": "degree",
+              "label": "Randomized LOCAL · degree-sensitive"
+            },
+            {
+              "id": "sleep",
+              "label": "Sleeping CONGEST · randomized"
+            }
+          ]
+        },
+        "y": {
+          "label": "Total elapsed synchronous rounds · symbolic growth families",
+          "kind": "categorical",
+          "categories": [
+            {
+              "id": "one",
+              "label": "1"
+            },
+            {
+              "id": "loglogratio",
+              "label": "log log n / log log log n"
+            },
+            {
+              "id": "sqrt",
+              "label": "√(log n / log log n)"
+            },
+            {
+              "id": "logoverlog",
+              "label": "log n / log log n"
+            },
+            {
+              "id": "log",
+              "label": "log n"
+            },
+            {
+              "id": "logllstar",
+              "label": "log n · log log n · log* n"
+            },
+            {
+              "id": "log53",
+              "label": "Õ(log^{5/3} n)"
+            },
+            {
+              "id": "log2",
+              "label": "log^2 n (up to polyloglog factors)"
+            },
+            {
+              "id": "log3llstar",
+              "label": "log^3 n · log log n · log* n"
+            },
+            {
+              "id": "log7",
+              "label": "log^7 n"
+            },
+            {
+              "id": "log7ll",
+              "label": "log^7 n · log log n"
+            }
+          ]
+        }
+      },
+      "xAxis": {
+        "label": "Algorithm / success / communication contract",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "det",
+            "label": "Deterministic LOCAL"
+          },
+          {
+            "id": "rand",
+            "label": "Randomized LOCAL · general"
+          },
+          {
+            "id": "degree",
+            "label": "Randomized LOCAL · degree-sensitive"
+          },
+          {
+            "id": "sleep",
+            "label": "Sleeping CONGEST · randomized"
+          }
+        ]
+      },
+      "yAxis": {
+        "label": "Total elapsed synchronous rounds · symbolic growth families",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "one",
+            "label": "1"
+          },
+          {
+            "id": "loglogratio",
+            "label": "log log n / log log log n"
+          },
+          {
+            "id": "sqrt",
+            "label": "√(log n / log log n)"
+          },
+          {
+            "id": "logoverlog",
+            "label": "log n / log log n"
+          },
+          {
+            "id": "log",
+            "label": "log n"
+          },
+          {
+            "id": "logllstar",
+            "label": "log n · log log n · log* n"
+          },
+          {
+            "id": "log53",
+            "label": "Õ(log^{5/3} n)"
+          },
+          {
+            "id": "log2",
+            "label": "log^2 n (up to polyloglog factors)"
+          },
+          {
+            "id": "log3llstar",
+            "label": "log^3 n · log log n · log* n"
+          },
+          {
+            "id": "log7",
+            "label": "log^7 n"
+          },
+          {
+            "id": "log7ll",
+            "label": "log^7 n · log log n"
+          }
+        ]
+      },
+      "axisSummary": {
+        "x": "Algorithm / success / communication contract",
+        "y": "Total elapsed synchronous rounds · symbolic growth families"
+      }
+    },
+    {
+      "id": "mis-local-randomized-general-lower",
+      "problem": "mis",
+      "model": "local",
+      "label": "Randomized LOCAL, general graphs",
+      "task": "All vertices output a consistent explicit MIS",
+      "assumptions": [
+        "Synchronous LOCAL, n-node general graphs",
+        "High-probability global success",
+        "Unbounded messages"
+      ],
+      "parameters": {},
+      "results": [
+        {
+          "id": "mis-local-luby-general",
+          "paperId": "luby-1985-mis",
+          "kind": "upper",
+          "bound": "O(log n)",
+          "guarantee": "Explicit maximal independent set; each vertex outputs its membership",
+          "sourceLocation": "§3.2–3.4, Theorem 1 and following high-probability discussion",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "LOCAL implementation uses O(1) rounds per iteration. Ghaffari 2016 introduction states this consequence explicitly.",
+          "plot": null
+        },
+        {
+          "id": "mis-local-kmw-general-lower",
+          "paperId": "kuhn-moscibroda-wattenhofer-2016-local-lower",
+          "kind": "lower",
+          "bound": "Ω(√(log n / log log n))",
+          "guarantee": "Explicit maximal independent set; each vertex outputs its membership",
+          "sourceLocation": "Theorem 23, PDF p.28 (printed p.27)",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Worst-case hard graph family. Expected-time lower and high-probability upper are explicitly distinguished.",
+          "plot": null
+        }
+      ],
+      "mode": "diagram",
+      "figureAxes": {
+        "title": "Elapsed rounds · explicit algorithm and communication contracts",
+        "x": {
+          "label": "Algorithm / success / communication contract",
+          "kind": "categorical",
+          "categories": [
+            {
+              "id": "det",
+              "label": "Deterministic LOCAL"
+            },
+            {
+              "id": "rand",
+              "label": "Randomized LOCAL · general"
+            },
+            {
+              "id": "degree",
+              "label": "Randomized LOCAL · degree-sensitive"
+            },
+            {
+              "id": "sleep",
+              "label": "Sleeping CONGEST · randomized"
+            }
+          ]
+        },
+        "y": {
+          "label": "Total elapsed synchronous rounds · symbolic growth families",
+          "kind": "categorical",
+          "categories": [
+            {
+              "id": "one",
+              "label": "1"
+            },
+            {
+              "id": "loglogratio",
+              "label": "log log n / log log log n"
+            },
+            {
+              "id": "sqrt",
+              "label": "√(log n / log log n)"
+            },
+            {
+              "id": "logoverlog",
+              "label": "log n / log log n"
+            },
+            {
+              "id": "log",
+              "label": "log n"
+            },
+            {
+              "id": "logllstar",
+              "label": "log n · log log n · log* n"
+            },
+            {
+              "id": "log53",
+              "label": "Õ(log^{5/3} n)"
+            },
+            {
+              "id": "log2",
+              "label": "log^2 n (up to polyloglog factors)"
+            },
+            {
+              "id": "log3llstar",
+              "label": "log^3 n · log log n · log* n"
+            },
+            {
+              "id": "log7",
+              "label": "log^7 n"
+            },
+            {
+              "id": "log7ll",
+              "label": "log^7 n · log log n"
+            }
+          ]
+        }
+      },
+      "xAxis": {
+        "label": "Algorithm / success / communication contract",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "det",
+            "label": "Deterministic LOCAL"
+          },
+          {
+            "id": "rand",
+            "label": "Randomized LOCAL · general"
+          },
+          {
+            "id": "degree",
+            "label": "Randomized LOCAL · degree-sensitive"
+          },
+          {
+            "id": "sleep",
+            "label": "Sleeping CONGEST · randomized"
+          }
+        ]
+      },
+      "yAxis": {
+        "label": "Total elapsed synchronous rounds · symbolic growth families",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "one",
+            "label": "1"
+          },
+          {
+            "id": "loglogratio",
+            "label": "log log n / log log log n"
+          },
+          {
+            "id": "sqrt",
+            "label": "√(log n / log log n)"
+          },
+          {
+            "id": "logoverlog",
+            "label": "log n / log log n"
+          },
+          {
+            "id": "log",
+            "label": "log n"
+          },
+          {
+            "id": "logllstar",
+            "label": "log n · log log n · log* n"
+          },
+          {
+            "id": "log53",
+            "label": "Õ(log^{5/3} n)"
+          },
+          {
+            "id": "log2",
+            "label": "log^2 n (up to polyloglog factors)"
+          },
+          {
+            "id": "log3llstar",
+            "label": "log^3 n · log log n · log* n"
+          },
+          {
+            "id": "log7",
+            "label": "log^7 n"
+          },
+          {
+            "id": "log7ll",
+            "label": "log^7 n · log log n"
+          }
+        ]
+      },
+      "axisSummary": {
+        "x": "Algorithm / success / communication contract",
+        "y": "Total elapsed synchronous rounds · symbolic growth families"
+      }
+    },
+    {
+      "id": "mis-local-awake-energy",
+      "problem": "mis",
+      "model": "local",
+      "label": "Sleeping CONGEST, elapsed rounds",
+      "task": "All vertices output consistent membership in an explicit MIS; measure total elapsed rounds of sleeping algorithms",
+      "assumptions": [
+        "General n-node graph",
+        "Sleeping CONGEST with O(log n)-bit messages",
+        "Randomized global high-probability success",
+        "Plotted cost is total elapsed rounds; awake quantities are secondary theorem details"
+      ],
+      "parameters": {},
+      "results": [
+        {
+          "id": "mis-local-dufoulon-awake",
+          "paperId": "dufoulon-moses-pandurangan-2023-awake",
+          "kind": "upper",
+          "bound": "O(log^7 n · log log n)",
+          "guarantee": "Explicit maximal independent set; each vertex outputs its membership",
+          "sourceLocation": "Journal Theorem 1 (arXiv v3 Lemma 13)",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Use revised/journal theorem. Earlier polynomial-time or large-message restrictions do not describe this version. Awake guarantee O(log log n) is retained for theorem inspection only; the plotted cost is total elapsed rounds.",
+          "plot": null
+        },
+        {
+          "id": "mis-local-ghaffari-portmann-awake",
+          "paperId": "ghaffari-portmann-2023-awake",
+          "kind": "upper",
+          "bound": "O(log^2 n)",
+          "guarantee": "Explicit maximal independent set; each vertex outputs its membership",
+          "sourceLocation": "Theorem 1.1",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Published at PODC 2023. Energy is maximum per-node awake rounds, not node average. Awake guarantee O(log log n) is retained for theorem inspection only; the plotted cost is total elapsed rounds.",
+          "plot": null
+        },
+        {
+          "id": "mis-local-dufoulon-awake-fast",
+          "paperId": "dufoulon-moses-pandurangan-2023-awake",
+          "kind": "upper",
+          "bound": "O(log^3 n · log log n · log* n)",
+          "guarantee": "Explicit maximal independent set; each vertex outputs its membership",
+          "sourceLocation": "Journal Corollary 2 (arXiv v3 Corollary 14)",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Second tradeoff from the same source, also using O(log n)-bit messages. Awake guarantee O(log log n · log* n) is retained for theorem inspection only; the plotted cost is total elapsed rounds.",
+          "plot": null
+        },
+        {
+          "id": "mis-local-ghaffari-portmann-awake-fast",
+          "paperId": "ghaffari-portmann-2023-awake",
+          "kind": "upper",
+          "bound": "O(log n · log log n · log* n)",
+          "guarantee": "Explicit maximal independent set; each vertex outputs its membership",
+          "sourceLocation": "Theorem 1.2",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Second tradeoff from the same paper. No awake lower bound is asserted here. Awake guarantee O((log log n)^2) is retained for theorem inspection only; the plotted cost is total elapsed rounds.",
+          "plot": null
+        }
+      ],
+      "mode": "diagram",
+      "figureAxes": {
+        "title": "Elapsed rounds · explicit algorithm and communication contracts",
+        "x": {
+          "label": "Algorithm / success / communication contract",
+          "kind": "categorical",
+          "categories": [
+            {
+              "id": "det",
+              "label": "Deterministic LOCAL"
+            },
+            {
+              "id": "rand",
+              "label": "Randomized LOCAL · general"
+            },
+            {
+              "id": "degree",
+              "label": "Randomized LOCAL · degree-sensitive"
+            },
+            {
+              "id": "sleep",
+              "label": "Sleeping CONGEST · randomized"
+            }
+          ]
+        },
+        "y": {
+          "label": "Total elapsed synchronous rounds · symbolic growth families",
+          "kind": "categorical",
+          "categories": [
+            {
+              "id": "one",
+              "label": "1"
+            },
+            {
+              "id": "loglogratio",
+              "label": "log log n / log log log n"
+            },
+            {
+              "id": "sqrt",
+              "label": "√(log n / log log n)"
+            },
+            {
+              "id": "logoverlog",
+              "label": "log n / log log n"
+            },
+            {
+              "id": "log",
+              "label": "log n"
+            },
+            {
+              "id": "logllstar",
+              "label": "log n · log log n · log* n"
+            },
+            {
+              "id": "log53",
+              "label": "Õ(log^{5/3} n)"
+            },
+            {
+              "id": "log2",
+              "label": "log^2 n (up to polyloglog factors)"
+            },
+            {
+              "id": "log3llstar",
+              "label": "log^3 n · log log n · log* n"
+            },
+            {
+              "id": "log7",
+              "label": "log^7 n"
+            },
+            {
+              "id": "log7ll",
+              "label": "log^7 n · log log n"
+            }
+          ]
+        }
+      },
+      "xAxis": {
+        "label": "Algorithm / success / communication contract",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "det",
+            "label": "Deterministic LOCAL"
+          },
+          {
+            "id": "rand",
+            "label": "Randomized LOCAL · general"
+          },
+          {
+            "id": "degree",
+            "label": "Randomized LOCAL · degree-sensitive"
+          },
+          {
+            "id": "sleep",
+            "label": "Sleeping CONGEST · randomized"
+          }
+        ]
+      },
+      "yAxis": {
+        "label": "Total elapsed synchronous rounds · symbolic growth families",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "one",
+            "label": "1"
+          },
+          {
+            "id": "loglogratio",
+            "label": "log log n / log log log n"
+          },
+          {
+            "id": "sqrt",
+            "label": "√(log n / log log n)"
+          },
+          {
+            "id": "logoverlog",
+            "label": "log n / log log n"
+          },
+          {
+            "id": "log",
+            "label": "log n"
+          },
+          {
+            "id": "logllstar",
+            "label": "log n · log log n · log* n"
+          },
+          {
+            "id": "log53",
+            "label": "Õ(log^{5/3} n)"
+          },
+          {
+            "id": "log2",
+            "label": "log^2 n (up to polyloglog factors)"
+          },
+          {
+            "id": "log3llstar",
+            "label": "log^3 n · log log n · log* n"
+          },
+          {
+            "id": "log7",
+            "label": "log^7 n"
+          },
+          {
+            "id": "log7ll",
+            "label": "log^7 n · log log n"
+          }
+        ]
+      },
+      "axisSummary": {
+        "x": "Algorithm / success / communication contract",
+        "y": "Total elapsed synchronous rounds · symbolic growth families"
+      }
+    }
+  ]
+}

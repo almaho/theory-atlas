@@ -1,0 +1,1160 @@
+{
+  "id": "matching-stream",
+  "title": "Matching beyond two passes",
+  "reviewedOn": "2026-10-20",
+  "sources": {
+    "abkns25": {
+      "id": "assadi-behnezhad-konrad-naidu-sundaresan-2025-passes",
+      "title": "Settling the Pass Complexity of Approximate Matchings in Dynamic Graph Streams",
+      "authors": [
+        "Sepehr Assadi",
+        "Soheil Behnezhad",
+        "Christian Konrad",
+        "Kheeran K. Naidu",
+        "Janani Sundaresan"
+      ],
+      "year": 2025,
+      "venue": "SODA 2025",
+      "publicationStatus": "published",
+      "url": "https://arxiv.org/abs/2407.21005",
+      "verifiedOn": "2026-10-20",
+      "label": "ABKNS ’25",
+      "fullTextUrl": "https://arxiv.org/html/2407.21005"
+    },
+    "kkd25": {
+      "id": "khanna-konrad-dark-2025-deletions",
+      "title": "Streaming Maximal Matching with Bounded Deletions",
+      "authors": [
+        "Sanjeev Khanna",
+        "Christian Konrad",
+        "Jacques Dark"
+      ],
+      "year": 2025,
+      "venue": "ICALP 2025",
+      "publicationStatus": "published",
+      "url": "https://arxiv.org/abs/2502.15330",
+      "verifiedOn": "2026-10-20",
+      "publicationUrl": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2025.106",
+      "label": "KKD ’25",
+      "fullTextUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol334-icalp2025/html/LIPIcs.ICALP.2025.106/LIPIcs.ICALP.2025.106.html"
+    },
+    "dk20": {
+      "id": "dark-konrad-2020-dynamic-lower",
+      "title": "Optimal Lower Bounds for Matching and Vertex Cover in Dynamic Graph Streams",
+      "authors": [
+        "Jacques Dark",
+        "Christian Konrad"
+      ],
+      "year": 2020,
+      "venue": "CCC 2020",
+      "publicationStatus": "published",
+      "url": "https://arxiv.org/abs/2005.11116",
+      "verifiedOn": "2026-10-20",
+      "label": "Dark–Konrad ’20",
+      "fullTextUrl": "https://arxiv.org/html/2005.11116"
+    },
+    "ajjst22": {
+      "id": "assadi-jambulapati-jin-sidford-tian-2022-bipartite",
+      "title": "Semi-Streaming Bipartite Matching in Fewer Passes and Optimal Space",
+      "authors": [
+        "Sepehr Assadi",
+        "Arun Jambulapati",
+        "Yujia Jin",
+        "Aaron Sidford",
+        "Kevin Tian"
+      ],
+      "year": 2022,
+      "venue": "SODA 2022",
+      "publicationStatus": "published",
+      "url": "https://arxiv.org/abs/2011.03495",
+      "verifiedOn": "2026-10-20",
+      "label": "AJJST ’22",
+      "fullTextUrl": "https://arxiv.org/html/2011.03495"
+    },
+    "mmss25": {
+      "id": "mitrovic-mukherjee-sankowski-sheu-2025-alternating",
+      "title": "Faster Semi-streaming Matchings via Alternating Trees",
+      "authors": [
+        "Slobodan Mitrović",
+        "Anish Mukherjee",
+        "Piotr Sankowski",
+        "Wen-Horng Sheu"
+      ],
+      "year": 2025,
+      "venue": "ICALP 2025",
+      "publicationStatus": "published",
+      "url": "https://arxiv.org/abs/2412.19057",
+      "verifiedOn": "2026-10-20",
+      "label": "MMSS ’25",
+      "fullTextUrl": "https://arxiv.org/html/2412.19057"
+    },
+    "fmu22": {
+      "id": "fischer-mitrovic-uitto-2022-multipass",
+      "title": "Deterministic (1+ε)-Approximate Maximum Matching with poly(1/ε) Passes in the Semi-Streaming Model and Beyond",
+      "authors": [
+        "Manuela Fischer",
+        "Slobodan Mitrović",
+        "Jara Uitto"
+      ],
+      "year": 2022,
+      "venue": "STOC 2022",
+      "publicationStatus": "published",
+      "url": "https://arxiv.org/abs/2106.04179",
+      "verifiedOn": "2026-10-20",
+      "label": "FMU ’22",
+      "fullTextUrl": "https://arxiv.org/html/2106.04179"
+    },
+    "assadi25": {
+      "id": "assadi-2025-simple-weighted",
+      "title": "A Simple (1−ε)-Approximation Semi-Streaming Algorithm for Maximum (Weighted) Matching",
+      "authors": [
+        "Sepehr Assadi"
+      ],
+      "year": 2025,
+      "venue": "TheoretiCS 2025",
+      "publicationStatus": "published",
+      "url": "https://arxiv.org/abs/2307.02968",
+      "verifiedOn": "2026-10-20",
+      "label": "Assadi ’25",
+      "fullTextUrl": "https://arxiv.org/html/2307.02968"
+    },
+    "mcgregor26": {
+      "id": "mcgregor-2026-arboricity",
+      "title": "Maximum Matching Size for Bounded Arboricity Graphs in the Dynamic Graph Stream Model using Õ(n^{2/3}) Space",
+      "authors": [
+        "Andrew McGregor"
+      ],
+      "year": 2026,
+      "venue": "arXiv",
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/abs/2609.19136",
+      "verifiedOn": "2026-10-20",
+      "label": "McGregor ’26",
+      "fullTextUrl": "https://arxiv.org/html/2609.19136"
+    },
+    "as22": {
+      "id": "assadi-shah-2022-optimal-stream",
+      "title": "An Asymptotically Optimal Algorithm for Maximum Matching in Dynamic Streams",
+      "authors": [
+        "Sepehr Assadi",
+        "Vihan Shah"
+      ],
+      "year": 2022,
+      "venue": "ITCS 2022",
+      "publicationStatus": "published",
+      "url": "https://arxiv.org/abs/2201.12710",
+      "publicationUrl": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ITCS.2022.9",
+      "verifiedOn": "2026-10-20",
+      "label": "Assadi–Shah ’22",
+      "fullTextUrl": "https://arxiv.org/html/2201.12710"
+    },
+    "akl17": {
+      "id": "assadi-khanna-li-2017-estimation-stream",
+      "title": "On Estimating Maximum Matching Size in Graph Streams",
+      "authors": [
+        "Sepehr Assadi",
+        "Sanjeev Khanna",
+        "Yang Li"
+      ],
+      "year": 2017,
+      "venue": "SODA 2017",
+      "publicationStatus": "published",
+      "url": "https://arxiv.org/abs/1701.04364",
+      "verifiedOn": "2026-10-20",
+      "label": "AKL ’17",
+      "fullTextUrl": "https://arxiv.org/html/1701.04364"
+    }
+  },
+  "verifiedRecords": [
+    {
+      "id": "matching-stream-fmu22",
+      "sourceId": "fmu22",
+      "sliceId": "matching-stream-multipass-general",
+      "kind": "algorithm",
+      "panel": "insertion-general",
+      "xCategory": "det",
+      "bound": "O(ε⁻¹⁹) passes",
+      "displayBound": "O(ε⁻¹⁹) passes",
+      "quality": "|M| ≥ OPT/(1+ε)",
+      "space": "n · poly(1/ε) words",
+      "passes": "O(ε⁻¹⁹)",
+      "theorem": "Theorem 1.1; Lemma 5.6",
+      "probability": "deterministic",
+      "notes": "Historical polynomial-pass milestone; ε∈(0,1/2). The exponent 19 is stated in the proof of Lemma 5.6.",
+      "graph": "general simple graphs",
+      "output": "matching edges",
+      "stream": "arbitrary-order insertion-only",
+      "assumptions": [
+        "Arbitrary-order insertions",
+        "General graph",
+        "Semi-streaming O(n·polylog n) memory",
+        "ε is a parameter; count passes"
+      ],
+      "label": "FMU ’22",
+      "shortLabel": "FMU ’22",
+      "year": 2022,
+      "publicationStatus": "published",
+      "evidenceStatus": "full_text_verified",
+      "sourceUrl": "https://arxiv.org/html/2106.04179",
+      "plotLane": "O(ε⁻¹⁹) passes"
+    },
+    {
+      "id": "matching-stream-alternating25",
+      "sourceId": "mmss25",
+      "sliceId": "matching-stream-multipass-general",
+      "kind": "algorithm",
+      "panel": "insertion-general",
+      "xCategory": "det",
+      "bound": "O(ε⁻⁶) passes",
+      "displayBound": "O(ε⁻⁶) passes",
+      "quality": "|M| ≥ OPT/(1+ε)",
+      "space": "O(n/ε⁶) words",
+      "passes": "O(ε⁻⁶)",
+      "theorem": "Theorem 1.1",
+      "probability": "deterministic",
+      "notes": "Keep the ε⁻⁶ space factor: semi-streaming for constant ε (or inverse-polylogarithmic ε).",
+      "graph": "general simple graphs",
+      "output": "matching edges",
+      "stream": "arbitrary-order insertion-only",
+      "assumptions": [
+        "Arbitrary-order insertions",
+        "General graph",
+        "Semi-streaming O(n·polylog n) memory",
+        "ε is a parameter; count passes"
+      ],
+      "label": "MMSS ’25",
+      "shortLabel": "MMSS ’25",
+      "year": 2025,
+      "publicationStatus": "published",
+      "evidenceStatus": "full_text_verified",
+      "sourceUrl": "https://arxiv.org/html/2412.19057",
+      "plotLane": "O(ε⁻⁶) passes"
+    },
+    {
+      "id": "matching-stream-assadi25-weighted-specialization",
+      "sourceId": "assadi25",
+      "sliceId": "matching-stream-multipass-general",
+      "kind": "algorithm",
+      "panel": "insertion-general",
+      "xCategory": "rand",
+      "bound": "O(log n/ε) passes",
+      "displayBound": "O(log n/ε) passes",
+      "quality": "weight(M) ≥ (1−ε)OPTweight",
+      "space": "O(n log² n/ε) bits",
+      "passes": "O(log n/ε)",
+      "theorem": "Introduction, maximum-weight main result; Section 4",
+      "probability": "≥1−exp(−Θ(n))",
+      "notes": "Positive integer weights; unit weights give cardinality. Different ε conventions are retained; no numerical quality coordinate is assigned.",
+      "graph": "general graphs with positive integer edge weights",
+      "output": "matching edges",
+      "stream": "arbitrary-order insertion-only",
+      "assumptions": [
+        "Arbitrary-order insertions",
+        "General graph",
+        "Semi-streaming O(n·polylog n) memory",
+        "ε is a parameter; count passes"
+      ],
+      "label": "Assadi ’25",
+      "shortLabel": "Assadi ’25",
+      "year": 2025,
+      "publicationStatus": "published",
+      "evidenceStatus": "full_text_verified",
+      "sourceUrl": "https://arxiv.org/html/2307.02968",
+      "plotLane": "O(log n/ε) passes"
+    },
+    {
+      "id": "matching-stream-ajjst22",
+      "sourceId": "ajjst22",
+      "sliceId": "matching-stream-multipass-bipartite",
+      "kind": "algorithm",
+      "panel": "insertion-bipartite",
+      "xCategory": "det",
+      "bound": "O(log n · log(1/ε)/ε) passes",
+      "displayBound": "O(log n · log(1/ε)/ε) passes",
+      "quality": "|M| ≥ (1−ε)OPT",
+      "space": "O(n) space (words)",
+      "passes": "O(log n · log(1/ε)/ε)",
+      "theorem": "Theorem 1 (Approximate MCM)",
+      "probability": "deterministic",
+      "notes": "Corrected omitted log n factor. The O(n) space has no ε dependence.",
+      "graph": "bipartite graphs",
+      "output": "matching edges",
+      "stream": "arbitrary-order insertion-only",
+      "assumptions": [
+        "Arbitrary edge order, multiple passes",
+        "Bipartite input",
+        "Semi-streaming memory"
+      ],
+      "label": "AJJST ’22",
+      "shortLabel": "AJJST ’22",
+      "year": 2022,
+      "publicationStatus": "published",
+      "evidenceStatus": "full_text_verified",
+      "sourceUrl": "https://arxiv.org/html/2011.03495",
+      "plotLane": "O(log n · log(1/ε)/ε) passes"
+    },
+    {
+      "id": "matching-stream-assadi25-bipartite",
+      "sourceId": "assadi25",
+      "sliceId": "matching-stream-multipass-bipartite",
+      "kind": "algorithm",
+      "panel": "insertion-bipartite",
+      "xCategory": "rand",
+      "bound": "O(log n/ε) passes",
+      "displayBound": "O(log n/ε) passes",
+      "quality": "|M| ≥ (1−ε)OPT",
+      "space": "O(n log n/ε) bits",
+      "passes": "O(log n/ε)",
+      "theorem": "Introduction, bipartite main result; Section 3",
+      "probability": "≥1−exp(−Θ(n))",
+      "notes": "The randomized main theorem has explicit ε dependence in space.",
+      "graph": "bipartite graphs",
+      "output": "matching edges",
+      "stream": "arbitrary-order insertion-only",
+      "assumptions": [
+        "Arbitrary edge order, multiple passes",
+        "Bipartite input",
+        "Semi-streaming memory"
+      ],
+      "label": "Assadi ’25",
+      "shortLabel": "Assadi ’25",
+      "year": 2025,
+      "publicationStatus": "published",
+      "evidenceStatus": "full_text_verified",
+      "sourceUrl": "https://arxiv.org/html/2307.02968",
+      "plotLane": "O(log n/ε) passes"
+    },
+    {
+      "id": "matching-stream-dynamic-passes-upper",
+      "sourceId": "abkns25",
+      "sliceId": "matching-stream-dynamic-passes",
+      "kind": "algorithm",
+      "panel": "dynamic-passes",
+      "xCategory": "constant",
+      "bound": "O(log log n) passes",
+      "displayBound": "O(log log n) passes",
+      "quality": "|M| ≥ OPT/C for an absolute constant C",
+      "space": "O(n · polylog n) bits",
+      "passes": "O(log log n)",
+      "theorem": "Theorem 1, first statement",
+      "probability": "with high probability",
+      "notes": "Arbitrary dynamic streams. This is a matching-edge output, not only a size estimate.",
+      "graph": "general simple graphs",
+      "output": "matching edges",
+      "stream": "arbitrary-order insertions and deletions",
+      "assumptions": [
+        "General graph; simple graph after updates",
+        "Randomized and deterministic lower bound",
+        "Õ(n) bits memory",
+        "Multiple passes over the same dynamic stream"
+      ],
+      "label": "ABKNS ’25",
+      "shortLabel": "ABKNS ’25",
+      "year": 2025,
+      "publicationStatus": "published",
+      "evidenceStatus": "full_text_verified",
+      "sourceUrl": "https://arxiv.org/html/2407.21005",
+      "plotLane": "O(log log n) passes"
+    },
+    {
+      "id": "matching-stream-dynamic-passes-lower",
+      "sourceId": "abkns25",
+      "sliceId": "matching-stream-dynamic-passes",
+      "kind": "lower",
+      "panel": "dynamic-passes",
+      "xCategory": "constant",
+      "bound": "Ω(log log n) passes",
+      "displayBound": "Ω(log log n) passes",
+      "quality": "any fixed constant-factor approximation",
+      "space": "O(n · polylog n) bits allowed",
+      "passes": "Ω(log log n)",
+      "theorem": "Theorem 3",
+      "probability": "any constant probability of success",
+      "notes": "Applies to unrestricted semi-streaming algorithms, beyond linear sketches; also constrains deterministic algorithms.",
+      "graph": "general simple graphs",
+      "output": "matching edges",
+      "stream": "arbitrary-order insertions and deletions",
+      "assumptions": [
+        "General graph; simple graph after updates",
+        "Randomized and deterministic lower bound",
+        "Õ(n) bits memory",
+        "Multiple passes over the same dynamic stream"
+      ],
+      "label": "ABKNS ’25",
+      "shortLabel": "ABKNS ’25",
+      "year": 2025,
+      "publicationStatus": "published",
+      "evidenceStatus": "full_text_verified",
+      "sourceUrl": "https://arxiv.org/html/2407.21005",
+      "plotLane": "Ω(log log n) passes"
+    },
+    {
+      "id": "matching-stream-dynamic-passes-boosted",
+      "sourceId": "abkns25",
+      "sliceId": "matching-stream-dynamic-passes",
+      "kind": "algorithm",
+      "panel": "dynamic-passes",
+      "xCategory": "near",
+      "bound": "O(f(ε) · log log n) passes",
+      "displayBound": "O(f(ε) · log log n) passes",
+      "quality": "weight(M) ≥ OPTweight/(1+ε)",
+      "space": "O(f(ε) · n · polylog n) bits",
+      "passes": "O(f(ε) · log log n)",
+      "theorem": "Theorem 1, moreover statement",
+      "probability": "with high probability",
+      "notes": "f depends only on ε and on bipartite/weighted scope. Fixed ε gives O(log log n); no unproved polynomial ε dependence is assigned.",
+      "graph": "general weighted graphs",
+      "output": "matching edges",
+      "stream": "arbitrary-order insertions and deletions",
+      "assumptions": [
+        "General graph; simple graph after updates",
+        "Randomized and deterministic lower bound",
+        "Õ(n) bits memory",
+        "Multiple passes over the same dynamic stream"
+      ],
+      "label": "ABKNS ’25",
+      "shortLabel": "ABKNS ’25",
+      "year": 2025,
+      "publicationStatus": "published",
+      "evidenceStatus": "full_text_verified",
+      "sourceUrl": "https://arxiv.org/html/2407.21005",
+      "plotLane": "O(f(ε) · log log n) passes"
+    },
+    {
+      "id": "matching-stream-dark-konrad20",
+      "sourceId": "dk20",
+      "sliceId": "matching-stream-dynamic-onepass-lower",
+      "kind": "lower",
+      "panel": "dynamic-onepass",
+      "xCategory": "power",
+      "bound": "Ω(n^{2−3ε}) bits",
+      "displayBound": "Ω(n^{2−3ε}) bits",
+      "quality": "|M| ≥ OPT/n^ε; fixed 0<ε<1/3",
+      "space": "Ω(n^{2−3ε}) bits",
+      "passes": "1",
+      "theorem": "Corollary 1; Section 3",
+      "probability": "required error ≤1/10",
+      "notes": "Simple graphs and O(n²)-length streams suffice; does not restrict failure outputs to existing edges. ε is the approximation exponent, not near-optimal accuracy.",
+      "graph": "general simple graphs",
+      "output": "matching edges",
+      "stream": "arbitrary-order insertions and deletions",
+      "assumptions": [
+        "General simple graph",
+        "One pass, no bound on deletions",
+        "Randomized algorithms, error at most 1/10",
+        "Fixed 0<ε<1/3"
+      ],
+      "label": "Dark–Konrad ’20",
+      "shortLabel": "Dark–Konrad ’20",
+      "year": 2020,
+      "publicationStatus": "published",
+      "evidenceStatus": "full_text_verified",
+      "sourceUrl": "https://arxiv.org/html/2005.11116",
+      "plotLane": "Ω(n^{2−3ε}) bits"
+    },
+    {
+      "id": "matching-stream-assadi-shah22",
+      "sourceId": "as22",
+      "sliceId": "matching-stream-dynamic-onepass-lower",
+      "kind": "algorithm",
+      "panel": "dynamic-onepass",
+      "xCategory": "power",
+      "bound": "O(n^{2−3ε}) bits",
+      "displayBound": "O(n^{2−3ε}) bits",
+      "quality": "|M| ≥ OPT/n^ε; fixed 0<ε<1/3",
+      "space": "O(n^{2−3ε}) bits",
+      "passes": "1",
+      "theorem": "Theorem 1 (full version); Theorem 14 (ITCS version)",
+      "probability": "with high probability",
+      "notes": "Substitute α=n^ε into O(n²/α³); theorem allows α≤n^{1/2−δ} for fixed δ>0. Together with DK20 this is tight to constant factors in the plotted range.",
+      "graph": "general simple graphs",
+      "output": "matching edges",
+      "stream": "arbitrary-order insertions and deletions",
+      "assumptions": [
+        "General simple graph",
+        "One pass, no bound on deletions",
+        "Randomized algorithms, error at most 1/10",
+        "Fixed 0<ε<1/3"
+      ],
+      "label": "Assadi–Shah ’22",
+      "shortLabel": "Assadi–Shah ’22",
+      "year": 2022,
+      "publicationStatus": "published",
+      "evidenceStatus": "full_text_verified",
+      "sourceUrl": "https://arxiv.org/html/2201.12710",
+      "plotLane": "O(n^{2−3ε}) bits"
+    },
+    {
+      "id": "matching-stream-kdd25-random-upper",
+      "sourceId": "kkd25",
+      "sliceId": "matching-stream-bounded-deletions-maximal",
+      "kind": "algorithm",
+      "panel": "bounded-maximal",
+      "xCategory": "rand",
+      "bound": "Õ(n√K) bits",
+      "displayBound": "Õ(n√K) bits",
+      "quality": "exact maximal matching",
+      "space": "Õ(n√K) bits",
+      "passes": "1",
+      "theorem": "Theorem 1",
+      "probability": "with high probability",
+      "notes": "Display range 1≤K≤n²; K=0 uses the insertion-only greedy algorithm. Beyond n² the whole graph can be stored in O(n²) bits.",
+      "graph": "general simple graphs",
+      "output": "matching edges",
+      "stream": "arbitrary-order insertions and deletions",
+      "assumptions": [
+        "one pass; at most K deletions, with K known in advance",
+        "every stream prefix is a simple graph; vertex set known",
+        "random bits independent of the input stream"
+      ],
+      "label": "KKD ’25",
+      "shortLabel": "KKD ’25",
+      "year": 2025,
+      "publicationStatus": "published",
+      "evidenceStatus": "full_text_verified",
+      "sourceUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol334-icalp2025/html/LIPIcs.ICALP.2025.106/LIPIcs.ICALP.2025.106.html",
+      "plotLane": "Õ(n√K) bits"
+    },
+    {
+      "id": "matching-stream-kdd25-random-lower",
+      "sourceId": "kkd25",
+      "sliceId": "matching-stream-bounded-deletions-maximal",
+      "kind": "lower",
+      "panel": "bounded-maximal",
+      "xCategory": "rand",
+      "bound": "Ω(n√K) bits",
+      "displayBound": "Ω(n√K) bits",
+      "quality": "exact maximal matching",
+      "space": "Ω(n√K) bits",
+      "passes": "1",
+      "theorem": "Theorem 2; Section 4.2",
+      "probability": "required success ≥2/3",
+      "notes": "Display range 1≤K≤n², with endpoint constants absorbed. The lower-bound proof assumes a failed output is still a valid matching, possibly non-maximal; the theorem is quoted with this proof convention.",
+      "graph": "general simple graphs",
+      "output": "matching edges",
+      "stream": "arbitrary-order insertions and deletions",
+      "assumptions": [
+        "one pass; at most K deletions, with K known in advance",
+        "every stream prefix is a simple graph; vertex set known",
+        "random bits independent of the input stream",
+        "failed outputs remain valid matchings, as assumed in the proof"
+      ],
+      "label": "KKD ’25",
+      "shortLabel": "KKD ’25",
+      "year": 2025,
+      "publicationStatus": "published",
+      "evidenceStatus": "full_text_verified",
+      "sourceUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol334-icalp2025/html/LIPIcs.ICALP.2025.106/LIPIcs.ICALP.2025.106.html",
+      "plotLane": "Ω(n√K) bits"
+    },
+    {
+      "id": "matching-stream-kdd25-det-upper",
+      "sourceId": "kkd25",
+      "sliceId": "matching-stream-bounded-deletions-maximal",
+      "kind": "algorithm",
+      "panel": "bounded-maximal",
+      "xCategory": "det",
+      "bound": "O(nK log n) bits",
+      "displayBound": "O(nK log n) bits",
+      "quality": "exact maximal matching",
+      "space": "O(nK log n) bits",
+      "passes": "1",
+      "theorem": "Theorem 3; Section 5.1",
+      "probability": "deterministic",
+      "notes": "Shown for 1≤K≤n/2. Full graph storage caps space at O(n²) bits; do not extrapolate nK beyond the meaningful range.",
+      "graph": "general simple graphs",
+      "output": "matching edges",
+      "stream": "arbitrary-order insertions and deletions",
+      "assumptions": [
+        "one pass; at most K deletions, with K known in advance",
+        "every stream prefix is a simple graph; vertex set known",
+        "1≤K≤n/2 for this comparison"
+      ],
+      "label": "KKD ’25",
+      "shortLabel": "KKD ’25",
+      "year": 2025,
+      "publicationStatus": "published",
+      "evidenceStatus": "full_text_verified",
+      "sourceUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol334-icalp2025/html/LIPIcs.ICALP.2025.106/LIPIcs.ICALP.2025.106.html",
+      "plotLane": "O(nK log n) bits"
+    },
+    {
+      "id": "matching-stream-kdd25-det-lower",
+      "sourceId": "kkd25",
+      "sliceId": "matching-stream-bounded-deletions-maximal",
+      "kind": "lower",
+      "panel": "bounded-maximal",
+      "xCategory": "det",
+      "bound": "Ω(nK) bits",
+      "displayBound": "Ω(nK) bits",
+      "quality": "exact maximal matching",
+      "space": "Ω(nK) bits",
+      "passes": "1",
+      "theorem": "Theorem 3; Section 5.2 (Theorem 7 in full version)",
+      "probability": "deterministic",
+      "notes": "Shown for 1≤K≤n/2, where the proof’s degree-K graph family is valid. Quadratic storage prevents an unbounded nK claim.",
+      "graph": "general simple graphs",
+      "output": "matching edges",
+      "stream": "arbitrary-order insertions and deletions",
+      "assumptions": [
+        "one pass; at most K deletions, with K known in advance",
+        "every stream prefix is a simple graph; vertex set known",
+        "1≤K≤n/2 for this comparison"
+      ],
+      "label": "KKD ’25",
+      "shortLabel": "KKD ’25",
+      "year": 2025,
+      "publicationStatus": "published",
+      "evidenceStatus": "full_text_verified",
+      "sourceUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol334-icalp2025/html/LIPIcs.ICALP.2025.106/LIPIcs.ICALP.2025.106.html",
+      "plotLane": "Ω(nK) bits"
+    },
+    {
+      "id": "matching-stream-kdd25-approx-upper",
+      "sourceId": "kkd25",
+      "sliceId": "matching-stream-bounded-deletions-approx",
+      "kind": "algorithm",
+      "panel": "bounded-approx",
+      "xCategory": "fixed",
+      "bound": "O((n+K/ε) log n) bits",
+      "displayBound": "O((n+K/ε) log n) bits",
+      "quality": "|M| ≥ OPT/(2+ε), ε>0",
+      "space": "O((n+K/ε) log n) bits",
+      "passes": "1",
+      "theorem": "Theorem 4",
+      "probability": "deterministic",
+      "notes": "For fixed ε>0, Õ(n+K) bits. This algorithm is also available if randomness is allowed; it does not output an exact maximal matching.",
+      "graph": "general simple graphs",
+      "output": "matching edges",
+      "stream": "arbitrary-order insertions and deletions",
+      "assumptions": [
+        "one pass; at most K deletions, with K known in advance",
+        "every stream prefix is a simple graph; vertex set known",
+        "fixed ε>0 for comparison with the lower bound"
+      ],
+      "label": "KKD ’25",
+      "shortLabel": "KKD ’25",
+      "year": 2025,
+      "publicationStatus": "published",
+      "evidenceStatus": "full_text_verified",
+      "sourceUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol334-icalp2025/html/LIPIcs.ICALP.2025.106/LIPIcs.ICALP.2025.106.html",
+      "plotLane": "O((n+K/ε) log n) bits"
+    },
+    {
+      "id": "matching-stream-kdd25-approx-lower",
+      "sourceId": "kkd25",
+      "sliceId": "matching-stream-bounded-deletions-approx",
+      "kind": "lower",
+      "panel": "bounded-approx",
+      "xCategory": "fixed",
+      "bound": "Ω(n+K) bits",
+      "displayBound": "Ω(n+K) bits",
+      "quality": "any fixed α>2 approximation",
+      "space": "Ω(n+K) bits",
+      "passes": "1",
+      "theorem": "Section 1.1, discussion of g_c(n,K)",
+      "probability": "constant success probability; also applies to deterministic algorithms",
+      "notes": "For fixed α and 0≤K≤n². Combines Ω(n) output storage with the DK20 Ω(K) reduction; this is not an Ω(K/ε) claim.",
+      "graph": "general simple graphs",
+      "output": "matching edges",
+      "stream": "arbitrary-order insertions and deletions",
+      "assumptions": [
+        "one pass; at most K deletions, with K known in advance",
+        "every stream prefix is a simple graph; vertex set known",
+        "fixed approximation α>2; 0≤K≤n²"
+      ],
+      "label": "KKD ’25",
+      "shortLabel": "KKD ’25",
+      "year": 2025,
+      "publicationStatus": "published",
+      "evidenceStatus": "full_text_verified",
+      "sourceUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol334-icalp2025/html/LIPIcs.ICALP.2025.106/LIPIcs.ICALP.2025.106.html",
+      "plotLane": "Ω(n+K) bits"
+    },
+    {
+      "id": "matching-stream-mcgregor26-arboricity",
+      "sourceId": "mcgregor26",
+      "sliceId": "matching-stream-arboricity-value",
+      "kind": "algorithm",
+      "panel": "arboricity-upper",
+      "xCategory": "a",
+      "bound": "O(ε^{−4/3} a^{4/3} n^{2/3} polylog n) bits",
+      "displayBound": "O(ε^{−4/3} a^{4/3} n^{2/3} polylog n) bits",
+      "quality": "OPT ≤ estimate ≤ (1+ε)(a+2)OPT",
+      "space": "O(ε^{−4/3} a^{4/3} n^{2/3} polylog n) bits",
+      "passes": "1",
+      "theorem": "Theorem 1",
+      "probability": "≥1−n^{−c} for any prescribed constant c>0",
+      "notes": "Preprint. Only final-graph arboricity ≤a is required. The stream is fixed independently of random bits; intermediate graphs need not have bounded arboricity.",
+      "graph": "final graph arboricity ≤a; general intermediate graphs",
+      "output": "size estimate only",
+      "stream": "arbitrary-order insertions and deletions",
+      "assumptions": [
+        "Final graph has arboricity ≤a",
+        "The linear sketch does not require arboricity bounds on intermediate graphs",
+        "Randomized one-pass output is a value estimate, not matching edges",
+        "known integer a≥1 bounding final arboricity; 0<ε<1",
+        "input stream fixed independently of random bits"
+      ],
+      "label": "McGregor ’26",
+      "shortLabel": "McGregor ’26",
+      "year": 2026,
+      "publicationStatus": "preprint",
+      "evidenceStatus": "full_text_verified",
+      "sourceUrl": "https://arxiv.org/html/2609.19136",
+      "plotLane": "O(ε^{−4/3} a^{4/3} n^{2/3} polylog n) bits"
+    },
+    {
+      "id": "matching-stream-akl17-arboricity-lower",
+      "sourceId": "akl17",
+      "sliceId": "matching-stream-arboricity-value",
+      "kind": "lower",
+      "panel": "arboricity-lower",
+      "xCategory": "r",
+      "bound": "Ω(√n/r^{5/2}) bits",
+      "displayBound": "Ω(√n/r^{5/2}) bits",
+      "quality": "r-approximation of maximum matching size",
+      "space": "Ω(√n/r^{5/2}) bits",
+      "passes": "1",
+      "theorem": "Theorem 2; Section 4.1",
+      "probability": "constant probability of success",
+      "notes": "Hard instances have arboricity O(r) (construction ≤2r). This does not claim a matching lower bound at the exact factor (1+ε)(a+2); r and a must not be silently identified.",
+      "graph": "sparse hard instances with arboricity O(r), with r≥1",
+      "output": "size estimate only",
+      "stream": "arbitrary-order insertions and deletions",
+      "assumptions": [
+        "Final graph has arboricity ≤a",
+        "The linear sketch does not require arboricity bounds on intermediate graphs",
+        "Randomized one-pass output is a value estimate, not matching edges"
+      ],
+      "label": "AKL ’17",
+      "shortLabel": "AKL ’17",
+      "year": 2017,
+      "publicationStatus": "published",
+      "evidenceStatus": "full_text_verified",
+      "sourceUrl": "https://arxiv.org/html/1701.04364",
+      "plotLane": "Ω(√n/r^{5/2}) bits"
+    }
+  ],
+  "relatedResults": [],
+  "figureAxes": [
+    {
+      "id": "insertion-general",
+      "group": "insertion",
+      "title": "Insertion-only · general graphs",
+      "note": "Near-optimal edges; accuracy conventions stay explicit.",
+      "x": {
+        "label": "Randomness / output guarantee",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "det",
+            "label": "Deterministic"
+          },
+          {
+            "id": "rand",
+            "label": "Randomized"
+          }
+        ]
+      },
+      "y": {
+        "label": "Passes (symbolic formulas)",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "matching-stream-fmu22",
+            "label": "O(ε⁻¹⁹) passes"
+          },
+          {
+            "id": "matching-stream-alternating25",
+            "label": "O(ε⁻⁶) passes"
+          },
+          {
+            "id": "matching-stream-assadi25-weighted-specialization",
+            "label": "O(log n/ε) passes"
+          }
+        ]
+      },
+      "scaleNote": "Labeled rows are theorem formulas, not numerical ranks. No hidden constants or numerical exponents are assigned."
+    },
+    {
+      "id": "insertion-bipartite",
+      "group": "insertion",
+      "title": "Insertion-only · bipartite graphs",
+      "note": "Near-optimal edges; memory differs between the two algorithms.",
+      "x": {
+        "label": "Randomness / output guarantee",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "det",
+            "label": "Deterministic"
+          },
+          {
+            "id": "rand",
+            "label": "Randomized"
+          }
+        ]
+      },
+      "y": {
+        "label": "Passes (symbolic formulas)",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "matching-stream-ajjst22",
+            "label": "O(log n · log(1/ε)/ε) passes"
+          },
+          {
+            "id": "matching-stream-assadi25-bipartite",
+            "label": "O(log n/ε) passes"
+          }
+        ]
+      },
+      "scaleNote": "Labeled rows are theorem formulas, not numerical ranks. No hidden constants or numerical exponents are assigned."
+    },
+    {
+      "id": "dynamic-passes",
+      "group": "turnstile",
+      "title": "Insert/delete · semi-streaming",
+      "note": "Õ(n) memory; fixed ε for near-optimum.",
+      "x": {
+        "label": "Randomness / output guarantee",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "constant",
+            "label": "Constant approximation"
+          },
+          {
+            "id": "near",
+            "label": "1+ε approximation"
+          }
+        ]
+      },
+      "y": {
+        "label": "Passes (symbolic formulas)",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "matching-stream-dynamic-passes-upper",
+            "label": "O(log log n) passes"
+          },
+          {
+            "id": "matching-stream-dynamic-passes-lower",
+            "label": "Ω(log log n) passes"
+          },
+          {
+            "id": "matching-stream-dynamic-passes-boosted",
+            "label": "O(f(ε) · log log n) passes"
+          }
+        ]
+      },
+      "scaleNote": "Labeled rows are theorem formulas, not numerical ranks. No hidden constants or numerical exponents are assigned."
+    },
+    {
+      "id": "dynamic-onepass",
+      "group": "turnstile",
+      "title": "Insert/delete · one pass",
+      "note": "Edges; n^ε approximation, fixed 0<ε<1/3.",
+      "x": {
+        "label": "Randomness / output guarantee",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "power",
+            "label": "n^ε approximation"
+          }
+        ]
+      },
+      "y": {
+        "label": "Space in bits (symbolic formulas)",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "matching-stream-dark-konrad20",
+            "label": "Ω(n^{2−3ε}) bits"
+          },
+          {
+            "id": "matching-stream-assadi-shah22",
+            "label": "O(n^{2−3ε}) bits"
+          }
+        ]
+      },
+      "scaleNote": "Labeled rows are theorem formulas, not numerical ranks. No hidden constants or numerical exponents are assigned."
+    },
+    {
+      "id": "bounded-maximal",
+      "group": "bounded",
+      "title": "Bounded deletions · exact maximality",
+      "note": "Known K; every prefix simple. Randomness changes the answer.",
+      "x": {
+        "label": "Randomness / output guarantee",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "rand",
+            "label": "Randomized · K≤n²"
+          },
+          {
+            "id": "det",
+            "label": "Deterministic · K≤n/2"
+          }
+        ]
+      },
+      "y": {
+        "label": "Space in bits (symbolic formulas)",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "matching-stream-kdd25-random-upper",
+            "label": "Õ(n√K) bits"
+          },
+          {
+            "id": "matching-stream-kdd25-random-lower",
+            "label": "Ω(n√K) bits"
+          },
+          {
+            "id": "matching-stream-kdd25-det-upper",
+            "label": "O(nK log n) bits"
+          },
+          {
+            "id": "matching-stream-kdd25-det-lower",
+            "label": "Ω(nK) bits"
+          }
+        ]
+      },
+      "scaleNote": "Labeled rows are theorem formulas, not numerical ranks. No hidden constants or numerical exponents are assigned."
+    },
+    {
+      "id": "bounded-approx",
+      "group": "bounded",
+      "title": "Bounded deletions · approximate maximum",
+      "note": "Edges; any fixed α>2. Lower bound has no 1/ε dependence.",
+      "x": {
+        "label": "Randomness / output guarantee",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "fixed",
+            "label": "Fixed α=2+ε >2"
+          }
+        ]
+      },
+      "y": {
+        "label": "Space in bits (symbolic formulas)",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "matching-stream-kdd25-approx-upper",
+            "label": "O((n+K/ε) log n) bits"
+          },
+          {
+            "id": "matching-stream-kdd25-approx-lower",
+            "label": "Ω(n+K) bits"
+          }
+        ]
+      },
+      "scaleNote": "Labeled rows are theorem formulas, not numerical ranks. No hidden constants or numerical exponents are assigned."
+    },
+    {
+      "id": "arboricity-upper",
+      "group": "arboricity",
+      "title": "Bounded arboricity · value upper bound",
+      "note": "Only the final graph needs arboricity ≤a.",
+      "x": {
+        "label": "Randomness / output guarantee",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "a",
+            "label": "(1+ε)(a+2) approximation"
+          }
+        ]
+      },
+      "y": {
+        "label": "Space in bits (symbolic formula)",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "matching-stream-mcgregor26-arboricity",
+            "label": "O(ε^{−4/3} a^{4/3} n^{2/3} polylog n) bits"
+          }
+        ]
+      },
+      "scaleNote": "Labeled rows are theorem formulas, not numerical ranks. No hidden constants or numerical exponents are assigned."
+    },
+    {
+      "id": "arboricity-lower",
+      "group": "arboricity",
+      "title": "Sparse value-estimation lower bound",
+      "note": "Hard instances have arboricity O(r); a distinct guarantee.",
+      "x": {
+        "label": "Randomness / output guarantee",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "r",
+            "label": "r approximation · arboricity O(r)"
+          }
+        ]
+      },
+      "y": {
+        "label": "Space in bits (symbolic formula)",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "matching-stream-akl17-arboricity-lower",
+            "label": "Ω(√n/r^{5/2}) bits"
+          }
+        ]
+      },
+      "scaleNote": "Labeled rows are theorem formulas, not numerical ranks. No hidden constants or numerical exponents are assigned."
+    }
+  ],
+  "sourceVerification": [
+    {
+      "sourceId": "abkns25",
+      "url": "https://arxiv.org/html/2407.21005",
+      "verifiedOn": "2026-10-20",
+      "theorems": [
+        "Theorem 1, first statement",
+        "Theorem 3",
+        "Theorem 1, moreover statement"
+      ],
+      "recordIds": [
+        "matching-stream-dynamic-passes-upper",
+        "matching-stream-dynamic-passes-lower",
+        "matching-stream-dynamic-passes-boosted"
+      ],
+      "note": "Theorems 1 and 3 establish the fixed-accuracy pass frontier; near-optimum ε dependence stays f(ε)."
+    },
+    {
+      "sourceId": "kkd25",
+      "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol334-icalp2025/html/LIPIcs.ICALP.2025.106/LIPIcs.ICALP.2025.106.html",
+      "verifiedOn": "2026-10-20",
+      "theorems": [
+        "Theorem 1",
+        "Theorem 2; Section 4.2",
+        "Theorem 3; Section 5.1",
+        "Theorem 3; Section 5.2 (Theorem 7 in full version)",
+        "Theorem 4",
+        "Section 1.1, discussion of g_c(n,K)"
+      ],
+      "recordIds": [
+        "matching-stream-kdd25-random-upper",
+        "matching-stream-kdd25-random-lower",
+        "matching-stream-kdd25-det-upper",
+        "matching-stream-kdd25-det-lower",
+        "matching-stream-kdd25-approx-upper",
+        "matching-stream-kdd25-approx-lower"
+      ],
+      "note": "Known K and simple prefixes are explicit. Deterministic nK shown only through K≤n/2. The randomized lower proof assumes valid matching on failure."
+    },
+    {
+      "sourceId": "dk20",
+      "url": "https://arxiv.org/html/2005.11116",
+      "verifiedOn": "2026-10-20",
+      "theorems": [
+        "Corollary 1; Section 3"
+      ],
+      "recordIds": [
+        "matching-stream-dark-konrad20"
+      ],
+      "note": "Exact main theorem and model inspected."
+    },
+    {
+      "sourceId": "ajjst22",
+      "url": "https://arxiv.org/html/2011.03495",
+      "verifiedOn": "2026-10-20",
+      "theorems": [
+        "Theorem 1 (Approximate MCM)"
+      ],
+      "recordIds": [
+        "matching-stream-ajjst22"
+      ],
+      "note": "Retains the log n factor from Theorem 1."
+    },
+    {
+      "sourceId": "mmss25",
+      "url": "https://arxiv.org/html/2412.19057",
+      "verifiedOn": "2026-10-20",
+      "theorems": [
+        "Theorem 1.1"
+      ],
+      "recordIds": [
+        "matching-stream-alternating25"
+      ],
+      "note": "Exact main theorem and model inspected."
+    },
+    {
+      "sourceId": "fmu22",
+      "url": "https://arxiv.org/html/2106.04179",
+      "verifiedOn": "2026-10-20",
+      "theorems": [
+        "Theorem 1.1; Lemma 5.6"
+      ],
+      "recordIds": [
+        "matching-stream-fmu22"
+      ],
+      "note": "Exponent 19 appears explicitly at end of Lemma 5.6 proof."
+    },
+    {
+      "sourceId": "assadi25",
+      "url": "https://arxiv.org/html/2307.02968",
+      "verifiedOn": "2026-10-20",
+      "theorems": [
+        "Introduction, maximum-weight main result; Section 4",
+        "Introduction, bipartite main result; Section 3"
+      ],
+      "recordIds": [
+        "matching-stream-assadi25-weighted-specialization",
+        "matching-stream-assadi25-bipartite"
+      ],
+      "note": "Exact main theorem and model inspected."
+    },
+    {
+      "sourceId": "mcgregor26",
+      "url": "https://arxiv.org/html/2609.19136",
+      "verifiedOn": "2026-10-20",
+      "theorems": [
+        "Theorem 1"
+      ],
+      "recordIds": [
+        "matching-stream-mcgregor26-arboricity"
+      ],
+      "note": "Exact main theorem and model inspected."
+    },
+    {
+      "sourceId": "as22",
+      "url": "https://arxiv.org/html/2201.12710",
+      "verifiedOn": "2026-10-20",
+      "theorems": [
+        "Theorem 1 (full version); Theorem 14 (ITCS version)"
+      ],
+      "recordIds": [
+        "matching-stream-assadi-shah22"
+      ],
+      "note": "O(n²/α³) is an ordinary O bound, not Õ; substitute α=n^ε only inside the theorem range."
+    },
+    {
+      "sourceId": "akl17",
+      "url": "https://arxiv.org/html/1701.04364",
+      "verifiedOn": "2026-10-20",
+      "theorems": [
+        "Theorem 2; Section 4.1"
+      ],
+      "recordIds": [
+        "matching-stream-akl17-arboricity-lower"
+      ],
+      "note": "Lower bound stays separate from McGregor’s exact approximation factor."
+    }
+  ],
+  "coverageNote": "Seven existing pending slices, eight supplied primary sources, plus the directly comparable AS22 one-pass upper bound and AKL17 sparse value lower bound. Existing one/two-pass insertion figures remain untouched. No claim of complete literature coverage.",
+  "comparisonNotes": [
+    "Do not compare pass counts to bits of memory.",
+    "Approximate edge output, exact maximality and size estimation remain separate.",
+    "No comparable insertion-only multipass lower bound was supplied in this bounded source set.",
+    "Symbolic formula rows are categorical; their vertical order does not rank multivariate functions.",
+    "For bounded-deletion exact maximality, display the randomized lower-bound proof convention on failure outputs."
+  ]
+}

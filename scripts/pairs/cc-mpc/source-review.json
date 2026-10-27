@@ -1,0 +1,484 @@
+{
+  "id": "cc-mpc",
+  "reviewedOn": "2026-10-26",
+  "snapshotDate": "2026-10-20",
+  "sourceBoundary": "Eight supplied sources and their formal full versions; no additional literature search beyond these works.",
+  "scopeDecision": "Total-disagreement algorithms are main; simultaneous symmetric norms are related. Forests (including trees) and bounded positive arboricity are included with distinct setup colors.",
+  "verifiedSources": [
+    {
+      "id": "behnezhad-2022-constant-rounds",
+      "title": "Almost 3-Approximate Correlation Clustering in Constant Rounds",
+      "url": "https://arxiv.org/abs/2205.03710",
+      "fullTextUrl": "https://arxiv.org/pdf/2205.03710",
+      "fullVersionUrl": null,
+      "statements": [
+        {
+          "id": "cc-mpc-focs22-3plus",
+          "theorem": "Corollary 1.3 (MPC), Corollary 1.2 and §4 proof",
+          "resource": "MPC rounds",
+          "bound": "O(1/ε)",
+          "quality": "Expected cost ≤(3+ε)OPT",
+          "localMemory": "O(n^δ)",
+          "totalMemory": "O(m)",
+          "work": null,
+          "communication": null,
+          "probability": "Expected approximation guarantee; no high-probability quality claim.",
+          "scope": "main",
+          "notes": "The expected-cost calculation underlying the MPC corollary includes the negligible rank-collision error. O(m) is the stated edge-based global storage bound.",
+          "assumptions": [
+            "Positive edges initially distributed across machines",
+            "Fixed accuracy ε>0 and fixed 0<δ<1, where used",
+            "m counts positive edges; 0≤m≤n(n−1)/2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cohenaddad-2021-mpc",
+      "title": "Correlation Clustering in Constant Many Parallel Rounds",
+      "url": "https://arxiv.org/abs/2106.08448",
+      "fullTextUrl": "https://arxiv.org/pdf/2106.08448",
+      "fullVersionUrl": null,
+      "statements": [
+        {
+          "id": "cc-mpc-constant",
+          "theorem": "Theorem 1.1; §3.2.3 MPC implementation (paper pp. 2 and 11)",
+          "resource": "MPC rounds",
+          "bound": "O(1)",
+          "quality": "C=O(1) approximation",
+          "localMemory": "O(n^δ)",
+          "totalMemory": "O(m log n)",
+          "work": null,
+          "communication": null,
+          "probability": "Approximation succeeds with probability at least 1−1/n.",
+          "scope": "main",
+          "notes": "The sampled MPC implementation changes the agreement threshold. Keep its theorem factor symbolic: do not import the approximate factor 701 of the exact-agreement analysis.",
+          "assumptions": [
+            "Positive edges initially distributed across machines",
+            "Fixed accuracy ε>0 and fixed 0<δ<1, where used",
+            "m counts positive edges; 0≤m≤n(n−1)/2",
+            "Output bookkeeping for isolated vertices is separate from the theorem’s edge-based O(m log n) storage expression."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dalirrooyfard-2024-pruned-pivot",
+      "title": "Pruned Pivot: Correlation Clustering Algorithm for Dynamic, Parallel, and Local Computation Models",
+      "url": "https://arxiv.org/html/2402.15668v2",
+      "fullTextUrl": "https://arxiv.org/html/2402.15668v2",
+      "fullVersionUrl": null,
+      "statements": [
+        {
+          "id": "cc-mpc-pruned-3plus",
+          "theorem": "Theorem 1.2; Theorem 4.1; §5 MPC application",
+          "resource": "MPC rounds",
+          "bound": "O(log(1/ε))",
+          "quality": "Expected cost ≤(3+ε)OPT",
+          "localMemory": "n^δ, for fixed ε and sufficiently large n",
+          "totalMemory": "O(m+n·k^(k+1)), k=O(1/ε)",
+          "work": null,
+          "communication": null,
+          "probability": "Expected approximation; Theorem 4.1 bounds expected cost. MPC sorting and gathering are the stated implementations.",
+          "scope": "main",
+          "notes": "Sorting costs O(m) total memory; k-hop gathering costs O(n·k^(k+1)). The sum is derived from these two explicit steps, rather than advertised as a uniform near-linear-in-ε bound.",
+          "assumptions": [
+            "Positive edges initially distributed across machines",
+            "Fixed accuracy ε>0 and fixed 0<δ<1, where used",
+            "m counts positive edges; 0≤m≤n(n−1)/2",
+            "k=O(1/ε) is fixed as n grows",
+            "The k-hop neighborhood must fit on one machine",
+            "Logarithms in round bounds are bounded below by a positive constant."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "assadi-2025-desparsification",
+      "title": "Correlation Clustering and (De)Sparsification: Graph Sketches Can Match Classical Algorithms",
+      "url": "https://arxiv.org/html/2504.04258v1",
+      "fullTextUrl": "https://arxiv.org/html/2504.04258v1",
+      "fullVersionUrl": null,
+      "statements": [
+        {
+          "id": "cc-mpc-alphabest",
+          "theorem": "Corollary 1.2; Remark 1.5; §5.1 and §5.3",
+          "resource": "MPC rounds",
+          "bound": "O(1)",
+          "quality": "(α_best+o(1)) approximation",
+          "localMemory": "Not bounded by the corollary; polynomial internal recovery space allowed",
+          "totalMemory": "No global internal-memory cap established by this communication corollary",
+          "work": null,
+          "communication": "Õ(n)-size incoming/outgoing messages per machine per round",
+          "probability": "With high probability.",
+          "scope": "related",
+          "notes": "α_best stays symbolic and means the best polynomial-time classical approximation. The central recovery routine may use polynomial space. A message-size theorem is not a near-linear local-memory theorem.",
+          "assumptions": [
+            "Positive edges initially distributed across machines",
+            "Fixed accuracy ε>0 and fixed 0<δ<1, where used",
+            "m counts positive edges; 0≤m≤n(n−1)/2",
+            "Polynomial-time local recovery",
+            "Only sketch/message sizes, not internal memory, obey the Õ(n) bound"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cohenaddad-2024-combinatorial",
+      "title": "Combinatorial Correlation Clustering",
+      "url": "https://arxiv.org/abs/2404.05433",
+      "fullTextUrl": "https://arxiv.org/pdf/2404.05433",
+      "fullVersionUrl": null,
+      "statements": [
+        {
+          "id": "cc-mpc-combinatorial-1876",
+          "theorem": "Theorem 1, MPC clause (arXiv v2, printed p. 2); §2.1",
+          "resource": "MPC rounds",
+          "bound": "(εδ)^(−O(1))",
+          "quality": "(2−1/8+ε) approximation",
+          "localMemory": "n^δ",
+          "totalMemory": "O(ε^(−O(1))·m log n)",
+          "work": null,
+          "communication": null,
+          "probability": "With high probability.",
+          "scope": "main",
+          "notes": "The MPC factor is 2−1/8+ε. The factor 2−2/13+ε belongs to sequential and streaming clauses, not this MPC theorem. Original result ID is retained for compatibility.",
+          "assumptions": [
+            "Positive edges initially distributed across machines",
+            "Fixed accuracy ε>0 and fixed 0<δ<1, where used",
+            "m counts positive edges; 0≤m≤n(n−1)/2",
+            "Unknown polynomial exponents in ε and δ remain symbolic."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cao-2024-parallel",
+      "title": "Breaking 3-Factor Approximation for Correlation Clustering in Polylogarithmic Rounds",
+      "url": "https://epubs.siam.org/doi/10.1137/1.9781611977912.143",
+      "fullTextUrl": "https://arxiv.org/pdf/2307.06723",
+      "fullVersionUrl": null,
+      "statements": [
+        {
+          "id": "cc-mpc-cao-24",
+          "theorem": "Corollary 1.2; Lemma 1.4 / Lemma 4.1; Appendix A MPC simulation",
+          "resource": "MPC rounds",
+          "bound": "Õ(ε^(−4)) for fixed δ; O(1/δ) simulation overhead",
+          "quality": "Expected cost ≤(2.4+ε)OPT",
+          "localMemory": "O(n^δ)",
+          "totalMemory": "Õ(ε^(−3)·m^(3/2))",
+          "work": "Õ(ε^(−7)·m^(3/2)) total work",
+          "communication": null,
+          "probability": "Expected approximation (Lemma 1.4 and Lemma 4.1); randomized parallel subroutines have high-probability runtime.",
+          "scope": "main",
+          "notes": "Tilde hides polylog(n) factors without supplying a numeric exponent. Total work, total memory and per-machine memory are different resources. Appendix A contributes a factor O(1/δ) in rounds.",
+          "assumptions": [
+            "Positive edges initially distributed across machines",
+            "Fixed accuracy ε>0 and fixed 0<δ<1, where used",
+            "m counts positive edges; 0≤m≤n(n−1)/2"
+          ]
+        },
+        {
+          "id": "cc-mpc-cao-rounding-certificate-floor",
+          "theorem": "Lemma 4.7, §4.1",
+          "resource": "Triangle-wise rounding certificate",
+          "bound": "Not an MPC-round lower bound",
+          "quality": "Some triangle has ALG ≥2.4·LP for every allowed pair of rounding functions",
+          "localMemory": "Not applicable",
+          "totalMemory": "Not applicable",
+          "work": null,
+          "communication": null,
+          "probability": "Deterministic obstruction to the specified triangle-wise certificate.",
+          "scope": "related",
+          "notes": "Restricted functions (f⁺,f⁻) satisfy f⁺(0)=f⁻(0)=0; input edge lengths obey only the (+,+,−) partial triangle inequality. This is not a universal approximation hardness result.",
+          "assumptions": [
+            "Specified independent edge-rounding function framework",
+            "f⁺(0)=f⁻(0)=0",
+            "Fractional edge lengths satisfy only the (+,+,−) partial triangle inequality",
+            "No MPC-round or memory bound follows"
+          ]
+        },
+        {
+          "id": "cc-mpc-cao-triangle-work-barrier",
+          "theorem": "Corollary 5.9; Lemma 5.8",
+          "resource": "Sequential combinatorial work for a triangle subproblem",
+          "bound": "Not an MPC-round lower bound",
+          "quality": "No O(m_f^(3/2−η)) combinatorial algorithm for fixed η>0 under the stated BMM assumption",
+          "localMemory": "Not an MPC memory statement",
+          "totalMemory": "Not an MPC memory statement",
+          "work": null,
+          "communication": null,
+          "probability": "Reduction uses a high-probability triangle-detection construction.",
+          "scope": "related",
+          "notes": "m_f counts the positive edges plus tracked negative edges in the eligible-open-triangle subproblem, not simply the original CC positive-edge count m.",
+          "assumptions": [
+            "Combinatorial algorithms for maximal edge-disjoint eligible open triangles",
+            "Fixed 0<η<1",
+            "No truly subcubic combinatorial Boolean matrix multiplication",
+            "m_f counts relevant edges in the auxiliary triangle instance, not just original CC positive edges",
+            "This is sequential subroutine time, not MPC rounds"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cambus-2021-arboricity",
+      "title": "Massively Parallel Correlation Clustering in Bounded Arboricity Graphs",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.DISC.2021.15",
+      "fullTextUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol209-disc2021/LIPIcs.DISC.2021.15/LIPIcs.DISC.2021.15.pdf",
+      "fullVersionUrl": "https://arxiv.org/pdf/2102.11660",
+      "statements": [
+        {
+          "id": "cc-mpc-cambus-arboricity",
+          "theorem": "Corollary 28; Model 1 (DISC pp. 15:4 and 15:15)",
+          "resource": "MPC rounds",
+          "bound": "O(log λ·log³log n)",
+          "quality": "Expected cost ≤3·OPT",
+          "localMemory": "S=Õ(n^δ), Model 1",
+          "totalMemory": "M·S; Model 1 specifies M≥Ω(N/S), N≥n. No explicit tight global upper cap is inferred.",
+          "work": null,
+          "communication": null,
+          "probability": "Expected approximation; stated round bound with high probability.",
+          "scope": "main",
+          "notes": "Positive-edge graph has arboricity λ. The main shared axis fixes λ≥2. The λ=1 case is represented by separate forest theorems, not by substituting log 1=0.",
+          "assumptions": [
+            "Positive edges initially distributed across machines",
+            "Fixed accuracy ε>0 and fixed 0<δ<1, where used",
+            "m counts positive edges; 0≤m≤n(n−1)/2",
+            "Positive graph has arboricity λ≥2",
+            "λ is fixed for the n-growth axis",
+            "Model 1; total-machine budget is not silently equated with another paper’s O(m) cap"
+          ]
+        },
+        {
+          "id": "cc-mpc-cambus-arboricity-det",
+          "theorem": "Corollary 32; Appendix A.3 of the full version",
+          "resource": "MPC rounds",
+          "bound": "O(1)",
+          "quality": "O(λ²) worst-case approximation",
+          "localMemory": "S=Õ(n^δ), Model 1",
+          "totalMemory": "M·S under Model 1; no exact near-linear total upper cap claimed",
+          "work": null,
+          "communication": null,
+          "probability": "Deterministic worst-case approximation.",
+          "scope": "main",
+          "notes": "Clique connected components are clusters and remaining vertices become singletons. O(λ²) remains symbolic, without a numeric factor coordinate.",
+          "assumptions": [
+            "Positive edges initially distributed across machines",
+            "Fixed accuracy ε>0 and fixed 0<δ<1, where used",
+            "m counts positive edges; 0≤m≤n(n−1)/2",
+            "Positive graph has arboricity λ≥2; fixed λ on the main n-growth axis"
+          ]
+        },
+        {
+          "id": "cc-mpc-cambus-forest-approx-rand",
+          "theorem": "Corollary 31(3); full-version Appendix A.3",
+          "resource": "MPC rounds",
+          "bound": "O(log log(1/ε))",
+          "quality": "(1+ε) worst-case approximation guarantee",
+          "localMemory": "S=Õ(n^δ), Model 1",
+          "totalMemory": "M·S under Model 1; ε-dependent neighborhood constants apply",
+          "work": null,
+          "communication": null,
+          "probability": "Randomized algorithm. Corollary 31 labels the approximation ‘worst case’; it does not state a numeric failure probability.",
+          "scope": "main",
+          "notes": "Forest matching reduction. The theorem assumes constant 0<ε≤1; iterated logarithms are floored by a positive constant to avoid zero/negative round counts.",
+          "assumptions": [
+            "Positive edges initially distributed across machines",
+            "Fixed accuracy ε>0 and fixed 0<δ<1, where used",
+            "m counts positive edges; 0≤m≤n(n−1)/2",
+            "Positive graph is a forest, including trees",
+            "ε is a fixed constant; no uniform growing-1/ε memory claim"
+          ]
+        },
+        {
+          "id": "cc-mpc-cambus-forest-approx-det",
+          "theorem": "Corollary 31(2); full-version Appendix A.3",
+          "resource": "MPC rounds",
+          "bound": "O((1/ε)(log(1/ε)+log log* n))",
+          "quality": "(1+ε) worst-case approximation",
+          "localMemory": "S=Õ(n^δ), Model 1",
+          "totalMemory": "M·S under Model 1; ε-dependent neighborhood constants apply",
+          "work": null,
+          "communication": null,
+          "probability": "Deterministic worst-case approximation.",
+          "scope": "main",
+          "notes": "For fixed ε, its n-dependent symbolic class is log log* n. The complete expression stays visible.",
+          "assumptions": [
+            "Positive edges initially distributed across machines",
+            "Fixed accuracy ε>0 and fixed 0<δ<1, where used",
+            "m counts positive edges; 0≤m≤n(n−1)/2",
+            "Positive graph is a forest, including trees",
+            "Fixed 0<ε≤1; logarithmic round factors floored at a positive constant"
+          ]
+        },
+        {
+          "id": "cc-mpc-cambus-forest",
+          "theorem": "Corollary 27 and Corollary 31(1)",
+          "resource": "MPC rounds",
+          "bound": "Õ(log n)",
+          "quality": "Exact minimum-disagreement clustering",
+          "localMemory": "S=Õ(n^δ), Model 1",
+          "totalMemory": "M·S under Model 1; matching-subroutine resources apply",
+          "work": null,
+          "communication": null,
+          "probability": "Randomized maximum-matching algorithm; formal corollary does not provide an explicit failure exponent.",
+          "scope": "main",
+          "notes": "Maximum matching of the positive forest gives an exact optimum clustering. The formal theorem’s Õ(log n) is retained rather than the informal summary’s O(log n).",
+          "assumptions": [
+            "Positive edges initially distributed across machines",
+            "Fixed accuracy ε>0 and fixed 0<δ<1, where used",
+            "m counts positive edges; 0≤m≤n(n−1)/2",
+            "Positive graph is a forest, including trees",
+            "Exactness does not extend to arbitrary arboricity"
+          ]
+        },
+        {
+          "id": "cc-mpc-cambus-arboricity-extra-memory",
+          "theorem": "Corollary 28; Model 2 and Remark 3",
+          "resource": "MPC rounds",
+          "bound": "O(log λ·log log n)",
+          "quality": "Expected cost ≤3·OPT",
+          "localMemory": "S=Õ(n^δ), Model 2",
+          "totalMemory": "At least n machines, one available per vertex; Model 2 allows Õ(n^(1+δ)) aggregate capacity",
+          "work": null,
+          "communication": null,
+          "probability": "Expected approximation; round bound with high probability.",
+          "scope": "related",
+          "notes": "The faster formula uses a different global machine allowance. Do not overlay it as a direct improvement under Model 1’s budget.",
+          "assumptions": [
+            "Positive edges initially distributed across machines",
+            "Fixed accuracy ε>0 and fixed 0<δ<1, where used",
+            "m counts positive edges; 0≤m≤n(n−1)/2",
+            "Positive-edge arboricity λ≥2",
+            "Model 2, at least n machines",
+            "The paper assumes Δ=O(S) for simplicity and states that virtual communication trees lift this assumption"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cao-2025-all-norms",
+      "title": "Simultaneously Approximating All Norms for Massively Parallel Correlation Clustering",
+      "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol334-icalp2025/html/LIPIcs.ICALP.2025.40/LIPIcs.ICALP.2025.40.html",
+      "fullTextUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol334-icalp2025/html/LIPIcs.ICALP.2025.40/LIPIcs.ICALP.2025.40.html",
+      "fullVersionUrl": null,
+      "statements": [
+        {
+          "id": "cc-mpc-allnorms-63",
+          "theorem": "Theorem 3; MPC model paragraph",
+          "resource": "MPC rounds",
+          "bound": "O(log³ n)",
+          "quality": "One partition simultaneously (63.3+O(ε))-approximates every monotone symmetric norm",
+          "localMemory": "O(n^δ)",
+          "totalMemory": "Õ(m/ε⁶)",
+          "work": "Õ(m/ε⁶) total work",
+          "communication": null,
+          "probability": "With high probability.",
+          "scope": "related",
+          "notes": "Each norm is compared with its own optimum over clusterings. This is a stronger simultaneous output contract than total disagreements alone.",
+          "assumptions": [
+            "Positive edges initially distributed across machines",
+            "Fixed accuracy ε>0 and fixed 0<δ<1, where used",
+            "m counts positive edges; 0≤m≤n(n−1)/2",
+            "Monotone symmetric norm of the per-vertex disagreement vector"
+          ]
+        },
+        {
+          "id": "cc-mpc-allnorms-359",
+          "theorem": "Theorem 5; MPC model paragraph",
+          "resource": "MPC rounds",
+          "bound": "O(1)",
+          "quality": "One partition simultaneously (359+ε)-approximates every monotone symmetric norm",
+          "localMemory": "O(n^δ)",
+          "totalMemory": "Õ(m/ε²)",
+          "work": "Õ(m/ε²) total work",
+          "communication": null,
+          "probability": "With high probability.",
+          "scope": "related",
+          "notes": "The theorem requires constant ε∈(0,1). Its O(1) notation must not be interpreted as an unspecified uniform constant as ε tends to zero.",
+          "assumptions": [
+            "Positive edges initially distributed across machines",
+            "Fixed accuracy ε>0 and fixed 0<δ<1, where used",
+            "m counts positive edges; 0≤m≤n(n−1)/2",
+            "Fixed ε∈(0,1)",
+            "Monotone symmetric norm of the per-vertex disagreement vector"
+          ]
+        }
+      ]
+    }
+  ],
+  "inferences": [
+    {
+      "id": "pruned-total-memory",
+      "status": "derived from explicitly stated implementation steps",
+      "statement": "O(m) sorting memory plus O(n·k^(k+1)) k-hop gathering memory gives O(m+n·k^(k+1)); k=O(1/ε). This does not give a uniform linear-in-input memory claim as ε changes."
+    },
+    {
+      "id": "round-class-display",
+      "status": "display classification, not theorem",
+      "statement": "At fixed ε,δ,λ≥2, exact formulas are grouped as n-constant, log log* n, (log log n)^3 or unspecified polylog(n). Forest λ=1 is separate. No parameter exponent is numerically chosen."
+    },
+    {
+      "id": "cao-probability",
+      "status": "proof-level verification",
+      "statement": "Lemma 1.4 and Lemma 4.1 explicitly establish expected quality; the terse Corollary 1.2 is read with that proof, not as a high-probability quality claim."
+    },
+    {
+      "id": "cambus-memory",
+      "status": "scope limitation",
+      "statement": "Model 1 states local S=Õ(n^δ), machine count M≥Ω(N/S), N≥n and aggregate M·S. A tight near-linear upper cap is not inferred from a lower-bound definition; Model 2 requiring at least n machines remains separate."
+    }
+  ],
+  "corrections": [
+    "MPC Combinatorial Correlation Clustering factor is 2−1/8+ε, not the sequential/streaming 2−2/13+ε.",
+    "AKP2025 bounds per-machine messages, not internal memory; Remark 1.5 allows polynomial recovery space.",
+    "CHS2024 work Õ(ε^−7 m^(3/2)) and total memory Õ(ε^−3 m^(3/2)) differ.",
+    "Pruned Pivot and truncated Pivot have expected quality, not an automatically high-probability approximation.",
+    "C=O(1), α_best, O(λ²), unknown ε/δ exponents and unspecified polylog exponents remain symbolic."
+  ],
+  "lowerBounds": {
+    "main": "No general lower bound verified in the reviewed sources.",
+    "related": [
+      {
+        "id": "cc-mpc-cao-rounding-certificate-floor",
+        "statement": "Lemma 4.7 obstructs a particular triangle-wise rounding analysis at factor below 2.4, not arbitrary CC algorithms."
+      },
+      {
+        "id": "cc-mpc-cao-triangle-work-barrier",
+        "statement": "Corollary 5.9 is a conditional sequential combinatorial time barrier for maximal edge-disjoint eligible open triangles, not CC–MPC round complexity."
+      }
+    ],
+    "excluded": "Graph-connectivity conditional Ω(log D) is background in Cambus et al.; not transferred to correlation clustering."
+  },
+  "validation": {
+    "regressions": {
+      "status": "pass",
+      "originalResultsPreserved": 10,
+      "mainAlgorithms": 10,
+      "relatedAlgorithms": 4,
+      "relatedRestrictedLowerBounds": 2,
+      "mainLowerPoints": 0,
+      "textCounts": [
+        0,
+        10,
+        10,
+        43,
+        0,
+        0
+      ],
+      "viewports": 6,
+      "sourceFilter": true,
+      "inspectionAndCleanup": true,
+      "parameterScopes": true,
+      "browserQA": "pending parent tools"
+    },
+    "typographicBounds": {
+      "status": "pass",
+      "measuredLabels": 96,
+      "overflow": [],
+      "method": "Pillow Arial font metrics, read-only; browser rendering remains unverified"
+    },
+    "browser": "Unavailable in child/parent tool session; no browser visual completion claimed."
+  }
+}

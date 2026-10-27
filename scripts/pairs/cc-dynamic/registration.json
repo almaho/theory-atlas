@@ -1,0 +1,58 @@
+{
+  "id": "cc-dynamic",
+  "dataFile": "cc-dynamic.json",
+  "javascript": "cc-dynamic.js",
+  "css": "cc-dynamic.css",
+  "routes": [
+    {
+      "key": "cc-dynamic",
+      "sliceId": "cc-dynamic-edge-adaptive-fixed-time",
+      "label": "Correlation clustering · dynamic · edge updates",
+      "visible": true,
+      "problem": "cc",
+      "model": "dynamic"
+    },
+    {
+      "key": "cc-dynamic-adaptive",
+      "sliceId": "cc-dynamic-edge-adaptive",
+      "label": "Correlation clustering · adaptive sequence guarantee",
+      "visible": false,
+      "problem": "cc",
+      "model": "dynamic"
+    },
+    {
+      "key": "cc-dynamic-oblivious",
+      "sliceId": "cc-dynamic-edge-oblivious",
+      "label": "Correlation clustering · oblivious edge updates",
+      "visible": false,
+      "problem": "cc",
+      "model": "dynamic"
+    },
+    {
+      "key": "cc-dynamic-node-random-deletion",
+      "sliceId": "cc-dynamic-node-random-deletion",
+      "label": "Correlation clustering · node updates with random deletion",
+      "visible": false,
+      "problem": "cc",
+      "model": "dynamic"
+    },
+    {
+      "key": "cc-dynamic-node-insertion",
+      "sliceId": "cc-dynamic-node-insertion",
+      "label": "Correlation clustering · node insertion",
+      "visible": false,
+      "problem": "cc",
+      "model": "dynamic"
+    }
+  ],
+  "canonicalAliases": {
+    "cc-dynamic-adaptive": "cc-dynamic",
+    "cc-dynamic-oblivious": "cc-dynamic",
+    "cc-dynamic-node-random-deletion": "cc-dynamic",
+    "cc-dynamic-node-insertion": "cc-dynamic"
+  },
+  "axisSummary": {
+    "x": "Approximation factor α (smaller is better); ε=1/4 reference",
+    "y": "Update-time formulas and guarantees (categorical rows)"
+  }
+}

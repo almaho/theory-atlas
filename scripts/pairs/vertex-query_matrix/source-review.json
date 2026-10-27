@@ -1,0 +1,93 @@
+{
+  "pair": "vertex-query_matrix",
+  "reviewedOn": "2026-10-27",
+  "scope": "Two original records, one supplied source; no new literature search.",
+  "userChoice": {
+    "choice": "Show k tradeoff with a constant-k reference",
+    "confirmedOn": "2026-10-27"
+  },
+  "primaryEvidence": [
+    {
+      "sourceId": "marcussen-pyne-rubinfeld-shapira-tauber-2026-average",
+      "url": "https://arxiv.org/html/2607.26592v1",
+      "paperRecord": "https://arxiv.org/abs/2607.26592",
+      "publicationStatus": "conference",
+      "publicationEvidence": "Author arXiv record Comments explicitly states FOCS 2026.",
+      "checks": [
+        {
+          "location": "Theorem 1 and §1.1 immediately following it",
+          "finding": "O(nk) randomized average total runtime through k≤n^(1/37). Graph input is adjacency-matrix format; a pair query takes constant time."
+        },
+        {
+          "location": "Theorem 2; Algorithm 13 and §5.3",
+          "finding": "Deterministic average Õ(nk) runtime in the same range. The tilde hides polylog(n); no specific log exponent is inferred."
+        },
+        {
+          "location": "§3.1",
+          "finding": "U is uniform over labeled k-colorable graphs on vertex set [n], counting distinct labelings separately."
+        },
+        {
+          "location": "Algorithm 11, §5.2 correctness and runtime proof",
+          "finding": "On any promised graph and random string, a successful internal loop yields a proper coloring. If all loops fail, exhaustive search yields a full proper coloring. Average runtime combines input randomness and algorithm coins; no external FAIL and no worst-case fast runtime promise."
+        },
+        {
+          "location": "Theorem 3; §2.4; Theorem 9 and §6 proof",
+          "finding": "For k≤n^(1/3), zero-error algorithms require Ω(nk) matrix queries and hence time on every input and random string. This implies average lower bounds under U and algorithm coins. No bounded-error statement is inferred."
+        }
+      ]
+    }
+  ],
+  "preservedIds": {
+    "slices": [
+      "vertex-query-average-case-k-color"
+    ],
+    "results": [
+      "vertex-query-average-k-upper-2026",
+      "vertex-query-average-k-lower-2026"
+    ],
+    "sources": [
+      "marcussen-pyne-rubinfeld-shapira-tauber-2026-average"
+    ]
+  },
+  "corrections": [
+    {
+      "area": "Promise and output",
+      "before": "Exact k-coloring could be read as exactly k nonempty colors, and axes used q/Δ.",
+      "after": "Proper coloring with colors from [k]; unused colors permitted. k is known colorability promise, not maximum degree. k=1 excluded because its promised graph is edgeless and needs no pair queries."
+    },
+    {
+      "area": "Upper resource",
+      "before": "Combined randomized/deterministic runtime statement was unplotted.",
+      "after": "Two separately inspectable variants preserve one original upper ID. Pair-query upper bounds are explicit deductions from unit-cost total runtime. The total-time view displays the theorems directly."
+    },
+    {
+      "area": "Lower scope",
+      "before": "Average-time lower wording, with no precise correctness or larger-range figure.",
+      "after": "Zero-error on every promised G and random string r. Direct matrix-query proof supplies the lower as well as time. Validity reaches n^(1/3); algorithms only reach n^(1/37)."
+    }
+  ],
+  "nonClaims": [
+    "No upper runtime or query bound is asserted beyond n^(1/37).",
+    "No worst-case fast upper runtime is inferred from the average.",
+    "No chosen polylogarithmic exponent, numerical spacing of k, or numerical cost multiplier.",
+    "No lower bound for arbitrary bounded-error algorithms.",
+    "Appendix A LCA probe-count/access-unit ambiguity is outside this full-output figure; no LCA cost imported."
+  ],
+  "representation": {
+    "x": "Symbolic validity endpoints 2, n^(1/37), n^(1/3).",
+    "y": "Average cost divided by nk; tiers 1 and polylog n. Vertical separation describes bound orders, not exact constants or a proved deterministic gap.",
+    "resources": [
+      "Average pair queries",
+      "Average total time"
+    ],
+    "comparison": "Randomized Θ(nk) within the common range. Deterministic Ω(nk) to Õ(nk). The lower-only extension stays visible.",
+    "constantK": "Randomized Θ(n); deterministic Õ(n) upper with Ω(n) lower.",
+    "theme": "All shared colors use CSS theme variables; private deterministic setup color uses light-dark."
+  },
+  "checks": {
+    "isolatedRegression": "Passed: 26 size/resource combinations, both original IDs, two upper variants, exact validity endpoints, no green span beyond n^(1/37), lower extension through n^(1/3), query/time switch, publication filtering including empty/restore state, keyboard theorem selection, cleanup/remount, 360px containment and zero-text overview.",
+    "sharedBuildSchema": "Passed current build.py validate/load_pairs with an in-memory overlay: 231 sources, 151 slices, 406 results, 25 registered pairs at verification time.",
+    "staticVisual": "Inspected 738×548 detail and 330×245 compact in light and dark shared palettes. Query and total-time labels are distinct; green/red visible; labels and range endpoints fit.",
+    "liveBrowser": "Pending parent integration and browser QA."
+  }
+}

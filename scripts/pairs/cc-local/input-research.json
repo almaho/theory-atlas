@@ -1,0 +1,87 @@
+{
+  "problem": "cc",
+  "model": "local",
+  "slices": [
+    {
+      "id": "cc-local-3plus",
+      "problem": "cc",
+      "model": "local",
+      "label": "Distributed LOCAL parallel rounds",
+      "task": "Output a minimum-disagreement partition",
+      "assumptions": [
+        "Positive-edge graph defines unweighted complete signed instance",
+        "Communication on the positive-edge graph; fixed ε>0"
+      ],
+      "xAxis": {
+        "label": "Approximation factor α = cost / OPT",
+        "kind": "approximation",
+        "min": 1,
+        "max": 6,
+        "ticks": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "yAxis": {
+        "label": "Asymptotic round class in n (ordinal tiers)",
+        "kind": "ordinal",
+        "min": 0,
+        "max": 5,
+        "ticks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "tickLabels": [
+          "O(1)",
+          "log* n",
+          "polyloglog n",
+          "√log n",
+          "log n",
+          "polylog n"
+        ]
+      },
+      "parameters": {
+        "epsilon": "fixed positive constant"
+      },
+      "results": [
+        {
+          "id": "cc-local-3plus-rounds",
+          "paperId": "behnezhad-2022-constant-rounds",
+          "kind": "upper",
+          "bound": "O(1/ε) LOCAL rounds",
+          "guarantee": "(3+ε)-approximation",
+          "sourceLocation": "Abstract, main result",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "candidate",
+          "notes": "The paper states LOCAL among supported parallel models; verify detailed communication assumptions from full text.",
+          "plot": null
+        }
+      ]
+    }
+  ],
+  "papers": [
+    {
+      "id": "behnezhad-2022-constant-rounds",
+      "title": "Almost 3-Approximate Correlation Clustering in Constant Rounds",
+      "authors": [
+        "Soheil Behnezhad",
+        "Moses Charikar",
+        "Weiyun Ma",
+        "Li-Yang Tan"
+      ],
+      "year": 2022,
+      "venue": "FOCS 2022",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2205.03710",
+      "verifiedOn": "2026-09-27"
+    }
+  ]
+}

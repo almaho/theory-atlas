@@ -1,0 +1,94 @@
+{
+  "id": "edge-dynamic",
+  "dataFile": "edge-dynamic.json",
+  "javascript": "edge-dynamic.js",
+  "css": "edge-dynamic.css",
+  "routes": [
+    {
+      "key": "edge-dynamic",
+      "sliceId": "edge-dynamic-forest-greedy-incremental-recourse",
+      "label": "Edge coloring · dynamic",
+      "problem": "edge",
+      "model": "dynamic",
+      "visible": true
+    },
+    {
+      "key": "edge-dynamic-forest-fully-random-recourse",
+      "sliceId": "edge-dynamic-forest-fully-random-recourse",
+      "label": "Fully dynamic forest; randomized recourse",
+      "problem": "edge",
+      "model": "dynamic",
+      "visible": false
+    },
+    {
+      "key": "edge-dynamic-general-large-palette-recourse",
+      "sliceId": "edge-dynamic-general-large-palette-recourse",
+      "label": "Fully dynamic general graph; large palette",
+      "problem": "edge",
+      "model": "dynamic",
+      "visible": false
+    },
+    {
+      "key": "edge-dynamic-forest-incremental-random-recourse",
+      "sliceId": "edge-dynamic-forest-incremental-random-recourse",
+      "label": "Incremental forest; randomized recourse",
+      "problem": "edge",
+      "model": "dynamic",
+      "visible": false
+    },
+    {
+      "key": "edge-dynamic-forest-full-optimal-palette-lower",
+      "sliceId": "edge-dynamic-forest-full-optimal-palette-lower",
+      "label": "Fully dynamic forest; optimal Δ-color palette",
+      "problem": "edge",
+      "model": "dynamic",
+      "visible": false
+    },
+    {
+      "key": "edge-dynamic-low-arboricity-adaptive-recourse",
+      "sliceId": "edge-dynamic-low-arboricity-adaptive-recourse",
+      "label": "Fully dynamic low-arboricity graph; adaptive palette",
+      "problem": "edge",
+      "model": "dynamic",
+      "visible": false
+    },
+    {
+      "key": "edge-dynamic-general-near-delta-history",
+      "sliceId": "edge-dynamic-general-near-delta-history",
+      "label": "General graphs · (1+ε)Δ dynamic progression",
+      "problem": "edge",
+      "model": "dynamic",
+      "visible": false
+    },
+    {
+      "key": "edge-dynamic-general-greedy",
+      "sliceId": "edge-dynamic-general-greedy",
+      "label": "General graphs · 2Δ−1 greedy",
+      "problem": "edge",
+      "model": "dynamic",
+      "visible": false
+    },
+    {
+      "key": "edge-dynamic-arboricity-history",
+      "sliceId": "edge-dynamic-arboricity-history",
+      "label": "Sparse graphs · Δ+O(α) dynamic",
+      "problem": "edge",
+      "model": "dynamic",
+      "visible": false
+    }
+  ],
+  "canonicalAliases": {
+    "edge-dynamic-forest-fully-random-recourse": "edge-dynamic",
+    "edge-dynamic-general-large-palette-recourse": "edge-dynamic",
+    "edge-dynamic-forest-incremental-random-recourse": "edge-dynamic",
+    "edge-dynamic-forest-full-optimal-palette-lower": "edge-dynamic",
+    "edge-dynamic-low-arboricity-adaptive-recourse": "edge-dynamic",
+    "edge-dynamic-general-near-delta-history": "edge-dynamic",
+    "edge-dynamic-general-greedy": "edge-dynamic",
+    "edge-dynamic-arboricity-history": "edge-dynamic"
+  },
+  "axisSummary": {
+    "x": "Categorical cost-formula classes, separately for update time and recolorings; no universal order when parameters vary.",
+    "y": "Shared graph / palette / update-contract rows."
+  }
+}

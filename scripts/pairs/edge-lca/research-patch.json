@@ -1,0 +1,74 @@
+{
+  "upsertPapers": [
+    {
+      "id": "fraigniaud-heinrich-kosowski-2017-conflict",
+      "title": "Local Conflict Coloring",
+      "authors": [
+        "Pierre Fraigniaud",
+        "Marc Heinrich",
+        "Adrian Kosowski"
+      ],
+      "year": 2016,
+      "venue": "FOCS 2016; arXiv v2 revised 2017",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1511.01287",
+      "verifiedOn": "2026-10-27",
+      "fullTextUrl": "https://arxiv.org/html/1511.01287v2#S5"
+    }
+  ],
+  "upsertSlices": [
+    {
+      "id": "edge-lca-line-graph-oblivious-baseline",
+      "problem": "edge",
+      "model": "lca",
+      "label": "LCA; direct line-graph oracle baseline",
+      "task": "One color per queried edge, with all answers consistent with one proper coloring of G",
+      "assumptions": [
+        "Direct line-graph oracle supplied; creating or simulating it from an ordinary adjacency-list or adjacency-matrix representation of G is outside this probe count",
+        "Simple graph; maximum line-graph degree D≥2; trivial D<2 cases are omitted",
+        "Use one fixed identifier assignment, oracle ordering and degree/size parameters for every query",
+        "Deterministic oblivious LCA; no stored state between queries",
+        "The resource is input probes per edge-color query, not total time or total cost for explicitly outputting every edge color"
+      ],
+      "xAxis": {
+        "label": "Palette allowance; exact symbolic category",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "degree-plus-one",
+            "label": "D+1≤2Δ−1"
+          }
+        ]
+      },
+      "yAxis": {
+        "label": "Line-graph oracle probes per edge-color query; symbolic category",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "fhk-probes",
+            "label": "D^{O(√D log^{5/2}D)}·log* m"
+          }
+        ]
+      },
+      "parameters": {
+        "D": "Maximum degree of L(G), with 2≤D≤2Δ−2",
+        "m": "Number of edges of G, equivalently number of vertices of L(G)",
+        "Delta": "Maximum degree of the original graph G"
+      },
+      "results": [
+        {
+          "id": "lca-conflict-linegraph-derived-2017",
+          "paperId": "fraigniaud-heinrich-kosowski-2017-conflict",
+          "kind": "upper",
+          "bound": "D^{O(√D log^{5/2}D)} · log* m line-graph oracle probes per queried edge",
+          "guarantee": "Proper edge coloring from a palette of D+1 colors, at most 2Δ−1",
+          "sourceLocation": "Theorem 5.1 (second case), Section 5; l=D+1 and d=1 on L(G)",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "derived_baseline",
+          "notes": "A direct theorem specialization, not an author-stated edge-LCA optimum. D is the degree of the line graph, not the degree Δ of G. The numerical exponent hidden in O(·) is not specified. The reviewed source provides no matching edge-LCA lower bound for this oracle. Direct oracle access to vertices and neighborhoods of L(G), using the probe convention of Theorem 5.1; line-graph vertices are identified original edges",
+          "plot": null
+        }
+      ]
+    }
+  ]
+}

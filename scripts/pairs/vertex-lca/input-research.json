@@ -1,0 +1,235 @@
+{
+  "problem": "vertex",
+  "model": "lca",
+  "slices": [
+    {
+      "id": "vertex-lca-consistent-list-coloring",
+      "problem": "vertex",
+      "model": "lca",
+      "label": "Centralized LCA for (Δ+1)-list coloring",
+      "task": "Answer the color of a requested vertex consistently with one proper global list-coloring",
+      "assumptions": [
+        "Each vertex has at least Δ+1 allowed colors",
+        "Centralized adjacency access and a fixed random seed across adaptive vertex requests",
+        "Randomized; success at least 1−1/poly(n)"
+      ],
+      "xAxis": {
+        "label": "Palette ratio r = q/Δ",
+        "kind": "palette",
+        "min": 1,
+        "max": 2.25,
+        "ticks": [
+          1,
+          1.25,
+          1.5,
+          1.75,
+          2,
+          2.25
+        ],
+        "tickLabels": [
+          "Δ",
+          "5Δ/4",
+          "3Δ/2",
+          "7Δ/4",
+          "2Δ",
+          "9Δ/4"
+        ]
+      },
+      "yAxis": {
+        "label": "Probe ladder in Δ (per answered query)",
+        "kind": "probes",
+        "min": 0,
+        "max": 4,
+        "ticks": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "tickLabels": [
+          "polylog n",
+          "poly(Δ)",
+          "Δ^{O(log log Δ)}",
+          "Δ^{O(log Δ)}",
+          "Δ^{O(log²Δ)}"
+        ]
+      },
+      "parameters": {
+        "n": "vertices",
+        "Delta": "maximum degree"
+      },
+      "results": [
+        {
+          "id": "vertex-lca-chang-et-al-2019",
+          "paperId": "chang-fischer-ghaffari-uitto-zheng-2019-lca-mpc",
+          "kind": "upper",
+          "bound": "Δ^{O(1)}·O(log n) query complexity per vertex",
+          "guarantee": "Consistent proper (Δ+1)-list coloring, with high probability",
+          "sourceLocation": "Theorem 1.3; Section 4.3",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "The exponent hidden in Δ^{O(1)} is not specified; an LCA answers local vertex-color queries rather than outputting all n colors.",
+          "plot": null
+        },
+        {
+          "id": "vertex-lca-mis-reduction-2022",
+          "paperId": "ghaffari-2022-lca-mis-color",
+          "kind": "upper",
+          "bound": "poly(Δ)·log n probes with high probability; expected poly(Δ) probes for a fixed queried vertex",
+          "guarantee": "Consistent (degree+1)-list coloring, hence proper (Δ+1)-coloring",
+          "sourceLocation": "Section 1.2 following Theorem 1.1, coloring reductions",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Reduction from MIS LCA; graph probes are adjacency-list queries. The exact polynomial in Δ is not optimized in the paper; complexity matches the 2019 symbolic class without establishing improvement.",
+          "plot": null
+        },
+        {
+          "id": "vertex-lca-deterministic-conflict-2016",
+          "paperId": "fraigniaud-heinrich-kosowski-2016-conflict",
+          "kind": "upper",
+          "bound": "Δ^{O(√Δ·log^{2.5}Δ)}·log* n probes per vertex",
+          "guarantee": "Deterministic oblivious proper (Δ+1)-list coloring",
+          "sourceLocation": "Corollary 5.1, Section 5",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "Historical deterministic LCA with different dependence on n and Δ than randomized poly(Δ)·log n result. The local conflict-coloring construction includes more general list tasks.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "vertex-lca-average-case-k-color",
+      "problem": "vertex",
+      "model": "lca",
+      "label": "Average-case exact k-coloring, adjacency-matrix probes",
+      "task": "Answer requested vertex colors consistently with an exact k-coloring",
+      "assumptions": [
+        "Uniform distribution over all n-vertex k-colorable graphs",
+        "k≤n^c for some explicit positive constant c",
+        "Randomized algorithm; individual output is correct or FAIL",
+        "Adjacency-matrix pair probes, not list-neighbor access"
+      ],
+      "xAxis": {
+        "label": "Palette ratio r = q/Δ",
+        "kind": "palette",
+        "min": 1,
+        "max": 2.25,
+        "ticks": [
+          1,
+          1.25,
+          1.5,
+          1.75,
+          2,
+          2.25
+        ],
+        "tickLabels": [
+          "Δ",
+          "5Δ/4",
+          "3Δ/2",
+          "7Δ/4",
+          "2Δ",
+          "9Δ/4"
+        ]
+      },
+      "yAxis": {
+        "label": "Probe ladder in Δ (per answered query)",
+        "kind": "probes",
+        "min": 0,
+        "max": 4,
+        "ticks": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "tickLabels": [
+          "polylog n",
+          "poly(Δ)",
+          "Δ^{O(log log Δ)}",
+          "Δ^{O(log Δ)}",
+          "Δ^{O(log²Δ)}"
+        ]
+      },
+      "parameters": {
+        "k": "promise graph colorability threshold",
+        "n": "vertices"
+      },
+      "results": [
+        {
+          "id": "vertex-lca-average-k-2026",
+          "paperId": "marcussen-pyne-rubinfeld-shapira-tauber-2026-average",
+          "kind": "upper",
+          "bound": "poly(k) expected probes per queried vertex, averaged over random k-colorable graphs",
+          "guarantee": "Consistent proper exact k-coloring with high probability over graph/coins",
+          "sourceLocation": "FOCS 2026 abstract; Section 1.2 LCA statement",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "This is average-case over a special graph distribution; it is not worst-case LCA performance and has an NP-hard exact palette target.",
+          "plot": null
+        }
+      ]
+    }
+  ],
+  "papers": [
+    {
+      "id": "chang-fischer-ghaffari-uitto-zheng-2019-lca-mpc",
+      "title": "The Complexity of (Δ+1)-Coloring in Congested Clique, Massively Parallel Computation, and Centralized Local Computation",
+      "authors": [
+        "Yi-Jun Chang",
+        "Manuela Fischer",
+        "Mohsen Ghaffari",
+        "Jara Uitto",
+        "Yufan Zheng"
+      ],
+      "year": 2019,
+      "venue": "PODC 2019",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1808.08419",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "ghaffari-2022-lca-mis-color",
+      "title": "Local Computation of Maximal Independent Set",
+      "authors": [
+        "Mohsen Ghaffari"
+      ],
+      "year": 2022,
+      "venue": "FOCS 2022",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2210.01104",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "fraigniaud-heinrich-kosowski-2016-conflict",
+      "title": "Local Conflict Coloring",
+      "authors": [
+        "Pierre Fraigniaud",
+        "Marc Heinrich",
+        "Adrian Kosowski"
+      ],
+      "year": 2016,
+      "venue": "FOCS 2016",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1511.01287",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "marcussen-pyne-rubinfeld-shapira-tauber-2026-average",
+      "title": "Graph k-Coloring in Average Sublinear Time",
+      "authors": [
+        "Cassandra Marcussen",
+        "Edward Pyne",
+        "Ronitt Rubinfeld",
+        "Asaf Shapira",
+        "Shlomo Tauber"
+      ],
+      "year": 2026,
+      "venue": "FOCS 2026",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2607.26592",
+      "verifiedOn": "2026-09-27"
+    }
+  ]
+}

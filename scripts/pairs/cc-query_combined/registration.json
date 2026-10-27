@@ -1,0 +1,145 @@
+{
+  "id": "cc-query_combined",
+  "dataFile": "cc-query-combined.json",
+  "javascript": "cc-query-combined.js",
+  "css": "cc-query-combined.css",
+  "routes": [
+    {
+      "key": "cc-query_combined",
+      "sliceId": "cc-query-combined-multiplicative",
+      "label": "Correlation clustering · combined graph queries",
+      "problem": "cc",
+      "model": "query_combined",
+      "visible": true
+    },
+    {
+      "key": "cc-query_combined-oracle",
+      "sliceId": "cc-query-same-cluster-oracle",
+      "label": "Correlation clustering · optimal-cluster oracle",
+      "problem": "cc",
+      "model": "query_combined",
+      "visible": true
+    },
+    {
+      "key": "cc-query_combined-additive",
+      "sliceId": "cc-query-general-additive",
+      "label": "Correlation clustering · combined additive queries",
+      "problem": "cc",
+      "model": "query_combined",
+      "visible": false
+    },
+    {
+      "key": "cc-query_combined-memory",
+      "sliceId": "cc-query-random-memory-value",
+      "label": "Correlation clustering · random queries and memory",
+      "problem": "cc",
+      "model": "query_combined",
+      "visible": false
+    }
+  ],
+  "canonicalAliases": {
+    "cc-query_combined-additive": "cc-query_combined"
+  },
+  "axisSummary": {
+    "x": "Approximation / error contract, separated by query model",
+    "y": "Graph time or oracle-query complexity; memory tradeoff remains separate",
+    "note": "Ordinary graph access and an optimal-partition oracle have independent panels."
+  },
+  "axisDetails": {
+    "multiplicative": {
+      "x": {
+        "label": "Base c in (c+ε)-approximation",
+        "kind": "numeric",
+        "domain": [
+          1.35,
+          1.53
+        ]
+      },
+      "y": {
+        "label": "Total time at sufficiently small fixed ε",
+        "kind": "symbolic",
+        "ticks": [
+          "Õ(n)",
+          "n²"
+        ]
+      },
+      "warning": "The plotted c is the base constant, not a chosen full ratio. Both markers retain the ε-dependent time formula."
+    },
+    "additive": {
+      "x": {
+        "label": "Output error contract",
+        "kind": "categorical",
+        "ticks": [
+          "OPT+εn²"
+        ]
+      },
+      "y": {
+        "label": "Required graph queries",
+        "kind": "symbolic",
+        "ticks": [
+          "Ω(n/ε)"
+        ]
+      },
+      "warning": "The theorem is informal; no invented ε domain or numerical curve."
+    },
+    "oracle-opt": {
+      "x": {
+        "label": "Approximation target · categories",
+        "kind": "categorical",
+        "ticks": [
+          "Exact",
+          "1+γ/10",
+          "Expected 2"
+        ]
+      },
+      "y": {
+        "label": "Oracle-query order in OPT",
+        "kind": "symbolic",
+        "ticks": [
+          "o(OPT)",
+          "O(OPT)"
+        ]
+      },
+      "warning": "Linear-query markers do not give the same constant; labels distinguish ≤2OPT and E[Q]≤OPT. Lower bound forbids sublinear order only at the near-optimal target under Gap-ETH."
+    },
+    "oracle-k": {
+      "x": {
+        "label": "Near-optimal MinDisAgree[k]",
+        "kind": "categorical",
+        "ticks": [
+          "0<ε≤δ"
+        ]
+      },
+      "y": {
+        "label": "Oracle-query complexity",
+        "kind": "symbolic",
+        "ticks": [
+          "Ω(k/polylog k)",
+          "O(k¹⁴ log k log n/ε⁶)"
+        ]
+      },
+      "warning": "δ is the unknown positive constant in the ETH theorem. Symbolic spacing expresses a gap, not a numeric exponent."
+    },
+    "memory": {
+      "x": {
+        "label": "Accuracy exponent a: ε=n^(−a)",
+        "kind": "numeric",
+        "domain": [
+          0,
+          0.5
+        ],
+        "openEndpoints": true
+      },
+      "y": {
+        "label": "Lower-bound query exponent p",
+        "kind": "derived-exponent",
+        "formula": "p=min{1+2a−b/2,3/2−b} for b<0; min{1+2a−2b,3/2−b} for b≥0",
+        "domain": [
+          0.5,
+          2
+        ]
+      },
+      "parameter": "γ=n^b, −1/2<b<1/2; memory=n^(1/2+b) bits."
+    }
+  }
+}

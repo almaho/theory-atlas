@@ -1,0 +1,245 @@
+{
+  "pair": "vertex-stream",
+  "reviewedOn": "2026-10-27",
+  "scope": "Only the 22 supplied records and their 11 primary papers were reviewed.",
+  "records": [
+    {
+      "id": "vertex-stream-ack-2019",
+      "paperId": "assadi-chen-khanna-2019-sublinear-coloring",
+      "url": "https://arxiv.org/html/1807.08886",
+      "theorem": "Theorem 2, §4.1",
+      "verified": true,
+      "correctedBound": "Õ(n) bits; one pass",
+      "palette": "Δ+1",
+      "scopeCorrection": "Final Δ need not bound degrees during the stream. Polynomial postprocessing."
+    },
+    {
+      "id": "vertex-stream-deterministic-odelta-2026",
+      "paperId": "chechik-chen-zhang-2026-streaming",
+      "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol374-icalp2026/html/LIPIcs.ICALP.2026.56/LIPIcs.ICALP.2026.56.html",
+      "theorem": "Theorem 2; §3",
+      "verified": true,
+      "correctedBound": "O(η⁻¹√logΔ) passes; Õ(n) bits",
+      "palette": "O(Δ); refined (1+η)Δ for fixed η",
+      "scopeCorrection": "Fixed η∈(0,1). Main figure conservatively uses O(Δ): theorem suppresses integer/small-degree conventions. No guessed numerical palette ratio."
+    },
+    {
+      "id": "vertex-result-23",
+      "paperId": "assadi-chen-sun-2022-deterministic",
+      "url": "https://arxiv.org/html/2109.14891",
+      "theorem": "Theorem 3; §5.4 dynamic extension",
+      "verified": true,
+      "correctedBound": "O(logΔ) passes; O(n log n) bits",
+      "palette": "O(Δ)",
+      "scopeCorrection": "The dynamic sparse-recovery extension preserves asymptotic space and passes. An initial degree pass removes advance knowledge of Δ."
+    },
+    {
+      "id": "vertex-extended-vertex-stream-deterministic-multipass-degree-palette-16",
+      "paperId": "assadi-chen-sun-2022-deterministic",
+      "url": "https://arxiv.org/html/2109.14891",
+      "theorem": "Theorem 2; §5.4 extensions",
+      "verified": true,
+      "correctedBound": "2 passes; Õ(n) bits",
+      "palette": "O(Δ²)",
+      "scopeCorrection": "Known Δ: O(n log n) bits. Parallel degree guesses preserve two passes when Δ is unknown, with logarithmic overhead."
+    },
+    {
+      "id": "vertex-extended-vertex-stream-deterministic-multipass-degree-palette-17",
+      "paperId": "assadi-chakrabarti-ghosh-stoeckl-2023-robust",
+      "url": "https://arxiv.org/html/2212.10641",
+      "theorem": "Theorem 1, restated as Theorem 5",
+      "verified": true,
+      "correctedBound": "O(logΔ loglogΔ) passes; O(n log²n) bits",
+      "palette": "Δ+1",
+      "scopeCorrection": "Insertion streams. Log expressions denote asymptotic classes; bounded degree is handled trivially."
+    },
+    {
+      "id": "vertex-result-26",
+      "paperId": "assadi-chen-sun-2022-deterministic",
+      "url": "https://arxiv.org/html/2109.14891",
+      "theorem": "Result 1; Corollary 4.7(i)",
+      "verified": true,
+      "correctedBound": "No deterministic one-pass Õ(n)-space algorithm",
+      "palette": "exp(Δ^{o(1)}) impossible in deterministic semi-streaming",
+      "scopeCorrection": "For each a≥1 and large n, space O(n log^a n) cannot guarantee fewer than exp(Δ^{1/(4a)}) colors at Δ=200 log^{a+1}n. Not an exp(Ω(Δ)) bound."
+    },
+    {
+      "id": "vertex-result-27",
+      "paperId": "chakrabarti-ghosh-stoeckl-2022-robust",
+      "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol215-itcs2022/LIPIcs.ITCS.2022.37/LIPIcs.ITCS.2022.37.pdf",
+      "theorem": "Theorem 1; §4 lower bound",
+      "verified": true,
+      "correctedBound": "Ω(nΔ²/K) bits",
+      "palette": "K, Δ+1≤K≤n/2",
+      "scopeCorrection": "In particular K=O(Δ) requires Ω(nΔ) space. Õ(n) space forces K=Ω̃(Δ²); no numeric frontier from suppressed logarithms."
+    },
+    {
+      "id": "vertex-extended-vertex-stream-robust-incremental-37",
+      "paperId": "chakrabarti-ghosh-stoeckl-2022-robust",
+      "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol215-itcs2022/LIPIcs.ITCS.2022.37/LIPIcs.ITCS.2022.37.pdf",
+      "theorem": "Theorem 10; Table 1",
+      "verified": true,
+      "correctedBound": "O(n log⁴n) working bits + Õ(nL) external random bits",
+      "palette": "O(Δ³)",
+      "scopeCorrection": "Δ is the current degree; L bounds final degree and must be known. Choosing L=Δ for a fixed degree cap gives Õ(nΔ) external bits."
+    },
+    {
+      "id": "vertex-extended-vertex-stream-robust-incremental-38",
+      "paperId": "chakrabarti-ghosh-stoeckl-2022-robust",
+      "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol215-itcs2022/LIPIcs.ITCS.2022.37/LIPIcs.ITCS.2022.37.pdf",
+      "theorem": "Corollary 15, k=2; Table 1",
+      "verified": true,
+      "correctedBound": "Õ(n√Δ) bits",
+      "palette": "O(Δ²)",
+      "scopeCorrection": "Random bits count toward memory. This accounting differs from the external-tape algorithms."
+    },
+    {
+      "id": "vertex-extended-vertex-stream-robust-incremental-39",
+      "paperId": "assadi-chakrabarti-ghosh-stoeckl-2023-robust",
+      "url": "https://arxiv.org/html/2212.10641",
+      "theorem": "Theorem 3; Algorithm 2 analysis",
+      "verified": true,
+      "correctedBound": "Õ(n) working bits + O(nΔ) external random bits",
+      "palette": "O(Δ^{5/2})",
+      "scopeCorrection": "Fixed degree cap Δ. The semi-streaming claim excludes oracle randomness; it is not a total-memory Õ(n) guarantee."
+    },
+    {
+      "id": "vertex-extended-vertex-stream-robust-incremental-40",
+      "paperId": "assadi-chakrabarti-ghosh-stoeckl-2023-robust",
+      "url": "https://arxiv.org/html/2212.10641",
+      "theorem": "Corollary 4.7, β=1/3 and β=1/2",
+      "verified": true,
+      "correctedBound": "Õ(nΔ^{1/3}) for O(Δ²); Õ(n√Δ) for O(Δ^{7/4})",
+      "palette": "O(Δ²) or O(Δ^{7/4})",
+      "scopeCorrection": "Tradeoff O(Δ^{(5−3β)/2}) colors with Õ(nΔ^β) working space. Proof assumes Δ=Ω(log²n) and integer powers, with routine rounding. Only the two supplied β choices are plotted."
+    },
+    {
+      "id": "vertex-result-32",
+      "paperId": "bera-ghosh-2018-color-stream",
+      "url": "https://arxiv.org/pdf/1807.07640",
+      "theorem": "Theorem 3.2 and §3 small-degree branch",
+      "verified": true,
+      "correctedBound": "O(ε⁻¹n log n) words; one pass",
+      "palette": "(1+ε)Δ for fixed ε and Δ=ω(log n); Δ+1 in the small-degree branch",
+      "scopeCorrection": "The theorem’s palette calculation uses Δ=ω(log n); bounded/logarithmic degree is stored and greedily Δ+1-colored. Do not read fractional palettes literally for tiny Δ."
+    },
+    {
+      "id": "vertex-result-33",
+      "paperId": "assadi-kumar-mittal-2022-brooks",
+      "url": "https://arxiv.org/html/2203.10984",
+      "theorem": "Theorem 1.1 and following general-graph reduction",
+      "verified": true,
+      "correctedBound": "Õ(n) space; one pass",
+      "palette": "Δ, or correctly report a Brooks obstruction",
+      "scopeCorrection": "Connected components that are cliques or odd cycles are checked separately. Final graph coloring; each edge appears once."
+    },
+    {
+      "id": "vertex-extended-vertex-stream-brooks-43",
+      "paperId": "flin-halldorsson-2026-beyond-brooks",
+      "url": "https://arxiv.org/html/2605.07774",
+      "theorem": "Theorem 1",
+      "verified": true,
+      "correctedBound": "Õ(n) space; one pass",
+      "palette": "Δ−1",
+      "scopeCorrection": "Each edge appears once. This palette is not promised for arbitrary graphs."
+    },
+    {
+      "id": "vertex-extended-vertex-stream-brooks-44",
+      "paperId": "flin-halldorsson-2026-beyond-brooks",
+      "url": "https://arxiv.org/html/2605.07774",
+      "theorem": "Theorem 2; §6 INDEX reduction",
+      "verified": true,
+      "correctedBound": "Ω(n(k+1)) bits",
+      "palette": "Δ−k; 0≤k<(Δ−1)/2",
+      "scopeCorrection": "The theorem uses (Δ+1)/2<c≤Δ, c=Δ−k. Displayed k=0,1 give Ω(n); the general family remains in the inspector."
+    },
+    {
+      "id": "vertex-result-36",
+      "paperId": "bera-chakrabarti-ghosh-2020-degeneracy",
+      "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol168-icalp2020/LIPIcs.ICALP.2020.11/LIPIcs.ICALP.2020.11.pdf",
+      "theorem": "Theorem 10; Theorem 8 and equation (3)",
+      "verified": true,
+      "correctedBound": "O(ε⁻²n log⁴n) bits",
+      "palette": "κ+O(εκ+1); κ+o(κ) in the growing-κ regime",
+      "scopeCorrection": "Source states (1+O(ε))κ. Atlas retains +1 for integer/small-κ correctness: one-block case is greedily κ+1 colored; multi-block bound is κ+λ+ℓ. Set ε=1/log n for Õ(n) space; unknown κ handled by parallel guesses."
+    },
+    {
+      "id": "vertex-extended-vertex-stream-degeneracy-46",
+      "paperId": "bera-chakrabarti-ghosh-2020-degeneracy",
+      "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol168-icalp2020/LIPIcs.ICALP.2020.11/LIPIcs.ICALP.2020.11.pdf",
+      "theorem": "Theorems 20–21",
+      "verified": true,
+      "correctedBound": "Ω(n²/λ²) bits",
+      "palette": "κ+λ, integer λ>1",
+      "scopeCorrection": "Even insertion-only and κ known in advance. Constant λ gives quadratic space; this is a different accuracy than the relative-slack upper."
+    },
+    {
+      "id": "vertex-result-39",
+      "paperId": "halldorsson-kuhn-nolin-tonoyan-2022-degree",
+      "url": "https://arxiv.org/html/2112.00604",
+      "theorem": "Corollary 3(1); §8 Streaming",
+      "verified": true,
+      "correctedBound": "Õ(n) space; one pass",
+      "palette": "Each vertex chooses from its own final dᵥ+1 list",
+      "scopeCorrection": "The final list of each vertex must arrive before any incident edge. Source space assumes ordinary bounded-size vertex/color encodings."
+    },
+    {
+      "id": "vertex-stream-random-order-chromatic-2026",
+      "paperId": "assadi-sundaresan-yazdanyar-2026-streaming-few-colors",
+      "url": "https://arxiv.org/html/2510.18177",
+      "theorem": "Theorem 4; §7.1",
+      "verified": true,
+      "correctedBound": "Õ(n^{1+1/t}) space",
+      "palette": "Promise χ≤q versus χ>q^t, integers q,t≥2",
+      "scopeCorrection": "Stored subgraphs may be solved by exhaustive computation. This is a space result, not a polynomial-time guarantee."
+    },
+    {
+      "id": "vertex-extra-62",
+      "paperId": "assadi-sundaresan-yazdanyar-2026-streaming-few-colors",
+      "url": "https://arxiv.org/html/2510.18177",
+      "theorem": "Theorem 5; §7.2",
+      "verified": true,
+      "correctedBound": "Ω(n²/(q⁵·4^{q⁴})) bits; Ω(n²) for fixed q",
+      "palette": "Promise χ≤q versus χ>q²/4",
+      "scopeCorrection": "Integer q≥5 for a nonvacuous gap, q=o(log^{1/4}n). Theorem allows q≥3 but q≤4 gives an overlapping promise. Gap and success differ from the upper: not a matching q² frontier."
+    },
+    {
+      "id": "vertex-stream-turnstile-chromatic-upper-2026",
+      "paperId": "assadi-sundaresan-yazdanyar-2026-streaming-few-colors",
+      "url": "https://arxiv.org/html/2510.18177",
+      "theorem": "Theorem 6; §8.1",
+      "verified": true,
+      "correctedBound": "Õ(n²/t²) space",
+      "palette": "Promise χ≤q versus χ≥qt",
+      "scopeCorrection": "Integers q,t; display t≥2 and qt≤n to keep the promise nonoverlapping and nonvacuous. Exact chromatic computations may be exponential."
+    },
+    {
+      "id": "vertex-extra-61",
+      "paperId": "assadi-sundaresan-yazdanyar-2026-streaming-few-colors",
+      "url": "https://arxiv.org/html/2510.18177",
+      "theorem": "Theorem 7; §8.2 and Remark 8.1",
+      "verified": true,
+      "correctedBound": "Ω̃(n²/t²) bits",
+      "palette": "Promise χ≤q versus χ≥qt",
+      "scopeCorrection": "3≤q≤polylog n; integer t≥2, qt≤n in this view. Matches upper up to logarithms on the common multigraph contract, not necessarily on short simple-graph streams."
+    }
+  ],
+  "decisions": [
+    "Two atlas routes: constructing colors and deciding a chromatic gap.",
+    "Categorical symbolic formulas avoid invented numeric exponents or palette constants.",
+    "Robust external random tape is excluded only where the source explicitly permits it; the lower applies even with free randomness.",
+    "The original degeneracy shorthand omits unavoidable integer slack. κ+O(εκ+1) is a conservative atlas convention derived from the one-block greedy case and the multi-block formula κ+λ+ℓ.",
+    "The 2018 near-Δ bound uses Δ=ω(log n) for fixed ε; the small-degree branch returns Δ+1.",
+    "The 2026 deterministic paper's refined (1+η)Δ theorem is retained in the inspector; main plot conservatively uses O(Δ), avoiding unverified tiny-degree rounding.",
+    "Beyond Brooks lower range corrected to k<(Δ−1)/2 by substituting c=Δ−k into Theorem 2.",
+    "General-turnstile decision uses χ≥qt and multigraphs; unbounded stream length/intermediate frequencies belong to the lower's model.",
+    "Random-order decision lower uses q²/4 and success ≥1−2^{−q⁴}/4. It is not a matching lower for the upper's q² gap."
+  ],
+  "unresolvedFactualBlockers": [],
+  "presentationCaveats": [
+    "No claim of exhaustive literature coverage.",
+    "No generic randomized Δ+1 streaming lower manufactured.",
+    "Brooks lower plotted at k=0,1 only; general formula remains inspectable.",
+    "Focus and full atlas share one chart implementation."
+  ]
+}

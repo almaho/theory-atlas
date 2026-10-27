@@ -1,0 +1,26 @@
+{
+  "id": "edge-lca",
+  "dataFile": "edge-lca.json",
+  "javascript": "edge-lca.js",
+  "css": "edge-lca.css",
+  "routes": [
+    {
+      "key": "edge-lca",
+      "sliceId": "edge-lca-line-graph-oblivious-baseline",
+      "label": "Edge coloring · direct line-graph LCA",
+      "problem": "edge",
+      "model": "lca",
+      "visible": true
+    }
+  ],
+  "canonicalAliases": {},
+  "pointFields": {
+    "x": "paletteKey",
+    "y": "probeKey"
+  },
+  "axisSummary": {
+    "x": "Exact palette allowance D+1≤2Δ−1; symbolic category",
+    "y": "Direct line-graph oracle probes per edge-color query; exact theorem formula",
+    "note": "One derived algorithm baseline; no verified matching lower or numerical frontier"
+  }
+}

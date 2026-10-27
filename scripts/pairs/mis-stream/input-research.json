@@ -1,0 +1,343 @@
+{
+  "problem": "mis",
+  "model": "stream",
+  "slices": [
+    {
+      "id": "mis-stream-semistreaming-passes",
+      "problem": "mis",
+      "model": "stream",
+      "label": "Semi-streaming, explicit MIS",
+      "task": "Output a maximal independent set of an arbitrary n-vertex graph",
+      "assumptions": [
+        "Arbitrary-order edge stream",
+        "O(n polylog n) space",
+        "Constant success probability for randomized lower bound"
+      ],
+      "parameters": {},
+      "results": [
+        {
+          "id": "mis-stream-ahn-et-al-upper",
+          "paperId": "ahn-et-al-2015-stream-mis",
+          "kind": "upper",
+          "bound": "O(log log n) passes; O(n polylog n) space",
+          "guarantee": "Explicit random-order greedy maximal independent set of the positive-edge graph, with high probability",
+          "sourceLocation": "Section 4.1, Semi-Streaming Algorithm; Lemma 19 and Theorem 20",
+          "evidenceStatus": "verified",
+          "frontierStatus": "current_best_verified",
+          "notes": "The paper states the 3-approximate correlation-clustering application; its chosen pivots are precisely a random-order greedy MIS of the positive-edge graph, as shown by its algorithm. This MIS extraction is a direct inference from that primary algorithm and its pass simulation. Ordinary insertion-only edge presentation; do not automatically transfer to turnstile streams.",
+          "plot": null
+        },
+        {
+          "id": "mis-stream-assadi-et-al-lower",
+          "paperId": "assadi-et-al-2024-stream-mis",
+          "kind": "lower",
+          "bound": "Ω(log log n) passes",
+          "guarantee": "Explicit maximal independent set with constant probability of success",
+          "sourceLocation": "Abstract; main theorem",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "current_best_verified",
+          "notes": "Semi-streaming space constraint is essential; arbitrary-order stream. This is a pass lower bound, not an Ω(n)-space claim.",
+          "plot": null
+        }
+      ],
+      "mode": "1d",
+      "axis": {
+        "label": "Number of full graph passes",
+        "kind": "passes",
+        "min": 1,
+        "max": 8,
+        "ticks": [
+          1,
+          2,
+          3,
+          4,
+          6,
+          8
+        ]
+      }
+    },
+    {
+      "id": "mis-stream-edge-onepass-explicit",
+      "problem": "mis",
+      "model": "stream",
+      "label": "One-pass arbitrary-order edge stream",
+      "task": "Output any exact maximal independent set",
+      "assumptions": [
+        "Insertion-only arbitrary-order edge stream",
+        "Randomized constant success probability; n vertices",
+        "Storage bits, one pass"
+      ],
+      "parameters": {},
+      "results": [
+        {
+          "id": "mis-stream-cormode-2019-onepass",
+          "paperId": "cormode-dark-konrad-2019-stream",
+          "kind": "lower",
+          "bound": "Ω(n²) bits in one pass",
+          "guarantee": "Explicit exact MIS with constant success probability",
+          "sourceLocation": "Abstract; one-pass lower-bound theorem",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "current_best_verified",
+          "notes": "Quadratic bound concerns inclusion-maximal MIS, not maximum-cardinality MIS.",
+          "plot": {
+            "v": 2.0,
+            "closure": "left",
+            "strict": true,
+            "label": "Ω(n²) bits in one pass"
+          }
+        },
+        {
+          "id": "mis-stream-assadi-2024-p1",
+          "paperId": "assadi-et-al-2024-stream-mis",
+          "kind": "lower",
+          "bound": "n^(2-o(1)) bits for p=1",
+          "guarantee": "Explicit exact MIS with constant success probability",
+          "sourceLocation": "Result 1 / Corollary 2 with p=1",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "General multipass theorem specialized to a single pass; Cormode–Dark–Konrad gives the sharper Ω(n²) statement.",
+          "plot": {
+            "v": 2.0,
+            "closure": "left",
+            "strict": true,
+            "label": "n^(2-o(1)) bits for p=1"
+          }
+        }
+      ],
+      "mode": "1d",
+      "axis": {
+        "label": "Space exponent p in Õ(n^p) bits",
+        "kind": "exponent",
+        "min": 0,
+        "max": 2,
+        "ticks": [
+          0,
+          0.5,
+          1,
+          1.5,
+          2
+        ],
+        "tickLabels": [
+          "polylog",
+          "√n",
+          "n",
+          "n^{3/2}",
+          "n²"
+        ]
+      }
+    },
+    {
+      "id": "mis-stream-p-pass-tradeoff",
+      "problem": "mis",
+      "model": "stream",
+      "label": "Arbitrary passes, space tradeoff",
+      "task": "Output any maximal independent set",
+      "assumptions": [
+        "p≥1 passes over insertion-only arbitrary-order edge stream",
+        "Randomized constant success probability",
+        "Space measured in bits; n vertices"
+      ],
+      "parameters": {
+        "p": "Number of passes"
+      },
+      "results": [
+        {
+          "id": "mis-stream-assadi-2024-tradeoff",
+          "paperId": "assadi-et-al-2024-stream-mis",
+          "kind": "lower",
+          "bound": "n^(1+1/(2^p−1)−o(1)) bits for p passes",
+          "guarantee": "Any exact MIS with constant success probability",
+          "sourceLocation": "Result 1; Corollary 2",
+          "evidenceStatus": "verified",
+          "frontierStatus": "current_best_verified",
+          "notes": "Pass-space lower tradeoff; for semi-streaming O(n polylog n) space it implies Ω(log log n) passes.",
+          "plot": null
+        }
+      ],
+      "mode": "1d",
+      "axis": {
+        "label": "Space exponent p in Õ(n^p) bits",
+        "kind": "exponent",
+        "min": 0,
+        "max": 2,
+        "ticks": [
+          0,
+          0.5,
+          1,
+          1.5,
+          2
+        ],
+        "tickLabels": [
+          "polylog",
+          "√n",
+          "n",
+          "n^{3/2}",
+          "n²"
+        ]
+      }
+    },
+    {
+      "id": "mis-stream-vertex-arrival-explicit",
+      "problem": "mis",
+      "model": "stream",
+      "label": "One-pass explicit vertex arrival",
+      "task": "Output any maximal independent set",
+      "assumptions": [
+        "On arrival, each vertex reveals all edges to previous vertices",
+        "One pass, arbitrary vertex order, n vertices"
+      ],
+      "parameters": {},
+      "results": [
+        {
+          "id": "mis-stream-cormode-vertex-greedy",
+          "paperId": "cormode-dark-konrad-2019-stream",
+          "kind": "upper",
+          "bound": "O(n log n) bits (store selected vertex IDs); one pass",
+          "guarantee": "Explicit exact MIS using greedy vertex arrival",
+          "sourceLocation": "Abstract; introduction model comparison",
+          "evidenceStatus": "verified",
+          "frontierStatus": "baseline",
+          "notes": "The paper states storage is just that needed for the independent set; O(n log n) bits follows if IDs take O(log n) bits. This is distinct from edge arrival.",
+          "plot": {
+            "v": 1.0,
+            "closure": "right",
+            "strict": false,
+            "label": "O(n log n) bits (store selec"
+          }
+        }
+      ],
+      "mode": "1d",
+      "axis": {
+        "label": "Space exponent p in Õ(n^p) bits",
+        "kind": "exponent",
+        "min": 0,
+        "max": 2,
+        "ticks": [
+          0,
+          0.5,
+          1,
+          1.5,
+          2
+        ],
+        "tickLabels": [
+          "polylog",
+          "√n",
+          "n",
+          "n^{3/2}",
+          "n²"
+        ]
+      }
+    },
+    {
+      "id": "mis-stream-lexicographic-first",
+      "problem": "mis",
+      "model": "stream",
+      "label": "Lexicographically first MIS, p-pass edge stream",
+      "task": "Output the MIS produced by greedy order on vertex IDs",
+      "assumptions": [
+        "p-pass arbitrary-order edge stream; n vertices",
+        "Constant success probability",
+        "Unlike arbitrary MIS, the output is uniquely constrained by vertex order"
+      ],
+      "parameters": {
+        "p": "Number of passes"
+      },
+      "results": [
+        {
+          "id": "mis-stream-assadi-2019-lfmis",
+          "paperId": "assadi-chen-khanna-2019-polynomial-passes",
+          "kind": "lower",
+          "bound": "Ω(n²/p⁵) bits for p passes",
+          "guarantee": "Lexicographically first maximal independent set",
+          "sourceLocation": "Result 3; Theorem 7",
+          "evidenceStatus": "verified",
+          "frontierStatus": "current_best_verified",
+          "notes": "Implies Ω̃(n^(1/5)) passes in semi-streaming. It must not be interpreted as a lower bound for finding any MIS.",
+          "plot": null
+        }
+      ],
+      "mode": "1d",
+      "axis": {
+        "label": "Space exponent p in Õ(n^p) bits",
+        "kind": "exponent",
+        "min": 0,
+        "max": 2,
+        "ticks": [
+          0,
+          0.5,
+          1,
+          1.5,
+          2
+        ],
+        "tickLabels": [
+          "polylog",
+          "√n",
+          "n",
+          "n^{3/2}",
+          "n²"
+        ]
+      }
+    }
+  ],
+  "papers": [
+    {
+      "id": "assadi-et-al-2024-stream-mis",
+      "title": "O(log log n) Passes is Optimal for Semi-Streaming Maximal Independent Set",
+      "authors": [
+        "Sepehr Assadi",
+        "Christian Konrad",
+        "Kheeran K. Naidu",
+        "Janani Sundaresan"
+      ],
+      "year": 2024,
+      "venue": "STOC 2024",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2312.13178",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "ahn-et-al-2015-stream-mis",
+      "title": "Correlation Clustering in Data Streams",
+      "authors": [
+        "Kook Jin Ahn",
+        "Graham Cormode",
+        "Sudipto Guha",
+        "Andrew McGregor",
+        "Anthony Wirth"
+      ],
+      "year": 2015,
+      "venue": "ICML 2015",
+      "publicationStatus": "conference",
+      "url": "https://proceedings.mlr.press/v37/ahn15.html",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "cormode-dark-konrad-2019-stream",
+      "title": "Independent Sets in Vertex-Arrival Streams",
+      "authors": [
+        "Graham Cormode",
+        "Jacques Dark",
+        "Christian Konrad"
+      ],
+      "year": 2019,
+      "venue": "ICALP 2019",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2019.45",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "assadi-chen-khanna-2019-polynomial-passes",
+      "title": "Polynomial Pass Lower Bounds for Graph Streaming Algorithms",
+      "authors": [
+        "Sepehr Assadi",
+        "Yu Chen",
+        "Sanjeev Khanna"
+      ],
+      "year": 2019,
+      "venue": "STOC 2019",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1904.04720",
+      "verifiedOn": "2026-09-27"
+    }
+  ]
+}

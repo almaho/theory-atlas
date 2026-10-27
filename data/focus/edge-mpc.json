@@ -1,0 +1,262 @@
+{
+  "id": "edge-mpc",
+  "problem": "edge",
+  "model": "mpc",
+  "title": "Edge coloring · MPC",
+  "reviewedOn": "2026-10-27",
+  "sources": {
+    "behnezhad-et-al-2019-mpc-stream": {
+      "id": "behnezhad-et-al-2019-mpc-stream",
+      "title": "Streaming and Massively Parallel Algorithms for Edge Coloring",
+      "authors": [
+        "Soheil Behnezhad",
+        "Mahsa Derakhshan",
+        "MohammadTaghi Hajiaghayi",
+        "Marina Knittel",
+        "Hamed Saleh"
+      ],
+      "year": 2019,
+      "venue": "ESA 2019",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ESA.2019.15",
+      "verifiedOn": "2026-10-27",
+      "fullTextUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol144-esa2019/LIPIcs.ESA.2019.15/LIPIcs.ESA.2019.15.pdf"
+    },
+    "czumaj-davies-parter-2024-mpc": {
+      "id": "czumaj-davies-parter-2024-mpc",
+      "title": "Component Stability in Low-Space Massively Parallel Computation",
+      "authors": [
+        "Artur Czumaj",
+        "Peter Davies-Peck",
+        "Merav Parter"
+      ],
+      "year": 2024,
+      "venue": "Distributed Computing 37 (2024)",
+      "publicationStatus": "journal",
+      "url": "https://link.springer.com/article/10.1007/s00446-024-00461-9",
+      "verifiedOn": "2026-10-27",
+      "fullTextUrl": "https://link.springer.com/article/10.1007/s00446-024-00461-9"
+    }
+  },
+  "verifiedRecords": [
+    {
+      "id": "mpc-near-delta-constant-round-2019",
+      "paperId": "behnezhad-et-al-2019-mpc-stream",
+      "kind": "upper",
+      "bound": "O(1) MPC rounds",
+      "guarantee": "Proper edge coloring with high probability",
+      "sourceLocation": "Corollary 2, printed p. 15:4; Theorem 1 and Lemma 7",
+      "evidenceStatus": "theorem_verified",
+      "frontierStatus": "verified_scoped",
+      "notes": "The tilde hides factors depending on log n. Corollary 3 separately assumes Δ=n^Ω(1) and obtains sublinear local space with a different palette. That polynomial-degree regime is not the low-degree regime of the other panel.",
+      "plot": null,
+      "sliceId": "edge-mpc-linear-memory",
+      "graph": "General simple undirected graph with n vertices, m edges and maximum degree Δ",
+      "output": "Explicit proper edge coloring; both endpoints agree on each edge color",
+      "resourceModel": "Synchronous MPC communication rounds; memory in words of O(log n) bits",
+      "sourceId": "behnezhad-et-al-2019-mpc-stream",
+      "panel": "linear",
+      "paletteKey": "linear-additive",
+      "roundKey": "constant",
+      "setup": "linear-randomized",
+      "shortLabel": "BDHKS19 · Corollary 2",
+      "palette": "Δ + Õ(Δ³ᐟ⁴)",
+      "quality": "Proper edge coloring using at most Δ+Õ(Δ³ᐟ⁴) colors",
+      "displayBound": "O(1) rounds",
+      "exactBound": "O(1) MPC rounds; palette Δ+Õ(Δ³ᐟ⁴); O(n) local words and O(m) total words",
+      "localSpace": "O(n) words per machine",
+      "totalSpace": "O(m) words",
+      "localComputation": "Standard MPC permits unrestricted local computation; each assigned subgraph is colored locally using Vizing’s theorem",
+      "computationBadge": "Standard MPC local computation",
+      "stability": "No component-stability claim is needed for this randomized upper bound",
+      "degree": "No polynomial-degree promise for Corollary 2",
+      "probability": "Randomized; successful proper coloring and stated space bounds with probability 1−1/poly(n)",
+      "theorem": "Corollary 2; Theorem 1 and Lemma 7, ESA 2019",
+      "sourceUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol144-esa2019/LIPIcs.ESA.2019.15/LIPIcs.ESA.2019.15.pdf#page=4",
+      "assumptions": [
+        "Simple graph; input is an edge list distributed among machines",
+        "O(n) local memory and O(m) total memory, measured in words",
+        "Unlimited local computation in the MPC round model",
+        "No claim that Δ+Õ(Δ³ᐟ⁴) equals Δ+o(Δ) for bounded Δ"
+      ]
+    },
+    {
+      "id": "edge-mpc-cdp24-upper",
+      "paperId": "czumaj-davies-parter-2024-mpc",
+      "kind": "upper",
+      "bound": "O(poly(Δ)+log Δ · log log log n) rounds",
+      "guarantee": "q=Δ+√Δ log³Δ proper edge coloring",
+      "sourceLocation": "Theorem 21 and proof; end of Section 4.2",
+      "evidenceStatus": "theorem_verified",
+      "frontierStatus": "verified_scoped",
+      "notes": "For sufficiently large fixed Δ, the palette is at most 2Δ−2 and the round bound is O(log log log n), with polynomial local computation. This is an asymptotic specialization, not a claim for every small fixed degree. No exponent is specified for poly(Δ).",
+      "plot": null,
+      "sliceId": "edge-mpc-lowspace-component",
+      "graph": "General simple undirected graph with n vertices, m edges and maximum degree Δ",
+      "output": "Explicit proper edge coloring; both endpoints agree on each edge color",
+      "resourceModel": "Synchronous MPC communication rounds; memory in words of O(log n) bits",
+      "sourceId": "czumaj-davies-parter-2024-mpc",
+      "panel": "lowspace",
+      "paletteKey": "unstable-palette",
+      "roundKey": "unstable-cost",
+      "setup": "low-unstable",
+      "shortLabel": "CDP24 · Theorem 21",
+      "palette": "Δ + √Δ · log³Δ",
+      "quality": "Proper edge coloring with palette Δ+√Δ·log³Δ",
+      "displayBound": "O(poly(Δ)+log Δ · log log log n) rounds",
+      "exactBound": "Palette Δ+√Δ·log³Δ; T=O(poly(Δ)+log Δ·log log log n)=o(log(log_Δ n)) under Δ=(log log n)^{o(1)}",
+      "localSpace": "n^φ words per machine for a fixed 0<φ<1",
+      "totalSpace": "n^{1+o(1)} words",
+      "localComputation": "n^{poly(Δ)} local computation; may be superpolynomial when Δ grows, polynomial for fixed constant Δ",
+      "computationBadge": "Local work: n^{poly(Δ)}",
+      "stability": "Component-unstable: output may depend on other connected components",
+      "degree": "Δ=(log log n)^{o(1)}",
+      "probability": "Deterministic; no failure probability",
+      "theorem": "Theorem 21; Lemma 17; end of Section 4.2, Distributed Computing 2024",
+      "sourceUrl": "https://link.springer.com/article/10.1007/s00446-024-00461-9",
+      "assumptions": [
+        "Low-space MPC with any fixed 0<φ<1",
+        "Degree Δ=(log log n)^{o(1)}",
+        "Component-unstable deterministic algorithm",
+        "n^{1+o(1)} total space and n^{poly(Δ)} local computation",
+        "Palette and poly(Δ) round term remain symbolic"
+      ]
+    },
+    {
+      "id": "edge-mpc-cdp24-lower",
+      "paperId": "czumaj-davies-parter-2024-mpc",
+      "kind": "lower",
+      "bound": "Ω(log(log_Δ n)) rounds, conditional",
+      "guarantee": "q=2Δ−2 edge coloring, even on forests",
+      "sourceLocation": "Theorem 20 and proof",
+      "evidenceStatus": "theorem_verified",
+      "frontierStatus": "verified_conditional",
+      "notes": "The logarithm is log(log_Δ n), not log_Δ(log n). Component stability permits the global parameters allowed by the paper’s formal definition; it does not mean that machines cannot communicate across components. This is not a matched lower bound for Theorem 21.",
+      "plot": null,
+      "sliceId": "edge-mpc-lowspace-component",
+      "graph": "Lower bound holds even for forests of maximum degree Δ; use Δ≥3",
+      "output": "Explicit proper edge coloring; both endpoints agree on each edge color",
+      "resourceModel": "Synchronous MPC communication rounds; memory in words of O(log n) bits",
+      "sourceId": "czumaj-davies-parter-2024-mpc",
+      "panel": "lowspace",
+      "paletteKey": "stable-palette",
+      "roundKey": "stable-cost",
+      "setup": "low-stable",
+      "shortLabel": "CDP24 · Theorem 20",
+      "palette": "2Δ − 2",
+      "quality": "Lower bound for computing a proper (2Δ−2)-edge coloring",
+      "displayBound": "Ω(log(log_Δ n)) rounds",
+      "exactBound": "No deterministic component-stable low-space MPC algorithm uses o(log(log_Δ n)) rounds, assuming the connectivity conjecture",
+      "localSpace": "n^φ words per machine, fixed 0<φ<1",
+      "totalSpace": "Any polynomial total space is allowed by the lower-bound model",
+      "localComputation": "Arbitrary local computation is allowed; this lower bound counts MPC rounds",
+      "computationBadge": "Connectivity conjecture required",
+      "stability": "Deterministic component-stable algorithms only, as formalized in the paper",
+      "degree": "Δ≥3; lower theorem has no Δ=(log log n)^{o(1)} upper restriction",
+      "probability": "Deterministic algorithms; lower bound is conditional on the connectivity conjecture",
+      "conditional": true,
+      "hypothesis": "Connectivity conjecture: distinguishing one n-cycle from two n/2-cycles needs Ω(log n) low-space MPC rounds, even with polynomial global space",
+      "theorem": "Theorem 20 and proof; low-space model in Section 1.1; component stability in Section 2, Distributed Computing 2024",
+      "sourceUrl": "https://link.springer.com/article/10.1007/s00446-024-00461-9",
+      "assumptions": [
+        "Connectivity conjecture",
+        "Deterministic component-stable low-space MPC",
+        "Local space n^φ for fixed 0<φ<1; polynomially many machines",
+        "Palette is exactly the allowance 2Δ−2",
+        "Even forests; Δ≥3",
+        "Does not constrain unrestricted component-unstable or randomized algorithms"
+      ]
+    }
+  ],
+  "relatedResults": [],
+  "figureAxes": {
+    "linear": {
+      "title": "Linear local memory",
+      "x": {
+        "label": "MPC rounds; symbolic formula",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "constant",
+            "label": "O(1)"
+          }
+        ]
+      },
+      "y": {
+        "label": "Exact palette allowance; symbolic category",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "linear-additive",
+            "label": "Δ+Õ(Δ³ᐟ⁴)"
+          }
+        ]
+      }
+    },
+    "lowspace": {
+      "title": "Sublinear local memory, distinct algorithm restrictions",
+      "x": {
+        "label": "MPC rounds; symbolic formulas, not a numerical ratio",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "unstable-cost",
+            "label": "O(poly(Δ)+logΔ·logloglog n)"
+          },
+          {
+            "id": "stable-cost",
+            "label": "Ω(log(log_Δ n)), conditional"
+          }
+        ]
+      },
+      "y": {
+        "label": "Exact palette allowance; symbolic categories",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "unstable-palette",
+            "label": "Δ+√Δ·log³Δ"
+          },
+          {
+            "id": "stable-palette",
+            "label": "2Δ−2"
+          }
+        ]
+      }
+    }
+  },
+  "axisNote": "Horizontal positions are round-formula categories; vertical positions are exact palette/setup categories. Spacing has no numerical meaning. No frontier connects incompatible memory or stability models.",
+  "coverageNote": "Bounded review of 3 supplied records from 2 primary papers; no exhaustive literature claim.",
+  "lowerBoundStatus": "The only verified lower is conditional and applies to deterministic component-stable low-space MPC. No general randomized or unrestricted MPC lower is asserted.",
+  "sourceVerification": [
+    {
+      "sourceId": "behnezhad-et-al-2019-mpc-stream",
+      "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol144-esa2019/LIPIcs.ESA.2019.15/LIPIcs.ESA.2019.15.pdf",
+      "checkedOn": "2026-10-27",
+      "theorems": [
+        "Theorem 1",
+        "Corollary 2",
+        "Corollary 3 (scope note only)",
+        "Lemma 7"
+      ],
+      "note": "Corollary 2 verifies constant rounds and linear local memory; paper measures memory in words. Polynomial-degree extension is a separate regime."
+    },
+    {
+      "sourceId": "czumaj-davies-parter-2024-mpc",
+      "url": "https://link.springer.com/article/10.1007/s00446-024-00461-9",
+      "checkedOn": "2026-10-27",
+      "theorems": [
+        "Theorem 20",
+        "Theorem 21",
+        "Lemma 17",
+        "End of Section 4.2"
+      ],
+      "note": "Conditional component-stable lower separated from deterministic component-unstable upper. Palette comparison only for sufficiently large fixed Δ; computation n^{poly(Δ)} remains visible."
+    }
+  ],
+  "representation": {
+    "localComputation": "Include standard MPC bounds with a visible expensive-computation badge",
+    "questionStatus": "Reversible default after optional setup question; user may still restrict local computation",
+    "specialization": "For sufficiently large fixed Δ, Theorem 21 fits palette 2Δ−2 and has O(log log log n) rounds; Theorem 20 has Ω(log log n) for component-stable algorithms under the conjecture. Constants are not numerically instantiated."
+  }
+}

@@ -1,0 +1,1134 @@
+{
+  "id": "mis-dynamic",
+  "title": "How expensive is maintaining an MIS?",
+  "problem": "mis",
+  "model": "dynamic",
+  "reviewedOn": "2026-10-20",
+  "coverage": "Bounded review of the nine supplied primary sources; not a claim of complete literature coverage.",
+  "sources": {
+    "chechik-zhang-2019-dynamic-mis": {
+      "id": "chechik-zhang-2019-dynamic-mis",
+      "title": "Fully Dynamic Maximal Independent Set in Expected Poly-Log Update Time",
+      "authors": [
+        "Shiri Chechik",
+        "Tianyi Zhang"
+      ],
+      "year": 2019,
+      "venue": "FOCS 2019",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1909.03445",
+      "verifiedOn": "2026-10-20",
+      "fullTextUrl": "https://arxiv.org/html/1909.03445v2"
+    },
+    "behnezhad-et-al-2019-dynamic-mis": {
+      "id": "behnezhad-et-al-2019-dynamic-mis",
+      "title": "Fully Dynamic Maximal Independent Set with Polylogarithmic Update Time",
+      "authors": [
+        "Soheil Behnezhad",
+        "Mahsa Derakhshan",
+        "MohammadTaghi Hajiaghayi",
+        "Cliff Stein",
+        "Madhu Sudan"
+      ],
+      "year": 2019,
+      "venue": "FOCS 2019",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1909.03478",
+      "verifiedOn": "2026-10-20",
+      "fullTextUrl": "https://arxiv.org/html/1909.03478v1"
+    },
+    "bernstein-et-al-2026-dynamic-separation": {
+      "id": "bernstein-et-al-2026-dynamic-separation",
+      "title": "Separations between Oblivious and Adaptive Adversaries for Natural Dynamic Graph Problems",
+      "authors": [
+        "Aaron Bernstein",
+        "Sayan Bhattacharya",
+        "Nick Fischer",
+        "Peter Kiss",
+        "Thatchaphol Saranurak"
+      ],
+      "year": 2026,
+      "venue": "SODA 2026",
+      "publicationStatus": "conference",
+      "url": "https://epubs.siam.org/doi/10.1137/1.9781611978971.202",
+      "verifiedOn": "2026-10-20",
+      "fullTextUrl": "https://arxiv.org/html/2510.20341v1"
+    },
+    "assadi-onak-schieber-solomon-2018-dynamic": {
+      "id": "assadi-onak-schieber-solomon-2018-dynamic",
+      "title": "Fully Dynamic Maximal Independent Set with Sublinear Update Time",
+      "authors": [
+        "Sepehr Assadi",
+        "Krzysztof Onak",
+        "Baruch Schieber",
+        "Shay Solomon"
+      ],
+      "year": 2018,
+      "venue": "STOC 2018",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1802.09709",
+      "verifiedOn": "2026-10-20",
+      "fullTextUrl": "https://arxiv.org/html/1802.09709v1"
+    },
+    "gupta-khan-2021-simple-dynamic": {
+      "id": "gupta-khan-2021-simple-dynamic",
+      "title": "Simple Dynamic Algorithms for Maximal Independent Set, Maximum Flow and Maximum Matching",
+      "authors": [
+        "Manoj Gupta",
+        "Shahbaz Khan"
+      ],
+      "year": 2021,
+      "venue": "SOSA 2021",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1804.01823",
+      "verifiedOn": "2026-10-20",
+      "fullTextUrl": "https://arxiv.org/html/1804.01823v2"
+    },
+    "du-zhang-2018-dynamic": {
+      "id": "du-zhang-2018-dynamic",
+      "title": "Improved Algorithms for Fully Dynamic Maximal Independent Set",
+      "authors": [
+        "Yuhao Du",
+        "Hengjie Zhang"
+      ],
+      "year": 2018,
+      "venue": "arXiv 2018",
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/abs/1804.08908",
+      "verifiedOn": "2026-10-20",
+      "fullTextUrl": "https://arxiv.org/html/1804.08908v1"
+    },
+    "assadi-onak-schieber-solomon-2019-dynamic": {
+      "id": "assadi-onak-schieber-solomon-2019-dynamic",
+      "title": "Fully Dynamic Maximal Independent Set with Sublinear in n Update Time",
+      "authors": [
+        "Sepehr Assadi",
+        "Krzysztof Onak",
+        "Baruch Schieber",
+        "Shay Solomon"
+      ],
+      "year": 2019,
+      "venue": "SODA 2019",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1806.10051",
+      "verifiedOn": "2026-10-20",
+      "fullTextUrl": "https://arxiv.org/html/1806.10051v1"
+    },
+    "gupta-khan-surendra-2026-dynamic": {
+      "id": "gupta-khan-surendra-2026-dynamic",
+      "title": "Dynamic MIS Revisited: Incremental, Fault Tolerant and Fully Dynamic",
+      "authors": [
+        "Manoj Gupta",
+        "Shahbaz Khan",
+        "Madhu Surendra"
+      ],
+      "year": 2026,
+      "venue": "SWAT 2026",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.SWAT.2026.21",
+      "verifiedOn": "2026-10-20",
+      "fullTextUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol370-swat2026/html/LIPIcs.SWAT.2026.21/LIPIcs.SWAT.2026.21.html"
+    },
+    "blelloch-et-al-2026-batch-dynamic": {
+      "id": "blelloch-et-al-2026-batch-dynamic",
+      "title": "Parallel Batch-Dynamic Maximal Independent Set",
+      "authors": [
+        "Guy E. Blelloch",
+        "Andrew Brady",
+        "Laxman Dhulipala",
+        "Jeremy Fineman",
+        "Jared Lo"
+      ],
+      "year": 2026,
+      "venue": "arXiv 2026",
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/abs/2604.07515",
+      "verifiedOn": "2026-10-20",
+      "fullTextUrl": "https://arxiv.org/html/2604.07515v1"
+    }
+  },
+  "verifiedRecords": [
+    {
+      "id": "mis-dynamic-chechik-zhang-expected",
+      "kind": "upper",
+      "bound": "O(log⁴ n)",
+      "guarantee": "Explicit maximal independent set",
+      "sourceLocation": "Abstract",
+      "evidenceStatus": "theorem_verified",
+      "frontierStatus": "candidate",
+      "notes": "Expected time for every update; random vertex order; oblivious sequence.",
+      "plot": null,
+      "sourceId": "chechik-zhang-2019-dynamic-mis",
+      "sliceId": "mis-dynamic-randomized-oblivious",
+      "panel": "oblivious",
+      "contract": "expected",
+      "shortLabel": "CZ19",
+      "plotLabel": "CZ19",
+      "displayBound": "O(log⁴ n)",
+      "updateComplexity": "O(log⁴ n)",
+      "theorem": "Theorem 2",
+      "output": "Explicit MIS after each update",
+      "quality": "Exact maximal independent set",
+      "graph": "General undirected graphs; n vertices, m edges, maximum degree Δ",
+      "assumptions": [
+        "n vertices; edge insertions and deletions",
+        "Oblivious adversary; randomized algorithms",
+        "High-probability conversion does not promise few explicit membership changes"
+      ],
+      "adversary": "Oblivious",
+      "probability": "Expected resource bound over internal randomness; oblivious update sequence",
+      "conditional": false,
+      "resource": "Sequential update time"
+    },
+    {
+      "id": "mis-dynamic-chechik-zhang-whp",
+      "kind": "upper",
+      "bound": "O(log⁶ n)",
+      "guarantee": "Explicit maximal independent set",
+      "sourceLocation": "Abstract",
+      "evidenceStatus": "theorem_verified",
+      "frontierStatus": "candidate",
+      "notes": "Worst-case update time with high probability; constant-time MIS membership queries. The reduction may switch between maintained copies; it does not bound explicit recourse.",
+      "plot": null,
+      "sourceId": "chechik-zhang-2019-dynamic-mis",
+      "sliceId": "mis-dynamic-randomized-oblivious",
+      "panel": "oblivious",
+      "contract": "whp",
+      "shortLabel": "CZ19",
+      "plotLabel": "CZ19",
+      "displayBound": "O(log⁶ n)",
+      "updateComplexity": "O(log⁶ n)",
+      "theorem": "Corollary 4; Theorem 3 reduction",
+      "output": "Maintained MIS data structure; membership queries",
+      "quality": "Exact maximal independent set",
+      "graph": "General undirected graphs; n vertices, m edges, maximum degree Δ",
+      "assumptions": [
+        "n vertices; edge insertions and deletions",
+        "Oblivious adversary; randomized algorithms",
+        "High-probability conversion does not promise few explicit membership changes"
+      ],
+      "adversary": "Oblivious",
+      "probability": "Worst-case update time with high probability",
+      "conditional": false,
+      "resource": "Sequential update time"
+    },
+    {
+      "id": "mis-dynamic-behnezhad-et-al-expected",
+      "kind": "upper",
+      "bound": "O(log² Δ · log² n)",
+      "guarantee": "Explicit maximal independent set",
+      "sourceLocation": "Abstract",
+      "evidenceStatus": "theorem_verified",
+      "frontierStatus": "candidate",
+      "notes": "Expected cost per update without amortization; O(1) expected adjustments.",
+      "plot": null,
+      "sourceId": "behnezhad-et-al-2019-dynamic-mis",
+      "sliceId": "mis-dynamic-randomized-oblivious",
+      "panel": "oblivious",
+      "contract": "expected",
+      "shortLabel": "BDHSS19",
+      "plotLabel": "BDHSS19",
+      "displayBound": "O(log² Δ · log² n)",
+      "updateComplexity": "O(log² Δ · log² n)",
+      "theorem": "Theorem 1",
+      "output": "Explicit MIS after each update",
+      "quality": "Exact maximal independent set",
+      "graph": "General undirected graphs; n vertices, m edges, maximum degree Δ",
+      "assumptions": [
+        "n vertices; edge insertions and deletions",
+        "Oblivious adversary; randomized algorithms",
+        "High-probability conversion does not promise few explicit membership changes"
+      ],
+      "adversary": "Oblivious",
+      "probability": "Expected resource bound over internal randomness; oblivious update sequence",
+      "conditional": false,
+      "resource": "Sequential update time"
+    },
+    {
+      "id": "mis-dyn-gupta-surendra-2026-inc",
+      "kind": "upper",
+      "bound": "O(√m)",
+      "guarantee": "Explicit MIS under edge insertions against adaptive adversaries",
+      "sourceLocation": "Abstract, result 1",
+      "evidenceStatus": "theorem_verified",
+      "frontierStatus": "current_best_verified",
+      "notes": "Deterministic incremental MIS; m is the number of inserted edges.",
+      "plot": null,
+      "sourceId": "gupta-khan-surendra-2026-dynamic",
+      "sliceId": "mis-dynamic-incremental-adaptive-conditional",
+      "panel": "adaptive",
+      "contract": "amortized",
+      "shortLabel": "GKS26",
+      "plotLabel": "GKS26",
+      "displayBound": "O(√m)",
+      "updateComplexity": "O(√m)",
+      "theorem": "Theorem 1",
+      "output": "Explicit MIS after each update",
+      "quality": "Exact maximal independent set",
+      "graph": "General undirected graphs; n vertices, m edges, maximum degree Δ",
+      "assumptions": [
+        "Adaptive adversary",
+        "Incremental edge insertions; amortized update time"
+      ],
+      "adversary": "Adaptive",
+      "probability": "Deterministic",
+      "conditional": false,
+      "resource": "Sequential update time"
+    },
+    {
+      "id": "mis-dynamic-bernstein-2026-adaptive-lower",
+      "kind": "lower",
+      "bound": "Ω(n^{1−o(1)})",
+      "guarantee": "Explicit incremental maximal independent set against an adaptive adversary",
+      "sourceLocation": "Abstract, MIS conditional lower-bound statement",
+      "evidenceStatus": "theorem_verified",
+      "frontierStatus": "candidate",
+      "notes": "Conditional on combinatorial BMM; only combinatorial algorithms; adaptive edge insertions. On dense graphs O(√m)=O(n).",
+      "plot": null,
+      "sourceId": "bernstein-et-al-2026-dynamic-separation",
+      "sliceId": "mis-dynamic-incremental-adaptive-conditional",
+      "panel": "adaptive",
+      "contract": "amortized",
+      "shortLabel": "BBFKS26",
+      "plotLabel": "BBFKS26",
+      "displayBound": "Ω(n^{1−o(1)})",
+      "updateComplexity": "Ω(n^{1−o(1)})",
+      "theorem": "Theorem 1.1; Hypothesis 2.2",
+      "output": "Explicit MIS after each update",
+      "quality": "Exact maximal independent set",
+      "graph": "General undirected graphs; n vertices, m edges, maximum degree Δ",
+      "assumptions": [
+        "Combinatorial Boolean matrix multiplication hypothesis",
+        "Combinatorial dynamic algorithm",
+        "Adaptive adversary",
+        "Incremental edge insertions; amortized update time"
+      ],
+      "adversary": "Adaptive",
+      "probability": "Lower bound permits randomized algorithms under the stated hypothesis",
+      "conditional": true,
+      "resource": "Sequential update time"
+    },
+    {
+      "id": "mis-dyn-assadi-2018-det",
+      "kind": "upper",
+      "bound": "O(min{Δ, m^{3/4}})",
+      "guarantee": "Explicit MIS after each fully dynamic edge update",
+      "sourceLocation": "Abstract; Theorem 1",
+      "evidenceStatus": "theorem_verified",
+      "frontierStatus": "historical",
+      "notes": "Deterministic; Δ is a fixed maximum-degree cap and m is the current edge count.",
+      "plot": null,
+      "sourceId": "assadi-onak-schieber-solomon-2018-dynamic",
+      "sliceId": "mis-dynamic-deterministic-centralized",
+      "panel": "deterministic",
+      "contract": "amortized",
+      "shortLabel": "AOSS18",
+      "plotLabel": "AOSS18",
+      "displayBound": "O(min{Δ, m^{3/4}})",
+      "updateComplexity": "O(min{Δ, m^{3/4}})",
+      "theorem": "Theorem 1 and following degree-cap combination",
+      "output": "Explicit MIS after each update",
+      "quality": "Exact maximal independent set",
+      "graph": "General undirected graphs; n vertices, m edges, maximum degree Δ",
+      "assumptions": [
+        "Sequential centralized RAM; n vertices, m current edges, maximum degree Δ",
+        "Deterministic, arbitrary update sequence",
+        "Amortized update time"
+      ],
+      "adversary": "Arbitrary (deterministic algorithm)",
+      "probability": "Deterministic",
+      "conditional": false,
+      "resource": "Sequential update time"
+    },
+    {
+      "id": "mis-dyn-du-2018-det",
+      "kind": "upper",
+      "bound": "O(m^{2/3} √log m)",
+      "guarantee": "Explicit fully dynamic MIS",
+      "sourceLocation": "Abstract; Theorem 1",
+      "evidenceStatus": "theorem_verified",
+      "frontierStatus": "historical",
+      "notes": "Historical deterministic bound; an arXiv preprint.",
+      "plot": null,
+      "sourceId": "du-zhang-2018-dynamic",
+      "sliceId": "mis-dynamic-deterministic-centralized",
+      "panel": "deterministic",
+      "contract": "amortized",
+      "shortLabel": "DZ18",
+      "plotLabel": "DZ18",
+      "displayBound": "O(m^{2/3} √log m)",
+      "updateComplexity": "O(m^{2/3} √log m)",
+      "theorem": "Theorem 1",
+      "output": "Explicit MIS after each update",
+      "quality": "Exact maximal independent set",
+      "graph": "General undirected graphs; n vertices, m edges, maximum degree Δ",
+      "assumptions": [
+        "Sequential centralized RAM; n vertices, m current edges, maximum degree Δ",
+        "Deterministic, arbitrary update sequence",
+        "Amortized update time"
+      ],
+      "adversary": "Arbitrary (deterministic algorithm)",
+      "probability": "Deterministic",
+      "conditional": false,
+      "resource": "Sequential update time"
+    },
+    {
+      "id": "mis-dyn-gupta-khan-2021",
+      "kind": "upper",
+      "bound": "O(min{Δ, m^{2/3}})",
+      "guarantee": "Explicit fully dynamic MIS",
+      "sourceLocation": "Abstract; main MIS theorem",
+      "evidenceStatus": "theorem_verified",
+      "frontierStatus": "current_best_verified",
+      "notes": "Deterministic fully dynamic edge updates; degree-sensitive bound.",
+      "plot": null,
+      "sourceId": "gupta-khan-2021-simple-dynamic",
+      "sliceId": "mis-dynamic-deterministic-centralized",
+      "panel": "deterministic",
+      "contract": "amortized",
+      "shortLabel": "GK21",
+      "plotLabel": "GK21",
+      "displayBound": "O(min{Δ, m^{2/3}})",
+      "updateComplexity": "O(min{Δ, m^{2/3}})",
+      "theorem": "Theorem 1.1 in author preprint",
+      "output": "Explicit MIS after each update",
+      "quality": "Exact maximal independent set",
+      "graph": "General undirected graphs; n vertices, m edges, maximum degree Δ",
+      "assumptions": [
+        "Sequential centralized RAM; n vertices, m current edges, maximum degree Δ",
+        "Deterministic, arbitrary update sequence",
+        "Amortized update time"
+      ],
+      "adversary": "Arbitrary (deterministic algorithm)",
+      "probability": "Deterministic",
+      "conditional": false,
+      "resource": "Sequential update time"
+    },
+    {
+      "id": "mis-dyn-gupta-surendra-2026-fully",
+      "kind": "upper",
+      "bound": "O(m^{2/3})",
+      "guarantee": "Explicit fully dynamic MIS",
+      "sourceLocation": "Abstract, result 3",
+      "evidenceStatus": "theorem_verified",
+      "frontierStatus": "candidate",
+      "notes": "Alternative deterministic construction; same m-dependence as GK21, without its degree cap improvement.",
+      "plot": null,
+      "sourceId": "gupta-khan-surendra-2026-dynamic",
+      "sliceId": "mis-dynamic-deterministic-centralized",
+      "panel": "deterministic",
+      "contract": "amortized",
+      "shortLabel": "GKS26",
+      "plotLabel": "GKS26",
+      "displayBound": "O(m^{2/3})",
+      "updateComplexity": "O(m^{2/3})",
+      "theorem": "Theorem 5",
+      "output": "Explicit MIS after each update",
+      "quality": "Exact maximal independent set",
+      "graph": "General undirected graphs; n vertices, m edges, maximum degree Δ",
+      "assumptions": [
+        "Sequential centralized RAM; n vertices, m current edges, maximum degree Δ",
+        "Deterministic, arbitrary update sequence",
+        "Amortized update time"
+      ],
+      "adversary": "Arbitrary (deterministic algorithm)",
+      "probability": "Deterministic",
+      "conditional": false,
+      "resource": "Sequential update time"
+    },
+    {
+      "id": "mis-dyn-du-2018-rand",
+      "kind": "upper",
+      "bound": "O(√m · log^{3/2} m)",
+      "guarantee": "Explicit fully dynamic MIS against oblivious adversary",
+      "sourceLocation": "Abstract; Theorem 4",
+      "evidenceStatus": "theorem_verified",
+      "frontierStatus": "historical",
+      "notes": "Expected amortized cost; oblivious sequence. Theorem 4 only bounds a vertex probability, not update time.",
+      "plot": null,
+      "sourceId": "du-zhang-2018-dynamic",
+      "sliceId": "mis-dynamic-randomized-oblivious-amortized",
+      "panel": "history",
+      "contract": "amortized",
+      "shortLabel": "DZ18",
+      "plotLabel": "DZ18",
+      "displayBound": "O(√m · log^{3/2} m)",
+      "updateComplexity": "O(√m · log^{3/2} m)",
+      "theorem": "Section 3.2 and Theorem 5",
+      "output": "Explicit MIS after each update",
+      "quality": "Exact maximal independent set",
+      "graph": "General undirected graphs; n vertices, m edges, maximum degree Δ",
+      "assumptions": [
+        "Sequential centralized RAM; oblivious update sequence",
+        "Randomized expected amortized cost; m current edge count",
+        "Distinct from expected worst-case per-update guarantees"
+      ],
+      "adversary": "Oblivious",
+      "probability": "Expected resource bound over internal randomness; oblivious update sequence",
+      "conditional": false,
+      "resource": "Sequential update time"
+    },
+    {
+      "id": "mis-dyn-aoss-2019-m13",
+      "kind": "upper",
+      "bound": "O(m^{1/3} log m)",
+      "guarantee": "Explicit fully dynamic MIS against oblivious adversary",
+      "sourceLocation": "Abstract",
+      "evidenceStatus": "theorem_verified",
+      "frontierStatus": "historical",
+      "notes": "Expected amortized time; the high-probability total-time statement has a sequence-length condition (Lemma 4.1).",
+      "plot": null,
+      "sourceId": "assadi-onak-schieber-solomon-2019-dynamic",
+      "sliceId": "mis-dynamic-randomized-oblivious-amortized",
+      "panel": "history",
+      "contract": "amortized",
+      "shortLabel": "AOSS19 · m",
+      "plotLabel": "AOSS19 · m",
+      "displayBound": "O(m^{1/3} log m)",
+      "updateComplexity": "O(m^{1/3} log m)",
+      "theorem": "Theorem 3",
+      "output": "Explicit MIS after each update",
+      "quality": "Exact maximal independent set",
+      "graph": "General undirected graphs; n vertices, m edges, maximum degree Δ",
+      "assumptions": [
+        "Sequential centralized RAM; oblivious update sequence",
+        "Randomized expected amortized cost; m current edge count",
+        "Distinct from expected worst-case per-update guarantees"
+      ],
+      "adversary": "Oblivious",
+      "probability": "Expected resource bound over internal randomness; oblivious update sequence",
+      "conditional": false,
+      "resource": "Sequential update time"
+    },
+    {
+      "id": "mis-dyn-aoss-2019-sqrtn",
+      "kind": "upper",
+      "bound": "Õ(√n)",
+      "guarantee": "Explicit fully dynamic MIS against oblivious adversary",
+      "sourceLocation": "Abstract",
+      "evidenceStatus": "theorem_verified",
+      "frontierStatus": "historical",
+      "notes": "Expected amortized O(√n log² n log log n). Its high-probability total bound includes an additive n² log³ n term.",
+      "plot": null,
+      "sourceId": "assadi-onak-schieber-solomon-2019-dynamic",
+      "sliceId": "mis-dynamic-randomized-oblivious-amortized",
+      "panel": "history",
+      "contract": "amortized",
+      "shortLabel": "AOSS19 · n",
+      "plotLabel": "AOSS19 · n",
+      "displayBound": "Õ(√n)",
+      "updateComplexity": "Õ(√n)",
+      "theorem": "Theorem 4",
+      "output": "Explicit MIS after each update",
+      "quality": "Exact maximal independent set",
+      "graph": "General undirected graphs; n vertices, m edges, maximum degree Δ",
+      "assumptions": [
+        "Sequential centralized RAM; oblivious update sequence",
+        "Randomized expected amortized cost; m current edge count",
+        "Distinct from expected worst-case per-update guarantees"
+      ],
+      "adversary": "Oblivious",
+      "probability": "Expected resource bound over internal randomness; oblivious update sequence",
+      "conditional": false,
+      "resource": "Sequential update time"
+    },
+    {
+      "id": "mis-dyn-blelloch-2026-batch",
+      "kind": "upper",
+      "bound": "O(b log² n · log Δ)",
+      "guarantee": "Explicit random-priority lexicographically first MIS",
+      "sourceLocation": "Abstract",
+      "evidenceStatus": "theorem_verified",
+      "frontierStatus": "candidate",
+      "notes": "Expected work per batch, with O(log⁵ n) depth w.h.p.; binary fork-join model. Improves the abstract’s O(b log³ n) formulation.",
+      "plot": null,
+      "sourceId": "blelloch-et-al-2026-batch-dynamic",
+      "sliceId": "mis-dynamic-batch-parallel-oblivious",
+      "panel": "batch",
+      "contract": "work",
+      "shortLabel": "BBD+26",
+      "plotLabel": "BBD+26",
+      "displayBound": "O(b log² n · log Δ)",
+      "updateComplexity": "O(b log² n · log Δ)",
+      "theorem": "Theorem 6.14 and Lemma 6.8",
+      "output": "Random-order lexicographically first MIS after a batch",
+      "quality": "Exact maximal independent set",
+      "graph": "General undirected graphs; n vertices, m edges, maximum degree Δ",
+      "assumptions": [
+        "Parallel batch updates; n-vertex graph",
+        "Oblivious adversary and random vertex priority order",
+        "Work and depth are separate complexity measures",
+        "Binary fork-join model with standard atomic primitives; work and depth remain separate"
+      ],
+      "adversary": "Oblivious",
+      "probability": "Expected resource bound over internal randomness; oblivious update sequence",
+      "conditional": false,
+      "resource": "Expected work per batch"
+    },
+    {
+      "id": "mis-dynamic-behnezhad-et-al-whp",
+      "kind": "upper",
+      "bound": "O(log² Δ · log⁴ n)",
+      "guarantee": "Explicit maximal independent set",
+      "sourceLocation": "Abstract",
+      "evidenceStatus": "theorem_verified",
+      "frontierStatus": "candidate",
+      "notes": "The black-box conversion loses the expected-adjustment guarantee; keep separate from explicit-recourse algorithms.",
+      "plot": null,
+      "sourceId": "behnezhad-et-al-2019-dynamic-mis",
+      "sliceId": "mis-dynamic-randomized-oblivious",
+      "panel": "oblivious",
+      "contract": "whp",
+      "shortLabel": "BDHSS19",
+      "plotLabel": "BDHSS19",
+      "displayBound": "O(log² Δ · log⁴ n)",
+      "updateComplexity": "O(log² Δ · log⁴ n)",
+      "theorem": "Corollary 1.1",
+      "output": "Maintained MIS data structure; membership access",
+      "quality": "Exact maximal independent set",
+      "graph": "General undirected graphs; n vertices, m edges, maximum degree Δ",
+      "assumptions": [
+        "n vertices; edge insertions and deletions",
+        "Oblivious adversary; randomized algorithms",
+        "High-probability conversion does not promise few explicit membership changes"
+      ],
+      "adversary": "Oblivious",
+      "probability": "Worst-case update time with high probability",
+      "conditional": false,
+      "resource": "Sequential update time"
+    },
+    {
+      "id": "mis-dyn-blelloch-2026-single",
+      "kind": "upper",
+      "bound": "O(log² n · log Δ)",
+      "guarantee": "Explicit random-priority lexicographically first MIS",
+      "sourceLocation": "Abstract",
+      "evidenceStatus": "theorem_verified",
+      "frontierStatus": "candidate",
+      "notes": "The paper explicitly observes the sequential specialization. With b = 1 its total expected work is sequential update time; no parallel-depth claim is used here.",
+      "plot": null,
+      "sourceId": "blelloch-et-al-2026-batch-dynamic",
+      "sliceId": "mis-dynamic-randomized-oblivious",
+      "panel": "oblivious",
+      "contract": "expected",
+      "shortLabel": "BBD+26",
+      "plotLabel": "BBD+26",
+      "displayBound": "O(log² n · log Δ)",
+      "updateComplexity": "O(log² n · log Δ)",
+      "theorem": "Theorem 6.14, specialized to b = 1; Section 6.3 final paragraph",
+      "output": "Explicit random-order lexicographically first MIS",
+      "quality": "Exact maximal independent set",
+      "graph": "General undirected graphs; n vertices, m edges, maximum degree Δ",
+      "assumptions": [
+        "Parallel batch updates; n-vertex graph",
+        "Oblivious adversary and random vertex priority order",
+        "Work and depth are separate complexity measures",
+        "Binary fork-join model with standard atomic primitives; work and depth remain separate"
+      ],
+      "adversary": "Oblivious",
+      "probability": "Expected resource bound over internal randomness; oblivious update sequence",
+      "conditional": false,
+      "resource": "Sequential update time"
+    },
+    {
+      "id": "mis-dyn-blelloch-2026-depth",
+      "kind": "upper",
+      "bound": "O(log⁵ n)",
+      "guarantee": "Explicit random-priority lexicographically first MIS",
+      "sourceLocation": "Abstract",
+      "evidenceStatus": "theorem_verified",
+      "frontierStatus": "candidate",
+      "notes": "Paired with Theorem 6.14’s work bound. Depth is not sequential update time.",
+      "plot": null,
+      "sourceId": "blelloch-et-al-2026-batch-dynamic",
+      "sliceId": "mis-dynamic-batch-parallel-oblivious",
+      "panel": "batch",
+      "contract": "depth",
+      "shortLabel": "BBD+26",
+      "plotLabel": "BBD+26",
+      "displayBound": "O(log⁵ n)",
+      "updateComplexity": "O(log⁵ n)",
+      "theorem": "Lemma 6.8",
+      "output": "Random-order lexicographically first MIS after a batch",
+      "quality": "Exact maximal independent set",
+      "graph": "General undirected graphs; n vertices, m edges, maximum degree Δ",
+      "assumptions": [
+        "Parallel batch updates; n-vertex graph",
+        "Oblivious adversary and random vertex priority order",
+        "Work and depth are separate complexity measures",
+        "Binary fork-join model with standard atomic primitives; work and depth remain separate"
+      ],
+      "adversary": "Oblivious",
+      "probability": "Depth with high probability; expected-work bound is a separate coordinate",
+      "conditional": false,
+      "resource": "Parallel depth per batch"
+    }
+  ],
+  "relatedResults": [
+    {
+      "id": "mis-dyn-bbfks26-general-bmm",
+      "kind": "lower",
+      "bound": "Ω(n^{ω−2−o(1)})",
+      "guarantee": "Explicit incremental maximal independent set against an adaptive adversary",
+      "sourceLocation": "Abstract, MIS conditional lower-bound statement",
+      "evidenceStatus": "theorem_verified",
+      "frontierStatus": "candidate",
+      "notes": "Theorem 1.1 gives Ω(n^{ω−o(1)}) total update time. This does not give a positive polynomial exponent if ω = 2.",
+      "plot": null,
+      "sourceId": "bernstein-et-al-2026-dynamic-separation",
+      "sliceId": "mis-dynamic-incremental-adaptive-conditional",
+      "panel": "adaptive",
+      "contract": "amortized",
+      "shortLabel": "BBFKS26 · general BMM",
+      "plotLabel": "BBFKS26",
+      "displayBound": "Ω(n^{ω−2−o(1)})",
+      "updateComplexity": "Ω(n^{ω−2−o(1)})",
+      "theorem": "Theorem 1.1; Hypothesis 2.3",
+      "output": "Explicit MIS after each update",
+      "quality": "Exact maximal independent set",
+      "graph": "General undirected graphs; n vertices, m edges, maximum degree Δ",
+      "assumptions": [
+        "BMM hypothesis (Hypothesis 2.3)",
+        "Adaptive incremental algorithm; general algorithms, not only combinatorial"
+      ],
+      "adversary": "Adaptive",
+      "probability": "Lower bound permits randomized algorithms under the stated hypothesis",
+      "conditional": true,
+      "resource": "Sequential update time"
+    },
+    {
+      "id": "mis-dyn-aoss18-recourse-lower",
+      "kind": "lower",
+      "bound": "Ω(n) worst-case adjustments",
+      "guarantee": "Explicit MIS after each fully dynamic edge update",
+      "sourceLocation": "Abstract; Theorem 1",
+      "evidenceStatus": "theorem_verified",
+      "frontierStatus": "historical",
+      "notes": "Unconditional worst-case recourse lower bound. It is not an amortized-time lower bound and does not contradict oblivious expected-time bounds or membership data structures.",
+      "plot": null,
+      "sourceId": "assadi-onak-schieber-solomon-2018-dynamic",
+      "sliceId": "mis-dynamic-deterministic-centralized",
+      "panel": "deterministic",
+      "contract": "worst-case",
+      "shortLabel": "AOSS18 · explicit recourse",
+      "plotLabel": "AOSS18",
+      "displayBound": "Ω(n) worst-case adjustments",
+      "updateComplexity": "Ω(n) worst-case adjustments",
+      "theorem": "Appendix A; Remark A.1",
+      "output": "Explicit MIS after each update",
+      "quality": "Exact maximal independent set",
+      "graph": "General undirected graphs; n vertices, m edges, maximum degree Δ",
+      "assumptions": [
+        "Explicit maximal independent set under fully dynamic edge updates",
+        "Deterministic algorithm; adversarial update sequence",
+        "Worst-case number of explicit vertex-membership changes after one update"
+      ],
+      "adversary": "Arbitrary (deterministic algorithm)",
+      "probability": "Deterministic algorithm; adversarial update sequence",
+      "conditional": false,
+      "resource": "Number of explicit vertex-membership changes"
+    },
+    {
+      "id": "mis-dyn-blelloch-2026-depth-tradeoff",
+      "kind": "upper",
+      "bound": "O(b log³ n · log Δ) work; O(log² n) depth",
+      "guarantee": "Explicit random-priority lexicographically first MIS",
+      "sourceLocation": "Abstract",
+      "evidenceStatus": "theorem_verified",
+      "frontierStatus": "candidate",
+      "notes": "Removing shells gives a different work/depth tradeoff: expected work and high-probability depth. This is not a simultaneous improvement of both resources.",
+      "plot": null,
+      "sourceId": "blelloch-et-al-2026-batch-dynamic",
+      "sliceId": "mis-dynamic-batch-parallel-oblivious",
+      "panel": "batch",
+      "contract": "work",
+      "shortLabel": "BBD+26 · faster depth",
+      "plotLabel": "BBD+26",
+      "displayBound": "O(b log³ n · log Δ) work; O(log² n) depth",
+      "updateComplexity": "O(b log³ n · log Δ) work; O(log² n) depth",
+      "theorem": "Corollary 6.14.1",
+      "output": "Random-order lexicographically first MIS after a batch",
+      "quality": "Exact maximal independent set",
+      "graph": "General undirected graphs; n vertices, m edges, maximum degree Δ",
+      "assumptions": [
+        "Parallel batch updates; n-vertex graph",
+        "Oblivious adversary and random vertex priority order",
+        "Work and depth are separate complexity measures",
+        "Binary fork-join model with standard atomic primitives; work and depth remain separate"
+      ],
+      "adversary": "Oblivious",
+      "probability": "Expected resource bound over internal randomness; oblivious update sequence",
+      "conditional": false,
+      "resource": "Expected work per batch"
+    }
+  ],
+  "panels": [
+    {
+      "id": "oblivious",
+      "title": "Fully dynamic · oblivious",
+      "subtitle": "Expected per update vs. high-probability membership access",
+      "xLabel": "Guarantee / output contract",
+      "categories": [
+        {
+          "id": "expected",
+          "label": "Expected per update"
+        },
+        {
+          "id": "whp",
+          "label": "W.h.p. · membership"
+        }
+      ],
+      "yLabel": "Sequential update-time bounds",
+      "lanes": [
+        "O(log⁴ n)",
+        "O(log⁶ n)",
+        "O(log² Δ · log² n)",
+        "O(log² Δ · log⁴ n)",
+        "O(log² n · log Δ)"
+      ]
+    },
+    {
+      "id": "adaptive",
+      "title": "Incremental · adaptive",
+      "subtitle": "Algorithms and conditional hardness in the same scope",
+      "xLabel": "Update contract",
+      "categories": [
+        {
+          "id": "amortized",
+          "label": "Amortized · adaptive"
+        }
+      ],
+      "yLabel": "Amortized update-time bounds",
+      "lanes": [
+        "O(√m)",
+        "Ω(n^{1−o(1)})"
+      ]
+    },
+    {
+      "id": "deterministic",
+      "title": "Fully dynamic · deterministic",
+      "subtitle": "Exact degree and edge-count formulas remain visible",
+      "xLabel": "Update contract",
+      "categories": [
+        {
+          "id": "amortized",
+          "label": "Amortized · arbitrary updates"
+        }
+      ],
+      "yLabel": "Amortized update-time bounds",
+      "lanes": [
+        "O(min{Δ, m^{3/4}})",
+        "O(m^{2/3} √log m)",
+        "O(min{Δ, m^{2/3}})",
+        "O(m^{2/3})"
+      ]
+    },
+    {
+      "id": "history",
+      "title": "Oblivious · amortized history",
+      "subtitle": "Earlier randomized bounds; n and m are independent parameters",
+      "xLabel": "Update contract",
+      "categories": [
+        {
+          "id": "amortized",
+          "label": "Expected amortized"
+        }
+      ],
+      "yLabel": "Historical update-time bounds",
+      "lanes": [
+        "O(√m · log^{3/2} m)",
+        "O(m^{1/3} log m)",
+        "Õ(√n)"
+      ]
+    },
+    {
+      "id": "batch",
+      "title": "Parallel batches · oblivious",
+      "subtitle": "Two resource coordinates of the same algorithm",
+      "xLabel": "Parallel resource",
+      "categories": [
+        {
+          "id": "work",
+          "label": "Expected work"
+        },
+        {
+          "id": "depth",
+          "label": "Depth w.h.p."
+        }
+      ],
+      "yLabel": "Work and depth bounds",
+      "lanes": [
+        "O(b log² n · log Δ)",
+        "O(log⁵ n)"
+      ]
+    }
+  ],
+  "figureAxes": {
+    "oblivious": {
+      "x": {
+        "label": "Guarantee / output contract",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "expected",
+            "label": "Expected per update"
+          },
+          {
+            "id": "whp",
+            "label": "W.h.p. · membership"
+          }
+        ]
+      },
+      "y": {
+        "label": "Sequential update-time bounds",
+        "kind": "symbolic",
+        "categories": [
+          {
+            "id": "O(log⁴ n)",
+            "label": "O(log⁴ n)"
+          },
+          {
+            "id": "O(log⁶ n)",
+            "label": "O(log⁶ n)"
+          },
+          {
+            "id": "O(log² Δ · log² n)",
+            "label": "O(log² Δ · log² n)"
+          },
+          {
+            "id": "O(log² Δ · log⁴ n)",
+            "label": "O(log² Δ · log⁴ n)"
+          },
+          {
+            "id": "O(log² n · log Δ)",
+            "label": "O(log² n · log Δ)"
+          }
+        ]
+      },
+      "note": "Symbolic formula rows are categories, not a numerical scale or a cross-parameter ranking."
+    },
+    "adaptive": {
+      "x": {
+        "label": "Update contract",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "amortized",
+            "label": "Amortized · adaptive"
+          }
+        ]
+      },
+      "y": {
+        "label": "Amortized update-time bounds",
+        "kind": "symbolic",
+        "categories": [
+          {
+            "id": "O(√m)",
+            "label": "O(√m)"
+          },
+          {
+            "id": "Ω(n^{1−o(1)})",
+            "label": "Ω(n^{1−o(1)})"
+          }
+        ]
+      },
+      "note": "Symbolic formula rows are categories, not a numerical scale or a cross-parameter ranking."
+    },
+    "deterministic": {
+      "x": {
+        "label": "Update contract",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "amortized",
+            "label": "Amortized · arbitrary updates"
+          }
+        ]
+      },
+      "y": {
+        "label": "Amortized update-time bounds",
+        "kind": "symbolic",
+        "categories": [
+          {
+            "id": "O(min{Δ, m^{3/4}})",
+            "label": "O(min{Δ, m^{3/4}})"
+          },
+          {
+            "id": "O(m^{2/3} √log m)",
+            "label": "O(m^{2/3} √log m)"
+          },
+          {
+            "id": "O(min{Δ, m^{2/3}})",
+            "label": "O(min{Δ, m^{2/3}})"
+          },
+          {
+            "id": "O(m^{2/3})",
+            "label": "O(m^{2/3})"
+          }
+        ]
+      },
+      "note": "Symbolic formula rows are categories, not a numerical scale or a cross-parameter ranking."
+    },
+    "history": {
+      "x": {
+        "label": "Update contract",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "amortized",
+            "label": "Expected amortized"
+          }
+        ]
+      },
+      "y": {
+        "label": "Historical update-time bounds",
+        "kind": "symbolic",
+        "categories": [
+          {
+            "id": "O(√m · log^{3/2} m)",
+            "label": "O(√m · log^{3/2} m)"
+          },
+          {
+            "id": "O(m^{1/3} log m)",
+            "label": "O(m^{1/3} log m)"
+          },
+          {
+            "id": "Õ(√n)",
+            "label": "Õ(√n)"
+          }
+        ]
+      },
+      "note": "Symbolic formula rows are categories, not a numerical scale or a cross-parameter ranking."
+    },
+    "batch": {
+      "x": {
+        "label": "Parallel resource",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "work",
+            "label": "Expected work"
+          },
+          {
+            "id": "depth",
+            "label": "Depth w.h.p."
+          }
+        ]
+      },
+      "y": {
+        "label": "Work and depth bounds",
+        "kind": "symbolic",
+        "categories": [
+          {
+            "id": "O(b log² n · log Δ)",
+            "label": "O(b log² n · log Δ)"
+          },
+          {
+            "id": "O(log⁵ n)",
+            "label": "O(log⁵ n)"
+          }
+        ]
+      },
+      "note": "Symbolic formula rows are categories, not a numerical scale or a cross-parameter ranking."
+    }
+  },
+  "sourceVerification": [
+    {
+      "sourceId": "chechik-zhang-2019-dynamic-mis",
+      "url": "https://arxiv.org/html/1909.03445v2",
+      "checkedOn": "2026-10-20",
+      "theorems": [
+        "Theorem 2",
+        "Corollary 4; Theorem 3 reduction"
+      ],
+      "notes": "Primary full text inspected; exact resource and adversary contracts recorded per result."
+    },
+    {
+      "sourceId": "behnezhad-et-al-2019-dynamic-mis",
+      "url": "https://arxiv.org/html/1909.03478v1",
+      "checkedOn": "2026-10-20",
+      "theorems": [
+        "Theorem 1",
+        "Corollary 1.1"
+      ],
+      "notes": "Primary full text inspected; exact resource and adversary contracts recorded per result."
+    },
+    {
+      "sourceId": "bernstein-et-al-2026-dynamic-separation",
+      "url": "https://arxiv.org/html/2510.20341v1",
+      "checkedOn": "2026-10-20",
+      "theorems": [
+        "Theorem 1.1; Hypothesis 2.2",
+        "Theorem 1.1; Hypothesis 2.3"
+      ],
+      "notes": "Primary full text inspected; exact resource and adversary contracts recorded per result."
+    },
+    {
+      "sourceId": "assadi-onak-schieber-solomon-2018-dynamic",
+      "url": "https://arxiv.org/html/1802.09709v1",
+      "checkedOn": "2026-10-20",
+      "theorems": [
+        "Theorem 1 and following degree-cap combination",
+        "Appendix A; Remark A.1"
+      ],
+      "notes": "Primary full text inspected; exact resource and adversary contracts recorded per result."
+    },
+    {
+      "sourceId": "gupta-khan-2021-simple-dynamic",
+      "url": "https://arxiv.org/html/1804.01823v2",
+      "checkedOn": "2026-10-20",
+      "theorems": [
+        "Theorem 1.1 in author preprint"
+      ],
+      "notes": "Primary full text inspected; exact resource and adversary contracts recorded per result."
+    },
+    {
+      "sourceId": "du-zhang-2018-dynamic",
+      "url": "https://arxiv.org/html/1804.08908v1",
+      "checkedOn": "2026-10-20",
+      "theorems": [
+        "Theorem 1",
+        "Section 3.2 and Theorem 5"
+      ],
+      "notes": "Primary full text inspected; exact resource and adversary contracts recorded per result."
+    },
+    {
+      "sourceId": "assadi-onak-schieber-solomon-2019-dynamic",
+      "url": "https://arxiv.org/html/1806.10051v1",
+      "checkedOn": "2026-10-20",
+      "theorems": [
+        "Theorem 3",
+        "Theorem 4"
+      ],
+      "notes": "Primary full text inspected; exact resource and adversary contracts recorded per result."
+    },
+    {
+      "sourceId": "gupta-khan-surendra-2026-dynamic",
+      "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol370-swat2026/html/LIPIcs.SWAT.2026.21/LIPIcs.SWAT.2026.21.html",
+      "checkedOn": "2026-10-20",
+      "theorems": [
+        "Theorem 1",
+        "Theorem 5"
+      ],
+      "notes": "Primary full text inspected; exact resource and adversary contracts recorded per result."
+    },
+    {
+      "sourceId": "blelloch-et-al-2026-batch-dynamic",
+      "url": "https://arxiv.org/html/2604.07515v1",
+      "checkedOn": "2026-10-20",
+      "theorems": [
+        "Theorem 6.14 and Lemma 6.8",
+        "Theorem 6.14, specialized to b = 1; Section 6.3 final paragraph",
+        "Lemma 6.8",
+        "Corollary 6.14.1"
+      ],
+      "notes": "Primary full text inspected; exact resource and adversary contracts recorded per result."
+    }
+  ],
+  "notes": [
+    "Green circles: algorithms. Red hollow diamonds: conditional lower bounds. Solid red diamonds: unconditional lower bounds in related results.",
+    "All main-figure bounds are symbolic categories. Do not read geometric distances as exponent gaps.",
+    "The adaptive lower bound does not apply to oblivious updates. Work and depth are separate resources.",
+    "No compatible lower bound was verified in the bounded source set for the oblivious, deterministic amortized, or batch scopes."
+  ]
+}

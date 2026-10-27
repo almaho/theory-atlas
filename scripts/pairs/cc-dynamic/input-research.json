@@ -1,0 +1,537 @@
+{
+  "problem": "cc",
+  "model": "dynamic",
+  "slices": [
+    {
+      "id": "cc-dynamic-edge-adaptive",
+      "problem": "cc",
+      "model": "dynamic",
+      "label": "Fully dynamic edge-label flips, adaptive adversary",
+      "task": "Maintain a partition minimizing signed complete-graph disagreements",
+      "assumptions": [
+        "Adaptive adversary chooses edge-label flips after seeing current output",
+        "Randomized data structure; amortized time"
+      ],
+      "xAxis": {
+        "label": "Approximation factor α = cost / OPT",
+        "kind": "approximation",
+        "min": 1,
+        "max": 6,
+        "ticks": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "yAxis": {
+        "label": "Update-time exponent q in Õ(n^q) (lower is faster)",
+        "kind": "exponent",
+        "min": 0,
+        "max": 1.5,
+        "ticks": [
+          0,
+          0.25,
+          0.5,
+          0.75,
+          1,
+          1.25,
+          1.5
+        ],
+        "tickLabels": [
+          "polylog",
+          "n^{1/4}",
+          "√n",
+          "n^{3/4}",
+          "n",
+          "n^{5/4}",
+          "n^{3/2}"
+        ]
+      },
+      "parameters": {},
+      "results": [
+        {
+          "id": "cc-dyn-adaptive-o1",
+          "paperId": "braverman-2025-robust-dynamic",
+          "kind": "upper",
+          "bound": "O(log² n) amortized update time",
+          "guarantee": "O(1)-approximation maintained against adaptive edge-label flips",
+          "sourceLocation": "Abstract, main result",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "historical",
+          "notes": "Earlier robust dynamic result with unspecified large constant; ICALP 2026 has explicit 1.485 under a per-preselected-time probability guarantee, rather than an every-time simultaneous guarantee.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "cc-dynamic-node-random-deletion",
+      "problem": "cc",
+      "model": "dynamic",
+      "label": "Node updates with random deletion",
+      "task": "Maintain an explicit approximately optimal partition of complete signed graph",
+      "assumptions": [
+        "Nodes arrive or are randomly deleted",
+        "Amortized update time"
+      ],
+      "xAxis": {
+        "label": "Approximation factor α = cost / OPT",
+        "kind": "approximation",
+        "min": 1,
+        "max": 6,
+        "ticks": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "yAxis": {
+        "label": "Update-time exponent q in Õ(n^q) (lower is faster)",
+        "kind": "exponent",
+        "min": 0,
+        "max": 1.5,
+        "ticks": [
+          0,
+          0.25,
+          0.5,
+          0.75,
+          1,
+          1.25,
+          1.5
+        ],
+        "tickLabels": [
+          "polylog",
+          "n^{1/4}",
+          "√n",
+          "n^{3/4}",
+          "n",
+          "n^{5/4}",
+          "n^{3/2}"
+        ]
+      },
+      "parameters": {},
+      "results": [
+        {
+          "id": "cc-dyn-node-polylog",
+          "paperId": "cohenaddad-2024-node-dynamic",
+          "kind": "upper",
+          "bound": "O(polylog n) amortized update time",
+          "guarantee": "O(1)-approximation",
+          "sourceLocation": "Abstract, main result",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "candidate",
+          "notes": "Random node deletion is a substantive restriction compared with adversarial edge-label flips; no common plot.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "cc-dynamic-edge-adaptive-fixed-time",
+      "problem": "cc",
+      "model": "dynamic",
+      "label": "Fully dynamic edge labels, adaptive adversary, fixed-time success",
+      "task": "Maintain a clustering with an exact factor at a step chosen before the update sequence",
+      "assumptions": [
+        "Fixed n; insert/delete positive edges, equivalent to signed-label flips",
+        "Adversary sees outputs and adaptively chooses updates",
+        "For every fixed i hidden from algorithm in advance, success probability at least 1−δ at update i; no simultaneous-all-steps claim"
+      ],
+      "xAxis": {
+        "label": "Approximation factor α = cost / OPT",
+        "kind": "approximation",
+        "min": 1,
+        "max": 6,
+        "ticks": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "yAxis": {
+        "label": "Update-time exponent q in Õ(n^q) (lower is faster)",
+        "kind": "exponent",
+        "min": 0,
+        "max": 1.5,
+        "ticks": [
+          0,
+          0.25,
+          0.5,
+          0.75,
+          1,
+          1.25,
+          1.5
+        ],
+        "tickLabels": [
+          "polylog",
+          "n^{1/4}",
+          "√n",
+          "n^{3/4}",
+          "n",
+          "n^{5/4}",
+          "n^{3/2}"
+        ]
+      },
+      "parameters": {
+        "delta": "fixed error probability per preselected step",
+        "coordinateConvention": "Only the stated fixed ε or δ instance is colored; the table retains the theorem’s free parameters and output assumptions."
+      },
+      "results": [
+        {
+          "id": "cc-dyn-adaptive-1485",
+          "paperId": "cao-2026-static-dynamic",
+          "kind": "upper",
+          "bound": "O(log(1/δ)) worst-case time per edge update",
+          "guarantee": "1.485-approximation with probability at least 1−δ at each fixed, preselected update step i",
+          "sourceLocation": "Theorem 1 and Abstract",
+          "evidenceStatus": "verified",
+          "frontierStatus": "current_best_verified",
+          "notes": "δ constant yields O(1) worst-case; δ=1/poly(n) yields O(log n). Adversary may be adaptive but cannot choose the test step after seeing randomness. The 1.3865 offline preprint does not automatically improve this dynamic result. Chart: Fix δ=0.1; O(log(1/δ)) is constant update time for this displayed coordinate.",
+          "plot": {
+            "x": 1.485,
+            "y": 0,
+            "closure": "upper-right",
+            "strictX": false,
+            "strictY": false,
+            "label": "α=1.485"
+          }
+        },
+        {
+          "id": "cc-dyn-adaptive-3plus",
+          "paperId": "cao-2026-static-dynamic",
+          "kind": "upper",
+          "bound": "O((log log n+log(1/δ))/ε) worst-case time per edge update",
+          "guarantee": "(3+ε)-approximation at each fixed step with success ≥1−δ",
+          "sourceLocation": "ICALP 2026 Corollary 7",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "Pivot-based alternative from static-to-dynamic framework; slower than 1.485 instantiation but conceptually separate.",
+          "plot": null
+        },
+        {
+          "id": "cc-dyn-adaptive-1847",
+          "paperId": "cao-2026-static-dynamic",
+          "kind": "upper",
+          "bound": "O(log(1/δ)) worst-case time per edge update",
+          "guarantee": "1.847-approximation at each fixed step with success ≥1−δ",
+          "sourceLocation": "ICALP 2026 Corollary 10",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "Uses STOC 2024 combinatorial static local search; historically intermediate factor.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "cc-dynamic-edge-oblivious",
+      "problem": "cc",
+      "model": "dynamic",
+      "label": "Fully dynamic edge labels, oblivious adversary, expected cost",
+      "task": "Maintain explicit clustering minimizing disagreements",
+      "assumptions": [
+        "Unweighted complete signed graph; edge-label flips",
+        "Oblivious update sequence",
+        "Approximation is expected-cost for randomized pivot variants"
+      ],
+      "xAxis": {
+        "label": "Approximation factor α = cost / OPT",
+        "kind": "approximation",
+        "min": 1,
+        "max": 6,
+        "ticks": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "yAxis": {
+        "label": "Update-time exponent q in Õ(n^q) (lower is faster)",
+        "kind": "exponent",
+        "min": 0,
+        "max": 1.5,
+        "ticks": [
+          0,
+          0.25,
+          0.5,
+          0.75,
+          1,
+          1.25,
+          1.5
+        ],
+        "tickLabels": [
+          "polylog",
+          "n^{1/4}",
+          "√n",
+          "n^{3/4}",
+          "n",
+          "n^{5/4}",
+          "n^{3/2}"
+        ]
+      },
+      "parameters": {
+        "epsilon": "fixed positive constant",
+        "epsilon0": "unspecified positive absolute constant"
+      },
+      "results": [
+        {
+          "id": "cc-dyn-pruned-3plus",
+          "paperId": "dalirrooyfard-2024-pruned-pivot",
+          "kind": "upper",
+          "bound": "O(1/ε) expected time per edge-label update",
+          "guarantee": "(3+ε)-approximation",
+          "sourceLocation": "Theorem 1.1",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "Oblivious adversary; expected update time, distinct from adaptive robust result.",
+          "plot": null
+        },
+        {
+          "id": "cc-dyn-modifiedpivot-sub3",
+          "paperId": "behnezhad-2025-modified-pivot",
+          "kind": "upper",
+          "bound": "polylog(n) update time",
+          "guarantee": "(3−ε₀)-approximation for some absolute ε₀>0",
+          "sourceLocation": "Theorem 1; Section 5; ICML abstract",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "Absolute improvement below 3, but ε₀ not numerically specified. Keep symbolic and distinct from worst-case constant time 1.485 dynamic theorem.",
+          "plot": null
+        },
+        {
+          "id": "cc-dyn-mis-focs19",
+          "paperId": "behnezhad-2019-dynamic-mis",
+          "kind": "upper",
+          "bound": "O(log²Δ·log²n) expected edge-update time; expected O(1) cluster changes",
+          "guarantee": "3-approximation via random-order greedy MIS/Pivot against oblivious adversary",
+          "sourceLocation": "Corollary 1.2",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "Theorem uses expected update time and randomized pivot order; the quality is in expectation over order.",
+          "plot": null
+        },
+        {
+          "id": "cc-dyn-5-constant",
+          "paperId": "behnezhad-2023-single-pass",
+          "kind": "upper",
+          "bound": "O(1) expected time per edge-label update",
+          "guarantee": "5-approximate correlation clustering",
+          "sourceLocation": "SODA 2023 main result and ICML 2024 Dynamic Correlation Clustering abstract",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "historical",
+          "notes": "Dynamic implication of its sketch/pivot algorithm for edge updates; amortization and randomness require full-text check.",
+          "plot": {
+            "x": 5.0,
+            "y": 0.0,
+            "closure": "upper-right",
+            "strictX": false,
+            "strictY": false,
+            "label": "O(1) expected time per edge-"
+          }
+        }
+      ]
+    },
+    {
+      "id": "cc-dynamic-node-insertion",
+      "problem": "cc",
+      "model": "dynamic",
+      "label": "Node insertion only, database query access",
+      "task": "Update a partition after each new vertex, with ± pairwise edge labels accessible through database queries",
+      "assumptions": [
+        "Only node insertions; no deletions",
+        "Underlying positive graph can be high degree; amortized update cost measured in database operations"
+      ],
+      "xAxis": {
+        "label": "Approximation factor α = cost / OPT",
+        "kind": "approximation",
+        "min": 1,
+        "max": 6,
+        "ticks": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "yAxis": {
+        "label": "Update-time exponent q in Õ(n^q) (lower is faster)",
+        "kind": "exponent",
+        "min": 0,
+        "max": 1.5,
+        "ticks": [
+          0,
+          0.25,
+          0.5,
+          0.75,
+          1,
+          1.25,
+          1.5
+        ],
+        "tickLabels": [
+          "polylog",
+          "n^{1/4}",
+          "√n",
+          "n^{3/4}",
+          "n",
+          "n^{5/4}",
+          "n^{3/2}"
+        ]
+      },
+      "parameters": {},
+      "results": [
+        {
+          "id": "cc-dyn-node-20",
+          "paperId": "dalirrooyfard-2025-node",
+          "kind": "upper",
+          "bound": "log^{O(1)} n amortized update time",
+          "guarantee": "(20+ε)-approximate MinDisagree partition",
+          "sourceLocation": "ICML 2025 abstract",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "candidate",
+          "notes": "Improves prior O(1) unspecified large factor for this insertion-only regime; cannot compare directly with adversarial edge flips.",
+          "plot": null
+        }
+      ]
+    }
+  ],
+  "papers": [
+    {
+      "id": "braverman-2025-robust-dynamic",
+      "title": "Fully Dynamic Adversarially Robust Correlation Clustering in Polylogarithmic Update Time",
+      "authors": [
+        "Vladimir Braverman",
+        "Prathamesh Dharangutte",
+        "Shreyas Pai",
+        "Vihan Shah",
+        "Chen Wang"
+      ],
+      "year": 2025,
+      "venue": "AISTATS 2025; arXiv v2 February 2026",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2411.09979",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "cohenaddad-2024-node-dynamic",
+      "title": "Dynamic Correlation Clustering in Sublinear Update Time",
+      "authors": [
+        "Vincent Cohen-Addad",
+        "Silvio Lattanzi",
+        "Andreas Maggiori",
+        "Nikos Parotsidis"
+      ],
+      "year": 2024,
+      "venue": "ICML 2024",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2406.09137",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "cao-2026-static-dynamic",
+      "title": "Static to Dynamic Correlation Clustering",
+      "authors": [
+        "Nairen Cao",
+        "Vincent Cohen-Addad",
+        "Euiwoong Lee",
+        "Shi Li",
+        "David Rasmussen Lolck",
+        "Alantha Newman",
+        "Mikkel Thorup",
+        "Lukas Vogl",
+        "Shuyi Yan",
+        "Hanwen Zhang"
+      ],
+      "year": 2026,
+      "venue": "ICALP 2026",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2026.48",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "behnezhad-2025-modified-pivot",
+      "title": "Correlation Clustering Beyond the Pivot Algorithm",
+      "authors": [
+        "Soheil Behnezhad",
+        "Moses Charikar",
+        "Vincent Cohen-Addad",
+        "Alma Ghafari",
+        "Weiyun Ma"
+      ],
+      "year": 2025,
+      "venue": "ICML 2025",
+      "publicationStatus": "conference",
+      "url": "https://proceedings.mlr.press/v267/behnezhad25a.html",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "dalirrooyfard-2024-pruned-pivot",
+      "title": "Pruned Pivot: Correlation Clustering Algorithm for Dynamic, Parallel, and Local Computation Models",
+      "authors": [
+        "Mina Dalirrooyfard",
+        "Konstantin Makarychev",
+        "Slobodan Mitrović"
+      ],
+      "year": 2024,
+      "venue": "ICML 2024",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/html/2402.15668v2",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "behnezhad-2023-single-pass",
+      "title": "Single-Pass Streaming Algorithms for Correlation Clustering",
+      "authors": [
+        "Soheil Behnezhad",
+        "Moses Charikar",
+        "Weiyun Ma",
+        "Li-Yang Tan"
+      ],
+      "year": 2023,
+      "venue": "SODA 2023",
+      "publicationStatus": "conference",
+      "url": "https://epubs.siam.org/doi/10.1137/1.9781611977554.ch33",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "dalirrooyfard-2025-node",
+      "title": "Sparse-Pivot: Dynamic Correlation Clustering for Node Insertions",
+      "authors": [
+        "Mina Dalirrooyfard",
+        "Konstantin Makarychev",
+        "Slobodan Mitrović"
+      ],
+      "year": 2025,
+      "venue": "ICML 2025",
+      "publicationStatus": "conference",
+      "url": "https://proceedings.mlr.press/v267/dalirrooyfard25a.html",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "behnezhad-2019-dynamic-mis",
+      "title": "Fully Dynamic Maximal Independent Set with Polylogarithmic Update Time",
+      "authors": [
+        "Soheil Behnezhad",
+        "Mahsa Derakhshan",
+        "MohammadTaghi Hajiaghayi",
+        "Cliff Stein",
+        "Madhu Sudan"
+      ],
+      "year": 2019,
+      "venue": "FOCS 2019",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1909.03478",
+      "verifiedOn": "2026-09-27"
+    }
+  ]
+}

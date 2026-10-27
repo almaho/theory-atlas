@@ -1,0 +1,298 @@
+{
+  "id": "cc-query_list",
+  "title": "Positive lists make sublinear clustering possible",
+  "problem": "cc",
+  "model": "query_list",
+  "reviewedOn": "2026-10-26",
+  "coverage": "Bounded review of the two supplied primary papers. Main figure: positive-neighbor access and an explicit partition. Other access models appear only as related results.",
+  "sources": {
+    "assadi-2022-sparse-dense": {
+      "id": "assadi-2022-sparse-dense",
+      "title": "Sublinear Time and Space Algorithms for Correlation Clustering via Sparse-Dense Decompositions",
+      "authors": [
+        "Sepehr Assadi",
+        "Chen Wang"
+      ],
+      "year": 2022,
+      "venue": "ITCS 2022",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ITCS.2022.10",
+      "fullTextUrl": "https://drops.dagstuhl.de/opus/volltexte/2022/15606/pdf/LIPIcs-ITCS-2022-10.pdf",
+      "publicationUrl": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ITCS.2022.10",
+      "fullVersionUrl": "https://arxiv.org/pdf/2109.14528",
+      "shortLabel": "Assadi–Wang 2022",
+      "verifiedOn": "2026-10-26"
+    },
+    "ailon-2008-pivot": {
+      "id": "ailon-2008-pivot",
+      "title": "Aggregating Inconsistent Information: Ranking and Clustering",
+      "authors": [
+        "Nir Ailon",
+        "Moses Charikar",
+        "Alantha Newman"
+      ],
+      "year": 2008,
+      "venue": "Journal of the ACM 55(5), Article 23, October 2008",
+      "publicationStatus": "journal",
+      "url": "https://doi.org/10.1145/1411509.1411513",
+      "fullTextUrl": "https://gwern.net/doc/statistics/order/comparison/2008-ailon.pdf",
+      "publicationUrl": "https://doi.org/10.1145/1411509.1411513",
+      "shortLabel": "Ailon–Charikar–Newman 2008",
+      "verifiedOn": "2026-10-26"
+    }
+  },
+  "verifiedRecords": [
+    {
+      "id": "cc-query-assadi-wang-2022",
+      "sourceId": "assadi-2022-sparse-dense",
+      "kind": "algorithm",
+      "panel": "positive-lists",
+      "setup": "positive-lists",
+      "displayBound": "O(n log n)",
+      "bound": "O(n log n) queries",
+      "queryComplexity": "O(n log n)",
+      "timeComplexity": "O(n log² n)",
+      "shortLabel": "Sparse–dense · AW 2022",
+      "algorithmLabel": "Sparse–dense",
+      "quality": "C=O(1) approximation with high probability",
+      "qualityLabel": "Factor C=O(1) · w.h.p.",
+      "numericApproximation": null,
+      "output": "Explicit partition of all n vertices",
+      "graph": "Unweighted complete signed graph; n vertices; m⁺=|E⁺| positive edges",
+      "oracle": "Positive degree + indexed-positive-neighbor queries",
+      "probability": "At least 1−n^(−c), for a large constant c>0 (conference footnote 4).",
+      "resourceProbability": "The stated query/time resource bounds hold with high probability; do not label them deterministic worst-case bounds.",
+      "assumptions": [
+        "Complete undirected unweighted signed graph",
+        "Positive degree and indexed-positive-neighbor access, O(1) time per query",
+        "Negative labels implicit",
+        "Explicit partition; total number of queries",
+        "0≤m⁺≤n(n−1)/2",
+        "No numerical value of C is asserted"
+      ],
+      "theorem": "Theorem 1 / formal Theorem 12; §2.2 and Algorithm 1 analysis",
+      "sourceUrl": "https://drops.dagstuhl.de/opus/volltexte/2022/15606/pdf/LIPIcs-ITCS-2022-10.pdf#page=14",
+      "resource": "Total oracle queries",
+      "evidenceStatus": "full_text_verified",
+      "conditional": false,
+      "implementationDerived": false,
+      "costFrom": "near-linear",
+      "costTo": "near-linear",
+      "notes": "Theorem 12 distinguishes O(n log n) queries from O(n log² n) total time. The approximation and resource guarantees are high probability; the hidden constant C is unspecified.",
+      "sourceLimit": "Theorem factor remains O(1); it is not assigned a numeric position.",
+      "correction": "Corrected the query resource to O(n log n), retained O(n log² n) as separate total-time metadata."
+    },
+    {
+      "id": "cc-query-pivot-original",
+      "sourceId": "ailon-2008-pivot",
+      "kind": "algorithm",
+      "panel": "positive-lists",
+      "setup": "positive-lists",
+      "displayBound": "O(n+m⁺)",
+      "bound": "O(n+m⁺) queries",
+      "queryComplexity": "O(n+m⁺)",
+      "timeComplexity": "O(n+m⁺)",
+      "shortLabel": "Pivot · ACN 2008",
+      "algorithmLabel": "Pivot",
+      "quality": "Expected disagreement cost ≤3·OPT",
+      "qualityLabel": "Factor 3 in expectation",
+      "numericApproximation": 3,
+      "output": "Explicit partition of all n vertices",
+      "graph": "Unweighted complete signed graph; n vertices; m⁺=|E⁺| positive edges",
+      "oracle": "Positive degree + indexed-positive-neighbor queries",
+      "probability": "Expected approximation; not a high-probability factor-3 guarantee.",
+      "resourceProbability": "The implementation bound holds for every random permutation.",
+      "assumptions": [
+        "Complete undirected unweighted signed graph",
+        "Positive degree and indexed-positive-neighbor access, O(1) time per query",
+        "Negative labels implicit",
+        "Explicit partition; total number of queries",
+        "0≤m⁺≤n(n−1)/2",
+        "The expected factor is not a high-probability factor-3 guarantee"
+      ],
+      "theorem": "§6, KWIKCLUSTER pseudocode and Theorem 6.1",
+      "sourceUrl": "https://gwern.net/doc/statistics/order/comparison/2008-ailon.pdf#page=13",
+      "resource": "Total oracle queries",
+      "evidenceStatus": "full_text_verified",
+      "conditional": false,
+      "implementationDerived": true,
+      "costFrom": "linear",
+      "costTo": "quadratic",
+      "notes": "Use a uniformly random permutation and an assigned flag per vertex. An unassigned vertex becomes a pivot; scan its positive list and assign only unassigned neighbors to its cluster. Pivots form an independent set in G⁺, so each positive edge has at most one pivot endpoint and is queried at most once. At most n degree queries, m⁺ neighbor queries, O(n) permutation/flag/output work; total O(n+m⁺). The induced pivot distribution matches uniform selection from remaining vertices.",
+      "sourceLimit": "The journal pseudocode loops over remaining vertices and does not itself state an O(n+m⁺) adjacency-list implementation theorem. Label the bound as implementation-derived.",
+      "correction": "Changed expected work to a per-outcome implementation-derived resource bound; retained the expected approximation guarantee."
+    }
+  ],
+  "relatedResults": [
+    {
+      "id": "cc-query-aw-full-list-lower",
+      "sourceId": "assadi-2022-sparse-dense",
+      "kind": "lower",
+      "panel": "related-oracles",
+      "setup": "full-signed-lists",
+      "displayBound": "Ω(n²)",
+      "bound": "Ω(n²) queries",
+      "queryComplexity": "Ω(n²)",
+      "shortLabel": "Full signed lists",
+      "quality": "Any finite multiplicative factor α≥1",
+      "qualityLabel": "Any finite factor · success ≥99%",
+      "output": "Explicit partition of all n vertices",
+      "graph": "Unweighted complete signed graph; n vertices; m⁺=|E⁺| positive edges",
+      "oracle": "Lists of the full complete signed graph; labels are revealed without positive filtering",
+      "probability": "Success at least 99/100",
+      "assumptions": [
+        "Unweighted complete signed graph",
+        "Explicit partition",
+        "Full signed lists, not positive lists",
+        "Any finite multiplicative approximation factor",
+        "Success probability at least 99/100"
+      ],
+      "theorem": "Full version Proposition B.1, printed p.38",
+      "sourceUrl": "https://arxiv.org/pdf/2109.14528#page=40",
+      "resource": "Total oracle queries",
+      "evidenceStatus": "full_text_verified",
+      "conditional": false,
+      "scope": "related",
+      "scopeWarning": "Not a positive-list lower bound. Full signed-list degree is n−1; indexed neighbors reveal labels without filtering to positives.",
+      "notes": "A hidden positive pair among otherwise negative pairs yields zero-optimum instances, forcing a finite multiplicative approximation to distinguish the pair. The conference introduction announces these alternative-model impossibility results; this exact statement is in the linked full version.",
+      "proofCaution": null
+    },
+    {
+      "id": "cc-query-aw-negative-list-lower",
+      "sourceId": "assadi-2022-sparse-dense",
+      "kind": "lower",
+      "panel": "related-oracles",
+      "setup": "negative-lists",
+      "displayBound": "Ω(n²)",
+      "bound": "Ω(n²) queries",
+      "queryComplexity": "Ω(n²)",
+      "shortLabel": "Negative lists",
+      "quality": "Any finite multiplicative factor α≥1",
+      "qualityLabel": "Any finite factor · success ≥99%",
+      "output": "Explicit partition of all n vertices",
+      "graph": "Unweighted complete signed graph; n vertices; m⁺=|E⁺| positive edges",
+      "oracle": "Degree / indexed-neighbor access to G⁻; proof also discusses pair queries",
+      "probability": "Success at least 99/100",
+      "assumptions": [
+        "Unweighted complete signed graph",
+        "Explicit partition",
+        "Negative-neighbor lists, not positive lists",
+        "Any finite multiplicative approximation factor",
+        "Success probability at least 99/100"
+      ],
+      "theorem": "Full version Proposition B.2, printed p.39",
+      "sourceUrl": "https://arxiv.org/pdf/2109.14528#page=41",
+      "resource": "Total oracle queries",
+      "evidenceStatus": "full_text_verified",
+      "conditional": false,
+      "scope": "related",
+      "scopeWarning": "Not a positive-list lower bound. Access is filtered to G⁻. The proof discusses negative degree, pair, and neighbor queries.",
+      "notes": "The positive edges form a hidden perfect matching in zero-optimum instances; recovering an acceptable partition recovers that matching. The conference introduction announces these alternative-model impossibility results; this exact statement is in the linked full version.",
+      "proofCaution": "The full-version proof has an apparent degree-answer typo n−1 where its constructed negative graph has degree n−2. Cite the proposition and oracle scope rather than copying that proof line into the atlas."
+    }
+  ],
+  "setups": [
+    {
+      "id": "positive-lists",
+      "label": "Positive lists",
+      "color": "var(--blue)"
+    },
+    {
+      "id": "full-signed-lists",
+      "label": "Full signed lists · related",
+      "color": "#8b5daa"
+    },
+    {
+      "id": "negative-lists",
+      "label": "Negative lists · related",
+      "color": "#b06b2d"
+    }
+  ],
+  "figureAxes": {
+    "positive-lists": {
+      "title": "Positive-list query complexity",
+      "x": {
+        "label": "Total queries · symbolic growth classes",
+        "kind": "symbolic",
+        "categories": [
+          {
+            "id": "linear",
+            "label": "n"
+          },
+          {
+            "id": "near-linear",
+            "label": "n log n"
+          },
+          {
+            "id": "quadratic",
+            "label": "n²"
+          }
+        ],
+        "scaleNote": "Schematic growth order, not numerical distance. O(n+m⁺) spans its density-dependent upper-bound family."
+      },
+      "y": {
+        "label": "Algorithm and approximation guarantee",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "cc-query-assadi-wang-2022",
+            "label": "Sparse–dense"
+          },
+          {
+            "id": "cc-query-pivot-original",
+            "label": "Pivot"
+          }
+        ]
+      }
+    }
+  },
+  "axisSummary": {
+    "x": "Total queries: n, n log n, n² (symbolic growth order)",
+    "y": "Named algorithms and their distinct approximation guarantees"
+  },
+  "lowerBoundStatus": "No same-oracle lower theorem was verified in the bounded source set. Quadratic lower bounds concern other access models and remain related results.",
+  "sourceVerification": [
+    {
+      "sourceId": "assadi-2022-sparse-dense",
+      "url": "https://drops.dagstuhl.de/opus/volltexte/2022/15606/pdf/LIPIcs-ITCS-2022-10.pdf",
+      "additionalUrl": "https://arxiv.org/pdf/2109.14528",
+      "checkedOn": "2026-10-26",
+      "locations": [
+        "Conference Theorem 1, p.10:3",
+        "Conference §2.1–2.2, p.10:7",
+        "Conference Theorem 12 / Algorithm 1 / analysis, pp.10:14–15",
+        "Full version Appendix B.1, Propositions B.1 and B.2, printed pp.38–39"
+      ],
+      "notes": "Main theorem uses positive lists; Appendix B.1 lower bounds use full signed or negative lists. No numeric constant is assigned to O(1)."
+    },
+    {
+      "sourceId": "ailon-2008-pivot",
+      "url": "https://gwern.net/doc/statistics/order/comparison/2008-ailon.pdf",
+      "checkedOn": "2026-10-26",
+      "locations": [
+        "Section 6 KWIKCLUSTER pseudocode, p.23:13",
+        "Theorem 6.1, p.23:14"
+      ],
+      "notes": "Expected factor 3 is Theorem 6.1. The O(n+m⁺) adjacency-list implementation is derived and identified separately."
+    }
+  ],
+  "notes": [
+    "The cost axis is symbolic; spacing is schematic.",
+    "0≤m⁺≤n(n−1)/2. The Pivot band describes a density-dependent upper bound, not exact running time.",
+    "Both algorithms use the same positive-list oracle but offer different approximation and probability guarantees.",
+    "All red related results have different input oracles; they are not positive-list lower bounds."
+  ],
+  "implementationEvidence": {
+    "kind": "Read-only in-memory exhaustive check",
+    "status": "passed",
+    "graphFamily": "All simple positive subgraphs on n=1,…,5; each defines a complete signed instance.",
+    "permutations": "Every vertex permutation for every graph.",
+    "checkedCases": 124469,
+    "assertions": [
+      "Positive-list implementation returns the same partition as recursive Pivot using the same ordering.",
+      "All vertices are assigned exactly once.",
+      "Total neighbor-list entries examined is at most m⁺."
+    ],
+    "limits": "This is regression evidence for the stated implementation inference; the edge-count argument supplies its general proof. It is not a new approximation theorem."
+  }
+}

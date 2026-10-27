@@ -1,0 +1,736 @@
+{
+  "upsertPapers": [
+    {
+      "id": "assadi-behnezhad-konrad-naidu-sundaresan-2025-passes",
+      "title": "Settling the Pass Complexity of Approximate Matchings in Dynamic Graph Streams",
+      "authors": [
+        "Sepehr Assadi",
+        "Soheil Behnezhad",
+        "Christian Konrad",
+        "Kheeran K. Naidu",
+        "Janani Sundaresan"
+      ],
+      "year": 2025,
+      "venue": "SODA 2025",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2407.21005",
+      "verifiedOn": "2026-10-20"
+    },
+    {
+      "id": "khanna-konrad-dark-2025-deletions",
+      "title": "Streaming Maximal Matching with Bounded Deletions",
+      "authors": [
+        "Sanjeev Khanna",
+        "Christian Konrad",
+        "Jacques Dark"
+      ],
+      "year": 2025,
+      "venue": "ICALP 2025",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2502.15330",
+      "verifiedOn": "2026-10-20",
+      "publicationUrl": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2025.106"
+    },
+    {
+      "id": "dark-konrad-2020-dynamic-lower",
+      "title": "Optimal Lower Bounds for Matching and Vertex Cover in Dynamic Graph Streams",
+      "authors": [
+        "Jacques Dark",
+        "Christian Konrad"
+      ],
+      "year": 2020,
+      "venue": "CCC 2020",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2005.11116",
+      "verifiedOn": "2026-10-20"
+    },
+    {
+      "id": "assadi-jambulapati-jin-sidford-tian-2022-bipartite",
+      "title": "Semi-Streaming Bipartite Matching in Fewer Passes and Optimal Space",
+      "authors": [
+        "Sepehr Assadi",
+        "Arun Jambulapati",
+        "Yujia Jin",
+        "Aaron Sidford",
+        "Kevin Tian"
+      ],
+      "year": 2022,
+      "venue": "SODA 2022",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2011.03495",
+      "verifiedOn": "2026-10-20"
+    },
+    {
+      "id": "mitrovic-mukherjee-sankowski-sheu-2025-alternating",
+      "title": "Faster Semi-streaming Matchings via Alternating Trees",
+      "authors": [
+        "Slobodan Mitrović",
+        "Anish Mukherjee",
+        "Piotr Sankowski",
+        "Wen-Horng Sheu"
+      ],
+      "year": 2025,
+      "venue": "ICALP 2025",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2412.19057",
+      "verifiedOn": "2026-10-20"
+    },
+    {
+      "id": "fischer-mitrovic-uitto-2022-multipass",
+      "title": "Deterministic (1+ε)-Approximate Maximum Matching with poly(1/ε) Passes in the Semi-Streaming Model and Beyond",
+      "authors": [
+        "Manuela Fischer",
+        "Slobodan Mitrović",
+        "Jara Uitto"
+      ],
+      "year": 2022,
+      "venue": "STOC 2022",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2106.04179",
+      "verifiedOn": "2026-10-20"
+    },
+    {
+      "id": "assadi-2025-simple-weighted",
+      "title": "A Simple (1−ε)-Approximation Semi-Streaming Algorithm for Maximum (Weighted) Matching",
+      "authors": [
+        "Sepehr Assadi"
+      ],
+      "year": 2025,
+      "venue": "TheoretiCS 2025",
+      "publicationStatus": "journal",
+      "url": "https://arxiv.org/abs/2307.02968",
+      "verifiedOn": "2026-10-20"
+    },
+    {
+      "id": "mcgregor-2026-arboricity",
+      "title": "Maximum Matching Size for Bounded Arboricity Graphs in the Dynamic Graph Stream Model using Õ(n^{2/3}) Space",
+      "authors": [
+        "Andrew McGregor"
+      ],
+      "year": 2026,
+      "venue": "arXiv",
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/abs/2609.19136",
+      "verifiedOn": "2026-10-20"
+    },
+    {
+      "id": "assadi-shah-2022-optimal-stream",
+      "title": "An Asymptotically Optimal Algorithm for Maximum Matching in Dynamic Streams",
+      "authors": [
+        "Sepehr Assadi",
+        "Vihan Shah"
+      ],
+      "year": 2022,
+      "venue": "ITCS 2022",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2201.12710",
+      "publicationUrl": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ITCS.2022.9",
+      "verifiedOn": "2026-10-20"
+    },
+    {
+      "id": "assadi-khanna-li-2017-estimation-stream",
+      "title": "On Estimating Maximum Matching Size in Graph Streams",
+      "authors": [
+        "Sepehr Assadi",
+        "Sanjeev Khanna",
+        "Yang Li"
+      ],
+      "year": 2017,
+      "venue": "SODA 2017",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1701.04364",
+      "verifiedOn": "2026-10-20"
+    }
+  ],
+  "upsertSlices": [
+    {
+      "id": "matching-stream-multipass-general",
+      "problem": "matching",
+      "model": "stream",
+      "label": "Insertion-only, near-optimum matching in multiple passes",
+      "task": "Output a near-optimum maximum-cardinality matching; weighted specialization stated per theorem",
+      "assumptions": [
+        "Arbitrary-order insertions",
+        "General graph",
+        "Semi-streaming O(n·polylog n) memory",
+        "ε is a parameter; count passes"
+      ],
+      "xAxis": {
+        "kind": "categorical",
+        "label": "Randomness / output guarantee",
+        "categories": [
+          "det",
+          "rand"
+        ]
+      },
+      "yAxis": {
+        "kind": "categorical",
+        "label": "Passes / space (symbolic theorem formulas)",
+        "categories": [
+          "O(ε⁻¹⁹) passes",
+          "O(ε⁻⁶) passes",
+          "O(log n/ε) passes"
+        ]
+      },
+      "parameters": {
+        "epsilon": "fixed >0"
+      },
+      "results": [
+        {
+          "id": "matching-stream-fmu22",
+          "paperId": "fischer-mitrovic-uitto-2022-multipass",
+          "kind": "upper",
+          "bound": "O(ε⁻¹⁹) passes",
+          "guarantee": "|M| ≥ OPT/(1+ε)",
+          "sourceLocation": "Theorem 1.1; Lemma 5.6",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "historical",
+          "notes": "Historical polynomial-pass milestone; ε∈(0,1/2). The exponent 19 is stated in the proof of Lemma 5.6.",
+          "plot": null,
+          "sourceUrl": "https://arxiv.org/html/2106.04179",
+          "assumptions": [
+            "Arbitrary-order insertions",
+            "General graph",
+            "Semi-streaming O(n·polylog n) memory",
+            "ε is a parameter; count passes"
+          ]
+        },
+        {
+          "id": "matching-stream-alternating25",
+          "paperId": "mitrovic-mukherjee-sankowski-sheu-2025-alternating",
+          "kind": "upper",
+          "bound": "O(ε⁻⁶) passes",
+          "guarantee": "|M| ≥ OPT/(1+ε)",
+          "sourceLocation": "Theorem 1.1",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "candidate",
+          "notes": "Keep the ε⁻⁶ space factor: semi-streaming for constant ε (or inverse-polylogarithmic ε).",
+          "plot": null,
+          "sourceUrl": "https://arxiv.org/html/2412.19057",
+          "assumptions": [
+            "Arbitrary-order insertions",
+            "General graph",
+            "Semi-streaming O(n·polylog n) memory",
+            "ε is a parameter; count passes"
+          ]
+        },
+        {
+          "id": "matching-stream-assadi25-weighted-specialization",
+          "paperId": "assadi-2025-simple-weighted",
+          "kind": "upper",
+          "bound": "O(log n/ε) passes",
+          "guarantee": "weight(M) ≥ (1−ε)OPTweight",
+          "sourceLocation": "Introduction, maximum-weight main result; Section 4",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "historical",
+          "notes": "Positive integer weights; unit weights give cardinality. Different ε conventions are retained; no numerical quality coordinate is assigned.",
+          "plot": null,
+          "sourceUrl": "https://arxiv.org/html/2307.02968",
+          "assumptions": [
+            "Arbitrary-order insertions",
+            "General graph",
+            "Semi-streaming O(n·polylog n) memory",
+            "ε is a parameter; count passes"
+          ]
+        }
+      ],
+      "mode": "2d",
+      "curatedViewKey": "matching-stream-insertion"
+    },
+    {
+      "id": "matching-stream-multipass-bipartite",
+      "problem": "matching",
+      "model": "stream",
+      "label": "Insertion-only bipartite, near-optimum matching",
+      "task": "Output a near-maximum cardinality matching in a bipartite graph",
+      "assumptions": [
+        "Arbitrary edge order, multiple passes",
+        "Bipartite input",
+        "Semi-streaming memory"
+      ],
+      "xAxis": {
+        "kind": "categorical",
+        "label": "Randomness / output guarantee",
+        "categories": [
+          "det",
+          "rand"
+        ]
+      },
+      "yAxis": {
+        "kind": "categorical",
+        "label": "Passes / space (symbolic theorem formulas)",
+        "categories": [
+          "O(log n · log(1/ε)/ε) passes",
+          "O(log n/ε) passes"
+        ]
+      },
+      "parameters": {
+        "epsilon": "fixed >0"
+      },
+      "results": [
+        {
+          "id": "matching-stream-ajjst22",
+          "paperId": "assadi-jambulapati-jin-sidford-tian-2022-bipartite",
+          "kind": "upper",
+          "bound": "O(log n · log(1/ε)/ε) passes",
+          "guarantee": "|M| ≥ (1−ε)OPT",
+          "sourceLocation": "Theorem 1 (Approximate MCM)",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "historical",
+          "notes": "Corrected omitted log n factor. The O(n) space has no ε dependence.",
+          "plot": null,
+          "sourceUrl": "https://arxiv.org/html/2011.03495",
+          "assumptions": [
+            "Arbitrary edge order, multiple passes",
+            "Bipartite input",
+            "Semi-streaming memory"
+          ]
+        },
+        {
+          "id": "matching-stream-assadi25-bipartite",
+          "paperId": "assadi-2025-simple-weighted",
+          "kind": "upper",
+          "bound": "O(log n/ε) passes",
+          "guarantee": "|M| ≥ (1−ε)OPT",
+          "sourceLocation": "Introduction, bipartite main result; Section 3",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "historical",
+          "notes": "The randomized main theorem has explicit ε dependence in space.",
+          "plot": null,
+          "sourceUrl": "https://arxiv.org/html/2307.02968",
+          "assumptions": [
+            "Arbitrary edge order, multiple passes",
+            "Bipartite input",
+            "Semi-streaming memory"
+          ]
+        }
+      ],
+      "mode": "2d",
+      "curatedViewKey": "matching-stream-insertion-bipartite"
+    },
+    {
+      "id": "matching-stream-dynamic-passes",
+      "problem": "matching",
+      "model": "stream",
+      "label": "Insertion/deletion stream, semi-streaming pass complexity",
+      "task": "Output approximate maximum matching after a pass sequence over an insert/delete stream",
+      "assumptions": [
+        "General graph; simple graph after updates",
+        "Randomized and deterministic lower bound",
+        "Õ(n) bits memory",
+        "Multiple passes over the same dynamic stream"
+      ],
+      "xAxis": {
+        "kind": "categorical",
+        "label": "Randomness / output guarantee",
+        "categories": [
+          "constant",
+          "near"
+        ]
+      },
+      "yAxis": {
+        "kind": "categorical",
+        "label": "Passes / space (symbolic theorem formulas)",
+        "categories": [
+          "O(log log n) passes",
+          "Ω(log log n) passes",
+          "O(f(ε) · log log n) passes"
+        ]
+      },
+      "parameters": {},
+      "results": [
+        {
+          "id": "matching-stream-dynamic-passes-upper",
+          "paperId": "assadi-behnezhad-konrad-naidu-sundaresan-2025-passes",
+          "kind": "upper",
+          "bound": "O(log log n) passes",
+          "guarantee": "|M| ≥ OPT/C for an absolute constant C",
+          "sourceLocation": "Theorem 1, first statement",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "current_best_verified",
+          "notes": "Arbitrary dynamic streams. This is a matching-edge output, not only a size estimate.",
+          "plot": null,
+          "sourceUrl": "https://arxiv.org/html/2407.21005",
+          "assumptions": [
+            "General graph; simple graph after updates",
+            "Randomized and deterministic lower bound",
+            "Õ(n) bits memory",
+            "Multiple passes over the same dynamic stream"
+          ]
+        },
+        {
+          "id": "matching-stream-dynamic-passes-lower",
+          "paperId": "assadi-behnezhad-konrad-naidu-sundaresan-2025-passes",
+          "kind": "lower",
+          "bound": "Ω(log log n) passes",
+          "guarantee": "any fixed constant-factor approximation",
+          "sourceLocation": "Theorem 3",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "current_best_verified",
+          "notes": "Applies to unrestricted semi-streaming algorithms, beyond linear sketches; also constrains deterministic algorithms.",
+          "plot": null,
+          "sourceUrl": "https://arxiv.org/html/2407.21005",
+          "assumptions": [
+            "General graph; simple graph after updates",
+            "Randomized and deterministic lower bound",
+            "Õ(n) bits memory",
+            "Multiple passes over the same dynamic stream"
+          ]
+        },
+        {
+          "id": "matching-stream-dynamic-passes-boosted",
+          "paperId": "assadi-behnezhad-konrad-naidu-sundaresan-2025-passes",
+          "kind": "upper",
+          "plot": null,
+          "bound": "O(f(ε) · log log n) passes",
+          "guarantee": "weight(M) ≥ OPTweight/(1+ε)",
+          "sourceLocation": "Theorem 1, moreover statement",
+          "evidenceStatus": "full_text_verified",
+          "notes": "f depends only on ε and on bipartite/weighted scope. Fixed ε gives O(log log n); no unproved polynomial ε dependence is assigned.",
+          "sourceUrl": "https://arxiv.org/html/2407.21005",
+          "assumptions": [
+            "General graph; simple graph after updates",
+            "Randomized and deterministic lower bound",
+            "Õ(n) bits memory",
+            "Multiple passes over the same dynamic stream"
+          ]
+        }
+      ],
+      "mode": "2d",
+      "curatedViewKey": "matching-stream-turnstile"
+    },
+    {
+      "id": "matching-stream-dynamic-onepass-lower",
+      "problem": "matching",
+      "model": "stream",
+      "label": "One pass, arbitrary deletions: tight n^ε-approximate matching space",
+      "task": "Output n^ε-approximate maximum matching edges after insertions and deletions",
+      "assumptions": [
+        "General simple graph",
+        "One pass, no bound on deletions",
+        "Randomized algorithms, error at most 1/10",
+        "Fixed 0<ε<1/3"
+      ],
+      "xAxis": {
+        "kind": "categorical",
+        "label": "Randomness / output guarantee",
+        "categories": [
+          "power"
+        ]
+      },
+      "yAxis": {
+        "kind": "categorical",
+        "label": "Passes / space (symbolic theorem formulas)",
+        "categories": [
+          "Ω(n^{2−3ε}) bits",
+          "O(n^{2−3ε}) bits"
+        ]
+      },
+      "parameters": {
+        "epsilon": "fixed exponent of approximation factor n^ε"
+      },
+      "results": [
+        {
+          "id": "matching-stream-dark-konrad20",
+          "paperId": "dark-konrad-2020-dynamic-lower",
+          "kind": "lower",
+          "bound": "Ω(n^{2−3ε}) bits",
+          "guarantee": "|M| ≥ OPT/n^ε; fixed 0<ε<1/3",
+          "sourceLocation": "Corollary 1; Section 3",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "current_best_verified",
+          "notes": "Simple graphs and O(n²)-length streams suffice; does not restrict failure outputs to existing edges. ε is the approximation exponent, not near-optimal accuracy.",
+          "plot": null,
+          "sourceUrl": "https://arxiv.org/html/2005.11116",
+          "assumptions": [
+            "General simple graph",
+            "One pass, no bound on deletions",
+            "Randomized algorithms, error at most 1/10",
+            "Fixed 0<ε<1/3"
+          ]
+        },
+        {
+          "id": "matching-stream-assadi-shah22",
+          "paperId": "assadi-shah-2022-optimal-stream",
+          "kind": "upper",
+          "plot": null,
+          "bound": "O(n^{2−3ε}) bits",
+          "guarantee": "|M| ≥ OPT/n^ε; fixed 0<ε<1/3",
+          "sourceLocation": "Theorem 1 (full version); Theorem 14 (ITCS version)",
+          "evidenceStatus": "full_text_verified",
+          "notes": "Substitute α=n^ε into O(n²/α³); theorem allows α≤n^{1/2−δ} for fixed δ>0. Together with DK20 this is tight to constant factors in the plotted range.",
+          "sourceUrl": "https://arxiv.org/html/2201.12710",
+          "assumptions": [
+            "General simple graph",
+            "One pass, no bound on deletions",
+            "Randomized algorithms, error at most 1/10",
+            "Fixed 0<ε<1/3"
+          ]
+        }
+      ],
+      "mode": "2d",
+      "curatedViewKey": "matching-stream-onepass"
+    },
+    {
+      "id": "matching-stream-bounded-deletions-maximal",
+      "problem": "matching",
+      "model": "stream",
+      "label": "One pass, at most K deletions: maximal matching",
+      "task": "Output an exact maximal matching in the final graph",
+      "assumptions": [
+        "one pass; at most K deletions, with K known in advance",
+        "every stream prefix is a simple graph; vertex set known"
+      ],
+      "parameters": {
+        "K": "maximum number of deletions"
+      },
+      "results": [
+        {
+          "id": "matching-stream-kdd25-random-upper",
+          "paperId": "khanna-konrad-dark-2025-deletions",
+          "kind": "upper",
+          "bound": "Õ(n√K) bits",
+          "guarantee": "exact maximal matching",
+          "sourceLocation": "Theorem 1",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "current_best_verified",
+          "notes": "Display range 1≤K≤n²; K=0 uses the insertion-only greedy algorithm. Beyond n² the whole graph can be stored in O(n²) bits.",
+          "plot": null,
+          "sourceUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol334-icalp2025/html/LIPIcs.ICALP.2025.106/LIPIcs.ICALP.2025.106.html",
+          "assumptions": [
+            "one pass; at most K deletions, with K known in advance",
+            "every stream prefix is a simple graph; vertex set known",
+            "random bits independent of the input stream"
+          ]
+        },
+        {
+          "id": "matching-stream-kdd25-random-lower",
+          "paperId": "khanna-konrad-dark-2025-deletions",
+          "kind": "lower",
+          "bound": "Ω(n√K) bits",
+          "guarantee": "exact maximal matching",
+          "sourceLocation": "Theorem 2; Section 4.2",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "current_best_verified",
+          "notes": "Display range 1≤K≤n², with endpoint constants absorbed. The lower-bound proof assumes a failed output is still a valid matching, possibly non-maximal; the theorem is quoted with this proof convention.",
+          "plot": null,
+          "sourceUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol334-icalp2025/html/LIPIcs.ICALP.2025.106/LIPIcs.ICALP.2025.106.html",
+          "assumptions": [
+            "one pass; at most K deletions, with K known in advance",
+            "every stream prefix is a simple graph; vertex set known",
+            "random bits independent of the input stream",
+            "failed outputs remain valid matchings, as assumed in the proof"
+          ]
+        },
+        {
+          "id": "matching-stream-kdd25-det-upper",
+          "paperId": "khanna-konrad-dark-2025-deletions",
+          "kind": "upper",
+          "bound": "O(nK log n) bits",
+          "guarantee": "exact maximal matching",
+          "sourceLocation": "Theorem 3; Section 5.1",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "current_best_verified",
+          "notes": "Shown for 1≤K≤n/2. Full graph storage caps space at O(n²) bits; do not extrapolate nK beyond the meaningful range.",
+          "plot": null,
+          "sourceUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol334-icalp2025/html/LIPIcs.ICALP.2025.106/LIPIcs.ICALP.2025.106.html",
+          "assumptions": [
+            "one pass; at most K deletions, with K known in advance",
+            "every stream prefix is a simple graph; vertex set known",
+            "1≤K≤n/2 for this comparison"
+          ]
+        },
+        {
+          "id": "matching-stream-kdd25-det-lower",
+          "paperId": "khanna-konrad-dark-2025-deletions",
+          "kind": "lower",
+          "bound": "Ω(nK) bits",
+          "guarantee": "exact maximal matching",
+          "sourceLocation": "Theorem 3; Section 5.2 (Theorem 7 in full version)",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "current_best_verified",
+          "notes": "Shown for 1≤K≤n/2, where the proof’s degree-K graph family is valid. Quadratic storage prevents an unbounded nK claim.",
+          "plot": null,
+          "sourceUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol334-icalp2025/html/LIPIcs.ICALP.2025.106/LIPIcs.ICALP.2025.106.html",
+          "assumptions": [
+            "one pass; at most K deletions, with K known in advance",
+            "every stream prefix is a simple graph; vertex set known",
+            "1≤K≤n/2 for this comparison"
+          ]
+        }
+      ],
+      "mode": "2d",
+      "xAxis": {
+        "kind": "categorical",
+        "label": "Randomness / output guarantee",
+        "categories": [
+          "rand",
+          "det"
+        ]
+      },
+      "yAxis": {
+        "kind": "categorical",
+        "label": "Passes / space (symbolic theorem formulas)",
+        "categories": [
+          "Õ(n√K) bits",
+          "Ω(n√K) bits",
+          "O(nK log n) bits",
+          "Ω(nK) bits"
+        ]
+      },
+      "curatedViewKey": "matching-stream-bounded"
+    },
+    {
+      "id": "matching-stream-bounded-deletions-approx",
+      "problem": "matching",
+      "model": "stream",
+      "label": "One pass, at most K deletions: α>2 approximation",
+      "task": "Output α-approximate maximum-cardinality matching",
+      "assumptions": [
+        "one pass; at most K deletions, with K known in advance",
+        "every stream prefix is a simple graph; vertex set known"
+      ],
+      "xAxis": {
+        "kind": "categorical",
+        "label": "Randomness / output guarantee",
+        "categories": [
+          "fixed"
+        ]
+      },
+      "yAxis": {
+        "kind": "categorical",
+        "label": "Passes / space (symbolic theorem formulas)",
+        "categories": [
+          "O((n+K/ε) log n) bits",
+          "Ω(n+K) bits"
+        ]
+      },
+      "parameters": {
+        "K": "at most K edge deletions",
+        "alpha": "fixed >2"
+      },
+      "results": [
+        {
+          "id": "matching-stream-kdd25-approx-upper",
+          "paperId": "khanna-konrad-dark-2025-deletions",
+          "kind": "upper",
+          "bound": "O((n+K/ε) log n) bits",
+          "guarantee": "|M| ≥ OPT/(2+ε), ε>0",
+          "sourceLocation": "Theorem 4",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "current_best_verified",
+          "notes": "For fixed ε>0, Õ(n+K) bits. This algorithm is also available if randomness is allowed; it does not output an exact maximal matching.",
+          "plot": null,
+          "sourceUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol334-icalp2025/html/LIPIcs.ICALP.2025.106/LIPIcs.ICALP.2025.106.html",
+          "assumptions": [
+            "one pass; at most K deletions, with K known in advance",
+            "every stream prefix is a simple graph; vertex set known",
+            "fixed ε>0 for comparison with the lower bound"
+          ]
+        },
+        {
+          "id": "matching-stream-kdd25-approx-lower",
+          "paperId": "khanna-konrad-dark-2025-deletions",
+          "kind": "lower",
+          "bound": "Ω(n+K) bits",
+          "guarantee": "any fixed α>2 approximation",
+          "sourceLocation": "Section 1.1, discussion of g_c(n,K)",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "current_best_verified",
+          "notes": "For fixed α and 0≤K≤n². Combines Ω(n) output storage with the DK20 Ω(K) reduction; this is not an Ω(K/ε) claim.",
+          "plot": null,
+          "sourceUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol334-icalp2025/html/LIPIcs.ICALP.2025.106/LIPIcs.ICALP.2025.106.html",
+          "assumptions": [
+            "one pass; at most K deletions, with K known in advance",
+            "every stream prefix is a simple graph; vertex set known",
+            "fixed approximation α>2; 0≤K≤n²"
+          ]
+        }
+      ],
+      "mode": "2d",
+      "curatedViewKey": "matching-stream-bounded-approx"
+    },
+    {
+      "id": "matching-stream-arboricity-value",
+      "problem": "matching",
+      "model": "stream",
+      "label": "One pass dynamic stream, bounded-arboricity value",
+      "task": "Estimate maximum matching size after arbitrary insertions and deletions",
+      "assumptions": [
+        "Final graph has arboricity ≤a",
+        "The linear sketch does not require arboricity bounds on intermediate graphs",
+        "Randomized one-pass output is a value estimate, not matching edges"
+      ],
+      "xAxis": {
+        "kind": "categorical",
+        "label": "Randomness / output guarantee",
+        "categories": [
+          "a",
+          "r"
+        ]
+      },
+      "yAxis": {
+        "kind": "categorical",
+        "label": "Passes / space (symbolic theorem formulas)",
+        "categories": [
+          "O(ε^{−4/3} a^{4/3} n^{2/3} polylog n) bits",
+          "Ω(√n/r^{5/2}) bits"
+        ]
+      },
+      "parameters": {
+        "a": "bounded arboricity",
+        "epsilon": "fixed >0"
+      },
+      "results": [
+        {
+          "id": "matching-stream-mcgregor26-arboricity",
+          "paperId": "mcgregor-2026-arboricity",
+          "kind": "upper",
+          "bound": "O(ε^{−4/3} a^{4/3} n^{2/3} polylog n) bits",
+          "guarantee": "OPT ≤ estimate ≤ (1+ε)(a+2)OPT",
+          "sourceLocation": "Theorem 1",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "candidate",
+          "notes": "Preprint. Only final-graph arboricity ≤a is required. The stream is fixed independently of random bits; intermediate graphs need not have bounded arboricity.",
+          "plot": null,
+          "sourceUrl": "https://arxiv.org/html/2609.19136",
+          "assumptions": [
+            "Final graph has arboricity ≤a",
+            "The linear sketch does not require arboricity bounds on intermediate graphs",
+            "Randomized one-pass output is a value estimate, not matching edges"
+          ]
+        },
+        {
+          "id": "matching-stream-akl17-arboricity-lower",
+          "paperId": "assadi-khanna-li-2017-estimation-stream",
+          "kind": "lower",
+          "plot": null,
+          "bound": "Ω(√n/r^{5/2}) bits",
+          "guarantee": "r-approximation of maximum matching size",
+          "sourceLocation": "Theorem 2; Section 4.1",
+          "evidenceStatus": "full_text_verified",
+          "notes": "Hard instances have arboricity O(r) (construction ≤2r). This does not claim a matching lower bound at the exact factor (1+ε)(a+2); r and a must not be silently identified.",
+          "sourceUrl": "https://arxiv.org/html/1701.04364",
+          "assumptions": [
+            "Final graph has arboricity ≤a",
+            "The linear sketch does not require arboricity bounds on intermediate graphs",
+            "Randomized one-pass output is a value estimate, not matching edges"
+          ]
+        }
+      ],
+      "mode": "2d",
+      "curatedViewKey": "matching-stream-arboricity"
+    }
+  ],
+  "corrections": [
+    "AJJST22 pass complexity includes log n.",
+    "KKD25 deterministic nK restricted to a feasible K regime; no extrapolation beyond quadratic storage.",
+    "KKD25 approximation algorithm retains explicit K/ε and deterministic status.",
+    "ABKNS25 fixed-ε pass upper split from unspecified f(ε) boosting.",
+    "Arboricity value output and r-dependent lower-bound scope kept separate."
+  ],
+  "addedPrimarySources": [
+    "assadi-shah-2022-optimal-stream",
+    "assadi-khanna-li-2017-estimation-stream"
+  ]
+}

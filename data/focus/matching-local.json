@@ -1,0 +1,767 @@
+{
+  "reviewedOn": "2026-10-20",
+  "problem": "matching",
+  "model": "local",
+  "title": "Matching in distributed LOCAL",
+  "coverage": "Curated primary-source comparison of fourteen general-graph results, plus separately scoped CONGEST and regular-graph results. Targeted searches through 2026-10-20 include 2025 maximality lower bounds and the May/September 2026 preprints shown here. This is not an exhaustive list of all graph classes, approximation ratios, success notions, or historical refinements.",
+  "defaultScope": "General graphs on n nodes with maximum degree Δ. Synchronous LOCAL rounds, unbounded message size; distributed matching output. Maximality and approximation are separate tasks.",
+  "sources": {
+    "beps12": {
+      "title": "The Locality of Distributed Symmetry Breaking",
+      "authors": [
+        "Leonid Barenboim",
+        "Michael Elkin",
+        "Seth Pettie",
+        "Johannes Schneider"
+      ],
+      "firstYear": 2012,
+      "year": 2012,
+      "venue": "FOCS 2012; JACM 2016",
+      "publicationStatus": "published",
+      "url": "https://arxiv.org/abs/1202.1983",
+      "fullTextUrl": "https://arxiv.org/abs/1202.1983",
+      "shortLabel": "BEPS 2012",
+      "verifiedOn": "2026-10-20",
+      "publicationUrl": "https://doi.org/10.1145/2903137"
+    },
+    "fischer17": {
+      "title": "Improved Deterministic Distributed Matching via Rounding",
+      "authors": [
+        "Manuela Fischer"
+      ],
+      "firstYear": 2017,
+      "year": 2017,
+      "venue": "DISC 2017",
+      "publicationStatus": "published",
+      "url": "https://arxiv.org/abs/1703.00900",
+      "fullTextUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol091-disc2017/LIPIcs.DISC.2017.17/LIPIcs.DISC.2017.17.pdf",
+      "shortLabel": "Fischer 2017",
+      "verifiedOn": "2026-10-20",
+      "publicationUrl": "https://doi.org/10.4230/LIPIcs.DISC.2017.17"
+    },
+    "balliu21": {
+      "title": "Lower bounds for maximal matchings and maximal independent sets",
+      "authors": [
+        "Alkida Balliu",
+        "Sebastian Brandt",
+        "Juho Hirvonen",
+        "Dennis Olivetti",
+        "Mikaël Rabie",
+        "Jukka Suomela"
+      ],
+      "firstYear": 2019,
+      "year": 2019,
+      "venue": "FOCS 2019; JACM 2021",
+      "publicationStatus": "published",
+      "url": "https://arxiv.org/abs/1901.02441",
+      "fullTextUrl": "https://arxiv.org/abs/1901.02441",
+      "shortLabel": "Balliu+ 2021",
+      "verifiedOn": "2026-10-20"
+    },
+    "ks25": {
+      "title": "Round Elimination via Self-Reduction: Closing Gaps for Distributed Maximal Matching",
+      "authors": [
+        "Seri Khoury",
+        "Aaron Schild"
+      ],
+      "firstYear": 2025,
+      "year": 2025,
+      "venue": "FOCS 2025",
+      "publicationStatus": "published",
+      "url": "https://arxiv.org/abs/2505.15654",
+      "fullTextUrl": "https://arxiv.org/html/2505.15654v1",
+      "shortLabel": "KS 2025",
+      "verifiedOn": "2026-10-20",
+      "publicationUrl": "https://doi.org/10.1109/FOCS63196.2025.00120"
+    },
+    "gg23": {
+      "title": "Faster Deterministic Distributed MIS and Approximate Matching",
+      "authors": [
+        "Mohsen Ghaffari",
+        "Christoph Grunau"
+      ],
+      "firstYear": 2023,
+      "year": 2023,
+      "venue": "STOC 2023",
+      "publicationStatus": "published",
+      "url": "https://arxiv.org/abs/2303.16043",
+      "fullTextUrl": "https://arxiv.org/html/2303.16043v1",
+      "shortLabel": "GG 2023",
+      "verifiedOn": "2026-10-20",
+      "publicationUrl": "https://doi.org/10.1145/3564246.3585243"
+    },
+    "harris20": {
+      "title": "Distributed Local Approximation Algorithms for Maximum Matching in Graphs and Hypergraphs",
+      "authors": [
+        "David G. Harris"
+      ],
+      "firstYear": 2019,
+      "year": 2019,
+      "venue": "FOCS 2019; SIAM Journal on Computing 2020",
+      "publicationStatus": "published",
+      "url": "https://arxiv.org/abs/1807.07645",
+      "fullTextUrl": "https://arxiv.org/html/1807.07645v7",
+      "shortLabel": "Harris 2020",
+      "verifiedOn": "2026-10-20",
+      "publicationUrl": "https://doi.org/10.1137/19M1279241"
+    },
+    "bcgs17": {
+      "title": "Distributed Approximation of Maximum Independent Set and Maximum Matching",
+      "authors": [
+        "Reuven Bar-Yehuda",
+        "Keren Censor-Hillel",
+        "Mohsen Ghaffari",
+        "Gregory Schwartzman"
+      ],
+      "firstYear": 2017,
+      "year": 2017,
+      "venue": "PODC 2017",
+      "publicationStatus": "published",
+      "url": "https://arxiv.org/abs/1708.00276",
+      "fullTextUrl": "https://arxiv.org/pdf/1708.00276",
+      "shortLabel": "BCGS 2017",
+      "verifiedOn": "2026-10-20",
+      "publicationUrl": "https://doi.org/10.1145/3087801.3087806"
+    },
+    "kmw16": {
+      "title": "Local Computation: Lower and Upper Bounds",
+      "authors": [
+        "Fabian Kuhn",
+        "Thomas Moscibroda",
+        "Roger Wattenhofer"
+      ],
+      "firstYear": 2016,
+      "year": 2016,
+      "venue": "Journal of the ACM 2016; preliminary results PODC 2004 / SODA 2006",
+      "publicationStatus": "published",
+      "url": "https://arxiv.org/abs/1011.5470",
+      "fullTextUrl": "https://arxiv.org/html/1011.5470v2",
+      "shortLabel": "KMW 2016",
+      "verifiedOn": "2026-10-20",
+      "publicationUrl": "https://doi.org/10.1145/2742012"
+    },
+    "dp26": {
+      "title": "Distributed Approximate Maximum Matching and Minimum Vertex Cover via Generalized Graph Decomposition",
+      "authors": [
+        "Peter Davies-Peck"
+      ],
+      "firstYear": 2026,
+      "year": 2026,
+      "venue": "arXiv preprint, May 2026",
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/abs/2605.13264",
+      "fullTextUrl": "https://arxiv.org/html/2605.13264v1",
+      "shortLabel": "Davies-Peck 2026",
+      "verifiedOn": "2026-10-20"
+    },
+    "hs23": {
+      "title": "(1−ε)-Approximate Maximum Weighted Matching in Distributed, Parallel, and Semi-Streaming Settings",
+      "authors": [
+        "Shang-En Huang",
+        "Hsin-Hao Su"
+      ],
+      "firstYear": 2023,
+      "year": 2023,
+      "venue": "PODC 2023",
+      "publicationStatus": "published",
+      "url": "https://arxiv.org/abs/2212.14425",
+      "fullTextUrl": "https://arxiv.org/abs/2212.14425",
+      "shortLabel": "Huang–Su 2023",
+      "verifiedOn": "2026-10-20",
+      "publicationUrl": "https://doi.org/10.1145/3583668.3594570"
+    },
+    "kpsw25": {
+      "title": "On the Randomized Locality of Matching Problems in Regular Graphs",
+      "authors": [
+        "Seri Khoury",
+        "Manish Purohit",
+        "Aaron Schild",
+        "Joshua R. Wang"
+      ],
+      "firstYear": 2025,
+      "year": 2025,
+      "venue": "DISC 2025",
+      "publicationStatus": "published",
+      "url": "https://doi.org/10.4230/LIPIcs.DISC.2025.40",
+      "fullTextUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol356-disc2025/html/LIPIcs.DISC.2025.40/LIPIcs.DISC.2025.40.html",
+      "shortLabel": "KPSW 2025",
+      "verifiedOn": "2026-10-20"
+    },
+    "bdo26": {
+      "title": "Distributed Lower Bounds via Automatic Self-Reduction",
+      "authors": [
+        "Alkida Balliu",
+        "Francesco d’Amore",
+        "Dennis Olivetti"
+      ],
+      "firstYear": 2026,
+      "year": 2026,
+      "venue": "arXiv preprint, September 2026",
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/abs/2609.34753",
+      "fullTextUrl": "https://arxiv.org/html/2609.34753v1",
+      "shortLabel": "Balliu–d’Amore–Olivetti 2026",
+      "verifiedOn": "2026-10-20"
+    },
+    "pr01": {
+      "title": "Some Simple Distributed Algorithms for Sparse Networks",
+      "authors": [
+        "Alessandro Panconesi",
+        "Romeo Rizzi"
+      ],
+      "firstYear": 2001,
+      "year": 2001,
+      "venue": "Distributed Computing 14 (2001), 97–100",
+      "publicationStatus": "published",
+      "url": "https://doi.org/10.1007/PL00008932",
+      "fullTextUrl": "https://romeorizzi.github.io/papers/pdf/distrComp.pdf",
+      "publicationUrl": "https://doi.org/10.1007/PL00008932",
+      "shortLabel": "PR 2001",
+      "verifiedOn": "2026-10-20"
+    }
+  },
+  "verifiedRecords": [
+    {
+      "id": "local-pr01-maximal",
+      "sourceId": "pr01",
+      "kind": "algorithm",
+      "panel": "maximal",
+      "randomization": "deterministic",
+      "roundComplexity": "O(Δ + log* n)",
+      "displayBound": "O(Δ + log* n)",
+      "quality": "exact maximal matching; hence |M| ≥ OPT/2",
+      "output": "one consistent distributed matching; each vertex knows its incident matched edge or is unmatched",
+      "graph": "general unweighted simple graphs; maximum degree Δ",
+      "model": "LOCAL",
+      "theorem": "Abstract, maximal-matching result",
+      "probability": "deterministic",
+      "notes": "Small-degree comparator. The Δ term is optimal up to constants in the small-degree regime identified by Balliu et al.",
+      "evidenceStatus": "abstract_verified",
+      "label": "PR 2001",
+      "year": 2001,
+      "publicationStatus": "published",
+      "sourceUrl": "https://romeorizzi.github.io/papers/pdf/distrComp.pdf",
+      "costMeasure": "synchronous communication rounds",
+      "plotLane": "local-pr01-maximal",
+      "shortLabel": "PR ’01",
+      "plotNote": "exact maximal matching"
+    },
+    {
+      "id": "local-fischer17-maximal",
+      "sourceId": "fischer17",
+      "kind": "algorithm",
+      "panel": "maximal",
+      "randomization": "deterministic",
+      "roundComplexity": "O(log² Δ · log n)",
+      "displayBound": "O(log² Δ · log n)",
+      "quality": "exact maximal matching; hence |M| ≥ OPT/2",
+      "output": "one consistent distributed matching; each vertex knows its incident matched edge or is unmatched",
+      "graph": "general unweighted simple graphs; maximum degree Δ",
+      "model": "LOCAL",
+      "theorem": "Theorem 2 (maximal matching)",
+      "probability": "deterministic",
+      "notes": "Degree-sensitive deterministic comparator. A maximal matching guarantees half the optimum cardinality, not half the optimum weight.",
+      "evidenceStatus": "full_text_verified",
+      "label": "Fischer 2017",
+      "year": 2017,
+      "publicationStatus": "published",
+      "sourceUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol091-disc2017/LIPIcs.DISC.2017.17/LIPIcs.DISC.2017.17.pdf",
+      "costMeasure": "synchronous communication rounds",
+      "plotLane": "local-fischer17-maximal",
+      "shortLabel": "Fischer ’17",
+      "plotNote": "exact maximal matching"
+    },
+    {
+      "id": "local-gg23-maximal",
+      "sourceId": "gg23",
+      "kind": "algorithm",
+      "panel": "maximal",
+      "randomization": "deterministic",
+      "roundComplexity": "Õ(log² n)",
+      "displayBound": "Õ(log² n)",
+      "quality": "exact maximal matching; hence |M| ≥ OPT/2",
+      "output": "one consistent distributed matching; each vertex knows its incident matched edge or is unmatched",
+      "graph": "general unweighted simple graphs; maximum degree Δ",
+      "model": "LOCAL",
+      "theorem": "Theorem 1.1 (MIS and stated maximal-matching consequence)",
+      "probability": "deterministic",
+      "notes": "The standard line-graph reduction yields maximal matching within the same asymptotic round bound; Õ hides polyloglog n factors.",
+      "evidenceStatus": "full_text_verified",
+      "label": "GG 2023",
+      "year": 2023,
+      "publicationStatus": "published",
+      "sourceUrl": "https://arxiv.org/html/2303.16043v1",
+      "costMeasure": "synchronous communication rounds",
+      "plotLane": "local-gg23-maximal",
+      "shortLabel": "GG ’23",
+      "plotNote": "exact maximal matching"
+    },
+    {
+      "id": "local-beps12-maximal",
+      "sourceId": "beps12",
+      "kind": "algorithm",
+      "panel": "maximal",
+      "randomization": "randomized",
+      "roundComplexity": "O(log Δ + log⁴ log n)",
+      "displayBound": "O(log Δ + log⁴ log n)",
+      "quality": "exact maximal matching; hence |M| ≥ OPT/2",
+      "output": "one consistent distributed matching; each vertex knows its incident matched edge or is unmatched",
+      "graph": "general unweighted simple graphs; maximum degree Δ",
+      "model": "LOCAL",
+      "theorem": "Abstract, maximal-matching result",
+      "probability": "with high probability",
+      "notes": "Historical explicit formula. Later deterministic finishing algorithms improve the polyloglog n term; this point is not labeled as the current best complete formula.",
+      "evidenceStatus": "abstract_verified",
+      "label": "BEPS 2012",
+      "year": 2012,
+      "publicationStatus": "published",
+      "sourceUrl": "https://arxiv.org/abs/1202.1983",
+      "costMeasure": "synchronous communication rounds",
+      "plotLane": "local-beps12-maximal",
+      "shortLabel": "BEPS ’12",
+      "plotNote": "exact maximal matching"
+    },
+    {
+      "id": "local-fischer17-rand-maximal",
+      "sourceId": "fischer17",
+      "kind": "algorithm",
+      "panel": "maximal",
+      "randomization": "randomized",
+      "roundComplexity": "O(log Δ + log³ log n)",
+      "displayBound": "O(log Δ + log³ log n)",
+      "quality": "exact maximal matching; hence |M| ≥ OPT/2",
+      "output": "one consistent distributed matching; each vertex knows its incident matched edge or is unmatched",
+      "graph": "general unweighted simple graphs; maximum degree Δ",
+      "model": "LOCAL",
+      "theorem": "Corollary 3",
+      "probability": "with probability at least 1−1/n^c for a fixed c≥2",
+      "notes": "Uses the BEPS randomized reduction with Fischer’s faster deterministic finishing algorithm. Improves the explicit historical BEPS polyloglog n term.",
+      "evidenceStatus": "full_text_verified",
+      "label": "BEPS + Fischer 2017",
+      "year": 2017,
+      "publicationStatus": "published",
+      "sourceUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol091-disc2017/LIPIcs.DISC.2017.17/LIPIcs.DISC.2017.17.pdf",
+      "costMeasure": "synchronous communication rounds",
+      "plotLane": "local-fischer17-rand-maximal",
+      "shortLabel": "BEPS + Fischer ’17",
+      "plotNote": "exact maximal matching"
+    },
+    {
+      "id": "local-balliu21-det-lower",
+      "sourceId": "balliu21",
+      "kind": "lower",
+      "panel": "maximal",
+      "randomization": "deterministic",
+      "roundComplexity": "Ω(min{Δ, log n / log log n})",
+      "displayBound": "Ω(min{Δ, log n / log log n})",
+      "quality": "exact maximal matching",
+      "output": "one consistent distributed matching; each vertex knows its incident matched edge or is unmatched",
+      "graph": "general unweighted simple graphs; maximum degree Δ",
+      "model": "LOCAL",
+      "theorem": "Abstract, deterministic corollary",
+      "probability": "deterministic",
+      "notes": "Degree-sensitive deterministic obstruction; it does not rule out faster algorithms that only approximate maximum cardinality.",
+      "evidenceStatus": "abstract_verified",
+      "label": "Balliu+ 2021",
+      "year": 2021,
+      "publicationStatus": "published",
+      "sourceUrl": "https://arxiv.org/abs/1901.02441",
+      "costMeasure": "synchronous communication rounds",
+      "plotLane": "local-balliu21-det-lower",
+      "shortLabel": "Balliu+ ’21",
+      "plotNote": "exact maximal matching"
+    },
+    {
+      "id": "local-balliu21-rand-lower",
+      "sourceId": "balliu21",
+      "kind": "lower",
+      "panel": "maximal",
+      "randomization": "randomized",
+      "roundComplexity": "Ω(min{Δ, log log n / log log log n})",
+      "displayBound": "Ω(min{Δ, log log n / log log log n})",
+      "quality": "exact maximal matching",
+      "output": "one consistent distributed matching; each vertex knows its incident matched edge or is unmatched",
+      "graph": "general unweighted simple graphs; maximum degree Δ",
+      "model": "LOCAL",
+      "theorem": "Abstract, main randomized lower bound",
+      "probability": "required success probability ≥ 1−1/n",
+      "notes": "Remains informative at small Δ; the Khoury–Schild bound is stronger in other degree regimes.",
+      "evidenceStatus": "abstract_verified",
+      "label": "Balliu+ 2021",
+      "year": 2021,
+      "publicationStatus": "published",
+      "sourceUrl": "https://arxiv.org/abs/1901.02441",
+      "costMeasure": "synchronous communication rounds",
+      "plotLane": "local-balliu21-rand-lower",
+      "shortLabel": "Balliu+ ’21",
+      "plotNote": "exact maximal matching"
+    },
+    {
+      "id": "local-ks25-maximal-lower",
+      "sourceId": "ks25",
+      "kind": "lower",
+      "panel": "maximal",
+      "randomization": "randomized",
+      "roundComplexity": "Ω(min{log Δ, √log n})",
+      "displayBound": "Ω(min{log Δ, √log n})",
+      "quality": "exact maximal matching",
+      "output": "one consistent distributed matching; each vertex knows its incident matched edge or is unmatched",
+      "graph": "general graphs; hard instances are Δ-regular graphs and Δ-ary trees",
+      "model": "LOCAL",
+      "theorem": "Theorem 1",
+      "probability": "for success probability > Δ^(−1/1000), as stated in Theorem 1",
+      "notes": "Already hard on Δ-regular graphs and Δ-ary trees. Applies to deterministic algorithms too. This is not a lower bound for every 2-approximation.",
+      "evidenceStatus": "full_text_verified",
+      "label": "KS 2025",
+      "year": 2025,
+      "publicationStatus": "published",
+      "sourceUrl": "https://arxiv.org/html/2505.15654v1",
+      "costMeasure": "synchronous communication rounds",
+      "plotLane": "local-ks25-maximal-lower",
+      "shortLabel": "KS ’25",
+      "plotNote": "exact maximal matching",
+      "appliesTo": [
+        "deterministic",
+        "randomized"
+      ]
+    },
+    {
+      "id": "local-harris20-det-nearoptimal",
+      "sourceId": "harris20",
+      "kind": "algorithm",
+      "panel": "approximation",
+      "randomization": "deterministic",
+      "roundComplexity": "Õ(ε⁻⁴ log² Δ + ε⁻¹ log* n)",
+      "displayBound": "Õ(ε⁻⁴ log² Δ + ε⁻¹ log* n)",
+      "quality": "weight(M) ≥ OPTweight/(1+ε)",
+      "output": "one consistent distributed matching; each vertex knows its incident matched edge or is unmatched",
+      "graph": "general graphs with nonnegative edge weights; maximum degree Δ",
+      "model": "LOCAL",
+      "theorem": "Theorem 1.3, deterministic part",
+      "probability": "deterministic",
+      "notes": "Weighted theorem includes cardinality as the unit-weight special case; retain ε dependence. No dependence on weight ratio W.",
+      "evidenceStatus": "full_text_verified",
+      "label": "Harris 2020",
+      "year": 2020,
+      "publicationStatus": "published",
+      "sourceUrl": "https://arxiv.org/html/1807.07645v7",
+      "costMeasure": "synchronous communication rounds",
+      "plotLane": "local-harris20-det-nearoptimal",
+      "shortLabel": "Harris ’20",
+      "plotNote": "weighted · 1/(1+ε)",
+      "summaryNote": "weighted · 1/(1+ε)"
+    },
+    {
+      "id": "local-harris20-rand-nearoptimal",
+      "sourceId": "harris20",
+      "kind": "algorithm",
+      "panel": "approximation",
+      "randomization": "randomized",
+      "roundComplexity": "Õ(ε⁻³ log Δ + ε⁻³ log log n + ε⁻²(log log n)²)",
+      "displayBound": "Õ(ε⁻³ log Δ + poly(ε⁻¹, log log n))",
+      "quality": "weight(M) ≥ OPTweight/(1+ε)",
+      "output": "one consistent distributed matching; each vertex knows its incident matched edge or is unmatched",
+      "graph": "general graphs with nonnegative edge weights; maximum degree Δ",
+      "model": "LOCAL",
+      "theorem": "Theorem 1.3, randomized part, set failure δ=n^(−c)",
+      "probability": "at least 1−n^(−c), for a fixed constant c>0",
+      "notes": "The theorem permits arbitrary failure δ: replace log log n by log log(1/δ). Weighted, not merely unweighted.",
+      "evidenceStatus": "full_text_verified",
+      "label": "Harris 2020",
+      "year": 2020,
+      "publicationStatus": "published",
+      "sourceUrl": "https://arxiv.org/html/1807.07645v7",
+      "costMeasure": "synchronous communication rounds",
+      "plotLane": "local-harris20-rand-nearoptimal",
+      "shortLabel": "Harris ’20",
+      "plotNote": "weighted · 1/(1+ε), w.h.p.",
+      "summaryNote": "weighted · 1/(1+ε), w.h.p."
+    },
+    {
+      "id": "local-gg23-nearoptimal",
+      "sourceId": "gg23",
+      "kind": "algorithm",
+      "panel": "approximation",
+      "randomization": "deterministic",
+      "roundComplexity": "Õ(log^(4/3) n) · poly(1/ε)",
+      "displayBound": "Õ(log^(4/3) n) · poly(1/ε)",
+      "quality": "|M| ≥ OPT/(1+ε)",
+      "output": "one consistent distributed matching; each vertex knows its incident matched edge or is unmatched",
+      "graph": "general unweighted simple graphs; maximum degree Δ",
+      "model": "LOCAL",
+      "theorem": "Theorem 1.2",
+      "probability": "deterministic",
+      "notes": "Unweighted cardinality only. The theorem first gives a constant approximation and then boosts to 1+ε.",
+      "evidenceStatus": "full_text_verified",
+      "label": "GG 2023",
+      "year": 2023,
+      "publicationStatus": "published",
+      "sourceUrl": "https://arxiv.org/html/2303.16043v1",
+      "costMeasure": "synchronous communication rounds",
+      "plotLane": "local-gg23-nearoptimal",
+      "shortLabel": "GG ’23",
+      "plotNote": "unweighted · 1/(1+ε)",
+      "summaryNote": "unweighted · 1/(1+ε)"
+    },
+    {
+      "id": "local-bcgs17-nearoptimal",
+      "sourceId": "bcgs17",
+      "kind": "algorithm",
+      "panel": "approximation",
+      "randomization": "randomized",
+      "roundComplexity": "Oε(log Δ / log log Δ)",
+      "displayBound": "Oε(log Δ / log log Δ)",
+      "quality": "E[|M|] ≥ OPT/(1+ε), fixed ε>0",
+      "output": "one consistent distributed matching; each vertex knows its incident matched edge or is unmatched",
+      "graph": "general unweighted simple graphs; maximum degree Δ",
+      "model": "LOCAL",
+      "theorem": "Theorem B.4 and its first-moment analysis",
+      "probability": "expected approximation; no uniform 1−1/poly(n) claim",
+      "notes": "The basic LOCAL analysis uses expected lost optimum edges. Keep this separate from high-probability guarantees; the paper discusses additional concentration under restrictions. Oε hides dependence on fixed ε.",
+      "evidenceStatus": "full_text_verified",
+      "label": "BCGS 2017",
+      "year": 2017,
+      "publicationStatus": "published",
+      "sourceUrl": "https://arxiv.org/pdf/1708.00276",
+      "costMeasure": "synchronous communication rounds",
+      "plotLane": "local-bcgs17-nearoptimal",
+      "shortLabel": "BCGS ’17",
+      "plotNote": "unweighted · expected 1/(1+ε)",
+      "summaryNote": "1/(1+ε) in expectation"
+    },
+    {
+      "id": "local-dp26-constant",
+      "sourceId": "dp26",
+      "kind": "algorithm",
+      "panel": "approximation",
+      "randomization": "randomized",
+      "roundComplexity": "O(log n / (log log n)²)",
+      "displayBound": "O(log n / (log log n)²)",
+      "quality": "|M| ≥ OPT/(2+ε)",
+      "output": "one consistent distributed matching; each vertex knows its incident matched edge or is unmatched",
+      "graph": "general unweighted simple graphs; maximum degree Δ",
+      "model": "LOCAL",
+      "theorem": "Theorem 1",
+      "probability": "at least 1−ε⁻¹ exp(−Ω(log^(1−δ) n)), for any fixed δ>0",
+      "notes": "Preprint. General unweighted graphs; ε∈(0,1) may depend on n. This success bound is weaker than conventional high probability 1−n^(−c).",
+      "evidenceStatus": "full_text_verified",
+      "label": "Davies-Peck 2026",
+      "year": 2026,
+      "publicationStatus": "preprint",
+      "sourceUrl": "https://arxiv.org/html/2605.13264v1",
+      "costMeasure": "synchronous communication rounds",
+      "plotLane": "local-dp26-constant",
+      "shortLabel": "Davies-Peck ’26",
+      "plotNote": "1/(2+ε) · weaker success",
+      "summaryNote": "1/(2+ε) · weaker success"
+    },
+    {
+      "id": "local-kmw16-approx-lower",
+      "sourceId": "kmw16",
+      "kind": "lower",
+      "panel": "approximation",
+      "randomization": "randomized",
+      "roundComplexity": "Ω(min{log Δ / log log Δ, √(log n / log log n)})",
+      "displayBound": "Ω(min{log Δ / log log Δ, √(log n / log log n)})",
+      "quality": "any fixed constant-factor approximation to maximum cardinality matching",
+      "output": "one consistent distributed matching; each vertex knows its incident matched edge or is unmatched",
+      "graph": "general unweighted simple graphs; maximum degree Δ",
+      "model": "LOCAL",
+      "theorem": "Theorem 20 and Corollary 21; simultaneous n,Δ form",
+      "probability": "allows randomized algorithms; expected approximation lower bound",
+      "notes": "Applies also to deterministic algorithms and to weighted algorithms via unit weights. Distinct from exact maximality. No blanket claim that one term is tight for all n,Δ.",
+      "evidenceStatus": "full_text_verified",
+      "label": "KMW 2016",
+      "year": 2016,
+      "publicationStatus": "published",
+      "sourceUrl": "https://arxiv.org/html/1011.5470v2",
+      "costMeasure": "synchronous communication rounds",
+      "plotLane": "local-kmw16-approx-lower",
+      "shortLabel": "KMW ’16",
+      "plotNote": "any constant factor · both regimes",
+      "appliesTo": [
+        "deterministic",
+        "randomized"
+      ],
+      "summaryNote": "any constant factor"
+    }
+  ],
+  "relatedResults": [
+    {
+      "id": "local-hs23-congest",
+      "sourceId": "hs23",
+      "kind": "algorithm",
+      "label": "Huang–Su 2023",
+      "roundComplexity": "poly(1/ε, log n) CONGEST rounds",
+      "quality": "weight(M) ≥ (1−ε)OPTweight",
+      "graph": "general weighted graphs; O(log n)-bit messages",
+      "notes": "A stricter communication model. Recorded separately from the LOCAL round landscape.",
+      "year": 2023,
+      "publicationStatus": "published",
+      "sourceUrl": "https://arxiv.org/abs/2212.14425",
+      "evidenceStatus": "abstract_verified",
+      "probability": "deterministic",
+      "model": "CONGEST",
+      "randomization": "deterministic",
+      "output": "one consistent distributed matching; each vertex reports its incident matched edge or unmatched",
+      "theorem": "Abstract"
+    },
+    {
+      "id": "local-kpsw25-regular",
+      "sourceId": "kpsw25",
+      "kind": "algorithm",
+      "label": "KPSW 2025",
+      "roundComplexity": "O(ε⁻⁵ log(1/ε)) LOCAL rounds",
+      "quality": "|M| ≥ OPT/(1+ε)",
+      "graph": "regular graphs only",
+      "notes": "Independent of n and Δ in this restricted graph class; not a general-graph algorithm.",
+      "year": 2025,
+      "publicationStatus": "published",
+      "sourceUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol356-disc2025/html/LIPIcs.DISC.2025.40/LIPIcs.DISC.2025.40.html",
+      "evidenceStatus": "abstract_verified",
+      "probability": "with high probability, per Theorem 1",
+      "model": "LOCAL",
+      "randomization": "randomized",
+      "output": "one consistent distributed matching; each vertex reports its incident matched edge or unmatched",
+      "theorem": "Theorem 1"
+    },
+    {
+      "id": "local-bdo26-regular-lower",
+      "sourceId": "bdo26",
+      "kind": "lower",
+      "label": "Balliu–d’Amore–Olivetti 2026",
+      "roundComplexity": "Ω(min{log_Δ n, log Δ}); in particular an n-only Ω(√log n) lower bound",
+      "quality": "exact maximal matching",
+      "graph": "bipartite Δ-regular graphs given proper 2-coloring; girth Ω(log_Δ n)",
+      "notes": "Preprint. Supplied bipartition colors strengthen the input model. The n-only corollary chooses a hard degree regime; Ω(√log n) is not asserted uniformly at every fixed Δ.",
+      "year": 2026,
+      "publicationStatus": "preprint",
+      "sourceUrl": "https://arxiv.org/html/2609.34753v1",
+      "evidenceStatus": "full_text_verified",
+      "probability": "randomized algorithms with failure probability at most 1/n",
+      "model": "LOCAL",
+      "randomization": "randomized",
+      "output": "one consistent distributed matching; each vertex reports its incident matched edge or unmatched",
+      "theorem": "Theorem 2.13"
+    }
+  ],
+  "axes": {
+    "x": {
+      "label": "Randomness regime",
+      "kind": "categorical",
+      "categories": [
+        {
+          "id": "deterministic",
+          "label": "Deterministic"
+        },
+        {
+          "id": "randomized",
+          "label": "Randomized"
+        }
+      ],
+      "scaleNote": "Categorical columns; randomized lower bounds also constrain deterministic algorithms."
+    },
+    "y": {
+      "label": "Communication rounds (symbolic bounds)",
+      "kind": "categorical",
+      "categories": [
+        {
+          "id": "local-pr01-maximal",
+          "label": "O(Δ + log* n)"
+        },
+        {
+          "id": "local-fischer17-maximal",
+          "label": "O(log² Δ · log n)"
+        },
+        {
+          "id": "local-gg23-maximal",
+          "label": "Õ(log² n)"
+        },
+        {
+          "id": "local-beps12-maximal",
+          "label": "O(log Δ + log⁴ log n)"
+        },
+        {
+          "id": "local-fischer17-rand-maximal",
+          "label": "O(log Δ + log³ log n)"
+        },
+        {
+          "id": "local-balliu21-det-lower",
+          "label": "Ω(min{Δ, log n / log log n})"
+        },
+        {
+          "id": "local-balliu21-rand-lower",
+          "label": "Ω(min{Δ, log log n / log log log n})"
+        },
+        {
+          "id": "local-ks25-maximal-lower",
+          "label": "Ω(min{log Δ, √log n})"
+        },
+        {
+          "id": "local-harris20-det-nearoptimal",
+          "label": "Õ(ε⁻⁴ log² Δ + ε⁻¹ log* n)"
+        },
+        {
+          "id": "local-harris20-rand-nearoptimal",
+          "label": "Õ(ε⁻³ log Δ + poly(ε⁻¹, log log n))"
+        },
+        {
+          "id": "local-gg23-nearoptimal",
+          "label": "Õ(log^(4/3) n) · poly(1/ε)"
+        },
+        {
+          "id": "local-bcgs17-nearoptimal",
+          "label": "Oε(log Δ / log log Δ)"
+        },
+        {
+          "id": "local-dp26-constant",
+          "label": "O(log n / (log log n)²)"
+        },
+        {
+          "id": "local-kmw16-approx-lower",
+          "label": "Ω(min{log Δ / log log Δ, √(log n / log log n)})"
+        }
+      ],
+      "scaleNote": "Each labeled row is a theorem formula. Rows do not impose a universal numerical order in n, Δ and ε; no hidden constants are assigned."
+    },
+    "facets": [
+      {
+        "id": "maximal",
+        "label": "Exact maximal matching"
+      },
+      {
+        "id": "approximation",
+        "label": "Approximate maximum matching; quality and weight scope stated per point"
+      }
+    ]
+  },
+  "definitions": {
+    "local": "Each vertex is a processor; communication is along graph edges in synchronous rounds with unbounded messages.",
+    "lca": "Local computation algorithms answer graph-probe queries; their probe cost is not LOCAL communication rounds.",
+    "maximal": "No edge can be added to M. This implies |M|≥OPT/2 but is strictly stronger than the approximation guarantee alone.",
+    "weighted": "Compare total matching weight, not just number of matched edges. Unit weights recover cardinality.",
+    "quality": "An α-approximation for a maximization problem means value(M)≥OPT/α; expectation and high-probability guarantees are distinct.",
+    "axes": "X records deterministic/randomized. Y records exact symbolic round formulas; rows are categorical and do not supply hidden constants."
+  },
+  "comparisonContracts": {
+    "maximal": {
+      "quality": "exact maximal matching",
+      "cost": "LOCAL rounds",
+      "separateRandomness": true,
+      "note": "Both Balliu lower bounds and KS25 remain in view because their degree regimes differ."
+    },
+    "approximation": {
+      "quality": "record-specific 1+ε, 2+ε, or constant factor",
+      "cost": "LOCAL rounds",
+      "note": "Weighted, unweighted, expected, and high-probability guarantees are stated individually. No region is shaded across incomparable contracts."
+    }
+  },
+  "reviewSources": [
+    {
+      "title": "New Hardness Results for the LOCAL Model via a Simple Self-Reduction",
+      "url": "https://arxiv.org/abs/2510.19972v3",
+      "reviewedVersion": "4 August 2026",
+      "note": "The b=1 corollary recovers the maximal-matching self-reduction bound. Kept as a proof refinement rather than a duplicate frontier point."
+    }
+  ]
+}

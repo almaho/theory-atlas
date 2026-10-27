@@ -1,0 +1,94 @@
+{
+  "id": "cc-stream",
+  "dataFile": "cc-stream.json",
+  "javascript": "cc-stream.js",
+  "css": "cc-stream.css",
+  "routes": [
+    {
+      "key": "cc-stream-partition",
+      "sliceId": "cc-stream-single-pass-pivot",
+      "label": "Correlation clustering · stream partition",
+      "visible": true,
+      "problem": "cc",
+      "model": "stream"
+    },
+    {
+      "key": "cc-stream-value",
+      "sliceId": "cc-stream-value-tiny-space",
+      "label": "Correlation clustering · stream cost",
+      "visible": true,
+      "problem": "cc",
+      "model": "stream"
+    },
+    {
+      "key": "cc-stream-turnstile-explicit",
+      "sliceId": "cc-stream-turnstile-explicit",
+      "label": "Single-pass edge-insertion/deletion stream, explicit clustering",
+      "visible": false,
+      "problem": "cc",
+      "model": "stream"
+    },
+    {
+      "key": "cc-stream-insertion-deterministic-sketch",
+      "sliceId": "cc-stream-insertion-deterministic-sketch",
+      "label": "Insertion-only stream, deterministic synopsis",
+      "visible": false,
+      "problem": "cc",
+      "model": "stream"
+    },
+    {
+      "key": "cc-stream-multipass-min-disagree",
+      "sliceId": "cc-stream-multipass-min-disagree",
+      "label": "Multipass semi-streaming, MinDisagree explicit partition",
+      "visible": false,
+      "problem": "cc",
+      "model": "stream"
+    },
+    {
+      "key": "cc-stream-onepass-weighted-maxagree",
+      "sliceId": "cc-stream-onepass-weighted-maxagree",
+      "label": "One-pass weighted MaxAgree, output partition",
+      "visible": false,
+      "problem": "cc",
+      "model": "stream"
+    },
+    {
+      "key": "cc-stream-onepass-weighted-mindisagree",
+      "sliceId": "cc-stream-onepass-weighted-mindisagree",
+      "label": "One-pass weighted MinDisagree",
+      "visible": false,
+      "problem": "cc",
+      "model": "stream"
+    },
+    {
+      "key": "cc-stream-node-arrival-cost",
+      "sliceId": "cc-stream-node-arrival-cost",
+      "label": "Node-arrival stream, cost value only",
+      "visible": false,
+      "problem": "cc",
+      "model": "stream"
+    },
+    {
+      "key": "cc-stream-dense-coreset",
+      "sliceId": "cc-stream-dense-coreset",
+      "label": "Dense-graph coreset, two passes",
+      "visible": false,
+      "problem": "cc",
+      "model": "stream"
+    }
+  ],
+  "canonicalAliases": {
+    "cc-stream-turnstile-explicit": "cc-stream-partition",
+    "cc-stream-insertion-deterministic-sketch": "cc-stream-partition",
+    "cc-stream-multipass-min-disagree": "cc-stream-partition",
+    "cc-stream-onepass-weighted-maxagree": "cc-stream-partition",
+    "cc-stream-onepass-weighted-mindisagree": "cc-stream-partition",
+    "cc-stream-node-arrival-cost": "cc-stream-value",
+    "cc-stream-dense-coreset": "cc-stream-partition"
+  },
+  "axisSummary": {
+    "x": "Partition: numerical approximation factor. Value: memory exponent with fixed explicit accuracy parameters.",
+    "y": "Partition: logarithmic pass count. Value: named output/error and access contracts.",
+    "note": "Separate partition/value atlas facets. Weighted variants are related cards. Green algorithms and red lower bounds; no invented partition barrier."
+  }
+}

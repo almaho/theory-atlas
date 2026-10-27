@@ -1,0 +1,107 @@
+{
+  "problem": "cc",
+  "model": "query_list",
+  "slices": [
+    {
+      "id": "cc-query-list-constant",
+      "problem": "cc",
+      "model": "query_list",
+      "label": "Positive-edge adjacency-list access, multiplicative partition",
+      "task": "Output explicit partition within a constant multiple of optimum MinDisagree",
+      "assumptions": [
+        "Positive-neighbor lists accessible; input is signed complete graph",
+        "Randomized algorithm; negative labels implicit"
+      ],
+      "xAxis": {
+        "label": "Approximation factor α = cost / OPT",
+        "kind": "approximation",
+        "min": 1,
+        "max": 6,
+        "ticks": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "yAxis": {
+        "label": "Query exponent p in Õ(n^p)",
+        "kind": "exponent",
+        "min": 0,
+        "max": 2,
+        "ticks": [
+          0,
+          0.5,
+          1,
+          1.5,
+          2
+        ],
+        "tickLabels": [
+          "polylog",
+          "√n",
+          "n",
+          "n^{3/2}",
+          "n²"
+        ]
+      },
+      "parameters": {},
+      "results": [
+        {
+          "id": "cc-query-assadi-wang-2022",
+          "paperId": "assadi-2022-sparse-dense",
+          "kind": "upper",
+          "bound": "O(n log² n) time with positive adjacency-list access",
+          "guarantee": "O(1)-approximate partition with high probability",
+          "sourceLocation": "ITCS 2022 abstract, first main result",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "Degree/list access assumed; cannot claim same guarantee with pairwise matrix queries alone.",
+          "plot": null
+        },
+        {
+          "id": "cc-query-pivot-original",
+          "paperId": "ailon-2008-pivot",
+          "kind": "upper",
+          "bound": "O(n+m) expected work scanning positive-edge adjacency lists, m=|E⁺|",
+          "guarantee": "Expected disagreement cost ≤3·OPT",
+          "sourceLocation": "JACM 2008 randomized Pivot algorithm; STOC 2024 Combinatorial §1.1 restates bound",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "Classic positive-neighbor baseline; O(m) scanning is not sublinear in m, unlike ITCS 2022 O(n log²n).",
+          "plot": null
+        }
+      ]
+    }
+  ],
+  "papers": [
+    {
+      "id": "assadi-2022-sparse-dense",
+      "title": "Sublinear Time and Space Algorithms for Correlation Clustering via Sparse-Dense Decompositions",
+      "authors": [
+        "Sepehr Assadi",
+        "Chen Wang"
+      ],
+      "year": 2022,
+      "venue": "ITCS 2022",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ITCS.2022.10",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "ailon-2008-pivot",
+      "title": "Aggregating Inconsistent Information: Ranking and Clustering",
+      "authors": [
+        "Nir Ailon",
+        "Moses Charikar",
+        "Alantha Newman"
+      ],
+      "year": 2008,
+      "venue": "Journal of the ACM 2008; STOC 2005 preliminary",
+      "publicationStatus": "journal",
+      "url": "https://doi.org/10.1145/1411509.1411513",
+      "verifiedOn": "2026-09-27"
+    }
+  ]
+}

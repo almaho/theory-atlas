@@ -1,0 +1,179 @@
+{
+  "pair": "vertex-mpc",
+  "reviewedOn": "2026-10-27",
+  "boundedSources": 6,
+  "originalRecords": 7,
+  "preservedResultIds": [
+    "vertex-mpc-ack-2019",
+    "vertex-result-41",
+    "vertex-extended-vertex-mpc-linear-memory-delta-plus-one-9",
+    "vertex-mpc-chang-et-al-low-memory-2019",
+    "vertex-mpc-czumaj-davies-parter-2021",
+    "vertex-result-43",
+    "vertex-extra-60"
+  ],
+  "primaryEvidence": [
+    {
+      "resultId": "vertex-mpc-ack-2019",
+      "sourceId": "assadi-chen-khanna-2019-sublinear-coloring",
+      "url": "https://arxiv.org/html/1807.08886#S4.SS3",
+      "theorem": "Theorem 4 and §4.3, including the polynomial-time implementation",
+      "status": "verified",
+      "notes": "The cited theorem states local memory, not an optimized total-memory bound."
+    },
+    {
+      "resultId": "vertex-result-41",
+      "sourceId": "czumaj-davies-parter-2020-clique-mpc",
+      "url": "https://arxiv.org/html/2009.06043#S1",
+      "theorem": "Theorem 2; Theorem 3 is a separate uniform-palette variant",
+      "status": "verified",
+      "notes": "Theorem 3 improves total memory to O(m+n) for the uniform Δ+1 palette. That improvement is not attached to arbitrary explicit lists."
+    },
+    {
+      "resultId": "vertex-extended-vertex-mpc-linear-memory-delta-plus-one-9",
+      "sourceId": "halldorsson-kuhn-nolin-tonoyan-2022-degree",
+      "url": "https://arxiv.org/html/2112.00604#S8",
+      "theorem": "Corollary 3(3), Theorem 4 and §8 MPC implementation",
+      "status": "verified",
+      "notes": "This is the stronger degree+1-list contract. The cited corollary does not state aggregate memory."
+    },
+    {
+      "resultId": "vertex-mpc-chang-et-al-low-memory-2019",
+      "sourceId": "chang-fischer-ghaffari-uitto-zheng-2019-lca-mpc",
+      "url": "https://arxiv.org/html/1808.08419#S1",
+      "theorem": "Theorem 1.2; §3.3 and Appendix E memory accounting",
+      "status": "verified",
+      "notes": "The plot uses the verified round and per-machine memory bounds. The reported aggregate-memory bound is not presented as including an arbitrary full explicit list input."
+    },
+    {
+      "resultId": "vertex-mpc-czumaj-davies-parter-2021",
+      "sourceId": "czumaj-davies-parter-2021-low-space-mpc",
+      "url": "https://arxiv.org/html/2112.05831#S1",
+      "theorem": "Theorem 1 and §1.1 local-computation discussion",
+      "status": "verified",
+      "notes": "The paper also discusses a non-uniform polynomial-work implementation with n^φ advice bits depending on n; this is not an ordinary uniform polynomial-time replacement. Aggregate memory is source-reported; the full explicit-list input must be accounted for separately."
+    },
+    {
+      "resultId": "vertex-result-43",
+      "sourceId": "czumaj-davies-parter-2020-clique-mpc",
+      "url": "https://arxiv.org/html/2009.06043#S1",
+      "theorem": "Theorem 4 (degree+1 list coloring)",
+      "status": "verified",
+      "notes": "Corrects the original record's weaker Δ+1-list wording. Explicit degree+1 lists contain 2m+n color entries."
+    },
+    {
+      "resultId": "vertex-extra-60",
+      "sourceId": "bera-chakrabarti-ghosh-2020-degeneracy",
+      "url": "https://arxiv.org/pdf/1905.00566#page=13",
+      "theorem": "ICALP Theorem 12; full version Theorem 4.3 and proof",
+      "status": "verified",
+      "notes": "κ≤Δ, but κ+o(κ) is not a numerical substitute for Δ+1. Do not read the little-o notation as exact κ colors for fixed κ. The κ=ω(log²n) restriction belongs to the separate Congested Clique theorem, not this MPC theorem."
+    }
+  ],
+  "corrections": [
+    {
+      "id": "vertex-result-43",
+      "change": "Theorem 4 gives degree+1 list coloring; corrected the weaker original Δ+1-list scope."
+    },
+    {
+      "id": "vertex-result-41",
+      "change": "Separated Theorem 2 arbitrary lists and O(nΔ) total from Theorem 3 uniform palette and O(m+n) total."
+    },
+    {
+      "id": "vertex-mpc-chang-et-al-low-memory-2019",
+      "change": "MPC memory is measured in bits; polynomial local work is explicit. Preserve theorem-reported Õ(m), Appendix E Õ(m+n), with an explicit-list storage qualification."
+    },
+    {
+      "id": "vertex-mpc-czumaj-davies-parter-2021",
+      "change": "Keep exp(n^φ) local work visible. Non-uniform advice alternative is inspector-only, not a uniform polynomial implementation."
+    },
+    {
+      "id": "vertex-extra-60",
+      "change": "n processors × O(n log²n) bits. Do not transfer the Congested Clique κ=ω(log²n) condition. The small-input branch gives κ+1, while the large-input palette is asymptotic κ+o(κ)."
+    }
+  ],
+  "sourceScopeNotes": [
+    {
+      "sourceId": "assadi-chen-khanna-2019-sublinear-coloring",
+      "url": "https://arxiv.org/html/1807.08886#S4.SS3",
+      "locations": [
+        "Theorem 4",
+        "§4.3 polynomial-time implementation"
+      ],
+      "note": "O(1) rounds without public randomness; one round with public randomness. Uniform palette. Aggregate memory not explicitly stated."
+    },
+    {
+      "sourceId": "chang-fischer-ghaffari-uitto-zheng-2019-lca-mpc",
+      "url": "https://arxiv.org/html/1808.08419",
+      "locations": [
+        "Theorem 1.2",
+        "§1.2 MPC definition",
+        "§3.3",
+        "Appendix E"
+      ],
+      "note": "Source memory uses bits and poly(S) local computation; global hash placement. No explicit reconciliation of arbitrary full Δ+1-list storage with aggregate memory was located."
+    },
+    {
+      "sourceId": "czumaj-davies-parter-2021-low-space-mpc",
+      "url": "https://arxiv.org/html/2112.05831#S1",
+      "locations": [
+        "Theorem 1",
+        "§1.1",
+        "§1 discussion of component stability"
+      ],
+      "note": "Deterministic, arbitrary local computation. Does not satisfy component stability. Publication verified by the institutional repository; arXiv posting after the conference is not a reason to downgrade it.",
+      "publicationEvidence": "https://wrap.warwick.ac.uk/id/eprint/153753/"
+    },
+    {
+      "sourceId": "bera-chakrabarti-ghosh-2020-degeneracy",
+      "url": "https://arxiv.org/pdf/1905.00566#page=13",
+      "locations": [
+        "ICALP2020 Theorem 12",
+        "full version Theorem 4.3, pp.12–13"
+      ],
+      "note": "The proof gathers m=O(n log n) inputs centrally; otherwise κ=ω(log n). Total O(n²log²n) bits is a direct multiplication of allocated processors and local capacity, not an additional theorem."
+    },
+    {
+      "sourceId": "halldorsson-kuhn-nolin-tonoyan-2022-degree",
+      "url": "https://arxiv.org/html/2112.00604#S8",
+      "locations": [
+        "Corollary 3(3)",
+        "Theorem 4",
+        "§8 MPC"
+      ],
+      "note": "Arbitrary d(v)+1 lists; O(1) rounds, Õ(n) local. Aggregate memory not specified by the cited corollary. List input has 2m+n color entries."
+    },
+    {
+      "sourceId": "czumaj-davies-parter-2020-clique-mpc",
+      "url": "https://arxiv.org/html/2009.06043#S1",
+      "locations": [
+        "Theorems 2,3,4",
+        "§1.1 word-memory convention"
+      ],
+      "note": "General lists and shared palette have different total-memory costs. Degree+1 contract retained. O(log n)-bit words."
+    }
+  ],
+  "excludedLowerTransfers": [
+    "ACK query lower bounds do not yield an MPC round lower bound.",
+    "BCG streaming/query lower bounds do not yield an MPC round lower bound.",
+    "Component-stability conditional barriers do not automatically apply to the included deterministic algorithms."
+  ],
+  "qualifications": [
+    {
+      "issue": "Full explicit-list input accounting in low-space source statements",
+      "handling": "Show source-reported totals only in the inspector with an explicit caveat; main plot uses verified per-machine memory and rounds. No aggregate-memory optimum is claimed.",
+      "blocking": false
+    },
+    {
+      "issue": "Source memory units differ",
+      "handling": "Retain bits/words and conversion caveat. Categories are symbolic, not exact common-budget coordinates.",
+      "blocking": false
+    }
+  ],
+  "validation": {
+    "isolatedTests": "39 size/filter combinations; all seven original IDs and six sources; publication filtering, keyboard inspection and lifecycle; textless overview",
+    "schema": "Shared build.validate and load_pairs passed in an in-memory overlay: 231 papers, 151 slices, 406 results, 28 registered pairs.",
+    "staticVisuals": "738×548 detail and 330×245 compact inspected in light and dark themes; 360px focus uses horizontal plot scrolling.",
+    "pending": "Parent live browser QA, shared test run and packaging."
+  }
+}

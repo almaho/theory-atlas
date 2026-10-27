@@ -1,0 +1,243 @@
+{
+  "pair": "edge-local",
+  "reviewedOn": "2026-10-27",
+  "boundedSourceSet": {
+    "originalRecords": 17,
+    "originalSlices": 7,
+    "papers": 12
+  },
+  "setupDecision": {
+    "userChoice": "Bounded degree as MAIN view",
+    "main": "Simple graphs; fixed constant Δ≥3; exact q=2Δ−1 versus q=2Δ−2; deterministic and randomized panels.",
+    "secondary": "Variable-degree categorical formula view; loopless multigraphs in a separate scoped facet."
+  },
+  "evidence": [
+    {
+      "sourceId": "jakob-maus-schager-2025-local",
+      "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol356-disc2025/html/LIPIcs.DISC.2025.37/LIPIcs.DISC.2025.37.html",
+      "verifiedOn": "2026-10-27",
+      "notes": [
+        {
+          "recordId": "local-two-delta-minus-two-upper-2025",
+          "theorem": "Corollary 3",
+          "evidenceStatus": "verified",
+          "correction": "Two alternative instantiations. The constant-degree main view specializes the first. O(log n) is tight here only after fixing Δ. A bound on reduction overhead alone is not a bound on the whole algorithm."
+        },
+        {
+          "recordId": "edge-local-jakob25-random",
+          "theorem": "Theorem 4 and Corollary 5",
+          "evidenceStatus": "verified",
+          "correction": "Total randomized runtime includes the residual (2Δ−1)-edge-coloring subroutine. Fixing Δ reduces the first instantiation to O(log log n)."
+        }
+      ]
+    },
+    {
+      "sourceId": "blikstad-maus-devos-2026-distributed",
+      "url": "https://arxiv.org/html/2603.02689v2",
+      "verifiedOn": "2026-10-27",
+      "notes": [
+        {
+          "recordId": "local-near-delta-disc26",
+          "theorem": "Theorem 3 and the following additive-term discussion",
+          "evidenceStatus": "verified",
+          "correction": "The all-degree statement contains an additive palette term. It cannot be plotted as a fixed near-Δ palette in the bounded-degree main view. When Δ = 2^{O(√log n)}, runtime is O(log²n). This is the LOCAL theorem, not the slower CONGEST theorem. Full proof is the accepted DISC 2026 preprint, distinct from the published PODC brief announcement."
+        }
+      ]
+    },
+    {
+      "sourceId": "chang-he-li-pettie-uitto-2020-local",
+      "url": "https://arxiv.org/html/1708.04290v3",
+      "verifiedOn": "2026-10-27",
+      "notes": [
+        {
+          "recordId": "local-two-delta-minus-two-lower-2020",
+          "theorem": "Theorem 2, arXiv v3",
+          "evidenceStatus": "verified",
+          "correction": "Even on 2-vertex-colored trees. Randomized lower bound uses the high-probability RandLOCAL correctness requirement. The 2026 erratum changes a network-decomposition claim; it explicitly leaves the edge-coloring bounds unchanged."
+        }
+      ]
+    },
+    {
+      "sourceId": "fischer-ghaffari-kuhn-2017",
+      "url": "https://ieee-focs.org/FOCS-2017-Papers/3464a180.pdf",
+      "verifiedOn": "2026-10-27",
+      "notes": [
+        {
+          "recordId": "edge-local-fgk17-deterministic",
+          "theorem": "Theorem I.1",
+          "evidenceStatus": "verified",
+          "correction": "Historical deterministic algorithm. Its list version uses line-graph degree deg_L(G)(e)+1, not vertex degree plus one."
+        },
+        {
+          "recordId": "edge-local-fgk17-random",
+          "theorem": "Corollary I.2",
+          "evidenceStatus": "verified",
+          "correction": "Historical randomized algorithm; bounded-degree main view uses the faster deterministic 2022 algorithm in both models."
+        }
+      ]
+    },
+    {
+      "sourceId": "ghaffari-kuhn-maus-uitto-2018",
+      "url": "https://arxiv.org/html/1711.05469v1",
+      "verifiedOn": "2026-10-27",
+      "notes": [
+        {
+          "recordId": "edge-local-gkmu18-near",
+          "theorem": "Abstract; high-degree result",
+          "evidenceStatus": "abstract_verified",
+          "correction": "High-degree theorem; not a bounded-Δ specialization. The small-degree palette is a separate retained record. Hidden polynomial and vanishing slack remain symbolic."
+        },
+        {
+          "recordId": "edge-local-gkmu18-lowdegree",
+          "theorem": "Abstract; smaller-degree result",
+          "evidenceStatus": "abstract_verified",
+          "correction": "Historical small-degree guarantee. The original source states 3Δ/2 colors; the palette size is integer. Kept separate from its high-degree near-Δ theorem."
+        }
+      ]
+    },
+    {
+      "sourceId": "balliu-kuhn-olivetti-2020",
+      "url": "https://arxiv.org/abs/2002.10780",
+      "verifiedOn": "2026-10-27",
+      "notes": [
+        {
+          "recordId": "edge-local-bko20",
+          "theorem": "Abstract; main list edge-coloring result",
+          "evidenceStatus": "abstract_verified",
+          "correction": "Historical quasi-polylogarithmic dependence on degree. Kept symbolic; no polynomial exponent is inferred."
+        }
+      ]
+    },
+    {
+      "sourceId": "balliu-brandt-kuhn-olivetti-2022",
+      "url": "https://arxiv.org/html/2206.00976",
+      "verifiedOn": "2026-10-27",
+      "notes": [
+        {
+          "recordId": "edge-local-bbko22",
+          "theorem": "Theorem D.4, with color universe C = 2Δ−1",
+          "evidenceStatus": "verified",
+          "correction": "Original theorem gives O(log⁷C · log⁵Δ + log* n), yielding the displayed instantiation. The deterministic algorithm also works in randomized LOCAL with probability 1. No matching lower bound for this palette is asserted from the supplied source set."
+        }
+      ]
+    },
+    {
+      "sourceId": "bernshteyn-2022-local-vizing",
+      "url": "https://arxiv.org/pdf/2006.15703",
+      "verifiedOn": "2026-10-27",
+      "notes": [
+        {
+          "recordId": "edge-local-bernshteyn22-vizing",
+          "theorem": "Theorem 1.1",
+          "evidenceStatus": "verified",
+          "correction": "Polynomial factors remain symbolic. No numeric exponent or fixed log-power coordinate is assigned."
+        }
+      ]
+    },
+    {
+      "sourceId": "davies-2023-lll-edge",
+      "url": "https://arxiv.org/html/2208.08701v2",
+      "verifiedOn": "2026-10-27",
+      "notes": [
+        {
+          "recordId": "edge-local-davies23-near",
+          "theorem": "Corollary 4",
+          "evidenceStatus": "verified",
+          "correction": "The asymptotic palette slack is not a Δ+1 guarantee. Neither the polynomial exponent nor a numeric ε-range is selected."
+        }
+      ]
+    },
+    {
+      "sourceId": "brandt-et-al-2025-threehalves",
+      "url": "https://arxiv.org/html/2501.03649v1",
+      "verifiedOn": "2026-10-27",
+      "notes": [
+        {
+          "recordId": "edge-local-brandt25-threehalves",
+          "theorem": "Theorem 1.2 and proof §5.1",
+          "evidenceStatus": "verified",
+          "correction": "The proof yields the integer floor palette. This agrees with 2Δ−2 at Δ=3 or 4; separate categorical families are not a claim of different numerical positions."
+        },
+        {
+          "recordId": "edge-local-brandt25-epsilon",
+          "theorem": "Corollary 1.2",
+          "evidenceStatus": "verified",
+          "correction": "Extra palette slack improves the degree dependence. The unspecified poly(log log Δ) factor remains symbolic."
+        }
+      ]
+    },
+    {
+      "sourceId": "dhawan-2024-multigraph",
+      "url": "https://arxiv.org/html/2307.06579v3",
+      "verifiedOn": "2026-10-27",
+      "notes": [
+        {
+          "recordId": "edge-local-dhawan24-random",
+          "theorem": "Theorem 1.5(2), with high-probability proof in §5.2",
+          "evidenceStatus": "verified",
+          "correction": "Loopless multigraphs. The proof gives O(Δ³⁶ log²n); the displayed theorem hides degree dependence by fixing Δ. The sequential algorithm's 1−1/Δⁿ success probability is not used here."
+        },
+        {
+          "recordId": "edge-local-dhawan24-deterministic",
+          "theorem": "Theorem 1.5(3), distributed proof §5.2",
+          "evidenceStatus": "verified",
+          "correction": "Loopless multigraphs. Degree factors are hidden by fixed Δ; the tilde hides poly(log log n). Retain the theorem's tilde even though the last proof line suppresses it."
+        }
+      ]
+    },
+    {
+      "sourceId": "kuhn-2020-recursive-list",
+      "url": "https://arxiv.org/abs/1907.03797",
+      "verifiedOn": "2026-10-27",
+      "notes": [
+        {
+          "recordId": "edge-local-kuhn20-recursive",
+          "theorem": "Abstract; line-graph consequence of bounded neighborhood independence",
+          "evidenceStatus": "abstract_verified",
+          "correction": "Original edge-coloring consequence verified in the author preprint abstract; no exponent hidden in O(√log Δ) is chosen."
+        }
+      ]
+    }
+  ],
+  "corrections": [
+    "Removed every numeric plot coordinate from the research patch; former x=2 conflated 2Δ−1 and 2Δ−2, and ordinal y tiers implied unsupported exponents.",
+    "Main y tiers are asymptotic symbolic classes with Δ fixed independently of n; distances have no numerical interpretation.",
+    "Corollaries 3 and 5 restore the full degree dependence and two instantiations; main uses their fixed-degree specializations.",
+    "Original BBKO Theorem D.4 uses log⁵Δ, correcting a later quotation with log⁵n; q=2Δ−1 gives O(log¹²Δ+log* n).",
+    "Randomized main 2Δ−1 marker reuses the deterministic algorithm, with probability 1, and keeps the same original record ID.",
+    "Chang lower record retains both original model bounds and is rendered twice without duplicating research IDs; no 2Δ−1 lower is invented.",
+    "Multigraph red bounds are explicit deductions from the same simple-tree result by class inclusion and palette monotonicity for Δ≥3.",
+    "Dhawan randomized w.h.p. verified directly in §5.2; no transfer of the sequential 1−1/Δⁿ guarantee.",
+    "Near-Δ 2026 all-degree palette includes O(√log n); exact near-Δ specialization requires sufficiently large Δ. Full proof remains accepted DISC2026 preprint.",
+    "Unspecified polynomial exponents, asymptotic palette slack and degree restrictions are preserved; small-Δ coincident palette families are not numerically separated."
+  ],
+  "verificationDepth": {
+    "fullTheoremRecords": [
+      "local-two-delta-minus-two-upper-2025",
+      "local-two-delta-minus-two-lower-2020",
+      "edge-local-jakob25-random",
+      "edge-local-bbko22",
+      "local-near-delta-disc26",
+      "edge-local-fgk17-deterministic",
+      "edge-local-fgk17-random",
+      "edge-local-bernshteyn22-vizing",
+      "edge-local-davies23-near",
+      "edge-local-brandt25-threehalves",
+      "edge-local-brandt25-epsilon",
+      "edge-local-dhawan24-random",
+      "edge-local-dhawan24-deterministic"
+    ],
+    "abstractStatementRecords": [
+      "edge-local-kuhn20-recursive",
+      "edge-local-bko20",
+      "edge-local-gkmu18-near",
+      "edge-local-gkmu18-lowdegree"
+    ]
+  },
+  "unresolvedBlockers": [],
+  "limitations": [
+    "Coverage is limited to the existing supplied papers.",
+    "Four historical records remain explicitly abstract-verified; their abstract statements are displayed without extra theorem-level claims.",
+    "Final browser inspection in the integrated atlas is delegated to the parent; isolated static raster review completed."
+  ]
+}

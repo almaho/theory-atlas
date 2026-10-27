@@ -1,0 +1,594 @@
+{
+  "id": "vertex-query_combined",
+  "problem": "vertex",
+  "model": "query_combined",
+  "title": "Vertex coloring · queries and communication",
+  "reviewedOn": "2026-10-27",
+  "sources": {
+    "assadi-chen-khanna-2019-sublinear-coloring": {
+      "id": "assadi-chen-khanna-2019-sublinear-coloring",
+      "title": "Sublinear Algorithms for (Δ+1) Vertex Coloring",
+      "authors": [
+        "Sepehr Assadi",
+        "Yu Chen",
+        "Sanjeev Khanna"
+      ],
+      "year": 2019,
+      "venue": "SODA 2019",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1807.08886",
+      "verifiedOn": "2026-10-27",
+      "verificationUrl": "https://arxiv.org/html/1807.08886"
+    },
+    "ferber-hardiman-chen-2025-sublinear-coloring": {
+      "id": "ferber-hardiman-chen-2025-sublinear-coloring",
+      "title": "Improved Sublinear Algorithms for Classical and Quantum Graph Coloring",
+      "authors": [
+        "Asaf Ferber",
+        "Liam Hardiman",
+        "Xiaonan Chen"
+      ],
+      "year": 2025,
+      "venue": "arXiv (revised 2026)",
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/abs/2502.06024",
+      "verifiedOn": "2026-10-27",
+      "verificationUrl": "https://arxiv.org/html/2502.06024"
+    },
+    "bera-chakrabarti-ghosh-2020-degeneracy": {
+      "id": "bera-chakrabarti-ghosh-2020-degeneracy",
+      "title": "Graph Coloring via Degeneracy in Streaming and Other Space-Conscious Models",
+      "authors": [
+        "Suman K. Bera",
+        "Amit Chakrabarti",
+        "Prantar Ghosh"
+      ],
+      "year": 2020,
+      "venue": "ICALP 2020",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2020.11",
+      "verifiedOn": "2026-10-27",
+      "verificationUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol168-icalp2020/LIPIcs.ICALP.2020.11/LIPIcs.ICALP.2020.11.pdf"
+    },
+    "halldorsson-kuhn-nolin-tonoyan-2022-degree": {
+      "id": "halldorsson-kuhn-nolin-tonoyan-2022-degree",
+      "title": "Near-Optimal Distributed Degree+1 Coloring",
+      "authors": [
+        "Magnús M. Halldórsson",
+        "Fabian Kuhn",
+        "Alexandre Nolin",
+        "Tigran Tonoyan"
+      ],
+      "year": 2022,
+      "venue": "STOC 2022",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2112.00604",
+      "verifiedOn": "2026-10-27",
+      "verificationUrl": "https://arxiv.org/html/2112.00604"
+    },
+    "flin-mittal-2025-communication": {
+      "id": "flin-mittal-2025-communication",
+      "title": "(Δ+1) Vertex Coloring in O(n) Communication",
+      "authors": [
+        "Maxime Flin",
+        "Parth Mittal"
+      ],
+      "year": 2025,
+      "venue": "Distributed Computing 38",
+      "publicationStatus": "journal",
+      "url": "https://arxiv.org/abs/2404.19081",
+      "verifiedOn": "2026-10-27",
+      "verificationUrl": "https://arxiv.org/html/2404.19081"
+    },
+    "chang-mishra-nguyen-salim-2025-communication": {
+      "id": "chang-mishra-nguyen-salim-2025-communication",
+      "title": "Round and Communication Efficient Graph Coloring",
+      "authors": [
+        "Yi-Jun Chang",
+        "Gopinath Mishra",
+        "Hung Thuan Nguyen",
+        "Farrel D. Salim"
+      ],
+      "year": 2025,
+      "venue": "PODC 2025",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2412.12589",
+      "verifiedOn": "2026-10-27",
+      "verificationUrl": "https://arxiv.org/html/2412.12589"
+    }
+  },
+  "verifiedRecords": [
+    {
+      "id": "vertex-query-combined-ack-upper-2019",
+      "sourceId": "assadi-chen-khanna-2019-sublinear-coloring",
+      "sliceId": "vertex-query-combined-delta-plus-one",
+      "kind": "upper",
+      "graph": "Arbitrary undirected simple graph on n vertices",
+      "output": "An explicit proper color for every vertex",
+      "evidenceStatus": "theorem_verified",
+      "assumptions": [
+        "Known vertex set [n]; arbitrary fixed ordering of neighbor lists.",
+        "Degree queries are part of the oracle.",
+        "This is a classical randomized algorithm."
+      ],
+      "panel": "global",
+      "slot": "ack",
+      "shortLabel": "ACK19",
+      "setup": "combined",
+      "quality": "Δ+1 colors",
+      "displayBound": "Õ(n^{3/2}) queries",
+      "costMode": "High probability",
+      "probability": "Proper coloring with high probability; the stated query/time bound is Õ(n^{3/2})",
+      "theorem": "Theorem 3, §4.2",
+      "access": "Degree, indexed-neighbor and pair queries",
+      "notes": "Global upper bound over all maximum degrees. Uses neighbor greedy below √n and a pair-query routine above √n. The plot shows the leading n-power only; polylogarithmic factors remain in the bound label.",
+      "timeDetails": "Theorem 3 also gives Õ(n^{3/2}) running time."
+    },
+    {
+      "id": "vertex-query-combined-ack-lower-2019",
+      "sourceId": "assadi-chen-khanna-2019-sublinear-coloring",
+      "sliceId": "vertex-query-combined-delta-plus-one",
+      "kind": "lower",
+      "graph": "Arbitrary undirected simple graph on n vertices",
+      "output": "An explicit proper color for every vertex",
+      "evidenceStatus": "theorem_verified",
+      "assumptions": [
+        "Hard-family degree Θ(√n); do not extend the red marker across all degrees.",
+        "Classical randomized algorithms with the theorem’s success threshold.",
+        "Lower-bound oracle gives all degrees for free."
+      ],
+      "panel": "global",
+      "slot": "lower",
+      "shortLabel": "ACK19 lower",
+      "setup": "combined",
+      "quality": "cΔ colors, for every fixed c>1; hence Δ+1",
+      "displayBound": "Ω(n^{3/2}) queries",
+      "costMode": "Worst case",
+      "probability": "Sufficiently large constant success probability",
+      "theorem": "Theorem 7, §5.3; query model in §5.2",
+      "access": "Indexed-neighbor and pair queries, even with all degrees supplied",
+      "notes": "A global worst-case lower bound. The displayed construction has N=2s vertices and Δ=√s+1, so Δ=Θ(√N). It does not establish Ω(n^{3/2}) at every fixed Δ. The output may use cΔ colors, which includes Δ+1 for sufficiently large degree.",
+      "timeDetails": "Every query costs an operation; the query lower bound also lower-bounds query-model running time."
+    },
+    {
+      "id": "vertex-query-combined-ferber-2025",
+      "sourceId": "ferber-hardiman-chen-2025-sublinear-coloring",
+      "sliceId": "vertex-query-combined-delta-plus-one",
+      "kind": "upper",
+      "graph": "Arbitrary undirected simple graph on n vertices",
+      "output": "An explicit proper color for every vertex",
+      "evidenceStatus": "theorem_verified",
+      "assumptions": [
+        "Degree preprocessing uses O(n) queries unless Δ is supplied.",
+        "For Δ=0 output one color after degree discovery; displayed formulas use Δ≥1.",
+        "Source abstract identifier is v1, with internal revision date 24 August 2026."
+      ],
+      "panel": "global",
+      "slot": "ferber",
+      "shortLabel": "FHC25/26",
+      "setup": "combined",
+      "quality": "Δ+1 colors",
+      "displayBound": "O(n^{3/2}√log n) expected queries",
+      "costMode": "Expected",
+      "probability": "Zero error; expected query cost",
+      "theorem": "Corollary 2, after Theorem 1; Algorithm 1",
+      "access": "Neighbor and pair queries, with degree queries to determine Δ",
+      "notes": "Selects the cheaper of O(nΔ) greedy and O(n² log n/Δ) pair queries. For Δ≥1 this gives O(n + min{nΔ,n² log n/Δ}); the largest envelope is O(n^{3/2}√log n), near Δ=√(n log n). Correctness is Las Vegas: a color is accepted only after its color class has been checked.",
+      "timeDetails": "The source gives the same expected order for runtime."
+    },
+    {
+      "id": "vertex-query-matrix-ferber-2025",
+      "sourceId": "ferber-hardiman-chen-2025-sublinear-coloring",
+      "sliceId": "vertex-query-adjacency-matrix-only",
+      "kind": "upper",
+      "graph": "Arbitrary undirected simple graph on n vertices",
+      "output": "An explicit proper color for every vertex",
+      "evidenceStatus": "theorem_verified",
+      "assumptions": [
+        "1≤Δ≤n−1.",
+        "Known Δ, or use degree queries first.",
+        "Classical access; quantum results from this paper are outside the supplied records."
+      ],
+      "panel": "pair",
+      "slot": "pair",
+      "shortLabel": "FHC25/26 · Thm 1",
+      "setup": "pairs",
+      "quality": "Δ+1 colors",
+      "displayBound": "O(n² log n / Δ) expected pair queries",
+      "costMode": "Expected",
+      "probability": "Zero error; expectation over internal randomness",
+      "theorem": "Theorem 1, §1 model and Algorithm 1",
+      "access": "Pair queries, plus O(n) degree-query preprocessing unless Δ is known",
+      "notes": "This is not a pure adjacency-matrix oracle when Δ is unknown. The axis shows leading n-power: Δ=n^α gives pair cost exponent 2−α, with the log n factor kept in the formula. Degree preprocessing adds O(n). Indexed-neighbor access is not used by this subroutine.",
+      "timeDetails": "Expected runtime has the same O(n² log n/Δ) order; preprocessing is O(n)."
+    },
+    {
+      "id": "vertex-result-38",
+      "sourceId": "bera-chakrabarti-ghosh-2020-degeneracy",
+      "sliceId": "vertex-query-degeneracy",
+      "kind": "lower",
+      "graph": "Arbitrary undirected simple graph on n vertices",
+      "output": "An explicit proper color for every vertex",
+      "evidenceStatus": "theorem_verified",
+      "assumptions": [
+        "κ denotes graph degeneracy, not maximum degree.",
+        "Theorems 22–23 give the same query order with κ unknown or supplied.",
+        "A fixed additive λ and a sublinear relative slack o(κ) are distinct requirements."
+      ],
+      "panel": "degeneracy",
+      "slot": "additive",
+      "shortLabel": "BCG20 lower",
+      "setup": "degeneracy",
+      "quality": "κ+λ colors; integer λ>1",
+      "displayBound": "Ω(n²/λ²) queries",
+      "costMode": "Worst case",
+      "probability": "Success probability at least 2/3",
+      "theorem": "Theorems 22 and 23, §7",
+      "access": "Pair and indexed-neighbor queries; lower holds also when κ is given",
+      "notes": "For each admissible hard family, additive slack λ yields the stated query lower bound. The overview specializes to a fixed integer λ>1, so its marker is at n². This does not match the different κ+o(κ) palette contract of the upper bound.",
+      "timeDetails": "The query lower bound also applies to runtime with unit-cost queries."
+    },
+    {
+      "id": "vertex-extra-59",
+      "sourceId": "bera-chakrabarti-ghosh-2020-degeneracy",
+      "sliceId": "vertex-query-degeneracy",
+      "kind": "upper",
+      "graph": "Arbitrary undirected simple graph on n vertices",
+      "output": "An explicit proper color for every vertex",
+      "evidenceStatus": "theorem_verified",
+      "assumptions": [
+        "Classical randomized algorithm; known vertex set [n].",
+        "Query budget can be enforced by aborting exceptional runs.",
+        "The displayed upper and additive-slack lower have different palette contracts."
+      ],
+      "panel": "degeneracy",
+      "slot": "relative",
+      "shortLabel": "BCG20 upper",
+      "setup": "degeneracy",
+      "quality": "κ+o(κ), with κ+1 for the sparse branch",
+      "displayBound": "Õ(n^{3/2}) worst-case queries",
+      "costMode": "Worst-case budget",
+      "probability": "Proper coloring with high probability",
+      "theorem": "Theorem 11 and its proof, §6.1",
+      "access": "Pair and indexed-neighbor queries with ⊥ end markers",
+      "notes": "No prior κ is needed. The algorithm first scans the graph; if κ≤√n it obtains a κ+1 coloring. Otherwise it uses a random partition, giving (1+O(1/log n))κ colors. Thus κ+o(κ) is an asymptotic shorthand, not a promise of κ colors at fixed small κ.",
+      "timeDetails": "Theorem 11 also bounds worst-case running time and space by Õ(n^{3/2})."
+    },
+    {
+      "id": "vertex-result-56",
+      "sourceId": "flin-mittal-2025-communication",
+      "sliceId": "vertex-query-two-party-communication",
+      "kind": "upper",
+      "graph": "Arbitrary undirected simple graph on n vertices",
+      "output": "Both parties learn the full same coloring",
+      "evidenceStatus": "theorem_verified",
+      "assumptions": [
+        "Known vertex set and maximum degree Δ.",
+        "Edges are partitioned without overlap.",
+        "Public randomness for the plotted zero-error protocol."
+      ],
+      "panel": "communication",
+      "slot": "fm",
+      "shortLabel": "FM25",
+      "setup": "communication",
+      "quality": "Δ+1 colors",
+      "displayBound": "O(n) expected bits; O(n) expected rounds",
+      "costMode": "Expected",
+      "probability": "Zero-error randomized protocol with public randomness",
+      "theorem": "Theorem 1, §3; round comparison confirmed in CMNS25 §1.1",
+      "access": "Two parties hold disjoint portions of the edge set; n and Δ supplied",
+      "notes": "This is a communication budget, not a graph-query count. The original record omitted the expectation qualifier for bits. Theorem 1 is zero error; Corollary 1.1 instead gives a constant-error private-coin worst-case-bit variant, not used as the plotted protocol.",
+      "timeDetails": "Local computation is unrestricted and is not a plotted resource."
+    },
+    {
+      "id": "vertex-extended-vertex-query-two-party-communication-57",
+      "sourceId": "flin-mittal-2025-communication",
+      "sliceId": "vertex-query-two-party-communication",
+      "kind": "lower",
+      "graph": "Arbitrary undirected simple graph on n vertices",
+      "output": "Bob (and hence both parties) learns a proper full coloring",
+      "evidenceStatus": "theorem_verified",
+      "assumptions": [
+        "Do not extend the degree-two construction to every prescribed Δ.",
+        "Both-party output includes the Bob-output requirement.",
+        "Expected-bit extension is a standard truncation inference, not a restatement of Theorem 5."
+      ],
+      "panel": "communication",
+      "slot": "comm-lower",
+      "shortLabel": "FM25 lower",
+      "setup": "communication",
+      "quality": "Δ+1 colors; hard graphs have Δ=2",
+      "displayBound": "Ω(n) communicated bits",
+      "costMode": "Worst case",
+      "probability": "Any constant-error randomized protocol",
+      "theorem": "Theorem 5 and Proposition 5.1, §5",
+      "access": "Two-party edge partition; lower already holds with all edges at Alice",
+      "notes": "The proof encodes independent bits in degree-two gadgets. It lower-bounds the global worst-case communication budget, and supplies no interaction-round lower bound. Zero-error expected-bit optimality follows by truncation and Markov’s inequality (an explicit atlas inference).",
+      "timeDetails": "This lower bound concerns communicated bits only."
+    },
+    {
+      "id": "vertex-extended-vertex-query-two-party-communication-58",
+      "sourceId": "chang-mishra-nguyen-salim-2025-communication",
+      "sliceId": "vertex-query-two-party-communication",
+      "kind": "upper",
+      "graph": "Arbitrary undirected simple graph on n vertices",
+      "output": "Both parties learn the full same coloring",
+      "evidenceStatus": "theorem_verified",
+      "assumptions": [
+        "n and Δ are given to both parties.",
+        "Public randomness; adversarial disjoint edge partition.",
+        "No new round lower bound is claimed."
+      ],
+      "panel": "communication",
+      "slot": "cmns",
+      "shortLabel": "CMNS25",
+      "setup": "communication",
+      "quality": "Δ+1 colors",
+      "displayBound": "O(n) expected bits; O(loglog n · log Δ) worst-case rounds",
+      "costMode": "Expected bits / worst-case rounds",
+      "probability": "Zero-error randomized protocol with public randomness",
+      "theorem": "Theorem 1; §§3.1, 4.4; Appendix B",
+      "access": "Two parties hold a disjoint edge partition; n and Δ supplied",
+      "notes": "The rare unsuccessful sparsification triggers transmission of the full graph, so the output remains correct. This fallback preserves the worst-case round bound while the communication bound remains expected. Logs are conventionally truncated below a constant for small n and Δ.",
+      "timeDetails": "Local computation is unrestricted; Appendix B may search for a coloring locally."
+    }
+  ],
+  "relatedResults": [
+    {
+      "id": "vertex-result-40",
+      "sourceId": "halldorsson-kuhn-nolin-tonoyan-2022-degree",
+      "sliceId": "vertex-query-degree-one-list",
+      "kind": "upper",
+      "graph": "Arbitrary undirected simple graph on n vertices",
+      "output": "An explicit proper color for every vertex",
+      "evidenceStatus": "statement_verified_oracle_qualification",
+      "assumptions": [
+        "Input color lists are additional queryable data.",
+        "No claim that palette queries alone reveal graph edges.",
+        "Access-model qualification is visible; no matching lower bound is asserted."
+      ],
+      "panel": "lists",
+      "slot": "list",
+      "shortLabel": "HKNT22",
+      "setup": "lists",
+      "quality": "Each input list has degree(v)+1 colors",
+      "displayBound": "Õ(n^{3/2}) theorem-reported query-model cost",
+      "costMode": "Theorem-reported",
+      "probability": "Randomized palette-sparsification guarantee with high probability",
+      "theorem": "Abstract and §1.1 consequence; §8 Theorem 4 and “Query model” paragraphs",
+      "access": "§8 explicitly enumerates indexed-neighbor and indexed-palette queries, both allowing ⊥",
+      "notes": "The advertised Õ(n√n) runtime implies no more primitive queries in its stated unit-cost model. §8 inherits construction steps from ACK19/AA20 while enumerating neighbor and palette operations; the precise inherited pair-access convention is not explicit in those paragraphs. Retained separately as a source-reported list-input result, without a normalized ordinary-combined-oracle point.",
+      "timeDetails": "The source advertises Õ(n√n) time. Degree and palette sizes can be found in O(n log n) queries by binary search using ⊥."
+    }
+  ],
+  "defaultSelected": "vertex-query-combined-ferber-2025",
+  "representationNote": "Query plots use leading n-power, with logarithmic factors written beside each result. Green algorithms and red lower bounds share only compatible contracts. Communication uses its own bits and rounds view.",
+  "coverageNote": "All ten supplied records are retained. The list-input theorem statement is verified, while its inherited pair-access convention remains qualified. No quantum results or universal per-degree lower bounds are added.",
+  "figureAxes": {
+    "global": {
+      "x": {
+        "label": "Classical Δ+1 query results (source categories)",
+        "categories": [
+          {
+            "id": "ack",
+            "label": "ack"
+          },
+          {
+            "id": "lower",
+            "label": "lower"
+          },
+          {
+            "id": "ferber",
+            "label": "ferber"
+          }
+        ]
+      },
+      "y": {
+        "label": "Leading n-power of query cost; polylogs remain in labels",
+        "categories": [
+          {
+            "id": "ack",
+            "label": "ack"
+          },
+          {
+            "id": "lower",
+            "label": "lower"
+          },
+          {
+            "id": "ferber",
+            "label": "ferber"
+          }
+        ]
+      }
+    },
+    "pair": {
+      "x": {
+        "label": "Maximum-degree exponent α, Δ=n^α",
+        "categories": [
+          {
+            "id": "pair",
+            "label": "pair"
+          }
+        ]
+      },
+      "y": {
+        "label": "Leading n-power of expected queries; log n retained in labels",
+        "categories": [
+          {
+            "id": "pair",
+            "label": "pair"
+          }
+        ]
+      }
+    },
+    "degeneracy": {
+      "x": {
+        "label": "Different degeneracy palette contracts",
+        "categories": [
+          {
+            "id": "relative",
+            "label": "relative"
+          },
+          {
+            "id": "additive",
+            "label": "additive"
+          }
+        ]
+      },
+      "y": {
+        "label": "Leading n-power of query cost; polylogs remain in labels",
+        "categories": [
+          {
+            "id": "relative",
+            "label": "relative"
+          },
+          {
+            "id": "additive",
+            "label": "additive"
+          }
+        ]
+      }
+    },
+    "communication": {
+      "x": {
+        "label": "Communication metric (bits / rounds)",
+        "categories": [
+          {
+            "id": "fm",
+            "label": "fm"
+          },
+          {
+            "id": "cmns",
+            "label": "cmns"
+          },
+          {
+            "id": "comm-lower",
+            "label": "comm-lower"
+          }
+        ]
+      },
+      "y": {
+        "label": "Protocol and exact symbolic budget",
+        "categories": [
+          {
+            "id": "fm",
+            "label": "fm"
+          },
+          {
+            "id": "cmns",
+            "label": "cmns"
+          },
+          {
+            "id": "comm-lower",
+            "label": "comm-lower"
+          }
+        ]
+      }
+    },
+    "lists": {
+      "x": {
+        "label": "List-input contract, unranked source report",
+        "categories": [
+          {
+            "id": "list",
+            "label": "list"
+          }
+        ]
+      },
+      "y": {
+        "label": "No normalized graph-query coordinate",
+        "categories": [
+          {
+            "id": "list",
+            "label": "list"
+          }
+        ]
+      }
+    }
+  },
+  "sourceVerification": [
+    {
+      "recordId": "vertex-query-combined-ack-upper-2019",
+      "sourceId": "assadi-chen-khanna-2019-sublinear-coloring",
+      "url": "https://arxiv.org/html/1807.08886",
+      "location": "Theorem 3, §4.2",
+      "status": "theorem_verified"
+    },
+    {
+      "recordId": "vertex-query-combined-ack-lower-2019",
+      "sourceId": "assadi-chen-khanna-2019-sublinear-coloring",
+      "url": "https://arxiv.org/html/1807.08886",
+      "location": "Theorem 7, §5.3; query model in §5.2",
+      "status": "theorem_verified"
+    },
+    {
+      "recordId": "vertex-query-combined-ferber-2025",
+      "sourceId": "ferber-hardiman-chen-2025-sublinear-coloring",
+      "url": "https://arxiv.org/html/2502.06024",
+      "location": "Corollary 2, after Theorem 1; Algorithm 1",
+      "status": "theorem_verified"
+    },
+    {
+      "recordId": "vertex-query-matrix-ferber-2025",
+      "sourceId": "ferber-hardiman-chen-2025-sublinear-coloring",
+      "url": "https://arxiv.org/html/2502.06024",
+      "location": "Theorem 1, §1 model and Algorithm 1",
+      "status": "theorem_verified"
+    },
+    {
+      "recordId": "vertex-result-38",
+      "sourceId": "bera-chakrabarti-ghosh-2020-degeneracy",
+      "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol168-icalp2020/LIPIcs.ICALP.2020.11/LIPIcs.ICALP.2020.11.pdf",
+      "location": "Theorems 22 and 23, §7",
+      "status": "theorem_verified"
+    },
+    {
+      "recordId": "vertex-extra-59",
+      "sourceId": "bera-chakrabarti-ghosh-2020-degeneracy",
+      "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol168-icalp2020/LIPIcs.ICALP.2020.11/LIPIcs.ICALP.2020.11.pdf",
+      "location": "Theorem 11 and its proof, §6.1",
+      "status": "theorem_verified"
+    },
+    {
+      "recordId": "vertex-result-40",
+      "sourceId": "halldorsson-kuhn-nolin-tonoyan-2022-degree",
+      "url": "https://arxiv.org/html/2112.00604",
+      "location": "Abstract and §1.1 consequence; §8 Theorem 4 and “Query model” paragraphs",
+      "status": "statement_verified_oracle_qualification"
+    },
+    {
+      "recordId": "vertex-result-56",
+      "sourceId": "flin-mittal-2025-communication",
+      "url": "https://arxiv.org/html/2404.19081",
+      "location": "Theorem 1, §3; round comparison confirmed in CMNS25 §1.1",
+      "status": "theorem_verified"
+    },
+    {
+      "recordId": "vertex-extended-vertex-query-two-party-communication-57",
+      "sourceId": "flin-mittal-2025-communication",
+      "url": "https://arxiv.org/html/2404.19081",
+      "location": "Theorem 5 and Proposition 5.1, §5",
+      "status": "theorem_verified"
+    },
+    {
+      "recordId": "vertex-extended-vertex-query-two-party-communication-58",
+      "sourceId": "chang-mishra-nguyen-salim-2025-communication",
+      "url": "https://arxiv.org/html/2412.12589",
+      "location": "Theorem 1; §§3.1, 4.4; Appendix B",
+      "status": "theorem_verified"
+    }
+  ],
+  "unresolvedIssues": [
+    {
+      "recordId": "vertex-result-40",
+      "scope": "Inherited pair-access convention in the D1LC query implementation",
+      "source": "HKNT22 §8: indexed-neighbor and indexed-palette operations are explicit; earlier construction steps are imported from ACK19/AA20.",
+      "displayResolution": "Related list-input card reports the claim and exact declared oracle without assigning it an ordinary combined-query coordinate."
+    }
+  ],
+  "userPreferences": {
+    "queryCost": "Main query figures count queries; runtime only in theorem details.",
+    "communication": "Separate main communication view; reversible default while optional question remains unanswered.",
+    "degree": "Keep symbolic degree dependence; no fabricated ordering from Δ<n alone."
+  }
+}

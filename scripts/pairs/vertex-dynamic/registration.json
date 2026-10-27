@@ -1,0 +1,40 @@
+{
+  "id": "vertex-dynamic",
+  "dataFile": "vertex-dynamic.json",
+  "javascript": "vertex-dynamic.js",
+  "css": "vertex-dynamic.css",
+  "routes": [
+    {
+      "key": "vertex-dynamic",
+      "sliceId": "vertex-dynamic-adaptive-delta-plus-one",
+      "label": "Dynamic vertex coloring",
+      "problem": "vertex",
+      "model": "dynamic",
+      "visible": true
+    },
+    {
+      "key": "vertex-dynamic-oblivious",
+      "sliceId": "vertex-dynamic-oblivious-delta-plus-one",
+      "label": "Oblivious Δ+1 coloring",
+      "problem": "vertex",
+      "model": "dynamic",
+      "visible": false
+    },
+    {
+      "key": "vertex-dynamic-deterministic",
+      "sliceId": "vertex-dynamic-deterministic-palette",
+      "label": "Deterministic larger palette",
+      "problem": "vertex",
+      "model": "dynamic",
+      "visible": false
+    }
+  ],
+  "canonicalAliases": {
+    "vertex-dynamic-oblivious": "vertex-dynamic",
+    "vertex-dynamic-deterministic": "vertex-dynamic"
+  },
+  "axisSummary": {
+    "x": "Adversary × palette × averaging contract",
+    "y": "Symbolic update-time classes"
+  }
+}

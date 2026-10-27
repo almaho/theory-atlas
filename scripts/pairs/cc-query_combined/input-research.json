@@ -1,0 +1,384 @@
+{
+  "problem": "cc",
+  "model": "query_combined",
+  "slices": [
+    {
+      "id": "cc-query-combined-multiplicative",
+      "problem": "cc",
+      "model": "query_combined",
+      "label": "Combined degree, positive-neighbor, and adjacency queries",
+      "task": "Output explicit complete-graph minimum-disagreement clustering",
+      "assumptions": [
+        "Each degree, i-th positive-neighbor, and positive-edge adjacency test costs O(1)",
+        "Randomized algorithm; expected output cost",
+        "Running time is sublinear in Θ(n²) signed input size; does not return clustering cost"
+      ],
+      "xAxis": {
+        "label": "Approximation factor α = cost / OPT",
+        "kind": "approximation",
+        "min": 1,
+        "max": 6,
+        "ticks": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "yAxis": {
+        "label": "Query exponent p in Õ(n^p)",
+        "kind": "exponent",
+        "min": 0,
+        "max": 2,
+        "ticks": [
+          0,
+          0.5,
+          1,
+          1.5,
+          2
+        ],
+        "tickLabels": [
+          "polylog",
+          "√n",
+          "n",
+          "n^{3/2}",
+          "n²"
+        ]
+      },
+      "parameters": {
+        "epsilon": "fixed positive constant",
+        "coordinateConvention": "Only the stated fixed ε or δ instance is colored; the table retains the theorem’s free parameters and output assumptions."
+      },
+      "results": [
+        {
+          "id": "cc-query-combined-1485",
+          "paperId": "cao-2025-sublinear-lp",
+          "kind": "upper",
+          "bound": "Õ(2^{poly(1/ε)} n) time and O(1)-time degree/neighbor/edge access",
+          "guarantee": "(1.485+ε)-approximation in expected cost",
+          "sourceLocation": "Theorem 1, Theorem 2, Corollary 3; Section 2.1 computational model",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "Corrected STOC 2025 v5; conference version inherited withdrawn 1.437 ratio. Does not imply matrix-only access at the same complexity. Chart: Fix ε=1/4; Õ(2^{poly(1/ε)}n) becomes Õ(n) time, which upper bounds the number of constant-time oracle calls.",
+          "plot": {
+            "x": 1.735,
+            "y": 1,
+            "closure": "upper-right",
+            "strictX": false,
+            "strictY": false,
+            "label": "α=1.735"
+          }
+        },
+        {
+          "id": "cc-query-combined-13865",
+          "paperId": "garciasoriano-2026-cluster-lp",
+          "kind": "upper",
+          "bound": "Õ(2^{poly(1/ε)} n) time with combined degree, neighbor, and edge query access (STOC 2025 primal solver plus deterministic new rounding)",
+          "guarantee": "(1.3865+ε)-approximation in expected cost",
+          "sourceLocation": "arXiv v2, Theorem 1.3, Corollary 1.4 and following paragraph (pp. 2–3)",
+          "evidenceStatus": "verified",
+          "frontierStatus": "current_best_verified",
+          "notes": "Latest v2 makes own fractional-LP dual solver and LP rounding deterministic; paired Õ(n) primal solver from STOC 2025 uses degree, neighbor, and edge queries and has a guarantee versus integral OPT. The latter composition lacks a per-instance primal-dual certificate and inherits randomness from the primal solver. Own dual solver separately takes 2^{poly(1/ε)}poly(n) time and certifies fractional optimum; not an Õ(n) query algorithm.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "cc-query-general-additive",
+      "problem": "cc",
+      "model": "query_combined",
+      "label": "Combined matrix, positive-neighbor and degree queries, additive partition",
+      "task": "Output an explicit MinDisagree partition with cost ≤OPT+εn²",
+      "assumptions": [
+        "General graph oracle grants all three query types",
+        "Not the same as a multiplicative approximation"
+      ],
+      "results": [
+        {
+          "id": "cc-query-general-garg-lb",
+          "paperId": "garg-2026-query-lb",
+          "kind": "lower",
+          "bound": "Ω(n/ε) combined graph-model queries",
+          "guarantee": "Necessary for partition cost ≤OPT+εn²",
+          "sourceLocation": "ITCS 2026 Theorem 3 (informal), p. 4",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Authors note full proof absent from conference version; stronger oracle yields weaker known bound than matrix-only Ω(n/ε²).",
+          "plot": null
+        }
+      ],
+      "mode": "2d",
+      "yAxis": {
+        "label": "Query exponent p in Õ(n^p)",
+        "kind": "exponent",
+        "min": 0,
+        "max": 2,
+        "ticks": [
+          0,
+          0.5,
+          1,
+          1.5,
+          2
+        ],
+        "tickLabels": [
+          "polylog",
+          "√n",
+          "n",
+          "n^{3/2}",
+          "n²"
+        ]
+      },
+      "xAxis": {
+        "label": "Allowed additive error ε in εn²",
+        "kind": "error",
+        "min": 0,
+        "max": 1,
+        "ticks": [
+          0,
+          0.2,
+          0.4,
+          0.6,
+          0.8,
+          1
+        ]
+      }
+    },
+    {
+      "id": "cc-query-random-memory-value",
+      "problem": "cc",
+      "model": "query_combined",
+      "label": "Random pair queries with memory cap, value only",
+      "task": "Estimate OPT within ±εn² without outputting partition",
+      "assumptions": [
+        "Each query is a uniform random vertex pair with edge indicator",
+        "Memory at most γ√n bits; value problem, not explicit clustering"
+      ],
+      "results": [
+        {
+          "id": "cc-query-garg-memory-lb",
+          "paperId": "garg-2026-query-lb",
+          "kind": "lower",
+          "bound": "Ω(min{n/(ε²√γ),n^{3/2}/γ}) queries for γ<1; Ω(min{n/(ε²γ²),n^{3/2}/γ}) for γ≥1",
+          "guarantee": "Value estimate to additive ±εn² with ≥0.99 success, γ√n bits of workspace",
+          "sourceLocation": "ITCS 2026 Theorem 2 informal; Theorem 1 formal",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Random queries and memory cap; not a lower bound for adaptive arbitrary pair queries.",
+          "plot": null
+        }
+      ],
+      "mode": "2d",
+      "yAxis": {
+        "label": "Query exponent p in Õ(n^p)",
+        "kind": "exponent",
+        "min": 0,
+        "max": 2,
+        "ticks": [
+          0,
+          0.5,
+          1,
+          1.5,
+          2
+        ],
+        "tickLabels": [
+          "polylog",
+          "√n",
+          "n",
+          "n^{3/2}",
+          "n²"
+        ]
+      },
+      "xAxis": {
+        "label": "Allowed additive error ε in εn²",
+        "kind": "error",
+        "min": 0,
+        "max": 1,
+        "ticks": [
+          0,
+          0.2,
+          0.4,
+          0.6,
+          0.8,
+          1
+        ]
+      }
+    },
+    {
+      "id": "cc-query-same-cluster-oracle",
+      "problem": "cc",
+      "model": "query_combined",
+      "label": "Same-cluster oracle for optimum, k-cluster and unrestricted variants",
+      "task": "Query whether u,v belong to the same unknown optimal cluster",
+      "assumptions": [
+        "Oracle supplies optimal-cluster membership, not a graph edge or neighbor query",
+        "Complete signed input labels available separately"
+      ],
+      "xAxis": {
+        "label": "Approximation factor α = cost / OPT",
+        "kind": "approximation",
+        "min": 1,
+        "max": 6,
+        "ticks": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "yAxis": {
+        "label": "Query exponent p in Õ(n^p)",
+        "kind": "exponent",
+        "min": 0,
+        "max": 2,
+        "ticks": [
+          0,
+          0.5,
+          1,
+          1.5,
+          2
+        ],
+        "tickLabels": [
+          "polylog",
+          "√n",
+          "n",
+          "n^{3/2}",
+          "n²"
+        ]
+      },
+      "parameters": {
+        "k": "fixed or variable number of optimal clusters"
+      },
+      "results": [
+        {
+          "id": "cc-query-ailon-2018",
+          "paperId": "ailon-2018-same-cluster",
+          "kind": "upper",
+          "bound": "O(k¹⁴ log n log k/ε⁶) oracle queries",
+          "guarantee": "(1+ε)-approximate MinDisagree[k] in time polynomial in n,k,1/ε",
+          "sourceLocation": "Theorem 1.2; ESA 2019 introduction cites bound",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "Same-cluster oracle is stronger than adjacency matrix; strictly k-cluster variant.",
+          "plot": null
+        },
+        {
+          "id": "cc-query-saha-optimal",
+          "paperId": "saha-2019-same-cluster",
+          "kind": "upper",
+          "bound": "At most 2·OPT oracle queries",
+          "guarantee": "Recover an exact optimal clustering",
+          "sourceLocation": "ESA 2019 abstract",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "OPT counts disagreements, so for OPT=0 requires no oracle; input signed graph read separately.",
+          "plot": null
+        },
+        {
+          "id": "cc-query-saha-two",
+          "paperId": "saha-2019-same-cluster",
+          "kind": "upper",
+          "bound": "At most OPT oracle queries",
+          "guarantee": "Output a 2-approximate MinDisagree partition",
+          "sourceLocation": "ESA 2019 abstract",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "No fixed k necessary; factor and query count are a different tradeoff from exact recovery.",
+          "plot": null
+        },
+        {
+          "id": "cc-query-saha-conditional-lb",
+          "paperId": "saha-2019-same-cluster",
+          "kind": "lower",
+          "bound": "Ω(OPT) oracle queries under paper’s plausible complexity assumption",
+          "guarantee": "No polynomial-time (1+α)-approximation for a fixed α>0 with o(OPT) such queries",
+          "sourceLocation": "ESA 2019 abstract",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Conditional, not unconditional information-theoretic lower bound.",
+          "plot": null
+        }
+      ]
+    }
+  ],
+  "papers": [
+    {
+      "id": "garg-2026-query-lb",
+      "title": "Query Lower Bounds for Correlation Clustering under Memory Constraints",
+      "authors": [
+        "Sumegha Garg",
+        "Songhua He",
+        "Periklis A. Papakonstantinou"
+      ],
+      "year": 2026,
+      "venue": "ITCS 2026",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ITCS.2026.67",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "garciasoriano-2026-cluster-lp",
+      "title": "Approximate Dual Separation for the Cluster LP: a 1.387 approximation for Correlation Clustering",
+      "authors": [
+        "David García-Soriano",
+        "Antoine Schohn"
+      ],
+      "year": 2026,
+      "venue": "arXiv v2 revised Aug 31, 2026",
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/pdf/2607.27829v2",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "cao-2025-sublinear-lp",
+      "title": "Solving the Correlation Cluster LP in Sublinear Time",
+      "authors": [
+        "Nairen Cao",
+        "Vincent Cohen-Addad",
+        "Euiwoong Lee",
+        "Shi Li",
+        "David Rasmussen Lolck",
+        "Alantha Newman",
+        "Mikkel Thorup",
+        "Lukas Vogl",
+        "Shuyi Yan",
+        "Hanwen Zhang"
+      ],
+      "year": 2025,
+      "venue": "STOC 2025; corrected arXiv v5 Nov 4, 2025",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2503.20883",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "saha-2019-same-cluster",
+      "title": "Correlation Clustering with Same-Cluster Queries Bounded by Optimal Cost",
+      "authors": [
+        "Barna Saha",
+        "Sanjay Subramanian"
+      ],
+      "year": 2019,
+      "venue": "ESA 2019",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ESA.2019.81",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "ailon-2018-same-cluster",
+      "title": "Approximate Correlation Clustering Using Same-Cluster Queries",
+      "authors": [
+        "Nir Ailon",
+        "Anup Bhattacharya",
+        "Ragesh Jaiswal"
+      ],
+      "year": 2018,
+      "venue": "LATIN 2018",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1712.06865",
+      "verifiedOn": "2026-09-27"
+    }
+  ]
+}

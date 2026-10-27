@@ -1,0 +1,749 @@
+{
+  "reviewedOn": "2026-10-20",
+  "problem": "matching",
+  "model": "lca",
+  "title": "Matching through local probes",
+  "coverage": "Curated primary-source landscape of eight local-matching results under adjacency-list access, reviewed 2026-10-20. Targeted 2025–2026 searches found no later replacement for the included near-optimal LRY upper and BRR lower. Global size, stochastic oracles, and unverified historical cross-references remain separately scoped related records; this is not exhaustive coverage of every graph class or oracle model. Fixed-tree non-adaptive records are retained as skipped source metadata and omitted from the figure.",
+  "defaultScope": "General unweighted simple graphs, maximum degree Delta, indexed adjacency-list probes. The main panel compares adaptive local matching queries by named guarantee and probe-formula categories. The fixed-degree panel compares n-dependence with Delta and epsilon fixed. The near-optimal comparison uses vertex-partner queries and additive deficit epsilon*n.",
+  "definitions": {
+    "explicitOutput": "An oracle consistent with one matching, not enumeration of all its edges. Distinguish edge-membership, matched-status, and vertex-partner queries.",
+    "sizeOutput": "One estimate of the global optimum. Its total probe budget is not the same quantity as the probe budget per local matching query.",
+    "multiplicativeQuality": "|M| >= (1-epsilon) OPT, or |M| >= OPT/(1+epsilon), according to the theorem.",
+    "additiveQuality": "|M| >= OPT-epsilon*n; size estimates use a corresponding additive error. This gives no fixed positive multiplicative ratio when OPT is small.",
+    "probeAdaptivity": "Whether the next graph probe may depend on previous answers. This is unrelated to a dynamic algorithm's adaptive adversary.",
+    "queryOrderObliviousness": "Whether the matching selected by the oracle is independent of the order of user queries. This is different from non-adaptive graph probing.",
+    "nonAdaptiveTreeModel": "ABGS fixes parent-index/neighbor-port instructions before exploration. The discovered vertex IDs are then followed along that fixed tree. It is stronger than fixing all vertex-ID/port pairs in advance.",
+    "edgeToPartnerConversion": "Given edge-membership access of cost Q, inspecting all at most Delta incident edges gives a vertex partner in O(Delta*(Q+1)) probes. Do not silently quote Q for both outputs.",
+    "lcaToSizeConversion": "Sampling O(epsilon^-2 log(1/delta)) uniformly chosen vertices and querying matched status estimates |M| to additive O(epsilon*n). With edge-membership access, account for the additional Delta factor. Sampling produces additive error, not a multiplicative estimate without a lower bound on OPT/n.",
+    "additiveNearOptimalContract": "|M| >= OPT-epsilon*n. LRY gives the stronger |M| >= (1-epsilon) OPT; since OPT<=n/2, it meets this common contract. Additive deficit does not imply a fixed multiplicative ratio for sparse optima.",
+    "localVsDistributed": "LCA means local computation oracle, with graph probes as the resource. Distributed LOCAL rounds are a different model; BCGS appears here only through an explicitly stated simulation."
+  },
+  "comparisonContracts": {
+    "nearOptimal": {
+      "quality": "|M| >= OPT-epsilon*n",
+      "output": "vertex partner or unmatched",
+      "cost": "probes per local output query",
+      "algorithmId": "lca-lry15-nearoptimal",
+      "lowerBoundId": "lca-brr23-nearoptimal-lower",
+      "algorithmReduction": "LRY edge membership is converted to partner lookup at a factor O(Delta); its multiplicative guarantee implies the displayed additive guarantee.",
+      "lowerBoundWindow": "0 < epsilon <= 0.01 and log^4 n <= Delta <= n^epsilon",
+      "plotType": "symbolic growth orders only; no numerical hidden constants"
+    },
+    "skippedNonAdaptive": {
+      "quality": "fixed positive constant fraction of OPT",
+      "output": "edge membership",
+      "cost": "probes per local output query",
+      "algorithmId": "lca-bcgs17-nonadaptive",
+      "lowerBoundId": "lca-abgs25-nonadaptive-lower",
+      "oracle": "Fixed parent-index/neighbor-port exploration tree, following discovered vertex IDs; degrees revealed for free for the lower bound.",
+      "tightness": "Delta^{Theta(log Delta/loglog Delta)} up to constants in the exponent; no equality of numerical constants",
+      "displayStatus": "skipped"
+    }
+  },
+  "sources": {
+    "mrvx12": {
+      "title": "Converting Online Algorithms to Local Computation Algorithms",
+      "authors": [
+        "Yishay Mansour",
+        "Aviad Rubinstein",
+        "Shai Vardi",
+        "Ning Xie"
+      ],
+      "firstYear": 2012,
+      "venue": "ICALP 2012",
+      "publicationStatus": "published",
+      "url": "https://arxiv.org/abs/1205.1312",
+      "fullTextUrl": "https://arxiv.org/html/1205.1312v1",
+      "publicationUrl": "https://doi.org/10.1007/978-3-642-31594-7_55",
+      "shortLabel": "MRVX 2012",
+      "verifiedOn": "2026-10-20"
+    },
+    "mv13": {
+      "title": "A Local Computation Approximation Scheme to Maximum Matching",
+      "authors": [
+        "Yishay Mansour",
+        "Shai Vardi"
+      ],
+      "firstYear": 2013,
+      "venue": "APPROX 2013",
+      "publicationStatus": "published",
+      "url": "https://arxiv.org/abs/1306.5003",
+      "fullTextUrl": "https://arxiv.org/html/1306.5003v1",
+      "shortLabel": "MV 2013",
+      "verifiedOn": "2026-10-20"
+    },
+    "emr14": {
+      "title": "Best of Two Local Models: Centralized Local and Distributed Local Algorithms",
+      "authors": [
+        "Guy Even",
+        "Moti Medina",
+        "Dana Ron"
+      ],
+      "firstYear": 2014,
+      "venue": "Information and Computation 262 (2018), 69-89; earlier ESA 2014 / ICDCN 2015 versions",
+      "publicationStatus": "published",
+      "url": "https://arxiv.org/abs/1402.3796",
+      "fullTextUrl": "https://arxiv.org/html/1402.3796v3",
+      "publicationUrl": "https://doi.org/10.1016/j.ic.2018.07.001",
+      "shortLabel": "EMR 2014 / 2018",
+      "verifiedOn": "2026-10-20"
+    },
+    "lry15": {
+      "title": "Local Computation Algorithms for Graphs of Non-Constant Degrees",
+      "authors": [
+        "Reut Levi",
+        "Ronitt Rubinfeld",
+        "Anak Yodpinyanee"
+      ],
+      "firstYear": 2015,
+      "venue": "SPAA 2015; Algorithmica 77 (2017), 971-994",
+      "publicationStatus": "published",
+      "url": "https://arxiv.org/abs/1502.04022",
+      "fullTextUrl": "https://arxiv.org/html/1502.04022v1",
+      "publicationUrl": "https://doi.org/10.1007/s00453-016-0126-y",
+      "shortLabel": "LRY 2015 / 2017",
+      "verifiedOn": "2026-10-20"
+    },
+    "bcgs17": {
+      "title": "Distributed Approximation of Maximum Independent Set and Maximum Matching",
+      "authors": [
+        "Reuven Bar-Yehuda",
+        "Keren Censor-Hillel",
+        "Mohsen Ghaffari",
+        "Gregory Schwartzman"
+      ],
+      "firstYear": 2017,
+      "venue": "PODC 2017",
+      "publicationStatus": "published",
+      "url": "https://arxiv.org/abs/1708.00276",
+      "fullTextUrl": "https://arxiv.org/pdf/1708.00276",
+      "authorManuscriptUrl": "https://groups.csail.mit.edu/tds/papers/Ghaffari/MaximumMatching.pdf",
+      "shortLabel": "BCGS 2017",
+      "verifiedOn": "2026-10-20"
+    },
+    "kmnft19": {
+      "title": "Space Efficient Approximation to Maximum Matching Size from Uniform Edge Samples",
+      "authors": [
+        "Michael Kapralov",
+        "Slobodan Mitrović",
+        "Ashkan Norouzi-Fard",
+        "Jakab Tardos"
+      ],
+      "firstYear": 2019,
+      "venue": "SODA 2020",
+      "publicationStatus": "published",
+      "url": "https://arxiv.org/abs/1907.05725",
+      "fullTextUrl": "https://arxiv.org/html/1907.05725v1",
+      "publicationUrl": "https://doi.org/10.1137/1.9781611975994.107",
+      "shortLabel": "KMNFT 2019 / 2020",
+      "verifiedOn": "2026-10-20"
+    },
+    "beh21": {
+      "title": "Time-Optimal Sublinear Algorithms for Matching and Vertex Cover",
+      "authors": [
+        "Soheil Behnezhad"
+      ],
+      "firstYear": 2021,
+      "venue": "FOCS 2021",
+      "publicationStatus": "published",
+      "url": "https://arxiv.org/abs/2106.02942",
+      "fullTextUrl": "https://arxiv.org/html/2106.02942v3",
+      "shortLabel": "Behnezhad 2021",
+      "verifiedOn": "2026-10-20"
+    },
+    "gha22": {
+      "title": "Local Computation of Maximal Independent Set",
+      "authors": [
+        "Mohsen Ghaffari"
+      ],
+      "firstYear": 2022,
+      "venue": "FOCS 2022",
+      "publicationStatus": "published",
+      "url": "https://arxiv.org/abs/2210.01104",
+      "fullTextUrl": "https://arxiv.org/html/2210.01104v1",
+      "publicationUrl": "https://doi.org/10.1109/FOCS54457.2022.00049",
+      "shortLabel": "Ghaffari 2022",
+      "verifiedOn": "2026-10-20"
+    },
+    "brr23": {
+      "title": "Local Computation Algorithms for Maximum Matching: New Lower Bounds",
+      "authors": [
+        "Soheil Behnezhad",
+        "Mohammad Roghani",
+        "Aviad Rubinstein"
+      ],
+      "firstYear": 2023,
+      "venue": "FOCS 2023",
+      "publicationStatus": "published",
+      "url": "https://arxiv.org/abs/2311.09359",
+      "fullTextUrl": "https://arxiv.org/html/2311.09359v1",
+      "publicationUrl": "https://doi.org/10.1109/FOCS57990.2023.00143",
+      "shortLabel": "BRR 2023",
+      "verifiedOn": "2026-10-20"
+    },
+    "abgs25": {
+      "title": "Lower Bounds for Non-adaptive Local Computation Algorithms",
+      "authors": [
+        "Amir Azarmehr",
+        "Soheil Behnezhad",
+        "Alma Ghafari",
+        "Madhu Sudan"
+      ],
+      "firstYear": 2025,
+      "venue": "FOCS 2025",
+      "publicationStatus": "published",
+      "url": "https://arxiv.org/abs/2505.00915",
+      "fullTextUrl": "https://arxiv.org/pdf/2505.00915",
+      "shortLabel": "ABGS 2025",
+      "verifiedOn": "2026-10-20"
+    },
+    "abgr24": {
+      "title": "Stochastic Matching via In-n-Out Local Computation Algorithms",
+      "authors": [
+        "Amir Azarmehr",
+        "Soheil Behnezhad",
+        "Alma Ghafari",
+        "Ronitt Rubinfeld"
+      ],
+      "firstYear": 2024,
+      "venue": "STOC 2025",
+      "publicationStatus": "published",
+      "url": "https://arxiv.org/abs/2411.08805",
+      "fullTextUrl": "https://arxiv.org/html/2411.08805v2",
+      "shortLabel": "ABGR 2024 / 2025",
+      "verifiedOn": "2026-10-20"
+    },
+    "shah26": {
+      "title": "Sublinear-Time Lower Bounds for Approximating Matching Size using Non-Adaptive Queries",
+      "authors": [
+        "Vihan Shah"
+      ],
+      "firstYear": 2026,
+      "venue": "SODA 2026",
+      "publicationStatus": "published",
+      "url": "https://arxiv.org/abs/2602.14326",
+      "fullTextUrl": "https://arxiv.org/html/2602.14326v1",
+      "publicationUrl": "https://doi.org/10.1137/1.9781611978971.182",
+      "shortLabel": "Shah 2026",
+      "verifiedOn": "2026-10-20"
+    },
+    "yyi09": {
+      "title": "Improved Constant-Time Approximation Algorithms for Maximum Matchings and Other Optimization Problems",
+      "authors": [
+        "Yuichi Yoshida",
+        "Masaki Yamamoto",
+        "Hiro Ito"
+      ],
+      "firstYear": 2009,
+      "venue": "STOC 2009; SIAM Journal on Computing 41(4), 2012",
+      "publicationStatus": "published",
+      "url": "https://doi.org/10.1137/110828691",
+      "shortLabel": "YYI 2009 / 2012",
+      "verifiedOn": "2026-10-20"
+    }
+  },
+  "verifiedRecords": [
+    {
+      "id": "lca-mrvx12-maximal",
+      "sourceId": "mrvx12",
+      "kind": "algorithm",
+      "theorem": "Theorem 5.1; Section 5 fixes constant maximum degree",
+      "quality": "Exact maximal matching; hence beta=1/2",
+      "qualityType": "maximal",
+      "output": "edge membership",
+      "graph": "general unweighted; Delta=O(1)",
+      "oracle": "adjacency list",
+      "adaptivity": "adaptive",
+      "randomization": "randomized",
+      "queryComplexity": "O(log^3 n) time per edge query; O(log^3 n) space",
+      "probability": "failure <=1/n",
+      "notes": "Hidden constants depend on fixed degree. Historical n-dependence panel only.",
+      "evidenceStatus": "full_text_verified",
+      "label": "MRVX 2012",
+      "year": 2012,
+      "publicationStatus": "published",
+      "sourceUrl": "https://arxiv.org/html/1205.1312v1",
+      "costMeasure": "time per edge-membership query (also bounds graph probes)",
+      "outputClass": "local_matching"
+    },
+    {
+      "id": "lca-mv13-nearoptimal",
+      "sourceId": "mv13",
+      "kind": "algorithm",
+      "theorem": "Theorem 3.1",
+      "quality": "|M| >= (1-epsilon) OPT; maximal as well",
+      "qualityType": "multiplicative",
+      "output": "edge membership",
+      "graph": "general unweighted; fixed Delta and epsilon",
+      "oracle": "adjacency list",
+      "adaptivity": "adaptive",
+      "randomization": "randomized",
+      "queryComplexity": "O(log^4 n) time per edge query",
+      "space": "O(log^3 n)",
+      "probability": "failure <=1/n in the theorem",
+      "notes": "The introduction gives a stronger intermediate failure statement; retain the theorem's conservative formulation.",
+      "evidenceStatus": "full_text_verified",
+      "label": "MV 2013",
+      "year": 2013,
+      "publicationStatus": "published",
+      "sourceUrl": "https://arxiv.org/html/1306.5003v1",
+      "costMeasure": "time per edge-membership query (also bounds graph probes)",
+      "outputClass": "local_matching"
+    },
+    {
+      "id": "lca-emr14-maximal",
+      "sourceId": "emr14",
+      "kind": "algorithm",
+      "theorem": "Corollary 11",
+      "quality": "Exact maximal matching; beta=1/2",
+      "qualityType": "maximal",
+      "output": "edge membership",
+      "graph": "general unweighted; maximum degree Delta",
+      "oracle": "adjacency-list probe also returns reverse port; removing that convenience costs at most Delta (Section 2.2)",
+      "adaptivity": "adaptive",
+      "randomization": "deterministic",
+      "queryComplexity": "Delta^{O(Delta^2)} log* n probes",
+      "state": "stateless",
+      "evidenceStatus": "full_text_verified",
+      "label": "EMR 2014 / 2018",
+      "year": 2014,
+      "publicationStatus": "published",
+      "sourceUrl": "https://arxiv.org/html/1402.3796v3",
+      "costMeasure": "graph probes per local output query",
+      "outputClass": "local_matching",
+      "notes": "Historical deterministic stateless bound, not a polynomial dependence on Delta. Removing the reverse-port convenience costs at most Delta; the displayed Delta^{O(Delta^2)} order absorbs it."
+    },
+    {
+      "id": "lca-emr14-nearoptimal",
+      "sourceId": "emr14",
+      "kind": "algorithm",
+      "theorem": "Theorem 17",
+      "quality": "|M| >= (1-epsilon) OPT",
+      "qualityType": "multiplicative",
+      "output": "edge membership",
+      "graph": "general unweighted; maximum degree Delta",
+      "oracle": "same reverse-port adjacency-list convention as EMR maximal record",
+      "adaptivity": "adaptive",
+      "randomization": "deterministic",
+      "queryComplexity": "(log* n)^{ceil(1/epsilon)+1} 2^{Delta^{O(1/epsilon)}} probes",
+      "state": "stateless",
+      "notes": "Unweighted maximum-cardinality theorem. Probe complexity excludes local CPU time. The reverse-port convention can be removed with an additional factor at most Delta; fixed Delta and epsilon give poly(log* n).",
+      "evidenceStatus": "full_text_verified",
+      "label": "EMR 2014 / 2018",
+      "year": 2014,
+      "publicationStatus": "published",
+      "sourceUrl": "https://arxiv.org/html/1402.3796v3",
+      "costMeasure": "graph probes per local output query",
+      "outputClass": "local_matching"
+    },
+    {
+      "id": "lca-lry15-nearoptimal",
+      "sourceId": "lry15",
+      "kind": "algorithm",
+      "theorem": "Theorem 10, arXiv v1, printed p.16; model Section 2.1-2.2",
+      "quality": "|M| >= (1-epsilon) OPT",
+      "qualityType": "multiplicative",
+      "output": "edge membership",
+      "graph": "general unweighted; maximum degree Delta need not be constant",
+      "oracle": "indexed neighbor and degree probes; degree can be simulated by O(log Delta) neighbor probes",
+      "adaptivity": "adaptive",
+      "randomization": "randomized",
+      "queryComplexity": "O(Delta^{6k^2+2} k^{O(k)} log^2 n loglog n), k=Theta(1/epsilon)",
+      "simplifiedBound": "(Delta/epsilon)^{O(1/epsilon^2)} polylog n",
+      "space": "random seed O(Delta^{6k^2+1} k^{O(k)} log^3 n loglog n)",
+      "probability": "1-n^{-c}, for any fixed c, after adjusting constants",
+      "notes": "The proof uses k=ceil(2/epsilon). The displayed symbolic upper (Delta/epsilon)^{O(1/epsilon^2)} polylog n absorbs the partner-conversion factor. It is a probe bound; time has an additional roughly O(log n) factor.",
+      "evidenceStatus": "full_text_verified",
+      "label": "LRY 2015 / 2017",
+      "year": 2015,
+      "publicationStatus": "published",
+      "sourceUrl": "https://arxiv.org/html/1502.04022v1",
+      "costMeasure": "graph probes per local output query",
+      "outputClass": "local_matching",
+      "partnerQueryComplexity": "O(Delta^{6k^2+3} k^{O(k)} log^2 n loglog n), k=Theta(1/epsilon)",
+      "commonContract": "For 0<epsilon<1, |M| >= (1-epsilon) OPT >= OPT-epsilon*n, because OPT<=n/2.",
+      "interfaceReduction": "List at most Delta neighbors and call the same consistent edge oracle on each incident edge: Q_partner <= O(Delta*(Q_edge+1))."
+    },
+    {
+      "id": "lca-kmnft19-constant",
+      "sourceId": "kmnft19",
+      "kind": "algorithm",
+      "theorem": "Theorem 2; Remark 6; Section 6",
+      "quality": "E[|M|]=Theta(OPT); unspecified positive constant",
+      "qualityType": "multiplicative_in_expectation",
+      "output": "edge membership OR vertex matched-status; theorem does not state partner lookup",
+      "graph": "general unweighted; maximum degree Delta",
+      "oracle": "adjacency list",
+      "adaptivity": "adaptive",
+      "randomization": "randomized",
+      "queryComplexity": "O(Delta log n) probes",
+      "space": "O(Delta log^3 n) bits",
+      "probability": "query bounds and consistent reporting with high probability; approximation stated in expectation",
+      "notes": "The approximation constant is unspecified and stated in expectation; this is not exact maximality. Remark 6 strengthens approximation to high probability for Delta=O((n/log n)^{1/4}). The O(Delta log n) interface is edge membership or matched status, not partner.",
+      "evidenceStatus": "full_text_verified",
+      "label": "KMNFT 2019 / 2020",
+      "year": 2019,
+      "publicationStatus": "published",
+      "sourceUrl": "https://arxiv.org/html/1907.05725v1",
+      "costMeasure": "graph probes per local output query",
+      "outputClass": "local_matching"
+    },
+    {
+      "id": "lca-gha22-maximal",
+      "sourceId": "gha22",
+      "kind": "algorithm",
+      "theorem": "Theorems 1.1 and 2.16, plus explicit maximal-matching reduction in Section 1.2",
+      "quality": "Exact maximal matching; beta=1/2",
+      "qualityType": "maximal",
+      "output": "edge membership via line-graph MIS; partner conversion preserves polynomial degree dependence",
+      "graph": "general unweighted; maximum degree Delta",
+      "oracle": "adjacency list",
+      "adaptivity": "adaptive",
+      "randomization": "randomized",
+      "queryComplexity": "poly(Delta) log n with high probability; expected poly(Delta) per requested edge",
+      "finiteRandomnessVariant": "poly(Delta log n) probes and random bits",
+      "notes": "The degree exponent is unspecified and explicitly not optimized. Never place it at a guessed Delta power.",
+      "evidenceStatus": "full_text_verified_with_standard_reduction",
+      "label": "Ghaffari 2022",
+      "year": 2022,
+      "publicationStatus": "published",
+      "sourceUrl": "https://arxiv.org/html/2210.01104v1",
+      "costMeasure": "graph probes per local output query",
+      "outputClass": "local_matching"
+    },
+    {
+      "id": "lca-brr23-nearoptimal-lower",
+      "sourceId": "brr23",
+      "kind": "lower",
+      "theorem": "Theorem 1; Remark 1",
+      "quality": "|M| >= OPT-epsilon*n",
+      "qualityType": "additive",
+      "output": "vertex partner or unmatched",
+      "graph": "bipartite hard instances; epsilon<=.01, log^4 n<=Delta<=n^epsilon",
+      "oracle": "adjacency list",
+      "adaptivity": "adaptive allowed",
+      "randomization": "randomized allowed",
+      "queryComplexity": "Delta^{Omega(1/epsilon)} per local query",
+      "probability": "success at least .51",
+      "notes": "Theorem 1 lower-bounds the partner interface. Remark 1 permits random queried vertices from a linear-size set and query-order dependence; neither restriction weakens the lower bound.",
+      "evidenceStatus": "full_text_verified",
+      "label": "BRR 2023",
+      "year": 2023,
+      "publicationStatus": "published",
+      "sourceUrl": "https://arxiv.org/html/2311.09359v1",
+      "costMeasure": "graph probes per local output query",
+      "outputClass": "local_matching",
+      "parameterRange": "0 < epsilon <= 0.01; log^4 n <= Delta <= n^epsilon",
+      "scope": "adaptive adjacency-list probes; even bipartite graphs"
+    }
+  ],
+  "relatedResults": [
+    {
+      "id": "size-brr23-nearoptimal-lower",
+      "sourceId": "brr23",
+      "kind": "lower",
+      "theorem": "Theorem 2",
+      "quality": "Additive epsilon*n estimate of OPT",
+      "qualityType": "additive",
+      "output": "global size estimate",
+      "graph": "bipartite hard instances; epsilon<=.01, log^4 n<=Delta<=n^epsilon",
+      "oracle": "adjacency list",
+      "adaptivity": "adaptive allowed",
+      "randomization": "randomized allowed",
+      "queryComplexity": "Delta^{Omega(1/epsilon)} total probes",
+      "probability": "success at least .51",
+      "evidenceStatus": "full_text_verified",
+      "sourceUrl": "https://arxiv.org/html/2311.09359v1",
+      "outputClass": "global_size",
+      "costMeasure": "total graph probes for one estimate"
+    },
+    {
+      "id": "size-beh21-half-additive",
+      "sourceId": "beh21",
+      "kind": "algorithm",
+      "theorem": "Theorem 1.3; Lemma 4.4",
+      "quality": "OPT/2-epsilon*n <= estimate <= OPT",
+      "qualityType": "multiplicative_additive",
+      "output": "global size estimate",
+      "graph": "general unweighted; average degree dbar",
+      "oracle": "degree and indexed-neighbor adjacency-list queries",
+      "adaptivity": "adaptive",
+      "randomization": "randomized",
+      "queryComplexity": "Otilde((dbar+1)/epsilon^2) total time and probes",
+      "probability": "high probability",
+      "notes": "Expected random-start oracle cost is not a worst-case local-output-query guarantee.",
+      "evidenceStatus": "full_text_verified",
+      "sourceUrl": "https://arxiv.org/html/2106.02942v3",
+      "outputClass": "global_size",
+      "costMeasure": "total graph probes for one estimate"
+    },
+    {
+      "id": "size-shah26-nonadaptive-lower",
+      "sourceId": "shah26",
+      "kind": "lower",
+      "theorem": "Theorems 2 and 4; Remark 6.15; introduction multigraph qualification",
+      "quality": "Approximation factor alpha=n^delta",
+      "qualityType": "multiplicative_factor",
+      "output": "global size estimate",
+      "graph": "bipartite MULTIGRAPH hard instances",
+      "oracle": "adjacency list; also fixed-tree and fixed-forest non-adaptive probes",
+      "adaptivity": "non-adaptive only",
+      "randomization": "randomized allowed",
+      "queryComplexity": "Omega(n^{1+eta}) if n^{2eta+3delta} log^3 n=o(n); stated tradeoff OtildeOmega(n^{1.5-1.5delta})",
+      "probability": "at least 2/3",
+      "notes": "Do not import this lower bound into a simple-graph main panel. The text explicitly leaves removal of parallel edges unproved.",
+      "evidenceStatus": "full_text_verified",
+      "sourceUrl": "https://arxiv.org/html/2602.14326v1",
+      "outputClass": "global_size",
+      "costMeasure": "total graph probes for one estimate"
+    },
+    {
+      "id": "size-shah26-nonadaptive-upper",
+      "sourceId": "shah26",
+      "kind": "algorithm",
+      "theorem": "Theorem 3, delta=1/2 specialization; Section 5, especially Claim 5.3",
+      "quality": "Approximation factor alpha=sqrt(n)",
+      "qualityType": "multiplicative_factor",
+      "output": "global size estimate",
+      "graph": "general unweighted simple graphs; no parallel edges",
+      "oracle": "adjacency list",
+      "adaptivity": "non-adaptive",
+      "randomization": "randomized",
+      "queryComplexity": "O(n log^2 n) total probes and time",
+      "probability": "1-1/n",
+      "notes": "The displayed bound is the delta=1/2 specialization. Section 5, Claim 5.3 uses degree as the number of distinct neighbors; this establishes the upper bound for simple graphs. The lower theorem uses multigraph hard instances, so its graph scope is not transferred to this algorithm. Retain the theorem's log^2 n overhead for simulating random neighbors.",
+      "evidenceStatus": "full_text_verified_with_scope_restriction",
+      "sourceUrl": "https://arxiv.org/html/2602.14326v1",
+      "outputClass": "global_size",
+      "costMeasure": "total graph probes for one estimate"
+    },
+    {
+      "id": "size-yyi09-nearoptimal",
+      "sourceId": "yyi09",
+      "kind": "algorithm",
+      "quality": "Additive epsilon*n estimate of OPT",
+      "output": "global size estimate",
+      "queryComplexity": "Delta^{O(1/epsilon^2)}/epsilon^2 total probes/time",
+      "oracle": "bounded-degree adjacency list",
+      "verification": "Bound corroborated in BRR23 introduction and LRY15 Theorem 9; original YYI theorem number not checked in this audit.",
+      "evidenceStatus": "cross_reference_verified",
+      "action": "Retrieve original full text before promoting to a primary-theorem card.",
+      "sourceUrl": "https://doi.org/10.1137/110828691",
+      "outputClass": "global_size",
+      "costMeasure": "total graph probes for one estimate"
+    },
+    {
+      "id": "lca-beh21-half-corollary",
+      "sourceId": "beh21",
+      "kind": "algorithm",
+      "quality": "beta=1/2",
+      "output": "matching LCA",
+      "queryComplexity": "O(Delta polylog n), reported as a corollary by BRR23 Section 1, footnote 1",
+      "verification": "The original paper directly establishes average random-start complexity; the worst-case-per-query LCA conversion was not reconstructed here.",
+      "evidenceStatus": "needs_conversion_check",
+      "action": "Do not label exact maximality or a worst-case budget merely from the average RGMM bound. Gha22 is the safe verified maximal record.",
+      "sourceUrl": "https://arxiv.org/html/2106.02942v3"
+    },
+    {
+      "id": "lca-pr07-linear-lower",
+      "kind": "lower",
+      "quality": "Any fixed constant approximation",
+      "queryComplexity": "Omega(Delta)",
+      "output": "matching LCA",
+      "verification": "BRR23 Section 1 credits Parnas-Ron 2007 and explains the hidden-important-edge argument; original theorem was not retrieved.",
+      "evidenceStatus": "cross_reference_verified",
+      "action": "Source primary theorem before making a tight linear-degree band."
+    },
+    {
+      "id": "lca-abgr24-inout",
+      "sourceId": "abgr24",
+      "kind": "related",
+      "theorem": "Lemma 5.6; Remark 5.8; Section 6.2",
+      "quality": "E|B(Gp)| >= E|A(Gp)|-epsilon*n, with vertex marginals bounded by those of A",
+      "output": "specialized stochastic matching oracle",
+      "queryComplexity": "Expected correlated-set size Delta^{poly(1/epsilon)}; expected in/out control in proof",
+      "oracle": "Known base graph plus realization queries and matching-marginal information",
+      "notes": "Stronger correlation guarantees are useful, but this is not a replacement for the standard adjacency-list worst-case LCA theorem. Keep in a stochastic matching setting.",
+      "evidenceStatus": "full_text_verified",
+      "sourceUrl": "https://arxiv.org/html/2411.08805v2"
+    },
+    {
+      "id": "lca-dense-regime",
+      "kind": "related",
+      "quality": "Near-optimal additive epsilon*n",
+      "output": "matching LCA",
+      "queryComplexity": "n^{2-Omega_epsilon(1)}",
+      "oracle": "adjacency matrix",
+      "verification": "BKS23 result summarized in BRR23 Section 1; dense-model original theorem not audited in this pass.",
+      "notes": "Separate setting; do not put on a Delta-based adjacency-list chart.",
+      "evidenceStatus": "cross_reference_verified"
+    },
+    {
+      "id": "size-lry15-sampling-bridge",
+      "sourceId": "lry15",
+      "kind": "algorithm",
+      "quality": "Additive epsilon*n estimate of OPT",
+      "qualityType": "additive",
+      "output": "global size estimate",
+      "outputClass": "global_size",
+      "costMeasure": "total graph probes for one estimate",
+      "queryComplexity": "O(epsilon^-2 log(1/delta) * Delta * (Q_edge(epsilon/2)+1))",
+      "theorem": "Derived sampling reduction from Theorem 10",
+      "evidenceStatus": "derived_from_verified_theorem",
+      "notes": "Use the same matching oracle for all sampled vertices. Sample matched-status indicators, multiply their mean by n/2. Allocate error between matching deficit and sampling; clip or subtract sampling error for a one-sided estimate. Oracle failure probability must be included. This is not a per-query bound and not a multiplicative size guarantee.",
+      "sourceUrl": "https://arxiv.org/html/1502.04022v1"
+    }
+  ],
+  "visualCautions": [
+    "An x-axis beta=1-epsilon for a theorem whose guarantee is only OPT-epsilon*n",
+    "One scalar y-axis mixing polylog(n), poly(Delta), and Delta^{O(log Delta)} without fixing parameter regimes",
+    "Plotting unspecified poly(Delta), Theta(1) quality, or O/Omega hidden constants at invented numerical coordinates",
+    "Treating edge membership, matched-status, partner, and global size as the same query",
+    "Using a non-adaptive or multigraph lower bound to shade adaptive simple-graph algorithms",
+    "Treating an average-over-random-vertices oracle analysis as a worst-case query guarantee",
+    "Showing a multiplicative inherited size guarantee for free: global sampling introduces additive error and a total-probe budget"
+  ],
+  "skippedRecords": [
+    {
+      "id": "lca-bcgs17-nonadaptive",
+      "sourceId": "bcgs17",
+      "kind": "algorithm",
+      "theorem": "Theorem 3.2 in arXiv v1 (Theorem 3.4 in PODC author manuscript); Parnas–Ron simulation",
+      "quality": "|M| >= OPT/(2+epsilon), fixed epsilon>0",
+      "qualityType": "multiplicative",
+      "output": "edge membership",
+      "graph": "general unweighted; maximum degree Delta",
+      "oracle": "fixed-tree adjacency-list exploration",
+      "adaptivity": "non-adaptive tree probes",
+      "randomization": "randomized",
+      "queryComplexity": "Delta^{O(log Delta/loglog Delta)}",
+      "probability": "constant success for approximation; output always a matching",
+      "notes": "Derived LCA: explore a fixed tree containing the O(log Delta/loglog Delta)-radius neighborhoods needed by the distributed algorithm, then simulate its decisions. This is not a separately numbered LCA theorem. Fixed epsilon; no explicit epsilon dependence asserted.",
+      "evidenceStatus": "derived_from_verified_theorem",
+      "label": "BCGS 2017",
+      "year": 2017,
+      "publicationStatus": "published",
+      "sourceUrl": "https://arxiv.org/pdf/1708.00276",
+      "costMeasure": "graph probes per local output query",
+      "outputClass": "local_matching",
+      "displayStatus": "skipped",
+      "displayReason": "Fixed-tree non-adaptive model omitted from the requested LCA landscape."
+    },
+    {
+      "id": "lca-abgs25-nonadaptive-lower",
+      "sourceId": "abgs25",
+      "kind": "lower",
+      "theorem": "Theorem 1.1; Definitions 3.1 and 3.3",
+      "quality": "Any fixed positive constant beta",
+      "qualityType": "multiplicative",
+      "output": "edge membership consistent with a matching",
+      "graph": "general unweighted; asymptotic degree parameter with sufficiently large graphs",
+      "oracle": "fixed parent-index/port exploration tree; discovered degrees revealed for free",
+      "adaptivity": "non-adaptive tree probes only",
+      "randomization": "randomized allowed",
+      "queryComplexity": "Delta^{Omega(log Delta/loglog Delta)} per query",
+      "probability": "constant approximation success; output always a matching",
+      "notes": "Matches the fixed-epsilon BCGS17 simulation up to constants in the exponent. Restriction is on a fixed exploration tree, not fixed absolute vertex-ID probes. It does not lower-bound adaptive LCAs or global size estimation.",
+      "evidenceStatus": "full_text_verified",
+      "label": "ABGS 2025",
+      "year": 2025,
+      "publicationStatus": "published",
+      "sourceUrl": "https://arxiv.org/pdf/2505.00915",
+      "costMeasure": "graph probes per local output query",
+      "outputClass": "local_matching",
+      "parameterRange": "Asymptotic degree parameter; sufficiently large graphs",
+      "displayStatus": "skipped",
+      "displayReason": "Fixed-tree non-adaptive model omitted from the requested LCA landscape."
+    }
+  ],
+  "figureAxes": {
+    "adaptive": {
+      "title": "Adaptive local queries",
+      "x": {
+        "label": "Matching guarantee",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "constant-unspecified",
+            "label": "Fixed positive beta; unspecified"
+          },
+          {
+            "id": "maximal",
+            "label": "1/2; maximal matching"
+          },
+          {
+            "id": "multiplicative-nearoptimal",
+            "label": "(1-epsilon) OPT; multiplicative"
+          },
+          {
+            "id": "additive-nearoptimal",
+            "label": "OPT-epsilon*n; additive"
+          }
+        ]
+      },
+      "y": {
+        "label": "Graph probes per local query",
+        "kind": "symbolic-categorical",
+        "categories": [
+          {
+            "id": "lry-nearoptimal",
+            "label": "(Delta/epsilon)^{O(1/epsilon^2)} polylog n"
+          },
+          {
+            "id": "brr-lower",
+            "label": "Delta^{Omega(1/epsilon)}"
+          },
+          {
+            "id": "polynomial-degree",
+            "label": "poly(Delta) log n"
+          },
+          {
+            "id": "linear-degree",
+            "label": "O(Delta log n)"
+          }
+        ]
+      },
+      "scaleNote": "Named formula rows are not a numerical ordering for all n, Delta and epsilon. Columns are different guarantee families, not equally spaced approximation ratios."
+    },
+    "history": {
+      "title": "Fixed-degree foundations",
+      "x": {
+        "label": "Matching guarantee",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "maximal",
+            "label": "1/2; maximal matching"
+          },
+          {
+            "id": "multiplicative-nearoptimal",
+            "label": "1-epsilon; near-optimal matching"
+          }
+        ]
+      },
+      "y": {
+        "label": "Query-cost dependence on n",
+        "kind": "symbolic-growth",
+        "categories": [
+          {
+            "id": "log-four",
+            "label": "O(log^4 n)"
+          },
+          {
+            "id": "log-three",
+            "label": "O(log^3 n)"
+          },
+          {
+            "id": "poly-log-star",
+            "label": "poly(log* n)"
+          },
+          {
+            "id": "log-star",
+            "label": "O(log* n)"
+          }
+        ]
+      },
+      "scaleNote": "Fix Delta and epsilon. MRVX and MV give time bounds that also bound probes; EMR gives probe bounds. Degree and epsilon dependence remains in the theorem inspector."
+    }
+  }
+}

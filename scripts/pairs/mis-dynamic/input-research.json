@@ -1,0 +1,518 @@
+{
+  "problem": "mis",
+  "model": "dynamic",
+  "slices": [
+    {
+      "id": "mis-dynamic-randomized-oblivious",
+      "problem": "mis",
+      "model": "dynamic",
+      "label": "Fully dynamic, randomized, oblivious adversary",
+      "task": "Maintain an explicit maximal independent set after each edge update",
+      "assumptions": [
+        "n vertices; edge insertions and deletions",
+        "Oblivious adversary; randomized algorithms"
+      ],
+      "parameters": {},
+      "results": [
+        {
+          "id": "mis-dynamic-chechik-zhang-expected",
+          "paperId": "chechik-zhang-2019-dynamic-mis",
+          "kind": "upper",
+          "bound": "O(log^4 n) expected worst-case update time",
+          "guarantee": "Explicit maximal independent set",
+          "sourceLocation": "Abstract",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "candidate",
+          "notes": "Expected time for every update against an oblivious adversary; not a deterministic worst-case guarantee.",
+          "plot": {
+            "v": 0.0,
+            "closure": "right",
+            "strict": false,
+            "label": "O(log^4 n) expected worst-ca"
+          }
+        },
+        {
+          "id": "mis-dynamic-chechik-zhang-whp",
+          "paperId": "chechik-zhang-2019-dynamic-mis",
+          "kind": "upper",
+          "bound": "O(log^6 n) worst-case update time with high probability",
+          "guarantee": "Explicit maximal independent set",
+          "sourceLocation": "Abstract",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "candidate",
+          "notes": "Obtained with the Bernstein–Forster–Henzinger black-box reduction; high-probability update bound.",
+          "plot": {
+            "v": 0.0,
+            "closure": "right",
+            "strict": false,
+            "label": "O(log^6 n) worst-case update"
+          }
+        },
+        {
+          "id": "mis-dynamic-behnezhad-et-al-expected",
+          "paperId": "behnezhad-et-al-2019-dynamic-mis",
+          "kind": "upper",
+          "bound": "O(log^2 Δ · log^2 n) expected time per update",
+          "guarantee": "Explicit maximal independent set",
+          "sourceLocation": "Abstract",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "candidate",
+          "notes": "Maintains lexicographically first MIS in a random vertex order; Δ is maximum degree. Incomparable parameterization to O(log^4 n).",
+          "plot": null
+        }
+      ],
+      "mode": "1d",
+      "axis": {
+        "label": "Update-time exponent q in Õ(n^q) (lower is faster)",
+        "kind": "exponent",
+        "min": 0,
+        "max": 1.5,
+        "ticks": [
+          0,
+          0.25,
+          0.5,
+          0.75,
+          1,
+          1.25,
+          1.5
+        ],
+        "tickLabels": [
+          "polylog",
+          "n^{1/4}",
+          "√n",
+          "n^{3/4}",
+          "n",
+          "n^{5/4}",
+          "n^{3/2}"
+        ]
+      }
+    },
+    {
+      "id": "mis-dynamic-incremental-adaptive-conditional",
+      "problem": "mis",
+      "model": "dynamic",
+      "label": "Incremental adaptive adversary, conditional hardness",
+      "task": "Maintain an explicit maximal independent set under edge insertions",
+      "assumptions": [
+        "Combinatorial Boolean matrix multiplication hypothesis",
+        "Combinatorial dynamic algorithm",
+        "Adaptive adversary",
+        "Incremental edge insertions; amortized update time"
+      ],
+      "parameters": {},
+      "results": [
+        {
+          "id": "mis-dyn-gupta-surendra-2026-inc",
+          "paperId": "gupta-khan-surendra-2026-dynamic",
+          "kind": "upper",
+          "bound": "O(√m) amortized update time",
+          "guarantee": "Explicit MIS under edge insertions against adaptive adversaries",
+          "sourceLocation": "Abstract, result 1",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "current_best_verified",
+          "notes": "Deterministic. On dense graphs m=Θ(n²), becomes O(n), matching the cited conditional combinatorial lower up to subpolynomial factors.",
+          "plot": null
+        },
+        {
+          "id": "mis-dynamic-bernstein-2026-adaptive-lower",
+          "paperId": "bernstein-et-al-2026-dynamic-separation",
+          "kind": "lower",
+          "bound": "n^(1-o(1)) amortized update time (conditional)",
+          "guarantee": "Explicit incremental maximal independent set against an adaptive adversary",
+          "sourceLocation": "Abstract, MIS conditional lower-bound statement",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "candidate",
+          "notes": "Conditional on combinatorial BMM and restricted to combinatorial algorithms. Incremental/adaptive setting is incompatible with the randomized oblivious fully dynamic upper slice; never shade an unconditional lower region.",
+          "plot": null
+        }
+      ],
+      "mode": "1d",
+      "axis": {
+        "label": "Update-time exponent q in Õ(n^q) (lower is faster)",
+        "kind": "exponent",
+        "min": 0,
+        "max": 1.5,
+        "ticks": [
+          0,
+          0.25,
+          0.5,
+          0.75,
+          1,
+          1.25,
+          1.5
+        ],
+        "tickLabels": [
+          "polylog",
+          "n^{1/4}",
+          "√n",
+          "n^{3/4}",
+          "n",
+          "n^{5/4}",
+          "n^{3/2}"
+        ]
+      }
+    },
+    {
+      "id": "mis-dynamic-deterministic-centralized",
+      "problem": "mis",
+      "model": "dynamic",
+      "label": "Fully dynamic deterministic, centralized",
+      "task": "Maintain an explicit MIS after edge insertions and deletions",
+      "assumptions": [
+        "Sequential centralized RAM; n vertices, m current edges, maximum degree Δ",
+        "Deterministic, arbitrary update sequence",
+        "Amortized update time"
+      ],
+      "parameters": {
+        "Δ": "Maximum degree bound",
+        "m": "Current number of edges"
+      },
+      "results": [
+        {
+          "id": "mis-dyn-assadi-2018-det",
+          "paperId": "assadi-onak-schieber-solomon-2018-dynamic",
+          "kind": "upper",
+          "bound": "O(min{Δ,m^(3/4)}) amortized update time",
+          "guarantee": "Explicit MIS after each fully dynamic edge update",
+          "sourceLocation": "Abstract; Theorem 1",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "historical",
+          "notes": "First sublinear-in-m deterministic update bound; Δ is a fixed degree cap.",
+          "plot": null
+        },
+        {
+          "id": "mis-dyn-du-2018-det",
+          "paperId": "du-zhang-2018-dynamic",
+          "kind": "upper",
+          "bound": "O(m^(2/3) sqrt(log m)) amortized update time",
+          "guarantee": "Explicit fully dynamic MIS",
+          "sourceLocation": "Abstract; Theorem 1",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "historical",
+          "notes": "Preprint; superseded in asymptotic m-dependence up to the logarithmic factor by Gupta–Khan.",
+          "plot": null
+        },
+        {
+          "id": "mis-dyn-gupta-khan-2021",
+          "paperId": "gupta-khan-2021-simple-dynamic",
+          "kind": "upper",
+          "bound": "O(min{Δ,m^(2/3)}) amortized update time",
+          "guarantee": "Explicit fully dynamic MIS",
+          "sourceLocation": "Abstract; main MIS theorem",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "current_best_verified",
+          "notes": "Degree capped deterministic algorithm; later SWAT 2026 gives an independent black-box route to O(m^(2/3)).",
+          "plot": null
+        },
+        {
+          "id": "mis-dyn-gupta-surendra-2026-fully",
+          "paperId": "gupta-khan-surendra-2026-dynamic",
+          "kind": "upper",
+          "bound": "O(m^(2/3)) amortized update time",
+          "guarantee": "Explicit fully dynamic MIS",
+          "sourceLocation": "Abstract, result 3",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "candidate",
+          "notes": "Alternative construction matching deterministic state of art; does not improve O(min{Δ,m^(2/3)}) when Δ is smaller.",
+          "plot": null
+        }
+      ],
+      "mode": "1d",
+      "axis": {
+        "label": "Update-time exponent q in Õ(n^q) (lower is faster)",
+        "kind": "exponent",
+        "min": 0,
+        "max": 1.5,
+        "ticks": [
+          0,
+          0.25,
+          0.5,
+          0.75,
+          1,
+          1.25,
+          1.5
+        ],
+        "tickLabels": [
+          "polylog",
+          "n^{1/4}",
+          "√n",
+          "n^{3/4}",
+          "n",
+          "n^{5/4}",
+          "n^{3/2}"
+        ]
+      }
+    },
+    {
+      "id": "mis-dynamic-randomized-oblivious-amortized",
+      "problem": "mis",
+      "model": "dynamic",
+      "label": "Fully dynamic randomized, oblivious, amortized",
+      "task": "Maintain an explicit MIS after edge updates",
+      "assumptions": [
+        "Sequential centralized RAM; oblivious update sequence",
+        "Randomized expected amortized cost; m current edge count",
+        "Distinct from expected worst-case per-update guarantees"
+      ],
+      "parameters": {
+        "m": "Current edges",
+        "n": "Vertices"
+      },
+      "results": [
+        {
+          "id": "mis-dyn-du-2018-rand",
+          "paperId": "du-zhang-2018-dynamic",
+          "kind": "upper",
+          "bound": "O(sqrt(m) log^(3/2)m) expected amortized update time",
+          "guarantee": "Explicit fully dynamic MIS against oblivious adversary",
+          "sourceLocation": "Abstract; Theorem 4",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "historical",
+          "notes": "Preprint; historical bound.",
+          "plot": null
+        },
+        {
+          "id": "mis-dyn-aoss-2019-m13",
+          "paperId": "assadi-onak-schieber-solomon-2019-dynamic",
+          "kind": "upper",
+          "bound": "Õ(m^(1/3)) expected amortized update time",
+          "guarantee": "Explicit fully dynamic MIS against oblivious adversary",
+          "sourceLocation": "Abstract",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "historical",
+          "notes": "Sparse-sensitive bound; incomparable with √n when m and n vary.",
+          "plot": null
+        },
+        {
+          "id": "mis-dyn-aoss-2019-sqrtn",
+          "paperId": "assadi-onak-schieber-solomon-2019-dynamic",
+          "kind": "upper",
+          "bound": "Õ(√n) expected amortized update time",
+          "guarantee": "Explicit fully dynamic MIS against oblivious adversary",
+          "sourceLocation": "Abstract",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "historical",
+          "notes": "Sublinear in n, historical after FOCS 2019 polylog expected worst-case bounds.",
+          "plot": {
+            "v": 0.5,
+            "closure": "right",
+            "strict": false,
+            "label": "Õ(√n) expected amortized upd"
+          }
+        }
+      ],
+      "mode": "1d",
+      "axis": {
+        "label": "Update-time exponent q in Õ(n^q) (lower is faster)",
+        "kind": "exponent",
+        "min": 0,
+        "max": 1.5,
+        "ticks": [
+          0,
+          0.25,
+          0.5,
+          0.75,
+          1,
+          1.25,
+          1.5
+        ],
+        "tickLabels": [
+          "polylog",
+          "n^{1/4}",
+          "√n",
+          "n^{3/4}",
+          "n",
+          "n^{5/4}",
+          "n^{3/2}"
+        ]
+      }
+    },
+    {
+      "id": "mis-dynamic-batch-parallel-oblivious",
+      "problem": "mis",
+      "model": "dynamic",
+      "label": "Parallel batch dynamic, random vertex order",
+      "task": "Maintain an MIS after each batch of b edge insertions/deletions",
+      "assumptions": [
+        "Parallel batch updates; n-vertex graph",
+        "Oblivious adversary and random vertex priority order",
+        "Work and depth are separate complexity measures"
+      ],
+      "parameters": {
+        "b": "Number of updates in one batch"
+      },
+      "results": [
+        {
+          "id": "mis-dyn-blelloch-2026-batch",
+          "paperId": "blelloch-et-al-2026-batch-dynamic",
+          "kind": "upper",
+          "bound": "O(b log³ n) expected work per batch; polylog(n) depth w.h.p.",
+          "guarantee": "Explicit random-priority lexicographically first MIS",
+          "sourceLocation": "Abstract",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "candidate",
+          "notes": "2026 preprint; b is batch size. Parallel depth is not sequential update time.",
+          "plot": null
+        }
+      ],
+      "mode": "1d",
+      "axis": {
+        "label": "Update-time exponent q in Õ(n^q) (lower is faster)",
+        "kind": "exponent",
+        "min": 0,
+        "max": 1.5,
+        "ticks": [
+          0,
+          0.25,
+          0.5,
+          0.75,
+          1,
+          1.25,
+          1.5
+        ],
+        "tickLabels": [
+          "polylog",
+          "n^{1/4}",
+          "√n",
+          "n^{3/4}",
+          "n",
+          "n^{5/4}",
+          "n^{3/2}"
+        ]
+      }
+    }
+  ],
+  "papers": [
+    {
+      "id": "chechik-zhang-2019-dynamic-mis",
+      "title": "Fully Dynamic Maximal Independent Set in Expected Poly-Log Update Time",
+      "authors": [
+        "Shiri Chechik",
+        "Tianyi Zhang"
+      ],
+      "year": 2019,
+      "venue": "FOCS 2019",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1909.03445",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "behnezhad-et-al-2019-dynamic-mis",
+      "title": "Fully Dynamic Maximal Independent Set with Polylogarithmic Update Time",
+      "authors": [
+        "Soheil Behnezhad",
+        "Mahsa Derakhshan",
+        "MohammadTaghi Hajiaghayi",
+        "Cliff Stein",
+        "Madhu Sudan"
+      ],
+      "year": 2019,
+      "venue": "FOCS 2019",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1909.03478",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "bernstein-et-al-2026-dynamic-separation",
+      "title": "Separations between Oblivious and Adaptive Adversaries for Natural Dynamic Graph Problems",
+      "authors": [
+        "Aaron Bernstein",
+        "Sayan Bhattacharya",
+        "Nick Fischer",
+        "Peter Kiss",
+        "Thatchaphol Saranurak"
+      ],
+      "year": 2026,
+      "venue": "SODA 2026",
+      "publicationStatus": "conference",
+      "url": "https://epubs.siam.org/doi/10.1137/1.9781611978971.202",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "assadi-onak-schieber-solomon-2018-dynamic",
+      "title": "Fully Dynamic Maximal Independent Set with Sublinear Update Time",
+      "authors": [
+        "Sepehr Assadi",
+        "Krzysztof Onak",
+        "Baruch Schieber",
+        "Shay Solomon"
+      ],
+      "year": 2018,
+      "venue": "STOC 2018",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1802.09709",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "gupta-khan-2021-simple-dynamic",
+      "title": "Simple Dynamic Algorithms for Maximal Independent Set, Maximum Flow and Maximum Matching",
+      "authors": [
+        "Manoj Gupta",
+        "Shahbaz Khan"
+      ],
+      "year": 2021,
+      "venue": "SOSA 2021",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1804.01823",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "du-zhang-2018-dynamic",
+      "title": "Improved Algorithms for Fully Dynamic Maximal Independent Set",
+      "authors": [
+        "Yuhao Du",
+        "Hengjie Zhang"
+      ],
+      "year": 2018,
+      "venue": "arXiv 2018",
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/abs/1804.08908",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "assadi-onak-schieber-solomon-2019-dynamic",
+      "title": "Fully Dynamic Maximal Independent Set with Sublinear in n Update Time",
+      "authors": [
+        "Sepehr Assadi",
+        "Krzysztof Onak",
+        "Baruch Schieber",
+        "Shay Solomon"
+      ],
+      "year": 2019,
+      "venue": "SODA 2019",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1806.10051",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "gupta-khan-surendra-2026-dynamic",
+      "title": "Dynamic MIS Revisited: Incremental, Fault Tolerant and Fully Dynamic",
+      "authors": [
+        "Manoj Gupta",
+        "Shahbaz Khan",
+        "Madhu Surendra"
+      ],
+      "year": 2026,
+      "venue": "SWAT 2026",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.SWAT.2026.21",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "blelloch-et-al-2026-batch-dynamic",
+      "title": "Parallel Batch-Dynamic Maximal Independent Set",
+      "authors": [
+        "Guy E. Blelloch",
+        "Andrew Brady",
+        "Laxman Dhulipala",
+        "Jeremy Fineman",
+        "Jared Lo"
+      ],
+      "year": 2026,
+      "venue": "arXiv 2026",
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/abs/2604.07515",
+      "verifiedOn": "2026-09-27"
+    }
+  ]
+}

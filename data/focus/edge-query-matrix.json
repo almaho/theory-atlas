@@ -1,0 +1,122 @@
+{
+  "title": "Scan every pair, then color the edges",
+  "problem": "edge",
+  "model": "query_matrix",
+  "reviewedOn": "2026-10-27",
+  "coverageNote": "One supplied result and one primary source, reviewed as a full-output baseline. This is not an exhaustive matrix-query frontier.",
+  "lowerBoundStatus": "No matrix-query lower bound is verified in the supplied source set. No optimality claim is made.",
+  "sources": {
+    "assadi-et-al-2025-vizing": {
+      "id": "assadi-et-al-2025-vizing",
+      "title": "Vizing’s Theorem in Near-Linear Time",
+      "authors": [
+        "Sepehr Assadi",
+        "Soheil Behnezhad",
+        "Sayan Bhattacharya",
+        "Martín Costa",
+        "Shay Solomon",
+        "Tianyi Zhang"
+      ],
+      "year": 2025,
+      "venue": "STOC 2025; Journal of the ACM 2026",
+      "publicationStatus": "journal",
+      "url": "https://arxiv.org/abs/2410.05240",
+      "verifiedOn": "2026-10-27",
+      "verificationUrl": "https://arxiv.org/html/2410.05240v3",
+      "journalUrl": "https://doi.org/10.1145/3806392",
+      "version": "arXiv:2410.05240v3, 14 October 2025"
+    }
+  },
+  "verifiedRecords": [
+    {
+      "id": "edge-query-matrix-vizing-composed",
+      "sourceId": "assadi-et-al-2025-vizing",
+      "sliceId": "edge-query-adjmatrix-enumerate",
+      "kind": "algorithm",
+      "panel": "enumeration",
+      "shortLabel": "Enumerate + Assadi et al.",
+      "quality": "q = Δ+1",
+      "output": "Explicit proper coloring of every edge: m edge–color assignments.",
+      "graph": "Undirected simple graph on a known n-vertex set; m edges, maximum degree Δ.",
+      "oracle": "Pair(u,v) returns one adjacency bit. No neighbor list, degree query, sampling oracle or supplied edge list.",
+      "displayBound": "Exactly n(n−1)/2 pair queries",
+      "queryComplexity": "n(n−1)/2",
+      "postScanTime": "O(m log Δ) w.h.p. for Δ≥2",
+      "normalizedPostScanTime": "O(m log max{2,Δ}) w.h.p.",
+      "totalTime": "O(n² + m log max{2,Δ}) w.h.p.",
+      "outputCount": "m edge–color assignments",
+      "theorem": "Corollary C.1(1), with proof in §C.1; deterministic matrix enumeration is an atlas derivation.",
+      "probability": "Enumeration uses exactly n(n−1)/2 queries deterministically. The static coloring stage produces a proper (Δ+1)-edge coloring within O(m log Δ) time with high probability in n, for Δ≥2. No fixed failure exponent is imposed here.",
+      "assumptions": [
+        "Known vertex set; one unit-cost Pair(u,v) query returns adjacency in a fixed undirected simple graph.",
+        "Query every unordered pair u<v once; build a stored graph and compute its maximum degree during the scan.",
+        "All actual edges are retained before the randomized static coloring stage; that stage makes no additional matrix-oracle queries.",
+        "Explicit output includes a color for every actual edge; absent pairs are not output.",
+        "For Δ=0 output is empty; for Δ=1 assign color 1 to each edge in O(m) additional time. The expression log max{2,Δ} extends the displayed time to these trivial cases."
+      ],
+      "notes": "The exact matrix-query count is the cost of this full-scan construction, not a matrix-oracle theorem of the cited paper. The same scan runs on sparse and dense graphs. Theorem 1.1 states O(m log n); the sharper degree-sensitive time comes from Corollary C.1(1). The total time includes enumeration. No query lower bound or oracle optimality is claimed.",
+      "derivation": [
+        "There are exactly C(n,2)=n(n−1)/2 unordered vertex pairs.",
+        "Query each pair once. The returned bits determine the full simple graph; retain its m actual edges and compute Δ.",
+        "Apply Corollary C.1(1) to the stored graph for Δ≥2; handle Δ≤1 directly.",
+        "Emit the m edge–color assignments. Enumeration and output are counted separately from the static coloring theorem."
+      ],
+      "verificationUrl": "https://arxiv.org/html/2410.05240v3",
+      "evidenceStatus": "verified",
+      "frontierStatus": "baseline",
+      "coordinates": {
+        "palette": "delta-plus-one",
+        "queryOrder": "quadratic"
+      },
+      "kindExplanation": "Algorithm baseline; exact query accounting, not a lower bound."
+    }
+  ],
+  "relatedResults": [],
+  "figureAxes": {
+    "enumeration": {
+      "x": {
+        "label": "Palette q · exact category",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "delta-plus-one",
+            "label": "Δ+1"
+          }
+        ]
+      },
+      "y": {
+        "label": "Pair queries · symbolic asymptotic order",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "linear",
+            "label": "n"
+          },
+          {
+            "id": "quadratic",
+            "label": "n²"
+          }
+        ],
+        "note": "Ordered asymptotic reference tiers only; the point is Θ(n²), annotated with exact n(n−1)/2. This is not a numeric interpolation or a second result."
+      }
+    }
+  },
+  "sourceVerification": [
+    {
+      "sourceId": "assadi-et-al-2025-vizing",
+      "url": "https://arxiv.org/html/2410.05240v3",
+      "verifiedOn": "2026-10-27",
+      "theorem": "Corollary C.1(1); Theorem 1.1; Appendix C.1 proof",
+      "notes": "Corollary C.1(1) gives O(m log Δ) randomized computation w.h.p. for a simple graph. Theorem 1.1 gives O(m log n), so the main-theorem citation was sharpened. Exact pair-query enumeration is an elementary atlas composition, independently checked. Δ≤1 handled explicitly."
+    }
+  ],
+  "composition": {
+    "exactQueries": "n(n−1)/2",
+    "scanTime": "O(n²)",
+    "postScanTime": "O(m log max{2,Δ}) w.h.p.",
+    "totalTime": "O(n² + m log max{2,Δ}) w.h.p.",
+    "output": "m edge–color assignments",
+    "storageNote": "O(m) retained edges; no total-memory claim for the static coloring algorithm.",
+    "sparseDense": "The scan is identical on sparse and dense inputs."
+  }
+}

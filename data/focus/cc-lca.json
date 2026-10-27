@@ -1,0 +1,391 @@
+{
+  "id": "cc-lca",
+  "title": "Correlation clustering · Local computation",
+  "problem": "cc",
+  "model": "lca",
+  "reviewedOn": "2026-10-26",
+  "sources": {
+    "dalirrooyfard-2024-pruned-pivot": {
+      "id": "dalirrooyfard-2024-pruned-pivot",
+      "title": "Pruned Pivot: Correlation Clustering Algorithm for Dynamic, Parallel, and Local Computation Models",
+      "authors": [
+        "Mina Dalirrooyfard",
+        "Konstantin Makarychev",
+        "Slobodan Mitrović"
+      ],
+      "year": 2024,
+      "venue": "ICML 2024",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/html/2402.15668v2",
+      "verifiedOn": "2026-10-26",
+      "verificationStatus": "primary_full_text"
+    },
+    "bonchi-2013-local": {
+      "id": "bonchi-2013-local",
+      "title": "Local Correlation Clustering",
+      "authors": [
+        "Francesco Bonchi",
+        "David García-Soriano",
+        "Konstantin Kutzkov"
+      ],
+      "year": 2013,
+      "venue": "arXiv 2013",
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/html/1312.5105v1",
+      "verifiedOn": "2026-10-26",
+      "verificationStatus": "primary_full_text"
+    },
+    "garciasoriano-2020-query-efficient": {
+      "id": "garciasoriano-2020-query-efficient",
+      "title": "Query-Efficient Correlation Clustering",
+      "authors": [
+        "David García-Soriano",
+        "Konstantin Kutzkov",
+        "Francesco Bonchi",
+        "Charalampos E. Tsourakakis"
+      ],
+      "year": 2020,
+      "venue": "The Web Conference 2020",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/html/2002.11557v1",
+      "verifiedOn": "2026-10-26",
+      "verificationStatus": "primary_full_text",
+      "role": "Correction context only; no new LCA theorem"
+    }
+  },
+  "verifiedRecords": [
+    {
+      "id": "cc-lca-pruned-3plus",
+      "paperId": "dalirrooyfard-2024-pruned-pivot",
+      "kind": "upper",
+      "bound": "O(Δ/ε) probes per label; O((Δ/ε)polylog n) local space",
+      "guarantee": "Expected cost ≤(3+ε)OPT",
+      "sourceLocation": "Theorem 1.3; footnote 3; §6",
+      "evidenceStatus": "theorem_verified",
+      "frontierStatus": "historical",
+      "notes": "The band displays the degree-dependent upper-bound family from 1/ε to n/ε. It is not a lower bound, confidence band, or exact cost.",
+      "plot": null,
+      "sliceId": "cc-lca-pruned-degree",
+      "sourceId": "dalirrooyfard-2024-pruned-pivot",
+      "sourceUrl": "https://arxiv.org/html/2402.15668v2",
+      "verificationUrl": "https://arxiv.org/html/2402.15668v2",
+      "graph": "Unweighted complete signed graph; MinDisagree objective",
+      "output": "Consistent cluster label for a queried vertex; common randomness fixes one implicit partition",
+      "panel": "positive-list",
+      "shortLabel": "Pruned Pivot · 2024",
+      "algorithmLabel": "Pruned Pivot",
+      "displayBound": "O(Δ/ε)",
+      "exactBound": "O(Δ/ε) positive-list probes per label; O((Δ/ε)polylog n) local space.",
+      "quality": "E[cost] ≤ (3+ε)OPT",
+      "qualityLabel": "Expected (3+ε) · no additive error",
+      "theorem": "Theorem 1.3; footnote 3; §6",
+      "probeComplexity": "O(Δ/ε) per label",
+      "timeComplexity": "Only the probe bound is compared here",
+      "preprocessing": "No separate graph preprocessing term in Theorem 1.3",
+      "seedSpace": "O((Δ/ε)polylog n) local space; shared seeded ranks keep answers consistent",
+      "probability": "Expected objective bound; not a high-probability quality statement",
+      "oracle": "Positive-neighbor lists; scan a visited vertex’s neighbors; maximum positive degree Δ",
+      "parameterDomain": "ε>0; the displayed common ladder uses 1/n<ε<1 and 1≤Δ<n; edgeless inputs are trivial",
+      "assumptions": [
+        "Unweighted complete signed graph; MinDisagree objective",
+        "Indexed positive-neighbor access; negative pairs are implicit",
+        "Shared random ordering, implemented by limited-independence ranks in §6",
+        "Each label query returns part of the same implicit partition"
+      ],
+      "costFrom": "inverse",
+      "costTo": "n-inverse",
+      "plotRole": "degree-band"
+    },
+    {
+      "id": "cc-lca-bonchi-four",
+      "paperId": "bonchi-2013-local",
+      "kind": "upper",
+      "bound": "O(1/ε) per-label time after O(1/ε²) non-adaptive preprocessing; O(1/ε²) time without preprocessing",
+      "guarantee": "With probability ≥2/3, cost ≤4OPT+εn²",
+      "sourceLocation": "Theorem 3.4; Corollary 4.3; Definition 1.1",
+      "evidenceStatus": "theorem_verified",
+      "frontierStatus": "historical",
+      "notes": "Both green markers refer to one theorem with two preprocessing policies. Time bounds imply query upper bounds, but probe and time complexity are not identified for every algorithm.",
+      "plot": null,
+      "sliceId": "cc-lca-matrix-additive",
+      "sourceId": "bonchi-2013-local",
+      "sourceUrl": "https://arxiv.org/html/1312.5105v1",
+      "verificationUrl": "https://arxiv.org/html/1312.5105v1",
+      "graph": "Unweighted complete signed graph; MinDisagree objective",
+      "output": "Consistent cluster label for a queried vertex; common randomness fixes one implicit partition",
+      "panel": "matrix",
+      "shortLabel": "LocalCluster · 2013",
+      "algorithmLabel": "LocalCluster",
+      "displayBound": "O(1/ε) or O(1/ε²)",
+      "exactBound": "O(1/ε) time per label after O(1/ε²) non-adaptive queries and time preprocessing; O(1/ε²) local time without shared graph preprocessing.",
+      "quality": "cost ≤ 4OPT + εn²",
+      "qualityLabel": "Factor 4 + εn² · success ≥2/3",
+      "theorem": "Theorem 3.4; Corollary 4.3; Definition 1.1",
+      "probeComplexity": "O(1/ε) after preprocessing; O(1/ε²) without preprocessing (query upper bounds follow from the stated unit-cost running times)",
+      "timeComplexity": "O(1/ε) prepared; O(1/ε²) without preprocessing",
+      "preprocessing": "O(1/ε²) non-adaptive queries and time once; Corollary 4.3 sharpens this to O(min(n/ε,1/ε²))",
+      "seedSpace": "Shared randomness and one fixed pivot set; recomputing with fresh randomness is not this LCA",
+      "probability": "At least 2/3 for the whole implicit partition. The expected (3,ε) variant is a separate quality statement.",
+      "oracle": "Pairwise adjacency-matrix / similarity queries",
+      "parameterDomain": "0<ε<1; the displayed cost order uses 1/n<ε<1",
+      "assumptions": [
+        "Unweighted complete signed graph; MinDisagree objective",
+        "Unit-cost matrix similarity oracle",
+        "The same random seed is used on every vertex",
+        "One-time preprocessing is shared across all label requests"
+      ],
+      "plotRole": "matrix-two-policies",
+      "modes": [
+        {
+          "id": "prepared",
+          "displayBound": "O(1/ε)",
+          "cost": "inverse",
+          "preprocessing": "O(1/ε²)"
+        },
+        {
+          "id": "no-preprocessing",
+          "displayBound": "O(1/ε²)",
+          "cost": "inverse-square",
+          "preprocessing": "None"
+        }
+      ]
+    },
+    {
+      "id": "cc-lca-bonchi-constant-lb",
+      "paperId": "bonchi-2013-local",
+      "kind": "lower",
+      "bound": "Ω(1/ε) non-adaptive probes per label for constant c, in the theorem’s asymptotic parameter regime",
+      "guarantee": "Constant-factor plus εn² error; corrected non-adaptive scope",
+      "sourceLocation": "Theorem 3.4 lower clause; Theorem 6.1; Corollary 6.4; 2020 §2 correction",
+      "evidenceStatus": "theorem_scope_corrected",
+      "frontierStatus": "historical",
+      "notes": "Specialization of the general-c lower bound, not a second independent barrier. Its marker is separated vertically from the algorithm so neither is hidden.",
+      "plot": null,
+      "sliceId": "cc-lca-matrix-additive",
+      "sourceId": "bonchi-2013-local",
+      "sourceUrl": "https://arxiv.org/html/1312.5105v1",
+      "verificationUrl": "https://arxiv.org/html/1312.5105v1",
+      "graph": "Unweighted complete signed graph; MinDisagree objective",
+      "output": "Consistent cluster label for a queried vertex; common randomness fixes one implicit partition",
+      "panel": "matrix",
+      "shortLabel": "Constant-c lower bound · 2013",
+      "displayBound": "Ω(1/ε)",
+      "exactBound": "Ω(1/ε) non-adaptive local matrix probes for constant c≥3 and sufficiently large n; Corollary 6.4 requires ε>10^7/n for its confidence-1/2 statement.",
+      "quality": "cost ≤ cOPT + εn², c=O(1)",
+      "qualityLabel": "Constant factor + εn² · non-adaptive",
+      "theorem": "Theorem 3.4 lower clause; Theorem 6.1; Corollary 6.4; 2020 §2 correction",
+      "probeComplexity": "Ω(1/ε) non-adaptive probes per label",
+      "timeComplexity": "Probe lower bound only",
+      "preprocessing": "ε-only preprocessing; asymptotic reduction requires sufficiently large n",
+      "seedSpace": "The lower bound concerns a global quality guarantee for consistently answered labels",
+      "probability": "Constant-confidence version: success at least 1/2; use Corollary 6.4 with ε>10^7/n and c≥3",
+      "oracle": "Non-adaptive matrix-query algorithms; not positive-neighbor access",
+      "parameterDomain": "Constant c≥3; 10^7/n<ε<1/(100c); sufficiently large n to absorb ε-only preprocessing",
+      "assumptions": [
+        "Unweighted complete signed graph; MinDisagree objective",
+        "Non-adaptive algorithms only, after the 2020 correction",
+        "Constant multiplicative c, e.g. c=4",
+        "ε>10^7/n for the stated constant-confidence conversion"
+      ],
+      "scopeWarning": "Historical adaptive wording in Theorem 3.4 is restricted here using the authors’ 2020 correction.",
+      "correctionSource": "https://arxiv.org/html/2002.11557v1#S2",
+      "plotRole": "constant-lower",
+      "specializes": "cc-lca-bonchi-lb"
+    },
+    {
+      "id": "cc-lca-bonchi-one-additive",
+      "paperId": "bonchi-2013-local",
+      "kind": "upper",
+      "bound": "poly(1/ε) local time after poly(1/ε) preprocessing probes and 2^{poly(1/ε)} preprocessing time",
+      "guarantee": "With probability ≥2/3, cost ≤OPT+εn²",
+      "sourceLocation": "Theorem 3.6; §5 proof",
+      "evidenceStatus": "theorem_verified",
+      "frontierStatus": "historical",
+      "notes": "Shown in an inset inside the matrix setup because an unspecified polynomial cannot honestly be positioned relative to 1/ε² or n/ε.",
+      "plot": null,
+      "sliceId": "cc-lca-matrix-additive",
+      "sourceId": "bonchi-2013-local",
+      "sourceUrl": "https://arxiv.org/html/1312.5105v1",
+      "verificationUrl": "https://arxiv.org/html/1312.5105v1",
+      "graph": "Unweighted complete signed graph; MinDisagree objective",
+      "output": "Consistent cluster label for a queried vertex; common randomness fixes one implicit partition",
+      "panel": "matrix",
+      "shortLabel": "Pure additive · 2013",
+      "algorithmLabel": "Weak-regularity local labels",
+      "displayBound": "poly(1/ε)",
+      "exactBound": "poly(1/ε) per-label time after poly(1/ε) matrix queries and 2^{poly(1/ε)} time preprocessing.",
+      "quality": "cost ≤ OPT + εn²",
+      "qualityLabel": "Pure additive error · success ≥2/3",
+      "theorem": "Theorem 3.6; §5 proof",
+      "probeComplexity": "poly(1/ε) per-label query upper bound follows from the local-time bound",
+      "timeComplexity": "poly(1/ε) per label",
+      "preprocessing": "poly(1/ε) matrix queries; 2^{poly(1/ε)} time",
+      "seedSpace": "Shared random choices and a fixed preprocessed mapping determine all labels",
+      "probability": "At least 2/3; theorem summary convention in §3",
+      "oracle": "Pairwise adjacency-matrix / similarity queries",
+      "parameterDomain": "0<ε<1; polynomial exponent left unspecified by the theorem",
+      "assumptions": [
+        "Unweighted complete signed graph; MinDisagree objective",
+        "Unit-cost matrix oracle",
+        "Shared preprocessing must finish before label queries",
+        "The polynomial exponent is not assigned a numeric value"
+      ],
+      "plotRole": "symbolic-inset",
+      "coordinateStatus": "unranked"
+    },
+    {
+      "id": "cc-lca-bonchi-lb",
+      "paperId": "bonchi-2013-local",
+      "kind": "lower",
+      "bound": "Ω(1/(εc²)) non-adaptive probes per label, c≥1 and 1/n<ε<1/(100c)",
+      "guarantee": "Expected (c,ε) approximation; corrected non-adaptive scope",
+      "sourceLocation": "Theorem 6.1; Query-Efficient Correlation Clustering (2020), §2",
+      "evidenceStatus": "theorem_scope_corrected",
+      "frontierStatus": "historical",
+      "notes": "This is the general-c theorem behind the constant-c red marker; these are not independent lower bounds.",
+      "plot": null,
+      "sliceId": "cc-lca-matrix-additive",
+      "sourceId": "bonchi-2013-local",
+      "sourceUrl": "https://arxiv.org/html/1312.5105v1",
+      "verificationUrl": "https://arxiv.org/html/1312.5105v1",
+      "graph": "Unweighted complete signed graph; MinDisagree objective",
+      "output": "Consistent cluster label for a queried vertex; common randomness fixes one implicit partition",
+      "panel": "matrix",
+      "shortLabel": "General-c lower bound · 2013",
+      "displayBound": "Ω(1/(εc²))",
+      "exactBound": "Ω(1/(εc²)) non-adaptive local matrix probes, c≥1 and 1/n<ε<1/(100c); ε-only preprocessing may be absorbed for sufficiently large n.",
+      "quality": "E[cost] ≤ cOPT + εn²",
+      "qualityLabel": "General c ≥1 · non-adaptive",
+      "theorem": "Theorem 6.1; corrected scope in García-Soriano et al. 2020 §2",
+      "probeComplexity": "Ω(1/(εc²)) per label",
+      "timeComplexity": "Probe lower bound only",
+      "preprocessing": "Allowed p(ε) independent of n; reduction uses nq(ε)+p(ε) for sufficiently large n",
+      "seedSpace": "Common randomness does not remove the scoped lower bound",
+      "probability": "Expected approximation; Thm6.1 has mixed confidence wording. Constant-confidence statement is inspected separately through Corollary 6.4.",
+      "oracle": "Non-adaptive matrix-query algorithms; does not constrain positive-neighbor access",
+      "parameterDomain": "c≥1; 1/n<ε<1/(100c); fixed ε as n grows for ε-only preprocessing",
+      "assumptions": [
+        "Unweighted complete signed graph; MinDisagree objective",
+        "Non-adaptive query scope, following the 2020 correction",
+        "Local per-label query budget q(ε)",
+        "Any graph preprocessing uses p(ε) independent of n"
+      ],
+      "scopeWarning": "The 2020 primary source says the 2013 proof covers only non-adaptive algorithms. No adaptive LCA lower bound is inferred here.",
+      "correctionSource": "https://arxiv.org/html/2002.11557v1#S2",
+      "plotRole": "lower-inset",
+      "coordinateStatus": "unranked"
+    }
+  ],
+  "relatedResults": [],
+  "coverage": "Finite review: both supplied papers and all five original records, plus the 2020 primary source for the lower-bound correction. This is not an exhaustive literature frontier.",
+  "figureAxes": {
+    "positive-list": {
+      "x": {
+        "label": "Per-label probes · symbolic growth order",
+        "kind": "symbolic",
+        "min": 0,
+        "max": 2,
+        "ticks": [
+          0,
+          1,
+          2
+        ],
+        "tickLabels": [
+          "1/ε",
+          "1/ε²",
+          "n/ε"
+        ]
+      },
+      "y": {
+        "label": "Oracle and quality / preprocessing policy",
+        "kind": "categorical",
+        "categories": [
+          "Positive lists · expected (3+ε)",
+          "Matrix · (4,ε), prepared",
+          "Matrix · non-adaptive lower bound",
+          "Matrix · (4,ε), no preprocessing"
+        ]
+      },
+      "note": "Spacing is schematic. For 1/n<ε<1, 1/ε≤1/ε²≤n/ε. O(Δ/ε) spans the degree-dependent family with 1≤Δ<n. No cross-oracle frontier is implied."
+    },
+    "matrix": {
+      "x": {
+        "label": "Per-label probes · symbolic growth order",
+        "kind": "symbolic",
+        "min": 0,
+        "max": 2,
+        "ticks": [
+          0,
+          1,
+          2
+        ],
+        "tickLabels": [
+          "1/ε",
+          "1/ε²",
+          "n/ε"
+        ]
+      },
+      "y": {
+        "label": "Oracle and quality / preprocessing policy",
+        "kind": "categorical",
+        "categories": [
+          "Positive lists · expected (3+ε)",
+          "Matrix · (4,ε), prepared",
+          "Matrix · non-adaptive lower bound",
+          "Matrix · (4,ε), no preprocessing"
+        ]
+      },
+      "note": "Spacing is schematic. For 1/n<ε<1, 1/ε≤1/ε²≤n/ε. O(Δ/ε) spans the degree-dependent family with 1≤Δ<n. No cross-oracle frontier is implied."
+    }
+  },
+  "sourceVerification": {
+    "scope": "Two supplied primary papers; one primary correction source",
+    "sources": [
+      {
+        "sourceId": "dalirrooyfard-2024-pruned-pivot",
+        "url": "https://arxiv.org/html/2402.15668v2",
+        "theorems": [
+          "1.3",
+          "footnote 3",
+          "§6"
+        ],
+        "notes": "Probe bound, expected quality, shared seed and space verified."
+      },
+      {
+        "sourceId": "bonchi-2013-local",
+        "url": "https://arxiv.org/html/1312.5105v1",
+        "theorems": [
+          "3.4",
+          "3.6",
+          "6.1",
+          "Corollary 4.3",
+          "Corollary 6.4",
+          "Definition 1.1"
+        ],
+        "notes": "Local time versus shared preprocessing, common randomness, error contract and lower-bound domain verified."
+      },
+      {
+        "sourceId": "garciasoriano-2020-query-efficient",
+        "url": "https://arxiv.org/html/2002.11557v1#S2",
+        "theorems": [
+          "§2"
+        ],
+        "notes": "Explicitly restricts the earlier lower proof to non-adaptive algorithms."
+      }
+    ],
+    "gaps": [
+      "No positive-list LCA lower bound is supplied or plotted.",
+      "The 2013 pure-additive theorem leaves polynomial exponents unspecified.",
+      "No adaptive LCA lower bound is inferred from a global-query theorem."
+    ]
+  },
+  "setupColors": {
+    "positive-list": "blue",
+    "matrix": "purple"
+  },
+  "preprocessingDisplay": "Theorem details only; small after-preprocessing labels remain in the figure.",
+  "lowerBoundStatus": "Two preserved historical records represent one family. Both are restricted to non-adaptive matrix queries; the constant-c confidence conversion needs sufficiently large n.",
+  "symbolicInsets": {
+    "note": "poly(1/ε) is unranked because its exponent is unspecified; Ω(1/(εc²)) is kept symbolic and linked to its constant-c specialization."
+  }
+}

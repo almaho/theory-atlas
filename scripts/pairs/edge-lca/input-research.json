@@ -1,0 +1,92 @@
+{
+  "problem": "edge",
+  "model": "lca",
+  "slices": [
+    {
+      "id": "edge-lca-line-graph-oblivious-baseline",
+      "problem": "edge",
+      "model": "lca",
+      "label": "LCA; line-graph oracle baseline",
+      "task": "Return one edge color per queried edge, consistently with a single proper coloring",
+      "assumptions": [
+        "Input supplied via adjacency-neighbor oracle to the line graph L(G), whose vertices are the original edges; N=m and degree 2≤D≤2Δ−2 (trivial D<2 cases omitted)",
+        "Deterministic oblivious LCA, no state retained between queries; edge identifiers supplied in the oracle"
+      ],
+      "xAxis": {
+        "label": "Palette ratio r = q/Δ",
+        "kind": "palette",
+        "min": 1,
+        "max": 2.25,
+        "ticks": [
+          1,
+          1.25,
+          1.5,
+          1.75,
+          2,
+          2.25
+        ],
+        "tickLabels": [
+          "Δ",
+          "5Δ/4",
+          "3Δ/2",
+          "7Δ/4",
+          "2Δ",
+          "9Δ/4"
+        ]
+      },
+      "yAxis": {
+        "label": "Probe ladder in Δ (per answered query)",
+        "kind": "probes",
+        "min": 0,
+        "max": 4,
+        "ticks": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "tickLabels": [
+          "polylog n",
+          "poly(Δ)",
+          "Δ^{O(log log Δ)}",
+          "Δ^{O(log Δ)}",
+          "Δ^{O(log²Δ)}"
+        ]
+      },
+      "parameters": {
+        "D": "maximum degree of the line graph"
+      },
+      "results": [
+        {
+          "id": "lca-conflict-linegraph-derived-2017",
+          "paperId": "fraigniaud-heinrich-kosowski-2017-conflict",
+          "kind": "upper",
+          "bound": "D^{O(√D log^(5/2)D)} log* m line-graph oracle probes per query",
+          "guarantee": "Proper q=D+1 vertex coloring of L(G), hence q≤2Δ−1 edge coloring of G",
+          "sourceLocation": "Theorem 5.1 (l/d>D) instantiated with l=D+1,d=1 on L(G); Section 5",
+          "evidenceStatus": "verified",
+          "frontierStatus": "baseline",
+          "notes": "This is a direct line-graph specialization of a primary theorem, not an author-stated edge-LCA SOTA claim. Probe accounting assumes direct line-graph adjacency access, and must not be transferred to ordinary G-neighbor or matrix oracles without simulation overhead.",
+          "plot": null
+        }
+      ]
+    }
+  ],
+  "papers": [
+    {
+      "id": "fraigniaud-heinrich-kosowski-2017-conflict",
+      "title": "Local Conflict Coloring",
+      "authors": [
+        "Pierre Fraigniaud",
+        "Marc Heinrich",
+        "Adrian Kosowski"
+      ],
+      "year": 2016,
+      "venue": "FOCS 2016; arXiv v2 revised 2017",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1511.01287",
+      "verifiedOn": "2026-09-27"
+    }
+  ]
+}

@@ -1,0 +1,262 @@
+{
+  "problem": "matching",
+  "model": "query_matrix",
+  "slices": [
+    {
+      "id": "matching-query-matrix-value-additive",
+      "problem": "matching",
+      "model": "query_matrix",
+      "label": "Adjacency-matrix pair queries, mixed value estimate",
+      "task": "Estimate maximum matching cardinality with multiplicative-additive error",
+      "assumptions": [
+        "General graph",
+        "Adaptive pair queries",
+        "Randomized, high probability"
+      ],
+      "xAxis": {
+        "label": "Approximation factor α (lower is better)",
+        "kind": "approximation",
+        "min": 1,
+        "max": 3,
+        "ticks": [
+          1,
+          1.5,
+          2,
+          2.5,
+          3
+        ]
+      },
+      "yAxis": {
+        "label": "Query exponent p in Õ(n^p)",
+        "kind": "exponent",
+        "min": 0,
+        "max": 2,
+        "ticks": [
+          0,
+          0.5,
+          1,
+          1.5,
+          2
+        ],
+        "tickLabels": [
+          "polylog",
+          "√n",
+          "n",
+          "n^{3/2}",
+          "n²"
+        ]
+      },
+      "parameters": {
+        "additive": "o(n)"
+      },
+      "results": [
+        {
+          "id": "matching-query-matrix-051",
+          "paperId": "mahabadi-roghani-tarnawski-2025-051",
+          "kind": "upper",
+          "bound": "Õ(n^{3/2}) time / pair queries",
+          "guarantee": "Estimate at least 0.5109·OPT−o(n), with upper estimate convention as in paper",
+          "sourceLocation": "Theorem 1.2",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Additive o(n) slack matters for small OPT; cannot transfer this point to pure multiplicative list slice.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "matching-query-matrix-additive-lb",
+      "problem": "matching",
+      "model": "query_matrix",
+      "label": "Adjacency-matrix pair queries, additive size error",
+      "task": "Estimate maximum matching size within ±εn",
+      "assumptions": [
+        "General n-vertex graph",
+        "Randomized algorithms included",
+        "For every fixed δ>0 there exists a fixed ε(δ)>0"
+      ],
+      "results": [
+        {
+          "id": "matching-query-matrix-nearquadratic-lb",
+          "paperId": "azarmehr-behnezhad-roghani-rubinstein-2025-pair",
+          "kind": "lower",
+          "bound": "Ω(n^{2−δ}) pair queries for every fixed δ>0 and a corresponding ε(δ)>0",
+          "guarantee": "Absolute additive estimation error at most εn",
+          "sourceLocation": "Abstract / main theorem",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "current_best_verified",
+          "notes": "First superlinear pair-query lower bound in this additive regime. List lower bound is a separate theorem.",
+          "plot": null
+        }
+      ],
+      "mode": "2d",
+      "yAxis": {
+        "label": "Query exponent p in Õ(n^p)",
+        "kind": "exponent",
+        "min": 0,
+        "max": 2,
+        "ticks": [
+          0,
+          0.5,
+          1,
+          1.5,
+          2
+        ],
+        "tickLabels": [
+          "polylog",
+          "√n",
+          "n",
+          "n^{3/2}",
+          "n²"
+        ]
+      },
+      "xAxis": {
+        "label": "Allowed additive error ε in ±εn",
+        "kind": "error",
+        "min": 0,
+        "max": 1,
+        "ticks": [
+          0,
+          0.25,
+          0.5,
+          0.75,
+          1
+        ]
+      }
+    },
+    {
+      "id": "matching-query-matrix-mixed-value",
+      "problem": "matching",
+      "model": "query_matrix",
+      "label": "Adjacency matrix, additive slack in matching value",
+      "task": "Approximate maximum matching cardinality by adjacency pair queries",
+      "assumptions": [
+        "Adjacency-matrix pair access only",
+        "Randomized size estimate",
+        "Allow additive εn slack"
+      ],
+      "xAxis": {
+        "label": "Approximation factor α (lower is better)",
+        "kind": "approximation",
+        "min": 1,
+        "max": 3,
+        "ticks": [
+          1,
+          1.5,
+          2,
+          2.5,
+          3
+        ]
+      },
+      "yAxis": {
+        "label": "Query exponent p in Õ(n^p)",
+        "kind": "exponent",
+        "min": 0,
+        "max": 2,
+        "ticks": [
+          0,
+          0.5,
+          1,
+          1.5,
+          2
+        ],
+        "tickLabels": [
+          "polylog",
+          "√n",
+          "n",
+          "n^{3/2}",
+          "n²"
+        ]
+      },
+      "parameters": {
+        "epsilon": "fixed >0"
+      },
+      "results": [
+        {
+          "id": "matching-query-behnezhad21-matrix",
+          "paperId": "behnezhad-2021-time-optimal",
+          "kind": "upper",
+          "bound": "Õ(n/ε³) pair-query time",
+          "guarantee": "(2,εn)-approximate matching size",
+          "sourceLocation": "Abstract, third bullet",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "baseline",
+          "notes": "Avoid pure multiplicative interpretation: empty versus one-edge graph requires Ω(n²) pair queries.",
+          "plot": null
+        },
+        {
+          "id": "matching-query-bks23-matrix",
+          "paperId": "bhattacharya-kiss-saranurak-2023-query",
+          "kind": "upper",
+          "bound": "n^{2−Θ(ε²)} pair-query time",
+          "guarantee": "(1.5+ε,o(n))-approximate matching-size estimate",
+          "sourceLocation": "Paper Theorem 1.2 and model discussion",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "candidate",
+          "notes": "Additive error is necessary for sparse OPT; theorem-specific threshold not merged with pure multiplicative list view.",
+          "plot": null
+        }
+      ]
+    }
+  ],
+  "papers": [
+    {
+      "id": "mahabadi-roghani-tarnawski-2025-051",
+      "title": "A 0.51-Approximation of Maximum Matching in Sublinear n^{1.5} Time",
+      "authors": [
+        "Sepideh Mahabadi",
+        "Mohammad Roghani",
+        "Jakub Tarnawski"
+      ],
+      "year": 2025,
+      "venue": "ICALP 2025",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2506.01669",
+      "verifiedOn": "2026-10-20",
+      "publicationUrl": "https://doi.org/10.4230/LIPIcs.ICALP.2025.116"
+    },
+    {
+      "id": "azarmehr-behnezhad-roghani-rubinstein-2025-pair",
+      "title": "Tight Pair Query Lower Bounds for Matching and Earth Mover’s Distance",
+      "authors": [
+        "Amir Azarmehr",
+        "Soheil Behnezhad",
+        "Mohammad Roghani",
+        "Aviad Rubinstein"
+      ],
+      "year": 2025,
+      "venue": "arXiv",
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/abs/2510.16351",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "behnezhad-2021-time-optimal",
+      "title": "Time-Optimal Sublinear Algorithms for Matching and Vertex Cover",
+      "authors": [
+        "Soheil Behnezhad"
+      ],
+      "year": 2021,
+      "venue": "FOCS 2021",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2106.02942",
+      "verifiedOn": "2026-10-20",
+      "publicationUrl": "https://doi.org/10.1109/FOCS52979.2021.00089"
+    },
+    {
+      "id": "bhattacharya-kiss-saranurak-2023-query",
+      "title": "Sublinear Algorithms for (1.5+ε)-Approximate Matching",
+      "authors": [
+        "Sayan Bhattacharya",
+        "Peter Kiss",
+        "Thatchaphol Saranurak"
+      ],
+      "year": 2023,
+      "venue": "STOC 2023",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2212.00189",
+      "verifiedOn": "2026-10-20",
+      "publicationUrl": "https://doi.org/10.1145/3564246.3585252"
+    }
+  ]
+}

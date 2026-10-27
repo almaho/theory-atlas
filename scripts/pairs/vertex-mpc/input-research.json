@@ -1,0 +1,431 @@
+{
+  "problem": "vertex",
+  "model": "mpc",
+  "slices": [
+    {
+      "id": "vertex-mpc-linear-memory-delta-plus-one",
+      "problem": "vertex",
+      "model": "mpc",
+      "label": "MPC (Δ+1) coloring with near-linear local memory",
+      "task": "Output a proper vertex coloring",
+      "assumptions": [
+        "Randomized MPC",
+        "Õ(n) memory per machine",
+        "Arbitrary n-vertex graph of maximum degree Δ"
+      ],
+      "xAxis": {
+        "label": "Palette slack c in q = Δ + c",
+        "kind": "palette",
+        "min": 0,
+        "max": 8,
+        "ticks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          6,
+          8
+        ]
+      },
+      "yAxis": {
+        "label": "Asymptotic round class (ordinal tiers)",
+        "kind": "ordinal",
+        "min": 0,
+        "max": 5,
+        "ticks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "tickLabels": [
+          "O(1)",
+          "log log log n",
+          "log log n",
+          "(log log n)^k",
+          "√log n",
+          "≥ log n"
+        ]
+      },
+      "parameters": {
+        "n": "number of vertices",
+        "Delta": "maximum degree",
+        "localMemory": "Õ(n) per machine",
+        "coordinateConvention": "The x coordinate is the additive palette slack c=1. The table retains the exact quality and model assumptions. Ordinal round positions are asymptotic categories."
+      },
+      "results": [
+        {
+          "id": "vertex-mpc-ack-2019",
+          "paperId": "assadi-chen-khanna-2019-sublinear-coloring",
+          "kind": "upper",
+          "bound": "O(1) MPC rounds with Õ(n) memory per machine",
+          "guarantee": "Explicit proper (Δ+1)-vertex coloring",
+          "sourceLocation": "Abstract; MPC algorithm section",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "candidate",
+          "notes": "Near-linear machine memory is part of this slice; no claim for strongly sublinear machine memory.",
+          "plot": {
+            "x": 1,
+            "y": 0,
+            "closure": "upper-right",
+            "strictX": false,
+            "strictY": false,
+            "label": "O resource 0"
+          }
+        },
+        {
+          "id": "vertex-result-41",
+          "paperId": "czumaj-davies-parter-2020-clique-mpc",
+          "kind": "upper",
+          "bound": "O(1) rounds, O(n) per-machine space; O(nΔ) total space for lists",
+          "guarantee": "Deterministic proper (Δ+1)-list coloring",
+          "sourceLocation": "PODC 2020 Theorem 1.2",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "candidate",
+          "notes": "Local memory linear in n, global list input size Θ(nΔ); deterministic versus Assadi et al. randomized.",
+          "plot": null
+        },
+        {
+          "id": "vertex-extended-vertex-mpc-linear-memory-delta-plus-one-9",
+          "paperId": "halldorsson-kuhn-nolin-tonoyan-2022-degree",
+          "kind": "upper",
+          "bound": "O(1) rounds; Õ(n) per-machine memory",
+          "guarantee": "Proper degree+1 list coloring, randomized",
+          "sourceLocation": "STOC 2022 abstract, MPC consequence",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "candidate",
+          "notes": "Degree+1 lists generalize a uniform Δ+1 palette; total memory and list representation follow source.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "vertex-mpc-strongly-sublinear-randomized",
+      "problem": "vertex",
+      "model": "mpc",
+      "label": "Strongly sublinear local-memory MPC, randomized",
+      "task": "Output a proper (Δ+1)-list coloring",
+      "assumptions": [
+        "O(n^α) memory per machine for any fixed α>0",
+        "Õ(m) aggregate space under model conventions",
+        "Randomized"
+      ],
+      "xAxis": {
+        "label": "Palette ratio r = q/Δ",
+        "kind": "palette",
+        "min": 1,
+        "max": 2.25,
+        "ticks": [
+          1,
+          1.25,
+          1.5,
+          1.75,
+          2,
+          2.25
+        ],
+        "tickLabels": [
+          "Δ",
+          "5Δ/4",
+          "3Δ/2",
+          "7Δ/4",
+          "2Δ",
+          "9Δ/4"
+        ]
+      },
+      "yAxis": {
+        "label": "Asymptotic round class (ordinal tiers)",
+        "kind": "ordinal",
+        "min": 0,
+        "max": 5,
+        "ticks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "tickLabels": [
+          "O(1)",
+          "log log log n",
+          "log log n",
+          "(log log n)^k",
+          "√log n",
+          "≥ log n"
+        ]
+      },
+      "parameters": {
+        "n": "vertices",
+        "m": "edges",
+        "alpha": "fixed positive local-memory exponent"
+      },
+      "results": [
+        {
+          "id": "vertex-mpc-chang-et-al-low-memory-2019",
+          "paperId": "chang-fischer-ghaffari-uitto-zheng-2019-lca-mpc",
+          "kind": "upper",
+          "bound": "O(√(loglog n)) rounds",
+          "guarantee": "Proper (Δ+1)-list coloring",
+          "sourceLocation": "Theorem 1.2 and abstract",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "Incomparable in computational restrictions with deterministic exponential-local-computation result; paper explicitly gives Õ(m) total memory.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "vertex-mpc-strongly-sublinear-deterministic",
+      "problem": "vertex",
+      "model": "mpc",
+      "label": "Strongly sublinear local-memory MPC, deterministic",
+      "task": "Output a proper (Δ+1)-list coloring",
+      "assumptions": [
+        "O(n^φ) memory per machine for fixed φ∈(0,1)",
+        "Exponential in n^φ local computation permitted",
+        "Aggregate memory Õ(m+n^(1+φ))"
+      ],
+      "xAxis": {
+        "label": "Palette ratio r = q/Δ",
+        "kind": "palette",
+        "min": 1,
+        "max": 2.25,
+        "ticks": [
+          1,
+          1.25,
+          1.5,
+          1.75,
+          2,
+          2.25
+        ],
+        "tickLabels": [
+          "Δ",
+          "5Δ/4",
+          "3Δ/2",
+          "7Δ/4",
+          "2Δ",
+          "9Δ/4"
+        ]
+      },
+      "yAxis": {
+        "label": "Asymptotic round class (ordinal tiers)",
+        "kind": "ordinal",
+        "min": 0,
+        "max": 5,
+        "ticks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "tickLabels": [
+          "O(1)",
+          "log log log n",
+          "log log n",
+          "(log log n)^k",
+          "√log n",
+          "≥ log n"
+        ]
+      },
+      "parameters": {
+        "n": "vertices",
+        "m": "edges",
+        "phi": "fixed local-memory exponent in (0,1)"
+      },
+      "results": [
+        {
+          "id": "vertex-mpc-czumaj-davies-parter-2021",
+          "paperId": "czumaj-davies-parter-2021-low-space-mpc",
+          "kind": "upper",
+          "bound": "O(logloglog n) rounds",
+          "guarantee": "Deterministic proper (Δ+1)-list coloring",
+          "sourceLocation": "Theorem 1; PODC 2021 abstract",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Exponential local work is a material assumption; not an ordinary polynomial-local-computation MPC guarantee.",
+          "plot": null
+        },
+        {
+          "id": "vertex-result-43",
+          "paperId": "czumaj-davies-parter-2020-clique-mpc",
+          "kind": "upper",
+          "bound": "O(log Δ + loglog n) rounds",
+          "guarantee": "Deterministic proper (Δ+1)-list coloring with sublinear local space",
+          "sourceLocation": "PODC 2020 abstract; journal extension",
+          "evidenceStatus": "abstract_verified",
+          "frontierStatus": "historical",
+          "notes": "Earlier deterministic low-space result; memory exponent and total memory are specified in paper.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "vertex-mpc-degeneracy",
+      "problem": "vertex",
+      "model": "mpc",
+      "label": "Near-linear local-memory MPC, degeneracy palette",
+      "task": "Output a proper κ(G)+o(κ(G)) coloring",
+      "assumptions": [
+        "Randomized MPC",
+        "n processors",
+        "O(n log² n) bits per processor",
+        "κ is graph degeneracy"
+      ],
+      "xAxis": {
+        "label": "Palette ratio r = q/Δ",
+        "kind": "palette",
+        "min": 1,
+        "max": 2.25,
+        "ticks": [
+          1,
+          1.25,
+          1.5,
+          1.75,
+          2,
+          2.25
+        ],
+        "tickLabels": [
+          "Δ",
+          "5Δ/4",
+          "3Δ/2",
+          "7Δ/4",
+          "2Δ",
+          "9Δ/4"
+        ]
+      },
+      "yAxis": {
+        "label": "Asymptotic round class (ordinal tiers)",
+        "kind": "ordinal",
+        "min": 0,
+        "max": 5,
+        "ticks": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "tickLabels": [
+          "O(1)",
+          "log log log n",
+          "log log n",
+          "(log log n)^k",
+          "√log n",
+          "≥ log n"
+        ]
+      },
+      "parameters": {
+        "kappa": "graph degeneracy"
+      },
+      "results": [
+        {
+          "id": "vertex-extra-60",
+          "paperId": "bera-chakrabarti-ghosh-2020-degeneracy",
+          "kind": "upper",
+          "bound": "O(1) rounds with n processors, O(n log² n) local bits",
+          "guarantee": "Proper κ+o(κ) coloring with high probability",
+          "sourceLocation": "Theorem 12",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Graph degeneracy not maximum degree; memory bound in bits and number of processors explicit.",
+          "plot": null
+        }
+      ]
+    }
+  ],
+  "papers": [
+    {
+      "id": "assadi-chen-khanna-2019-sublinear-coloring",
+      "title": "Sublinear Algorithms for (Δ+1) Vertex Coloring",
+      "authors": [
+        "Sepehr Assadi",
+        "Yu Chen",
+        "Sanjeev Khanna"
+      ],
+      "year": 2019,
+      "venue": "SODA 2019",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1807.08886",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "chang-fischer-ghaffari-uitto-zheng-2019-lca-mpc",
+      "title": "The Complexity of (Δ+1)-Coloring in Congested Clique, Massively Parallel Computation, and Centralized Local Computation",
+      "authors": [
+        "Yi-Jun Chang",
+        "Manuela Fischer",
+        "Mohsen Ghaffari",
+        "Jara Uitto",
+        "Yufan Zheng"
+      ],
+      "year": 2019,
+      "venue": "PODC 2019",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1808.08419",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "czumaj-davies-parter-2021-low-space-mpc",
+      "title": "Improved Deterministic (Δ+1)-Coloring in Low-Space MPC",
+      "authors": [
+        "Artur Czumaj",
+        "Peter Davies",
+        "Merav Parter"
+      ],
+      "year": 2021,
+      "venue": "PODC 2021",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2112.05831",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "bera-chakrabarti-ghosh-2020-degeneracy",
+      "title": "Graph Coloring via Degeneracy in Streaming and Other Space-Conscious Models",
+      "authors": [
+        "Suman K. Bera",
+        "Amit Chakrabarti",
+        "Prantar Ghosh"
+      ],
+      "year": 2020,
+      "venue": "ICALP 2020",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2020.11",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "halldorsson-kuhn-nolin-tonoyan-2022-degree",
+      "title": "Near-Optimal Distributed Degree+1 Coloring",
+      "authors": [
+        "Magnús M. Halldórsson",
+        "Fabian Kuhn",
+        "Alexandre Nolin",
+        "Tigran Tonoyan"
+      ],
+      "year": 2022,
+      "venue": "STOC 2022",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2112.00604",
+      "verifiedOn": "2026-09-27"
+    },
+    {
+      "id": "czumaj-davies-parter-2020-clique-mpc",
+      "title": "Simple, Deterministic, Constant-Round Coloring in the Congested Clique",
+      "authors": [
+        "Artur Czumaj",
+        "Peter Davies",
+        "Merav Parter"
+      ],
+      "year": 2020,
+      "venue": "PODC 2020; SIAM Journal on Computing 2021",
+      "publicationStatus": "journal",
+      "url": "https://arxiv.org/abs/2009.06043",
+      "verifiedOn": "2026-09-27"
+    }
+  ]
+}

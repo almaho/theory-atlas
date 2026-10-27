@@ -1,0 +1,76 @@
+{
+  "pair": "vertex-lca",
+  "checkedOn": "2026-10-27",
+  "scope": "Four original records from four supplied primary sources; no added literature or lower-bound records",
+  "mainVerification": "All three worst-case-input list-coloring records theorem-verified. The 2022 record has two guarantee markers, not an extra record.",
+  "sources": [
+    {
+      "sourceId": "chang-fischer-ghaffari-uitto-zheng-2019-lca-mpc",
+      "url": "https://arxiv.org/html/1808.08419v3",
+      "checked": [
+        "Theorem 1.3",
+        "Section 1.3 model",
+        "Section 4.3 fixing random bits and simulation"
+      ],
+      "finding": "Δ^{O(1)}·O(log n) per-vertex queries, success1−1/poly(n); degree/indexed-neighbor/input-label access and fixed per-vertex randomness.",
+      "note": "Do not read poly(Δ) as a fixed exponent or rank it numerically against the deterministic factor."
+    },
+    {
+      "sourceId": "ghaffari-2022-lca-mis-color",
+      "url": "https://arxiv.org/html/2210.01104v1",
+      "checked": [
+        "Theorem 1.1",
+        "Section 1.2 coloring reductions",
+        "Theorem 2.16 and proof",
+        "Section 1.1 query model"
+      ],
+      "finding": "Indexed-neighbor access. Fixed-v expected poly(Δ), high-probability poly(Δ)·log n all-query guarantee obtained by the stated tail parameter and union bound. The source explicitly includes degree+1 list coloring.",
+      "derivation": "Standard coloring MIS gadget has at most n(Δ+1) vertices and maximum degree2Δ; polynomial simulation/list overhead and ≤Δ+1 fixed gadget queries preserve the symbolic class.",
+      "nonClaim": "No expected maximum-query bound, no adaptive choice-of-v expectation, no improved numerical polynomial over2019."
+    },
+    {
+      "sourceId": "fraigniaud-heinrich-kosowski-2016-conflict",
+      "url": "https://arxiv.org/html/1511.01287v2",
+      "checked": [
+        "Corollary 5.1 second case",
+        "Theorem 5.1 and proof",
+        "Sections 1.2,1.3,2.1,2.2"
+      ],
+      "finding": "Deterministic oblivious Δ^{O(√Δ log^{5/2}Δ)}·log* n list-color probes. l=Δ+1,d=1. Neighborhood-to-indexed-neighbor polynomial overhead fits the stated asymptotic exponent.",
+      "nonClaim": "The introduction’s LOCAL round lower is not an LCA query lower."
+    },
+    {
+      "sourceId": "marcussen-pyne-rubinfeld-shapira-tauber-2026-average",
+      "url": "https://arxiv.org/html/2607.26592v1",
+      "pdfUrl": "https://arxiv.org/pdf/2607.26592v1#page=38",
+      "checked": [
+        "Theorem10",
+        "DefinitionsA.1–A.4",
+        "Algorithm14 and AppendixA.2 proof",
+        "Definition4.2",
+        "arXiv abstract FOCS2026 metadata"
+      ],
+      "finding": "Theorem-reported O(k^9 log k) average-case probes, O(k^26 polylog k) average-case time,2≤k≤n^{1/37}. Probe quantifier E_G[max_v E_r Q(G,v)]. Proper partial outputs or FAIL; no incorrect partial coloring.",
+      "status": "Theorem statement verified, exact probe-unit interpretation unresolved; preserved only as a visibly qualified related result."
+    }
+  ],
+  "unresolvedIssues": [
+    {
+      "recordId": "vertex-lca-average-k-2026",
+      "issue": "AppendixA defines generic probe access and charges O(ν) probes to sampling and processing a ν=Θ(k^9 log k)-vertex induced core. It does not explicitly reconcile that charge with the pair-entry adjacency-matrix model used for the main full-output theorem. HTML and PDF printed pp.39–40 agree.",
+      "handling": "Do not normalize the O(k^9 log k) count as ordinary matrix pair queries or place it on the main graph-neighbor probe axis. Card and inspector say reported probes/probe unit unresolved. No attempt to silently repair the paper."
+    }
+  ],
+  "corrections": [
+    {
+      "recordId": "vertex-lca-average-k-2026",
+      "change": "Replaced vague poly(k) and unspecified k≤n^c with Theorem10’s explicit formula and2≤k≤n^{1/37}; clarified expectation order, zero-error/FAIL and unresolved probe unit."
+    },
+    {
+      "recordId": "vertex-lca-mis-reduction-2022",
+      "change": "One record now shows both expected fixed-v and high-probability guarantees with separate setup halos."
+    }
+  ],
+  "representationDecision": "User confirmed average-case related card only,2026-10-27. Main graph uses exact symbolic cost categories without numerical degree ranking.",
+  "lowerBoundReview": "No comparable lower bound is asserted; neither full-output Ω(nk) nor LOCAL-round lower bounds are transferred."
+}

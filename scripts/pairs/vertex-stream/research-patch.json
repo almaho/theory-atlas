@@ -1,0 +1,1058 @@
+{
+  "upsertPapers": [
+    {
+      "id": "assadi-chen-khanna-2019-sublinear-coloring",
+      "title": "Sublinear Algorithms for (Δ+1) Vertex Coloring",
+      "authors": [
+        "Sepehr Assadi",
+        "Yu Chen",
+        "Sanjeev Khanna"
+      ],
+      "year": 2019,
+      "venue": "SODA 2019",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1807.08886",
+      "verifiedOn": "2026-10-27",
+      "sourceUrl": "https://arxiv.org/html/1807.08886"
+    },
+    {
+      "id": "chechik-chen-zhang-2026-streaming",
+      "title": "Faster Deterministic Streaming Vertex Coloring",
+      "authors": [
+        "Shiri Chechik",
+        "Hongyi Chen",
+        "Tianyi Zhang"
+      ],
+      "year": 2026,
+      "venue": "ICALP 2026",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2026.56",
+      "verifiedOn": "2026-10-27",
+      "sourceUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol374-icalp2026/html/LIPIcs.ICALP.2026.56/LIPIcs.ICALP.2026.56.html"
+    },
+    {
+      "id": "assadi-sundaresan-yazdanyar-2026-streaming-few-colors",
+      "title": "Coloring Graphs with Few Colors in the Streaming Model",
+      "authors": [
+        "Sepehr Assadi",
+        "Janani Sundaresan",
+        "Helia Yazdanyar"
+      ],
+      "year": 2026,
+      "venue": "SODA 2026",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2510.18177",
+      "verifiedOn": "2026-10-27",
+      "sourceUrl": "https://arxiv.org/html/2510.18177"
+    },
+    {
+      "id": "bera-ghosh-2018-color-stream",
+      "title": "Coloring in Graph Streams",
+      "authors": [
+        "Suman Kalyan Bera",
+        "Prantar Ghosh"
+      ],
+      "year": 2018,
+      "venue": "arXiv",
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/abs/1807.07640",
+      "verifiedOn": "2026-10-27",
+      "sourceUrl": "https://arxiv.org/pdf/1807.07640"
+    },
+    {
+      "id": "bera-chakrabarti-ghosh-2020-degeneracy",
+      "title": "Graph Coloring via Degeneracy in Streaming and Other Space-Conscious Models",
+      "authors": [
+        "Suman K. Bera",
+        "Amit Chakrabarti",
+        "Prantar Ghosh"
+      ],
+      "year": 2020,
+      "venue": "ICALP 2020",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2020.11",
+      "verifiedOn": "2026-10-27",
+      "sourceUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol168-icalp2020/LIPIcs.ICALP.2020.11/LIPIcs.ICALP.2020.11.pdf"
+    },
+    {
+      "id": "assadi-chen-sun-2022-deterministic",
+      "title": "Deterministic Graph Coloring in the Streaming Model",
+      "authors": [
+        "Sepehr Assadi",
+        "Andrew Chen",
+        "Glenn Sun"
+      ],
+      "year": 2022,
+      "venue": "STOC 2022",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2109.14891",
+      "verifiedOn": "2026-10-27",
+      "sourceUrl": "https://arxiv.org/html/2109.14891"
+    },
+    {
+      "id": "assadi-chakrabarti-ghosh-stoeckl-2023-robust",
+      "title": "Coloring in Graph Streams via Deterministic and Adversarially Robust Algorithms",
+      "authors": [
+        "Sepehr Assadi",
+        "Amit Chakrabarti",
+        "Prantar Ghosh",
+        "Manuel Stoeckl"
+      ],
+      "year": 2023,
+      "venue": "PODS 2023",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2212.10641",
+      "verifiedOn": "2026-10-27",
+      "sourceUrl": "https://arxiv.org/html/2212.10641"
+    },
+    {
+      "id": "chakrabarti-ghosh-stoeckl-2022-robust",
+      "title": "Adversarially Robust Coloring for Graph Streams",
+      "authors": [
+        "Amit Chakrabarti",
+        "Prantar Ghosh",
+        "Manuel Stoeckl"
+      ],
+      "year": 2022,
+      "venue": "ITCS 2022",
+      "publicationStatus": "conference",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ITCS.2022.37",
+      "verifiedOn": "2026-10-27",
+      "sourceUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol215-itcs2022/LIPIcs.ITCS.2022.37/LIPIcs.ITCS.2022.37.pdf"
+    },
+    {
+      "id": "assadi-kumar-mittal-2022-brooks",
+      "title": "Brooks’ Theorem in Graph Streams: A Single-Pass Semi-Streaming Algorithm for Δ-Coloring",
+      "authors": [
+        "Sepehr Assadi",
+        "Pankaj Kumar",
+        "Parth Mittal"
+      ],
+      "year": 2022,
+      "venue": "STOC 2022",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2203.10984",
+      "verifiedOn": "2026-10-27",
+      "sourceUrl": "https://arxiv.org/html/2203.10984"
+    },
+    {
+      "id": "flin-halldorsson-2026-beyond-brooks",
+      "title": "Beyond Brooks: (Δ−1)-Coloring in Semi-Streaming",
+      "authors": [
+        "Maxime Flin",
+        "Magnús M. Halldórsson"
+      ],
+      "year": 2026,
+      "venue": "ICALP 2026",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2605.07774",
+      "verifiedOn": "2026-10-27",
+      "sourceUrl": "https://arxiv.org/html/2605.07774"
+    },
+    {
+      "id": "halldorsson-kuhn-nolin-tonoyan-2022-degree",
+      "title": "Near-Optimal Distributed Degree+1 Coloring",
+      "authors": [
+        "Magnús M. Halldórsson",
+        "Fabian Kuhn",
+        "Alexandre Nolin",
+        "Tigran Tonoyan"
+      ],
+      "year": 2022,
+      "venue": "STOC 2022",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2112.00604",
+      "verifiedOn": "2026-10-27",
+      "sourceUrl": "https://arxiv.org/html/2112.00604"
+    }
+  ],
+  "upsertSlices": [
+    {
+      "id": "vertex-stream-dynamic-one-pass-delta-plus-one",
+      "problem": "vertex",
+      "model": "stream",
+      "label": "One-pass turnstile stream, explicit (Δ+1) coloring",
+      "task": "Explicit proper coloring",
+      "assumptions": [
+        "Turnstile; final maximum degree Δ",
+        "Simple undirected n-vertex graph",
+        "1 pass(es)"
+      ],
+      "xAxis": {
+        "label": "Palette / output contract",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "minus",
+            "label": "Δ−1",
+            "short": "Δ−1"
+          },
+          {
+            "id": "brooks",
+            "label": "Δ",
+            "short": "Δ"
+          },
+          {
+            "id": "plus",
+            "label": "Δ+1",
+            "short": "Δ+1"
+          },
+          {
+            "id": "near",
+            "label": "(1+ε)Δ",
+            "short": "(1+ε)Δ"
+          },
+          {
+            "id": "list",
+            "label": "dᵥ+1 list",
+            "short": "dᵥ+1 list"
+          }
+        ]
+      },
+      "yAxis": {
+        "label": "Space classes (symbolic categories)",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "semi",
+            "label": "Õ(n)",
+            "short": "Õ(n)"
+          },
+          {
+            "id": "linear",
+            "label": "Ω(n)",
+            "short": "Ω(n)"
+          }
+        ]
+      },
+      "parameters": {
+        "n": "number of vertices",
+        "Delta": "final maximum degree",
+        "coordinateConvention": "Categorical formula classes; no numerical exponent or universal ranking is assigned."
+      },
+      "results": [
+        {
+          "id": "vertex-stream-ack-2019",
+          "paperId": "assadi-chen-khanna-2019-sublinear-coloring",
+          "kind": "upper",
+          "bound": "Õ(n) bits; one pass",
+          "guarantee": "Δ+1",
+          "sourceLocation": "Theorem 2, §4.1",
+          "evidenceStatus": "verified",
+          "frontierStatus": "current_best_verified",
+          "notes": "Final Δ need not bound degrees during the stream. Polynomial postprocessing. With high probability Randomness included in working memory",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "vertex-stream-deterministic-multipass-degree-palette",
+      "problem": "vertex",
+      "model": "stream",
+      "label": "Deterministic multipass semi-streaming, linear-in-Δ palette",
+      "task": "Explicit proper coloring",
+      "assumptions": [
+        "Insertion only; adversarial order independent of random choices",
+        "Simple undirected n-vertex graph",
+        "O(η⁻¹√logΔ) pass(es)",
+        "Insertion or turnstile",
+        "O(logΔ) pass(es)",
+        "2 pass(es)",
+        "O(logΔ loglogΔ) pass(es)"
+      ],
+      "xAxis": {
+        "label": "Palette class",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "plus",
+            "label": "Δ+1",
+            "short": "Δ+1"
+          },
+          {
+            "id": "linear",
+            "label": "O(Δ)",
+            "short": "O(Δ)"
+          },
+          {
+            "id": "square",
+            "label": "O(Δ²)",
+            "short": "O(Δ²)"
+          }
+        ]
+      },
+      "yAxis": {
+        "label": "Passes (symbolic categories)",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "loglog",
+            "label": "O(logΔ loglogΔ)",
+            "short": "logΔ loglogΔ"
+          },
+          {
+            "id": "log",
+            "label": "O(logΔ)",
+            "short": "logΔ"
+          },
+          {
+            "id": "sqrt",
+            "label": "O(√logΔ)",
+            "short": "√logΔ"
+          },
+          {
+            "id": "two",
+            "label": "2",
+            "short": "2"
+          },
+          {
+            "id": "one",
+            "label": "1",
+            "short": "1"
+          }
+        ]
+      },
+      "parameters": {
+        "n": "vertices",
+        "Delta": "maximum degree",
+        "coordinateConvention": "Categorical formula classes; no numerical exponent or universal ranking is assigned."
+      },
+      "results": [
+        {
+          "id": "vertex-stream-deterministic-odelta-2026",
+          "paperId": "chechik-chen-zhang-2026-streaming",
+          "kind": "upper",
+          "bound": "O(η⁻¹√logΔ) passes; Õ(n) bits",
+          "guarantee": "O(Δ); refined (1+η)Δ for fixed η",
+          "sourceLocation": "Theorem 2; §3",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Fixed η∈(0,1). Main figure conservatively uses O(Δ): theorem suppresses integer/small-degree conventions. No guessed numerical palette ratio. Deterministic Randomness included in working memory",
+          "plot": null
+        },
+        {
+          "id": "vertex-result-23",
+          "paperId": "assadi-chen-sun-2022-deterministic",
+          "kind": "upper",
+          "bound": "O(logΔ) passes; O(n log n) bits",
+          "guarantee": "O(Δ)",
+          "sourceLocation": "Theorem 3; §5.4 dynamic extension",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "The dynamic sparse-recovery extension preserves asymptotic space and passes. An initial degree pass removes advance knowledge of Δ. Deterministic Randomness included in working memory",
+          "plot": null
+        },
+        {
+          "id": "vertex-extended-vertex-stream-deterministic-multipass-degree-palette-16",
+          "paperId": "assadi-chen-sun-2022-deterministic",
+          "kind": "upper",
+          "bound": "2 passes; Õ(n) bits",
+          "guarantee": "O(Δ²)",
+          "sourceLocation": "Theorem 2; §5.4 extensions",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "Known Δ: O(n log n) bits. Parallel degree guesses preserve two passes when Δ is unknown, with logarithmic overhead. Deterministic Randomness included in working memory",
+          "plot": null
+        },
+        {
+          "id": "vertex-extended-vertex-stream-deterministic-multipass-degree-palette-17",
+          "paperId": "assadi-chakrabarti-ghosh-stoeckl-2023-robust",
+          "kind": "upper",
+          "bound": "O(logΔ loglogΔ) passes; O(n log²n) bits",
+          "guarantee": "Δ+1",
+          "sourceLocation": "Theorem 1, restated as Theorem 5",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Insertion streams. Log expressions denote asymptotic classes; bounded degree is handled trivially. Deterministic Randomness included in working memory",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "vertex-stream-random-order-chromatic-gap",
+      "problem": "vertex",
+      "model": "stream",
+      "label": "Random-order insertion stream, chromatic-number gap decision",
+      "task": "Chromatic-gap decision",
+      "assumptions": [
+        "Random-order insertion stream",
+        "Simple undirected n-vertex graph",
+        "1 pass(es)"
+      ],
+      "xAxis": {
+        "label": "High-χ promise",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "power",
+            "label": "χ>q^t",
+            "short": "χ>q^t"
+          },
+          {
+            "id": "squarequarter",
+            "label": "χ>q²/4",
+            "short": "χ>q²/4"
+          }
+        ]
+      },
+      "yAxis": {
+        "label": "Space formulas (symbolic categories)",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "upper",
+            "label": "Õ(n^{1+1/t})",
+            "short": "Õ(n^{1+1/t})"
+          },
+          {
+            "id": "lower",
+            "label": "Ω(n²/(q⁵4^{q⁴}))",
+            "short": "Ω(n²/(q⁵4^{q⁴}))"
+          }
+        ]
+      },
+      "parameters": {
+        "q": "low-chromatic-number threshold",
+        "t": "gap exponent",
+        "n": "vertices",
+        "coordinateConvention": "Categorical formula classes; no numerical exponent or universal ranking is assigned."
+      },
+      "results": [
+        {
+          "id": "vertex-stream-random-order-chromatic-2026",
+          "paperId": "assadi-sundaresan-yazdanyar-2026-streaming-few-colors",
+          "kind": "upper",
+          "bound": "Õ(n^{1+1/t}) space",
+          "guarantee": "Promise χ≤q versus χ>q^t, integers q,t≥2",
+          "sourceLocation": "Theorem 4; §7.1",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Stored subgraphs may be solved by exhaustive computation. This is a space result, not a polynomial-time guarantee. Exponentially high probability over edge order Randomness included in working memory",
+          "plot": null
+        },
+        {
+          "id": "vertex-extra-62",
+          "paperId": "assadi-sundaresan-yazdanyar-2026-streaming-few-colors",
+          "kind": "lower",
+          "bound": "Ω(n²/(q⁵·4^{q⁴})) bits; Ω(n²) for fixed q",
+          "guarantee": "Promise χ≤q versus χ>q²/4",
+          "sourceLocation": "Theorem 5; §7.2",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Integer q≥5 for a nonvacuous gap, q=o(log^{1/4}n). Theorem allows q≥3 but q≤4 gives an overlapping promise. Gap and success differ from the upper: not a matching q² frontier. Success at least 1−2^{−q⁴}/4 Randomness included in working memory",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "vertex-stream-dynamic-chromatic-gap",
+      "problem": "vertex",
+      "model": "stream",
+      "label": "Turnstile stream, chromatic-number gap decision",
+      "task": "Chromatic-gap decision",
+      "assumptions": [
+        "General turnstile multigraph",
+        "Final edge multiplicities polynomial in n",
+        "1 pass(es)",
+        "Final multiplicities O(n); no restriction on stream length or intermediate frequencies"
+      ],
+      "xAxis": {
+        "label": "Common promise: χ≤q versus χ≥qt",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "gap",
+            "label": "q versus qt",
+            "short": "q versus qt"
+          }
+        ]
+      },
+      "yAxis": {
+        "label": "Space family (symbolic categories)",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "space",
+            "label": "n²/t² (up to logs)",
+            "short": "n²/t² (up to logs)"
+          }
+        ]
+      },
+      "parameters": {
+        "q": "low-chromatic threshold",
+        "t": "multiplicative separation",
+        "n": "vertices",
+        "coordinateConvention": "Categorical formula classes; no numerical exponent or universal ranking is assigned."
+      },
+      "results": [
+        {
+          "id": "vertex-stream-turnstile-chromatic-upper-2026",
+          "paperId": "assadi-sundaresan-yazdanyar-2026-streaming-few-colors",
+          "kind": "upper",
+          "bound": "Õ(n²/t²) space",
+          "guarantee": "Promise χ≤q versus χ≥qt",
+          "sourceLocation": "Theorem 6; §8.1",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Integers q,t; display t≥2 and qt≤n to keep the promise nonoverlapping and nonvacuous. Exact chromatic computations may be exponential. With high probability Randomness included in working memory",
+          "plot": null
+        },
+        {
+          "id": "vertex-extra-61",
+          "paperId": "assadi-sundaresan-yazdanyar-2026-streaming-few-colors",
+          "kind": "lower",
+          "bound": "Ω̃(n²/t²) bits",
+          "guarantee": "Promise χ≤q versus χ≥qt",
+          "sourceLocation": "Theorem 7; §8.2 and Remark 8.1",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "3≤q≤polylog n; integer t≥2, qt≤n in this view. Matches upper up to logarithms on the common multigraph contract, not necessarily on short simple-graph streams. High constant success probability Randomness included in working memory",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "vertex-stream-deterministic-one-pass-lower",
+      "problem": "vertex",
+      "model": "stream",
+      "label": "Deterministic one-pass palette barrier",
+      "task": "Explicit proper coloring",
+      "assumptions": [
+        "Insertion only; adversarial order independent of random choices",
+        "Simple undirected n-vertex graph",
+        "1 pass(es)"
+      ],
+      "xAxis": {
+        "label": "Palette class",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "plus",
+            "label": "Δ+1",
+            "short": "Δ+1"
+          },
+          {
+            "id": "linear",
+            "label": "O(Δ)",
+            "short": "O(Δ)"
+          },
+          {
+            "id": "square",
+            "label": "O(Δ²)",
+            "short": "O(Δ²)"
+          }
+        ]
+      },
+      "yAxis": {
+        "label": "Passes (symbolic categories)",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "loglog",
+            "label": "O(logΔ loglogΔ)",
+            "short": "logΔ loglogΔ"
+          },
+          {
+            "id": "log",
+            "label": "O(logΔ)",
+            "short": "logΔ"
+          },
+          {
+            "id": "sqrt",
+            "label": "O(√logΔ)",
+            "short": "√logΔ"
+          },
+          {
+            "id": "two",
+            "label": "2",
+            "short": "2"
+          },
+          {
+            "id": "one",
+            "label": "1",
+            "short": "1"
+          }
+        ]
+      },
+      "parameters": {
+        "Delta": "maximum degree",
+        "n": "vertices",
+        "coordinateConvention": "Categorical formula classes; no numerical exponent or universal ranking is assigned."
+      },
+      "results": [
+        {
+          "id": "vertex-result-26",
+          "paperId": "assadi-chen-sun-2022-deterministic",
+          "kind": "lower",
+          "bound": "No deterministic one-pass Õ(n)-space algorithm",
+          "guarantee": "exp(Δ^{o(1)}) impossible in deterministic semi-streaming",
+          "sourceLocation": "Result 1; Corollary 4.7(i)",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "For each a≥1 and large n, space O(n log^a n) cannot guarantee fewer than exp(Δ^{1/(4a)}) colors at Δ=200 log^{a+1}n. Not an exp(Ω(Δ)) bound. Deterministic lower bound Randomness included in working memory",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "vertex-stream-robust-incremental",
+      "problem": "vertex",
+      "model": "stream",
+      "label": "Adaptive-output robust stream: palette versus space",
+      "task": "Explicit proper coloring",
+      "assumptions": [
+        "Insertion only; adaptive to previous colorings",
+        "Simple undirected n-vertex graph",
+        "1 pass(es)"
+      ],
+      "xAxis": {
+        "label": "Palette K (symbolic classes)",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "sevenfour",
+            "label": "O(Δ^{7/4})",
+            "short": "O(Δ^{7/4})"
+          },
+          {
+            "id": "square",
+            "label": "O(Δ²)",
+            "short": "O(Δ²)"
+          },
+          {
+            "id": "fivehalf",
+            "label": "O(Δ^{5/2})",
+            "short": "O(Δ^{5/2})"
+          },
+          {
+            "id": "cube",
+            "label": "O(Δ³)",
+            "short": "O(Δ³)"
+          }
+        ]
+      },
+      "yAxis": {
+        "label": "Working space (symbolic categories)",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "sqrt",
+            "label": "Õ(n√Δ)",
+            "short": "Õ(n√Δ)"
+          },
+          {
+            "id": "third",
+            "label": "Õ(nΔ^{1/3})",
+            "short": "Õ(nΔ^{1/3})"
+          },
+          {
+            "id": "semi",
+            "label": "Õ(n)",
+            "short": "Õ(n)"
+          }
+        ]
+      },
+      "parameters": {
+        "n": "vertices",
+        "Delta": "maximum degree",
+        "coordinateConvention": "Categorical formula classes; no numerical exponent or universal ranking is assigned."
+      },
+      "results": [
+        {
+          "id": "vertex-result-27",
+          "paperId": "chakrabarti-ghosh-stoeckl-2022-robust",
+          "kind": "lower",
+          "bound": "Ω(nΔ²/K) bits",
+          "guarantee": "K, Δ+1≤K≤n/2",
+          "sourceLocation": "Theorem 1; §4 lower bound",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "In particular K=O(Δ) requires Ω(nΔ) space. Õ(n) space forces K=Ω̃(Δ²); no numeric frontier from suppressed logarithms. Constant error Lower holds even when random bits are free",
+          "plot": null
+        },
+        {
+          "id": "vertex-extended-vertex-stream-robust-incremental-37",
+          "paperId": "chakrabarti-ghosh-stoeckl-2022-robust",
+          "kind": "upper",
+          "bound": "O(n log⁴n) working bits + Õ(nL) external random bits",
+          "guarantee": "O(Δ³)",
+          "sourceLocation": "Theorem 10; Table 1",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "Δ is the current degree; L bounds final degree and must be known. Choosing L=Δ for a fixed degree cap gives Õ(nΔ) external bits. At least 1−O(n⁻²) External random tape excluded; known final degree bound L",
+          "plot": null
+        },
+        {
+          "id": "vertex-extended-vertex-stream-robust-incremental-38",
+          "paperId": "chakrabarti-ghosh-stoeckl-2022-robust",
+          "kind": "upper",
+          "bound": "Õ(n√Δ) bits",
+          "guarantee": "O(Δ²)",
+          "sourceLocation": "Corollary 15, k=2; Table 1",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "Random bits count toward memory. This accounting differs from the external-tape algorithms. High probability across all queries Randomness included in working memory",
+          "plot": null
+        },
+        {
+          "id": "vertex-extended-vertex-stream-robust-incremental-39",
+          "paperId": "assadi-chakrabarti-ghosh-stoeckl-2023-robust",
+          "kind": "upper",
+          "bound": "Õ(n) working bits + O(nΔ) external random bits",
+          "guarantee": "O(Δ^{5/2})",
+          "sourceLocation": "Theorem 3; Algorithm 2 analysis",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Fixed degree cap Δ. The semi-streaming claim excludes oracle randomness; it is not a total-memory Õ(n) guarantee. Total error at most δ, with logarithmic dependence on δ⁻¹ in memory Oracle access to external random tape excluded",
+          "plot": null
+        },
+        {
+          "id": "vertex-extended-vertex-stream-robust-incremental-40",
+          "paperId": "assadi-chakrabarti-ghosh-stoeckl-2023-robust",
+          "kind": "upper",
+          "bound": "Õ(nΔ^{1/3}) for O(Δ²); Õ(n√Δ) for O(Δ^{7/4})",
+          "guarantee": "O(Δ²) or O(Δ^{7/4})",
+          "sourceLocation": "Corollary 4.7, β=1/3 and β=1/2",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Tradeoff O(Δ^{(5−3β)/2}) colors with Õ(nΔ^β) working space. Proof assumes Δ=Ω(log²n) and integer powers, with routine rounding. Only the two supplied β choices are plotted. With high probability Same external-random-tape model as Algorithm 2",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "vertex-stream-insertion-near-delta",
+      "problem": "vertex",
+      "model": "stream",
+      "label": "One-pass insertion stream, degree-near palette",
+      "task": "Explicit proper coloring",
+      "assumptions": [
+        "Insertion only; adversarial order independent of random choices",
+        "Simple undirected n-vertex graph",
+        "1 pass(es)"
+      ],
+      "xAxis": {
+        "label": "Palette / output contract",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "minus",
+            "label": "Δ−1",
+            "short": "Δ−1"
+          },
+          {
+            "id": "brooks",
+            "label": "Δ",
+            "short": "Δ"
+          },
+          {
+            "id": "plus",
+            "label": "Δ+1",
+            "short": "Δ+1"
+          },
+          {
+            "id": "near",
+            "label": "(1+ε)Δ",
+            "short": "(1+ε)Δ"
+          },
+          {
+            "id": "list",
+            "label": "dᵥ+1 list",
+            "short": "dᵥ+1 list"
+          }
+        ]
+      },
+      "yAxis": {
+        "label": "Space classes (symbolic categories)",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "semi",
+            "label": "Õ(n)",
+            "short": "Õ(n)"
+          },
+          {
+            "id": "linear",
+            "label": "Ω(n)",
+            "short": "Ω(n)"
+          }
+        ]
+      },
+      "parameters": {
+        "Delta": "maximum degree",
+        "epsilon": "fixed positive constant",
+        "coordinateConvention": "Categorical formula classes; no numerical exponent or universal ranking is assigned."
+      },
+      "results": [
+        {
+          "id": "vertex-result-32",
+          "paperId": "bera-ghosh-2018-color-stream",
+          "kind": "upper",
+          "bound": "O(ε⁻¹n log n) words; one pass",
+          "guarantee": "(1+ε)Δ for fixed ε and Δ=ω(log n); Δ+1 in the small-degree branch",
+          "sourceLocation": "Theorem 3.2 and §3 small-degree branch",
+          "evidenceStatus": "verified",
+          "frontierStatus": "historical",
+          "notes": "The theorem’s palette calculation uses Δ=ω(log n); bounded/logarithmic degree is stored and greedily Δ+1-colored. Do not read fractional palettes literally for tiny Δ. With high probability Randomness included in working memory",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "vertex-stream-brooks",
+      "problem": "vertex",
+      "model": "stream",
+      "label": "One-pass semi-streaming at and below Brooks palette",
+      "task": "Explicit proper coloring",
+      "assumptions": [
+        "Insertion only; adversarial order independent of random choices",
+        "Simple undirected n-vertex graph",
+        "1 pass(es)",
+        "No Δ-clique; Δ≥universal Δ₀ (the source permits Δ₀≤10¹⁴)",
+        "Promised (Δ−k)-colorable graphs of maximum degree Δ"
+      ],
+      "xAxis": {
+        "label": "Palette / output contract",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "minus",
+            "label": "Δ−1",
+            "short": "Δ−1"
+          },
+          {
+            "id": "brooks",
+            "label": "Δ",
+            "short": "Δ"
+          },
+          {
+            "id": "plus",
+            "label": "Δ+1",
+            "short": "Δ+1"
+          },
+          {
+            "id": "near",
+            "label": "(1+ε)Δ",
+            "short": "(1+ε)Δ"
+          },
+          {
+            "id": "list",
+            "label": "dᵥ+1 list",
+            "short": "dᵥ+1 list"
+          }
+        ]
+      },
+      "yAxis": {
+        "label": "Space classes (symbolic categories)",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "semi",
+            "label": "Õ(n)",
+            "short": "Õ(n)"
+          },
+          {
+            "id": "linear",
+            "label": "Ω(n)",
+            "short": "Ω(n)"
+          }
+        ]
+      },
+      "parameters": {
+        "Delta": "maximum degree",
+        "n": "vertices",
+        "coordinateConvention": "Categorical formula classes; no numerical exponent or universal ranking is assigned."
+      },
+      "results": [
+        {
+          "id": "vertex-result-33",
+          "paperId": "assadi-kumar-mittal-2022-brooks",
+          "kind": "upper",
+          "bound": "Õ(n) space; one pass",
+          "guarantee": "Δ, or correctly report a Brooks obstruction",
+          "sourceLocation": "Theorem 1.1 and following general-graph reduction",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Connected components that are cliques or odd cycles are checked separately. Final graph coloring; each edge appears once. With high probability Randomness included in working memory",
+          "plot": null
+        },
+        {
+          "id": "vertex-extended-vertex-stream-brooks-43",
+          "paperId": "flin-halldorsson-2026-beyond-brooks",
+          "kind": "upper",
+          "bound": "Õ(n) space; one pass",
+          "guarantee": "Δ−1",
+          "sourceLocation": "Theorem 1",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Each edge appears once. This palette is not promised for arbitrary graphs. With high probability Randomness included in working memory",
+          "plot": null
+        },
+        {
+          "id": "vertex-extended-vertex-stream-brooks-44",
+          "paperId": "flin-halldorsson-2026-beyond-brooks",
+          "kind": "lower",
+          "bound": "Ω(n(k+1)) bits",
+          "guarantee": "Δ−k; 0≤k<(Δ−1)/2",
+          "sourceLocation": "Theorem 2; §6 INDEX reduction",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "The theorem uses (Δ+1)/2<c≤Δ, c=Δ−k. Displayed k=0,1 give Ω(n); the general family remains in the inspector. Success at least 2/3 Randomness included in working memory",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "vertex-stream-degeneracy",
+      "problem": "vertex",
+      "model": "stream",
+      "label": "Degeneracy κ palette, one-pass tradeoff",
+      "task": "Explicit proper coloring",
+      "assumptions": [
+        "Turnstile; polynomial stream length",
+        "Simple undirected n-vertex graph",
+        "1 pass(es)",
+        "Insertion only; adversarial order independent of random choices"
+      ],
+      "xAxis": {
+        "label": "Palette / accuracy class",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "additive",
+            "label": "κ+λ",
+            "short": "κ+λ"
+          },
+          {
+            "id": "relative",
+            "label": "κ+O(εκ+1)",
+            "short": "κ+O(εκ+1)"
+          }
+        ]
+      },
+      "yAxis": {
+        "label": "Space formulas (symbolic categories)",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "lower",
+            "label": "Ω(n²/λ²)",
+            "short": "Ω(n²/λ²)"
+          },
+          {
+            "id": "upper",
+            "label": "O(ε^{−2}n log⁴n)",
+            "short": "O(ε^{−2}n log⁴n)"
+          }
+        ]
+      },
+      "parameters": {
+        "kappa": "graph degeneracy",
+        "coordinateConvention": "Categorical formula classes; no numerical exponent or universal ranking is assigned."
+      },
+      "results": [
+        {
+          "id": "vertex-result-36",
+          "paperId": "bera-chakrabarti-ghosh-2020-degeneracy",
+          "kind": "upper",
+          "bound": "O(ε⁻²n log⁴n) bits",
+          "guarantee": "κ+O(εκ+1); κ+o(κ) in the growing-κ regime",
+          "sourceLocation": "Theorem 10; Theorem 8 and equation (3)",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Source states (1+O(ε))κ. Atlas retains +1 for integer/small-κ correctness: one-block case is greedily κ+1 colored; multi-block bound is κ+λ+ℓ. Set ε=1/log n for Õ(n) space; unknown κ handled by parallel guesses. With high probability Randomness included in working memory",
+          "plot": null
+        },
+        {
+          "id": "vertex-extended-vertex-stream-degeneracy-46",
+          "paperId": "bera-chakrabarti-ghosh-2020-degeneracy",
+          "kind": "lower",
+          "bound": "Ω(n²/λ²) bits",
+          "guarantee": "κ+λ, integer λ>1",
+          "sourceLocation": "Theorems 20–21",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "Even insertion-only and κ known in advance. Constant λ gives quadratic space; this is a different accuracy than the relative-slack upper. Success at least 2/3 Randomness included in working memory",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "vertex-stream-degree-one-list",
+      "problem": "vertex",
+      "model": "stream",
+      "label": "One-pass dynamic stream, degree+1 list coloring",
+      "task": "Explicit proper coloring",
+      "assumptions": [
+        "Turnstile; final list precedes first incident edge",
+        "Simple undirected n-vertex graph",
+        "1 pass(es)"
+      ],
+      "xAxis": {
+        "label": "Palette / output contract",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "minus",
+            "label": "Δ−1",
+            "short": "Δ−1"
+          },
+          {
+            "id": "brooks",
+            "label": "Δ",
+            "short": "Δ"
+          },
+          {
+            "id": "plus",
+            "label": "Δ+1",
+            "short": "Δ+1"
+          },
+          {
+            "id": "near",
+            "label": "(1+ε)Δ",
+            "short": "(1+ε)Δ"
+          },
+          {
+            "id": "list",
+            "label": "dᵥ+1 list",
+            "short": "dᵥ+1 list"
+          }
+        ]
+      },
+      "yAxis": {
+        "label": "Space classes (symbolic categories)",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "semi",
+            "label": "Õ(n)",
+            "short": "Õ(n)"
+          },
+          {
+            "id": "linear",
+            "label": "Ω(n)",
+            "short": "Ω(n)"
+          }
+        ]
+      },
+      "parameters": {
+        "d_v": "degree of vertex v",
+        "coordinateConvention": "Categorical formula classes; no numerical exponent or universal ranking is assigned."
+      },
+      "results": [
+        {
+          "id": "vertex-result-39",
+          "paperId": "halldorsson-kuhn-nolin-tonoyan-2022-degree",
+          "kind": "upper",
+          "bound": "Õ(n) space; one pass",
+          "guarantee": "Each vertex chooses from its own final dᵥ+1 list",
+          "sourceLocation": "Corollary 3(1); §8 Streaming",
+          "evidenceStatus": "verified",
+          "frontierStatus": "candidate",
+          "notes": "The final list of each vertex must arrive before any incident edge. Source space assumes ordinary bounded-size vertex/color encodings. With high probability Randomness included in working memory",
+          "plot": null
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+.vqc-view{color:var(--ink)}
+.vqc-toolbar,.vqc-tabs{display:flex;flex-wrap:wrap;align-items:center;gap:9px}
+.vqc-toolbar{justify-content:space-between;margin:18px 0 12px}
+.vqc-tabs button,.vqc-publication,.vqc-record{color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:9px;padding:9px 12px;font:inherit}
+.vqc-tabs button[aria-pressed=true]{border-color:var(--blue);box-shadow:0 0 0 1px var(--blue)}
+.vqc-toolbar label{display:flex;gap:8px;align-items:center;color:var(--muted);font-size:13px}
+.vqc-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
+.vqc-map{display:block;width:100%;min-width:850px;height:auto}.vqc-summary{display:block;width:100%;height:100%}
+.vqc-map,.vqc-summary{overflow:visible}
+.vqc-axis{stroke:var(--muted);stroke-width:1;fill:none;opacity:.65}.vqc-grid{stroke:var(--line);stroke-width:1;fill:none}
+.vqc-curve{stroke:var(--green);stroke-width:2.2;fill:none}.vqc-card{fill:var(--surface);stroke:var(--line);stroke-width:1}
+.vqc-upper{fill:var(--green)}.vqc-lower{fill:var(--red)}
+.vqc-halo{fill:var(--blue)}.vqc-setup-communication .vqc-halo{fill:#a794ef}.vqc-setup-lists .vqc-halo{fill:#d3b473}
+.vqc-point[role=button]{cursor:pointer;outline:none}.vqc-point[role=button]:focus .vqc-halo,.vqc-point[role=button]:hover .vqc-halo{opacity:.7}
+.vqc-reading,.vqc-coverage{font-size:13px;line-height:1.55;color:var(--muted);margin:12px 0}
+.vqc-theorem{padding:18px;border:1px solid var(--line);border-radius:12px;background:var(--surface);line-height:1.55}
+.vqc-detail-head{display:flex;align-items:center;flex-wrap:wrap;gap:12px}.vqc-detail-head span{margin-left:auto;color:var(--muted);font-size:12px}
+.vqc-detail-grid{display:grid;grid-template-columns:1.3fr 1fr .8fr;gap:14px;margin:14px 0}
+.vqc-detail-grid small{display:block;color:var(--muted);font-size:11px}.vqc-detail-grid strong{font-size:14px;font-weight:600}
+.vqc-green{color:var(--green)}.vqc-red{color:var(--red)}.vqc-qualification{border-left:3px solid var(--blue);padding-left:12px}
+.vqc-source-list{margin-top:16px}.vqc-source-list summary{cursor:pointer}
+.vqc-records{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;padding-top:12px}
+.vqc-record{text-align:left;display:grid;gap:6px;cursor:pointer}.vqc-record small{color:var(--muted);font-size:10px}.vqc-record strong{font-size:12px}.vqc-record span{font-size:11px}
+.vqc-record[aria-pressed=true]{border-color:var(--blue)}.vqc-view a{color:var(--blue)}.vqc-view h3{font-size:15px}
+@media(max-width:700px){.vqc-detail-grid,.vqc-records{grid-template-columns:1fr}.vqc-theorem{padding:13px}}
+.vqc-map text,.vqc-summary text{font:12px ui-sans-serif,system-ui,sans-serif;fill:var(--ink)}
+.vqc-map .vqc-heading,.vqc-summary .vqc-heading{font-size:20px;font-weight:650}
+.vqc-map .vqc-legend,.vqc-summary .vqc-legend{font-size:12px;fill:var(--muted)}
+.vqc-map .vqc-subhead,.vqc-summary .vqc-subhead{font-size:12px;font-weight:650}
+.vqc-map .vqc-tick,.vqc-summary .vqc-tick{font-size:10px;fill:var(--muted)}
+.vqc-map .vqc-axis-note,.vqc-summary .vqc-axis-note{font-size:10px;fill:var(--muted)}
+.vqc-map .vqc-cost,.vqc-summary .vqc-cost{font-size:12px;font-weight:600}
+.vqc-map .vqc-red-cost,.vqc-summary .vqc-red-cost{font-size:12px;font-weight:600;fill:var(--red)}
+.vqc-map .vqc-red-tick,.vqc-summary .vqc-red-tick{font-size:10px;fill:var(--red)}
+.vqc-map .vqc-formula,.vqc-summary .vqc-formula{font-size:18px;font-weight:650}
+.vqc-map .vqc-note,.vqc-summary .vqc-note{font-size:10px;fill:var(--muted)}
+.vqc-map .vqc-micro,.vqc-summary .vqc-micro{font-size:8px;fill:var(--muted)}
+.vqc-map .vqc-list-note,.vqc-summary .vqc-list-note{font-size:11px;fill:var(--muted)}
+.vqc-map .vqc-comm-cost,.vqc-summary .vqc-comm-cost{font-size:11px;fill:var(--green)}
+.vqc-map .vqc-comm-round,.vqc-summary .vqc-comm-round{font-size:10px;fill:var(--green)}
+.vqc-map .vqc-query-key,.vqc-summary .vqc-query-key{font-size:11px;fill:var(--blue)}
+.vqc-map .vqc-comm-key,.vqc-summary .vqc-comm-key{font-size:11px;fill:#a794ef}
+.vqc-summary[data-detail-level=compact] .vqc-heading{font-size:13px}
+.vqc-summary[data-detail-level=compact] .vqc-subhead{font-size:8px}
+.vqc-summary[data-detail-level=compact] .vqc-tick{font-size:8px}
+.vqc-summary[data-detail-level=compact] .vqc-red-tick{font-size:7px}
+.vqc-summary[data-detail-level=compact] .vqc-axis-note{font-size:7px}
+.vqc-summary[data-detail-level=compact] .vqc-cost{font-size:8px}
+.vqc-summary[data-detail-level=compact] .vqc-red-cost{font-size:8px}
+.vqc-summary[data-detail-level=compact] .vqc-comm-cost{font-size:7px}
+.vqc-summary[data-detail-level=compact] .vqc-comm-round{font-size:6px}
+.vqc-summary[data-detail-level=compact] .vqc-compact-formula{font-size:8px}
+.vqc-summary[data-detail-level=compact] .vqc-list-note{font-size:8px}
+.vqc-summary[data-detail-level=compact] .vqc-micro{font-size:6.5px}

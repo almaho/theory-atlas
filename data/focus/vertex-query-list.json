@@ -1,0 +1,113 @@
+{
+  "title": "Greedy vertex coloring with neighbor access",
+  "problem": "vertex",
+  "model": "query_list",
+  "reviewedOn": "2026-10-27",
+  "canonicalAliases": {},
+  "sources": {
+    "ferber-hardiman-chen-2025-sublinear-coloring": {
+      "id": "ferber-hardiman-chen-2025-sublinear-coloring",
+      "title": "Improved Sublinear Algorithms for Classical and Quantum Graph Coloring",
+      "authors": [
+        "Asaf Ferber",
+        "Liam Hardiman",
+        "Xiaonan Chen"
+      ],
+      "year": 2025,
+      "venue": "arXiv preprint",
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/abs/2502.06024",
+      "verifiedOn": "2026-10-27",
+      "verificationUrl": "https://arxiv.org/html/2502.06024#S1",
+      "versionNote": "The HTML displays arXiv:2502.06024v1 (9 February 2025) and an internal manuscript date of 24 August 2026. The abstract history lists only v1; no later revision number is asserted."
+    }
+  },
+  "verifiedRecords": [
+    {
+      "id": "vertex-query-list-greedy",
+      "sliceId": "vertex-query-adjacency-list-only",
+      "sourceId": "ferber-hardiman-chen-2025-sublinear-coloring",
+      "panel": "greedy",
+      "kind": "algorithm",
+      "shortLabel": "Classical greedy baseline",
+      "quality": "Proper vertex coloring from the common palette [Δ+1]",
+      "output": "An explicit color for every vertex; n vertex–color assignments.",
+      "graph": "Undirected simple graph with known labeled vertex set [n], n≥1, m edges, maximum degree Δ.",
+      "oracle": "Neighbor(v,j) returns the j-th neighbor in a fixed arbitrary ordering, or ⊥ when j>d(v).",
+      "probability": "Deterministic; correct on every input satisfying the graph and oracle promises.",
+      "theorem": "§1 query-model definition and greedy baseline; Table 1 and the g(Δ)=nΔ discussion before Corollary 2",
+      "verificationUrl": "https://arxiv.org/html/2502.06024#S1",
+      "displayBound": "Exactly n+2m neighbor calls for the scan-and-greedy implementation",
+      "queryComplexity": "Q=n+2m ≤ n(Δ+1) ≤ n²",
+      "sourceBound": "Source baseline O(nΔ) for Δ≥1; the source's O(m) successful-neighbor accounting suppresses end tests/isolated vertices.",
+      "totalTime": "O(n+m) unit-cost RAM time, including oracle calls and explicit output",
+      "space": "O(n) auxiliary words, including the n output colors; adjacency lists need not be retained",
+      "outputCount": "n vertex–color assignments",
+      "evidenceStatus": "verified",
+      "frontierStatus": "baseline",
+      "derivation": [
+        "Process vertices in any fixed order. For each v, call Neighbor(v,1), Neighbor(v,2), … until the first ⊥.",
+        "The calls returning vertices sum to ∑v d(v)=2m; one terminal call for each vertex contributes n. Thus Q=n+2m exactly for this implementation.",
+        "Mark colors already used by previously colored neighbors; choose the smallest unmarked positive color. At most d(v) colors are forbidden, so the choice is at most d(v)+1≤Δ+1.",
+        "Use a timestamped color-mark array: marking and finding the first free color cost O(d(v)+1) per vertex. Total RAM time is O(n+m), and O(n) words suffice."
+      ],
+      "assumptions": [
+        "All n vertices are known, including isolates; lists are consistent with one simple undirected graph.",
+        "The oracle returns ⊥ after the end of each finite list. A padded list that never signals termination is a different model.",
+        "No degree or pair queries are used. The implementation does not need Δ in advance.",
+        "The exact count describes this full-scan implementation, not every coloring algorithm and not a query lower bound.",
+        "When m=0, the scan still makes n end tests and outputs n copies of color 1. For Δ≥1, n+2m≤n(Δ+1)≤2nΔ."
+      ],
+      "notes": "The exact scan formula and RAM implementation are elementary atlas derivations from the source's access definition and greedy baseline. They are not a new author-stated optimality theorem. Sparse graphs can have high Δ, so m is retained instead of plotting every instance at n²."
+    }
+  ],
+  "relatedResults": [],
+  "figureAxes": {
+    "greedy": {
+      "x": {
+        "label": "Number of colors q · symbolic palette",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "delta-plus-one",
+            "label": "Δ+1"
+          }
+        ]
+      },
+      "y": {
+        "label": "Neighbor calls Q · exact implementation cost",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "scan-cost",
+            "label": "n+2m"
+          }
+        ],
+        "note": "One symbolic formula for an implemented upper bound; no numerical exponent, feasibility region or lower-bound shading."
+      }
+    }
+  },
+  "defaultSelected": "vertex-query-list-greedy",
+  "lowerBoundStatus": "No applicable neighbor-only query lower bound is verified by this bounded one-record review. No matrix, combined-access or quantum lower bound is transferred.",
+  "coverageNote": "One supplied greedy baseline, verified against one primary source; the exact enumeration count and implementation costs are explicitly derived.",
+  "sourceVerification": [
+    {
+      "sourceId": "ferber-hardiman-chen-2025-sublinear-coloring",
+      "url": "https://arxiv.org/html/2502.06024#S1",
+      "verifiedOn": "2026-10-27",
+      "locations": [
+        "§1 neighborhood-query definition",
+        "§1 greedy baseline",
+        "Table 1",
+        "g(Δ)=nΔ before Corollary 2"
+      ],
+      "notes": "Neighbor-only deterministic scan. Broader source results using adjacency queries and quantum access are outside this pair."
+    }
+  ],
+  "derivationVerification": {
+    "queryCount": "Sum of undirected degrees is 2m; add one list-end test per known vertex.",
+    "time": "Timestamp marks and scanning for an available color cost O(d(v)+1) per vertex.",
+    "palette": "Previously colored neighbors forbid at most d(v) colors.",
+    "bounds": "2m≤nΔ and Δ≤n−1 yield n+2m≤n(Δ+1)≤n²."
+  }
+}

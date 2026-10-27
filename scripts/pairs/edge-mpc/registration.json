@@ -1,0 +1,36 @@
+{
+  "id": "edge-mpc",
+  "dataFile": "edge-mpc.json",
+  "javascript": "edge-mpc.js",
+  "css": "edge-mpc.css",
+  "routes": [
+    {
+      "key": "edge-mpc",
+      "sliceId": "edge-mpc-linear-memory",
+      "label": "Edge coloring · MPC memory and stability",
+      "problem": "edge",
+      "model": "mpc",
+      "visible": true
+    },
+    {
+      "key": "edge-mpc-lowspace",
+      "sliceId": "edge-mpc-lowspace-component",
+      "label": "Edge coloring · low-space component stability",
+      "problem": "edge",
+      "model": "mpc",
+      "visible": false
+    }
+  ],
+  "canonicalAliases": {
+    "edge-mpc-lowspace": "edge-mpc"
+  },
+  "pointFields": {
+    "x": "roundKey",
+    "y": "paletteKey"
+  },
+  "axisSummary": {
+    "x": "MPC round formulas; categorical, not numerical ratios",
+    "y": "Exact palette and algorithm setup; linear and sublinear memory facets",
+    "note": "Linear and sublinear local-memory facets, algorithms green and conditional stable-only lower red; no numerical frontier"
+  }
+}

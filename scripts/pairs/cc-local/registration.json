@@ -1,0 +1,22 @@
+{
+  "id": "cc-local",
+  "dataFile": "cc-local.json",
+  "javascript": "cc-local.js",
+  "css": "cc-local.css",
+  "routes": [
+    {
+      "key": "cc-local",
+      "sliceId": "cc-local-3plus",
+      "label": "Correlation clustering · LOCAL tradeoff",
+      "problem": "cc",
+      "model": "local",
+      "visible": true
+    }
+  ],
+  "canonicalAliases": {},
+  "axisSummary": {
+    "x": "Leading expected approximation guarantee a; logarithmic spacing of a−3",
+    "y": "Elapsed communication rounds T=2r+1; logarithmic scale",
+    "note": "Actual expected factor is a+n^{−Ω(1)}. Dots are integer-r theorem instances; 3 is a neutral off-axis reference. No general lower bound is verified in the supplied source."
+  }
+}
