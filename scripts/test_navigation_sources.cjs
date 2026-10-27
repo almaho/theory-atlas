@@ -45,7 +45,7 @@ fadeContext.state.selected=null;assert.equal(fadeContext.contextOpacity(false,4)
 assert(app.includes('rec.slices.filter(s=>modelById.has(s.model))'),'Search cannot navigate to the removed column');
 const fg=JSON.parse(fs.readFileSync(path.join(root,'data/fine-grained.json'),'utf8'));
 const fgContext={window:{},document:{getElementById:id=>id==='fg-data'?{textContent:JSON.stringify(fg)}:null}};vm.createContext(fgContext);vm.runInContext(fs.readFileSync(path.join(root,'src/paper-links.js'),'utf8'),fgContext);
-for(const row of fg.dynamicView.rows){assert(fgContext.window.AtlasPapers.resolve(['fg:'+row.nodeId+':lower']).length);for(const i of row.algorithmIndices)assert(fgContext.window.AtlasPapers.resolve(['fg:'+row.nodeId+':algorithm:'+i]).length);}
+for(const row of fg.dynamicView.rows){if(row.threshold!=null)assert(fgContext.window.AtlasPapers.resolve(['fg:'+row.nodeId+':lower']).length);else assert.equal(fgContext.window.AtlasPapers.resolve(['fg:'+row.nodeId+':lower']).length,0);for(const i of row.algorithmIndices)assert(fgContext.window.AtlasPapers.resolve(['fg:'+row.nodeId+':algorithm:'+i]).length);}
 console.log(JSON.stringify({status:'pass',visibleCells:data.models.length*data.problems.length,focusedFigures:figures.length,resultMarkers:dots,markersWithRecordedArxiv:arxiv,unresolvedSources:0,checks:'progressive fading; archived-column exclusion; all figure marker identities; no guessed arXiv IDs; fine-grained algorithm/lower identities'}));
 if(process.argv.includes('--report'))fs.writeFileSync(path.join(root,'../figure-source-audit-2026-10-27.json'),JSON.stringify({figures,resultMarkers:dots,markersWithRecordedArxiv:arxiv,missingArxiv:[...missingArxiv.values()]},null,2)+'\n');
 

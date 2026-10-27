@@ -261,7 +261,23 @@
       "graphClass": "general unweighted",
       "venue": "SODA 2025",
       "frontierStatus": "current_best_verified",
-      "parameterized": true
+      "parameterized": true,
+      "orsInterval": {
+        "kind": "range-of-theorem-bound",
+        "lower": "L = n^{Ω_c(1/log log n)}",
+        "upper": "U = O(n / log^{(poly(1/c))} n)",
+        "rangeSourceUrl": "https://arxiv.org/html/2404.06069v4#S1.SS2",
+        "rangeSourceLocation": "Section 1.2, displayed RS/ORS inequalities; Theorem 2",
+        "meaning": "Image of the published ORS range under this algorithm's upper-bound formula. The left endpoint is not an update-time lower bound. Hidden constants and the matching-size coefficient c depend on the theorem; bar lengths are schematic.",
+        "lowerEndpoint": "A · n^{δ} · L",
+        "upperEndpoint": "A · n^{δ} · U",
+        "boundFunction": "F(R) = A · n^{δ} · R",
+        "factorNote": "A = (1/ε)^{O(1/(εδ))}; c = c(ε,δ), fixed δ > 0",
+        "formulaSourceUrl": "https://arxiv.org/html/2503.01147v2#S1.T2",
+        "displayLower": "n^{δ+o(1)}",
+        "displayUpper": "n^{1+δ−o(1)}",
+        "displayNote": "Leading-power shorthand for F(L) and F(U), at fixed ε and δ; original ε prefactors and exact symbolic substitutions are retained. These are envelopes for the theorem-bound expression, not a tight interval for actual running time."
+      }
     },
     {
       "id": "dynamic-edges-ms25",
@@ -367,7 +383,22 @@
       "graphClass": "general unweighted",
       "parameterized": true,
       "ratio": 1,
-      "ratioIsLimit": true
+      "ratioIsLimit": true,
+      "orsInterval": {
+        "kind": "range-of-theorem-bound",
+        "lower": "L = n^{Ω_c(1/log log n)}",
+        "upper": "U = O(n / log^{(poly(1/c))} n)",
+        "rangeSourceUrl": "https://arxiv.org/html/2404.06069v4#S1.SS2",
+        "rangeSourceLocation": "Section 1.2, displayed RS/ORS inequalities; Theorem 2",
+        "meaning": "Image of the published ORS range under this algorithm's upper-bound formula. The left endpoint is not an update-time lower bound. Hidden constants and the matching-size coefficient c depend on the theorem; bar lengths are schematic.",
+        "lowerEndpoint": "Õ(√(n^{1+ε} L))",
+        "upperEndpoint": "Õ(√(n^{1+ε} U))",
+        "boundFunction": "F(R) = Õ(√(n^{1+ε} R))",
+        "factorNote": "R = ORSₙ(Θ(ε²n)); c depends on ε",
+        "displayLower": "Õ(n^{(1+ε)/2+o(1)})",
+        "displayUpper": "Õ(n^{1+ε/2−o(1)})",
+        "displayNote": "Leading-power shorthand for F(L) and F(U), at fixed ε and δ; original ε prefactors and exact symbolic substitutions are retained. These are envelopes for the theorem-bound expression, not a tight interval for actual running time."
+      }
     }
   ],
   "sourcesChecked": [
@@ -428,7 +459,23 @@
       "kind": "related",
       "queryTime": null,
       "output": "explicit edges",
-      "graphClass": "general unweighted"
+      "graphClass": "general unweighted",
+      "orsInterval": {
+        "kind": "range-of-theorem-bound",
+        "lower": "L = n^{Ω_c(1/log log n)}",
+        "upper": "U = O(n / log^{(poly(1/c))} n)",
+        "rangeSourceUrl": "https://arxiv.org/html/2404.06069v4#S1.SS2",
+        "rangeSourceLocation": "Section 1.2, displayed RS/ORS inequalities; Theorem 2",
+        "meaning": "Image of the published ORS range under this algorithm's upper-bound formula. The left endpoint is not an update-time lower bound. Hidden constants and the matching-size coefficient c depend on the theorem; bar lengths are schematic.",
+        "lowerEndpoint": "B · n^{δ} · L",
+        "upperEndpoint": "B · n^{δ} · U",
+        "boundFunction": "F(R) = B · n^{δ} · R",
+        "factorNote": "B = (1/ε)^{O(1/δ)}; c = c(ε,δ), fixed δ > 0",
+        "formulaSourceUrl": "https://arxiv.org/html/2503.01147v2#S7.SS3",
+        "displayLower": "n^{δ+o(1)}",
+        "displayUpper": "n^{1+δ−o(1)}",
+        "displayNote": "Leading-power shorthand for F(L) and F(U), at fixed ε and δ; original ε prefactors and exact symbolic substitutions are retained. These are envelopes for the theorem-bound expression, not a tight interval for actual running time."
+      }
     },
     {
       "id": "dynamic-edges-blm20",

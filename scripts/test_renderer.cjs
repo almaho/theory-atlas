@@ -425,7 +425,7 @@ const plotHTML = host => host.querySelector('.d-plot-host').innerHTML;
 const evidenceHTML = host => host.querySelector('.d-evidence-list').innerHTML;
 const resultIds = html => [...html.matchAll(/data-dynamic-result="([^"]+)"/g)].map(match => match[1]);
 function groupHTML(host, id) {
-  return [...plotHTML(host).matchAll(/<g class="d-plot-result"[\s\S]*?<\/g>/g)].map(match => match[0]).find(html => html.includes(`data-group="${id}"`));
+  return [...plotHTML(host).matchAll(/<g class="d-plot-result[^"]*"[\s\S]*?<\/g>/g)].map(match => match[0]).find(html => html.includes(`data-group="${id}"`));
 }
 function clickResult(host, id) {
   host.listeners.find(event => event.type === 'click').listener({target: {closest: selector => selector === '[data-dynamic-result]' ? {dataset: {dynamicResult: id}} : null}});
@@ -449,16 +449,21 @@ for (const [key, host] of [['dynamic-edges', edgesHost], ['dynamic-size', sizeHo
   const specials = host.querySelector('.d-specials').innerHTML;
   assert(specials.includes('d-lower-bound') && specials.includes('EXACT MATCHING ONLY') && resultIds(specials).includes('dynamic-exact-omv'), 'The exact conditional lower bound remains visible in its separately scoped card');
   for (const id of ['dynamic-edges-akk25', 'dynamic-edges-bg24', 'dynamic-edges-ms25-ors']) {
-    const entry=[...plot.matchAll(/<g class="d-plot-result"[\s\S]*?<\/g>/g)].map(m=>m[0]).find(html=>html.includes(`data-dynamic-result="${id}"`));
+    const entry=[...plot.matchAll(/<g class="d-plot-result[^"]*"[\s\S]*?<\/g>/g)].map(m=>m[0]).find(html=>html.includes(`data-dynamic-result="${id}"`));
     assert(entry && entry.includes(`data-ors-result="${id}"`) && !entry.includes('data-beta='), 'ORS algorithms appear in the main figure without invented n-only runtime coordinates');
     const record=allDynamicRecords.find(r=>r.id===id);
+    assert(entry.includes('d-ors-band') && entry.includes('range-of-theorem-bound'), 'ORS records render as interval bands');
+    assert(record.orsInterval.lowerEndpoint && record.orsInterval.upperEndpoint && record.orsInterval.rangeSourceUrl.startsWith('https://arxiv.org/'), 'Both symbolic endpoints and published extremal source are recorded');
+    assert(entry.includes('Not a runtime lower bound'), 'The extremal lower endpoint is not labeled an algorithmic lower bound');
+    assert(plot.indexOf('data-panel="ors"') < plot.indexOf('data-group="dynamic-edges-gp13"'), 'ORS interval panel is visible before the main milestone plot');
+
     assert(specials.includes(`href="${record.url}"`), 'Each ORS paper has a direct source link');
   }
   assert(plot.includes('Behnezhad–Ghafari · FOCS 2024') && plot.includes('ORSₙ(Θ(ε²n))'), 'The main plot visibly attributes the BG24 algorithm and preserves its matching-size parameter');
   for(const row of allDynamicRecords)assert(evidenceHTML(host).includes(`href="${row.url}"`), 'Every recorded paper is linked directly from the evidence list');
   assert(specials.includes('BIPARTITE ONLY') && specials.includes('beh2023-size-bipartite'), 'The bipartite result has a separate labeled card');
   assert(!resultIds(plot).includes('beh2023-size-bipartite'), 'Bipartite-only quality is not projected as a general-graph bound');
-  const symbolic = [...plot.matchAll(/<g class="d-plot-result"[\s\S]*?<\/g>/g)].map(match => match[0]).find(html => html.includes('data-dynamic-result="dynamic-edges-blm20"'));
+  const symbolic = [...plot.matchAll(/<g class="d-plot-result[^"]*"[\s\S]*?<\/g>/g)].map(match => match[0]).find(html => html.includes('data-dynamic-result="dynamic-edges-blm20"'));
   assert(symbolic && symbolic.includes('symbolic') && !symbolic.includes('data-beta=') && !symbolic.includes('<circle'), 'BLM uses a symbolic improvement arrow, not an invented numeric approximation point');
 }
 assert(edgesHost.innerHTML.includes('actual matching M') && sizeHost.innerHTML.includes('a number ν'), 'The output contracts remain explicit in the shared legend');

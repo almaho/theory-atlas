@@ -1,7 +1,7 @@
 {
   "version": 1,
   "reviewedOn": "2026-10-27",
-  "coverage": "A connected review of static and fully dynamic problems, not a complete survey. Published algorithms and elementary baselines are distinguished; no best-known frontier is claimed.",
+  "coverage": "A connected review of static and fully dynamic problems: exact matching and bipartite cover values, approximate matching sizes and edges, maximal matching and maintained approximate covers, and structural ORS dependence. No completeness or best-known frontier claim.",
   "sources": {
     "vv10": {
       "title": "Subcubic Equivalences Between Path, Matrix, and Triangle Problems",
@@ -89,6 +89,77 @@
       "venue": "SODA 2017",
       "status": "published",
       "url": "https://arxiv.org/pdf/1605.01695v2"
+    },
+    "avw14": {
+      "title": "Popular Conjectures Imply Strong Lower Bounds for Dynamic Problems",
+      "authors": "Amir Abboud and Virginia Vassilevska Williams",
+      "venue": "FOCS 2014",
+      "status": "published",
+      "url": "https://arxiv.org/pdf/1402.0054"
+    },
+    "bkz26": {
+      "title": "Dynamic Rank, Basis, and Matching",
+      "authors": "Jan van den Brand, Vishal Kumar and Daniel J. Zhang",
+      "venue": "ICALP 2026",
+      "status": "published",
+      "url": "https://arxiv.org/html/2605.09917v1",
+      "publishedUrl": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2026.45"
+    },
+    "bks23": {
+      "title": "Dynamic (1+epsilon)-Approximate Matching Size in Truly Sublinear Update Time",
+      "authors": "Sayan Bhattacharya, Peter Kiss and Thatchaphol Saranurak",
+      "venue": "FOCS 2023; revised full version 2024",
+      "status": "published",
+      "url": "https://arxiv.org/html/2302.05030v3"
+    },
+    "bg24": {
+      "title": "Fully Dynamic Matching and Ordered Ruzsa-Szemeredi Graphs",
+      "authors": "Soheil Behnezhad and Alma Ghafari",
+      "venue": "FOCS 2024",
+      "status": "published",
+      "url": "https://arxiv.org/pdf/2404.06069v2"
+    },
+    "akk25": {
+      "title": "Improved Bounds for Fully Dynamic Matching via Ordered Ruzsa-Szemeredi Graphs",
+      "authors": "Sepehr Assadi, Sanjeev Khanna and Peter Kiss",
+      "venue": "SODA 2025",
+      "status": "published",
+      "url": "https://arxiv.org/html/2406.13573v2"
+    },
+    "ms25": {
+      "title": "A Framework for Boosting Matching Approximation: Parallel, Distributed, and Dynamic",
+      "authors": "Slobodan Mitrović and Wen-Horng Sheu",
+      "venue": "SPAA 2025",
+      "status": "published",
+      "url": "https://arxiv.org/html/2503.01147v2"
+    },
+    "bhi15": {
+      "title": "Deterministic Fully Dynamic Data Structures for Vertex Cover and Matching",
+      "authors": "Sayan Bhattacharya, Monika Henzinger and Giuseppe F. Italiano",
+      "venue": "SODA 2015",
+      "status": "published",
+      "url": "https://arxiv.org/pdf/1412.1318"
+    },
+    "solomon16": {
+      "title": "Fully Dynamic Maximal Matching in Constant Update Time",
+      "authors": "Shay Solomon",
+      "venue": "FOCS 2016",
+      "status": "published",
+      "url": "https://arxiv.org/pdf/1604.08491#page=16"
+    },
+    "bk19vc": {
+      "title": "Deterministically Maintaining a (2+ε)-Approximate Minimum Vertex Cover in O(1/ε²) Amortized Update Time",
+      "authors": "Sayan Bhattacharya and Janardhan Kulkarni",
+      "venue": "SODA 2019",
+      "status": "published",
+      "url": "https://arxiv.org/pdf/1805.03498v2#page=3"
+    },
+    "bhnw21": {
+      "title": "Dynamic Set Cover: Improved Amortized and Worst-Case Update Time",
+      "authors": "Sayan Bhattacharya, Monika Henzinger, Danupon Nanongkai and Xiaowei Wu",
+      "venue": "SODA 2021",
+      "status": "published",
+      "url": "https://arxiv.org/pdf/2002.11171v2#page=4"
     }
   },
   "nodes": [
@@ -848,6 +919,292 @@
       "y": 1520,
       "group": "dynamic",
       "family": "distance"
+    },
+    {
+      "id": "dyn-perfect",
+      "label": "Fully dynamic bipartite perfect-matching decision",
+      "short": "Perfect matching?",
+      "tag": "EXACT · BIPARTITE · BIT",
+      "contract": "Maintain whether the unweighted bipartite graph has a matching covering every vertex. Return one Boolean value; no edge list.",
+      "parameter": "n vertices, m edges, and maximum matching cardinality ν. Unweighted single-edge insertions and deletions. Dense reference m=Θ(n²); algorithms cover all graphs in the stated class.",
+      "baselines": [
+        {
+          "bound": "Õ((ν+1)^{1.405})",
+          "plotLabel": "Õ(n^{1.405})",
+          "detail": "Apply the cardinality algorithm and test 2ν=n after each update. Bipartite input; only a Boolean answer is maintained. The same polynomial preprocessing and randomized worst-case guarantee apply.",
+          "sourceId": "bkz26",
+          "locator": "Theorems 1.1 and 1.3; §4.2 worst-case deamortization; §4.4",
+          "status": "published",
+          "updateExponent": 1.405,
+          "query": "O(1)",
+          "guarantee": "Randomized · worst-case"
+        }
+      ],
+      "lower": {
+        "bound": "No U=O(n^{1−η}) when Q=O(n^{2−δ})",
+        "detail": "For fixed η,δ>0, ordinary OMv excludes both guarantees together, even with polynomial preprocessing and amortized updates; randomized error at most 1/3 is allowed. Hard instances are bipartite. Padding with a fixed disconnected complete bipartite graph makes them dense without changing operation counts. The exact one-unit gap gives no fixed-accuracy approximation barrier.",
+        "sourceId": "hkns15",
+        "locator": "Corollary 3.4 and the following matching / vertex-cover paragraph",
+        "condition": "ordinary Boolean OMv",
+        "status": "conditional",
+        "threshold": 1,
+        "queryCeilingExponent": 2
+      },
+      "x": 250,
+      "y": 1680,
+      "group": "matching",
+      "family": "matching"
+    },
+    {
+      "id": "dyn-matching-size",
+      "label": "Fully dynamic exact maximum matching size",
+      "short": "Matching size · exact",
+      "tag": "EXACT · GENERAL · SIZE",
+      "contract": "Maintain the cardinality ν of a maximum matching in a general unweighted graph. Only the scalar is required.",
+      "parameter": "n vertices, m edges, and maximum matching cardinality ν. Unweighted single-edge insertions and deletions. Dense reference m=Θ(n²); algorithms cover all graphs in the stated class.",
+      "baselines": [
+        {
+          "bound": "Õ((ν+1)^{1.405})",
+          "plotLabel": "Õ(n^{1.405})",
+          "detail": "Maintains the exact cardinality, not matching edges. Worst-case randomized updates, correct with high probability against output-adaptive updates. Polynomial preprocessing via rank: Õ(m+(ν+1)^ω). The plotted n exponent uses ν≤n/2.",
+          "sourceId": "bkz26",
+          "locator": "Theorems 1.1 and 1.3; §4.2 worst-case deamortization; §4.4",
+          "status": "published",
+          "updateExponent": 1.405,
+          "query": "O(1)",
+          "guarantee": "Randomized · worst-case"
+        }
+      ],
+      "lower": {
+        "bound": "No U=O(n^{1−η}) when Q=O(n^{2−δ})",
+        "detail": "For fixed η,δ>0, ordinary OMv excludes both guarantees together, even with polynomial preprocessing and amortized updates; randomized error at most 1/3 is allowed. Hard instances are bipartite. Padding with a fixed disconnected complete bipartite graph makes them dense without changing operation counts. The exact one-unit gap gives no fixed-accuracy approximation barrier.",
+        "sourceId": "hkns15",
+        "locator": "Corollary 3.4 and the following matching / vertex-cover paragraph",
+        "condition": "ordinary Boolean OMv",
+        "status": "conditional",
+        "threshold": 1,
+        "queryCeilingExponent": 2
+      },
+      "x": 700,
+      "y": 1680,
+      "group": "matching",
+      "family": "matching"
+    },
+    {
+      "id": "dyn-cover-size",
+      "label": "Fully dynamic minimum bipartite vertex-cover size",
+      "short": "Vertex-cover size",
+      "tag": "EXACT · BIPARTITE · SIZE",
+      "contract": "Maintain the minimum number τ of vertices covering every edge of an unweighted bipartite graph. Return only the scalar size. General-graph exact vertex cover and explicit cover vertices are different tasks.",
+      "parameter": "n vertices, m edges, and maximum matching cardinality ν. Unweighted single-edge insertions and deletions. Dense reference m=Θ(n²); algorithms cover all graphs in the stated class.",
+      "baselines": [
+        {
+          "bound": "Õ((ν+1)^{1.405})",
+          "plotLabel": "Õ(n^{1.405})",
+          "detail": "On bipartite graphs König’s theorem gives minimum vertex-cover size τ=ν. Return the maintained cardinality. This does not construct a cover or transfer the guarantee to general-graph vertex cover.",
+          "sourceId": "bkz26",
+          "locator": "Theorems 1.1 and 1.3; §4.2 worst-case deamortization; §4.4",
+          "status": "published",
+          "updateExponent": 1.405,
+          "query": "O(1)",
+          "guarantee": "Randomized · worst-case"
+        }
+      ],
+      "lower": {
+        "bound": "No U=O(n^{1−η}) when Q=O(n^{2−δ})",
+        "detail": "For fixed η,δ>0, ordinary OMv excludes both guarantees together, even with polynomial preprocessing and amortized updates; randomized error at most 1/3 is allowed. Hard instances are bipartite. Padding with a fixed disconnected complete bipartite graph makes them dense without changing operation counts. The exact one-unit gap gives no fixed-accuracy approximation barrier.",
+        "sourceId": "hkns15",
+        "locator": "Corollary 3.4 and the following matching / vertex-cover paragraph",
+        "condition": "ordinary Boolean OMv",
+        "status": "conditional",
+        "threshold": 1,
+        "queryCeilingExponent": 2
+      },
+      "x": 1150,
+      "y": 1680,
+      "group": "matching",
+      "family": "matching",
+      "related": [
+        {
+          "bound": "2-approximate feasible cover · general graphs",
+          "detail": "Given an explicit maximal matching M, its endpoints form a vertex cover C and |C|=2|M|≤2τ. Enumerating C costs O(|M|), at most O(n), as a separate output cost. This construction needs maximality; an arbitrary approximate maximum matching need not cover every edge. No update-time guarantee is transferred from the size-only algorithms above.",
+          "sourceId": "bhi15",
+          "locator": "§1.1, maximal-matching endpoint construction; elementary output-cost accounting",
+          "status": "baseline"
+        }
+      ]
+    },
+    {
+      "id": "dyn-matching-approx-size",
+      "label": "Fully dynamic approximate matching size",
+      "short": "Matching size · approx",
+      "tag": "1+ε · GENERAL · SIZE",
+      "contract": "For a fixed ε>0, maintain a (1+ε)-approximation to maximum matching cardinality. This value query does not require reporting matching edges.",
+      "parameter": "n vertices, m edges, and maximum matching cardinality ν. Unweighted single-edge insertions and deletions. Dense reference m=Θ(n²); algorithms cover all graphs in the stated class.",
+      "baselines": [
+        {
+          "bound": "m^{1/2−Ωε(1)}",
+          "plotLabel": "n^{1−Ωε(1)}  · dense reference",
+          "detail": "For each fixed ε>0, randomized adaptive-adversary matching-size estimation with high probability. The positive saving depends on ε; no numerical exponent is assigned. This is a scalar estimate, not an explicit matching. Theorem 1.2 also has a separate, slower mate-query guarantee.",
+          "sourceId": "bks23",
+          "locator": "Theorem 1.2; §7, worst-case conversion",
+          "status": "published",
+          "symbolic": true,
+          "query": "O(1)",
+          "guarantee": "Randomized · worst-case · adaptive",
+          "plotCredit": "Bhattacharya–Kiss–Saranurak · 2023"
+        }
+      ],
+      "lower": null,
+      "x": 250,
+      "y": 1900,
+      "group": "matching",
+      "family": "matching",
+      "lowerBoundStatus": "No applicable fixed-accuracy lower bound verified in this review. The exact OMv gap does not apply."
+    },
+    {
+      "id": "dyn-matching-approx-edges",
+      "label": "Fully dynamic approximate matching edges",
+      "short": "Matching edges · approx",
+      "tag": "APPROX · GENERAL · EDGES",
+      "contract": "For fixed ε>0, explicitly maintain a near-optimal matching. BG and AKK retain fraction 1−ε; MS retains 1/(1+ε). Reading the entire edge list costs at least |M|; that is not a constant-time output operation.",
+      "parameter": "n vertices, m edges, and maximum matching cardinality ν. Unweighted single-edge insertions and deletions. Dense reference m=Θ(n²); algorithms cover all graphs in the stated class.",
+      "baselines": [
+        {
+          "bound": "Õ(√(n^{1+ε} · ORS(n,Θ(ε²n))))",
+          "plotLabel": "Õ(√(n^{1+ε} · ORS(n,Θ(ε²n))))",
+          "detail": "Fixed ε>0; explicitly maintains a matching of size at least (1−ε)ν, with high probability against adaptive updates. ORS is an unknown extremal function, so this formula has no assigned n exponent.",
+          "sourceId": "bg24",
+          "locator": "Theorem 1, printed p.2 / PDF p.4; §4",
+          "status": "published",
+          "symbolic": true,
+          "query": "Maintained edges; enumeration costs |M|",
+          "guarantee": "Randomized · amortized · adaptive",
+          "plotCredit": "Behnezhad–Ghafari · 2024"
+        },
+        {
+          "bound": "(1/ε)^{O(1/(εδ))} · n^{δ} · ORS(n,cε,δ n)",
+          "plotLabel": "Aε,δ · n^{δ} · ORS(n,cε,δ n)",
+          "detail": "For each fixed δ>0, near-optimal explicit matching against adaptive updates, from an initially empty graph. The coefficient c depends on ε and δ. Aε,δ=(1/ε)^{O(1/(εδ))}; this is the fixed-parameter reformulation in Mitrović–Sheu Table 2. AKK Theorem 1 gives the full hierarchy formula; no uniform constant ORS argument as δ tends to zero is claimed.",
+          "sourceId": "akk25",
+          "locator": "Result 1; Theorem 1; §5.1; fixed-parameter comparison in MS25 Table 2",
+          "status": "published",
+          "symbolic": true,
+          "query": "Maintained edges; enumeration costs |M|",
+          "guarantee": "Randomized · amortized · adaptive",
+          "plotCredit": "Assadi–Khanna–Kiss · 2025"
+        },
+        {
+          "bound": "(1/ε)^{O(1/δ)} · n^{δ} · ORS(n,cε,δ n)",
+          "plotLabel": "Bε,δ · n^{δ} · ORS(n,cε,δ n)",
+          "detail": "For fixed ε,δ>0, maintains explicit (1+ε)-approximate matching, i.e. retained fraction 1/(1+ε), with high probability against adaptive updates. Bε,δ=(1/ε)^{O(1/δ)}. The polynomial ε dependence holds for fixed δ; it is not asserted simultaneously with n^{o(1)}.",
+          "sourceId": "ms25",
+          "locator": "Corrected full version, Table 2 and Theorem 7.4",
+          "status": "published",
+          "symbolic": true,
+          "query": "Maintained edges; enumeration costs |M|",
+          "guarantee": "Randomized · amortized · adaptive",
+          "plotCredit": "Mitrović–Sheu · 2025"
+        }
+      ],
+      "lower": null,
+      "x": 700,
+      "y": 1900,
+      "group": "matching",
+      "family": "matching",
+      "lowerBoundStatus": "No applicable fixed-accuracy lower bound verified in this review. The exact OMv gap does not apply."
+    },
+    {
+      "id": "ors",
+      "label": "Ordered Ruzsa–Szemerédi extremal function",
+      "short": "ORS(n,r)",
+      "tag": "STRUCTURAL · NOT A SOLVER",
+      "contract": "ORS(n,r) is the largest number of ordered edge-disjoint matchings, each of size r, on n vertices such that each matching is induced in the union of it and its successors. A stronger upper bound improves the displayed dynamic matching algorithms.",
+      "parameter": "n vertices, m edges, and maximum matching cardinality ν. Unweighted single-edge insertions and deletions. Dense reference m=Θ(n²); algorithms cover all graphs in the stated class.",
+      "baselines": [],
+      "lower": null,
+      "x": 1150,
+      "y": 1900,
+      "group": "matching",
+      "family": "matching",
+      "lowerBoundStatus": "This is an extremal parameter, not a computational problem with an update-time lower bound."
+    },
+    {
+      "id": "dyn-maximal",
+      "label": "Fully dynamic maximal matching",
+      "short": "Maximal matching",
+      "tag": "MAXIMAL · GENERAL · EDGES",
+      "contract": "Maintain an inclusion-wise maximal matching M: every edge has at least one matched endpoint. This is a 2-approximate maximum matching, but maximality is stronger than merely achieving half the optimum. The displayed randomized update bound assumes an oblivious adversary.",
+      "parameter": "Simple unweighted n-vertex graph, initially empty, with single-edge insertions and deletions. Maintaining the solution and enumerating its edges have separate costs.",
+      "baselines": [
+        {
+          "bound": "O(1)",
+          "plotLabel": "O(1) · maximal matching",
+          "detail": "Maintains a maximal matching with O(t) expected total time over t updates from an empty graph. The input update sequence is fixed independently of the algorithm's random choices. Only the expected-amortized statement is used here; no worst-case guarantee is claimed.",
+          "sourceId": "solomon16",
+          "locator": "Theorem 4.7; §1 oblivious-adversary assumption",
+          "status": "published",
+          "symbolic": true,
+          "query": "Maintained edges; enumeration O(|M|)",
+          "guarantee": "Randomized · expected amortized · oblivious",
+          "plotCredit": "Solomon · 2016"
+        }
+      ],
+      "lower": null,
+      "lowerBoundStatus": "No nontrivial update-time barrier shown for this constant expected-amortized bound. Exact maximum matching hardness does not apply to maximal matching.",
+      "x": 250,
+      "y": 2120,
+      "group": "matching",
+      "family": "matching"
+    },
+    {
+      "id": "dyn-cover-approx",
+      "label": "Fully dynamic approximate maintained vertex cover",
+      "short": "Vertex cover · approx",
+      "tag": "APPROX · GENERAL · VERTICES",
+      "contract": "Maintain a feasible vertex set C covering every edge in a general unweighted graph. Solomon gives |C|≤2τ under oblivious updates; Bhattacharya–Kulkarni gives |C|≤(2+ε)τ deterministically. These are explicit feasible covers, not exact size estimates. Enumeration of all vertices costs O(|C|).",
+      "parameter": "Simple unweighted n-vertex graph, initially empty, with single-edge insertions and deletions; fixed ε>0 for the 2+ε guarantee. General graphs are permitted; König's equality is not used.",
+      "baselines": [
+        {
+          "bound": "O(1)",
+          "plotLabel": "O(1) · 2-approximate cover",
+          "detail": "Maintain both endpoints of Solomon's maximal matching M. They cover every edge and |C|=2|M|≤2τ. Updating endpoint membership costs O(1) per changed matching edge, preserving expected-amortized O(1) time against an oblivious adversary. Enumerating all vertices costs O(|C|). This transfer requires maximality, not an arbitrary approximate maximum matching.",
+          "sourceId": "solomon16",
+          "locator": "Abstract / §1 vertex-cover consequence; Theorem 4.7; endpoint bookkeeping is elementary",
+          "status": "published",
+          "symbolic": true,
+          "query": "Maintained vertices; enumeration O(|C|)",
+          "guarantee": "Randomized · expected amortized · oblivious",
+          "plotCredit": "Solomon · 2016"
+        },
+        {
+          "bound": "O(1/ε²)",
+          "plotLabel": "O(1/ε²) · (2+ε)-approximate cover",
+          "detail": "Deterministically maintains a (2+ε)-approximate cover with O(1/ε²) amortized update time. Corollary A.5 describes membership via maintained vertex weights W_v; Appendix B updates those weights explicitly. O(1) membership and O(|C|) enumeration follow by storing a membership bit and linked list, updated per processed weight change; this bookkeeping is an elementary augmentation, not a separately stated theorem.",
+          "sourceId": "bk19vc",
+          "locator": "Theorem 1.1; Corollary A.5; Appendix B, Claims B.2/B.4 and Theorem B.1",
+          "status": "published",
+          "symbolic": true,
+          "query": "Maintained vertices; enumeration O(|C|)",
+          "guarantee": "Deterministic · amortized · adaptive",
+          "plotCredit": "Bhattacharya–Kulkarni · 2019"
+        }
+      ],
+      "lower": null,
+      "lowerBoundStatus": "No applicable update-time lower bound verified for these approximation contracts. The exact bipartite OMv gap does not imply hardness for approximate covers.",
+      "related": [
+        {
+          "bound": "O(log² n / ε³) worst-case · cover returned on demand",
+          "detail": "Bhattacharya–Henzinger–Nanongkai–Wu's set-cover theorem specializes to a (2+ε)-approximate vertex cover by setting frequency f=2, costs C=1, and internal accuracy ε/2. Set-cover elements are graph edges, so log²(maximum edge count)=O(log² n). This worst-case algorithm answers approximate cost in O(1) and returns a feasible cover in O(|C|), but does not maintain solution changes or promise constant-time membership. It is therefore a related output model, not an explicit-maintenance point in the main row.",
+          "sourceId": "bhnw21",
+          "locator": "Theorem 1.1 and following Remark, printed p.1 / PDF p.4",
+          "status": "published"
+        }
+      ],
+      "x": 700,
+      "y": 2120,
+      "group": "matching",
+      "family": "matching"
     }
   ],
   "edges": [
@@ -1136,6 +1493,109 @@
       "kind": "reduction",
       "verifiedOn": "2026-10-27",
       "from": "oumv"
+    },
+    {
+      "id": "reach-perfect",
+      "from": "dyn-reach",
+      "to": "dyn-perfect",
+      "short": "2n−2 vertices",
+      "consequence": "A faster bipartite perfect-matching data structure yields faster directed s–t reachability.",
+      "transformation": "Split each internal vertex into in/out copies joined by a fixed bridge; omit s-in and t-out. Map each directed arc to an out–in edge. The bipartite graph has 2n−2 vertices and at most m+n−2 edges; one input update becomes at most one edge update, and one reachability query becomes one decision query.",
+      "sourceId": "avw14",
+      "locator": "§6.2, Lemma 6.2",
+      "notes": "With the OuMv reachability gadget, nH=4K+2, ν(H)=2K+[uᵀMv], O(K²) updates and K queries. Online time O(K²U+KQ+K²); polynomial preprocessing allowed. A disconnected K-by-K biclique makes nH=6K+2, mH=Θ(K²), and ν(H)=3K+[uᵀMv]. Fully dynamic operation counts preserve worst-case or amortized bounds.",
+      "route": "matching-entry",
+      "kind": "reduction",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "perfect-matching-size",
+      "from": "dyn-perfect",
+      "to": "dyn-matching-size",
+      "short": "test 2ν=n",
+      "consequence": "An exact general-graph matching-size solver also decides bipartite perfect matching.",
+      "transformation": "Same graph and updates; test whether twice the returned maximum cardinality is the number of vertices. O(1) extra query work.",
+      "sourceId": "hkns15",
+      "locator": "Matching implications following Corollary 3.4",
+      "notes": "This reduction goes from the Boolean task to the exact scalar task. It supplies no fixed-accuracy approximation lower bound.",
+      "route": "upper",
+      "kind": "reduction",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "perfect-cover-size",
+      "from": "dyn-perfect",
+      "to": "dyn-cover-size",
+      "short": "test 2τ=n",
+      "consequence": "An exact bipartite minimum-cover-size solver decides bipartite perfect matching.",
+      "transformation": "On the same bipartite graph, König gives τ=ν. Thus a perfect matching exists exactly when 2τ=n; update and preprocessing costs are unchanged.",
+      "sourceId": "hkns15",
+      "locator": "Matching / vertex-cover implications following Corollary 3.4",
+      "notes": "Only scalar optimum values are equated. Explicit matching and cover solutions are not interchanged at zero cost.",
+      "route": "matching-bottom",
+      "kind": "reduction",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "cover-matching-size",
+      "from": "dyn-cover-size",
+      "to": "dyn-matching-size",
+      "short": "König · τ=ν",
+      "consequence": "An exact matching-size solver yields exact bipartite minimum vertex-cover size.",
+      "transformation": "Restrict the matching solver to bipartite input and return the same scalar. No update or preprocessing overhead; O(1) interpretation per query.",
+      "sourceId": "hkns15",
+      "locator": "Matching / vertex-cover paragraph following Corollary 3.4",
+      "notes": "König is a value equivalence on bipartite graphs. The displayed matching solver also handles general graphs; no reverse reduction from general-graph matching to bipartite cover is claimed.",
+      "route": "upper",
+      "kind": "reduction",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "approx-size-exact-size",
+      "from": "dyn-matching-approx-size",
+      "to": "dyn-matching-size",
+      "short": "exact value is an estimate",
+      "consequence": "An exact matching-size algorithm also gives an approximate matching-size answer.",
+      "transformation": "Same graph, same updates and queries; the exact value satisfies every fixed (1+ε) guarantee.",
+      "sourceId": "bks23",
+      "locator": "§1, exact and approximate value problem definitions",
+      "notes": "Benefits travel from exact to approximate; a lower bound for the exact task does not transfer in this direction.",
+      "route": "curve",
+      "kind": "reduction",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "ors-matching-edges",
+      "from": "ors",
+      "to": "dyn-matching-approx-edges",
+      "short": "ORS upper bound ⇒ update bound",
+      "consequence": "A smaller extremal ORS upper bound improves the parameterized update guarantees for explicit approximate matching.",
+      "transformation": "Substitute a valid upper bound for ORS(n,r) at the theorem’s stated linear r. Behnezhad–Ghafari uses r=Θ(ε²n); the later algorithms use a coefficient depending on accuracy and hierarchy/runtime parameters.",
+      "sourceId": "bg24",
+      "locator": "Theorem 1; AKK Result 1 and Theorem 1; MS Theorem 7.4",
+      "notes": "Structural dependence, not an algorithmic solver reduction. This arrow remains fixed when reduction direction is toggled. An ORS lower bound is not a dynamic matching running-time lower bound.",
+      "route": "upper",
+      "kind": "structural",
+      "verifiedOn": "2026-10-27",
+      "fixedDirection": true,
+      "additionalSources": [
+        "akk25",
+        "ms25"
+      ]
+    },
+    {
+      "id": "approx-cover-maximal",
+      "from": "dyn-cover-approx",
+      "to": "dyn-maximal",
+      "short": "take both endpoints · factor 2",
+      "consequence": "Maintaining a maximal matching gives a maintained 2-approximate vertex cover.",
+      "transformation": "Use the same graph and edge updates. For every changed matching edge, update membership of its two endpoints in C. Thus U_cover=O(U_matching+number of reported matching changes). With explicitly maintained matching changes, bookkeeping is absorbed by the maintenance work. Enumerating C costs O(|C|).",
+      "sourceId": "solomon16",
+      "locator": "Abstract / §1 vertex-cover consequence; Theorem 4.7",
+      "notes": "Works on general graphs. Maximality makes C feasible and |C|=2|M|≤2τ. A near-optimal but nonmaximal matching can leave an edge uncovered. No reverse matching algorithm or exact-cover lower bound follows.",
+      "route": "upper",
+      "kind": "reduction",
+      "verifiedOn": "2026-10-27"
     }
   ],
   "groups": [
@@ -1168,6 +1628,12 @@
       "label": "Online matrix products & fully dynamic graphs",
       "top": 775,
       "bottom": 1570
+    },
+    {
+      "id": "matching",
+      "label": "Fully dynamic matching & vertex cover",
+      "top": 1595,
+      "bottom": 2220
     }
   ],
   "dynamicView": {
@@ -1246,6 +1712,85 @@
           0
         ],
         "threshold": 1
+      },
+      {
+        "id": "dyn-perfect",
+        "nodeId": "dyn-perfect",
+        "query": "O(1)",
+        "queryExponent": 0,
+        "algorithmIndices": [
+          0
+        ],
+        "threshold": 1
+      },
+      {
+        "id": "dyn-matching-size",
+        "nodeId": "dyn-matching-size",
+        "query": "O(1)",
+        "queryExponent": 0,
+        "algorithmIndices": [
+          0
+        ],
+        "threshold": 1
+      },
+      {
+        "id": "dyn-cover-size",
+        "nodeId": "dyn-cover-size",
+        "query": "O(1)",
+        "queryExponent": 0,
+        "algorithmIndices": [
+          0
+        ],
+        "threshold": 1
+      },
+      {
+        "id": "dyn-matching-approx-size",
+        "nodeId": "dyn-matching-approx-size",
+        "query": "O(1)",
+        "algorithmIndices": [
+          0
+        ],
+        "threshold": null,
+        "symbolic": true,
+        "barrierNote": "Exact OMv exclusion does not cover this approximation."
+      },
+      {
+        "id": "dyn-matching-approx-edges",
+        "nodeId": "dyn-matching-approx-edges",
+        "query": "Maintained edges; enumeration costs |M|",
+        "algorithmIndices": [
+          0,
+          1,
+          2
+        ],
+        "threshold": null,
+        "symbolic": true,
+        "barrierNote": "Exact OMv exclusion does not cover this approximation."
+      },
+      {
+        "id": "dyn-maximal",
+        "nodeId": "dyn-maximal",
+        "query": "Maintained edges; enumeration O(|M|)",
+        "algorithmIndices": [
+          0
+        ],
+        "threshold": null,
+        "symbolic": true,
+        "barrierNote": "Exact maximum-matching hardness does not apply to maximal matching.",
+        "symbolicCaption": "EXACT UPDATE FORMULAS · averaging and adversary stated per result"
+      },
+      {
+        "id": "dyn-cover-approx",
+        "nodeId": "dyn-cover-approx",
+        "query": "Maintained vertices; enumeration O(|C|)",
+        "algorithmIndices": [
+          0,
+          1
+        ],
+        "threshold": null,
+        "symbolic": true,
+        "barrierNote": "Exact bipartite OMv exclusion does not cover these approximations.",
+        "symbolicCaption": "EXACT UPDATE FORMULAS · averaging and adversary stated per result"
       }
     ]
   }

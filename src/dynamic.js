@@ -38,27 +38,37 @@
     'dynamic-edges-ms25-ors':'Mitrović–Sheu · SPAA 2025'
   };
   const orsRows=o=>orsIds.map(id=>find(id,o)).filter(Boolean);
-  // These are algorithm bounds in an unresolved extremal parameter, not fixed
-  // coordinates on the n-only runtime axis. Keep them in the main figure.
+  // Symbolic intervals propagate published ORS bounds, not runtime lower bounds.
   function orsPanel(px,py,w,h,options={},interactive=false,level='detail'){
     const rows=orsRows(options);if(!rows.length)return '';
     const tiny=level==='overview',compact=level==='compact',large=interactive;
-    const text=(x,y,t,size=11,color='var(--ink)',bold=false)=>`<text x="${x}" y="${y}" style="font:${size}px ui-sans-serif,system-ui,sans-serif;fill:${color};font-weight:${bold?600:400}">${svgMath(t)}</text>`;
-    let s=`<g data-panel="ors" data-axis-type="parameterized" transform="translate(${px} ${py})"><path d="M0 0H${w}" stroke="var(--line)"/>`;
-    if(tiny){rows.forEach((r,i)=>s+=`<circle data-ors-result="${r.id}" cx="${w*(i+1)/(rows.length+1)}" cy="${h/2}" r="2" fill="var(--green)"/>`);return s+'</g>';}
-    s+=text(8,compact?15:21,compact?'ORS · near-optimal edges':'Near-optimal edges · Ordered Ruzsa–Szemerédi graphs',compact?10:large?16:12,'var(--ink)',true);
-    if(!compact)s+=text(8,large?43:39,'Randomized · adaptive adversary · amortized update time',large?12:10,'var(--muted)');
-    const start=compact?32:large?74:62,step=compact?19:large?43:27;
+    const text=(x,y,t,size=11,color='var(--ink)',bold=false,anchor='start')=>`<text x="${x}" y="${y}" text-anchor="${anchor}" style="font:${size}px ui-sans-serif,system-ui,sans-serif;fill:${color};font-weight:${bold?600:400}">${svgMath(t)}</text>`;
+    let s=`<g data-panel="ors" data-axis-type="parameterized-interval" transform="translate(${px} ${py})">`;
+    if(tiny){rows.forEach((r,i)=>{const y=4+i*6;s+=`<g data-ors-result="${r.id}"><path d="M${w*.2} ${y}H${w*.94}" stroke="var(--green)" stroke-width="2" opacity=".6"/><circle cx="${w*.2}" cy="${y}" r="1.8" fill="var(--surface)" stroke="var(--green)"/><circle cx="${w*.94}" cy="${y}" r="1.8" fill="var(--surface)" stroke="var(--green)"/></g>`;});return s+'</g>';}
+    s+=text(8,compact?13:21,compact?'ORS · update-bound intervals':'Near-optimal matching · ORS update-bound intervals',compact?10:large?17:13,'var(--ink)',true);
+    if(!compact){
+      s+=text(8,large?43:39,'Published ORS range:  L = n^{Ω_c(1/log log n)}     to     U = O(n / log^{(poly(1/c))} n)',large?12:9,'var(--muted)');
+      if(large)s+=text(8,62,'R = ORSₙ(cn) · randomized · adaptive · amortized · fixed accuracy ε',12,'var(--muted)');
+    }
+    const start=compact?31:large?92:63,step=compact?25:large?76:48;
     rows.forEach((r,i)=>{
-      const y=start+i*step,label=compact?orsLabels[r.id].replace(' · FOCS ',' ’').replace(' · SODA ',' ’').replace(' · SPAA ',' ’').replace('202','2'):orsLabels[r.id];
-      s+=`<g class="d-plot-result" data-dynamic-result="${r.id}" data-ors-result="${r.id}"${interactive?' role="button" tabindex="0"':''} aria-label="${esc(orsLabels[r.id]+': '+r.formula+'; '+r.updateTime+'. Inspect theorem.')}" aria-pressed="${options.selected===r.id}"><title>${esc(r.title+' · '+r.authors+' · '+r.updateTime)}</title><circle cx="12" cy="${y-4}" r="${large?5:3.5}" fill="var(--green)"/>`;
-      s+=text(24,y,label,compact?9:large?14:11,'var(--green)',true);
-      if(!compact){s+=text(w*.47,y,r.updateTime,large?13:11,'var(--green)');if(large)s+=text(24,y+17,'β = '+r.formula,11,'var(--muted)');}
+      const y=start+i*step,q=r.orsInterval,label=compact?orsLabels[r.id].split(' · ')[0]:orsLabels[r.id];
+      const x0=compact?w*.63:large?w*.43:w*.53,x1=w-18,barY=y+(compact?-4:large?24:14);
+      s+=`<g class="d-plot-result d-ors-interval" data-dynamic-result="${r.id}" data-ors-result="${r.id}" data-interval-kind="range-of-theorem-bound"${interactive?' role="button" tabindex="0"':''} aria-label="${esc(orsLabels[r.id]+': '+r.updateTime+'. Range from '+q.lowerEndpoint+' to '+q.upperEndpoint+'. Not a runtime lower bound. Inspect theorem.')}" aria-pressed="${options.selected===r.id}"><title>${esc(r.title+' · '+r.updateTime+' · '+q.meaning)}</title>`;
+      s+=`<rect x="2" y="${y-17}" width="${w-4}" height="${step-3}" rx="5" fill="var(--green)" opacity="${options.selected===r.id ? .09 : .025}"/>`;
+      s+=text(12,y,label,compact?8.5:large?14:10,'var(--green)',true);
+      if(!compact){s+=text(12,y+(large?20:15),'β = '+r.formula,large?11:9,'var(--muted)');s+=text(x0,y,q.boundFunction,large?13:10,'var(--green)');}
+      s+=`<path class="d-ors-band" d="M${x0} ${barY}H${x1}" stroke="var(--green)" stroke-width="${compact?5:7}" opacity=".2"/><path d="M${x0} ${barY}H${x1}" stroke="var(--green)" stroke-width="1.5" stroke-dasharray="5 3"/><circle cx="${x0}" cy="${barY}" r="${compact?2.7:4}" fill="var(--surface)" stroke="var(--green)" stroke-width="1.5"/><circle cx="${x1}" cy="${barY}" r="${compact?2.7:4}" fill="var(--surface)" stroke="var(--green)" stroke-width="1.5"/>`;
+      if(!compact){s+=text(x0,barY+18,q.displayLower,large?11:9,'var(--green)');s+=text(x1,barY+18,q.displayUpper,large?11:9,'var(--green)',false,'end');if(large)s+=text(12,y+53,q.factorNote,10,'var(--muted)');}
       s+='</g>';
     });
-    if(!compact){s+=text(8,h-23,'ORSₙ(r): maximum number of ordered induced matchings of size r.',large?11:9,'var(--muted)');s+=text(8,h-8,'The linear-size parameter differs by theorem; exact dependence is in the paper links.',large?11:9,'var(--muted)');}
+    if(!compact){s+=text(8,h-22,'L and U bound ORS; intervals show the algorithm-bound range, not runtime lower bounds.',large?11:9,'var(--muted)');s+=text(8,h-7,'Schematic lengths; fixed ε, δ. Exact F(L), F(U) in details. log⁽ᵏ⁾ means iterated log.',large?11:9,'var(--muted)');}
     return s+'</g>';
-  }
+}
+  function intervalHTML(r){
+  const q=r.orsInterval;if(!q)return '';
+  return `<div class="d-interval-explanation"><strong>Published ORS range → update-bound interval</strong><p>${math(q.lower)}; ${math(q.upper)}. L ≤ R ≤ U.</p><p>${math(q.lowerEndpoint)} ↔ ${math(q.upperEndpoint)}.</p><p>${esc(q.meaning)}</p><p>${esc(q.displayNote)}</p><p>${math(q.factorNote)} · <a href="${esc(q.rangeSourceUrl)}" target="_blank" rel="noopener noreferrer">ORS bounds and sources ↗</a>${q.formulaSourceUrl?` · <a href="${esc(q.formulaSourceUrl)}" target="_blank" rel="noopener noreferrer">Parameterized formula ↗</a>`:''}</p></div>`;
+}
   function marker(px,py,rows,selected,mini=false){
     const edge=rows.some(r=>r.outputKey==='dynamic-edges'),size=rows.some(r=>r.outputKey==='dynamic-size'),limit=rows.every(r=>r.ratioIsLimit),mixed=rows.some(r=>r.ratioIsLimit)&&!limit,oblivious=rows.every(r=>r.adversary==='oblivious'),r=mini?3:5;
     const common=`data-center-x="${px}" data-center-y="${py}" fill="${limit?'var(--surface)':E}" stroke="${E}" stroke-width="${mini?1.4:2}" ${oblivious?'stroke-dasharray="2 1"':''}`;
@@ -69,7 +79,9 @@
     const text=(px,py,t,cls='',anchor='start')=>`<text x="${px}" y="${py}" class="${cls}" text-anchor="${anchor}">${svgMath(t)}</text>`;
     const lanes=[{y:58,t:'O_ε(n)'},{y:111,t:'n / (log* n)^{Ω(1)}'},{y:159,t:'n / 2^{Ω(√log n)}'},{y:220,t:'n^{1−Ω_ε(1)}',note:'exponent unspecified'},{y:284,t:'n^{1/2+o(1)}'},{y:337,t:'Õ(√n)'},{y:393,t:'Õ(n^{1/3})'},{y:447,t:'Õ(n^{1/4})'},{y:500,t:'Õ(n^{δ})',note:'any small fixed δ > 0'},{y:559,t:'polylog n / O(1)'}];
     const hasOrs=orsRows(options).length>0;
-    let svg=`<svg class="d-map" viewBox="0 0 1100 ${hasOrs?920:666}" role="img" aria-label="Fully dynamic matching: approximation versus update time, with a main panel for ORS-dependent algorithms. Green circles maintain edges and squares estimate size. Red is reserved for separately scoped lower bounds."><title>Fully dynamic matching — approximation, update time and ORS-dependent algorithms</title><desc>General unweighted graphs, edge insertions and deletions. Runtime lanes are schematic asymptotic bounds. Open points show limiting approximation ratios. The near-optimal column approaches one. The ORS panel includes Behnezhad–Ghafari 2024 and subsequent algorithms without assigning an unsupported n exponent.</desc>`;
+    let svg=`<svg class="d-map" viewBox="0 0 1100 ${hasOrs?1054:666}" role="img" aria-label="Fully dynamic matching: approximation versus update time, with a main panel for ORS-dependent algorithms. Green circles maintain edges and squares estimate size. Red is reserved for separately scoped lower bounds."><title>Fully dynamic matching — approximation, update time and ORS-dependent algorithms</title><desc>General unweighted graphs, edge insertions and deletions. Runtime lanes are schematic asymptotic bounds. Open points show limiting approximation ratios. The near-optimal column approaches one. The ORS panel includes Behnezhad–Ghafari 2024 and subsequent algorithms without assigning an unsupported n exponent.</desc>`;
+    if(hasOrs)svg+=orsPanel(18,8,1064,370,options,true);
+    svg+=`<g transform="translate(0 ${hasOrs?388:0})">`;
     svg+=`<rect x="185" y="193" width="845" height="52" rx="5" fill="${S}" opacity=".045"/><rect x="185" y="86" width="845" height="96" rx="5" fill="var(--ink)" opacity=".025"/>`;
     svg+=text(12,18,'UPDATE TIME','d-axis-title')+text(1024,18,'Better approximation →','d-muted','end');
     for(const l of lanes){
@@ -97,13 +109,13 @@
     if(blm)svg+=`<g class="d-plot-result" role="button" tabindex="0" data-dynamic-result="${blm.id}" aria-label="BLM 2020: symbolic improvement above one half in n to delta update time" style="--d-marker:${E}"><path d="M225 500h45m-6-4l6 4-6 4" fill="none" stroke="${E}" stroke-width="1.7" stroke-dasharray="3 2"/><text x="289" y="497" class="d-paper-label" fill="${E}">BLM’20<tspan x="289" dy="17" class="d-point-formula">½ + Ωδ(1) · symbolic family, oblivious</tspan></text></g>`;
     svg+=text(590,109,'Slightly sublinear','d-region')+text(590,126,'subpolynomial savings','d-micro');
     svg+=text(590,215,'Polynomial savings','d-region')+text(590,232,'ε-dependent exponent; lane is schematic','d-micro');
-    if(hasOrs)svg+=orsPanel(18,688,1064,224,options,true);
+    svg+='</g>';
     svg+=`</svg>`;return svg;
   }
   function summarySVG(key,w,h,options={}){
     const level=options.level||(w<220||h<140?'overview':w<420||h<240?'compact':'detail'),tiny=level==='overview',full=level==='detail';
-    const orsHeight=orsRows(options).length?(tiny?16:full?182:96):0;
-    const l=tiny?10:full?65:22,r=Math.max(l+8,w-(tiny?10:20)),top=tiny?10:full?39:15,bottom=Math.max(top+8,h-orsHeight-(tiny?12:full?48:31));
+    const orsHeight=orsRows(options).length?(tiny?24:full?250:110):0;
+    const l=tiny?10:full?65:22,r=Math.max(l+8,w-(tiny?10:20)),top=orsHeight+(tiny?10:full?39:15),bottom=Math.max(top+8,h-(tiny?12:full?48:31));
     const px=v=>l+(x(v)-185)/845*(r-l),py=v=>top+(v-32)/585*(bottom-top);
     let groups=specs.map(spec=>({spec,rows:groupRows(spec,{...options,output:'both'})})).filter(g=>g.rows.length);
     if(tiny){const keep=['dynamic-edges-gp13','bks2023-size','dynamic-edges-gssu22','dynamic-edges-bk22-k2','dynamic-edges-bk22-k3','dynamic-edges-bgs11','abr2024-size'];groups=groups.filter(g=>keep.includes(g.spec.ids[0]));}
@@ -112,11 +124,11 @@
     for(const g of groups){const cx=px(g.spec.beta),cy=py(g.spec.y);svg+=tiny?`<circle cx="${cx}" cy="${cy}" r="2.2" fill="var(--green)"/>`:marker(cx,cy,g.rows,false,true);}
     if(!tiny)svg+=`<text x="${px(.5)}" y="${bottom+19}" text-anchor="middle">½</text><text x="${px(1)}" y="${bottom+19}" text-anchor="middle">→1</text>`;
     if(full){
-      svg+=`<text x="${l}" y="20">Dynamic matching</text><text x="${l-8}" y="${py(58)+4}" text-anchor="end">n</text><text x="${l-8}" y="${py(337)+4}" text-anchor="end">√n</text><text x="${l-8}" y="${py(559)+4}" text-anchor="end">polylog</text><text x="${px(2/3)}" y="${bottom+19}" text-anchor="middle">⅔</text><text x="${(l+r)/2}" y="${h-orsHeight-7}" text-anchor="middle">Approximation β → · faster ↓</text>`;
+      svg+=`<text x="${l}" y="${orsHeight+20}">Dynamic matching</text><text x="${l-8}" y="${py(58)+4}" text-anchor="end">n</text><text x="${l-8}" y="${py(337)+4}" text-anchor="end">√n</text><text x="${l-8}" y="${py(559)+4}" text-anchor="end">polylog</text><text x="${px(2/3)}" y="${bottom+19}" text-anchor="middle">⅔</text><text x="${(l+r)/2}" y="${h-7}" text-anchor="middle">Approximation β → · faster ↓</text>`;
       const names={'dynamic-edges-gp13':'GP’13','dynamic-edges-abkl23':'Assadi et al. · STOC’23','bks2023-size':'BKS’23','dynamic-edges-gssu22':'GSSU’22','dynamic-edges-bk22-k2':'BK’22','dynamic-edges-bk22-k3':'BK’22','abr2024-size':'ABR’23'};
       for(const g of groups){const label=names[g.spec.ids[0]];if(label)svg+=`<text class="summary-paper" x="${px(g.spec.beta)-8}" y="${py(g.spec.y)-8}" text-anchor="end" style="fill:var(--green)">${label}</text>`;}
     }
-    if(orsHeight)svg+=orsPanel(tiny?6:12,h-orsHeight,w-(tiny?12:24),orsHeight-4,options,false,level);
+    if(orsHeight)svg+=orsPanel(tiny?6:12,0,w-(tiny?12:24),orsHeight-4,options,false,level);
     return svg+'</svg>';
   }
   function mount(root,key,options={}){
@@ -136,7 +148,7 @@
     function detail(){
       const rows=records(opts()),r=rows.find(r=>r.id===selected);if(!r)return;
       const group=specs.find(s=>s.ids.includes(selected)),siblings=group?groupRows(group,opts()):[r];
-      root.querySelector('.d-theorem').innerHTML=`<div class="d-theorem-top"><span class="d-type ${r.kind==='conditional_barrier'?'d-lower-type':r.outputKey==='dynamic-size'?'d-size-type':''}">${r.kind==='conditional_barrier'?'Conditional lower bound · exact only':r.outputKey==='dynamic-size'?'Size estimate':'Matching edges'}${r.plotScope==='bipartite'?' · BIPARTITE ONLY':''}</span><strong>${esc(r.rowName||r.title)}</strong>${source(r,'Read paper')}<span>${esc(r.dateLabel||r.year)}</span></div>${siblings.length>1?`<div class="d-coincident"><span>At this location:</span>${siblings.map(s=>`<button type="button" data-dynamic-result="${s.id}" aria-pressed="${s.id===selected}">${esc(s.rowName)}${s.outputKey==='dynamic-size'?' · size':''}</button>`).join('')}</div>`:''}<div class="d-detail-grid"><div><span>Guaranteed fraction</span><strong>${math(r.formula||'See theorem')}</strong></div><div><span>Original update cost</span><strong>${math(r.updateTime||r.bound||'See theorem')}</strong></div><div><span>Conditions</span><strong>${esc(r.timeType||'See theorem')} · ${esc(r.adversary||'See theorem')} · ${esc(r.randomization||'See theorem')}</strong></div></div><p>${esc(r.statement||r.summary)}</p><details class="d-theorem-more"><summary>Read assumptions, reporting cost &amp; source</summary><h3>${esc(r.title)}</h3><p>${esc(r.authors)}</p><p>${esc(r.notes)}</p><p><b>Query / reporting:</b> ${esc(r.queryTime||'See theorem; reporting an entire matching has a separate output cost.')}</p><p>${source(r)} · ${esc(r.sourceLocation)}</p></details>`;
+      root.querySelector('.d-theorem').innerHTML=`<div class="d-theorem-top"><span class="d-type ${r.kind==='conditional_barrier'?'d-lower-type':r.outputKey==='dynamic-size'?'d-size-type':''}">${r.kind==='conditional_barrier'?'Conditional lower bound · exact only':r.outputKey==='dynamic-size'?'Size estimate':'Matching edges'}${r.plotScope==='bipartite'?' · BIPARTITE ONLY':''}</span><strong>${esc(r.rowName||r.title)}</strong>${source(r,'Read paper')}<span>${esc(r.dateLabel||r.year)}</span></div>${siblings.length>1?`<div class="d-coincident"><span>At this location:</span>${siblings.map(s=>`<button type="button" data-dynamic-result="${s.id}" aria-pressed="${s.id===selected}">${esc(s.rowName)}${s.outputKey==='dynamic-size'?' · size':''}</button>`).join('')}</div>`:''}<div class="d-detail-grid"><div><span>Guaranteed fraction</span><strong>${math(r.formula||'See theorem')}</strong></div><div><span>Original update cost</span><strong>${math(r.updateTime||r.bound||'See theorem')}</strong></div><div><span>Conditions</span><strong>${esc(r.timeType||'See theorem')} · ${esc(r.adversary||'See theorem')} · ${esc(r.randomization||'See theorem')}</strong></div></div><p>${esc(r.statement||r.summary)}</p>${intervalHTML(r)}<details class="d-theorem-more"><summary>Read assumptions, reporting cost &amp; source</summary><h3>${esc(r.title)}</h3><p>${esc(r.authors)}</p><p>${esc(r.notes)}</p><p><b>Query / reporting:</b> ${esc(r.queryTime||'See theorem; reporting an entire matching has a separate output cost.')}</p><p>${source(r)} · ${esc(r.sourceLocation)}</p></details>`;
     }
     function render(){
       const rows=records(opts());if(!rows.some(r=>r.id===selected))selected=rows[0]?.id;

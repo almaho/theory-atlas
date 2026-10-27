@@ -7,8 +7,8 @@ vm.runInNewContext(fs.readFileSync(path.join(root,'src/fine-grained.js'),'utf8')
 const api=context.window.FineGrainedModel;
 for(const e of data.edges){
  assert.deepEqual(JSON.parse(JSON.stringify(api.direction(e,'reduction'))),{from:e.from,to:e.to});
- assert.deepEqual(JSON.parse(JSON.stringify(api.direction(e,'algorithm'))),{from:e.to,to:e.from});
- assert(api.consequences(e.to,'algorithm').some(x=>x.id===e.id));
+ assert.deepEqual(JSON.parse(JSON.stringify(api.direction(e,'algorithm'))),e.kind==='structural'?{from:e.from,to:e.to}:{from:e.to,to:e.from});
+ assert(api.consequences(e.kind==='structural'?e.from:e.to,'algorithm').some(x=>x.id===e.id));
 }
 assert(!data.edges.some(e=>e.from==='3sum'&&e.to==='triangle'),'Listing hardness must never become detection hardness');
 assert(data.edges.find(e=>e.id==='minplus-negtri').consequence.includes('δ/3'));
@@ -64,10 +64,9 @@ assert.equal(dynamic.length,9);
 assert.equal(api.updateRows(dynamic).length,7);
 assert.equal(api.updateRows(api.visibleNodes('weighted','')).length,0);
 for(const row of data.dynamicView.rows){
- const n=dynamic.find(n=>n.id===row.nodeId);
- assert(row.queryExponent<n.lower.queryCeilingExponent,'Query must be polynomially below the joint exclusion threshold');
- assert.equal(row.threshold,n.lower.threshold);
- for(const index of row.algorithmIndices)assert(n.baselines[index].updateExponent>=row.threshold);
+ const n=data.nodes.find(n=>n.id===row.nodeId);
+ if(row.threshold!=null){assert(row.queryExponent<n.lower.queryCeilingExponent,'Query must be polynomially below the joint exclusion threshold');assert.equal(row.threshold,n.lower.threshold);}
+ for(const index of row.algorithmIndices){const a=n.baselines[index];if(a.symbolic)assert.equal(a.updateExponent,undefined,'Do not invent a numerical ORS/epsilon exponent');else if(row.threshold!=null)assert(a.updateExponent>=row.threshold);}
 }
 assert.equal(data.nodes.find(n=>n.id==='dyn-closure').baselines[0].query,'O(n^{1.407})');
 assert(data.nodes.find(n=>n.id==='dyn-diameter').contract.includes('D/α≤D̂≤D'));
@@ -80,5 +79,60 @@ for(const [u,q,updateCount,queryCount,total] of [[1,2,2,1,3],[.5,1,1,.5,1.5],[.5
  assert.equal(Math.max(updateCount+u-.1,queryCount+q),total);
 }
 assert(html.includes('id="updates"')&&html.includes('Row-specific query guarantees'));
-console.log('Fine-grained PASS: '+data.nodes.length+' nodes; '+data.edges.length+' reversible relations; 7 query-scoped update rows; '+checked+' diameter gadgets; '+dynamicChecked+' fully dynamic OuMv gadget states; strict joint-exponent exclusions, hypothesis and source guards.');
 
+// Independently check matching and cover optima, terminal updates, and dense padding.
+function matchingSize(edges,left){const adj=new Map(left.map(v=>[v,[]]));for(const [u,v] of edges)adj.get(u).push(v);const mate=new Map();function augment(u,seen){for(const v of adj.get(u)){if(seen.has(v))continue;seen.add(v);if(!mate.has(v)||augment(mate.get(v),seen)){mate.set(v,u);return true}}return false}let size=0;for(const u of left)if(augment(u,new Set()))size++;return size;}
+function minCoverSize(edges){if(!edges.length)return 0;const [u,v]=edges[0];return 1+Math.min(minCoverSize(edges.filter(e=>!e.includes(u))),minCoverSize(edges.filter(e=>!e.includes(v))));}
+let matchingChecked=0;
+for(let matrix=0;matrix<16;matrix++){
+ const edgeMap=new Map();const change=(u,v,on)=>{const key=u+','+v;if(on)edgeMap.set(key,[u,v]);else edgeMap.delete(key)};
+ for(let v=1;v<=4;v++)change(v,v+4,true);
+ for(let i=0;i<2;i++)for(let j=0;j<2;j++)if(matrix&(1<<(2*i+j)))change(1+i,7+j,true);
+ for(const pair of [...Array(16).keys(),...Array(16).keys()].map((x,i)=>i<16?x:15-x)){
+  const u=pair>>2,v=pair&3;
+  for(let i=0;i<2;i++){change(0,5+i,Boolean(u&(1<<i)));change(3+i,9,Boolean(v&(1<<i)));}
+  let bit=0;for(let i=0;i<2;i++)for(let j=0;j<2;j++)if((u&(1<<i))&&(matrix&(1<<(2*i+j)))&&(v&(1<<j)))bit=1;
+  const edges=[...edgeMap.values()],size=matchingSize(edges,[0,1,2,3,4]),cover=minCoverSize(edges);
+  assert.equal(size,4+bit);assert.equal(cover,size);assert.equal(size===5,Boolean(bit));
+  const padded=edges.concat([[10,12],[10,13],[11,12],[11,13]]),paddedSize=matchingSize(padded,[0,1,2,3,4,10,11]);
+  assert.equal(paddedSize,6+bit);assert.equal(minCoverSize(padded),paddedSize);assert.equal(paddedSize===7,Boolean(bit));
+  matchingChecked++;
+ }
+}
+assert.equal(minCoverSize([[0,1],[1,2],[0,2]]),2,'Triangle cover size differs from matching size 1');
+// On every graph on four vertices, greedily form a maximal matching and
+// independently verify that its endpoints cover all edges within factor two.
+for(let mask=0;mask<64;mask++){
+ const pairs=[[0,1],[0,2],[0,3],[1,2],[1,3],[2,3]],edges=pairs.filter((_,i)=>mask&(1<<i)),endpoints=new Set();
+ for(const [u,v] of edges)if(!endpoints.has(u)&&!endpoints.has(v)){endpoints.add(u);endpoints.add(v);}
+ assert(edges.every(([u,v])=>endpoints.has(u)||endpoints.has(v)));
+ assert(endpoints.size<=2*minCoverSize(edges));
+}
+// A good but nonmaximal matching can leave an edge uncovered.
+const almostMatchingEdges=Array.from({length:10},(_,i)=>[2*i,2*i+1]);
+const almostEndpoints=new Set(almostMatchingEdges.slice(0,9).flat());
+assert(!almostMatchingEdges.every(([u,v])=>almostEndpoints.has(u)||almostEndpoints.has(v)));
+
+assert((2*100+1)/(2*100)<1.01,'The exact unit gap cannot enforce fixed 1.01 accuracy');
+for(const id of ['dyn-matching-approx-size','dyn-matching-approx-edges','ors'])assert.equal(data.nodes.find(n=>n.id===id).lower,null);
+assert.equal(data.nodes.find(n=>n.id==='dyn-matching-size').baselines[0].updateExponent,1.405);
+assert(data.nodes.find(n=>n.id==='dyn-cover-size').contract.includes('bipartite'));
+assert(!data.edges.some(e=>e.from==='dyn-matching-size'&&e.to==='dyn-cover-size'),'Do not imply general matching reduces to bipartite cover');
+const structural=data.edges.find(e=>e.id==='ors-matching-edges');
+assert.equal(structural.kind,'structural');assert.equal(structural.fixedDirection,true);
+for(const mode of ['algorithm','reduction'])assert.deepEqual(JSON.parse(JSON.stringify(api.direction(structural,mode))),{from:'ors',to:'dyn-matching-approx-edges'});
+assert(!api.consequences('dyn-matching-approx-edges','algorithm').some(e=>e.id===structural.id));
+assert.equal(api.updateRows(api.visibleNodes('matching','')).length,7);
+assert(html.includes('no numerical exponent assigned'));
+assert(!html.includes('All green updates are worst-case'));
+console.log('Fine-grained PASS: '+data.nodes.length+' nodes; '+data.edges.length+' connections; '+data.dynamicView.rows.length+' query-scoped update rows; '+checked+' diameter gadgets; '+dynamicChecked+' fully dynamic OuMv states; '+matchingChecked+' independent matching/cover states with dense padding; structural direction and approximation-scope guards.');
+
+const coverEdge=data.edges.find(e=>e.id==='approx-cover-maximal');
+assert.deepEqual(JSON.parse(JSON.stringify(api.direction(coverEdge,'algorithm'))),{from:'dyn-maximal',to:'dyn-cover-approx'});
+assert(coverEdge.notes.includes('nonmaximal'));
+const maintainedCover=data.nodes.find(n=>n.id==='dyn-cover-approx');
+assert.equal(maintainedCover.lower,null);
+assert(maintainedCover.baselines[0].guarantee.includes('oblivious'));
+assert(maintainedCover.baselines[1].bound.includes('1/ε²'));
+assert(maintainedCover.related[0].detail.includes('does not maintain solution changes'));
+assert(maintainedCover.baselines.every(a=>a.query.includes('enumeration O(|C|)')));
