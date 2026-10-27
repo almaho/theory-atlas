@@ -47,8 +47,8 @@ def build_fine_grained(root, write=True):
         payload = json.dumps(data, ensure_ascii=False, separators=(',', ':')).replace('<', '\\u003c').replace('&', '\\u0026')
         for marker in ('/* FG_CSS */', '/* FG_JS */', '/* FG_DATA */'):
             assert template.count(marker) == 1
-        html = template.replace('/* FG_CSS */', (root / 'src/fine-grained.css').read_text())
-        html = html.replace('/* FG_JS */', (root / 'src/fine-grained.js').read_text()).replace('/* FG_DATA */', payload)
+        html = template.replace('/* FG_CSS */', (root / 'src/fine-grained.css').read_text() + '\n' + (root / 'src/paper-links.css').read_text())
+        html = html.replace('/* FG_JS */', (root / 'src/fine-grained.js').read_text() + '\n' + (root / 'src/paper-links.js').read_text()).replace('/* FG_DATA */', payload)
         (root / 'dist').mkdir(exist_ok=True)
         (root / 'dist/fine-grained.html').write_text(html)
     print(f'Fine-grained: {len(nodes)} problems; {len(data["edges"])} directed reductions; {len(sources)} sources.')

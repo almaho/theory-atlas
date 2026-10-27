@@ -17,10 +17,10 @@
     <div class="global-search"><label for="global-query">Find a paper or result across the atlas</label><input id="global-query" type="search" autocomplete="off" placeholder="Title, author, theorem, bound, access model…"><span id="global-hint"></span></div>
     <section id="global-results" hidden aria-label="Atlas search results"></section>
     <nav id="featured-settings" class="featured-settings" aria-label="Featured problem and model figures"></nav>
-    <div class="locator"><strong id="location">Problem × model</strong><span>Click a plot to zoom · scroll or pinch to zoom · drag to pan</span></div>
-    <section id="stage" aria-label="Zoomable problem and model landscape"></section>
+    <div class="locator"><strong id="location">Problem × model</strong><span>Choose a figure · surroundings fade as you zoom · Overview returns to all pairs</span></div>
+    <div class="atlas-canvas"><section id="stage" aria-label="Zoomable problem and model landscape"></section>
+    <section id="detail" hidden aria-label="Selected problem and model"></section></div>
     <div class="legend"><span><i class="key green"></i>Upper bound / algorithm</span><span><i class="key red"></i>Lower bound</span><span><i class="key gray"></i>Open / incomparable</span><span class="hint">Colored regions use the selected setting; symbolic settings show evidence lanes.</span></div>
-    <section id="detail" hidden aria-label="Selected problem and model"></section>
     <footer><span id="live" aria-live="polite">Select a plot to examine results.</span><span id="coverage"></span></footer>
   </main>
   <script id="atlas-data" type="application/json">/* ATLAS_DATA */</script>

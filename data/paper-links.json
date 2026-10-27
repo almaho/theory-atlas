@@ -1,0 +1,106 @@
+{
+  "reviewedOn": "2026-10-27",
+  "note": "Supplementary arXiv identities checked against primary arXiv title/author metadata. Original theorem citations and version-specific URLs are retained.",
+  "papers": [
+    {
+      "title": "Maximum Matching Sans Maximal Matching: A New Approach for Finding Maximum Matchings in the Data Stream Model",
+      "url": "https://arxiv.org/abs/2109.05946"
+    },
+    {
+      "title": "On Regularity Lemma and Barriers in Streaming and Dynamic Matching",
+      "url": "https://arxiv.org/abs/2207.09354"
+    },
+    {
+      "title": "Independent Sets in Vertex-Arrival Streams",
+      "url": "https://arxiv.org/abs/1807.08331"
+    },
+    {
+      "title": "Static to Dynamic Correlation Clustering",
+      "url": "https://arxiv.org/abs/2504.12060"
+    },
+    {
+      "title": "Sublinear Time and Space Algorithms for Correlation Clustering via Sparse-Dense Decompositions",
+      "url": "https://arxiv.org/abs/2109.14528"
+    },
+    {
+      "title": "Massively Parallel Correlation Clustering in Bounded Arboricity Graphs",
+      "url": "https://arxiv.org/abs/2102.11660"
+    },
+    {
+      "title": "When Algorithms for Maximal Independent Set and Maximal Matching Run in Sublinear Time",
+      "url": "https://arxiv.org/abs/2006.07628"
+    },
+    {
+      "title": "Query Lower Bounds for Correlation Clustering under Memory Constraints",
+      "url": "https://arxiv.org/abs/2605.23104"
+    },
+    {
+      "title": "Correlation Clustering with Adaptive Similarity Queries",
+      "url": "https://arxiv.org/abs/1905.11902"
+    },
+    {
+      "title": "Sparsity-Parameterised Dynamic Edge Colouring",
+      "url": "https://arxiv.org/abs/2311.10616"
+    },
+    {
+      "title": "Arboricity-Dependent Algorithms for Edge Coloring",
+      "url": "https://arxiv.org/abs/2311.08367"
+    },
+    {
+      "title": "Faster Dynamic (Δ+1)-Coloring Against Adaptive Adversaries",
+      "url": "https://arxiv.org/abs/2504.19729"
+    },
+    {
+      "title": "Density-Sensitive Algorithms for (Δ+1)-Edge Coloring",
+      "url": "https://arxiv.org/abs/2307.02415"
+    },
+    {
+      "title": "Faster Deterministic Streaming Vertex Coloring",
+      "url": "https://arxiv.org/abs/2605.07644"
+    },
+    {
+      "title": "Adversarially Robust Coloring for Graph Streams",
+      "url": "https://arxiv.org/abs/2109.11130"
+    },
+    {
+      "title": "Distributed (Δ+1)-Coloring in Linear (in Δ) Time",
+      "url": "https://arxiv.org/abs/0812.1379"
+    },
+    {
+      "title": "Graph Coloring via Degeneracy in Streaming and Other Space-Conscious Models",
+      "url": "https://arxiv.org/abs/1905.00566"
+    },
+    {
+      "title": "A New Impossibility Result for Online Bipartite Matching Problems",
+      "url": "https://arxiv.org/abs/2504.14251"
+    },
+    {
+      "title": "Online Matching with General Arrivals",
+      "url": "https://arxiv.org/abs/1904.08255"
+    },
+    {
+      "title": "Improved Bounds for Online Preemptive Matching",
+      "url": "https://arxiv.org/abs/1207.1788"
+    },
+    {
+      "title": "Online Maximum Matching with Recourse",
+      "url": "https://arxiv.org/abs/1801.03462"
+    },
+    {
+      "title": "Query Efficient Weighted Stochastic Matching",
+      "url": "https://arxiv.org/abs/2311.08513"
+    },
+    {
+      "title": "Towards a Unified Theory of Sparsification for Matching Problems",
+      "url": "https://arxiv.org/abs/1811.02009"
+    },
+    {
+      "title": "On Sparsification of Stochastic Packing Problems",
+      "url": "https://arxiv.org/abs/2211.07829"
+    },
+    {
+      "title": "Correlation Clustering in Data Streams",
+      "url": "https://arxiv.org/abs/1812.02023"
+    }
+  ]
+}

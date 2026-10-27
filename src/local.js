@@ -100,7 +100,7 @@
         if(rich&&labelFits&&rowSpace>=23&&r.summaryNote)s+=text(x+6,y+14,r.summaryNote,'loc-summary-scope');
         s+='</g>';
       }
-      if(!tiny)s+=text(xx(565),region.b+15,full?'X: deterministic':'Det.','loc-summary-note','middle')+text(xx(880),region.b+15,full?'Randomized':'Rand.','loc-summary-note','middle');
+      if(!tiny&&(full||p===graph.panels.at(-1)))s+=text(xx(565),region.b+15,full?'X: deterministic':'Det.','loc-summary-note','middle')+text(xx(880),region.b+15,full?'Randomized':'Rand.','loc-summary-note','middle');
       s+='</g>';cursor=region.b+gap;
     }
     return s+'</svg>';

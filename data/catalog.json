@@ -190,7 +190,8 @@
         "interface": "Combined / other oracle",
         "operations": "Exact oracle combination or communication interface specified by each setting",
         "resource": "Queries, communication bits, or rounds as stated"
-      }
+      },
+      "visible": false
     }
   ],
   "relations": [

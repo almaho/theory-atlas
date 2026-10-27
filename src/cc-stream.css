@@ -7,3 +7,6 @@
 .cc-stream-summary[data-detail-level=detail] .cc-stream-source,.cc-stream-summary[data-detail-level=detail] .cc-stream-point-label,.cc-stream-summary[data-detail-level=detail] .cc-stream-axis-title{font-size:10px}
 .cc-stream-summary[data-detail-level=detail] .cc-stream-tick{font-size:11px}
 .cc-stream-summary[data-detail-level=detail] .cc-stream-note{font-size:9px}
+
+/* Keep algorithm green visible even when setup outlines are scaled to thumbnails. */
+.cc-stream-summary .cc-stream-upper{stroke-width:.7}.cc-stream-summary .cc-stream-scope-node{stroke-width:1.1}.cc-stream-summary .cc-stream-turnstile-marker{stroke-width:1}

@@ -92,7 +92,7 @@
         if(rich&&r.id==='mpc-cdp24-maximal')s+=text(x+7,y+15,'component-unstable','mpc-summary-scope');
         s+='</g>';
       }
-      if(!tiny){
+      if(!tiny&&(full||p===graph.panels.at(-1))){
         s+=svgFormula(xx(550),region.b+16,full?'n^δ · strongly sublinear':'n^δ','mpc-summary-note','middle')+text(xx(880),region.b+16,full?'Near-linear':'≈ n','mpc-summary-note','middle');
         if(full)s+=text(region.r,region.b+31,'X · per-machine memory','mpc-summary-axis','end','data-axis="x"');
         if(full&&!rich)s+=`<text data-axis="y" class="mpc-summary-axis" text-anchor="middle" transform="translate(11 ${(region.t+region.b)/2}) rotate(-90)">Y · round bounds</text>`;

@@ -259,12 +259,14 @@ def main():
         require(r.get("resourceLane") in {c["id"] for c in axes.get("y", {}).get("categories", [])}, f"Unrecorded adjacency-list resource category: {r['id']}")
     focus["query-list"] = query_list
     pairs = load_pairs(focus, catalog, research)
-    project = {**catalog, "research": research, "focus": focus, "focusPairs": pairs, "reviewedThrough": max(d["reviewedThrough"] for d in research)}
+    visible_models = [m for m in catalog["models"] if m.get("visible", True)]
+    project = {**catalog, "models": visible_models, "paperLinks": json.loads((DATA / "paper-links.json").read_text()), "research": research, "focus": focus, "focusPairs": pairs, "reviewedThrough": max(d["reviewedThrough"] for d in research)}
     if not args.check:
         template = (ROOT / "src" / "index.html").read_text()
         css = (ROOT / "src" / "style.css").read_text() + "\n" + (ROOT / "src" / "focus.css").read_text() + "\n" + (ROOT / "src" / "dynamic.css").read_text() + "\n" + (ROOT / "src" / "streaming.css").read_text() + "\n" + (ROOT / "src" / "lca.css").read_text() + "\n" + (ROOT / "src" / "local.css").read_text() + "\n" + (ROOT / "src" / "mpc.css").read_text() + "\n" + (ROOT / "src" / "query-list.css").read_text()
+        css += "\n" + (ROOT / "src" / "paper-links.css").read_text()
         css += "\n" + "\n".join((ROOT / "src" / p["css"]).read_text() for p in pairs)
-        js = "\n".join((ROOT / "src" / name).read_text() for name in ["app.js", "dynamic.js", "streaming.js", "lca.js", "local.js", "mpc.js", "query-list.js", *[p["javascript"] for p in pairs], "focus.js"])
+        js = "\n".join((ROOT / "src" / name).read_text() for name in ["app.js", "dynamic.js", "streaming.js", "lca.js", "local.js", "mpc.js", "query-list.js", *[p["javascript"] for p in pairs], "focus.js", "paper-links.js"])
         payload = json.dumps(project, ensure_ascii=False, separators=(",", ":")).replace("<", "\\u003c").replace("&", "\\u0026")
         for needle in ("/* ATLAS_CSS */", "/* ATLAS_JS */", "/* ATLAS_DATA */"):
             require(template.count(needle) == 1, f"Template marker missing or duplicated: {needle}")
@@ -274,7 +276,7 @@ def main():
         output.write_text(html)
         print(f"Wrote {output} ({output.stat().st_size:,} bytes)")
     build_fine_grained(ROOT, write=not args.check)
-    print(f"Validated: {counts['papers']} sources; {counts['slices']} scoped settings; {counts['results']} results; {len(catalog['problems']) * len(catalog['models'])} cells.")
+    print(f"Validated: {counts['papers']} sources; {counts['slices']} scoped settings; {counts['results']} results; {len(catalog['problems']) * len(visible_models)} cells.")
 
 
 if __name__ == "__main__":

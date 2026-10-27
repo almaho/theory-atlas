@@ -89,7 +89,7 @@
       }
       if(s.ids.includes('dynamic-edges-bs16'))s.label=[has('dynamic-edges-bs16')?'BS’16':'',has('dynamic-edges-gssu22')||has('gssu2022-size')?'GSSU’22':''].filter(Boolean).join(' · ');
       const px=x(s.beta),c=rows.some(r=>r.outputKey==='dynamic-edges')?E:S,selected=rows.some(r=>r.id===options.selected),id=rows[0].id;
-      svg+=`<g class="d-plot-result" role="button" tabindex="0" data-dynamic-result="${esc(id)}" data-group="${esc(s.ids[0])}" data-beta="${s.beta}" aria-pressed="${selected}" aria-label="${esc(s.label+': '+rows.map(r=>r.formula+', '+r.updateTime).join('; ')+'. Inspect theorem.')}" style="--d-marker:${c}"><title>${esc(rows.map(r=>`${r.rowName} · ${r.formula} · ${r.updateTime} · ${r.timeType} · ${r.adversary}`).join('\n'))}</title>`;
+      svg+=`<g class="d-plot-result" role="button" tabindex="0" data-dynamic-result="${esc(id)}" data-group="${esc(s.ids[0])}" data-row-ids="${esc(rows.map(r=>r.id).join(','))}" data-beta="${s.beta}" aria-pressed="${selected}" aria-label="${esc(s.label+': '+rows.map(r=>r.formula+', '+r.updateTime).join('; ')+'. Inspect theorem.')}" style="--d-marker:${c}"><title>${esc(rows.map(r=>`${r.rowName} · ${r.formula} · ${r.updateTime} · ${r.timeType} · ${r.adversary}`).join('\n'))}</title>`;
       if(s.leader)svg+=`<path d="M${px} ${s.y}L${s.lx+(s.anchor==='end'?-8:8)} ${s.ly+(s.ly<s.y?17:-9)}" stroke="${c}" stroke-width="1" fill="none" opacity=".65"/>`;
       svg+=marker(px,s.y,rows,selected)+`<text x="${s.lx}" y="${s.ly}" text-anchor="${s.anchor||'start'}" class="d-paper-label" fill="${c}">${esc(s.label)}<tspan x="${s.lx}" dy="17" class="d-point-formula">${esc(s.sub+' · '+[...new Set(rows.map(r=>(r.timeType||'').includes('amortized')?'A':'W'))].sort().join('/'))}</tspan></text></g>`;
     }
