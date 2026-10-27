@@ -14,6 +14,11 @@
       "note": "Insertion/turnstile, randomized/deterministic, robust adaptive-output, Brooks palettes, degeneracy and chromatic-gap decisions are distinct slices."
     },
     {
+      "model": "online",
+      "status": "not_assessed",
+      "note": "Not reviewed. Online vertex revelation, order, graph promises, palette benchmark, and recoloring permissions must be scoped separately."
+    },
+    {
       "model": "lca",
       "status": "researched",
       "note": "Centralized Δ+1 list-color LCAs, deterministic oblivious historical LCA, and average-case exact k-color LCA are distinct slices; worst-case exact-k LCA is not inferred from average-case result."
@@ -42,6 +47,11 @@
       "model": "query_combined",
       "status": "researched",
       "note": "Combined, communication, same-cluster, or other query interfaces are kept separate from pure list/matrix access."
+    },
+    {
+      "model": "stochastic",
+      "status": "not_assessed",
+      "note": "New column requested by the user; stochastic submodels and theorem figures await scoped review. Random-order online results are not automatically transferred here."
     }
   ],
   "papers": [

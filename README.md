@@ -1,6 +1,6 @@
 # Graph theory atlas
 
-An interactive, source-linked atlas of graph algorithms and lower bounds. Explore matching, maximal independent set, correlation clustering, edge coloring, and vertex coloring across eight computational models.
+An interactive, source-linked atlas of graph algorithms and lower bounds. Explore matching, weighted matching, maximal independent set, correlation clustering, edge coloring, and vertex coloring across ten computational models, including Online and Stochastic.
 
 Algorithms are green; lower bounds are red. Select a result for its theorem, assumptions, output contract, and primary paper. Zooming out removes detail while preserving the shape of each comparison.
 
@@ -22,7 +22,7 @@ Then open `http://127.0.0.1:8765/dist/#atlas`.
 
 ## Current scope
 
-The reviewed collection contains 231 sources, 151 scoped settings, and 406 result records across 40 problem/model cells. The existing researched queue covers 36 completed pairs. Streaming edge coloring was deferred, and three combined-query cells have no scoped research yet.
+The atlas has 60 problem/model cells. The original researched queue covered 36 completed pairs; new online and stochastic figures extend that collection. Streaming edge coloring was deferred. Cells without a completed source review are explicitly labeled, including the new weighted-matching row outside its reviewed online setup.
 
 This is an evolving research collection, not an exhaustive bibliography. Review dates and qualifications belong to individual settings and sources. Incompatible graph classes, output contracts, probability guarantees, and resource models remain visibly distinguished.
 

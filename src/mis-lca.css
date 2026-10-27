@@ -21,3 +21,5 @@
 .mlca-related-card>span{font-size:11px;color:var(--muted)}.mlca-related-card>strong{font-size:16px;color:var(--green)}.mlca-related-card>small{font-size:11px;line-height:1.6;color:var(--muted)}
 
 .mlca-cost-summary .mlca-x-label{font:9.5px Georgia,serif}
+
+.mlca-map .mlca-restricted-title{font:500 17px Georgia,serif;fill:var(--ink)}.mlca-map .mlca-restricted-bound{font:18px Georgia,serif;fill:var(--red)}.mlca-map .mlca-restricted-note{font:11px ui-sans-serif,system-ui,sans-serif;fill:var(--muted)}.mlca-summary .mlca-restricted-title{font:600 9px ui-sans-serif,system-ui,sans-serif;fill:var(--ink)}.mlca-summary .mlca-restricted-bound{font:10px Georgia,serif;fill:var(--red)}.mlca-summary .mlca-restricted-note{font:8px ui-sans-serif,system-ui,sans-serif;fill:var(--muted)}

@@ -1,9 +1,9 @@
 {
   "id": "mis-lca",
   "title": "How local can an MIS answer be?",
-  "reviewedOn": "2026-10-20",
-  "coverage": "Bounded review of the eight supplied MIS-LCA sources plus one directly relevant deterministic lower-bound paper. Historical results are retained. This is not a claim of exhaustive current literature coverage. Fixed-tree comparisons are omitted.",
-  "lowerBoundStatus": "A verified Ω(log* n) lower bound appears only for deterministic query-order-oblivious fixed-degree LCAs. No general randomized probe or joint-generation lower bound is claimed.",
+  "reviewedOn": "2026-10-27",
+  "coverage": "Bounded review of MIS-LCA sources, including deterministic query-order-oblivious and randomized non-adaptive lower bounds. Not an exhaustive literature claim.",
+  "lowerBoundStatus": "Ω(log* n) concerns deterministic query-order-oblivious fixed-degree LCAs. ABGS 2025 proves Δ^{Ω(log Δ/log log Δ)} for randomized non-adaptive probes in a separate lane; it does not restrict adaptive LCAs.",
   "sources": {
     "ghaffari-2022-lca-mis": {
       "id": "ghaffari-2022-lca-mis",
@@ -143,6 +143,23 @@
       "publicationUrl": "https://link.springer.com/chapter/10.1007/978-3-662-53426-7_15",
       "verifiedOn": "2026-10-20",
       "fullTextUrl": "https://arxiv.org/html/1512.05411v1"
+    },
+    "azarmehr-behnezhad-ghafari-sudan-2025-nonadaptive-lca": {
+      "id": "azarmehr-behnezhad-ghafari-sudan-2025-nonadaptive-lca",
+      "title": "Lower Bounds for Non-adaptive Local Computation Algorithms",
+      "authors": [
+        "Amir Azarmehr",
+        "Soheil Behnezhad",
+        "Alma Ghafari",
+        "Madhu Sudan"
+      ],
+      "year": 2025,
+      "venue": "FOCS 2025",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2505.00915",
+      "fullTextUrl": "https://arxiv.org/pdf/2505.00915",
+      "publicationUrl": "https://doi.org/10.1109/FOCS63196.2025.00078",
+      "verifiedOn": "2026-10-27"
     }
   },
   "verifiedRecords": [
@@ -471,6 +488,40 @@
       "to": "polynomial",
       "costFrom": "constant",
       "costTo": "polynomial"
+    },
+    {
+      "id": "mis-lca-abgs25-nonadaptive-lower",
+      "sourceId": "azarmehr-behnezhad-ghafari-sudan-2025-nonadaptive-lca",
+      "paperId": "azarmehr-behnezhad-ghafari-sudan-2025-nonadaptive-lca",
+      "panel": "nonadaptive",
+      "kind": "lower",
+      "setup": "nonadaptive",
+      "costTo": "nonadaptive-bound",
+      "displayBound": "Δ^{Ω(log Δ / log log Δ)}",
+      "bound": "Δ^{Ω(log Δ / log log Δ)}",
+      "shortLabel": "ABGS 2025 · Non-adaptive",
+      "plotLabel": "ABGS ’25 · Non-adaptive",
+      "quality": "Exact maximal independent set",
+      "output": "Consistent YES/NO membership; always independent, maximal with constant probability",
+      "graph": "Undirected graphs of maximum degree Δ; asymptotic degree parameter and sufficiently large n",
+      "oracle": "Indexed adjacency-list exploration with parent-index and neighbor-port instructions fixed before answers; discovered degrees may be given for free",
+      "probability": "Output is always an independent set, and is maximal with constant probability; randomized algorithms included",
+      "adaptivity": "Non-adaptive graph probes (Definition 3.1), not merely independence from the order of user queries",
+      "assumptions": [
+        "One consistent independent set across local membership queries",
+        "The exploration-instruction tree is fixed before probe answers are observed",
+        "The input graph need not be a tree",
+        "No lower bound on adaptive LCAs is asserted"
+      ],
+      "sourceUrl": "https://arxiv.org/pdf/2505.00915",
+      "verifiedOn": "2026-10-27",
+      "notes": "Theorem 7.1 applies to randomized non-adaptive LCAs via Yao. A fixed query tree describes the probe schedule, not the input graph class. This degree-dependent lower bound is not converted into an n-dependent lower bound using Δ<n.",
+      "theorem": "Theorems 1.1 and 7.1; Definition 3.1; Section 7 (PDF pages 23–24)",
+      "resource": "Neighbor probes per membership query",
+      "evidenceStatus": "full_text_verified",
+      "tags": [
+        "Non-adaptive"
+      ]
     }
   ],
   "relatedResults": [
@@ -589,6 +640,29 @@
         ]
       },
       "scaleNote": "Expression envelopes under 1≤Δ<n, not runtime lower bounds or numerical locations. Asymptotic classes overlap; exponent constants are unknown."
+    },
+    "nonadaptive": {
+      "x": {
+        "label": "Degree-dependent probe lower bound",
+        "kind": "symbolic",
+        "categories": [
+          {
+            "id": "nonadaptive-bound",
+            "label": "Δ^{Ω(log Δ / log log Δ)}"
+          }
+        ]
+      },
+      "y": {
+        "label": "Non-adaptive probes only",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "mis-lca-abgs25-nonadaptive-lower",
+            "label": "ABGS 2025 · Non-adaptive"
+          }
+        ]
+      },
+      "scaleNote": "Separate symbolic lane; no numerical coordinate or Δ-to-n substitution."
     }
   },
   "sourceVerification": [
@@ -676,10 +750,18 @@
       "publicationURL": "https://link.springer.com/chapter/10.1007/978-3-662-53426-7_15",
       "notes": "The source explicitly transfers its Table 1 LOCAL lower bounds to deterministic query-order-oblivious CentLOCAL. For fixed Δ, strong and single-neighbor probes differ by only a constant factor. This pairs with the stateless upper bound in n, not in Δ.",
       "recheckedOn": "2026-10-26"
+    },
+    {
+      "sourceId": "azarmehr-behnezhad-ghafari-sudan-2025-nonadaptive-lca",
+      "url": "https://arxiv.org/pdf/2505.00915",
+      "theorem": "Theorems 1.1 and 7.1; Definition 3.1; Section 7 (PDF pages 23–24)",
+      "verifiedOn": "2026-10-27",
+      "status": "primary_statement_verified",
+      "notes": "Theorem 7.1 applies to randomized non-adaptive LCAs via Yao. A fixed query tree describes the probe schedule, not the input graph class. This degree-dependent lower bound is not converted into an n-dependent lower bound using Δ<n."
     }
   ],
   "archive": {
-    "fixedTreeComparisons": "None supplied in this pair; no fixed-tree comparison added.",
+    "fixedTreeComparisons": "ABGS 2025 added at user request. Its fixed exploration tree is not a restriction to tree input graphs.",
     "originalResearchFile": "input-research.json",
     "excludedBarrier": "The Δ^{Ω(log Δ/log log Δ)} full-neighborhood simulation barrier is not a universal LCA lower bound. The source discussion remains linked through Ghaffari–Uitto 2019 and Ghaffari 2022."
   },
@@ -687,7 +769,8 @@
     "chosenOn": "2026-10-26",
     "status": "user_requested",
     "main": "One shared symbolic cost axis; colored setup legend and degree-dependent formula ranges using Δ<n; green algorithm/red lower markers.",
-    "related": "Joint graph/MIS generator is a related-result card only."
+    "related": "Joint graph/MIS generator is a related-result card only.",
+    "nonadaptive": "Dedicated non-adaptive lower-bound lane in focus/full atlas, separate from adaptive ranges."
   },
   "costAxis": {
     "label": "Probe budget / time upper bound per query",

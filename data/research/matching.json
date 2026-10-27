@@ -1,6 +1,6 @@
 {
   "problem": "matching",
-  "reviewedThrough": "2026-10-20",
+  "reviewedThrough": "2026-10-27",
   "searchSummary": "Expanded primary-source audit through 2026-09-27 with classical milestones and contemporary 2026 results. Distinct access and task assumptions (explicit vs value, adversary, list vs pair, insertion vs deletion, pass count, memory) remain separate. Literature is large; this is a curated landscape and cannot certify exhaustive state of the art in every parameter regime. MPC review: primary-source verification of BHH, GU, CDP, GGJ and GGM; corrected mildly sublinear memory, published venues, and explicitly conditional component-stable lower bounds (CDP 2024, Theorem 12).",
   "coverage": [
     {
@@ -12,6 +12,11 @@
       "model": "stream",
       "status": "researched",
       "note": "Expanded across major known tasks and assumptions; inspect per-slice scope and theorem links. Some epsilon-dependent or conditional regimes remain symbolic and additional niche variants may be absent."
+    },
+    {
+      "model": "online",
+      "status": "researched",
+      "note": "Initial online comparison. Arrival, order and decision rules remain separate; see verification status for each source. Several submodels remain unreviewed."
     },
     {
       "model": "lca",
@@ -43,6 +48,11 @@
       "model": "query_combined",
       "status": "not_assessed",
       "note": "No scoped records assigned to this access category yet."
+    },
+    {
+      "model": "stochastic",
+      "status": "reviewed",
+      "note": "A starting figure for the ABGR25 paper and its elementary budget lower bound; no complete literature or tightness claim."
     }
   ],
   "papers": [
@@ -1291,6 +1301,220 @@
       "publicationStatus": "conference",
       "url": "https://arxiv.org/abs/1701.04364",
       "verifiedOn": "2026-10-20"
+    },
+    {
+      "id": "online-kvv90",
+      "title": "An Optimal Algorithm for On-line Bipartite Matching",
+      "authors": [
+        "Richard M. Karp",
+        "Umesh V. Vazirani",
+        "Vijay V. Vazirani"
+      ],
+      "year": 1990,
+      "venue": "STOC 1990",
+      "url": "https://ics.uci.edu/~vazirani/KVV.pdf",
+      "publicationStatus": "conference",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "online-djk13",
+      "title": "Randomized Primal-Dual Analysis of RANKING for Online Bipartite Matching",
+      "authors": [
+        "Nikhil R. Devanur",
+        "Kamal Jain",
+        "Robert D. Kleinberg"
+      ],
+      "year": 2013,
+      "venue": "SODA 2013",
+      "url": "https://www.nikhildevanur.com/pubs/RPDFinal.pdf",
+      "publicationStatus": "conference",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "online-my11",
+      "title": "Online bipartite matching with random arrivals: an approach based on strongly factor-revealing LPs",
+      "authors": [
+        "Mohammad Mahdian",
+        "Qiqi Yan"
+      ],
+      "year": 2011,
+      "venue": "STOC 2011",
+      "url": "https://doi.org/10.1145/1993636.1993716",
+      "publicationStatus": "conference",
+      "verifiedOn": "2026-10-27",
+      "primaryEvidenceUrl": "https://acm-stoc.org/stoc2011/AcceptedPapersWithAbstracts.htm"
+    },
+    {
+      "id": "online-cgpv25",
+      "title": "A New Impossibility Result for Online Bipartite Matching Problems",
+      "authors": [
+        "Flavio Chierichetti",
+        "Mirko Giacchini",
+        "Alessandro Panconesi",
+        "Andrea Vattani"
+      ],
+      "year": 2025,
+      "venue": "ICALP 2025",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2025.58",
+      "publicationStatus": "conference",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "online-gkm19",
+      "title": "Online Matching with General Arrivals",
+      "authors": [
+        "Buddhima Gamlath",
+        "Michael Kapralov",
+        "Andreas Maggiori",
+        "Ola Svensson",
+        "David Wajc"
+      ],
+      "year": 2019,
+      "venue": "FOCS 2019",
+      "url": "https://www.cs.cmu.edu/~dwajc/pdfs/gamlath19.pdf",
+      "publicationStatus": "conference",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "online-gs17",
+      "title": "Online Matroid Intersection: Beating Half for Random Arrival",
+      "authors": [
+        "Guru Prashanth Guruganesh",
+        "Sahil Singla"
+      ],
+      "year": 2017,
+      "venue": "IPCO 2017; expanded full version 2018",
+      "url": "https://arxiv.org/pdf/1512.06271v4",
+      "publicationStatus": "conference",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "online-tang26",
+      "title": "Optimal Competitive Ratio of Two-sided Online Bipartite Matching",
+      "authors": [
+        "Zhihao Gavin Tang"
+      ],
+      "year": 2026,
+      "venue": "arXiv 2026",
+      "url": "https://arxiv.org/html/2602.18049v1",
+      "publicationStatus": "preprint",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "online-ajx26-ii",
+      "title": "Semi-Streaming Matching in a Single Pass II: Greedy is Optimal",
+      "authors": [
+        "Sepehr Assadi",
+        "Max Jiang",
+        "Mars Xiang"
+      ],
+      "year": 2026,
+      "venue": "arXiv 2026",
+      "url": "https://arxiv.org/abs/2607.14656",
+      "publicationStatus": "preprint",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "online-ajx26-i",
+      "title": "Semi-Streaming Matching in a Single Pass I: A New Framework for Lower Bounds via Blueprints",
+      "authors": [
+        "Sepehr Assadi",
+        "Max Jiang",
+        "Mars Xiang"
+      ],
+      "year": 2026,
+      "venue": "STOC 2026",
+      "url": "https://doi.org/10.1145/3798129.3800811",
+      "publicationStatus": "conference",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "online-ks26",
+      "title": "Online Preemptive Matching Revisited",
+      "authors": [
+        "Peter Kiss",
+        "Mohammad Sharifi"
+      ],
+      "year": 2026,
+      "venue": "ICALP 2026",
+      "url": "https://doi.org/10.4230/LIPIcs.ICALP.2026.128",
+      "publicationStatus": "conference",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "online-adj18",
+      "title": "Online Maximum Matching with Recourse",
+      "authors": [
+        "Spyros Angelopoulos",
+        "Christoph Dürr",
+        "Shendan Jin"
+      ],
+      "year": 2018,
+      "venue": "MFCS 2018",
+      "url": "https://doi.org/10.4230/LIPIcs.MFCS.2018.8",
+      "publicationStatus": "conference",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "online-bhr18",
+      "title": "Online Bipartite Matching with Amortized O(log² n) Replacements",
+      "authors": [
+        "Aaron Bernstein",
+        "Jacob Holm",
+        "Eva Rotenberg"
+      ],
+      "year": 2018,
+      "venue": "SODA 2018",
+      "url": "https://arxiv.org/pdf/1707.06063v4",
+      "publicationStatus": "conference",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "online-cdkl09",
+      "title": "Online Bipartite Perfect Matching With Augmentations",
+      "authors": [
+        "Kamalika Chaudhuri",
+        "Constantinos Daskalakis",
+        "Robert D. Kleinberg",
+        "Henry Lin"
+      ],
+      "year": 2009,
+      "venue": "INFOCOM 2009",
+      "url": "https://www.cs.cornell.edu/~rdk/papers/infocom09.pdf",
+      "publicationStatus": "conference",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "online-gkkv95",
+      "title": "Online Perfect Matching and Mobile Computing",
+      "authors": [
+        "Edward F. Grove",
+        "Ming-Yang Kao",
+        "P. Krishnan",
+        "Jeffrey Scott Vitter"
+      ],
+      "year": 1995,
+      "venue": "WADS 1995",
+      "url": "https://www.ittc.ku.edu/~jsv/Papers/GKK95.online-matching.pdf",
+      "publicationStatus": "conference",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "azarmehr-behnezhad-ghafari-rubinfeld-2025-stochastic",
+      "title": "Stochastic Matching via In-n-Out Local Computation Algorithms",
+      "authors": [
+        "Amir Azarmehr",
+        "Soheil Behnezhad",
+        "Alma Ghafari",
+        "Ronitt Rubinfeld"
+      ],
+      "year": 2025,
+      "venue": "STOC 2025, pp. 1055–1066",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2411.08805",
+      "fullTextUrl": "https://arxiv.org/html/2411.08805v2",
+      "doi": "10.1145/3717823.3718279",
+      "verifiedOn": "2026-10-27"
     }
   ],
   "slices": [
@@ -2693,7 +2917,7 @@
           "plot": null
         }
       ],
-      "reviewedOn": "2026-10-20",
+      "reviewedOn": "2026-10-27",
       "mode": "1d",
       "axis": {
         "label": "Symbolic probe bounds; inspect theorem assumptions",
@@ -2701,8 +2925,7 @@
         "ticks": [],
         "scaleNote": "No numeric coordinates: parameters, interfaces, and hidden constants are shown in the curated LCA figure."
       },
-      "skippedInCuratedView": true,
-      "curationNote": "Fixed-tree comparison omitted from the displayed LCA figure at user request; source records are retained."
+      "curationNote": "Restored at user request on 2026-10-27. Non-adaptive refers to a fixed probe schedule, not a restriction to tree input graphs."
     },
     {
       "id": "matching-local-maximal",
@@ -5692,6 +5915,683 @@
           "probability": "Success 1−exp(−n^Ω(1))",
           "localMemory": "n / 2^Ω(√log n)",
           "totalMemory": "O(m+n^(1+γ)), any fixed γ>0"
+        }
+      ]
+    },
+    {
+      "id": "matching-online-irrevocable",
+      "problem": "matching",
+      "model": "online",
+      "label": "Irrevocable decisions · unweighted",
+      "task": "One-sided vertices are bipartite; general vertices and edges are separate scopes.",
+      "assumptions": [
+        "Competitive fraction β = E[ALG]/OPT · larger is better",
+        "Each row has its own graph, randomness and arrival contract."
+      ],
+      "xAxis": {
+        "label": "Competitive fraction β = E[ALG]/OPT · larger is better",
+        "min": 0.4,
+        "max": 1,
+        "ticks": [
+          0.4,
+          0.5,
+          0.75,
+          1
+        ]
+      },
+      "yAxis": {
+        "label": "Arrival and decision setup",
+        "categories": [
+          {
+            "id": "vertex-adv-d",
+            "label": "One-sided vertices · adversarial · D"
+          },
+          {
+            "id": "vertex-adv-r",
+            "label": "One-sided vertices · adversarial · R"
+          },
+          {
+            "id": "vertex-random",
+            "label": "One-sided vertices · random order"
+          },
+          {
+            "id": "vertex-general",
+            "label": "General vertices · adversarial · R"
+          },
+          {
+            "id": "edge-adv",
+            "label": "Edges · adversarial · every prefix"
+          },
+          {
+            "id": "edge-random",
+            "label": "Edges · random order · known m"
+          }
+        ]
+      },
+      "results": [
+        {
+          "id": "online-vertex-adv-d-upper",
+          "paperId": "online-kvv90",
+          "kind": "upper",
+          "bound": "β ≥ ½",
+          "guarantee": "β ≥ ½",
+          "sourceLocation": "§2 remark, PDF p.1",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "reviewed",
+          "notes": "One bipartition known in advance; vertices of the other side reveal all incident edges on arrival. Match an arriving vertex immediately to a free neighbor or reject it permanently. Adversarial fixed input and arrival order; random coins are not revealed to the input adversary. ",
+          "plot": null
+        },
+        {
+          "id": "online-vertex-adv-d-lower",
+          "paperId": "online-kvv90",
+          "kind": "lower",
+          "bound": "β ≤ ½",
+          "guarantee": "β ≤ ½",
+          "sourceLocation": "§2 remark, PDF p.1",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "reviewed",
+          "notes": "One bipartition known in advance; vertices of the other side reveal all incident edges on arrival. Match an arriving vertex immediately to a free neighbor or reject it permanently. Adversarial fixed input and arrival order; random coins are not revealed to the input adversary. ",
+          "plot": null
+        },
+        {
+          "id": "online-ranking",
+          "paperId": "online-djk13",
+          "kind": "upper",
+          "bound": "β ≥ 1−1/e",
+          "guarantee": "β ≥ 1−1/e",
+          "sourceLocation": "Theorem 2.1, PDF pp.4–5; corrected analysis of KVV90 Ranking",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "reviewed",
+          "notes": "One bipartition known in advance; vertices of the other side reveal all incident edges on arrival. Match an arriving vertex immediately to a free neighbor or reject it permanently. Adversarial fixed input and arrival order; random coins are not revealed to the input adversary. ",
+          "plot": null
+        },
+        {
+          "id": "online-ranking-lower",
+          "paperId": "online-kvv90",
+          "kind": "lower",
+          "bound": "β ≤ 1−1/e + o(1)",
+          "guarantee": "β ≤ 1−1/e + o(1)",
+          "sourceLocation": "Theorem 2, PDF p.6",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "reviewed",
+          "notes": "One bipartition known in advance; vertices of the other side reveal all incident edges on arrival. Match an arriving vertex immediately to a free neighbor or reject it permanently. Adversarial fixed input and arrival order; random coins are not revealed to the input adversary. Marker is the asymptotic ceiling; finite-size o(1) is retained in the theorem.",
+          "plot": null
+        },
+        {
+          "id": "online-random-ranking",
+          "paperId": "online-my11",
+          "kind": "upper",
+          "bound": "β ≥ 0.696",
+          "guarantee": "β ≥ 0.696",
+          "sourceLocation": "Official STOC 2011 author abstract; original theorem number not verified",
+          "evidenceStatus": "primary_author_abstract_checked",
+          "frontierStatus": "reviewed",
+          "notes": "One bipartition known in advance; vertices of the other side reveal all incident edges on arrival. Match an arriving vertex immediately to a free neighbor or reject it permanently. A fixed graph is revealed in a uniformly random order; this is not IID or random-graph input. Primary author abstract checked; original full text was unavailable. Cross-checked with Peng–Tang 2025, Introduction. Do not label this original full-text verification.",
+          "plot": null
+        },
+        {
+          "id": "online-random-vertex-lower",
+          "paperId": "online-cgpv25",
+          "kind": "lower",
+          "bound": "β ≤ 1−e^(1−e) + o(1) ≈ 0.82063",
+          "guarantee": "β ≤ 1−e^(1−e) + o(1) ≈ 0.82063",
+          "sourceLocation": "Theorem 15 and following paragraph, PDF p.13",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "reviewed",
+          "notes": "One bipartition known in advance; vertices of the other side reveal all incident edges on arrival. Match an arriving vertex immediately to a free neighbor or reject it permanently. A fixed graph is revealed in a uniformly random order; this is not IID or random-graph input. ",
+          "plot": null
+        },
+        {
+          "id": "online-general-vertex",
+          "paperId": "online-gkm19",
+          "kind": "upper",
+          "bound": "β ≥ ½+δ, some constant δ>0",
+          "guarantee": "β ≥ ½+δ, some constant δ>0",
+          "sourceLocation": "Theorem 1.2; §3.4.7",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "reviewed",
+          "notes": "Adversarial fixed input and arrival order; random coins are not revealed to the input adversary. An arriving vertex reveals edges to earlier vertices. An unmatched vertex may be matched to a future arrival. Accepted edges never change. The dot at ½ is only a symbolic reference; δ is not a numeric plotted increment.",
+          "plot": null
+        },
+        {
+          "id": "online-general-vertex-lower",
+          "paperId": "online-tang26",
+          "kind": "lower",
+          "bound": "β ≤ Γ* ≈ 0.526",
+          "guarantee": "β ≤ Γ* ≈ 0.526",
+          "sourceLocation": "Theorem 1.1 and integral consequence immediately afterward",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "reviewed",
+          "notes": "Adversarial fixed input and arrival order; random coins are not revealed to the input adversary. Two-sided vertex arrival; edges to earlier vertices revealed; irrevocable decisions. Γ* = max over real k≥1 of 1 / [((k+1)/2)^((k+1)/(2k)) ((k−1)/2)^((k−1)/(2k)) + 1]. Display coordinate is rounded; positive tightness in this paper is only fractional, and is not plotted as an integral algorithm.",
+          "plot": null
+        },
+        {
+          "id": "online-edge-greedy",
+          "paperId": "online-gkm19",
+          "kind": "upper",
+          "bound": "β ≥ ½",
+          "guarantee": "β ≥ ½",
+          "sourceLocation": "Introduction; §2",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "reviewed",
+          "notes": "Immediate irrevocable edge decisions; accepted edges form a matching. Adversarial fixed input and arrival order; random coins are not revealed to the input adversary. ",
+          "plot": null
+        },
+        {
+          "id": "online-edge-lower",
+          "paperId": "online-gkm19",
+          "kind": "lower",
+          "bound": "β ≤ ½ + o(1)",
+          "guarantee": "β ≤ ½ + o(1)",
+          "sourceLocation": "Theorem 1.1; Theorem 2.1 finite bound ½+1/(2n+2)",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "reviewed",
+          "notes": "Immediate irrevocable edge decisions; accepted edges form a matching. Adversarial fixed input and arrival order; random coins are not revealed to the input adversary. Standard adversarial online model: competitiveness at every prefix; stopping time is not announced. Does not assert the same ceiling under a known horizon and final-only performance.",
+          "plot": null
+        },
+        {
+          "id": "online-irrevocable-random-edge",
+          "paperId": "online-gs17",
+          "kind": "upper",
+          "bound": "β ≥ ½+δ′, some constant δ′>0",
+          "guarantee": "β ≥ ½+δ′, some constant δ′>0",
+          "sourceLocation": "Theorem 2, full version PDF p.2; §5",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "reviewed",
+          "notes": "A fixed graph is revealed in a uniformly random order; this is not IID or random-graph input. Immediate irrevocable edge decisions; accepted edges form a matching. The total number of edges m is known in advance. The general-graph δ′ differs from the bipartite constant. Symbolic positive improvement, with no invented numerical δ′.",
+          "plot": null
+        },
+        {
+          "id": "online-random-edge-lower",
+          "paperId": "online-gs17",
+          "kind": "lower",
+          "bound": "β ≤ 69/84 ≈ 0.82143",
+          "guarantee": "β ≤ 69/84 ≈ 0.82143",
+          "sourceLocation": "Appendix B.3, Lemma 12, PDF pp.30–31",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "reviewed",
+          "notes": "A fixed graph is revealed in a uniformly random order; this is not IID or random-graph input. Immediate irrevocable edge decisions; accepted edges form a matching. This is a selected verified bound, not a claim of an exhaustive current random-edge frontier.",
+          "plot": null
+        }
+      ],
+      "weighting": "unweighted"
+    },
+    {
+      "id": "matching-online-preemption",
+      "problem": "matching",
+      "model": "online",
+      "label": "Preemption · unweighted",
+      "task": "Accepted edges may be discarded permanently; rejected edges cannot return.",
+      "assumptions": [
+        "Competitive fraction β = E[ALG]/OPT · larger is better",
+        "Each row has its own graph, randomness and arrival contract."
+      ],
+      "xAxis": {
+        "label": "Competitive fraction β = E[ALG]/OPT · larger is better",
+        "min": 0.4,
+        "max": 1,
+        "ticks": [
+          0.4,
+          0.5,
+          0.75,
+          1
+        ]
+      },
+      "yAxis": {
+        "label": "Arrival and decision setup",
+        "categories": [
+          {
+            "id": "preempt-adv",
+            "label": "Edges · adversarial · randomized"
+          },
+          {
+            "id": "preempt-random",
+            "label": "Edges · random · inherited algorithm"
+          }
+        ]
+      },
+      "results": [
+        {
+          "id": "online-preemption-random-edge",
+          "paperId": "online-gs17",
+          "kind": "upper",
+          "bound": "β ≥ ½+δ′, some constant δ′>0",
+          "guarantee": "β ≥ ½+δ′, some constant δ′>0",
+          "sourceLocation": "Theorem 2, full version PDF p.2; §5",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "reviewed",
+          "notes": "A fixed graph is revealed in a uniformly random order; this is not IID or random-graph input. Immediate irrevocable edge decisions; accepted edges form a matching. The total number of edges m is known in advance. The general-graph δ′ differs from the bipartite constant. An irrevocable algorithm is valid in the more permissive preemption model. No random-order preemption impossibility was verified.",
+          "plot": null
+        },
+        {
+          "id": "online-preempt-greedy",
+          "paperId": "online-gkm19",
+          "kind": "upper",
+          "bound": "β ≥ ½",
+          "guarantee": "β ≥ ½",
+          "sourceLocation": "Introduction: greedy maximal matching",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "reviewed",
+          "notes": "Accept an edge only on arrival; an accepted edge may later be discarded permanently. Rejected or discarded edges cannot be accepted later. Adversarial fixed input and arrival order; random coins are not revealed to the input adversary. Greedy never needs to preempt; the irrevocable baseline remains valid.",
+          "plot": null
+        },
+        {
+          "id": "online-preempt-half",
+          "paperId": "online-ajx26-ii",
+          "kind": "lower",
+          "bound": "β ≤ ½ + o(1)",
+          "guarantee": "β ≤ ½ + o(1)",
+          "sourceLocation": "Corollary 1.4; §1.3",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "reviewed",
+          "notes": "Accept an edge only on arrival; an accepted edge may later be discarded permanently. Rejected or discarded edges cannot be accepted later. Adversarial fixed input and arrival order; random coins are not revealed to the input adversary. 2026 preprint; no improvement over ½ by any fixed constant.",
+          "plot": null
+        },
+        {
+          "id": "online-preempt-published",
+          "paperId": "online-ajx26-i",
+          "kind": "lower",
+          "bound": "β ≤ (8−2√10)/3 ≈ 0.55848",
+          "guarantee": "β ≤ (8−2√10)/3 ≈ 0.55848",
+          "sourceLocation": "Part II §1.3 explicitly attributes this consequence to Part I; no standalone Part I preemption theorem located",
+          "evidenceStatus": "author_stated_transfer",
+          "frontierStatus": "reviewed",
+          "notes": "Accept an edge only on arrival; an accepted edge may later be discarded permanently. Rejected or discarded edges cannot be accepted later. Adversarial fixed input and arrival order; random coins are not revealed to the input adversary. Published predecessor; the preemption transfer is author-stated in Part II. Distinct from the later ½ preprint.",
+          "plot": null
+        }
+      ],
+      "weighting": "unweighted"
+    },
+    {
+      "id": "matching-online-bounded",
+      "problem": "matching",
+      "model": "online",
+      "label": "Bounded edge recourse · unweighted",
+      "task": "Adversarial edges · deterministic · k lifetime accept/remove flips per edge.",
+      "assumptions": [
+        "Competitive fraction β = E[ALG]/OPT · larger is better",
+        "Each row has its own graph, randomness and arrival contract."
+      ],
+      "xAxis": {
+        "label": "Competitive fraction β = E[ALG]/OPT · larger is better",
+        "min": 0.4,
+        "max": 1,
+        "ticks": [
+          0.4,
+          0.5,
+          0.75,
+          1
+        ]
+      },
+      "yAxis": {
+        "label": "Arrival and decision setup",
+        "categories": [
+          {
+            "id": "k4",
+            "label": "k = 4 flips per edge"
+          },
+          {
+            "id": "k8",
+            "label": "k = 8 flips per edge"
+          },
+          {
+            "id": "k16",
+            "label": "k = 16 flips per edge"
+          }
+        ]
+      },
+      "results": [
+        {
+          "id": "online-recourse-4",
+          "paperId": "online-adj18",
+          "kind": "upper",
+          "bound": "β ≥ 2/3",
+          "guarantee": "β ≥ 2/3",
+          "sourceLocation": "Proposition 4 for k=4; Theorem 2 for k≥6; Table 1",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "reviewed",
+          "notes": "Each edge changes accept/reject state at most k=4 times over its entire lifetime. Old edges may re-enter. First acceptance and every removal count; initial rejection does not. Deterministic algorithms only; insertion-only adversarial edge arrival. L-Greedy: (L+1)(k−1)/(k(L+2)−2), L=⌊√(k−1)⌋. AMP: (k−2)/(k−1)^((k−1)/(k−2)); the plotted choice is the best of these reviewed algorithms at this k.",
+          "plot": null
+        },
+        {
+          "id": "online-recourse-4-lower",
+          "paperId": "online-adj18",
+          "kind": "lower",
+          "bound": "β ≤ 3/4",
+          "guarantee": "β ≤ 3/4",
+          "sourceLocation": "Theorem 3 (k≥3)",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "reviewed",
+          "notes": "Each edge changes accept/reject state at most k=4 times over its entire lifetime. Old edges may re-enter. First acceptance and every removal count; initial rejection does not. Deterministic algorithms only; insertion-only adversarial edge arrival. This hardness is not a randomized lower bound.",
+          "plot": null
+        },
+        {
+          "id": "online-recourse-8",
+          "paperId": "online-adj18",
+          "kind": "upper",
+          "bound": "β ≥ 7/10",
+          "guarantee": "β ≥ 7/10",
+          "sourceLocation": "Proposition 4 for k=4; Theorem 2 for k≥6; Table 1",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "reviewed",
+          "notes": "Each edge changes accept/reject state at most k=8 times over its entire lifetime. Old edges may re-enter. First acceptance and every removal count; initial rejection does not. Deterministic algorithms only; insertion-only adversarial edge arrival. L-Greedy: (L+1)(k−1)/(k(L+2)−2), L=⌊√(k−1)⌋. AMP: (k−2)/(k−1)^((k−1)/(k−2)); the plotted choice is the best of these reviewed algorithms at this k.",
+          "plot": null
+        },
+        {
+          "id": "online-recourse-8-lower",
+          "paperId": "online-adj18",
+          "kind": "lower",
+          "bound": "β ≤ 7/8",
+          "guarantee": "β ≤ 7/8",
+          "sourceLocation": "Theorem 3 (k≥3)",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "reviewed",
+          "notes": "Each edge changes accept/reject state at most k=8 times over its entire lifetime. Old edges may re-enter. First acceptance and every removal count; initial rejection does not. Deterministic algorithms only; insertion-only adversarial edge arrival. This hardness is not a randomized lower bound.",
+          "plot": null
+        },
+        {
+          "id": "online-recourse-16",
+          "paperId": "online-adj18",
+          "kind": "upper",
+          "bound": "β ≥ 10/13",
+          "guarantee": "β ≥ 10/13",
+          "sourceLocation": "Proposition 4 for k=4; Theorem 2 for k≥6; Table 1",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "reviewed",
+          "notes": "Each edge changes accept/reject state at most k=16 times over its entire lifetime. Old edges may re-enter. First acceptance and every removal count; initial rejection does not. Deterministic algorithms only; insertion-only adversarial edge arrival. L-Greedy: (L+1)(k−1)/(k(L+2)−2), L=⌊√(k−1)⌋. AMP: (k−2)/(k−1)^((k−1)/(k−2)); the plotted choice is the best of these reviewed algorithms at this k.",
+          "plot": null
+        },
+        {
+          "id": "online-recourse-16-lower",
+          "paperId": "online-adj18",
+          "kind": "lower",
+          "bound": "β ≤ 15/16",
+          "guarantee": "β ≤ 15/16",
+          "sourceLocation": "Theorem 3 (k≥3)",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "reviewed",
+          "notes": "Each edge changes accept/reject state at most k=16 times over its entire lifetime. Old edges may re-enter. First acceptance and every removal count; initial rejection does not. Deterministic algorithms only; insertion-only adversarial edge arrival. This hardness is not a randomized lower bound.",
+          "plot": null
+        }
+      ],
+      "weighting": "unweighted"
+    },
+    {
+      "id": "matching-online-exact",
+      "problem": "matching",
+      "model": "online",
+      "label": "Exact matching with replacements · unweighted",
+      "task": "β = 1 · one-sided vertices · total reassignment cost, not competitive loss.",
+      "assumptions": [
+        "Total replacements · symbolic cost categories",
+        "Each row has its own graph, randomness and arrival contract."
+      ],
+      "xAxis": {
+        "label": "Total replacements · symbolic cost categories",
+        "min": 0,
+        "max": 1,
+        "ticks": [
+          0,
+          1
+        ]
+      },
+      "yAxis": {
+        "label": "Arrival and decision setup",
+        "categories": [
+          {
+            "id": "exact-adv",
+            "label": "Adversarial order · deterministic"
+          },
+          {
+            "id": "exact-random",
+            "label": "Random order · perfectly matchable"
+          }
+        ]
+      },
+      "results": [
+        {
+          "id": "online-exact-adv-upper",
+          "paperId": "online-bhr18",
+          "kind": "upper",
+          "bound": "O(n log² n) total replacements",
+          "guarantee": "O(n log² n) total replacements",
+          "sourceLocation": "Theorem 1, PDF p.3",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "reviewed",
+          "notes": "One bipartition is known before clients arrive; each client reveals all incident edges. Count reassignments of existing clients, summed over the whole sequence; not worst-case work per arrival. Adversarial fixed input and arrival order; random coins are not revealed to the input adversary. Exact maximum matching maintained after every arrival; n counts arriving clients. The x-coordinate is a symbolic cost category.",
+          "plot": null
+        },
+        {
+          "id": "online-exact-adv-lower",
+          "paperId": "online-gkkv95",
+          "kind": "lower",
+          "bound": "Ω(n log n) total replacements",
+          "guarantee": "Ω(n log n) total replacements",
+          "sourceLocation": "Theorem 1 and proof, PDF pp.4–5",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "reviewed",
+          "notes": "One bipartition is known before clients arrive; each client reveals all incident edges. Count reassignments of existing clients, summed over the whole sequence; not worst-case work per arrival. Unit server capacities; arriving clients have at most two possible servers; the hard instance is perfectly matchable. Proof forces Ω(n log n) online cost against linear offline cost. This is recourse hardness for exact matching, not a ceiling below β=1.",
+          "plot": null
+        },
+        {
+          "id": "online-exact-random-upper",
+          "paperId": "online-cdkl09",
+          "kind": "upper",
+          "bound": "O(n log n) total replacements",
+          "guarantee": "O(n log n) total replacements",
+          "sourceLocation": "Theorem II.2",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "reviewed",
+          "notes": "One bipartition is known before clients arrive; each client reveals all incident edges. Count reassignments of existing clients, summed over the whole sequence; not worst-case work per arrival. A fixed graph is revealed in a uniformly random order; this is not IID or random-graph input. n clients and n servers; the full graph admits a perfect matching. Exact service for every arrived client. Matching-quality β=1 is fixed; only reassignment cost is compared.",
+          "plot": null
+        },
+        {
+          "id": "online-exact-random-lower",
+          "paperId": "online-cdkl09",
+          "kind": "lower",
+          "bound": "Ω(n log n) total replacements",
+          "guarantee": "Ω(n log n) total replacements",
+          "sourceLocation": "Theorem II.3",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "reviewed",
+          "notes": "One bipartition is known before clients arrive; each client reveals all incident edges. Count reassignments of existing clients, summed over the whole sequence; not worst-case work per arrival. A fixed graph is revealed in a uniformly random order; this is not IID or random-graph input. n clients and n servers; the full graph admits a perfect matching. Exact service for every arrived client. Matching-quality β=1 is fixed; only reassignment cost is compared.",
+          "plot": null
+        }
+      ],
+      "weighting": "unweighted"
+    },
+    {
+      "id": "matching-stochastic-nonadaptive-tests",
+      "problem": "matching",
+      "model": "stochastic",
+      "label": "Nonadaptive stochastic edge tests",
+      "task": "Query subgraph H chosen before real edge realizations; then a maximum matching of H∩Gₚ",
+      "assumptions": [
+        "Known general unweighted base graph and probabilities pₑ≥p>0",
+        "Independent edge realizations",
+        "Choose the query subgraph before observing actual realizations",
+        "Fixed ε∈(0,1); approximation is a ratio of expectations",
+        "Average-degree lower and maximum-degree upper budgets differ"
+      ],
+      "xAxis": {
+        "label": "Incident-edge test budget; symbolic dependence on 1/p",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "linear",
+            "label": "Ω(1/p) average degree necessary"
+          },
+          {
+            "id": "polynomial",
+            "label": "(1/p)^Oε(1) maximum degree sufficient"
+          }
+        ]
+      },
+      "yAxis": {
+        "label": "Expected matching guarantee; distinct scopes",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "constant",
+            "label": "Any fixed constant fraction"
+          },
+          {
+            "id": "near-optimal",
+            "label": "1−ε retained"
+          }
+        ]
+      },
+      "parameters": {
+        "p": "Minimum edge-realization probability",
+        "epsilon": "Fixed accuracy parameter"
+      },
+      "results": [
+        {
+          "paperId": "azarmehr-behnezhad-ghafari-rubinfeld-2025-stochastic",
+          "sourceId": "azarmehr-behnezhad-ghafari-rubinfeld-2025-stochastic",
+          "shortLabel": "ABGR25",
+          "graph": "General unweighted graph G; independent edge realizations with known probabilities pₑ≥p>0",
+          "probability": "Expectation over independent edge realizations and the algorithm’s randomness",
+          "plot": null,
+          "id": "stochastic-abgr25-near-optimal",
+          "kind": "upper",
+          "panel": "budget",
+          "sliceId": "matching-stochastic-nonadaptive-tests",
+          "budgetKey": "polynomial",
+          "guaranteeKey": "near-optimal",
+          "quality": "1−ε of expected optimum, for fixed ε∈(0,1)",
+          "bound": "Maximum degree Δ(H) ≤ (1/p)^Oε(1)",
+          "displayBound": "(1/p)^{Oε(1)}",
+          "guarantee": "E μ(H∩Gₚ) ≥ (1−ε) E μ(Gₚ)",
+          "output": "Query subgraph H chosen before real edge realizations; then a maximum matching of H∩Gₚ",
+          "theorem": "Theorem 1; Result 1; Algorithm 1",
+          "sourceLocation": "Section 5.1, Theorem 1; introduction Result 1",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "verified_construction",
+          "oracle": "Known base graph and edge probabilities; only edge-existence tests count toward the budget",
+          "notes": "Union of maximum matchings from independent simulated realizations. The exponent depends on ε and stays symbolic. This is a ratio of expectations, not an expectation of instance-wise ratios.",
+          "sourceUrl": "https://arxiv.org/html/2411.08805v2#S5"
+        },
+        {
+          "paperId": "azarmehr-behnezhad-ghafari-rubinfeld-2025-stochastic",
+          "sourceId": "azarmehr-behnezhad-ghafari-rubinfeld-2025-stochastic",
+          "shortLabel": "ABGR25",
+          "graph": "General unweighted graph G; independent edge realizations with known probabilities pₑ≥p>0",
+          "probability": "Expectation over independent edge realizations and the algorithm’s randomness",
+          "plot": null,
+          "id": "stochastic-abgr25-degree-necessity",
+          "kind": "lower",
+          "panel": "budget",
+          "sliceId": "matching-stochastic-nonadaptive-tests",
+          "budgetKey": "linear",
+          "guaranteeKey": "constant",
+          "quality": "Any fixed constant fraction of expected optimum",
+          "bound": "Average degree of H must be Ω(1/p) in the worst case",
+          "displayBound": "Ω(1/p)",
+          "guarantee": "A constant approximation independent of p requires Ω(1/p) average degree",
+          "output": "Necessary query budget for a nonadaptive subgraph H",
+          "theorem": "Introduction, elementary degree necessity",
+          "sourceLocation": "Section 1, paragraph following the approximation-ratio definition",
+          "evidenceStatus": "author_stated_bound",
+          "frontierStatus": "necessary_budget",
+          "oracle": "Known base graph; edge-existence tests selected before their outcomes are observed",
+          "notes": "Average degree lower bound; the algorithm upper bound controls maximum degree. No matching polynomial exponent or ε-dependent tightness is claimed.",
+          "sourceUrl": "https://arxiv.org/html/2411.08805v2#S1"
+        }
+      ]
+    },
+    {
+      "id": "matching-stochastic-inout-oracle",
+      "problem": "matching",
+      "model": "stochastic",
+      "label": "Specialized matching in/out oracle",
+      "task": "Consistent membership answers for the specialized matching B",
+      "assumptions": [
+        "Known base graph with maximum degree Δ",
+        "Realization access plus reference matching probabilities qₑ",
+        "Adaptive probes allowed; private random tapes",
+        "Out-query bound deterministic; in-query bound in expectation for any fixed realization"
+      ],
+      "xAxis": {
+        "label": "Symbolic query count; Δ is base-graph maximum degree",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "poly-delta",
+            "label": "Δ^poly(1/ε)"
+          }
+        ]
+      },
+      "yAxis": {
+        "label": "Query direction and probability convention",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "out",
+            "label": "Out-queries, deterministic"
+          },
+          {
+            "id": "in",
+            "label": "In-queries, expectation"
+          }
+        ]
+      },
+      "parameters": {
+        "Delta": "Maximum degree of known base graph",
+        "epsilon": "Fixed additive-accuracy parameter"
+      },
+      "results": [
+        {
+          "paperId": "azarmehr-behnezhad-ghafari-rubinfeld-2025-stochastic",
+          "sourceId": "azarmehr-behnezhad-ghafari-rubinfeld-2025-stochastic",
+          "shortLabel": "ABGR25",
+          "graph": "General unweighted graph G; independent edge realizations with known probabilities pₑ≥p>0",
+          "probability": "Out-query bound deterministic; approximation is in expectation",
+          "plot": null,
+          "id": "stochastic-abgr25-out",
+          "kind": "upper",
+          "panel": "oracle",
+          "sliceId": "matching-stochastic-inout-oracle",
+          "budgetKey": "poly-delta",
+          "guaranteeKey": "out",
+          "quality": "Specialized matching oracle: out-queries, worst case",
+          "bound": "q⁺(e) ≤ Δ^poly(1/ε), deterministically",
+          "displayBound": "Δ^{poly(1/ε)}",
+          "guarantee": "E|B(Gₚ)| ≥ E|A(Gₚ)|−εn; vertex matching marginals do not increase",
+          "output": "Consistent membership answers for the specialized matching B",
+          "theorem": "Lemma 5.6; Claim 6.9; Remark 5.8",
+          "sourceLocation": "Sections 5.2 and 6.2.3",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "specialized_oracle",
+          "oracle": "Known base structure, realized subset, and reference matching probabilities qₑ; adaptive probes allowed",
+          "notes": "Out-query set Q⁺(v): vertices incident to a discovered edge while answering v. Reference matching probabilities are supplied information; their computation is outside this bound.",
+          "sourceUrl": "https://arxiv.org/html/2411.08805v2#S6.SS2.SSS3"
+        },
+        {
+          "paperId": "azarmehr-behnezhad-ghafari-rubinfeld-2025-stochastic",
+          "sourceId": "azarmehr-behnezhad-ghafari-rubinfeld-2025-stochastic",
+          "shortLabel": "ABGR25",
+          "graph": "General unweighted graph G; independent edge realizations with known probabilities pₑ≥p>0",
+          "probability": "Expectation over algorithmic randomness, for any fixed realization Gₚ",
+          "plot": null,
+          "id": "stochastic-abgr25-in",
+          "kind": "upper",
+          "panel": "oracle",
+          "sliceId": "matching-stochastic-inout-oracle",
+          "budgetKey": "poly-delta",
+          "guaranteeKey": "in",
+          "quality": "Specialized matching oracle: expected in-queries",
+          "bound": "E q⁻(e) ≤ Δ^poly(1/ε)",
+          "displayBound": "Δ^{poly(1/ε)}",
+          "guarantee": "Bound holds for every fixed realization Gₚ; expectation over algorithmic randomness",
+          "output": "Bound on how many other edge answers probe a given edge",
+          "theorem": "Claim 6.10; Lemma 3.8; Lemma 5.6",
+          "sourceLocation": "Sections 3.1, 3.3 and 6.2.3",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "specialized_oracle",
+          "oracle": "Same specialized oracle as the out-query row; private random tapes and adaptive probes",
+          "notes": "Q⁻(v)={u : v∈Q⁺(u)}. Lemma 3.8 bounds expected correlated-set size by Q⁺·Q⁻ when both expected query counts are bounded. No in-query lower bound reviewed.",
+          "sourceUrl": "https://arxiv.org/html/2411.08805v2#S6.SS2.SSS3"
         }
       ]
     }

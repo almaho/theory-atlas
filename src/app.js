@@ -53,7 +53,7 @@
   }
   function mountDetailChart(c,s,chart){
     const curated=curatedKey(s);
-    if(curated){mountedDetail=globalThis.AtlasFocus.mount(chart,curated,{embedded:true,publication:state.cutoff,onGraphChange:graph=>{state.selectedSlice=graph==='bipartite'?'matching-stream-twopass-bipartite-lower':'matching-stream-singlepass-insertion-explicit';detailKey='';render()},onPublicationChange:publication=>{state.cutoff=publication;detailKey='';render()}});return}
+    if(curated){mountedDetail=globalThis.AtlasFocus.mount(chart,curated,{embedded:true,publication:state.cutoff,onGraphChange:graph=>{state.selectedSlice=graph==='bipartite'?'matching-stream-twopass-bipartite-lower':'matching-stream-singlepass-insertion-explicit';detailKey='';render()},onPublicationChange:publication=>{state.cutoff=publication;detailKey='';render()},onWeightingChange:weight=>{const target=cells.find(item=>item.id===(weight==='weighted'?'weighted_matching:online':'matching:online'));focus(target,weight==='weighted'?'matching-online-weighted-irrevocable':'matching-online-irrevocable',false)}});return}
     const chartWidth=Math.max(320,Math.min(900,detail.clientWidth-44));chart.innerHTML=plot(c,chartWidth,460);chart.addEventListener('click',e=>inspectEvent(c,e,chart.querySelector('svg')));
   }
   function axisTicks(a,count=4){

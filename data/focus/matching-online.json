@@ -1,0 +1,2053 @@
+{
+  "id": "matching-online",
+  "problem": "matching",
+  "model": "online",
+  "title": "Online matching · arrival and decision models",
+  "reviewedOn": "2026-10-27",
+  "sources": {
+    "online-kvv90": {
+      "id": "online-kvv90",
+      "title": "An Optimal Algorithm for On-line Bipartite Matching",
+      "authors": [
+        "Richard M. Karp",
+        "Umesh V. Vazirani",
+        "Vijay V. Vazirani"
+      ],
+      "year": 1990,
+      "venue": "STOC 1990",
+      "url": "https://ics.uci.edu/~vazirani/KVV.pdf",
+      "publicationStatus": "conference",
+      "verifiedOn": "2026-10-27"
+    },
+    "online-djk13": {
+      "id": "online-djk13",
+      "title": "Randomized Primal-Dual Analysis of RANKING for Online Bipartite Matching",
+      "authors": [
+        "Nikhil R. Devanur",
+        "Kamal Jain",
+        "Robert D. Kleinberg"
+      ],
+      "year": 2013,
+      "venue": "SODA 2013",
+      "url": "https://www.nikhildevanur.com/pubs/RPDFinal.pdf",
+      "publicationStatus": "conference",
+      "verifiedOn": "2026-10-27"
+    },
+    "online-my11": {
+      "id": "online-my11",
+      "title": "Online bipartite matching with random arrivals: an approach based on strongly factor-revealing LPs",
+      "authors": [
+        "Mohammad Mahdian",
+        "Qiqi Yan"
+      ],
+      "year": 2011,
+      "venue": "STOC 2011",
+      "url": "https://doi.org/10.1145/1993636.1993716",
+      "publicationStatus": "conference",
+      "verifiedOn": "2026-10-27",
+      "primaryEvidenceUrl": "https://acm-stoc.org/stoc2011/AcceptedPapersWithAbstracts.htm"
+    },
+    "online-cgpv25": {
+      "id": "online-cgpv25",
+      "title": "A New Impossibility Result for Online Bipartite Matching Problems",
+      "authors": [
+        "Flavio Chierichetti",
+        "Mirko Giacchini",
+        "Alessandro Panconesi",
+        "Andrea Vattani"
+      ],
+      "year": 2025,
+      "venue": "ICALP 2025",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2025.58",
+      "publicationStatus": "conference",
+      "verifiedOn": "2026-10-27"
+    },
+    "online-gkm19": {
+      "id": "online-gkm19",
+      "title": "Online Matching with General Arrivals",
+      "authors": [
+        "Buddhima Gamlath",
+        "Michael Kapralov",
+        "Andreas Maggiori",
+        "Ola Svensson",
+        "David Wajc"
+      ],
+      "year": 2019,
+      "venue": "FOCS 2019",
+      "url": "https://www.cs.cmu.edu/~dwajc/pdfs/gamlath19.pdf",
+      "publicationStatus": "conference",
+      "verifiedOn": "2026-10-27"
+    },
+    "online-gs17": {
+      "id": "online-gs17",
+      "title": "Online Matroid Intersection: Beating Half for Random Arrival",
+      "authors": [
+        "Guru Prashanth Guruganesh",
+        "Sahil Singla"
+      ],
+      "year": 2017,
+      "venue": "IPCO 2017; expanded full version 2018",
+      "url": "https://arxiv.org/pdf/1512.06271v4",
+      "publicationStatus": "conference",
+      "verifiedOn": "2026-10-27"
+    },
+    "online-tang26": {
+      "id": "online-tang26",
+      "title": "Optimal Competitive Ratio of Two-sided Online Bipartite Matching",
+      "authors": [
+        "Zhihao Gavin Tang"
+      ],
+      "year": 2026,
+      "venue": "arXiv 2026",
+      "url": "https://arxiv.org/html/2602.18049v1",
+      "publicationStatus": "preprint",
+      "verifiedOn": "2026-10-27"
+    },
+    "online-ajx26-ii": {
+      "id": "online-ajx26-ii",
+      "title": "Semi-Streaming Matching in a Single Pass II: Greedy is Optimal",
+      "authors": [
+        "Sepehr Assadi",
+        "Max Jiang",
+        "Mars Xiang"
+      ],
+      "year": 2026,
+      "venue": "arXiv 2026",
+      "url": "https://arxiv.org/abs/2607.14656",
+      "publicationStatus": "preprint",
+      "verifiedOn": "2026-10-27"
+    },
+    "online-ajx26-i": {
+      "id": "online-ajx26-i",
+      "title": "Semi-Streaming Matching in a Single Pass I: A New Framework for Lower Bounds via Blueprints",
+      "authors": [
+        "Sepehr Assadi",
+        "Max Jiang",
+        "Mars Xiang"
+      ],
+      "year": 2026,
+      "venue": "STOC 2026",
+      "url": "https://doi.org/10.1145/3798129.3800811",
+      "publicationStatus": "conference",
+      "verifiedOn": "2026-10-27"
+    },
+    "online-ks26": {
+      "id": "online-ks26",
+      "title": "Online Preemptive Matching Revisited",
+      "authors": [
+        "Peter Kiss",
+        "Mohammad Sharifi"
+      ],
+      "year": 2026,
+      "venue": "ICALP 2026",
+      "url": "https://doi.org/10.4230/LIPIcs.ICALP.2026.128",
+      "publicationStatus": "conference",
+      "verifiedOn": "2026-10-27"
+    },
+    "online-adj18": {
+      "id": "online-adj18",
+      "title": "Online Maximum Matching with Recourse",
+      "authors": [
+        "Spyros Angelopoulos",
+        "Christoph Dürr",
+        "Shendan Jin"
+      ],
+      "year": 2018,
+      "venue": "MFCS 2018",
+      "url": "https://doi.org/10.4230/LIPIcs.MFCS.2018.8",
+      "publicationStatus": "conference",
+      "verifiedOn": "2026-10-27"
+    },
+    "online-bhr18": {
+      "id": "online-bhr18",
+      "title": "Online Bipartite Matching with Amortized O(log² n) Replacements",
+      "authors": [
+        "Aaron Bernstein",
+        "Jacob Holm",
+        "Eva Rotenberg"
+      ],
+      "year": 2018,
+      "venue": "SODA 2018",
+      "url": "https://arxiv.org/pdf/1707.06063v4",
+      "publicationStatus": "conference",
+      "verifiedOn": "2026-10-27"
+    },
+    "online-cdkl09": {
+      "id": "online-cdkl09",
+      "title": "Online Bipartite Perfect Matching With Augmentations",
+      "authors": [
+        "Kamalika Chaudhuri",
+        "Constantinos Daskalakis",
+        "Robert D. Kleinberg",
+        "Henry Lin"
+      ],
+      "year": 2009,
+      "venue": "INFOCOM 2009",
+      "url": "https://www.cs.cornell.edu/~rdk/papers/infocom09.pdf",
+      "publicationStatus": "conference",
+      "verifiedOn": "2026-10-27"
+    },
+    "online-gkkv95": {
+      "id": "online-gkkv95",
+      "title": "Online Perfect Matching and Mobile Computing",
+      "authors": [
+        "Edward F. Grove",
+        "Ming-Yang Kao",
+        "P. Krishnan",
+        "Jeffrey Scott Vitter"
+      ],
+      "year": 1995,
+      "venue": "WADS 1995",
+      "url": "https://www.ittc.ku.edu/~jsv/Papers/GKK95.online-matching.pdf",
+      "publicationStatus": "conference",
+      "verifiedOn": "2026-10-27"
+    },
+    "online-agkm11": {
+      "id": "online-agkm11",
+      "title": "Online Vertex-Weighted Bipartite Matching and Single-bid Budgeted Allocations",
+      "authors": [
+        "Gagan Aggarwal",
+        "Gagan Goel",
+        "Chinmay Karande",
+        "Aranyak Mehta"
+      ],
+      "year": 2011,
+      "venue": "SODA 2011",
+      "url": "https://arxiv.org/pdf/1007.1271",
+      "publicationStatus": "conference",
+      "verifiedOn": "2026-10-27"
+    },
+    "online-pt25": {
+      "id": "online-pt25",
+      "title": "Revisiting Ranking for Online Bipartite Matching with Random Arrivals: the Primal-Dual Analysis",
+      "authors": [
+        "Bo Peng",
+        "Zhihao Gavin Tang"
+      ],
+      "year": 2025,
+      "venue": "EC 2025",
+      "url": "https://arxiv.org/html/2503.04196v1",
+      "publicationStatus": "conference",
+      "verifiedOn": "2026-10-27"
+    },
+    "online-krtv13": {
+      "id": "online-krtv13",
+      "title": "An Optimal Online Algorithm for Weighted Bipartite Matching and Extensions to Combinatorial Auctions",
+      "authors": [
+        "Thomas Kesselheim",
+        "Klaus Radke",
+        "Andreas Tönnis",
+        "Berthold Vöcking"
+      ],
+      "year": 2013,
+      "venue": "ESA 2013",
+      "url": "https://www.thomas-kesselheim.de/science/onlinematching.pdf",
+      "publicationStatus": "conference",
+      "verifiedOn": "2026-10-27"
+    },
+    "online-efgt22": {
+      "id": "online-efgt22",
+      "title": "Secretary Matching with General Arrivals",
+      "authors": [
+        "Tomer Ezra",
+        "Michal Feldman",
+        "Nick Gravin",
+        "Zhihao Gavin Tang"
+      ],
+      "year": 2022,
+      "venue": "EC 2022",
+      "url": "https://arxiv.org/pdf/2011.01559",
+      "publicationStatus": "conference",
+      "verifiedOn": "2026-10-27"
+    },
+    "online-mcgregor05": {
+      "id": "online-mcgregor05",
+      "title": "Finding Graph Matchings in Data Streams",
+      "authors": [
+        "Andrew McGregor"
+      ],
+      "year": 2005,
+      "venue": "APPROX 2005",
+      "url": "https://people.cs.umass.edu/~mcgregor/papers/05-approx1.pdf",
+      "publicationStatus": "conference",
+      "verifiedOn": "2026-10-27"
+    },
+    "online-varadaraja11": {
+      "id": "online-varadaraja11",
+      "title": "Buyback Problem — Approximate Matroid Intersection with Cancellation Costs",
+      "authors": [
+        "Ashwinkumar Badanidiyuru Varadaraja"
+      ],
+      "year": 2011,
+      "venue": "ICALP 2011",
+      "url": "https://arxiv.org/pdf/1009.5037",
+      "publicationStatus": "conference",
+      "verifiedOn": "2026-10-27"
+    },
+    "online-elsw13": {
+      "id": "online-elsw13",
+      "title": "Improved Bounds for Online Preemptive Matching",
+      "authors": [
+        "Leah Epstein",
+        "Asaf Levin",
+        "Danny Segev",
+        "Oren Weimann"
+      ],
+      "year": 2013,
+      "venue": "STACS 2013",
+      "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol020-stacs2013/LIPIcs.STACS.2013.389/LIPIcs.STACS.2013.389.pdf",
+      "publicationStatus": "conference",
+      "verifiedOn": "2026-10-27"
+    },
+    "online-szz17": {
+      "id": "online-szz17",
+      "title": "Near optimal algorithms for online weighted bipartite matching in adversary model",
+      "authors": [
+        "Xiaoming Sun",
+        "Jia Zhang",
+        "Jialin Zhang"
+      ],
+      "year": 2017,
+      "venue": "Journal of Combinatorial Optimization 34(3):689–705",
+      "url": "https://doi.org/10.1007/s10878-016-0100-2",
+      "publicationStatus": "journal",
+      "verifiedOn": "2026-10-27"
+    }
+  },
+  "panels": [
+    {
+      "id": "irrevocable",
+      "title": "Irrevocable decisions",
+      "subtitle": "One-sided vertices are bipartite; general vertices and edges are separate scopes.",
+      "axisType": "ratio",
+      "weighting": "unweighted",
+      "min": 0.4,
+      "axisLabel": "Competitive fraction β = E[ALG]/OPT · larger is better",
+      "rows": [
+        {
+          "id": "vertex-adv-d",
+          "label": "One-sided vertices · adversarial · D",
+          "compactLabel": "Vertex adv. D",
+          "setup": "vertex"
+        },
+        {
+          "id": "vertex-adv-r",
+          "label": "One-sided vertices · adversarial · R",
+          "compactLabel": "Vertex adv. R",
+          "setup": "vertex"
+        },
+        {
+          "id": "vertex-random",
+          "label": "One-sided vertices · random order",
+          "compactLabel": "Vertex random",
+          "setup": "vertex"
+        },
+        {
+          "id": "vertex-general",
+          "label": "General vertices · adversarial · R",
+          "compactLabel": "General vertex",
+          "setup": "vertex"
+        },
+        {
+          "id": "edge-adv",
+          "label": "Edges · adversarial · every prefix",
+          "compactLabel": "Edge adversarial",
+          "setup": "edge"
+        },
+        {
+          "id": "edge-random",
+          "label": "Edges · random order · known m",
+          "compactLabel": "Edge random",
+          "setup": "edge"
+        }
+      ]
+    },
+    {
+      "id": "preemption",
+      "title": "Preemption",
+      "subtitle": "Accepted edges may be discarded permanently; rejected edges cannot return.",
+      "axisType": "ratio",
+      "weighting": "unweighted",
+      "min": 0.4,
+      "axisLabel": "Competitive fraction β = E[ALG]/OPT · larger is better",
+      "rows": [
+        {
+          "id": "preempt-adv",
+          "label": "Edges · adversarial · randomized",
+          "compactLabel": "Edge adversarial",
+          "setup": "edge"
+        },
+        {
+          "id": "preempt-random",
+          "label": "Edges · random · inherited algorithm",
+          "compactLabel": "Edge random",
+          "setup": "edge"
+        }
+      ]
+    },
+    {
+      "id": "bounded",
+      "title": "Bounded edge recourse",
+      "subtitle": "Adversarial edges · deterministic · k lifetime accept/remove flips per edge.",
+      "axisType": "ratio",
+      "weighting": "unweighted",
+      "min": 0.4,
+      "axisLabel": "Competitive fraction β = E[ALG]/OPT · larger is better",
+      "rows": [
+        {
+          "id": "k4",
+          "label": "k = 4 flips per edge",
+          "compactLabel": "k = 4",
+          "setup": "edge"
+        },
+        {
+          "id": "k8",
+          "label": "k = 8 flips per edge",
+          "compactLabel": "k = 8",
+          "setup": "edge"
+        },
+        {
+          "id": "k16",
+          "label": "k = 16 flips per edge",
+          "compactLabel": "k = 16",
+          "setup": "edge"
+        }
+      ]
+    },
+    {
+      "id": "exact",
+      "title": "Exact matching with replacements",
+      "subtitle": "β = 1 · one-sided vertices · total reassignment cost, not competitive loss.",
+      "axisType": "cost",
+      "weighting": "unweighted",
+      "min": 0,
+      "axisLabel": "Total replacements · symbolic cost categories",
+      "rows": [
+        {
+          "id": "exact-adv",
+          "label": "Adversarial order · deterministic",
+          "compactLabel": "Vertex adversarial",
+          "setup": "vertex"
+        },
+        {
+          "id": "exact-random",
+          "label": "Random order · perfectly matchable",
+          "compactLabel": "Vertex random",
+          "setup": "vertex"
+        }
+      ]
+    },
+    {
+      "id": "weighted-irrevocable",
+      "title": "Edge weights · irrevocable",
+      "subtitle": "Arbitrary nonnegative edge weights · vertex and edge arrivals are separate rows.",
+      "axisType": "ratio",
+      "weighting": "weighted",
+      "min": 0,
+      "axisLabel": "Expected retained weight β · larger is better",
+      "rows": [
+        {
+          "id": "we-vertex-random",
+          "label": "One-sided vertices · random order",
+          "compactLabel": "1-sided vertices",
+          "setup": "vertex"
+        },
+        {
+          "id": "we-edge-random",
+          "label": "Edge weights · random edges",
+          "compactLabel": "Edge wt. edge",
+          "setup": "edge"
+        }
+      ]
+    },
+    {
+      "id": "weighted-vertices",
+      "title": "Vertex weights · irrevocable",
+      "subtitle": "Weights on known offline vertices · one-sided bipartite arrivals.",
+      "axisType": "ratio",
+      "weighting": "weighted",
+      "min": 0,
+      "axisLabel": "Expected retained weight β · larger is better",
+      "rows": [
+        {
+          "id": "wv-adv",
+          "label": "Vertex weights · adversarial vertices",
+          "compactLabel": "Vertex wt. adv.",
+          "setup": "vertex"
+        },
+        {
+          "id": "wv-random",
+          "label": "Vertex weights · random vertices",
+          "compactLabel": "Vertex wt. random",
+          "setup": "vertex"
+        }
+      ]
+    },
+    {
+      "id": "weighted-preemption",
+      "title": "Weighted · preemption",
+      "subtitle": "Adversarial edge arrivals · discarded edges cannot return.",
+      "axisType": "ratio",
+      "weighting": "weighted",
+      "min": 0,
+      "axisLabel": "Expected retained weight β · larger is better",
+      "rows": [
+        {
+          "id": "wp-d",
+          "label": "Edge weights · deterministic",
+          "compactLabel": "Deterministic",
+          "setup": "edge"
+        },
+        {
+          "id": "wp-r",
+          "label": "Edge weights · randomized",
+          "compactLabel": "Randomized",
+          "setup": "edge"
+        }
+      ]
+    }
+  ],
+  "verifiedRecords": [
+    {
+      "id": "online-vertex-adv-d-upper",
+      "sourceId": "online-kvv90",
+      "panel": "irrevocable",
+      "row": "vertex-adv-d",
+      "kind": "upper",
+      "value": 0.5,
+      "shortLabel": "Greedy",
+      "displayBound": "β ≥ ½",
+      "bound": "β ≥ ½",
+      "quality": "β ≥ ½",
+      "output": "Integral maximum-cardinality matching approximation",
+      "graph": "Unweighted bipartite graph.",
+      "probability": "Deterministic algorithm",
+      "theorem": "§2 remark, PDF p.1",
+      "sourceLocation": "§2 remark, PDF p.1",
+      "assumptions": [
+        "One bipartition known in advance; vertices of the other side reveal all incident edges on arrival.",
+        "Match an arriving vertex immediately to a free neighbor or reject it permanently.",
+        "Adversarial fixed input and arrival order; random coins are not revealed to the input adversary."
+      ],
+      "notes": "",
+      "resource": "Online competitive guarantee",
+      "evidenceStatus": "full_text_verified",
+      "weighting": "unweighted"
+    },
+    {
+      "id": "online-vertex-adv-d-lower",
+      "sourceId": "online-kvv90",
+      "panel": "irrevocable",
+      "row": "vertex-adv-d",
+      "kind": "lower",
+      "value": 0.5,
+      "shortLabel": "KVV90",
+      "displayBound": "β ≤ ½",
+      "bound": "β ≤ ½",
+      "quality": "β ≤ ½",
+      "output": "Integral maximum-cardinality matching approximation",
+      "graph": "Unweighted bipartite graph.",
+      "probability": "Every deterministic algorithm",
+      "theorem": "§2 remark, PDF p.1",
+      "sourceLocation": "§2 remark, PDF p.1",
+      "assumptions": [
+        "One bipartition known in advance; vertices of the other side reveal all incident edges on arrival.",
+        "Match an arriving vertex immediately to a free neighbor or reject it permanently.",
+        "Adversarial fixed input and arrival order; random coins are not revealed to the input adversary."
+      ],
+      "notes": "",
+      "resource": "Online competitive guarantee",
+      "evidenceStatus": "full_text_verified",
+      "weighting": "unweighted"
+    },
+    {
+      "id": "online-ranking",
+      "sourceId": "online-djk13",
+      "panel": "irrevocable",
+      "row": "vertex-adv-r",
+      "kind": "upper",
+      "value": 0.6321205588285577,
+      "shortLabel": "Ranking",
+      "displayBound": "β ≥ 1−1/e",
+      "bound": "β ≥ 1−1/e",
+      "quality": "β ≥ 1−1/e",
+      "output": "Integral maximum-cardinality matching approximation",
+      "graph": "Unweighted bipartite graph.",
+      "probability": "Expectation over the offline-side random ranking",
+      "theorem": "Theorem 2.1, PDF pp.4–5; corrected analysis of KVV90 Ranking",
+      "sourceLocation": "Theorem 2.1, PDF pp.4–5; corrected analysis of KVV90 Ranking",
+      "assumptions": [
+        "One bipartition known in advance; vertices of the other side reveal all incident edges on arrival.",
+        "Match an arriving vertex immediately to a free neighbor or reject it permanently.",
+        "Adversarial fixed input and arrival order; random coins are not revealed to the input adversary."
+      ],
+      "notes": "",
+      "resource": "Online competitive guarantee",
+      "evidenceStatus": "full_text_verified",
+      "weighting": "unweighted"
+    },
+    {
+      "id": "online-ranking-lower",
+      "sourceId": "online-kvv90",
+      "panel": "irrevocable",
+      "row": "vertex-adv-r",
+      "kind": "lower",
+      "value": 0.6321205588285577,
+      "shortLabel": "KVV90",
+      "displayBound": "β ≤ 1−1/e + o(1)",
+      "bound": "β ≤ 1−1/e + o(1)",
+      "quality": "β ≤ 1−1/e + o(1)",
+      "output": "Integral maximum-cardinality matching approximation",
+      "graph": "Unweighted bipartite graph.",
+      "probability": "Every randomized algorithm; expected cardinality",
+      "theorem": "Theorem 2, PDF p.6",
+      "sourceLocation": "Theorem 2, PDF p.6",
+      "assumptions": [
+        "One bipartition known in advance; vertices of the other side reveal all incident edges on arrival.",
+        "Match an arriving vertex immediately to a free neighbor or reject it permanently.",
+        "Adversarial fixed input and arrival order; random coins are not revealed to the input adversary."
+      ],
+      "notes": "Marker is the asymptotic ceiling; finite-size o(1) is retained in the theorem.",
+      "resource": "Online competitive guarantee",
+      "evidenceStatus": "full_text_verified",
+      "weighting": "unweighted"
+    },
+    {
+      "id": "online-random-ranking",
+      "sourceId": "online-my11",
+      "panel": "irrevocable",
+      "row": "vertex-random",
+      "kind": "upper",
+      "value": 0.696,
+      "shortLabel": "MY11",
+      "displayBound": "β ≥ 0.696",
+      "bound": "β ≥ 0.696",
+      "quality": "β ≥ 0.696",
+      "output": "Integral maximum-cardinality matching approximation",
+      "graph": "Unweighted bipartite graph.",
+      "probability": "Expectation over arrival permutation and random ranks",
+      "theorem": "Official STOC 2011 author abstract; original theorem number not verified",
+      "sourceLocation": "Official STOC 2011 author abstract; original theorem number not verified",
+      "assumptions": [
+        "One bipartition known in advance; vertices of the other side reveal all incident edges on arrival.",
+        "Match an arriving vertex immediately to a free neighbor or reject it permanently.",
+        "A fixed graph is revealed in a uniformly random order; this is not IID or random-graph input."
+      ],
+      "notes": "Primary author abstract checked; original full text was unavailable. Cross-checked with Peng–Tang 2025, Introduction. Do not label this original full-text verification.",
+      "resource": "Online competitive guarantee",
+      "evidenceStatus": "primary_author_abstract_checked",
+      "weighting": "unweighted",
+      "sourceUrl": "https://acm-stoc.org/stoc2011/AcceptedPapersWithAbstracts.htm"
+    },
+    {
+      "id": "online-random-vertex-lower",
+      "sourceId": "online-cgpv25",
+      "panel": "irrevocable",
+      "row": "vertex-random",
+      "kind": "lower",
+      "value": 0.8206259212659828,
+      "shortLabel": "CGPV25",
+      "displayBound": "β ≤ 1−e^(1−e) + o(1) ≈ 0.82063",
+      "bound": "β ≤ 1−e^(1−e) + o(1) ≈ 0.82063",
+      "quality": "β ≤ 1−e^(1−e) + o(1) ≈ 0.82063",
+      "output": "Integral maximum-cardinality matching approximation",
+      "graph": "Unweighted bipartite graph.",
+      "probability": "Every randomized algorithm; expectation over input order and coins",
+      "theorem": "Theorem 15 and following paragraph, PDF p.13",
+      "sourceLocation": "Theorem 15 and following paragraph, PDF p.13",
+      "assumptions": [
+        "One bipartition known in advance; vertices of the other side reveal all incident edges on arrival.",
+        "Match an arriving vertex immediately to a free neighbor or reject it permanently.",
+        "A fixed graph is revealed in a uniformly random order; this is not IID or random-graph input."
+      ],
+      "notes": "",
+      "resource": "Online competitive guarantee",
+      "evidenceStatus": "full_text_verified",
+      "weighting": "unweighted",
+      "sourceUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol334-icalp2025/LIPIcs.ICALP.2025.58/LIPIcs.ICALP.2025.58.pdf#page=13"
+    },
+    {
+      "id": "online-general-vertex",
+      "sourceId": "online-gkm19",
+      "panel": "irrevocable",
+      "row": "vertex-general",
+      "kind": "upper",
+      "value": 0.5,
+      "shortLabel": "GKM+19",
+      "displayBound": "β ≥ ½+δ, some constant δ>0",
+      "bound": "β ≥ ½+δ, some constant δ>0",
+      "quality": "β ≥ ½+δ, some constant δ>0",
+      "output": "Integral maximum-cardinality matching approximation",
+      "graph": "General unweighted graph; bipartite lower-bound instances also apply.",
+      "probability": "Randomized; expected cardinality",
+      "theorem": "Theorem 1.2; §3.4.7",
+      "sourceLocation": "Theorem 1.2; §3.4.7",
+      "assumptions": [
+        "Adversarial fixed input and arrival order; random coins are not revealed to the input adversary.",
+        "An arriving vertex reveals edges to earlier vertices. An unmatched vertex may be matched to a future arrival. Accepted edges never change."
+      ],
+      "notes": "The dot at ½ is only a symbolic reference; δ is not a numeric plotted increment.",
+      "resource": "Online competitive guarantee",
+      "evidenceStatus": "full_text_verified",
+      "weighting": "unweighted",
+      "symbolicBonus": true
+    },
+    {
+      "id": "online-general-vertex-lower",
+      "sourceId": "online-tang26",
+      "panel": "irrevocable",
+      "row": "vertex-general",
+      "kind": "lower",
+      "value": 0.526,
+      "shortLabel": "Tang26 ≈",
+      "displayBound": "β ≤ Γ* ≈ 0.526",
+      "bound": "β ≤ Γ* ≈ 0.526",
+      "quality": "β ≤ Γ* ≈ 0.526",
+      "output": "Integral maximum-cardinality matching approximation",
+      "graph": "Unweighted bipartite graph.",
+      "probability": "Hardness for fractional and randomized integral algorithms",
+      "theorem": "Theorem 1.1 and integral consequence immediately afterward",
+      "sourceLocation": "Theorem 1.1 and integral consequence immediately afterward",
+      "assumptions": [
+        "Adversarial fixed input and arrival order; random coins are not revealed to the input adversary.",
+        "Two-sided vertex arrival; edges to earlier vertices revealed; irrevocable decisions."
+      ],
+      "notes": "Γ* = max over real k≥1 of 1 / [((k+1)/2)^((k+1)/(2k)) ((k−1)/2)^((k−1)/(2k)) + 1]. Display coordinate is rounded; positive tightness in this paper is only fractional, and is not plotted as an integral algorithm.",
+      "resource": "Online competitive guarantee",
+      "evidenceStatus": "full_text_verified",
+      "weighting": "unweighted",
+      "approximateCoordinate": true
+    },
+    {
+      "id": "online-edge-greedy",
+      "sourceId": "online-gkm19",
+      "panel": "irrevocable",
+      "row": "edge-adv",
+      "kind": "upper",
+      "value": 0.5,
+      "shortLabel": "Greedy",
+      "displayBound": "β ≥ ½",
+      "bound": "β ≥ ½",
+      "quality": "β ≥ ½",
+      "output": "Integral maximum-cardinality matching approximation",
+      "graph": "General unweighted graph; bipartite lower-bound instances also apply.",
+      "probability": "Deterministic; every prefix",
+      "theorem": "Introduction; §2",
+      "sourceLocation": "Introduction; §2",
+      "assumptions": [
+        "Immediate irrevocable edge decisions; accepted edges form a matching.",
+        "Adversarial fixed input and arrival order; random coins are not revealed to the input adversary."
+      ],
+      "notes": "",
+      "resource": "Online competitive guarantee",
+      "evidenceStatus": "full_text_verified",
+      "weighting": "unweighted"
+    },
+    {
+      "id": "online-edge-lower",
+      "sourceId": "online-gkm19",
+      "panel": "irrevocable",
+      "row": "edge-adv",
+      "kind": "lower",
+      "value": 0.5,
+      "shortLabel": "GKM+19",
+      "displayBound": "β ≤ ½ + o(1)",
+      "bound": "β ≤ ½ + o(1)",
+      "quality": "β ≤ ½ + o(1)",
+      "output": "Integral maximum-cardinality matching approximation",
+      "graph": "Unweighted bipartite graph.",
+      "probability": "Every randomized integral or fractional algorithm",
+      "theorem": "Theorem 1.1; Theorem 2.1 finite bound ½+1/(2n+2)",
+      "sourceLocation": "Theorem 1.1; Theorem 2.1 finite bound ½+1/(2n+2)",
+      "assumptions": [
+        "Immediate irrevocable edge decisions; accepted edges form a matching.",
+        "Adversarial fixed input and arrival order; random coins are not revealed to the input adversary.",
+        "Standard adversarial online model: competitiveness at every prefix; stopping time is not announced."
+      ],
+      "notes": "Does not assert the same ceiling under a known horizon and final-only performance.",
+      "resource": "Online competitive guarantee",
+      "evidenceStatus": "full_text_verified",
+      "weighting": "unweighted"
+    },
+    {
+      "id": "online-irrevocable-random-edge",
+      "sourceId": "online-gs17",
+      "panel": "irrevocable",
+      "row": "edge-random",
+      "kind": "upper",
+      "value": 0.5,
+      "shortLabel": "GS17",
+      "displayBound": "β ≥ ½+δ′, some constant δ′>0",
+      "bound": "β ≥ ½+δ′, some constant δ′>0",
+      "quality": "β ≥ ½+δ′, some constant δ′>0",
+      "output": "Integral maximum-cardinality matching approximation",
+      "graph": "General unweighted graph; bipartite lower-bound instances also apply.",
+      "probability": "Expectation over random order and algorithm coins",
+      "theorem": "Theorem 2, full version PDF p.2; §5",
+      "sourceLocation": "Theorem 2, full version PDF p.2; §5",
+      "assumptions": [
+        "A fixed graph is revealed in a uniformly random order; this is not IID or random-graph input.",
+        "Immediate irrevocable edge decisions; accepted edges form a matching.",
+        "The total number of edges m is known in advance."
+      ],
+      "notes": "The general-graph δ′ differs from the bipartite constant. Symbolic positive improvement, with no invented numerical δ′.",
+      "resource": "Online competitive guarantee",
+      "evidenceStatus": "full_text_verified",
+      "weighting": "unweighted",
+      "symbolicBonus": true
+    },
+    {
+      "id": "online-preemption-random-edge",
+      "sourceId": "online-gs17",
+      "panel": "preemption",
+      "row": "preempt-random",
+      "kind": "upper",
+      "value": 0.5,
+      "shortLabel": "GS17",
+      "displayBound": "β ≥ ½+δ′, some constant δ′>0",
+      "bound": "β ≥ ½+δ′, some constant δ′>0",
+      "quality": "β ≥ ½+δ′, some constant δ′>0",
+      "output": "Integral maximum-cardinality matching approximation",
+      "graph": "General unweighted graph; bipartite lower-bound instances also apply.",
+      "probability": "Expectation over random order and algorithm coins",
+      "theorem": "Theorem 2, full version PDF p.2; §5",
+      "sourceLocation": "Theorem 2, full version PDF p.2; §5",
+      "assumptions": [
+        "A fixed graph is revealed in a uniformly random order; this is not IID or random-graph input.",
+        "Immediate irrevocable edge decisions; accepted edges form a matching.",
+        "The total number of edges m is known in advance."
+      ],
+      "notes": "The general-graph δ′ differs from the bipartite constant. An irrevocable algorithm is valid in the more permissive preemption model. No random-order preemption impossibility was verified.",
+      "resource": "Online competitive guarantee",
+      "evidenceStatus": "full_text_verified",
+      "weighting": "unweighted",
+      "symbolicBonus": true
+    },
+    {
+      "id": "online-random-edge-lower",
+      "sourceId": "online-gs17",
+      "panel": "irrevocable",
+      "row": "edge-random",
+      "kind": "lower",
+      "value": 0.8214285714285714,
+      "shortLabel": "GS17",
+      "displayBound": "β ≤ 69/84 ≈ 0.82143",
+      "bound": "β ≤ 69/84 ≈ 0.82143",
+      "quality": "β ≤ 69/84 ≈ 0.82143",
+      "output": "Integral maximum-cardinality matching approximation",
+      "graph": "Unweighted bipartite graph.",
+      "probability": "Every randomized algorithm",
+      "theorem": "Appendix B.3, Lemma 12, PDF pp.30–31",
+      "sourceLocation": "Appendix B.3, Lemma 12, PDF pp.30–31",
+      "assumptions": [
+        "A fixed graph is revealed in a uniformly random order; this is not IID or random-graph input.",
+        "Immediate irrevocable edge decisions; accepted edges form a matching."
+      ],
+      "notes": "This is a selected verified bound, not a claim of an exhaustive current random-edge frontier.",
+      "resource": "Online competitive guarantee",
+      "evidenceStatus": "full_text_verified",
+      "weighting": "unweighted"
+    },
+    {
+      "id": "online-preempt-greedy",
+      "sourceId": "online-gkm19",
+      "panel": "preemption",
+      "row": "preempt-adv",
+      "kind": "upper",
+      "value": 0.5,
+      "shortLabel": "Greedy",
+      "displayBound": "β ≥ ½",
+      "bound": "β ≥ ½",
+      "quality": "β ≥ ½",
+      "output": "Integral maximum-cardinality matching approximation",
+      "graph": "General unweighted graph; bipartite lower-bound instances also apply.",
+      "probability": "Deterministic; every prefix",
+      "theorem": "Introduction: greedy maximal matching",
+      "sourceLocation": "Introduction: greedy maximal matching",
+      "assumptions": [
+        "Accept an edge only on arrival; an accepted edge may later be discarded permanently.",
+        "Rejected or discarded edges cannot be accepted later.",
+        "Adversarial fixed input and arrival order; random coins are not revealed to the input adversary."
+      ],
+      "notes": "Greedy never needs to preempt; the irrevocable baseline remains valid.",
+      "resource": "Online competitive guarantee",
+      "evidenceStatus": "full_text_verified",
+      "weighting": "unweighted"
+    },
+    {
+      "id": "online-preempt-half",
+      "sourceId": "online-ajx26-ii",
+      "panel": "preemption",
+      "row": "preempt-adv",
+      "kind": "lower",
+      "value": 0.5,
+      "shortLabel": "AJX26 II*",
+      "displayBound": "β ≤ ½ + o(1)",
+      "bound": "β ≤ ½ + o(1)",
+      "quality": "β ≤ ½ + o(1)",
+      "output": "Integral maximum-cardinality matching approximation",
+      "graph": "General unweighted graph; bipartite lower-bound instances also apply.",
+      "probability": "Every randomized algorithm; expected competitive guarantee",
+      "theorem": "Corollary 1.4; §1.3",
+      "sourceLocation": "Corollary 1.4; §1.3",
+      "assumptions": [
+        "Accept an edge only on arrival; an accepted edge may later be discarded permanently.",
+        "Rejected or discarded edges cannot be accepted later.",
+        "Adversarial fixed input and arrival order; random coins are not revealed to the input adversary."
+      ],
+      "notes": "2026 preprint; no improvement over ½ by any fixed constant.",
+      "resource": "Online competitive guarantee",
+      "evidenceStatus": "full_text_verified",
+      "weighting": "unweighted",
+      "sourceUrl": "https://arxiv.org/html/2607.14656v2#S1.SS3"
+    },
+    {
+      "id": "online-preempt-published",
+      "sourceId": "online-ajx26-i",
+      "panel": "preemption",
+      "row": "preempt-adv",
+      "kind": "lower",
+      "value": 0.558481559887747,
+      "shortLabel": "AJX26 I",
+      "displayBound": "β ≤ (8−2√10)/3 ≈ 0.55848",
+      "bound": "β ≤ (8−2√10)/3 ≈ 0.55848",
+      "quality": "β ≤ (8−2√10)/3 ≈ 0.55848",
+      "output": "Integral maximum-cardinality matching approximation",
+      "graph": "General unweighted graph; bipartite lower-bound instances also apply.",
+      "probability": "Randomized impossibility, as stated by the authors",
+      "theorem": "Part II §1.3 explicitly attributes this consequence to Part I; no standalone Part I preemption theorem located",
+      "sourceLocation": "Part II §1.3 explicitly attributes this consequence to Part I; no standalone Part I preemption theorem located",
+      "assumptions": [
+        "Accept an edge only on arrival; an accepted edge may later be discarded permanently.",
+        "Rejected or discarded edges cannot be accepted later.",
+        "Adversarial fixed input and arrival order; random coins are not revealed to the input adversary."
+      ],
+      "notes": "Published predecessor; the preemption transfer is author-stated in Part II. Distinct from the later ½ preprint.",
+      "resource": "Online competitive guarantee",
+      "evidenceStatus": "author_stated_transfer",
+      "weighting": "unweighted",
+      "sourceUrl": "https://arxiv.org/html/2607.14656v2#S1.SS3"
+    },
+    {
+      "id": "online-recourse-4",
+      "sourceId": "online-adj18",
+      "panel": "bounded",
+      "row": "k4",
+      "kind": "upper",
+      "value": 0.6666666666666666,
+      "shortLabel": "Greedy",
+      "displayBound": "β ≥ 2/3",
+      "bound": "β ≥ 2/3",
+      "quality": "β ≥ 2/3",
+      "output": "Integral maximum-cardinality matching approximation",
+      "graph": "General unweighted graph; bipartite lower-bound instances also apply.",
+      "probability": "Deterministic",
+      "theorem": "Proposition 4 for k=4; Theorem 2 for k≥6; Table 1",
+      "sourceLocation": "Proposition 4 for k=4; Theorem 2 for k≥6; Table 1",
+      "assumptions": [
+        "Each edge changes accept/reject state at most k=4 times over its entire lifetime.",
+        "Old edges may re-enter. First acceptance and every removal count; initial rejection does not.",
+        "Deterministic algorithms only; insertion-only adversarial edge arrival."
+      ],
+      "notes": "L-Greedy: (L+1)(k−1)/(k(L+2)−2), L=⌊√(k−1)⌋. AMP: (k−2)/(k−1)^((k−1)/(k−2)); the plotted choice is the best of these reviewed algorithms at this k.",
+      "resource": "Online competitive guarantee",
+      "evidenceStatus": "full_text_verified",
+      "weighting": "unweighted"
+    },
+    {
+      "id": "online-recourse-4-lower",
+      "sourceId": "online-adj18",
+      "panel": "bounded",
+      "row": "k4",
+      "kind": "lower",
+      "value": 0.75,
+      "shortLabel": "ADJ18",
+      "displayBound": "β ≤ 3/4",
+      "bound": "β ≤ 3/4",
+      "quality": "β ≤ 3/4",
+      "output": "Integral maximum-cardinality matching approximation",
+      "graph": "General unweighted graph; bipartite lower-bound instances also apply.",
+      "probability": "Every deterministic algorithm",
+      "theorem": "Theorem 3 (k≥3)",
+      "sourceLocation": "Theorem 3 (k≥3)",
+      "assumptions": [
+        "Each edge changes accept/reject state at most k=4 times over its entire lifetime.",
+        "Old edges may re-enter. First acceptance and every removal count; initial rejection does not.",
+        "Deterministic algorithms only; insertion-only adversarial edge arrival."
+      ],
+      "notes": "This hardness is not a randomized lower bound.",
+      "resource": "Online competitive guarantee",
+      "evidenceStatus": "full_text_verified",
+      "weighting": "unweighted"
+    },
+    {
+      "id": "online-recourse-8",
+      "sourceId": "online-adj18",
+      "panel": "bounded",
+      "row": "k8",
+      "kind": "upper",
+      "value": 0.7,
+      "shortLabel": "L-Greedy",
+      "displayBound": "β ≥ 7/10",
+      "bound": "β ≥ 7/10",
+      "quality": "β ≥ 7/10",
+      "output": "Integral maximum-cardinality matching approximation",
+      "graph": "General unweighted graph; bipartite lower-bound instances also apply.",
+      "probability": "Deterministic",
+      "theorem": "Proposition 4 for k=4; Theorem 2 for k≥6; Table 1",
+      "sourceLocation": "Proposition 4 for k=4; Theorem 2 for k≥6; Table 1",
+      "assumptions": [
+        "Each edge changes accept/reject state at most k=8 times over its entire lifetime.",
+        "Old edges may re-enter. First acceptance and every removal count; initial rejection does not.",
+        "Deterministic algorithms only; insertion-only adversarial edge arrival."
+      ],
+      "notes": "L-Greedy: (L+1)(k−1)/(k(L+2)−2), L=⌊√(k−1)⌋. AMP: (k−2)/(k−1)^((k−1)/(k−2)); the plotted choice is the best of these reviewed algorithms at this k.",
+      "resource": "Online competitive guarantee",
+      "evidenceStatus": "full_text_verified",
+      "weighting": "unweighted"
+    },
+    {
+      "id": "online-recourse-8-lower",
+      "sourceId": "online-adj18",
+      "panel": "bounded",
+      "row": "k8",
+      "kind": "lower",
+      "value": 0.875,
+      "shortLabel": "ADJ18",
+      "displayBound": "β ≤ 7/8",
+      "bound": "β ≤ 7/8",
+      "quality": "β ≤ 7/8",
+      "output": "Integral maximum-cardinality matching approximation",
+      "graph": "General unweighted graph; bipartite lower-bound instances also apply.",
+      "probability": "Every deterministic algorithm",
+      "theorem": "Theorem 3 (k≥3)",
+      "sourceLocation": "Theorem 3 (k≥3)",
+      "assumptions": [
+        "Each edge changes accept/reject state at most k=8 times over its entire lifetime.",
+        "Old edges may re-enter. First acceptance and every removal count; initial rejection does not.",
+        "Deterministic algorithms only; insertion-only adversarial edge arrival."
+      ],
+      "notes": "This hardness is not a randomized lower bound.",
+      "resource": "Online competitive guarantee",
+      "evidenceStatus": "full_text_verified",
+      "weighting": "unweighted"
+    },
+    {
+      "id": "online-recourse-16",
+      "sourceId": "online-adj18",
+      "panel": "bounded",
+      "row": "k16",
+      "kind": "upper",
+      "value": 0.7692307692307693,
+      "shortLabel": "L-Greedy",
+      "displayBound": "β ≥ 10/13",
+      "bound": "β ≥ 10/13",
+      "quality": "β ≥ 10/13",
+      "output": "Integral maximum-cardinality matching approximation",
+      "graph": "General unweighted graph; bipartite lower-bound instances also apply.",
+      "probability": "Deterministic",
+      "theorem": "Proposition 4 for k=4; Theorem 2 for k≥6; Table 1",
+      "sourceLocation": "Proposition 4 for k=4; Theorem 2 for k≥6; Table 1",
+      "assumptions": [
+        "Each edge changes accept/reject state at most k=16 times over its entire lifetime.",
+        "Old edges may re-enter. First acceptance and every removal count; initial rejection does not.",
+        "Deterministic algorithms only; insertion-only adversarial edge arrival."
+      ],
+      "notes": "L-Greedy: (L+1)(k−1)/(k(L+2)−2), L=⌊√(k−1)⌋. AMP: (k−2)/(k−1)^((k−1)/(k−2)); the plotted choice is the best of these reviewed algorithms at this k.",
+      "resource": "Online competitive guarantee",
+      "evidenceStatus": "full_text_verified",
+      "weighting": "unweighted"
+    },
+    {
+      "id": "online-recourse-16-lower",
+      "sourceId": "online-adj18",
+      "panel": "bounded",
+      "row": "k16",
+      "kind": "lower",
+      "value": 0.9375,
+      "shortLabel": "ADJ18",
+      "displayBound": "β ≤ 15/16",
+      "bound": "β ≤ 15/16",
+      "quality": "β ≤ 15/16",
+      "output": "Integral maximum-cardinality matching approximation",
+      "graph": "General unweighted graph; bipartite lower-bound instances also apply.",
+      "probability": "Every deterministic algorithm",
+      "theorem": "Theorem 3 (k≥3)",
+      "sourceLocation": "Theorem 3 (k≥3)",
+      "assumptions": [
+        "Each edge changes accept/reject state at most k=16 times over its entire lifetime.",
+        "Old edges may re-enter. First acceptance and every removal count; initial rejection does not.",
+        "Deterministic algorithms only; insertion-only adversarial edge arrival."
+      ],
+      "notes": "This hardness is not a randomized lower bound.",
+      "resource": "Online competitive guarantee",
+      "evidenceStatus": "full_text_verified",
+      "weighting": "unweighted"
+    },
+    {
+      "id": "online-exact-adv-upper",
+      "sourceId": "online-bhr18",
+      "panel": "exact",
+      "row": "exact-adv",
+      "kind": "upper",
+      "value": 1,
+      "shortLabel": "BHR18",
+      "displayBound": "O(n log² n) total replacements",
+      "bound": "O(n log² n) total replacements",
+      "quality": "O(n log² n) total replacements",
+      "output": "Exact maximum-cardinality matching after each arrival",
+      "graph": "Unweighted bipartite graph.",
+      "probability": "Deterministic shortest augmenting path",
+      "theorem": "Theorem 1, PDF p.3",
+      "sourceLocation": "Theorem 1, PDF p.3",
+      "assumptions": [
+        "One bipartition is known before clients arrive; each client reveals all incident edges.",
+        "Count reassignments of existing clients, summed over the whole sequence; not worst-case work per arrival.",
+        "Adversarial fixed input and arrival order; random coins are not revealed to the input adversary."
+      ],
+      "notes": "Exact maximum matching maintained after every arrival; n counts arriving clients. The x-coordinate is a symbolic cost category.",
+      "resource": "Total reassignment cost",
+      "evidenceStatus": "full_text_verified",
+      "weighting": "unweighted",
+      "sourceUrl": "https://arxiv.org/pdf/1707.06063v4#page=3"
+    },
+    {
+      "id": "online-exact-adv-lower",
+      "sourceId": "online-gkkv95",
+      "panel": "exact",
+      "row": "exact-adv",
+      "kind": "lower",
+      "value": 0,
+      "shortLabel": "GKKV95",
+      "displayBound": "Ω(n log n) total replacements",
+      "bound": "Ω(n log n) total replacements",
+      "quality": "Ω(n log n) total replacements",
+      "output": "Exact maximum-cardinality matching after each arrival",
+      "graph": "Unweighted bipartite graph.",
+      "probability": "Every deterministic online algorithm",
+      "theorem": "Theorem 1 and proof, PDF pp.4–5",
+      "sourceLocation": "Theorem 1 and proof, PDF pp.4–5",
+      "assumptions": [
+        "One bipartition is known before clients arrive; each client reveals all incident edges.",
+        "Count reassignments of existing clients, summed over the whole sequence; not worst-case work per arrival.",
+        "Unit server capacities; arriving clients have at most two possible servers; the hard instance is perfectly matchable."
+      ],
+      "notes": "Proof forces Ω(n log n) online cost against linear offline cost. This is recourse hardness for exact matching, not a ceiling below β=1.",
+      "resource": "Total reassignment cost",
+      "evidenceStatus": "full_text_verified",
+      "weighting": "unweighted"
+    },
+    {
+      "id": "online-exact-random-upper",
+      "sourceId": "online-cdkl09",
+      "panel": "exact",
+      "row": "exact-random",
+      "kind": "upper",
+      "value": 0,
+      "shortLabel": "CDKL09",
+      "displayBound": "O(n log n) total replacements",
+      "bound": "O(n log n) total replacements",
+      "quality": "O(n log n) total replacements",
+      "output": "Exact maximum-cardinality matching after each arrival",
+      "graph": "Unweighted bipartite graph.",
+      "probability": "Upper: probability ≥1−n⁻² over order, also expectation",
+      "theorem": "Theorem II.2",
+      "sourceLocation": "Theorem II.2",
+      "assumptions": [
+        "One bipartition is known before clients arrive; each client reveals all incident edges.",
+        "Count reassignments of existing clients, summed over the whole sequence; not worst-case work per arrival.",
+        "A fixed graph is revealed in a uniformly random order; this is not IID or random-graph input.",
+        "n clients and n servers; the full graph admits a perfect matching."
+      ],
+      "notes": "Exact service for every arrived client. Matching-quality β=1 is fixed; only reassignment cost is compared.",
+      "resource": "Total reassignment cost",
+      "evidenceStatus": "full_text_verified",
+      "weighting": "unweighted",
+      "sourceUrl": "https://www.cs.cornell.edu/~rdk/papers/infocom09.pdf#page=4"
+    },
+    {
+      "id": "online-exact-random-lower",
+      "sourceId": "online-cdkl09",
+      "panel": "exact",
+      "row": "exact-random",
+      "kind": "lower",
+      "value": 0,
+      "shortLabel": "CDKL09",
+      "displayBound": "Ω(n log n) total replacements",
+      "bound": "Ω(n log n) total replacements",
+      "quality": "Ω(n log n) total replacements",
+      "output": "Exact maximum-cardinality matching after each arrival",
+      "graph": "Unweighted bipartite graph.",
+      "probability": "Expected cost lower bound for every online algorithm",
+      "theorem": "Theorem II.3",
+      "sourceLocation": "Theorem II.3",
+      "assumptions": [
+        "One bipartition is known before clients arrive; each client reveals all incident edges.",
+        "Count reassignments of existing clients, summed over the whole sequence; not worst-case work per arrival.",
+        "A fixed graph is revealed in a uniformly random order; this is not IID or random-graph input.",
+        "n clients and n servers; the full graph admits a perfect matching."
+      ],
+      "notes": "Exact service for every arrived client. Matching-quality β=1 is fixed; only reassignment cost is compared.",
+      "resource": "Total reassignment cost",
+      "evidenceStatus": "full_text_verified",
+      "weighting": "unweighted",
+      "sourceUrl": "https://www.cs.cornell.edu/~rdk/papers/infocom09.pdf#page=4"
+    },
+    {
+      "id": "online-wv-adv-upper",
+      "sourceId": "online-agkm11",
+      "panel": "weighted-vertices",
+      "row": "wv-adv",
+      "kind": "upper",
+      "value": 0.6321205588285577,
+      "shortLabel": "PerturbedGreedy",
+      "displayBound": "β ≥ 1−1/e",
+      "bound": "β ≥ 1−1/e",
+      "quality": "β ≥ 1−1/e",
+      "output": "Integral maximum-weight matching approximation",
+      "graph": "Bipartite; nonnegative offline-vertex weights",
+      "probability": "Expectation over algorithmic randomness",
+      "theorem": "Theorem 1, PDF p.3",
+      "sourceLocation": "Theorem 1, PDF p.3",
+      "assumptions": [
+        "One-sided bipartite vertex arrivals; offline side known in advance; decisions irrevocable.",
+        "Nonnegative weights belong to offline vertices and are known in advance. A matching earns the sum of matched offline-vertex weights.",
+        "Fixed adversarial sequence independent of algorithmic random coins."
+      ],
+      "notes": "",
+      "resource": "Expected matching weight / offline maximum matching weight",
+      "evidenceStatus": "full_text_verified",
+      "weighting": "weighted"
+    },
+    {
+      "id": "online-wv-adv-lower",
+      "sourceId": "online-kvv90",
+      "panel": "weighted-vertices",
+      "row": "wv-adv",
+      "kind": "lower",
+      "value": 0.6321205588285577,
+      "shortLabel": "KVV90 transfer",
+      "displayBound": "β ≤ 1−1/e + o(1)",
+      "bound": "β ≤ 1−1/e + o(1)",
+      "quality": "β ≤ 1−1/e + o(1)",
+      "output": "Integral maximum-weight matching approximation",
+      "graph": "Bipartite; all offline vertices have unit weight",
+      "probability": "Every randomized algorithm",
+      "theorem": "Theorem 2; specialize weighted input to equal unit weights",
+      "sourceLocation": "Theorem 2; specialize weighted input to equal unit weights",
+      "assumptions": [
+        "One-sided bipartite vertex arrivals; offline side known in advance; decisions irrevocable.",
+        "Nonnegative weights belong to offline vertices and are known in advance. A matching earns the sum of matched offline-vertex weights.",
+        "Fixed adversarial sequence independent of algorithmic random coins."
+      ],
+      "notes": "Unit-weight instances are included in the weighted model. This is a scope transfer.",
+      "resource": "Expected matching weight / offline maximum matching weight",
+      "evidenceStatus": "full_text_verified",
+      "weighting": "weighted"
+    },
+    {
+      "id": "online-wv-random-upper",
+      "sourceId": "online-pt25",
+      "panel": "weighted-vertices",
+      "row": "wv-random",
+      "kind": "upper",
+      "value": 0.6862,
+      "shortLabel": "Peng–Tang25",
+      "displayBound": "β ≥ 0.6862",
+      "bound": "β ≥ 0.6862",
+      "quality": "β ≥ 0.6862",
+      "output": "Integral maximum-weight matching approximation",
+      "graph": "Bipartite; nonnegative offline-vertex weights",
+      "probability": "Expectation over random order and ranks",
+      "theorem": "Theorem 1.1; §2 weighted Ranking definition",
+      "sourceLocation": "Theorem 1.1; §2 weighted Ranking definition",
+      "assumptions": [
+        "One-sided bipartite vertex arrivals; offline side known in advance; decisions irrevocable.",
+        "Nonnegative weights belong to offline vertices and are known in advance. A matching earns the sum of matched offline-vertex weights.",
+        "Online arrivals are a uniform random permutation of a fixed graph."
+      ],
+      "notes": "The paper’s 0.7027 ceiling concerns one analysis framework, not impossibility for every algorithm.",
+      "resource": "Expected matching weight / offline maximum matching weight",
+      "evidenceStatus": "full_text_verified",
+      "weighting": "weighted"
+    },
+    {
+      "id": "online-wv-random-lower",
+      "sourceId": "online-cgpv25",
+      "panel": "weighted-vertices",
+      "row": "wv-random",
+      "kind": "lower",
+      "value": 0.8206259212659828,
+      "shortLabel": "CGPV25 transfer",
+      "displayBound": "β ≤ 1−e^(1−e) + o(1)",
+      "bound": "β ≤ 1−e^(1−e) + o(1)",
+      "quality": "β ≤ 1−e^(1−e) + o(1)",
+      "output": "Integral maximum-weight matching approximation",
+      "graph": "Bipartite; unit weights already form a hard case",
+      "probability": "Every randomized algorithm",
+      "theorem": "Theorem 15; equal-weight specialization",
+      "sourceLocation": "Theorem 15; equal-weight specialization",
+      "assumptions": [
+        "One-sided bipartite vertex arrivals; offline side known in advance; decisions irrevocable.",
+        "Nonnegative weights belong to offline vertices and are known in advance. A matching earns the sum of matched offline-vertex weights.",
+        "Online arrivals are a uniform random permutation of a fixed graph."
+      ],
+      "notes": "Unweighted hardness transfers via equal weights; it need not be tight for arbitrary vertex weights.",
+      "resource": "Expected matching weight / offline maximum matching weight",
+      "evidenceStatus": "full_text_verified",
+      "weighting": "weighted"
+    },
+    {
+      "id": "online-we-random-vertex-upper",
+      "sourceId": "online-krtv13",
+      "panel": "weighted-irrevocable",
+      "row": "we-vertex-random",
+      "kind": "upper",
+      "value": 0.36787944117144233,
+      "shortLabel": "KRTV13 limit",
+      "displayBound": "β ≥ 1/e−1/n",
+      "bound": "β ≥ 1/e−1/n",
+      "quality": "β ≥ 1/e−1/n",
+      "output": "Integral maximum-weight matching approximation",
+      "graph": "Bipartite; arbitrary nonnegative edge weights",
+      "probability": "Expectation over uniform arrival order and algorithm randomness",
+      "theorem": "Theorem 2; §2, PDF p.6",
+      "sourceLocation": "Theorem 2; §2, PDF p.6",
+      "assumptions": [
+        "One-sided bipartite vertex arrivals; offline side known in advance; decisions irrevocable.",
+        "Online arrivals are a uniform random permutation of a fixed graph.",
+        "Known n online vertices; incident edge weights revealed with each arrival."
+      ],
+      "notes": "Point shows the asymptotic 1/e limit. The finite-n guarantee is 1/e−1/n, not exactly 1/e.",
+      "resource": "Expected matching weight / offline maximum matching weight",
+      "evidenceStatus": "full_text_verified",
+      "weighting": "weighted",
+      "asymptoticLimit": true
+    },
+    {
+      "id": "online-we-random-vertex-lower",
+      "sourceId": "online-krtv13",
+      "panel": "weighted-irrevocable",
+      "row": "we-vertex-random",
+      "kind": "lower",
+      "value": 0.36787944117144233,
+      "shortLabel": "Secretary limit",
+      "displayBound": "β ≤ 1/e + o(1)",
+      "bound": "β ≤ 1/e + o(1)",
+      "quality": "β ≤ 1/e + o(1)",
+      "output": "Integral maximum-weight matching approximation",
+      "graph": "Bipartite star; arbitrary edge weights",
+      "probability": "Every randomized online algorithm",
+      "theorem": "Introduction: optimality via the classical secretary problem",
+      "sourceLocation": "Introduction: optimality via the classical secretary problem",
+      "assumptions": [
+        "One-sided bipartite vertex arrivals; offline side known in advance; decisions irrevocable.",
+        "Online arrivals are a uniform random permutation of a fixed graph.",
+        "Known horizon; weights are initially unknown."
+      ],
+      "notes": "Classical secretary restriction; asymptotic ceiling, not an exact finite-n equality.",
+      "resource": "Expected matching weight / offline maximum matching weight",
+      "evidenceStatus": "full_text_verified",
+      "weighting": "weighted"
+    },
+    {
+      "id": "online-we-random-edge-upper",
+      "sourceId": "online-efgt22",
+      "panel": "weighted-irrevocable",
+      "row": "we-edge-random",
+      "kind": "upper",
+      "value": 0.25,
+      "shortLabel": "EFGT22",
+      "displayBound": "β ≥ 1/4",
+      "bound": "β ≥ 1/4",
+      "quality": "β ≥ 1/4",
+      "output": "Integral maximum-weight matching approximation",
+      "graph": "General graph; arbitrary nonnegative edge weights",
+      "probability": "Expected matching weight",
+      "theorem": "Theorem 5.2, PDF pp.22–23",
+      "sourceLocation": "Theorem 5.2, PDF pp.22–23",
+      "assumptions": [
+        "Online arrivals are a uniform random permutation of a fixed graph.",
+        "Known total edge count m; edge and its weight revealed on arrival; irrevocable decisions."
+      ],
+      "notes": "Information-theoretic algorithm: the reviewed source does not give a polynomial-time implementation.",
+      "resource": "Expected matching weight / offline maximum matching weight",
+      "evidenceStatus": "full_text_verified",
+      "weighting": "weighted"
+    },
+    {
+      "id": "online-we-random-edge-lower",
+      "sourceId": "online-efgt22",
+      "panel": "weighted-irrevocable",
+      "row": "we-edge-random",
+      "kind": "lower",
+      "value": 0.36787944117144233,
+      "shortLabel": "Secretary limit",
+      "displayBound": "β ≤ 1/e + o(1)",
+      "bound": "β ≤ 1/e + o(1)",
+      "quality": "β ≤ 1/e + o(1)",
+      "output": "Integral maximum-weight matching approximation",
+      "graph": "Weighted star; hence also general graphs",
+      "probability": "Every randomized online algorithm",
+      "theorem": "Introduction / Table 1; classical secretary restriction",
+      "sourceLocation": "Introduction / Table 1; classical secretary restriction",
+      "assumptions": [
+        "Online arrivals are a uniform random permutation of a fixed graph.",
+        "Known total edge count; immediate irrevocable acceptance."
+      ],
+      "notes": "This ceiling is not transferred to preemption.",
+      "resource": "Expected matching weight / offline maximum matching weight",
+      "evidenceStatus": "full_text_verified",
+      "weighting": "weighted"
+    },
+    {
+      "id": "online-wp-d-upper",
+      "sourceId": "online-mcgregor05",
+      "panel": "weighted-preemption",
+      "row": "wp-d",
+      "kind": "upper",
+      "value": 0.1715728752538097,
+      "shortLabel": "McGregor05",
+      "displayBound": "β ≥ 3−2√2 ≈ 0.171573",
+      "bound": "β ≥ 3−2√2 ≈ 0.171573",
+      "quality": "β ≥ 3−2√2 ≈ 0.171573",
+      "output": "Integral maximum-weight matching approximation",
+      "graph": "General graph; arbitrary nonnegative edge weights",
+      "probability": "Deterministic",
+      "theorem": "§3, Lemma 3 and following paragraph; Figure 3",
+      "sourceLocation": "§3, Lemma 3 and following paragraph; Figure 3",
+      "assumptions": [
+        "Adversarial insertion-only edge arrival; weight revealed when edge arrives.",
+        "Accept only on arrival; accepted edges may be permanently discarded; discarded/rejected edges never return."
+      ],
+      "notes": "OPT ≤ (3+1/γ+2γ)ALG. Set γ=1/√2; the single-pass threshold algorithm is online preemptive.",
+      "resource": "Expected matching weight / offline maximum matching weight",
+      "evidenceStatus": "full_text_verified",
+      "weighting": "weighted"
+    },
+    {
+      "id": "online-wp-d-lower",
+      "sourceId": "online-varadaraja11",
+      "panel": "weighted-preemption",
+      "row": "wp-d",
+      "kind": "lower",
+      "value": 0.1715728752538097,
+      "shortLabel": "Varadaraja11",
+      "displayBound": "β ≤ 3−2√2",
+      "bound": "β ≤ 3−2√2",
+      "quality": "β ≤ 3−2√2",
+      "output": "Integral maximum-weight matching approximation",
+      "graph": "Bipartite weighted graph",
+      "probability": "Every deterministic algorithm",
+      "theorem": "§4.2, PDF pp.8–11; k=2 and cancellation penalty f=0",
+      "sourceLocation": "§4.2, PDF pp.8–11; k=2 and cancellation penalty f=0",
+      "assumptions": [
+        "Adversarial insertion-only edge arrival; weight revealed when edge arrives.",
+        "Accept only on arrival; accepted edges may be permanently discarded; discarded/rejected edges never return."
+      ],
+      "notes": "Deterministic lower α≥3+2√2; reciprocating gives β≤3−2√2. Does not apply to arbitrary randomized algorithms.",
+      "resource": "Expected matching weight / offline maximum matching weight",
+      "evidenceStatus": "full_text_verified",
+      "weighting": "weighted"
+    },
+    {
+      "id": "online-wp-r-upper",
+      "sourceId": "online-elsw13",
+      "panel": "weighted-preemption",
+      "row": "wp-r",
+      "kind": "upper",
+      "value": 0.18668230885083703,
+      "shortLabel": "ELSW13",
+      "displayBound": "β ≥ 1/θ* ≈ 0.186682",
+      "bound": "β ≥ 1/θ* ≈ 0.186682",
+      "quality": "β ≥ 1/θ* ≈ 0.186682",
+      "output": "Integral maximum-weight matching approximation",
+      "graph": "General graph; arbitrary nonnegative edge weights",
+      "probability": "Expectation over algorithmic randomness for a fixed sequence",
+      "theorem": "Theorem 3.7, printed p.398",
+      "sourceLocation": "Theorem 3.7, printed p.398",
+      "assumptions": [
+        "Adversarial insertion-only edge arrival; weight revealed when edge arrives.",
+        "Accept only on arrival; accepted edges may be permanently discarded; discarded/rejected edges never return."
+      ],
+      "notes": "θ*>2 solves 2(ln θ*+1)=θ* (θ*≈5.35669). The source minimizes 2θ ln θ/(θ−2).",
+      "resource": "Expected matching weight / offline maximum matching weight",
+      "evidenceStatus": "full_text_verified",
+      "weighting": "weighted"
+    },
+    {
+      "id": "online-wp-r-lower-ajx26-ii",
+      "sourceId": "online-ajx26-ii",
+      "panel": "weighted-preemption",
+      "row": "wp-r",
+      "kind": "lower",
+      "value": 0.5,
+      "shortLabel": "AJX26 II*",
+      "displayBound": "β ≤ ½ + o(1)",
+      "bound": "β ≤ ½ + o(1)",
+      "quality": "β ≤ ½ + o(1)",
+      "output": "Integral maximum-weight matching approximation",
+      "graph": "Unit-weight instances included in arbitrary weighted inputs",
+      "probability": "Every randomized algorithm",
+      "theorem": "Part II §1.3, Corollary 1.4",
+      "sourceLocation": "Part II §1.3, Corollary 1.4",
+      "assumptions": [
+        "Adversarial insertion-only edge arrival; weight revealed when edge arrives.",
+        "Accept only on arrival; accepted edges may be permanently discarded; discarded/rejected edges never return."
+      ],
+      "notes": "Unit-weight hardness transfers to weighted matching. 2026 preprint.",
+      "resource": "Expected matching weight / offline maximum matching weight",
+      "evidenceStatus": "scope_transfer",
+      "weighting": "weighted",
+      "sourceUrl": "https://arxiv.org/html/2607.14656v2#S1.SS3"
+    },
+    {
+      "id": "online-wp-r-lower-ajx26-i",
+      "sourceId": "online-ajx26-i",
+      "panel": "weighted-preemption",
+      "row": "wp-r",
+      "kind": "lower",
+      "value": 0.558481559887747,
+      "shortLabel": "AJX26 I",
+      "displayBound": "β ≤ (8−2√10)/3",
+      "bound": "β ≤ (8−2√10)/3",
+      "quality": "β ≤ (8−2√10)/3",
+      "output": "Integral maximum-weight matching approximation",
+      "graph": "Unit-weight instances included in arbitrary weighted inputs",
+      "probability": "Every randomized algorithm",
+      "theorem": "Part II §1.3 author-stated consequence of Part I",
+      "sourceLocation": "Part II §1.3 author-stated consequence of Part I",
+      "assumptions": [
+        "Adversarial insertion-only edge arrival; weight revealed when edge arrives.",
+        "Accept only on arrival; accepted edges may be permanently discarded; discarded/rejected edges never return."
+      ],
+      "notes": "Unit-weight hardness transfers to weighted matching. Published Part I; transfer explicitly attributed by authors in Part II, not a located standalone Part I theorem.",
+      "resource": "Expected matching weight / offline maximum matching weight",
+      "evidenceStatus": "author_stated_transfer",
+      "weighting": "weighted",
+      "sourceUrl": "https://arxiv.org/html/2607.14656v2#S1.SS3"
+    }
+  ],
+  "relatedResults": [
+    {
+      "id": "online-preempt-ks-historical",
+      "sourceId": "online-ks26",
+      "panel": "preemption",
+      "row": "preempt-adv",
+      "kind": "lower",
+      "value": 0.5661,
+      "shortLabel": "KS26",
+      "displayBound": "β ≤ 0.5661",
+      "bound": "β ≤ 0.5661",
+      "quality": "β ≤ 0.5661",
+      "output": "Integral maximum-cardinality matching approximation",
+      "graph": "Unweighted bipartite graph.",
+      "probability": "Randomized and fractional impossibility",
+      "theorem": "Theorem 1",
+      "sourceLocation": "Theorem 1",
+      "assumptions": [
+        "Accept an edge only on arrival; an accepted edge may later be discarded permanently.",
+        "Rejected or discarded edges cannot be accepted later.",
+        "Adversarial fixed input and arrival order; random coins are not revealed to the input adversary."
+      ],
+      "notes": "Historical published bound; later AJX results are displayed in the main panel.",
+      "resource": "Online competitive guarantee",
+      "evidenceStatus": "full_text_verified",
+      "weighting": "unweighted"
+    },
+    {
+      "id": "online-we-adversarial-related",
+      "sourceId": "online-szz17",
+      "panel": "weighted-irrevocable",
+      "row": "we-vertex-random",
+      "kind": "lower",
+      "value": 0,
+      "shortLabel": "Sun–Zhang–Zhang17",
+      "displayBound": "β = Θ(1/n); no constant guarantee",
+      "bound": "β = Θ(1/n); no constant guarantee",
+      "quality": "β = Θ(1/n); no constant guarantee",
+      "output": "Integral maximum-weight matching approximation",
+      "graph": "Bipartite; arbitrary nonnegative edge weights",
+      "probability": "Randomized online algorithms",
+      "theorem": "Author abstract; full theorem text not inspected",
+      "sourceLocation": "Author abstract; full theorem text not inspected",
+      "assumptions": [
+        "One-sided bipartite vertex arrivals; offline side known in advance; decisions irrevocable.",
+        "Fixed adversarial sequence independent of algorithmic random coins.",
+        "n is the number of online vertices; unrestricted weight scale."
+      ],
+      "notes": "Separate adversarial-order result; not plotted on the random-order row. Author abstract verifies the asymptotic order; no theorem number asserted.",
+      "resource": "Expected matching weight / offline maximum matching weight",
+      "evidenceStatus": "primary_author_abstract_checked",
+      "weighting": "weighted",
+      "sourceUrl": "https://jialrs.github.io/home/"
+    }
+  ],
+  "coverageNote": "Bounded initial review, not an exhaustive bibliography. Random permutation, IID input, known horizon, deadlines, and graph classes are distinct. Unreviewed scopes are not claimed open.",
+  "unreviewed": [
+    "Random-edge recourse-specific guarantees",
+    "IID/distributional arrival models",
+    "Fully online deadlines",
+    "Weighted recourse tradeoffs"
+  ],
+  "sourceVerification": [
+    {
+      "sourceId": "online-kvv90",
+      "url": "https://ics.uci.edu/~vazirani/KVV.pdf",
+      "checkedOn": "2026-10-27",
+      "theorems": [
+        "Theorem 2, PDF p.6",
+        "Theorem 2; specialize weighted input to equal unit weights",
+        "§2 remark, PDF p.1"
+      ],
+      "evidenceStatuses": [
+        "full_text_verified"
+      ]
+    },
+    {
+      "sourceId": "online-djk13",
+      "url": "https://www.nikhildevanur.com/pubs/RPDFinal.pdf",
+      "checkedOn": "2026-10-27",
+      "theorems": [
+        "Theorem 2.1, PDF pp.4–5; corrected analysis of KVV90 Ranking"
+      ],
+      "evidenceStatuses": [
+        "full_text_verified"
+      ]
+    },
+    {
+      "sourceId": "online-my11",
+      "url": "https://doi.org/10.1145/1993636.1993716",
+      "checkedOn": "2026-10-27",
+      "theorems": [
+        "Official STOC 2011 author abstract; original theorem number not verified"
+      ],
+      "evidenceStatuses": [
+        "primary_author_abstract_checked"
+      ]
+    },
+    {
+      "sourceId": "online-cgpv25",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2025.58",
+      "checkedOn": "2026-10-27",
+      "theorems": [
+        "Theorem 15 and following paragraph, PDF p.13",
+        "Theorem 15; equal-weight specialization"
+      ],
+      "evidenceStatuses": [
+        "full_text_verified"
+      ]
+    },
+    {
+      "sourceId": "online-gkm19",
+      "url": "https://www.cs.cmu.edu/~dwajc/pdfs/gamlath19.pdf",
+      "checkedOn": "2026-10-27",
+      "theorems": [
+        "Introduction: greedy maximal matching",
+        "Introduction; §2",
+        "Theorem 1.1; Theorem 2.1 finite bound ½+1/(2n+2)",
+        "Theorem 1.2; §3.4.7"
+      ],
+      "evidenceStatuses": [
+        "full_text_verified"
+      ]
+    },
+    {
+      "sourceId": "online-gs17",
+      "url": "https://arxiv.org/pdf/1512.06271v4",
+      "checkedOn": "2026-10-27",
+      "theorems": [
+        "Appendix B.3, Lemma 12, PDF pp.30–31",
+        "Theorem 2, full version PDF p.2; §5"
+      ],
+      "evidenceStatuses": [
+        "full_text_verified"
+      ]
+    },
+    {
+      "sourceId": "online-tang26",
+      "url": "https://arxiv.org/html/2602.18049v1",
+      "checkedOn": "2026-10-27",
+      "theorems": [
+        "Theorem 1.1 and integral consequence immediately afterward"
+      ],
+      "evidenceStatuses": [
+        "full_text_verified"
+      ]
+    },
+    {
+      "sourceId": "online-ajx26-ii",
+      "url": "https://arxiv.org/abs/2607.14656",
+      "checkedOn": "2026-10-27",
+      "theorems": [
+        "Corollary 1.4; §1.3",
+        "Part II §1.3, Corollary 1.4"
+      ],
+      "evidenceStatuses": [
+        "full_text_verified",
+        "scope_transfer"
+      ]
+    },
+    {
+      "sourceId": "online-ajx26-i",
+      "url": "https://doi.org/10.1145/3798129.3800811",
+      "checkedOn": "2026-10-27",
+      "theorems": [
+        "Part II §1.3 author-stated consequence of Part I",
+        "Part II §1.3 explicitly attributes this consequence to Part I; no standalone Part I preemption theorem located"
+      ],
+      "evidenceStatuses": [
+        "author_stated_transfer"
+      ]
+    },
+    {
+      "sourceId": "online-ks26",
+      "url": "https://doi.org/10.4230/LIPIcs.ICALP.2026.128",
+      "checkedOn": "2026-10-27",
+      "theorems": [
+        "Theorem 1"
+      ],
+      "evidenceStatuses": [
+        "full_text_verified"
+      ]
+    },
+    {
+      "sourceId": "online-adj18",
+      "url": "https://doi.org/10.4230/LIPIcs.MFCS.2018.8",
+      "checkedOn": "2026-10-27",
+      "theorems": [
+        "Proposition 4 for k=4; Theorem 2 for k≥6; Table 1",
+        "Theorem 3 (k≥3)"
+      ],
+      "evidenceStatuses": [
+        "full_text_verified"
+      ]
+    },
+    {
+      "sourceId": "online-bhr18",
+      "url": "https://arxiv.org/pdf/1707.06063v4",
+      "checkedOn": "2026-10-27",
+      "theorems": [
+        "Theorem 1, PDF p.3"
+      ],
+      "evidenceStatuses": [
+        "full_text_verified"
+      ]
+    },
+    {
+      "sourceId": "online-cdkl09",
+      "url": "https://www.cs.cornell.edu/~rdk/papers/infocom09.pdf",
+      "checkedOn": "2026-10-27",
+      "theorems": [
+        "Theorem II.2",
+        "Theorem II.3"
+      ],
+      "evidenceStatuses": [
+        "full_text_verified"
+      ]
+    },
+    {
+      "sourceId": "online-gkkv95",
+      "url": "https://www.ittc.ku.edu/~jsv/Papers/GKK95.online-matching.pdf",
+      "checkedOn": "2026-10-27",
+      "theorems": [
+        "Theorem 1 and proof, PDF pp.4–5"
+      ],
+      "evidenceStatuses": [
+        "full_text_verified"
+      ]
+    },
+    {
+      "sourceId": "online-agkm11",
+      "url": "https://arxiv.org/pdf/1007.1271",
+      "checkedOn": "2026-10-27",
+      "theorems": [
+        "Theorem 1, PDF p.3"
+      ],
+      "evidenceStatuses": [
+        "full_text_verified"
+      ]
+    },
+    {
+      "sourceId": "online-pt25",
+      "url": "https://arxiv.org/html/2503.04196v1",
+      "checkedOn": "2026-10-27",
+      "theorems": [
+        "Theorem 1.1; §2 weighted Ranking definition"
+      ],
+      "evidenceStatuses": [
+        "full_text_verified"
+      ]
+    },
+    {
+      "sourceId": "online-krtv13",
+      "url": "https://www.thomas-kesselheim.de/science/onlinematching.pdf",
+      "checkedOn": "2026-10-27",
+      "theorems": [
+        "Introduction: optimality via the classical secretary problem",
+        "Theorem 2; §2, PDF p.6"
+      ],
+      "evidenceStatuses": [
+        "full_text_verified"
+      ]
+    },
+    {
+      "sourceId": "online-efgt22",
+      "url": "https://arxiv.org/pdf/2011.01559",
+      "checkedOn": "2026-10-27",
+      "theorems": [
+        "Introduction / Table 1; classical secretary restriction",
+        "Theorem 5.2, PDF pp.22–23"
+      ],
+      "evidenceStatuses": [
+        "full_text_verified"
+      ]
+    },
+    {
+      "sourceId": "online-mcgregor05",
+      "url": "https://people.cs.umass.edu/~mcgregor/papers/05-approx1.pdf",
+      "checkedOn": "2026-10-27",
+      "theorems": [
+        "§3, Lemma 3 and following paragraph; Figure 3"
+      ],
+      "evidenceStatuses": [
+        "full_text_verified"
+      ]
+    },
+    {
+      "sourceId": "online-varadaraja11",
+      "url": "https://arxiv.org/pdf/1009.5037",
+      "checkedOn": "2026-10-27",
+      "theorems": [
+        "§4.2, PDF pp.8–11; k=2 and cancellation penalty f=0"
+      ],
+      "evidenceStatuses": [
+        "full_text_verified"
+      ]
+    },
+    {
+      "sourceId": "online-elsw13",
+      "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol020-stacs2013/LIPIcs.STACS.2013.389/LIPIcs.STACS.2013.389.pdf",
+      "checkedOn": "2026-10-27",
+      "theorems": [
+        "Theorem 3.7, printed p.398"
+      ],
+      "evidenceStatuses": [
+        "full_text_verified"
+      ]
+    },
+    {
+      "sourceId": "online-szz17",
+      "url": "https://doi.org/10.1007/s10878-016-0100-2",
+      "checkedOn": "2026-10-27",
+      "theorems": [
+        "Author abstract; full theorem text not inspected"
+      ],
+      "evidenceStatuses": [
+        "primary_author_abstract_checked"
+      ]
+    }
+  ],
+  "figureAxes": {
+    "irrevocable": {
+      "x": {
+        "label": "Competitive fraction β = E[ALG]/OPT · larger is better",
+        "min": 0.4,
+        "max": 1,
+        "ticks": [
+          0.4,
+          0.5,
+          0.75,
+          1
+        ]
+      },
+      "y": {
+        "label": "Arrival and decision setup",
+        "categories": [
+          {
+            "id": "vertex-adv-d",
+            "label": "One-sided vertices · adversarial · D"
+          },
+          {
+            "id": "vertex-adv-r",
+            "label": "One-sided vertices · adversarial · R"
+          },
+          {
+            "id": "vertex-random",
+            "label": "One-sided vertices · random order"
+          },
+          {
+            "id": "vertex-general",
+            "label": "General vertices · adversarial · R"
+          },
+          {
+            "id": "edge-adv",
+            "label": "Edges · adversarial · every prefix"
+          },
+          {
+            "id": "edge-random",
+            "label": "Edges · random order · known m"
+          }
+        ]
+      }
+    },
+    "preemption": {
+      "x": {
+        "label": "Competitive fraction β = E[ALG]/OPT · larger is better",
+        "min": 0.4,
+        "max": 1,
+        "ticks": [
+          0.4,
+          0.5,
+          0.75,
+          1
+        ]
+      },
+      "y": {
+        "label": "Arrival and decision setup",
+        "categories": [
+          {
+            "id": "preempt-adv",
+            "label": "Edges · adversarial · randomized"
+          },
+          {
+            "id": "preempt-random",
+            "label": "Edges · random · inherited algorithm"
+          }
+        ]
+      }
+    },
+    "bounded": {
+      "x": {
+        "label": "Competitive fraction β = E[ALG]/OPT · larger is better",
+        "min": 0.4,
+        "max": 1,
+        "ticks": [
+          0.4,
+          0.5,
+          0.75,
+          1
+        ]
+      },
+      "y": {
+        "label": "Arrival and decision setup",
+        "categories": [
+          {
+            "id": "k4",
+            "label": "k = 4 flips per edge"
+          },
+          {
+            "id": "k8",
+            "label": "k = 8 flips per edge"
+          },
+          {
+            "id": "k16",
+            "label": "k = 16 flips per edge"
+          }
+        ]
+      }
+    },
+    "exact": {
+      "x": {
+        "label": "Total replacements · symbolic cost categories",
+        "min": 0,
+        "max": 1,
+        "ticks": [
+          0,
+          1
+        ]
+      },
+      "y": {
+        "label": "Arrival and decision setup",
+        "categories": [
+          {
+            "id": "exact-adv",
+            "label": "Adversarial order · deterministic"
+          },
+          {
+            "id": "exact-random",
+            "label": "Random order · perfectly matchable"
+          }
+        ]
+      }
+    },
+    "weighted-irrevocable": {
+      "x": {
+        "label": "Expected retained weight β · larger is better",
+        "min": 0,
+        "max": 1,
+        "ticks": [
+          0,
+          0.5,
+          0.75,
+          1
+        ]
+      },
+      "y": {
+        "label": "Arrival and decision setup",
+        "categories": [
+          {
+            "id": "we-vertex-random",
+            "label": "One-sided vertices · random order"
+          },
+          {
+            "id": "we-edge-random",
+            "label": "Edge weights · random edges"
+          }
+        ]
+      }
+    },
+    "weighted-vertices": {
+      "x": {
+        "label": "Expected retained weight β · larger is better",
+        "min": 0,
+        "max": 1,
+        "ticks": [
+          0,
+          0.5,
+          0.75,
+          1
+        ]
+      },
+      "y": {
+        "label": "Arrival and decision setup",
+        "categories": [
+          {
+            "id": "wv-adv",
+            "label": "Vertex weights · adversarial vertices"
+          },
+          {
+            "id": "wv-random",
+            "label": "Vertex weights · random vertices"
+          }
+        ]
+      }
+    },
+    "weighted-preemption": {
+      "x": {
+        "label": "Expected retained weight β · larger is better",
+        "min": 0,
+        "max": 1,
+        "ticks": [
+          0,
+          0.5,
+          0.75,
+          1
+        ]
+      },
+      "y": {
+        "label": "Arrival and decision setup",
+        "categories": [
+          {
+            "id": "wp-d",
+            "label": "Edge weights · deterministic"
+          },
+          {
+            "id": "wp-r",
+            "label": "Edge weights · randomized"
+          }
+        ]
+      }
+    }
+  }
+}

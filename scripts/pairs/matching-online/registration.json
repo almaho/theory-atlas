@@ -1,0 +1,86 @@
+{
+  "id": "matching-online",
+  "dataFile": "matching-online.json",
+  "javascript": "matching-online.js",
+  "css": "matching-online.css",
+  "routes": [
+    {
+      "key": "matching-online",
+      "sliceId": "matching-online-irrevocable",
+      "label": "Online matching · unweighted",
+      "problem": "matching",
+      "model": "online",
+      "visible": true,
+      "weighting": "unweighted"
+    },
+    {
+      "key": "matching-online-preemption",
+      "sliceId": "matching-online-preemption",
+      "label": "Online matching · unweighted",
+      "problem": "matching",
+      "model": "online",
+      "visible": false,
+      "weighting": "unweighted"
+    },
+    {
+      "key": "matching-online-bounded",
+      "sliceId": "matching-online-bounded",
+      "label": "Online matching · unweighted",
+      "problem": "matching",
+      "model": "online",
+      "visible": false,
+      "weighting": "unweighted"
+    },
+    {
+      "key": "matching-online-exact",
+      "sliceId": "matching-online-exact",
+      "label": "Online matching · unweighted",
+      "problem": "matching",
+      "model": "online",
+      "visible": false,
+      "weighting": "unweighted"
+    },
+    {
+      "key": "matching-online-weighted",
+      "sliceId": "matching-online-weighted-irrevocable",
+      "label": "Online matching · weighted",
+      "problem": "weighted_matching",
+      "model": "online",
+      "visible": true,
+      "weighting": "weighted"
+    },
+    {
+      "key": "matching-online-weighted-vertices",
+      "sliceId": "matching-online-weighted-vertices",
+      "label": "Online matching · weighted",
+      "problem": "weighted_matching",
+      "model": "online",
+      "visible": false,
+      "weighting": "weighted"
+    },
+    {
+      "key": "matching-online-weighted-preemption",
+      "sliceId": "matching-online-weighted-preemption",
+      "label": "Online matching · weighted",
+      "problem": "weighted_matching",
+      "model": "online",
+      "visible": false,
+      "weighting": "weighted"
+    }
+  ],
+  "canonicalAliases": {
+    "matching-online-preemption": "matching-online",
+    "matching-online-bounded": "matching-online",
+    "matching-online-exact": "matching-online",
+    "matching-online-weighted-vertices": "matching-online-weighted",
+    "matching-online-weighted-preemption": "matching-online-weighted"
+  },
+  "pointFields": {
+    "x": "value",
+    "y": "row"
+  },
+  "axisSummary": {
+    "x": "Competitive fraction β (larger is better); exact-matching panel uses symbolic total replacements",
+    "y": "Arrival type/order, decision rule, weighting and randomness"
+  }
+}

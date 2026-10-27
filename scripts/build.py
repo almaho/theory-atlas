@@ -7,7 +7,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
-PROBLEMS = ("matching", "mis", "cc", "edge", "vertex")
+PROBLEMS = ("matching", "weighted_matching", "mis", "cc", "edge", "vertex")
 
 
 def require(condition, message):

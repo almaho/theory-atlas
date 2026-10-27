@@ -1,10 +1,10 @@
 {
-  "reviewedOn": "2026-10-20",
+  "reviewedOn": "2026-10-27",
   "problem": "matching",
   "model": "lca",
   "title": "Matching through local probes",
-  "coverage": "Curated primary-source landscape of eight local-matching results under adjacency-list access, reviewed 2026-10-20. Targeted 2025–2026 searches found no later replacement for the included near-optimal LRY upper and BRR lower. Global size, stochastic oracles, and unverified historical cross-references remain separately scoped related records; this is not exhaustive coverage of every graph class or oracle model. Fixed-tree non-adaptive records are retained as skipped source metadata and omitted from the figure.",
-  "defaultScope": "General unweighted simple graphs, maximum degree Delta, indexed adjacency-list probes. The main panel compares adaptive local matching queries by named guarantee and probe-formula categories. The fixed-degree panel compares n-dependence with Delta and epsilon fixed. The near-optimal comparison uses vertex-partner queries and additive deficit epsilon*n.",
+  "coverage": "Curated primary-source landscape of ten local-matching results under adjacency-list access. The Non-adaptive comparison was restored and tagged on 2026-10-27. Global size and specialized stochastic oracles remain separately scoped related records; this is not exhaustive coverage of every graph class or oracle.",
+  "defaultScope": "General unweighted simple graphs, maximum degree Delta, indexed adjacency-list probes. The main panel compares adaptive local matching queries by named guarantee and probe-formula categories. The fixed-degree panel compares n-dependence with Delta and epsilon fixed. The near-optimal comparison uses vertex-partner queries and additive deficit epsilon*n. A third panel compares Non-adaptive local queries under a fixed probe schedule on general graphs.",
   "definitions": {
     "explicitOutput": "An oracle consistent with one matching, not enumeration of all its edges. Distinguish edge-membership, matched-status, and vertex-partner queries.",
     "sizeOutput": "One estimate of the global optimum. Its total probe budget is not the same quantity as the probe budget per local matching query.",
@@ -29,7 +29,7 @@
       "lowerBoundWindow": "0 < epsilon <= 0.01 and log^4 n <= Delta <= n^epsilon",
       "plotType": "symbolic growth orders only; no numerical hidden constants"
     },
-    "skippedNonAdaptive": {
+    "nonAdaptive": {
       "quality": "fixed positive constant fraction of OPT",
       "output": "edge membership",
       "cost": "probes per local output query",
@@ -37,7 +37,7 @@
       "lowerBoundId": "lca-abgs25-nonadaptive-lower",
       "oracle": "Fixed parent-index/neighbor-port exploration tree, following discovered vertex IDs; degrees revealed for free for the lower bound.",
       "tightness": "Delta^{Theta(log Delta/loglog Delta)} up to constants in the exponent; no equality of numerical constants",
-      "displayStatus": "skipped"
+      "displayStatus": "main"
     }
   },
   "sources": {
@@ -195,7 +195,8 @@
       "url": "https://arxiv.org/abs/2505.00915",
       "fullTextUrl": "https://arxiv.org/pdf/2505.00915",
       "shortLabel": "ABGS 2025",
-      "verifiedOn": "2026-10-20"
+      "verifiedOn": "2026-10-20",
+      "publicationUrl": "https://doi.org/10.1109/FOCS63196.2025.00078"
     },
     "abgr24": {
       "title": "Stochastic Matching via In-n-Out Local Computation Algorithms",
@@ -435,6 +436,57 @@
       "outputClass": "local_matching",
       "parameterRange": "0 < epsilon <= 0.01; log^4 n <= Delta <= n^epsilon",
       "scope": "adaptive adjacency-list probes; even bipartite graphs"
+    },
+    {
+      "id": "lca-bcgs17-nonadaptive",
+      "sourceId": "bcgs17",
+      "kind": "algorithm",
+      "theorem": "Theorem 3.2 in arXiv v1 (Theorem 3.4 in PODC author manuscript); Parnas–Ron simulation",
+      "quality": "|M| >= OPT/(2+epsilon), fixed epsilon>0",
+      "qualityType": "multiplicative",
+      "output": "edge membership",
+      "graph": "general unweighted; maximum degree Delta",
+      "oracle": "fixed-tree adjacency-list exploration",
+      "adaptivity": "non-adaptive tree probes",
+      "randomization": "randomized",
+      "queryComplexity": "Delta^{O(log Delta/loglog Delta)}",
+      "probability": "constant success for approximation; output always a matching",
+      "notes": "Derived LCA: explore a fixed tree containing the O(log Delta/loglog Delta)-radius neighborhoods needed by the distributed algorithm, then simulate its decisions. This is not a separately numbered LCA theorem. Fixed epsilon; no explicit epsilon dependence asserted. The restriction is on the probe schedule; input graphs are not restricted to trees.",
+      "evidenceStatus": "derived_from_verified_theorem",
+      "label": "BCGS 2017",
+      "year": 2017,
+      "publicationStatus": "published",
+      "sourceUrl": "https://arxiv.org/pdf/1708.00276",
+      "costMeasure": "graph probes per local output query",
+      "outputClass": "local_matching",
+      "panel": "nonadaptive",
+      "setupTag": "Non-adaptive"
+    },
+    {
+      "id": "lca-abgs25-nonadaptive-lower",
+      "sourceId": "abgs25",
+      "kind": "lower",
+      "theorem": "Theorem 1.1; Definitions 3.1 and 3.3",
+      "quality": "Any fixed positive constant beta",
+      "qualityType": "multiplicative",
+      "output": "edge membership consistent with a matching",
+      "graph": "general unweighted; asymptotic degree parameter with sufficiently large graphs",
+      "oracle": "fixed parent-index/port exploration tree; discovered degrees revealed for free",
+      "adaptivity": "non-adaptive tree probes only",
+      "randomization": "randomized allowed",
+      "queryComplexity": "Delta^{Omega(log Delta/loglog Delta)} per query",
+      "probability": "constant approximation success; output always a matching",
+      "notes": "Matches the fixed-epsilon BCGS17 simulation up to constants in the exponent. Restriction is on a fixed exploration tree, not fixed absolute vertex-ID probes. It does not lower-bound adaptive LCAs or global size estimation. The restriction is on the probe schedule; input graphs are not restricted to trees.",
+      "evidenceStatus": "full_text_verified",
+      "label": "ABGS 2025",
+      "year": 2025,
+      "publicationStatus": "published",
+      "sourceUrl": "https://arxiv.org/pdf/2505.00915",
+      "costMeasure": "graph probes per local output query",
+      "outputClass": "local_matching",
+      "parameterRange": "Asymptotic degree parameter; sufficiently large graphs",
+      "panel": "nonadaptive",
+      "setupTag": "Non-adaptive"
     }
   ],
   "relatedResults": [
@@ -603,59 +655,7 @@
     "Treating an average-over-random-vertices oracle analysis as a worst-case query guarantee",
     "Showing a multiplicative inherited size guarantee for free: global sampling introduces additive error and a total-probe budget"
   ],
-  "skippedRecords": [
-    {
-      "id": "lca-bcgs17-nonadaptive",
-      "sourceId": "bcgs17",
-      "kind": "algorithm",
-      "theorem": "Theorem 3.2 in arXiv v1 (Theorem 3.4 in PODC author manuscript); Parnas–Ron simulation",
-      "quality": "|M| >= OPT/(2+epsilon), fixed epsilon>0",
-      "qualityType": "multiplicative",
-      "output": "edge membership",
-      "graph": "general unweighted; maximum degree Delta",
-      "oracle": "fixed-tree adjacency-list exploration",
-      "adaptivity": "non-adaptive tree probes",
-      "randomization": "randomized",
-      "queryComplexity": "Delta^{O(log Delta/loglog Delta)}",
-      "probability": "constant success for approximation; output always a matching",
-      "notes": "Derived LCA: explore a fixed tree containing the O(log Delta/loglog Delta)-radius neighborhoods needed by the distributed algorithm, then simulate its decisions. This is not a separately numbered LCA theorem. Fixed epsilon; no explicit epsilon dependence asserted.",
-      "evidenceStatus": "derived_from_verified_theorem",
-      "label": "BCGS 2017",
-      "year": 2017,
-      "publicationStatus": "published",
-      "sourceUrl": "https://arxiv.org/pdf/1708.00276",
-      "costMeasure": "graph probes per local output query",
-      "outputClass": "local_matching",
-      "displayStatus": "skipped",
-      "displayReason": "Fixed-tree non-adaptive model omitted from the requested LCA landscape."
-    },
-    {
-      "id": "lca-abgs25-nonadaptive-lower",
-      "sourceId": "abgs25",
-      "kind": "lower",
-      "theorem": "Theorem 1.1; Definitions 3.1 and 3.3",
-      "quality": "Any fixed positive constant beta",
-      "qualityType": "multiplicative",
-      "output": "edge membership consistent with a matching",
-      "graph": "general unweighted; asymptotic degree parameter with sufficiently large graphs",
-      "oracle": "fixed parent-index/port exploration tree; discovered degrees revealed for free",
-      "adaptivity": "non-adaptive tree probes only",
-      "randomization": "randomized allowed",
-      "queryComplexity": "Delta^{Omega(log Delta/loglog Delta)} per query",
-      "probability": "constant approximation success; output always a matching",
-      "notes": "Matches the fixed-epsilon BCGS17 simulation up to constants in the exponent. Restriction is on a fixed exploration tree, not fixed absolute vertex-ID probes. It does not lower-bound adaptive LCAs or global size estimation.",
-      "evidenceStatus": "full_text_verified",
-      "label": "ABGS 2025",
-      "year": 2025,
-      "publicationStatus": "published",
-      "sourceUrl": "https://arxiv.org/pdf/2505.00915",
-      "costMeasure": "graph probes per local output query",
-      "outputClass": "local_matching",
-      "parameterRange": "Asymptotic degree parameter; sufficiently large graphs",
-      "displayStatus": "skipped",
-      "displayReason": "Fixed-tree non-adaptive model omitted from the requested LCA landscape."
-    }
-  ],
+  "skippedRecords": [],
   "figureAxes": {
     "adaptive": {
       "title": "Adaptive local queries",
@@ -744,6 +744,34 @@
         ]
       },
       "scaleNote": "Fix Delta and epsilon. MRVX and MV give time bounds that also bound probes; EMR gives probe bounds. Degree and epsilon dependence remains in the theorem inspector."
+    },
+    "nonadaptive": {
+      "title": "Non-adaptive local queries",
+      "x": {
+        "label": "Constant-factor matching guarantee",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "constant-approximation",
+            "label": "Fixed positive approximation; exact contract in theorem"
+          }
+        ]
+      },
+      "y": {
+        "label": "Graph probes per local query",
+        "kind": "symbolic-categorical",
+        "categories": [
+          {
+            "id": "quasipolynomial-upper",
+            "label": "Delta^{O(log Delta/loglog Delta)}"
+          },
+          {
+            "id": "quasipolynomial-lower",
+            "label": "Delta^{Omega(log Delta/loglog Delta)}"
+          }
+        ]
+      },
+      "scaleNote": "Upper and lower match up to constants in the exponent, for fixed approximation. No universal n-coordinate."
     }
   }
 }

@@ -2,7 +2,9 @@
 
 Audit date: 2026-09-27. All content must be grounded in primary sources. This is a scoped research atlas, not a claim that every variant is surveyed exhaustively.
 
-Each researcher writes only `data/research/PROBLEM.json` plus optional `docs/PROBLEM-research.md`. Use problem IDs matching, mis, cc, edge, vertex. Models: dynamic, stream, lca, local, mpc, query_list, query_matrix, query_combined. Pure adjacency-list, pure adjacency-matrix, and combined/other query interfaces are separate model columns. Keep combined access out of the pure list/matrix cells.
+Each researcher writes only `data/research/PROBLEM.json` plus optional `docs/PROBLEM-research.md`. Use problem IDs matching, weighted_matching, mis, cc, edge, vertex. Models: dynamic, stream, online, stochastic, lca, local, mpc, query_list, query_matrix, query_combined. Pure adjacency-list, pure adjacency-matrix, and combined/other query interfaces are separate model columns. Keep combined access out of the pure list/matrix cells.
+
+Online maximization figures use β=E[ALG]/OPT, larger is better. Green marks an achievable fraction; red is an impossibility ceiling, still stored as kind `lower`. Do not apply generic approximation-factor region closures to this reversed quality convention. Weighted matching has its own atlas row; edge and vertex weights remain separately labeled. Stochastic edge realization, random-order online arrivals, and distributional arrivals are distinct input models. Online and Stochastic axes require manual source-based curation.
 
 JSON format:
 ```

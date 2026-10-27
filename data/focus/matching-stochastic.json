@@ -1,0 +1,215 @@
+{
+  "id": "matching-stochastic",
+  "problem": "matching",
+  "model": "stochastic",
+  "title": "Matching · stochastic edge realizations",
+  "reviewedOn": "2026-10-27",
+  "sources": {
+    "azarmehr-behnezhad-ghafari-rubinfeld-2025-stochastic": {
+      "id": "azarmehr-behnezhad-ghafari-rubinfeld-2025-stochastic",
+      "title": "Stochastic Matching via In-n-Out Local Computation Algorithms",
+      "authors": [
+        "Amir Azarmehr",
+        "Soheil Behnezhad",
+        "Alma Ghafari",
+        "Ronitt Rubinfeld"
+      ],
+      "year": 2025,
+      "venue": "STOC 2025, pp. 1055–1066",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2411.08805",
+      "fullTextUrl": "https://arxiv.org/html/2411.08805v2",
+      "doi": "10.1145/3717823.3718279",
+      "verifiedOn": "2026-10-27"
+    }
+  },
+  "verifiedRecords": [
+    {
+      "paperId": "azarmehr-behnezhad-ghafari-rubinfeld-2025-stochastic",
+      "sourceId": "azarmehr-behnezhad-ghafari-rubinfeld-2025-stochastic",
+      "shortLabel": "ABGR25",
+      "graph": "General unweighted graph G; independent edge realizations with known probabilities pₑ≥p>0",
+      "probability": "Expectation over independent edge realizations and the algorithm’s randomness",
+      "plot": null,
+      "id": "stochastic-abgr25-near-optimal",
+      "kind": "upper",
+      "panel": "budget",
+      "sliceId": "matching-stochastic-nonadaptive-tests",
+      "budgetKey": "polynomial",
+      "guaranteeKey": "near-optimal",
+      "quality": "1−ε of expected optimum, for fixed ε∈(0,1)",
+      "bound": "Maximum degree Δ(H) ≤ (1/p)^Oε(1)",
+      "displayBound": "(1/p)^{Oε(1)}",
+      "guarantee": "E μ(H∩Gₚ) ≥ (1−ε) E μ(Gₚ)",
+      "output": "Query subgraph H chosen before real edge realizations; then a maximum matching of H∩Gₚ",
+      "theorem": "Theorem 1; Result 1; Algorithm 1",
+      "sourceLocation": "Section 5.1, Theorem 1; introduction Result 1",
+      "evidenceStatus": "theorem_verified",
+      "frontierStatus": "verified_construction",
+      "oracle": "Known base graph and edge probabilities; only edge-existence tests count toward the budget",
+      "notes": "Union of maximum matchings from independent simulated realizations. The exponent depends on ε and stays symbolic. This is a ratio of expectations, not an expectation of instance-wise ratios.",
+      "sourceUrl": "https://arxiv.org/html/2411.08805v2#S5"
+    },
+    {
+      "paperId": "azarmehr-behnezhad-ghafari-rubinfeld-2025-stochastic",
+      "sourceId": "azarmehr-behnezhad-ghafari-rubinfeld-2025-stochastic",
+      "shortLabel": "ABGR25",
+      "graph": "General unweighted graph G; independent edge realizations with known probabilities pₑ≥p>0",
+      "probability": "Expectation over independent edge realizations and the algorithm’s randomness",
+      "plot": null,
+      "id": "stochastic-abgr25-degree-necessity",
+      "kind": "lower",
+      "panel": "budget",
+      "sliceId": "matching-stochastic-nonadaptive-tests",
+      "budgetKey": "linear",
+      "guaranteeKey": "constant",
+      "quality": "Any fixed constant fraction of expected optimum",
+      "bound": "Average degree of H must be Ω(1/p) in the worst case",
+      "displayBound": "Ω(1/p)",
+      "guarantee": "A constant approximation independent of p requires Ω(1/p) average degree",
+      "output": "Necessary query budget for a nonadaptive subgraph H",
+      "theorem": "Introduction, elementary degree necessity",
+      "sourceLocation": "Section 1, paragraph following the approximation-ratio definition",
+      "evidenceStatus": "author_stated_bound",
+      "frontierStatus": "necessary_budget",
+      "oracle": "Known base graph; edge-existence tests selected before their outcomes are observed",
+      "notes": "Average degree lower bound; the algorithm upper bound controls maximum degree. No matching polynomial exponent or ε-dependent tightness is claimed.",
+      "sourceUrl": "https://arxiv.org/html/2411.08805v2#S1"
+    },
+    {
+      "paperId": "azarmehr-behnezhad-ghafari-rubinfeld-2025-stochastic",
+      "sourceId": "azarmehr-behnezhad-ghafari-rubinfeld-2025-stochastic",
+      "shortLabel": "ABGR25",
+      "graph": "General unweighted graph G; independent edge realizations with known probabilities pₑ≥p>0",
+      "probability": "Out-query bound deterministic; approximation is in expectation",
+      "plot": null,
+      "id": "stochastic-abgr25-out",
+      "kind": "upper",
+      "panel": "oracle",
+      "sliceId": "matching-stochastic-inout-oracle",
+      "budgetKey": "poly-delta",
+      "guaranteeKey": "out",
+      "quality": "Specialized matching oracle: out-queries, worst case",
+      "bound": "q⁺(e) ≤ Δ^poly(1/ε), deterministically",
+      "displayBound": "Δ^{poly(1/ε)}",
+      "guarantee": "E|B(Gₚ)| ≥ E|A(Gₚ)|−εn; vertex matching marginals do not increase",
+      "output": "Consistent membership answers for the specialized matching B",
+      "theorem": "Lemma 5.6; Claim 6.9; Remark 5.8",
+      "sourceLocation": "Sections 5.2 and 6.2.3",
+      "evidenceStatus": "theorem_verified",
+      "frontierStatus": "specialized_oracle",
+      "oracle": "Known base structure, realized subset, and reference matching probabilities qₑ; adaptive probes allowed",
+      "notes": "Out-query set Q⁺(v): vertices incident to a discovered edge while answering v. Reference matching probabilities are supplied information; their computation is outside this bound.",
+      "sourceUrl": "https://arxiv.org/html/2411.08805v2#S6.SS2.SSS3"
+    },
+    {
+      "paperId": "azarmehr-behnezhad-ghafari-rubinfeld-2025-stochastic",
+      "sourceId": "azarmehr-behnezhad-ghafari-rubinfeld-2025-stochastic",
+      "shortLabel": "ABGR25",
+      "graph": "General unweighted graph G; independent edge realizations with known probabilities pₑ≥p>0",
+      "probability": "Expectation over algorithmic randomness, for any fixed realization Gₚ",
+      "plot": null,
+      "id": "stochastic-abgr25-in",
+      "kind": "upper",
+      "panel": "oracle",
+      "sliceId": "matching-stochastic-inout-oracle",
+      "budgetKey": "poly-delta",
+      "guaranteeKey": "in",
+      "quality": "Specialized matching oracle: expected in-queries",
+      "bound": "E q⁻(e) ≤ Δ^poly(1/ε)",
+      "displayBound": "Δ^{poly(1/ε)}",
+      "guarantee": "Bound holds for every fixed realization Gₚ; expectation over algorithmic randomness",
+      "output": "Bound on how many other edge answers probe a given edge",
+      "theorem": "Claim 6.10; Lemma 3.8; Lemma 5.6",
+      "sourceLocation": "Sections 3.1, 3.3 and 6.2.3",
+      "evidenceStatus": "theorem_verified",
+      "frontierStatus": "specialized_oracle",
+      "oracle": "Same specialized oracle as the out-query row; private random tapes and adaptive probes",
+      "notes": "Q⁻(v)={u : v∈Q⁺(u)}. Lemma 3.8 bounds expected correlated-set size by Q⁺·Q⁻ when both expected query counts are bounded. No in-query lower bound reviewed.",
+      "sourceUrl": "https://arxiv.org/html/2411.08805v2#S6.SS2.SSS3"
+    }
+  ],
+  "relatedResults": [],
+  "figureAxes": {
+    "budget": {
+      "title": "Nonadaptive stochastic tests",
+      "x": {
+        "label": "Incident-edge test budget; symbolic dependence on 1/p",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "linear",
+            "label": "Ω(1/p) average degree necessary"
+          },
+          {
+            "id": "polynomial",
+            "label": "(1/p)^Oε(1) maximum degree sufficient"
+          }
+        ]
+      },
+      "y": {
+        "label": "Expected matching guarantee; distinct scopes",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "constant",
+            "label": "Any fixed constant fraction"
+          },
+          {
+            "id": "near-optimal",
+            "label": "1−ε retained"
+          }
+        ]
+      }
+    },
+    "oracle": {
+      "title": "Specialized in-n-out oracle",
+      "x": {
+        "label": "Symbolic query count; Δ is base-graph maximum degree",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "poly-delta",
+            "label": "Δ^poly(1/ε)"
+          }
+        ]
+      },
+      "y": {
+        "label": "Query direction and probability convention",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "out",
+            "label": "Out-queries, deterministic"
+          },
+          {
+            "id": "in",
+            "label": "In-queries, expectation"
+          }
+        ]
+      }
+    }
+  },
+  "coverageNote": "A starting figure for the ABGR25 paper and its elementary budget lower bound; no complete literature or tightness claim.",
+  "lowerBoundStatus": "Only the stated Ω(1/p) average-degree necessity is shown. No matching polynomial exponent or specialized in/out lower bound was reviewed.",
+  "sourceVerification": [
+    {
+      "sourceId": "azarmehr-behnezhad-ghafari-rubinfeld-2025-stochastic",
+      "url": "https://arxiv.org/html/2411.08805v2",
+      "pdfUrl": "https://arxiv.org/pdf/2411.08805v2",
+      "checkedOn": "2026-10-27",
+      "theorems": [
+        "Result 1 / Theorem 1",
+        "Section 1 degree necessity",
+        "Lemma 5.6 / Remark 5.8",
+        "Claims 6.9–6.10",
+        "Section 3.1 / Lemma 3.8"
+      ]
+    }
+  ],
+  "representation": {
+    "fixedAccuracy": "Fixed ε∈(0,1); no n-axis and no invented polynomial exponent",
+    "budgets": "Average-degree necessity and maximum-degree sufficiency explicitly distinguished",
+    "oracle": "Adaptive specialized oracle; deterministic out and expected in are separate rows"
+  }
+}

@@ -334,11 +334,20 @@
           "problem": "mis",
           "model": "lca",
           "visible": false
+        },
+        {
+          "key": "mis-lca-nonadaptive",
+          "sliceId": "mis-lca-nonadaptive-membership",
+          "label": "MIS LCA · Non-adaptive",
+          "problem": "mis",
+          "model": "lca",
+          "visible": true
         }
       ],
       "canonicalAliases": {
         "mis-lca-fixed": "mis-lca",
-        "mis-lca-generator": "mis-lca"
+        "mis-lca-generator": "mis-lca",
+        "mis-lca-nonadaptive": "mis-lca"
       },
       "axisSummary": {
         "x": "Per-query cost, symbolic growth classes; Δ-dependent expressions span their fixed-degree to n-only envelopes using 1≤Δ<n",
@@ -1690,6 +1699,128 @@
         "x": "Query access and palette contracts; communication is a separate view",
         "y": "Leading n-power with exact factors; communication bits and rounds remain separate",
         "note": "Global query lower is hard at Δ=Θ(√n). List-input oracle qualification retained."
+      }
+    },
+    {
+      "id": "matching-online",
+      "dataFile": "matching-online.json",
+      "javascript": "matching-online.js",
+      "css": "matching-online.css",
+      "routes": [
+        {
+          "key": "matching-online",
+          "sliceId": "matching-online-irrevocable",
+          "label": "Online matching · unweighted",
+          "problem": "matching",
+          "model": "online",
+          "visible": true,
+          "weighting": "unweighted"
+        },
+        {
+          "key": "matching-online-preemption",
+          "sliceId": "matching-online-preemption",
+          "label": "Online matching · unweighted",
+          "problem": "matching",
+          "model": "online",
+          "visible": false,
+          "weighting": "unweighted"
+        },
+        {
+          "key": "matching-online-bounded",
+          "sliceId": "matching-online-bounded",
+          "label": "Online matching · unweighted",
+          "problem": "matching",
+          "model": "online",
+          "visible": false,
+          "weighting": "unweighted"
+        },
+        {
+          "key": "matching-online-exact",
+          "sliceId": "matching-online-exact",
+          "label": "Online matching · unweighted",
+          "problem": "matching",
+          "model": "online",
+          "visible": false,
+          "weighting": "unweighted"
+        },
+        {
+          "key": "matching-online-weighted",
+          "sliceId": "matching-online-weighted-irrevocable",
+          "label": "Online matching · weighted",
+          "problem": "weighted_matching",
+          "model": "online",
+          "visible": true,
+          "weighting": "weighted"
+        },
+        {
+          "key": "matching-online-weighted-vertices",
+          "sliceId": "matching-online-weighted-vertices",
+          "label": "Online matching · weighted",
+          "problem": "weighted_matching",
+          "model": "online",
+          "visible": false,
+          "weighting": "weighted"
+        },
+        {
+          "key": "matching-online-weighted-preemption",
+          "sliceId": "matching-online-weighted-preemption",
+          "label": "Online matching · weighted",
+          "problem": "weighted_matching",
+          "model": "online",
+          "visible": false,
+          "weighting": "weighted"
+        }
+      ],
+      "canonicalAliases": {
+        "matching-online-preemption": "matching-online",
+        "matching-online-bounded": "matching-online",
+        "matching-online-exact": "matching-online",
+        "matching-online-weighted-vertices": "matching-online-weighted",
+        "matching-online-weighted-preemption": "matching-online-weighted"
+      },
+      "pointFields": {
+        "x": "value",
+        "y": "row"
+      },
+      "axisSummary": {
+        "x": "Competitive fraction β (larger is better); exact-matching panel uses symbolic total replacements",
+        "y": "Arrival type/order, decision rule, weighting and randomness"
+      }
+    },
+    {
+      "id": "matching-stochastic",
+      "dataFile": "matching-stochastic.json",
+      "javascript": "matching-stochastic.js",
+      "css": "matching-stochastic.css",
+      "routes": [
+        {
+          "key": "matching-stochastic",
+          "sliceId": "matching-stochastic-nonadaptive-tests",
+          "label": "Matching · stochastic tests and in/out oracle",
+          "problem": "matching",
+          "model": "stochastic",
+          "visible": true
+        },
+        {
+          "key": "matching-stochastic-oracle",
+          "sliceId": "matching-stochastic-inout-oracle",
+          "label": "Matching · specialized in/out oracle",
+          "problem": "matching",
+          "model": "stochastic",
+          "visible": false
+        }
+      ],
+      "canonicalAliases": {
+        "matching-stochastic-oracle": "matching-stochastic"
+      },
+      "pointFields": {
+        "x": "budgetKey",
+        "y": "guaranteeKey"
+      },
+      "axisSummary": {
+        "x": "Symbolic incident-edge test budget, then specialized in/out query complexity",
+        "y": "Constant versus 1−ε expected approximation; deterministic out versus expected in",
+        "note": "Average and maximum degree are distinct. Fixed ε; no numerical exponent or tight frontier."
       }
     }
   ]

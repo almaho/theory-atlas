@@ -304,6 +304,8 @@ def main():
         path = ROOT / "data" / "research" / f"{problem}.json"
         record = json.loads(path.read_text())
         for s in record["slices"]:
+            if s["model"] in ("online", "stochastic"):
+                continue  # Competitive ratios and recourse need explicitly curated axes.
             if any(r.get("plot") for r in s["results"]):
                 continue  # already hand-placed; never overwrite verified coordinates
             model = s["model"]

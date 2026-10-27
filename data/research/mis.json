@@ -14,9 +14,14 @@
       "note": "Exact MIS in edge- and vertex-arrival streams; p-pass space tradeoff and lexicographically first MIS have separate tasks. Maximum independent set and approximate maximality are not conflated."
     },
     {
+      "model": "online",
+      "status": "not_assessed",
+      "note": "Not reviewed. The existing problem is maximal independent set; competitive maximum-independent-set optimization is a different task and must not be silently substituted."
+    },
+    {
       "model": "lca",
       "status": "researched",
-      "note": "Bounded-degree randomized and stateless deterministic consistent membership, later Δ-sensitive LCA and random-graph joint generation. Lower bounds for exact LCA membership need further review."
+      "note": "Consistent membership with deterministic query-order-oblivious and randomized non-adaptive lower bounds in distinct scopes."
     },
     {
       "model": "local",
@@ -42,6 +47,11 @@
       "model": "query_combined",
       "status": "not_assessed",
       "note": "No scoped records assigned to this access category yet."
+    },
+    {
+      "model": "stochastic",
+      "status": "not_assessed",
+      "note": "New column requested by the user; stochastic submodels and theorem figures await scoped review. Random-order online results are not automatically transferred here."
     }
   ],
   "papers": [
@@ -643,6 +653,23 @@
       "publicationUrl": "https://link.springer.com/chapter/10.1007/978-3-662-53426-7_15",
       "verifiedOn": "2026-10-20",
       "fullTextUrl": "https://arxiv.org/html/1512.05411v1"
+    },
+    {
+      "id": "azarmehr-behnezhad-ghafari-sudan-2025-nonadaptive-lca",
+      "title": "Lower Bounds for Non-adaptive Local Computation Algorithms",
+      "authors": [
+        "Amir Azarmehr",
+        "Soheil Behnezhad",
+        "Alma Ghafari",
+        "Madhu Sudan"
+      ],
+      "year": 2025,
+      "venue": "FOCS 2025",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2505.00915",
+      "fullTextUrl": "https://arxiv.org/pdf/2505.00915",
+      "publicationUrl": "https://doi.org/10.1109/FOCS63196.2025.00078",
+      "verifiedOn": "2026-10-27"
     }
   ],
   "slices": [
@@ -4671,6 +4698,68 @@
             "scaleNote": "Shared round-cost formulas, not a numerical ranking. Green is O(·), red is Ω(·). Graph, stability, randomness and global space must match before reading a gap."
           }
         }
+      }
+    },
+    {
+      "id": "mis-lca-nonadaptive-membership",
+      "problem": "mis",
+      "model": "lca",
+      "label": "Non-adaptive MIS LCA",
+      "task": "Consistent MIS membership with probe schedule fixed before answers",
+      "assumptions": [
+        "One consistent independent set across local membership queries",
+        "The exploration-instruction tree is fixed before probe answers are observed",
+        "The input graph need not be a tree",
+        "No lower bound on adaptive LCAs is asserted"
+      ],
+      "results": [
+        {
+          "id": "mis-lca-abgs25-nonadaptive-lower",
+          "paperId": "azarmehr-behnezhad-ghafari-sudan-2025-nonadaptive-lca",
+          "kind": "lower",
+          "bound": "Δ^{Ω(log Δ / log log Δ)}",
+          "output": "Consistent YES/NO membership; always independent, maximal with constant probability",
+          "oracle": "Indexed adjacency-list exploration with parent-index and neighbor-port instructions fixed before answers; discovered degrees may be given for free",
+          "probability": "Output is always an independent set, and is maximal with constant probability; randomized algorithms included",
+          "adaptivity": "Non-adaptive graph probes (Definition 3.1), not merely independence from the order of user queries",
+          "assumptions": [
+            "One consistent independent set across local membership queries",
+            "The exploration-instruction tree is fixed before probe answers are observed",
+            "The input graph need not be a tree",
+            "No lower bound on adaptive LCAs is asserted"
+          ],
+          "notes": "Theorem 7.1 applies to randomized non-adaptive LCAs via Yao. A fixed query tree describes the probe schedule, not the input graph class. This degree-dependent lower bound is not converted into an n-dependent lower bound using Δ<n.",
+          "sourceUrl": "https://arxiv.org/pdf/2505.00915",
+          "verifiedOn": "2026-10-27",
+          "tags": [
+            "Non-adaptive"
+          ],
+          "guarantee": "Exact maximal independent set",
+          "sourceLocation": "Theorems 1.1 and 7.1; Definition 3.1; Section 7 (PDF pages 23–24)",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "reviewed",
+          "plot": null
+        }
+      ],
+      "xAxis": {
+        "label": "Degree-dependent probe lower bound",
+        "kind": "symbolic",
+        "categories": [
+          {
+            "id": "nonadaptive-bound",
+            "label": "Δ^{Ω(log Δ / log log Δ)}"
+          }
+        ]
+      },
+      "yAxis": {
+        "label": "Non-adaptive probes only",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "mis-lca-abgs25-nonadaptive-lower",
+            "label": "ABGS 2025 · Non-adaptive"
+          }
+        ]
       }
     }
   ]

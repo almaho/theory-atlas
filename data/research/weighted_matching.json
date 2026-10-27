@@ -1,0 +1,485 @@
+{
+  "problem": "weighted_matching",
+  "reviewedThrough": "2026-10-27",
+  "searchSummary": "New separate row requested by the user. Initial online baseline reviewed; other model panels await future design and source review. Existing weighted results in older mixed matching figures remain available in their original locations.",
+  "coverage": [
+    {
+      "model": "dynamic",
+      "status": "not_assessed",
+      "note": "Weighted matching panel awaits design and scoped source review."
+    },
+    {
+      "model": "stream",
+      "status": "not_assessed",
+      "note": "Weighted matching panel awaits design and scoped source review."
+    },
+    {
+      "model": "online",
+      "status": "researched",
+      "note": "Initial online comparison. Arrival, order and decision rules remain separate; see verification status for each source. Several submodels remain unreviewed."
+    },
+    {
+      "model": "lca",
+      "status": "not_assessed",
+      "note": "Weighted matching panel awaits design and scoped source review."
+    },
+    {
+      "model": "local",
+      "status": "not_assessed",
+      "note": "Weighted matching panel awaits design and scoped source review."
+    },
+    {
+      "model": "mpc",
+      "status": "not_assessed",
+      "note": "Weighted matching panel awaits design and scoped source review."
+    },
+    {
+      "model": "query_list",
+      "status": "not_assessed",
+      "note": "Weighted matching panel awaits design and scoped source review."
+    },
+    {
+      "model": "query_matrix",
+      "status": "not_assessed",
+      "note": "Weighted matching panel awaits design and scoped source review."
+    },
+    {
+      "model": "query_combined",
+      "status": "not_assessed",
+      "note": "Weighted matching panel awaits design and scoped source review."
+    },
+    {
+      "model": "stochastic",
+      "status": "not_assessed",
+      "note": "New column requested by the user; stochastic submodels and theorem figures await scoped review. Random-order online results are not automatically transferred here."
+    }
+  ],
+  "papers": [
+    {
+      "id": "online-pt25",
+      "title": "Revisiting Ranking for Online Bipartite Matching with Random Arrivals: the Primal-Dual Analysis",
+      "authors": [
+        "Bo Peng",
+        "Zhihao Gavin Tang"
+      ],
+      "year": 2025,
+      "venue": "EC 2025",
+      "url": "https://arxiv.org/html/2503.04196v1",
+      "publicationStatus": "conference",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "online-agkm11",
+      "title": "Online Vertex-Weighted Bipartite Matching and Single-bid Budgeted Allocations",
+      "authors": [
+        "Gagan Aggarwal",
+        "Gagan Goel",
+        "Chinmay Karande",
+        "Aranyak Mehta"
+      ],
+      "year": 2011,
+      "venue": "SODA 2011",
+      "url": "https://arxiv.org/pdf/1007.1271",
+      "publicationStatus": "conference",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "online-ajx26-ii",
+      "title": "Semi-Streaming Matching in a Single Pass II: Greedy is Optimal",
+      "authors": [
+        "Sepehr Assadi",
+        "Max Jiang",
+        "Mars Xiang"
+      ],
+      "year": 2026,
+      "venue": "arXiv 2026",
+      "url": "https://arxiv.org/abs/2607.14656",
+      "publicationStatus": "preprint",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "online-ajx26-i",
+      "title": "Semi-Streaming Matching in a Single Pass I: A New Framework for Lower Bounds via Blueprints",
+      "authors": [
+        "Sepehr Assadi",
+        "Max Jiang",
+        "Mars Xiang"
+      ],
+      "year": 2026,
+      "venue": "STOC 2026",
+      "url": "https://doi.org/10.1145/3798129.3800811",
+      "publicationStatus": "conference",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "online-varadaraja11",
+      "title": "Buyback Problem — Approximate Matroid Intersection with Cancellation Costs",
+      "authors": [
+        "Ashwinkumar Badanidiyuru Varadaraja"
+      ],
+      "year": 2011,
+      "venue": "ICALP 2011",
+      "url": "https://arxiv.org/pdf/1009.5037",
+      "publicationStatus": "conference",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "online-kvv90",
+      "title": "An Optimal Algorithm for On-line Bipartite Matching",
+      "authors": [
+        "Richard M. Karp",
+        "Umesh V. Vazirani",
+        "Vijay V. Vazirani"
+      ],
+      "year": 1990,
+      "venue": "STOC 1990",
+      "url": "https://ics.uci.edu/~vazirani/KVV.pdf",
+      "publicationStatus": "conference",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "online-cgpv25",
+      "title": "A New Impossibility Result for Online Bipartite Matching Problems",
+      "authors": [
+        "Flavio Chierichetti",
+        "Mirko Giacchini",
+        "Alessandro Panconesi",
+        "Andrea Vattani"
+      ],
+      "year": 2025,
+      "venue": "ICALP 2025",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2025.58",
+      "publicationStatus": "conference",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "online-mcgregor05",
+      "title": "Finding Graph Matchings in Data Streams",
+      "authors": [
+        "Andrew McGregor"
+      ],
+      "year": 2005,
+      "venue": "APPROX 2005",
+      "url": "https://people.cs.umass.edu/~mcgregor/papers/05-approx1.pdf",
+      "publicationStatus": "conference",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "online-krtv13",
+      "title": "An Optimal Online Algorithm for Weighted Bipartite Matching and Extensions to Combinatorial Auctions",
+      "authors": [
+        "Thomas Kesselheim",
+        "Klaus Radke",
+        "Andreas Tönnis",
+        "Berthold Vöcking"
+      ],
+      "year": 2013,
+      "venue": "ESA 2013",
+      "url": "https://www.thomas-kesselheim.de/science/onlinematching.pdf",
+      "publicationStatus": "conference",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "online-efgt22",
+      "title": "Secretary Matching with General Arrivals",
+      "authors": [
+        "Tomer Ezra",
+        "Michal Feldman",
+        "Nick Gravin",
+        "Zhihao Gavin Tang"
+      ],
+      "year": 2022,
+      "venue": "EC 2022",
+      "url": "https://arxiv.org/pdf/2011.01559",
+      "publicationStatus": "conference",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "online-elsw13",
+      "title": "Improved Bounds for Online Preemptive Matching",
+      "authors": [
+        "Leah Epstein",
+        "Asaf Levin",
+        "Danny Segev",
+        "Oren Weimann"
+      ],
+      "year": 2013,
+      "venue": "STACS 2013",
+      "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol020-stacs2013/LIPIcs.STACS.2013.389/LIPIcs.STACS.2013.389.pdf",
+      "publicationStatus": "conference",
+      "verifiedOn": "2026-10-27"
+    }
+  ],
+  "slices": [
+    {
+      "id": "matching-online-weighted-irrevocable",
+      "problem": "weighted_matching",
+      "model": "online",
+      "label": "Edge weights · irrevocable · weighted",
+      "task": "Arbitrary nonnegative edge weights · vertex and edge arrivals are separate rows.",
+      "assumptions": [
+        "Expected retained weight β · larger is better",
+        "Each row has its own graph, randomness and arrival contract."
+      ],
+      "xAxis": {
+        "label": "Expected retained weight β · larger is better",
+        "min": 0,
+        "max": 1,
+        "ticks": [
+          0,
+          0.5,
+          0.75,
+          1
+        ]
+      },
+      "yAxis": {
+        "label": "Arrival and decision setup",
+        "categories": [
+          {
+            "id": "we-vertex-random",
+            "label": "Edge weights · random vertices"
+          },
+          {
+            "id": "we-edge-random",
+            "label": "Edge weights · random edges"
+          }
+        ]
+      },
+      "results": [
+        {
+          "id": "online-we-random-vertex-upper",
+          "paperId": "online-krtv13",
+          "kind": "upper",
+          "bound": "β ≥ 1/e−1/n",
+          "guarantee": "β ≥ 1/e−1/n",
+          "sourceLocation": "Theorem 2; §2, PDF p.6",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "reviewed",
+          "notes": "One-sided bipartite vertex arrivals; offline side known in advance; decisions irrevocable. Online arrivals are a uniform random permutation of a fixed graph. Known n online vertices; incident edge weights revealed with each arrival. Point shows the asymptotic 1/e limit. The finite-n guarantee is 1/e−1/n, not exactly 1/e.",
+          "plot": null
+        },
+        {
+          "id": "online-we-random-vertex-lower",
+          "paperId": "online-krtv13",
+          "kind": "lower",
+          "bound": "β ≤ 1/e + o(1)",
+          "guarantee": "β ≤ 1/e + o(1)",
+          "sourceLocation": "Introduction: optimality via the classical secretary problem",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "reviewed",
+          "notes": "One-sided bipartite vertex arrivals; offline side known in advance; decisions irrevocable. Online arrivals are a uniform random permutation of a fixed graph. Known horizon; weights are initially unknown. Classical secretary restriction; asymptotic ceiling, not an exact finite-n equality.",
+          "plot": null
+        },
+        {
+          "id": "online-we-random-edge-upper",
+          "paperId": "online-efgt22",
+          "kind": "upper",
+          "bound": "β ≥ 1/4",
+          "guarantee": "β ≥ 1/4",
+          "sourceLocation": "Theorem 5.2, PDF pp.22–23",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "reviewed",
+          "notes": "Online arrivals are a uniform random permutation of a fixed graph. Known total edge count m; edge and its weight revealed on arrival; irrevocable decisions. Information-theoretic algorithm: the reviewed source does not give a polynomial-time implementation.",
+          "plot": null
+        },
+        {
+          "id": "online-we-random-edge-lower",
+          "paperId": "online-efgt22",
+          "kind": "lower",
+          "bound": "β ≤ 1/e + o(1)",
+          "guarantee": "β ≤ 1/e + o(1)",
+          "sourceLocation": "Introduction / Table 1; classical secretary restriction",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "reviewed",
+          "notes": "Online arrivals are a uniform random permutation of a fixed graph. Known total edge count; immediate irrevocable acceptance. This ceiling is not transferred to preemption.",
+          "plot": null
+        }
+      ],
+      "weighting": "weighted"
+    },
+    {
+      "id": "matching-online-weighted-vertices",
+      "problem": "weighted_matching",
+      "model": "online",
+      "label": "Vertex weights · irrevocable · weighted",
+      "task": "Weights on known offline vertices · one-sided bipartite arrivals.",
+      "assumptions": [
+        "Expected retained weight β · larger is better",
+        "Each row has its own graph, randomness and arrival contract."
+      ],
+      "xAxis": {
+        "label": "Expected retained weight β · larger is better",
+        "min": 0,
+        "max": 1,
+        "ticks": [
+          0,
+          0.5,
+          0.75,
+          1
+        ]
+      },
+      "yAxis": {
+        "label": "Arrival and decision setup",
+        "categories": [
+          {
+            "id": "wv-adv",
+            "label": "Vertex weights · adversarial vertices"
+          },
+          {
+            "id": "wv-random",
+            "label": "Vertex weights · random vertices"
+          }
+        ]
+      },
+      "results": [
+        {
+          "id": "online-wv-adv-upper",
+          "paperId": "online-agkm11",
+          "kind": "upper",
+          "bound": "β ≥ 1−1/e",
+          "guarantee": "β ≥ 1−1/e",
+          "sourceLocation": "Theorem 1, PDF p.3",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "reviewed",
+          "notes": "One-sided bipartite vertex arrivals; offline side known in advance; decisions irrevocable. Nonnegative weights belong to offline vertices and are known in advance. A matching earns the sum of matched offline-vertex weights. Fixed adversarial sequence independent of algorithmic random coins. ",
+          "plot": null
+        },
+        {
+          "id": "online-wv-adv-lower",
+          "paperId": "online-kvv90",
+          "kind": "lower",
+          "bound": "β ≤ 1−1/e + o(1)",
+          "guarantee": "β ≤ 1−1/e + o(1)",
+          "sourceLocation": "Theorem 2; specialize weighted input to equal unit weights",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "reviewed",
+          "notes": "One-sided bipartite vertex arrivals; offline side known in advance; decisions irrevocable. Nonnegative weights belong to offline vertices and are known in advance. A matching earns the sum of matched offline-vertex weights. Fixed adversarial sequence independent of algorithmic random coins. Unit-weight instances are included in the weighted model. This is a scope transfer.",
+          "plot": null
+        },
+        {
+          "id": "online-wv-random-upper",
+          "paperId": "online-pt25",
+          "kind": "upper",
+          "bound": "β ≥ 0.6862",
+          "guarantee": "β ≥ 0.6862",
+          "sourceLocation": "Theorem 1.1; §2 weighted Ranking definition",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "reviewed",
+          "notes": "One-sided bipartite vertex arrivals; offline side known in advance; decisions irrevocable. Nonnegative weights belong to offline vertices and are known in advance. A matching earns the sum of matched offline-vertex weights. Online arrivals are a uniform random permutation of a fixed graph. The paper’s 0.7027 ceiling concerns one analysis framework, not impossibility for every algorithm.",
+          "plot": null
+        },
+        {
+          "id": "online-wv-random-lower",
+          "paperId": "online-cgpv25",
+          "kind": "lower",
+          "bound": "β ≤ 1−e^(1−e) + o(1)",
+          "guarantee": "β ≤ 1−e^(1−e) + o(1)",
+          "sourceLocation": "Theorem 15; equal-weight specialization",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "reviewed",
+          "notes": "One-sided bipartite vertex arrivals; offline side known in advance; decisions irrevocable. Nonnegative weights belong to offline vertices and are known in advance. A matching earns the sum of matched offline-vertex weights. Online arrivals are a uniform random permutation of a fixed graph. Unweighted hardness transfers via equal weights; it need not be tight for arbitrary vertex weights.",
+          "plot": null
+        }
+      ],
+      "weighting": "weighted"
+    },
+    {
+      "id": "matching-online-weighted-preemption",
+      "problem": "weighted_matching",
+      "model": "online",
+      "label": "Weighted · preemption · weighted",
+      "task": "Adversarial edge arrivals · discarded edges cannot return.",
+      "assumptions": [
+        "Expected retained weight β · larger is better",
+        "Each row has its own graph, randomness and arrival contract."
+      ],
+      "xAxis": {
+        "label": "Expected retained weight β · larger is better",
+        "min": 0,
+        "max": 1,
+        "ticks": [
+          0,
+          0.5,
+          0.75,
+          1
+        ]
+      },
+      "yAxis": {
+        "label": "Arrival and decision setup",
+        "categories": [
+          {
+            "id": "wp-d",
+            "label": "Edge weights · deterministic"
+          },
+          {
+            "id": "wp-r",
+            "label": "Edge weights · randomized"
+          }
+        ]
+      },
+      "results": [
+        {
+          "id": "online-wp-d-upper",
+          "paperId": "online-mcgregor05",
+          "kind": "upper",
+          "bound": "β ≥ 3−2√2 ≈ 0.171573",
+          "guarantee": "β ≥ 3−2√2 ≈ 0.171573",
+          "sourceLocation": "§3, Lemma 3 and following paragraph; Figure 3",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "reviewed",
+          "notes": "Adversarial insertion-only edge arrival; weight revealed when edge arrives. Accept only on arrival; accepted edges may be permanently discarded; discarded/rejected edges never return. OPT ≤ (3+1/γ+2γ)ALG. Set γ=1/√2; the single-pass threshold algorithm is online preemptive.",
+          "plot": null
+        },
+        {
+          "id": "online-wp-d-lower",
+          "paperId": "online-varadaraja11",
+          "kind": "lower",
+          "bound": "β ≤ 3−2√2",
+          "guarantee": "β ≤ 3−2√2",
+          "sourceLocation": "§4.2, PDF pp.8–11; k=2 and cancellation penalty f=0",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "reviewed",
+          "notes": "Adversarial insertion-only edge arrival; weight revealed when edge arrives. Accept only on arrival; accepted edges may be permanently discarded; discarded/rejected edges never return. Deterministic lower α≥3+2√2; reciprocating gives β≤3−2√2. Does not apply to arbitrary randomized algorithms.",
+          "plot": null
+        },
+        {
+          "id": "online-wp-r-upper",
+          "paperId": "online-elsw13",
+          "kind": "upper",
+          "bound": "β ≥ 1/θ* ≈ 0.186682",
+          "guarantee": "β ≥ 1/θ* ≈ 0.186682",
+          "sourceLocation": "Theorem 3.7, printed p.398",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "reviewed",
+          "notes": "Adversarial insertion-only edge arrival; weight revealed when edge arrives. Accept only on arrival; accepted edges may be permanently discarded; discarded/rejected edges never return. θ*>2 solves 2(ln θ*+1)=θ* (θ*≈5.35669). The source minimizes 2θ ln θ/(θ−2).",
+          "plot": null
+        },
+        {
+          "id": "online-wp-r-lower-ajx26-ii",
+          "paperId": "online-ajx26-ii",
+          "kind": "lower",
+          "bound": "β ≤ ½ + o(1)",
+          "guarantee": "β ≤ ½ + o(1)",
+          "sourceLocation": "Part II §1.3, Corollary 1.4",
+          "evidenceStatus": "scope_transfer",
+          "frontierStatus": "reviewed",
+          "notes": "Adversarial insertion-only edge arrival; weight revealed when edge arrives. Accept only on arrival; accepted edges may be permanently discarded; discarded/rejected edges never return. Unit-weight hardness transfers to weighted matching. 2026 preprint.",
+          "plot": null
+        },
+        {
+          "id": "online-wp-r-lower-ajx26-i",
+          "paperId": "online-ajx26-i",
+          "kind": "lower",
+          "bound": "β ≤ (8−2√10)/3",
+          "guarantee": "β ≤ (8−2√10)/3",
+          "sourceLocation": "Part II §1.3 author-stated consequence of Part I",
+          "evidenceStatus": "author_stated_transfer",
+          "frontierStatus": "reviewed",
+          "notes": "Adversarial insertion-only edge arrival; weight revealed when edge arrives. Accept only on arrival; accepted edges may be permanently discarded; discarded/rejected edges never return. Unit-weight hardness transfers to weighted matching. Published Part I; transfer explicitly attributed by authors in Part II, not a located standalone Part I theorem.",
+          "plot": null
+        }
+      ],
+      "weighting": "weighted"
+    }
+  ]
+}

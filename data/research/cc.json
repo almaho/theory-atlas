@@ -14,6 +14,11 @@
       "note": "One-pass/multipass, explicit partition, cost-only estimate, node arrival, weight/graph promises and lower bounds separated."
     },
     {
+      "model": "online",
+      "status": "not_assessed",
+      "note": "Not reviewed. Online arrival information, clustering objective, and permitted cluster revisions must be scoped before comparing competitive guarantees."
+    },
+    {
       "model": "lca",
       "status": "researched",
       "note": "Matrix-only additive local labels and positive-degree dependent multiplicative Pruned Pivot treated as separate tasks."
@@ -42,6 +47,11 @@
       "model": "query_combined",
       "status": "researched",
       "note": "Combined, communication, same-cluster, or other query interfaces are kept separate from pure list/matrix access."
+    },
+    {
+      "model": "stochastic",
+      "status": "not_assessed",
+      "note": "New column requested by the user; stochastic submodels and theorem figures await scoped review. Random-order online results are not automatically transferred here."
     }
   ],
   "papers": [

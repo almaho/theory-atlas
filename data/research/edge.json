@@ -14,6 +14,11 @@
       "note": "One-pass adversarial and random-order W-stream, deterministic/randomized color/space tradeoffs and stronger online-color-commitment algorithm; unrestricted multi-pass streaming still open for curation."
     },
     {
+      "model": "online",
+      "status": "not_assessed",
+      "note": "Not reviewed. Online color commitment, edge or vertex arrivals, order, palette benchmark, and recoloring permissions must be scoped separately."
+    },
+    {
       "model": "lca",
       "status": "partial",
       "note": "Only one theorem-derived line-graph oracle LCA baseline was verified; direct edge-coloring LCAs under ordinary G neighbor probes are not yet sourced. Do not infer a frontier."
@@ -42,6 +47,11 @@
       "model": "query_combined",
       "status": "not_assessed",
       "note": "No scoped records assigned to this access category yet."
+    },
+    {
+      "model": "stochastic",
+      "status": "not_assessed",
+      "note": "New column requested by the user; stochastic submodels and theorem figures await scoped review. Random-order online results are not automatically transferred here."
     }
   ],
   "papers": [

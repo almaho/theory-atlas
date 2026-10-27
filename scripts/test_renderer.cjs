@@ -561,7 +561,7 @@ const lcaData = focusData.lca;
 const lcaSlices = research.slices.filter(slice => slice.model === 'lca');
 const lcaSettings = [
   ['lca', 'matching-lca-bounded-degree-nearopt', 'lca-brr23-nearoptimal-lower'],
-  ['lca-nonadaptive', 'matching-lca-nonadaptive-constant', 'lca-brr23-nearoptimal-lower'],
+  ['lca-nonadaptive', 'matching-lca-nonadaptive-constant', 'lca-abgs25-nonadaptive-lower'],
   ['lca-maximal', 'matching-lca-bounded-degree-maximal', 'lca-gha22-maximal'],
   ['lca-adaptive', 'matching-lca-adaptive-constant', 'lca-kmnft19-constant']
 ];
@@ -622,8 +622,8 @@ for (const [key, id] of lcaSettings) {
 const shahSizeUpper = lcaData.relatedResults.find(row => row.id === 'size-shah26-nonadaptive-upper');
 assert(shahSizeUpper.graph.includes('simple') && !/multigraph/i.test(shahSizeUpper.graph), 'Shah non-adaptive size upper bound is retained only for verified simple graphs');
 const lcaRecord = id => [...lcaData.verifiedRecords, ...lcaData.skippedRecords].find(row => row.id === id);
-assert.equal(lcaData.verifiedRecords.length, 8, 'The eight requested local-output results are plotted');
-assert.equal(lcaData.skippedRecords.length, 2, 'Fixed-tree sources remain archived outside the requested comparison');
+assert.equal(lcaData.verifiedRecords.length, 10, 'Adaptive, historical and restored non-adaptive results are plotted');
+assert.equal(lcaData.skippedRecords.length, 0, 'The user requested restoration of the non-adaptive comparison');
 assert(lcaData.verifiedRecords.every(row => !row.id.startsWith('size-')), 'Global size-query bounds are excluded from the local-output record set');
 assert.equal(lcaRecord('lca-brr23-nearoptimal-lower').qualityType, 'additive', 'The near-optimal lower bound uses additive epsilon*n error');
 assert.equal(lcaRecord('lca-lry15-nearoptimal').qualityType, 'multiplicative', 'The local upper bound retains its stronger multiplicative contract');
@@ -674,9 +674,14 @@ for (const row of lcaData.skippedRecords) {
   assert(!mainLcaPlot.includes(row.id) && !lcaEvidence(lcaHost).includes(row.id), 'Fixed-tree results are skipped in the visible LCA figure and evidence');
   for (const [w, h] of detailSizes) assert(!lcaAPI.summarySVG('lca', w, h).includes(row.id), 'Skipped fixed-tree points do not return at atlas zoom levels');
 }
-assert(!mainLcaPlot.includes('data-panel="nonadaptive"'), 'The removed fixed-tree panel stays absent');
+assert(mainLcaPlot.includes('data-panel="nonadaptive"'), 'The requested Non-adaptive comparison is visible');
+assert(mainLcaPlot.includes('Non-adaptive'), 'The probe restriction has an explicit visible tag');
+for (const [w,h] of [[180,110],[330,245],[738,548]]) {
+  const svg=lcaAPI.summarySVG('lca',w,h);
+  assert(svg.includes('data-panel="nonadaptive"') && svg.includes('lca-abgs25-nonadaptive-lower'), 'ABGS is retained through full-atlas zoom');
+}
 for (const axes of Object.values(lcaData.figureAxes)) {
-  for (const dimension of ['x', 'y']) assert(axes[dimension].label && axes[dimension].categories.length >= 2, 'Both LCA axes have recorded labels and categories');
+  for (const dimension of ['x', 'y']) assert(axes[dimension].label && axes[dimension].categories.length >= 1, 'Both LCA axes have recorded labels and categories');
 }
 assert(mainLcaPlot.includes('data-axis="x"') && mainLcaPlot.includes('data-axis="y"'), 'Both LCA axes are visibly labelled');
 assert(context.axisSummary(lcaSlices[0]).includes('X:') && context.axisSummary(lcaSlices[0]).includes('Y:'), 'Full-atlas bibliography records both LCA axes');

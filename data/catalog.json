@@ -11,6 +11,16 @@
       "axisShort": "α"
     },
     {
+      "id": "weighted_matching",
+      "name": "Weighted matching",
+      "short": "Weighted matching",
+      "definition": "Find vertex-disjoint edges maximizing total weight. Edge weights and weights on matched vertices define distinct setups.",
+      "quality": "Retained weight β=E[ALG]/OPT, or approximation factor α=OPT/ALG; state the convention per figure.",
+      "variants": "Edge weights / vertex weights · approximation / exact · arrival and revision rules",
+      "axisLabel": "Weight guarantee",
+      "axisShort": "β"
+    },
+    {
       "id": "mis",
       "name": "Maximal independent set",
       "short": "MIS",
@@ -76,6 +86,32 @@
         "interface": "Sequential stream",
         "operations": "Edge or vertex arrivals; insertion-only and turnstile are distinct settings",
         "resource": "Memory in bits or words at a stated number of passes"
+      }
+    },
+    {
+      "id": "online",
+      "name": "Online",
+      "measure": "Competitive guarantee",
+      "definition": "Make decisions as input arrives without knowing future arrivals. The arrival process, information revealed, and permitted revisions are specified separately for each submodel.",
+      "settings": "Edge / vertex arrivals · adversarial / random order · irrevocable / preemptive / recourse · weighted / unweighted",
+      "unit": "Competitive guarantee against a stated offline optimum; permitted recourse separately",
+      "access": {
+        "interface": "Sequential arrivals with online decisions",
+        "operations": "Reveal arriving edges or vertices and their allowed incident information; irrevocable decisions, preemption, or bounded revisions as stated",
+        "resource": "Competitive guarantee under the stated arrival and decision rules; recourse when allowed"
+      }
+    },
+    {
+      "id": "stochastic",
+      "name": "Stochastic",
+      "measure": "Queries / degree",
+      "definition": "Optimize under a stated stochastic input model. The initial matching setup has a known base graph whose edges survive independently; select a sparse query subgraph before observing realizations.",
+      "settings": "Independent edge survival · nonadaptive tests · in/out LCA influence · distributional inputs kept separate",
+      "unit": "Tested edges per vertex or subgraph degree at a stated expected guarantee",
+      "access": {
+        "interface": "Probabilistic input and observations",
+        "operations": "Distributional arrivals or probes revealing uncertain edges, as defined by each setting",
+        "resource": "Expected objective and probe/resource budget under a stated distribution"
       }
     },
     {
