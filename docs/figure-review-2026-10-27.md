@@ -20,12 +20,12 @@ The atlas uses text-free thumbnails, then compact axes, then an interactive figu
 | Matching | Adjacency list | Matching-size guarantee versus queries; access and additive-error contracts explicit. |
 | Matching | Adjacency matrix | Matching-size guarantee versus queries; approximation/error contracts explicit. |
 | Weighted matching | Dynamic | Unreviewed; no frontier claimed. |
-| Weighted matching | Streaming | Single semi-streaming theorem baseline; axes retained pending compact-card preference. |
+| Weighted matching | Streaming | Single semi-streaming theorem baseline; one-point axes retained by user choice. |
 | Weighted matching | Online | Aligned competitive-ratio panels; edge/vertex weighting distinct. |
 | Weighted matching | Stochastic | Adaptive/non-adaptive panels with weight and query-budget assumptions. |
 | Weighted matching | LCA | Unreviewed; no frontier claimed. |
 | Weighted matching | LOCAL | Approximation versus rounds with weight/degree dependence. |
-| Weighted matching | MPC | Single near-linear-memory baseline; axes retained pending compact-card preference. |
+| Weighted matching | MPC | Single near-linear-memory baseline; one-point axes retained by user choice. |
 | Weighted matching | Adjacency list | Unreviewed; no frontier claimed. |
 | Weighted matching | Adjacency matrix | Unreviewed; no frontier claimed. |
 | MIS | Dynamic | Output-contract rows with update cost; explicit and implicit maintenance separate. |
@@ -78,4 +78,4 @@ The atlas uses text-free thumbnails, then compact axes, then an interactive figu
 
 Browser review covers the six problem-family galleries, continuous atlas focus and return, keyboard source-card access, duplicate-paper grouping, fine-grained source cards, narrow layouts, and browser error logs. Deployment evidence is retained in the release records.
 
-The optional compact-card preference for single-result pairs remains open; existing one-point figures are retained meanwhile.
+The user confirmed on 27 October 2026 that single-result pairs should keep one-point figures with axes.
