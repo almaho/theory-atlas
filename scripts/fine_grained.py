@@ -16,7 +16,8 @@ def build_fine_grained(root, write=True):
     for node in nodes.values():
         assert node['group'] in groups
         assert all(node.get(k) for k in ('label', 'short', 'contract', 'parameter', 'tag'))
-        assert 110 <= node['x'] <= 1245 and 40 <= node['y'] <= 720
+        group = next(g for g in data['groups'] if g['id'] == node['group'])
+        assert 110 <= node['x'] <= 1245 and group['top'] + 32 <= node['y'] <= group['bottom'] - 32
         for bound in node['baselines'] + [node['lower']] + node.get('claims', []) + node.get('related', []):
             assert bound['sourceId'] in sources
             assert bound['bound'] and bound['detail'] and bound['locator']
@@ -31,6 +32,16 @@ def build_fine_grained(root, write=True):
         assert all(edge.get(k) for k in ('consequence', 'transformation', 'locator', 'notes', 'verifiedOn'))
         assert edge['kind'] == 'reduction'
         assert all(s in sources for s in edge.get('additionalSources', []))
+    for row in data.get('dynamicView', {}).get('rows', []):
+        node = nodes[row['nodeId']]
+        assert node['group'] == 'dynamic'
+        assert row['queryExponent'] < node['lower']['queryCeilingExponent']
+        assert row['threshold'] == node['lower']['threshold']
+        for index in row['algorithmIndices']:
+            result = node['baselines'][index]
+            assert result['query'] == row['query']
+            assert row['threshold'] <= result['updateExponent'] <= 3
+            assert result['guarantee']
     if write:
         template = (root / 'src/fine-grained.html').read_text()
         payload = json.dumps(data, ensure_ascii=False, separators=(',', ':')).replace('<', '\\u003c').replace('&', '\\u0026')

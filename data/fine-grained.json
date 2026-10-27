@@ -1,7 +1,7 @@
 {
   "version": 1,
   "reviewedOn": "2026-10-27",
-  "coverage": "An initial connected core, not a complete fine-grained complexity survey. Baselines are labeled and are not claimed best known.",
+  "coverage": "A connected review of static and fully dynamic problems, not a complete survey. Published algorithms and elementary baselines are distinguished; no best-known frontier is claimed.",
   "sources": {
     "vv10": {
       "title": "Subcubic Equivalences Between Path, Matrix, and Triangle Problems",
@@ -61,6 +61,34 @@
       "venue": "arXiv:2610.17420v1 · 12 October 2026",
       "status": "preprint",
       "url": "https://arxiv.org/pdf/2610.17420v1"
+    },
+    "hkns15": {
+      "title": "Unifying and Strengthening Hardness for Dynamic Problems via the Online Matrix-Vector Multiplication Conjecture",
+      "authors": "Monika Henzinger, Sebastian Krinninger, Danupon Nanongkai and Thatchaphol Saranurak",
+      "venue": "STOC 2015 · full version",
+      "status": "published",
+      "url": "https://arxiv.org/pdf/1511.06773"
+    },
+    "bns19": {
+      "title": "Dynamic Matrix Inverse: Improved Algorithms and Matching Conditional Lower Bounds",
+      "authors": "Jan van den Brand, Danupon Nanongkai and Thatchaphol Saranurak",
+      "venue": "FOCS 2019",
+      "status": "published",
+      "url": "https://arxiv.org/pdf/1905.05067"
+    },
+    "bfn22": {
+      "title": "Fast Deterministic Fully Dynamic Distance Approximation",
+      "authors": "Jan van den Brand, Sebastian Forster and Yasamin Nazari",
+      "venue": "FOCS 2022",
+      "status": "published",
+      "url": "https://arxiv.org/pdf/2111.03361v3"
+    },
+    "lw17": {
+      "title": "Faster Online Matrix-Vector Multiplication",
+      "authors": "Kasper Green Larsen and Ryan Williams",
+      "venue": "SODA 2017",
+      "status": "published",
+      "url": "https://arxiv.org/pdf/1605.01695v2"
     }
   },
   "nodes": [
@@ -497,6 +525,329 @@
         "locator": "Theorem 5; Lemma 11; §2.2",
         "status": "historical"
       }
+    },
+    {
+      "id": "omv",
+      "label": "Online Boolean matrix-vector multiplication",
+      "short": "Boolean OMv",
+      "tag": "ONLINE · MATRIX",
+      "contract": "An N×N Boolean matrix is followed by N Boolean vectors, one at a time. Output the Boolean vector Mv before the next input arrives.",
+      "parameter": "N is matrix dimension and number of vectors. Total time includes preprocessing in the original conjecture; derived hardness also permits polynomial matrix preprocessing.",
+      "baselines": [
+        {
+          "bound": "O(N³)",
+          "detail": "Direct Boolean products, including input reading.",
+          "sourceId": "hkns15",
+          "locator": "Conjecture 1.1; definition",
+          "status": "baseline"
+        },
+        {
+          "bound": "N³ / 2^{Ω(√log N)}",
+          "detail": "Randomized total-time algorithm; the saving is not a fixed polynomial exponent.",
+          "sourceId": "lw17",
+          "locator": "Theorem 1.1",
+          "status": "published"
+        }
+      ],
+      "lower": {
+        "bound": "No O(N^{3−ε})",
+        "detail": "For every fixed ε>0, the conjecture excludes bounded-error randomized algorithms (error at most 1/3). This is ordinary Boolean OMv, not a hinted or rectangular-hinted conjecture.",
+        "sourceId": "hkns15",
+        "locator": "Conjecture 1.1; Theorem 2.2",
+        "condition": "ordinary Boolean OMv",
+        "status": "conditional"
+      },
+      "x": 170,
+      "y": 1190,
+      "group": "dynamic",
+      "family": "boolean"
+    },
+    {
+      "id": "oumv",
+      "label": "Online Boolean vector-matrix-vector multiplication",
+      "short": "Boolean OuMv",
+      "tag": "ONLINE · SCALAR",
+      "contract": "Preprocess a Boolean a×b matrix. For each of T sequential vector pairs (u,v), output the Boolean scalar uᵀMv before the next pair. Fix a=floor(b^γ) for constant γ>0.",
+      "parameter": "Square reference a=b=T=N for the displayed time bounds. Rectangular parameters used by reductions are stated on each arrow.",
+      "baselines": [
+        {
+          "bound": "O(N³) · square reference",
+          "detail": "General direct computation takes O(abT) online time after reading the matrix.",
+          "sourceId": "hkns15",
+          "locator": "Definition 2.6",
+          "status": "baseline"
+        }
+      ],
+      "lower": {
+        "bound": "No O(N^{3−ε}) · square reference",
+        "detail": "Theorem 2.7 rules out the paper’s polynomially sub-abT online computation for every fixed aspect exponent γ, with polynomial preprocessing in a,b and error at most 1/3. The displayed N exponent is only the square specialization.",
+        "sourceId": "hkns15",
+        "locator": "Definition 2.6; Theorem 2.7",
+        "condition": "ordinary Boolean OMv",
+        "status": "conditional"
+      },
+      "x": 560,
+      "y": 1190,
+      "group": "dynamic",
+      "family": "boolean"
+    },
+    {
+      "id": "dyn-reach",
+      "label": "Fully dynamic s–t reachability",
+      "short": "s–t reachability",
+      "tag": "EXACT · DIRECTED",
+      "contract": "Fixed vertices s,t in a directed unweighted graph. Maintain whether a directed path exists after each edge update.",
+      "parameter": "n vertices; m edges. The figure evaluates dense-scale upper bounds at m=Θ(n²), on algorithms covering general graphs with at most n² edges.",
+      "baselines": [
+        {
+          "bound": "O(n^{1.407})",
+          "detail": "Randomized fixed-pair reachability, worst-case updates; polynomial preprocessing O(n^ω). Use a fixed set H={s,t} in the matrix-inverse reduction. The numerical exponent is the published guarantee, not a current optimality claim.",
+          "sourceId": "bns19",
+          "locator": "Theorem 4.2; Corollary C.12 and Theorem C.16",
+          "status": "published",
+          "updateExponent": 1.407,
+          "query": "O(1)",
+          "guarantee": "Randomized · worst-case"
+        },
+        {
+          "bound": "O(n+m)",
+          "detail": "Search from s after each update. Dense reference O(n²). Store the answer after the search; O(1) lookup. This is an elementary recomputation construction, not a frontier result.",
+          "sourceId": "hkns15",
+          "locator": "Problem definitions; elementary graph-search construction",
+          "status": "baseline",
+          "updateExponent": 2,
+          "query": "O(1)",
+          "guarantee": "Deterministic · worst-case"
+        }
+      ],
+      "lower": {
+        "bound": "No U=O(n^{1−η}) when Q=O(n^{2−δ})",
+        "detail": "Fully dynamic single-edge insertions and deletions; polynomial preprocessing; randomized error at most 1/3 is allowed in the conditional exclusion. The lower bound excludes a fixed polynomial improvement, including amortized updates. In general m notation, Corollary 3.4 excludes U=O(m^{1/2−η}), Q=O(m^{1−δ}), for positive constants η,δ. The n form is the dense-scale specialization.",
+        "sourceId": "hkns15",
+        "locator": "Corollary 3.4; following reachability implication",
+        "condition": "ordinary Boolean OMv",
+        "status": "conditional",
+        "threshold": 1,
+        "queryCeilingExponent": 2
+      },
+      "x": 1060,
+      "y": 860,
+      "group": "dynamic",
+      "family": "boolean"
+    },
+    {
+      "id": "dyn-distance",
+      "label": "Fully dynamic exact s–t distance",
+      "short": "s–t distance · exact",
+      "tag": "EXACT · UNDIRECTED",
+      "contract": "Fixed s,t in an undirected unweighted graph. Maintain the exact distance, with infinity for disconnected terminals.",
+      "parameter": "n vertices; m edges. The figure evaluates dense-scale upper bounds at m=Θ(n²), on algorithms covering general graphs with at most n² edges.",
+      "baselines": [
+        {
+          "bound": "O(n^{1.7035})",
+          "detail": "Randomized exact distance, high probability against adaptive updates; worst-case update guarantee. The directed unweighted algorithm also covers undirected graphs (encode each undirected edge by two arcs). Preprocessing Õ(h n^ω), with the theorem’s polynomial choice of h. It outputs the distance after every update.",
+          "sourceId": "bfn22",
+          "locator": "Theorem 1.7; Appendix C",
+          "status": "published",
+          "updateExponent": 1.7035,
+          "query": "O(1)",
+          "guarantee": "Randomized · worst-case"
+        },
+        {
+          "bound": "O(n+m)",
+          "detail": "Run BFS from s after each update. Dense reference O(n²). Store the answer after the search; O(1) lookup. This is an elementary recomputation construction, not a frontier result.",
+          "sourceId": "hkns15",
+          "locator": "Problem definitions; elementary graph-search construction",
+          "status": "baseline",
+          "updateExponent": 2,
+          "query": "O(1)",
+          "guarantee": "Deterministic · worst-case"
+        }
+      ],
+      "lower": {
+        "bound": "No U=O(n^{1−η}) when Q=O(n^{2−δ})",
+        "detail": "Fully dynamic single-edge insertions and deletions; polynomial preprocessing; randomized error at most 1/3 is allowed in the conditional exclusion. The lower bound excludes a fixed polynomial improvement, including amortized updates. In general m notation, Corollary 3.4 excludes U=O(m^{1/2−η}), Q=O(m^{1−δ}), for positive constants η,δ. The n form is the dense-scale specialization.",
+        "sourceId": "hkns15",
+        "locator": "Lemma 3.2; Corollary 3.4",
+        "condition": "ordinary Boolean OMv",
+        "status": "conditional",
+        "threshold": 1,
+        "queryCeilingExponent": 2
+      },
+      "x": 1060,
+      "y": 970,
+      "group": "dynamic",
+      "family": "distance"
+    },
+    {
+      "id": "dyn-distance-fine",
+      "label": "Fully dynamic s–t distance, α < 5/3",
+      "short": "s–t distance · α < 5/3",
+      "tag": "APPROX · UNDIRECTED",
+      "contract": "Undirected unweighted graph, fixed s,t, and a fixed factor 1<α<5/3. Return d≤d̂≤αd; zero additive error.",
+      "parameter": "n vertices; m edges. The figure evaluates dense-scale upper bounds at m=Θ(n²), on algorithms covering general graphs with at most n² edges.",
+      "baselines": [
+        {
+          "bound": "O(n^{1.407}) · fixed accuracy",
+          "detail": "For any fixed ε>0, maintain a (1+ε) estimate. Full update bound O(n^{1.407} ε⁻² log(1/ε)); preprocessing O(n^ω ε⁻² log(1/ε)). Choose ε below the row’s fixed α−1. The proof computes the estimate during updates, allowing constant lookup.",
+          "sourceId": "bfn22",
+          "locator": "Theorem 1.1; proof in §3.2, printed p.18",
+          "status": "published",
+          "updateExponent": 1.407,
+          "query": "O(1)",
+          "guarantee": "Deterministic · worst-case"
+        }
+      ],
+      "lower": {
+        "bound": "No U=O(n^{1−η}) when Q=O(n^{2−δ})",
+        "detail": "Fully dynamic single-edge insertions and deletions; polynomial preprocessing; randomized error at most 1/3 is allowed in the conditional exclusion. The lower bound excludes a fixed polynomial improvement, including amortized updates. In general m notation, Corollary 3.4 excludes U=O(m^{1/2−η}), Q=O(m^{1−δ}), for positive constants η,δ. The n form is the dense-scale specialization.",
+        "sourceId": "hkns15",
+        "locator": "Lemma 3.2 (3α+β<5); Corollary 3.4",
+        "condition": "ordinary Boolean OMv",
+        "status": "conditional",
+        "threshold": 1,
+        "queryCeilingExponent": 2
+      },
+      "x": 1060,
+      "y": 1080,
+      "group": "dynamic",
+      "family": "distance"
+    },
+    {
+      "id": "dyn-distance-coarse",
+      "label": "Fully dynamic s–t distance, α < 3",
+      "short": "s–t distance · α < 3",
+      "tag": "APPROX · UNDIRECTED",
+      "contract": "Undirected unweighted graph, fixed s,t, and a fixed factor 1<α<3. Return d≤d̂≤αd. The weaker red threshold applies throughout this larger approximation range.",
+      "parameter": "n vertices; m edges. The figure evaluates dense-scale upper bounds at m=Θ(n²), on algorithms covering general graphs with at most n² edges.",
+      "baselines": [
+        {
+          "bound": "O(n^{1.407}) · fixed accuracy",
+          "detail": "For any fixed ε>0, maintain a (1+ε) estimate. Full update bound O(n^{1.407} ε⁻² log(1/ε)); preprocessing O(n^ω ε⁻² log(1/ε)). Choose ε below the row’s fixed α−1. The proof computes the estimate during updates, allowing constant lookup.",
+          "sourceId": "bfn22",
+          "locator": "Theorem 1.1; proof in §3.2, printed p.18",
+          "status": "published",
+          "updateExponent": 1.407,
+          "query": "O(1)",
+          "guarantee": "Deterministic · worst-case"
+        }
+      ],
+      "lower": {
+        "bound": "No U=O(n^{1/2−η}) when Q=O(n^{1−δ})",
+        "detail": "Fully dynamic single-edge insertions and deletions; polynomial preprocessing; randomized error at most 1/3 is allowed in the conditional exclusion. The lower bound excludes a fixed polynomial improvement, including amortized updates. η,δ>0 are constants. The hard instances need not be dense; this is a barrier for an algorithm covering all n-vertex graphs.",
+        "sourceId": "hkns15",
+        "locator": "Lemma 3.9; Corollary 3.10",
+        "condition": "ordinary Boolean OMv",
+        "status": "conditional",
+        "threshold": 0.5,
+        "queryCeilingExponent": 1
+      },
+      "x": 1060,
+      "y": 1190,
+      "group": "dynamic",
+      "family": "distance"
+    },
+    {
+      "id": "dyn-diameter",
+      "label": "Fully dynamic diameter, α < 2",
+      "short": "Diameter · α < 2",
+      "tag": "APPROX · {0,1} WEIGHTS",
+      "contract": "Undirected graph with weights in {0,1}. Return D/α≤D̂≤D for a fixed factor 1≤α<2, where D is diameter. Exact recomputation meets this one-sided convention.",
+      "parameter": "n vertices; m edges. The figure evaluates dense-scale upper bounds at m=Θ(n²), on algorithms covering general graphs with at most n² edges.",
+      "baselines": [
+        {
+          "bound": "O(n(n+m))",
+          "detail": "Recompute every source distance with 0–1 BFS, then take the maximum; dense reference O(n³). Store the diameter for O(1) lookup. Polynomial preprocessing; disconnected graphs may report infinity. This elementary baseline is not a frontier claim.",
+          "sourceId": "hkns15",
+          "locator": "Corollary 3.22 problem contract; elementary all-sources construction",
+          "status": "baseline",
+          "updateExponent": 3,
+          "query": "O(1)",
+          "guarantee": "Deterministic · worst-case"
+        }
+      ],
+      "lower": {
+        "bound": "No U=O(n^{1/2−η}) when Q=O(n^{1−δ})",
+        "detail": "Fully dynamic single-edge insertions and deletions; polynomial preprocessing; randomized error at most 1/3 is allowed in the conditional exclusion. The lower bound excludes a fixed polynomial improvement, including amortized updates. η,δ>0 are constants. The hard instances need not be dense; this is a barrier for an algorithm covering all n-vertex graphs.",
+        "sourceId": "hkns15",
+        "locator": "Lemma 3.20; Corollary 3.22",
+        "condition": "ordinary Boolean OMv",
+        "status": "conditional",
+        "threshold": 0.5,
+        "queryCeilingExponent": 1
+      },
+      "x": 1060,
+      "y": 1300,
+      "group": "dynamic",
+      "family": "weighted"
+    },
+    {
+      "id": "dyn-closure",
+      "label": "Fully dynamic arbitrary-pair reachability",
+      "short": "Any-pair reachability",
+      "tag": "EXACT · DIRECTED",
+      "contract": "General directed graph. Query endpoints u,v are supplied at query time; answer whether u reaches v. This row does not explicitly output the whole transitive closure matrix.",
+      "parameter": "n vertices; m edges. The figure evaluates dense-scale upper bounds at m=Θ(n²), on algorithms covering general graphs with at most n² edges.",
+      "baselines": [
+        {
+          "bound": "O(n^{1.407})",
+          "detail": "Randomized worst-case update and arbitrary-pair query guarantees from dynamic matrix inverse. Polynomial preprocessing O(n^ω). Numerical exponent from the published bound; no optimality claim.",
+          "sourceId": "bns19",
+          "locator": "Theorem 4.2; Theorem C.16; Figure 4",
+          "status": "published",
+          "updateExponent": 1.407,
+          "query": "O(n^{1.407})",
+          "guarantee": "Randomized · worst-case"
+        }
+      ],
+      "lower": {
+        "bound": "No U=O(n^{1−η}) when Q=O(n^{2−δ})",
+        "detail": "Fully dynamic single-edge insertions and deletions; polynomial preprocessing; randomized error at most 1/3 is allowed in the conditional exclusion. The lower bound excludes a fixed polynomial improvement, including amortized updates. In general m notation, Corollary 3.4 excludes U=O(m^{1/2−η}), Q=O(m^{1−δ}), for positive constants η,δ. The n form is the dense-scale specialization. An arbitrary-pair oracle solves fixed s–t queries, so that lower bound transfers.",
+        "sourceId": "hkns15",
+        "locator": "Corollary 3.4; following reachability implication",
+        "condition": "ordinary Boolean OMv",
+        "status": "conditional",
+        "threshold": 1,
+        "queryCeilingExponent": 2
+      },
+      "x": 1060,
+      "y": 1410,
+      "group": "dynamic",
+      "family": "boolean"
+    },
+    {
+      "id": "dyn-distance-oracle",
+      "label": "Fully dynamic distance oracle, α < 2",
+      "short": "Any-pair distance · α < 2",
+      "tag": "APPROX · UNDIRECTED",
+      "contract": "Undirected unweighted graph. Arbitrary endpoints at query time; (1+ε)-approximate distances with fixed 0<ε<1. The oracle supports any pair, not only a stored fixed pair.",
+      "parameter": "n vertices; m edges. The figure evaluates dense-scale upper bounds at m=Θ(n²), on algorithms covering general graphs with at most n² edges.",
+      "baselines": [
+        {
+          "bound": "n^{1.788+o(1)}",
+          "detail": "Randomized, high probability against adaptive updates; worst-case update O(n^{1.788}) F(n,ε), preprocessing O(n^{2.585}) F(n,ε), where F=O(1/ε)^{√(2 log₍₁/ε₎ n)}. Query O(n^{0.45} ε⁻²). For fixed ε the extra update factor is subpolynomial, not merely polylogarithmic.",
+          "sourceId": "bfn22",
+          "locator": "Corollary A.3, printed p.34",
+          "status": "published",
+          "updateExponent": 1.788,
+          "query": "O(n^{0.45}) · fixed ε",
+          "guarantee": "Randomized · worst-case"
+        }
+      ],
+      "lower": {
+        "bound": "No U=O(n^{1−η}) when Q=O(n^{1−δ})",
+        "detail": "Fully dynamic single-edge insertions and deletions; polynomial preprocessing; randomized error at most 1/3 is allowed in the conditional exclusion. The lower bound excludes a fixed polynomial improvement, including amortized updates. An arbitrary-pair oracle includes the single-source 2-versus-4 distance problem. Use δ=1/2 in the density parameter of Corollary 3.8, then m=Θ(n²).",
+        "sourceId": "hkns15",
+        "locator": "Lemma 3.6; Corollary 3.8",
+        "condition": "ordinary Boolean OMv",
+        "status": "conditional",
+        "threshold": 1,
+        "queryCeilingExponent": 1
+      },
+      "x": 1060,
+      "y": 1520,
+      "group": "dynamic",
+      "family": "distance"
     }
   ],
   "edges": [
@@ -673,6 +1024,118 @@
       "route": "curve",
       "kind": "reduction",
       "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "omv-oumv",
+      "to": "oumv",
+      "short": "online scalar products",
+      "consequence": "A polynomial online saving for OuMv contradicts ordinary Boolean OMv.",
+      "transformation": "Theorem 2.7 transfers OMv hardness to every fixed aspect ratio a=floor(b^γ), allowing polynomial matrix preprocessing. No identical exponent saving is asserted.",
+      "sourceId": "hkns15",
+      "locator": "Theorem 2.7",
+      "notes": "Online answers must be returned before seeing the next input. The square displayed reference and rectangular reductions use different parameter substitutions.",
+      "route": "curve",
+      "kind": "reduction",
+      "verifiedOn": "2026-10-27",
+      "from": "omv"
+    },
+    {
+      "id": "oumv-reach",
+      "to": "dyn-reach",
+      "short": "N² updates + N queries",
+      "consequence": "U(n)=O(n^{1−η}) and Q(n)=O(n^{2−δ}) would give truly subcubic square OuMv.",
+      "transformation": "Square K×K matrix, K pairs: s→L→R→t gadget has 2K+2 vertices and O(K²) edges. O(K²) changes plus K queries give O(K²U+KQ+K²) online time.",
+      "sourceId": "hkns15",
+      "locator": "Definition 2.6; Corollary 3.4 and reachability implication",
+      "notes": "Matrix edges encode M; source/target edges encode u,v. Undo each pair’s updates. Polynomial preprocessing and bounded error are part of the reduction.",
+      "route": "curve",
+      "kind": "reduction",
+      "verifiedOn": "2026-10-27",
+      "from": "oumv"
+    },
+    {
+      "id": "oumv-distance",
+      "to": "dyn-distance",
+      "short": "3-versus-5 gap",
+      "consequence": "The stated jointly faster updates and queries give truly subcubic square OuMv.",
+      "transformation": "Square K×K matrix, K pairs: n=Θ(K), O(K²) changes and K queries. Online time O(K²U(n)+KQ(n)+K²). Distances distinguish 3 from at least 5.",
+      "sourceId": "hkns15",
+      "locator": "Lemma 3.2; Corollary 3.4",
+      "notes": "Fully dynamic undo operations support the amortized lower bound. Exact distance distinguishes the gap.",
+      "route": "curve",
+      "kind": "reduction",
+      "verifiedOn": "2026-10-27",
+      "from": "oumv"
+    },
+    {
+      "id": "oumv-distance-fine",
+      "to": "dyn-distance-fine",
+      "short": "α < 5/3",
+      "consequence": "U(n)=O(n^{1−η}), Q(n)=O(n^{2−δ}) with fixed α<5/3 gives truly subcubic square OuMv.",
+      "transformation": "Same square construction: n=Θ(K), O(K²) changes and K queries; d≤d̂≤αd distinguishes d=3 from d≥5.",
+      "sourceId": "hkns15",
+      "locator": "Lemma 3.2; Corollary 3.4",
+      "notes": "Strict factor threshold and zero additive error. The more general source condition is 3α+β<5.",
+      "route": "curve",
+      "kind": "reduction",
+      "verifiedOn": "2026-10-27",
+      "from": "oumv"
+    },
+    {
+      "id": "oumv-distance-coarse",
+      "to": "dyn-distance-coarse",
+      "short": "subdivide · n = Θ(N²)",
+      "consequence": "U(n)=O(n^{1/2−η}), Q(n)=O(n^{1−δ}) with fixed α<3 contradicts OMv.",
+      "transformation": "Square K×K matrix, K pairs. Subdivision gives n=Θ(K²), O(K²) updates and K queries: O(nU(n)+√n Q(n)+n), below n^{3/2} if both improve polynomially.",
+      "sourceId": "hkns15",
+      "locator": "Lemma 3.9; Corollary 3.10",
+      "notes": "Fix the approximation gap before constructing the graph. Hard instances are sparse; this is not a dense-instance-only claim.",
+      "route": "curve",
+      "kind": "reduction",
+      "verifiedOn": "2026-10-27",
+      "from": "oumv"
+    },
+    {
+      "id": "oumv-diameter",
+      "to": "dyn-diameter",
+      "short": "rectangular matrix",
+      "consequence": "U(n)=O(n^{1/2−η}), Q(n)=O(n^{1−δ}) for α<2 contradicts ordinary OMv.",
+      "transformation": "Use a=K, b=K², T=K². The graph has n=Θ(K²) vertices; O(K⁴) updates and O(K³) queries give O(n²U(n)+n^{3/2}Q(n)+n²), compared with abT=Θ(n^{5/2}).",
+      "sourceId": "hkns15",
+      "locator": "Lemma 3.20; Corollary 3.22",
+      "notes": "Rectangular OuMv follows from Theorem 2.7, not a hinted conjecture. These explicit dimensions avoid inconsistent aspect-ratio/pair-count labels in the source proof. Weights {0,1}; hard instances have O(n^{3/2}) edges.",
+      "route": "curve",
+      "kind": "reduction",
+      "verifiedOn": "2026-10-27",
+      "from": "oumv"
+    },
+    {
+      "id": "oumv-closure",
+      "to": "dyn-closure",
+      "short": "fixed pair ⊂ any pair",
+      "consequence": "A faster arbitrary-pair oracle with the stated query budget also solves the fixed-pair reachability problem.",
+      "transformation": "Apply the same square OuMv gadget and ask the fixed terminal pair through the arbitrary-pair interface: O(K²U+KQ+K²) online time.",
+      "sourceId": "hkns15",
+      "locator": "Corollary 3.4; following reachability implication",
+      "notes": "No Ω(n²) update claim is inferred from the number of entries in an explicit closure matrix.",
+      "route": "curve",
+      "kind": "reduction",
+      "verifiedOn": "2026-10-27",
+      "from": "oumv"
+    },
+    {
+      "id": "oumv-oracle",
+      "to": "dyn-distance-oracle",
+      "short": "2-versus-4 gap",
+      "consequence": "U(n)=O(n^{1−η}) and Q(n)=O(n^{1−δ}) for α<2 gives truly subcubic square OuMv.",
+      "transformation": "Square K×K matrix, K pairs: n=Θ(K), O(K²) changes and O(K²) queries; O(K²(U+Q)+K²) online time. Query the source-to-row vertices selected by u.",
+      "sourceId": "hkns15",
+      "locator": "Lemma 3.6; Corollary 3.8 with density parameter 1/2",
+      "notes": "The oracle includes single-source queries. A factor below 2 distinguishes distances 2 and at least 4; polynomial preprocessing and fully dynamic amortization are explicit.",
+      "route": "curve",
+      "kind": "reduction",
+      "verifiedOn": "2026-10-27",
+      "from": "oumv"
     }
   ],
   "groups": [
@@ -699,6 +1162,91 @@
       "label": "Numbers & output-sensitive reporting",
       "top": 645,
       "bottom": 750
+    },
+    {
+      "id": "dynamic",
+      "label": "Online matrix products & fully dynamic graphs",
+      "top": 775,
+      "bottom": 1570
     }
-  ]
+  ],
+  "dynamicView": {
+    "queryPolicy": "Row-specific query guarantees; only update time is plotted.",
+    "density": "Dense-scale reference: upper bounds evaluated at m=Θ(n²). Algorithms cover all n-vertex graphs with at most n² edges; some lower-bound instances are sparse.",
+    "assumption": "Ordinary Boolean OMv; polynomial preprocessing. Red excludes every fixed polynomial saving below its boundary, including amortized updates.",
+    "rows": [
+      {
+        "id": "dyn-reach",
+        "nodeId": "dyn-reach",
+        "query": "O(1)",
+        "queryExponent": 0,
+        "algorithmIndices": [
+          0,
+          1
+        ],
+        "threshold": 1
+      },
+      {
+        "id": "dyn-distance",
+        "nodeId": "dyn-distance",
+        "query": "O(1)",
+        "queryExponent": 0,
+        "algorithmIndices": [
+          0,
+          1
+        ],
+        "threshold": 1
+      },
+      {
+        "id": "dyn-distance-fine",
+        "nodeId": "dyn-distance-fine",
+        "query": "O(1)",
+        "queryExponent": 0,
+        "algorithmIndices": [
+          0
+        ],
+        "threshold": 1
+      },
+      {
+        "id": "dyn-distance-coarse",
+        "nodeId": "dyn-distance-coarse",
+        "query": "O(1)",
+        "queryExponent": 0,
+        "algorithmIndices": [
+          0
+        ],
+        "threshold": 0.5
+      },
+      {
+        "id": "dyn-diameter",
+        "nodeId": "dyn-diameter",
+        "query": "O(1)",
+        "queryExponent": 0,
+        "algorithmIndices": [
+          0
+        ],
+        "threshold": 0.5
+      },
+      {
+        "id": "dyn-closure",
+        "nodeId": "dyn-closure",
+        "query": "O(n^{1.407})",
+        "queryExponent": 1.407,
+        "algorithmIndices": [
+          0
+        ],
+        "threshold": 1
+      },
+      {
+        "id": "dyn-distance-oracle",
+        "nodeId": "dyn-distance-oracle",
+        "query": "O(n^{0.45}) · fixed ε",
+        "queryExponent": 0.45,
+        "algorithmIndices": [
+          0
+        ],
+        "threshold": 1
+      }
+    ]
+  }
 }

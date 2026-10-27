@@ -40,5 +40,45 @@ const html=fs.readFileSync(path.join(root,'dist/fine-grained.html'),'utf8');
 assert(!/\/\* FG_(CSS|JS|DATA) \*\//.test(html));
 assert(html.includes('The proofs were not independently verified')||html.includes('proofs were not independently verified'));
 assert(fs.readFileSync(path.join(root,'dist/index.html'),'utf8').includes('href="fine-grained.html"'));
-console.log('Fine-grained PASS: 13 scoped nodes; 12 reversible-direction relations; exponent-loss, listing/detection, approximation-floor and hypothesis-status guards; '+checked+' diameter gadgets; search context; built-page navigation.');
+// Verify OuMv reachability and the undirected 3-versus-5 gap by changing
+// terminal edges repeatedly, including deletion and re-insertion sequences.
+let dynamicChecked=0;
+for(let matrix=0;matrix<16;matrix++){
+ const directed=Array.from({length:6},()=>new Set()),undirected=Array.from({length:6},()=>new Set());
+ for(let i=0;i<2;i++)for(let j=0;j<2;j++)if(matrix&(1<<(2*i+j))){directed[1+i].add(3+j);undirected[1+i].add(3+j);undirected[3+j].add(1+i);}
+ const distance=adj=>{const ds=Array(6).fill(Infinity),q=[0];ds[0]=0;for(let k=0;k<q.length;k++)for(const v of adj[q[k]])if(ds[v]===Infinity){ds[v]=ds[q[k]]+1;q.push(v)}return ds[5];};
+ for(const pair of [...Array(16).keys(),...Array(16).keys()].map((x,i)=>i<16?x:15-x)){
+  const u=pair>>2,v=pair&3;
+  for(let i=0;i<2;i++){
+   for(const adj of [directed,undirected]){adj[0].delete(1+i);adj[3+i].delete(5);if(u&(1<<i))adj[0].add(1+i);if(v&(1<<i))adj[3+i].add(5);}
+   undirected[1+i].delete(0);undirected[5].delete(3+i);if(u&(1<<i))undirected[1+i].add(0);if(v&(1<<i))undirected[5].add(3+i);
+  }
+  let yes=false;for(let i=0;i<2;i++)for(let j=0;j<2;j++)yes ||= Boolean((u&(1<<i))&&(matrix&(1<<(2*i+j)))&&(v&(1<<j)));
+  assert.equal(distance(directed)<Infinity,yes);
+  if(yes)assert.equal(distance(undirected),3);else assert(distance(undirected)>=5);
+  dynamicChecked++;
+ }
+}
+const dynamic=data.nodes.filter(n=>n.group==='dynamic');
+assert.equal(dynamic.length,9);
+assert.equal(api.updateRows(dynamic).length,7);
+assert.equal(api.updateRows(api.visibleNodes('weighted','')).length,0);
+for(const row of data.dynamicView.rows){
+ const n=dynamic.find(n=>n.id===row.nodeId);
+ assert(row.queryExponent<n.lower.queryCeilingExponent,'Query must be polynomially below the joint exclusion threshold');
+ assert.equal(row.threshold,n.lower.threshold);
+ for(const index of row.algorithmIndices)assert(n.baselines[index].updateExponent>=row.threshold);
+}
+assert.equal(data.nodes.find(n=>n.id==='dyn-closure').baselines[0].query,'O(n^{1.407})');
+assert(data.nodes.find(n=>n.id==='dyn-diameter').contract.includes('D/α≤D̂≤D'));
+assert(data.nodes.find(n=>n.id==='dyn-distance-oracle').baselines[0].bound.includes('+o(1)'));
+assert(!data.nodes.find(n=>n.id==='dyn-distance-oracle').baselines[0].bound.includes('Õ'));
+assert(data.nodes.find(n=>n.id==='oumv').contract.includes('a×b'));
+// Operation counts give the claimed savings only when BOTH costs improve.
+for(const [u,q,updateCount,queryCount,total] of [[1,2,2,1,3],[.5,1,1,.5,1.5],[.5,1,2,1.5,2.5],[1,1,2,2,3]]){
+ assert(Math.max(updateCount+u-.1,queryCount+q-.1)<total);
+ assert.equal(Math.max(updateCount+u-.1,queryCount+q),total);
+}
+assert(html.includes('id="updates"')&&html.includes('Row-specific query guarantees'));
+console.log('Fine-grained PASS: '+data.nodes.length+' nodes; '+data.edges.length+' reversible relations; 7 query-scoped update rows; '+checked+' diameter gadgets; '+dynamicChecked+' fully dynamic OuMv gadget states; strict joint-exponent exclusions, hypothesis and source guards.');
 
