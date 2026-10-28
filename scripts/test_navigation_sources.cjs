@@ -7,7 +7,7 @@ assert(!data.models.some(m=>m.id==='query_combined'));
 assert(data.research.some(r=>r.slices.some(s=>s.model==='query_combined')),'Removed column research remains archived without changing its oracle assumptions');
 const context={window:{},document:{getElementById:id=>id==='atlas-data'?{textContent:JSON.stringify(data)}:null},AbortController,Set};
 vm.createContext(context);
-for(const name of ['dynamic.js','streaming.js','lca.js','local.js','mpc.js','query-list.js',...data.focusPairs.map(p=>p.javascript),'paper-links.js'])vm.runInContext(fs.readFileSync(path.join(root,'src',name),'utf8'),context);
+for(const name of ['dynamic.js','streaming.js','lca.js','local.js','mpc.js','query-list.js',...data.focusPairs.map(p=>p.javascript),'cc-comparison.js','paper-links.js'])vm.runInContext(fs.readFileSync(path.join(root,'src',name),'utf8'),context);
 const coordinator=fs.readFileSync(path.join(root,'src/focus.js'),'utf8').split("  const featured=")[0]+'})();';
 vm.runInContext(coordinator,context);
 const api=context.window.AtlasFocus,papers=context.window.AtlasPapers;

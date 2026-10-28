@@ -260,13 +260,13 @@ def main():
     focus["query-list"] = query_list
     pairs = load_pairs(focus, catalog, research)
     visible_models = [m for m in catalog["models"] if m.get("visible", True)]
-    project = {**catalog, "models": visible_models, "paperLinks": json.loads((DATA / "paper-links.json").read_text()), "research": research, "focus": focus, "focusPairs": pairs, "reviewedThrough": max(d["reviewedThrough"] for d in research)}
+    project = {**catalog, "models": visible_models, "ccComparison": json.loads((DATA / "cc-comparison.json").read_text()), "paperLinks": json.loads((DATA / "paper-links.json").read_text()), "research": research, "focus": focus, "focusPairs": pairs, "reviewedThrough": max(d["reviewedThrough"] for d in research)}
     if not args.check:
         template = (ROOT / "src" / "index.html").read_text()
         css = (ROOT / "src" / "style.css").read_text() + "\n" + (ROOT / "src" / "focus.css").read_text() + "\n" + (ROOT / "src" / "dynamic.css").read_text() + "\n" + (ROOT / "src" / "streaming.css").read_text() + "\n" + (ROOT / "src" / "lca.css").read_text() + "\n" + (ROOT / "src" / "local.css").read_text() + "\n" + (ROOT / "src" / "mpc.css").read_text() + "\n" + (ROOT / "src" / "query-list.css").read_text()
-        css += "\n" + (ROOT / "src" / "paper-links.css").read_text() + "\n" + (ROOT / "src" / "visual-guides.css").read_text()
+        css += "\n" + (ROOT / "src" / "paper-links.css").read_text() + "\n" + (ROOT / "src" / "visual-guides.css").read_text() + "\n" + (ROOT / "src" / "cc-comparison.css").read_text()
         css += "\n" + "\n".join((ROOT / "src" / name).read_text() for name in dict.fromkeys(p["css"] for p in pairs))
-        js = "\n".join((ROOT / "src" / name).read_text() for name in ["app.js", "dynamic.js", "streaming.js", "lca.js", "local.js", "mpc.js", "query-list.js", *dict.fromkeys(p["javascript"] for p in pairs), "visual-guides.js", "focus.js", "paper-links.js"])
+        js = "\n".join((ROOT / "src" / name).read_text() for name in ["app.js", "dynamic.js", "streaming.js", "lca.js", "local.js", "mpc.js", "query-list.js", *dict.fromkeys(p["javascript"] for p in pairs), "visual-guides.js", "cc-comparison.js", "focus.js", "paper-links.js"])
         payload = json.dumps(project, ensure_ascii=False, separators=(",", ":")).replace("<", "\\u003c").replace("&", "\\u0026")
         for needle in ("/* ATLAS_CSS */", "/* ATLAS_JS */", "/* ATLAS_DATA */"):
             require(template.count(needle) == 1, f"Template marker missing or duplicated: {needle}")
@@ -275,7 +275,10 @@ def main():
         output.parent.mkdir(exist_ok=True)
         output.write_text(html)
         print(f"Wrote {output} ({output.stat().st_size:,} bytes)")
-    build_fine_grained(ROOT, write=not args.check)
+    # Fine-grained page is paused; retain and validate its research without publishing it.
+    build_fine_grained(ROOT, write=False)
+    if not args.check:
+        (ROOT / "dist" / "fine-grained.html").unlink(missing_ok=True)
     print(f"Validated: {counts['papers']} sources; {counts['slices']} scoped settings; {counts['results']} results; {len(catalog['problems']) * len(visible_models)} cells.")
 
 

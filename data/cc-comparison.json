@@ -1,0 +1,537 @@
+{
+  "epsilon": 0.125,
+  "alphaDomain": [
+    1,
+    4
+  ],
+  "purpose": "Same linear approximation-factor scale at every zoom. α=cost/OPT for disagreements; α=OPT/ALG for agreements, in a separate panel. Resource rows are categorical; lower bounds remain scoped to their resource and guarantee.",
+  "pairs": {
+    "cc-dynamic": {
+      "title": "Dynamic",
+      "resource": "Update time",
+      "records": [
+        {
+          "id": "cc-dyn-adaptive-1485",
+          "group": "pure",
+          "base": 1.485,
+          "epsilonCoefficient": 0,
+          "scope": "Adaptive · fixed time"
+        },
+        {
+          "id": "cc-dyn-adaptive-1847",
+          "group": "pure",
+          "base": 1.847,
+          "epsilonCoefficient": 0,
+          "scope": "Adaptive · fixed time"
+        },
+        {
+          "id": "cc-dyn-adaptive-3plus",
+          "group": "pure",
+          "base": 3,
+          "epsilonCoefficient": 1,
+          "label": "3+ε",
+          "scope": "Adaptive · fixed time"
+        },
+        {
+          "id": "cc-dyn-modifiedpivot-sub3",
+          "group": "pure",
+          "base": 2.997,
+          "epsilonCoefficient": 0,
+          "scope": "Oblivious · expectation"
+        },
+        {
+          "id": "cc-dyn-mis-focs19",
+          "group": "pure",
+          "base": 3,
+          "epsilonCoefficient": 0,
+          "scope": "Oblivious · expectation"
+        },
+        {
+          "id": "cc-dyn-pruned-3plus",
+          "group": "pure",
+          "base": 3,
+          "epsilonCoefficient": 1,
+          "label": "3+ε",
+          "scope": "Oblivious · expectation"
+        },
+        {
+          "id": "cc-dyn-adaptive-o1",
+          "group": "symbolic",
+          "base": null,
+          "epsilonCoefficient": 0,
+          "label": "C=O(1)",
+          "scope": "Adaptive · whole sequence"
+        }
+      ]
+    },
+    "cc-query_list": {
+      "title": "Adjacency list",
+      "resource": "Total positive-list queries",
+      "records": [
+        {
+          "id": "cc-query-assadi-wang-2022",
+          "group": "symbolic",
+          "base": null,
+          "epsilonCoefficient": 0,
+          "label": "C=O(1)",
+          "scope": "Positive lists · w.h.p."
+        },
+        {
+          "id": "cc-query-pivot-original",
+          "group": "pure",
+          "base": 3,
+          "epsilonCoefficient": 0,
+          "scope": "Positive lists · expectation"
+        }
+      ]
+    },
+    "cc-lca": {
+      "title": "LCA",
+      "resource": "Probes per label",
+      "records": [
+        {
+          "id": "cc-lca-pruned-3plus",
+          "group": "pure",
+          "base": 3,
+          "epsilonCoefficient": 1,
+          "label": "3+ε",
+          "scope": "Positive lists"
+        },
+        {
+          "id": "cc-lca-bonchi-four",
+          "group": "additive",
+          "base": 4,
+          "epsilonCoefficient": 0,
+          "scope": "Matrix · two preprocessing policies"
+        },
+        {
+          "id": "cc-lca-bonchi-constant-lb",
+          "group": "additive",
+          "base": 4,
+          "epsilonCoefficient": 0,
+          "label": "c=4 reference",
+          "scope": "Matrix · non-adaptive lower"
+        },
+        {
+          "id": "cc-lca-bonchi-one-additive",
+          "group": "additive",
+          "base": 1,
+          "epsilonCoefficient": 0,
+          "scope": "Matrix · additive only"
+        },
+        {
+          "id": "cc-lca-bonchi-lb",
+          "group": "additive",
+          "base": 4,
+          "epsilonCoefficient": 0,
+          "label": "c=4 reference",
+          "scope": "Matrix · non-adaptive lower"
+        }
+      ]
+    },
+    "cc-local": {
+      "title": "LOCAL",
+      "resource": "Elapsed rounds",
+      "records": [
+        {
+          "id": "cc-local-3plus-rounds",
+          "group": "pure",
+          "base": 3.258064516129032,
+          "epsilonCoefficient": 0,
+          "label": "3+8/31+δₙ",
+          "scope": "Positive-edge communication",
+          "residual": "δₙ=n^{−Ω(1)}",
+          "resourceLabel": "33 rounds · r=16 reference"
+        },
+        {
+          "id": "cc-local-fn18-pivot",
+          "group": "pure",
+          "base": 3,
+          "epsilonCoefficient": 0,
+          "scope": "Positive-edge communication"
+        },
+        {
+          "id": "cc-local-calm21-deterministic",
+          "group": "symbolic",
+          "base": null,
+          "epsilonCoefficient": 0,
+          "label": "1442 (outside 1–4)",
+          "scope": "Deterministic"
+        },
+        {
+          "id": "cc-local-ks18-maxagree",
+          "group": "agreement",
+          "base": 0.5,
+          "epsilonCoefficient": -1,
+          "label": "1/(½−ε)",
+          "scope": "Weighted signed",
+          "reciprocal": true
+        },
+        {
+          "id": "cc-local-cs22-maxagree-randomized",
+          "group": "agreement",
+          "base": 1,
+          "epsilonCoefficient": -1,
+          "label": "1/(1−ε)",
+          "scope": "Minor-free · randomized",
+          "reciprocal": true
+        },
+        {
+          "id": "cc-local-cs22-maxagree-deterministic",
+          "group": "agreement",
+          "base": 1,
+          "epsilonCoefficient": -1,
+          "label": "1/(1−ε)",
+          "scope": "Minor-free · deterministic",
+          "reciprocal": true
+        }
+      ]
+    },
+    "cc-mpc": {
+      "title": "MPC",
+      "resource": "Communication rounds",
+      "records": [
+        {
+          "id": "cc-mpc-constant",
+          "group": "symbolic",
+          "base": null,
+          "epsilonCoefficient": 0,
+          "label": "C=O(1)",
+          "scope": "General"
+        },
+        {
+          "id": "cc-mpc-focs22-3plus",
+          "group": "pure",
+          "base": 3,
+          "epsilonCoefficient": 1,
+          "label": "3+ε",
+          "scope": "General"
+        },
+        {
+          "id": "cc-mpc-pruned-3plus",
+          "group": "pure",
+          "base": 3,
+          "epsilonCoefficient": 1,
+          "label": "3+ε",
+          "scope": "General"
+        },
+        {
+          "id": "cc-mpc-combinatorial-1876",
+          "group": "pure",
+          "base": 1.875,
+          "epsilonCoefficient": 1,
+          "label": "1.875+ε",
+          "scope": "General"
+        },
+        {
+          "id": "cc-mpc-cao-24",
+          "group": "pure",
+          "base": 2.4,
+          "epsilonCoefficient": 1,
+          "label": "2.4+ε",
+          "scope": "General"
+        },
+        {
+          "id": "cc-mpc-cambus-arboricity",
+          "group": "pure",
+          "base": 3,
+          "epsilonCoefficient": 0,
+          "scope": "Positive arboricity λ"
+        },
+        {
+          "id": "cc-mpc-cambus-arboricity-det",
+          "group": "symbolic",
+          "base": null,
+          "epsilonCoefficient": 0,
+          "label": "O(λ²)",
+          "scope": "Positive arboricity λ"
+        },
+        {
+          "id": "cc-mpc-cambus-forest-approx-rand",
+          "group": "pure",
+          "base": 1,
+          "epsilonCoefficient": 1,
+          "label": "1+ε",
+          "scope": "Positive forest · randomized"
+        },
+        {
+          "id": "cc-mpc-cambus-forest-approx-det",
+          "group": "pure",
+          "base": 1,
+          "epsilonCoefficient": 1,
+          "label": "1+ε",
+          "scope": "Positive forest · deterministic"
+        },
+        {
+          "id": "cc-mpc-cambus-forest",
+          "group": "pure",
+          "base": 1,
+          "epsilonCoefficient": 0,
+          "scope": "Positive forest · exact"
+        }
+      ]
+    },
+    "cc-query_matrix": {
+      "title": "Adjacency matrix",
+      "resource": "Total pair queries",
+      "records": [
+        {
+          "id": "cc-query-partition-lb",
+          "group": "additive",
+          "base": 1,
+          "epsilonCoefficient": 0,
+          "scope": "Announced bound · O(εn²)"
+        },
+        {
+          "id": "cc-query-bonchi-four",
+          "group": "additive",
+          "base": 4,
+          "epsilonCoefficient": 0,
+          "scope": "Constant success · εn²"
+        },
+        {
+          "id": "cc-query-bonchi-four-lb",
+          "group": "additive",
+          "base": 4,
+          "epsilonCoefficient": 0,
+          "label": "c=4 reference",
+          "scope": "Historical · non-adaptive"
+        },
+        {
+          "id": "cc-query-bonchi-pure-additive",
+          "group": "additive",
+          "base": 1,
+          "epsilonCoefficient": 0,
+          "scope": "Additive εn²",
+          "resourceLabel": "n·poly(1/ε) queries · derived",
+          "note": "Query bound from running the poly(1/ε)-probe local routine for each vertex, with shared preprocessing; the separate exponential computation term is retained in the theorem."
+        },
+        {
+          "id": "cc-query-bressan-2019-three",
+          "group": "additive",
+          "base": 3,
+          "epsilonCoefficient": 0,
+          "scope": "Expectation · O(εn²)"
+        },
+        {
+          "id": "cc-query-garciasoriano-2020-three",
+          "group": "additive",
+          "base": 3,
+          "epsilonCoefficient": 0,
+          "scope": "Expectation · εn²"
+        },
+        {
+          "id": "cc-query-bressan-2019-pure-additive",
+          "group": "additive",
+          "base": 1,
+          "epsilonCoefficient": 0,
+          "scope": "Additive O(εn²)"
+        },
+        {
+          "id": "cc-query-bressan-2019-global-lb",
+          "group": "additive",
+          "base": 1,
+          "epsilonCoefficient": 0,
+          "scope": "Expectation · εn²/80"
+        },
+        {
+          "id": "cc-query-garciasoriano-2020-global-lb",
+          "group": "additive",
+          "base": 4,
+          "epsilonCoefficient": 0,
+          "label": "c=4 reference",
+          "scope": "Expectation · εn²"
+        },
+        {
+          "id": "cc-query-matrix-pure-scan-cap",
+          "group": "pure",
+          "base": 1,
+          "epsilonCoefficient": 0,
+          "scope": "Exact · exponential optimization"
+        },
+        {
+          "id": "cc-query-matrix-mixed-scan-cap",
+          "group": "pure",
+          "base": 3,
+          "epsilonCoefficient": 0,
+          "scope": "Expectation · full scan"
+        }
+      ]
+    },
+    "cc-stream": {
+      "title": "Streaming",
+      "resource": "Passes and memory",
+      "records": [
+        {
+          "id": "cc-stream-pivot-3plus",
+          "group": "pure",
+          "base": 3,
+          "epsilonCoefficient": 1,
+          "label": "3+ε",
+          "scope": "Insertion only · 1 pass"
+        },
+        {
+          "id": "cc-stream-combinatorial-1847",
+          "group": "pure",
+          "base": 1.8461538461538463,
+          "epsilonCoefficient": 1,
+          "label": "24/13+ε",
+          "scope": "Insertion only · 1 pass"
+        },
+        {
+          "id": "cc-stream-turnstile-3plus",
+          "group": "pure",
+          "base": 3,
+          "epsilonCoefficient": 1,
+          "label": "3+ε",
+          "scope": "Turnstile · 1 pass"
+        },
+        {
+          "id": "cc-stream-focs22-3plus",
+          "group": "pure",
+          "base": 3.258064516129032,
+          "epsilonCoefficient": 0,
+          "label": "3+8/31",
+          "scope": "Insertion only · 33 passes",
+          "resourceLabel": "33 passes · O(n log n) bits"
+        },
+        {
+          "id": "cc-stream-value-assadi-3-additive",
+          "group": "additive",
+          "base": 3,
+          "epsilonCoefficient": 0,
+          "scope": "Cost estimate · δn²"
+        },
+        {
+          "id": "cc-stream-value-assadi-o1",
+          "group": "symbolic",
+          "base": null,
+          "epsilonCoefficient": 0,
+          "label": "C=O(1) + δn²",
+          "scope": "Cost estimate"
+        },
+        {
+          "id": "cc-stream-value-pure-multiplicative-lb",
+          "group": "symbolic",
+          "base": null,
+          "epsilonCoefficient": 0,
+          "label": "Any fixed finite c",
+          "scope": "Cost estimate · zero additive"
+        },
+        {
+          "id": "cc-stream-value-additive-lb",
+          "group": "additive",
+          "base": 1,
+          "epsilonCoefficient": 0,
+          "scope": "Cost estimate · Cn^{2−ε}"
+        },
+        {
+          "id": "cc-stream-value-mixed-lb",
+          "group": "additive",
+          "base": 1.19,
+          "epsilonCoefficient": 0,
+          "label": "c=1.19 reference",
+          "scope": "Cost estimate · ηn",
+          "note": "η=0.005 < 6/5−1.19"
+        },
+        {
+          "id": "cc-stream-node-arrival-2026",
+          "group": "symbolic",
+          "base": null,
+          "epsilonCoefficient": 0,
+          "label": "10 + n^{1−a}",
+          "scope": "Node arrival · cost estimate"
+        },
+        {
+          "id": "cc-stream-node-arrival-lb",
+          "group": "symbolic",
+          "base": null,
+          "epsilonCoefficient": 0,
+          "label": "Any c≥1",
+          "scope": "Node arrival · zero additive"
+        }
+      ]
+    },
+    "cc-online": {
+      "title": "Online",
+      "resource": "Decision rule / recourse",
+      "records": [
+        {
+          "id": "cc-online-min-upper",
+          "group": "symbolic",
+          "base": null,
+          "epsilonCoefficient": 0,
+          "label": "2n+1",
+          "scope": "Merge-only · adversarial order"
+        },
+        {
+          "id": "cc-online-min-lower",
+          "group": "symbolic",
+          "base": null,
+          "epsilonCoefficient": 0,
+          "label": "Ω(n)",
+          "scope": "Merge-only · adversarial order"
+        },
+        {
+          "id": "cc-online-max-greedy",
+          "group": "agreement",
+          "base": 0.5,
+          "epsilonCoefficient": 0,
+          "label": "2",
+          "scope": "Merge-only · deterministic",
+          "reciprocal": true
+        },
+        {
+          "id": "cc-online-max-random",
+          "group": "agreement",
+          "base": 0.50000000000002,
+          "epsilonCoefficient": 0,
+          "label": "1/(½+2×10⁻¹⁴)",
+          "scope": "Merge-only · randomized",
+          "reciprocal": true
+        },
+        {
+          "id": "cc-online-max-det-lower",
+          "group": "agreement",
+          "base": 0.803,
+          "epsilonCoefficient": 0,
+          "label": "≥1/0.803",
+          "scope": "Deterministic impossibility",
+          "reciprocal": true
+        },
+        {
+          "id": "cc-online-max-rand-lower",
+          "group": "agreement",
+          "base": 0.834,
+          "epsilonCoefficient": 0,
+          "label": "≥1/0.834",
+          "scope": "Randomized impossibility",
+          "reciprocal": true
+        },
+        {
+          "id": "cc-online-random-pivot",
+          "group": "pure",
+          "base": 3,
+          "epsilonCoefficient": 0,
+          "scope": "Random order · irrevocable"
+        },
+        {
+          "id": "cc-online-recourse-upper",
+          "group": "symbolic",
+          "base": null,
+          "epsilonCoefficient": 0,
+          "label": "C=O(1)",
+          "scope": "Vertex moves allowed"
+        },
+        {
+          "id": "cc-online-recourse-lower",
+          "group": "symbolic",
+          "base": null,
+          "epsilonCoefficient": 0,
+          "label": "Any fixed constant",
+          "scope": "Vertex moves allowed"
+        }
+      ]
+    }
+  }
+}

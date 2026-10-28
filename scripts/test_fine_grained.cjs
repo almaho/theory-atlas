@@ -36,10 +36,11 @@ for(let a=0;a<4;a++)for(let b=0;b<4;b++)for(let c=0;c<4;c++)for(let d=0;d<4;d++)
  const yes=A.some(x=>B.some(y=>!dot(x,y)));
  assert.equal(diameter,yes?3:2);checked++;
 }
-const html=fs.readFileSync(path.join(root,'dist/fine-grained.html'),'utf8');
-assert(!/\/\* FG_(CSS|JS|DATA) \*\//.test(html));
+const html=fs.readFileSync(path.join(root,'src/fine-grained.html'),'utf8')+fs.readFileSync(path.join(root,'src/fine-grained.js'),'utf8')+JSON.stringify(data);
+assert(!fs.existsSync(path.join(root,'dist/fine-grained.html')), 'Paused page must not be published');
+
 assert(html.includes('The proofs were not independently verified')||html.includes('proofs were not independently verified'));
-assert(fs.readFileSync(path.join(root,'dist/index.html'),'utf8').includes('href="fine-grained.html"'));
+assert(!fs.readFileSync(path.join(root,'dist/index.html'),'utf8').includes('href="fine-grained.html"'));
 // Verify OuMv reachability and the undirected 3-versus-5 gap by changing
 // terminal edges repeatedly, including deletion and re-insertion sequences.
 let dynamicChecked=0;

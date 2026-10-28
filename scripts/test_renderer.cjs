@@ -1071,3 +1071,5 @@ require('./test_fine_grained.cjs');
 
 require('./test_navigation_sources.cjs');
 require('./test_talk_design.cjs');
+
+require('./test_cc_comparison.cjs');

@@ -10,7 +10,7 @@
   <style>/* ATLAS_CSS */</style>
 </head>
 <body>
-  <nav class="view-nav" aria-label="Atlas views"><a class="atlas-brand" href="#focus">THEORY ATLAS<span>Knowledge, in view.</span></a><div><a class="section-link" href="fine-grained.html">Fine-grained complexity ↗</a><button id="show-focus" type="button" aria-pressed="true">Focused figures</button><button id="show-atlas" type="button" aria-pressed="false">Explore full atlas <span aria-hidden="true">↗</span></button></div></nav>
+  <nav class="view-nav" aria-label="Atlas views"><a class="atlas-brand" href="#focus">THEORY ATLAS<span>Knowledge, in view.</span></a><div><button id="show-focus" type="button" aria-pressed="true">Focused figures</button><button id="show-atlas" type="button" aria-pressed="false">Explore full atlas <span aria-hidden="true">↗</span></button></div></nav>
   <main id="focus-view" aria-label="Matching knowledge map"></main>
   <main id="atlas" hidden aria-label="Graph theory atlas">
     <header class="head"><div><h1>Graph theory atlas</h1><p>Problems × computational models · algorithms and lower bounds</p></div><div class="controls"><button type="button" id="zoom-out" aria-label="Zoom out">−</button><output id="zoom-value">1.0×</output><button type="button" id="zoom-in" aria-label="Zoom in">+</button><button type="button" id="overview">Overview</button></div></header>
@@ -18,6 +18,7 @@
     <section id="global-results" hidden aria-label="Atlas search results"></section>
     <nav id="featured-settings" class="featured-settings" aria-label="Featured problem and model figures"></nav>
     <div class="locator"><strong id="location">Problem × model</strong><span>Choose a figure · surroundings fade as you zoom · Overview returns to all pairs</span></div>
+    <div class="ccx-overview-key"><b>Clustering row: α = 1–4 · smaller is better</b><span class="ccx-pure">Pure disagreements</span><span class="ccx-additive">+ additive error</span><span class="ccx-agreement">Agreements</span><span>Stochastic measures recovery, separately</span></div>
     <div class="atlas-canvas"><section id="stage" aria-label="Zoomable problem and model landscape"></section>
     <section id="detail" hidden aria-label="Selected problem and model"></section></div>
     <div class="legend"><span><i class="key green"></i>Upper bound / algorithm</span><span><i class="key red"></i>Lower bound</span><span><i class="key gray"></i>Open / incomparable</span><span class="hint">Colored regions use the selected setting; symbolic settings show evidence lanes.</span></div>

@@ -8,7 +8,7 @@ Algorithms are green; lower bounds are red. Select a result for its theorem, ass
 
 Open the **[live atlas](https://almaho.github.io/theory-atlas/#atlas)**, or use [the standalone HTML](dist/index.html) offline. Source and history are in [almaho/theory-atlas](https://github.com/almaho/theory-atlas).
 
-The separate **[fine-grained complexity page](https://almaho.github.io/theory-atlas/fine-grained.html)** has 22 problems and 20 directed reductions. It includes a connection map, a bounds atlas, and an **[update-time figure](https://almaho.github.io/theory-atlas/fine-grained.html#updates)** for seven fully dynamic graph contracts. The dynamic figure has only update time on its axis, with separate fixed-pair and arbitrary-pair query guarantees. Its dense-scale reference evaluates algorithm costs at m=Θ(n²), while lower-bound instances may be sparse. Every red region is conditional on ordinary Boolean OMv and the displayed query budget; stronger hinted-OMv barriers are not imported. Toggle the map between algorithmic consequences and reduction direction, then inspect each arrow’s input transformation, exponent accounting, theorem, and source.
+The fine-grained complexity page is paused and removed from the published site at Alma’s request (28 October 2026). Its source, data, and semantic regression checks remain available for future redesign.
 
 The October 2026 APSP/3SUM preprints are labeled claims, with their theorem statements inspected but proofs not independently verified here. Historical conditional implications remain distinct from the status of their premises. The displayed algorithm baselines are not asserted to be current best bounds.
 
@@ -56,7 +56,7 @@ See [the research contract](docs/research-contract.md) for data rules and [figur
 | `scripts/build.py` | Validation and standalone HTML build |
 | `scripts/test_renderer.cjs` | Renderer and scope regressions |
 | `dist/index.html` | Self-contained website and offline artifact |
-| `dist/fine-grained.html` | Self-contained fine-grained complexity page |
+| `src/fine-grained.*` | Archived page source; excluded from the published build |
 
 Daily arXiv review is scheduled through the current Codex chat at 09:00 America/New_York. [The update policy](docs/arxiv-update-policy.md) records the user-authorized verification and publication process. Its persistent checkpoint is `../arxiv-monitor-state.json`; the first scheduled search is separate from the source review that produced this release.
 

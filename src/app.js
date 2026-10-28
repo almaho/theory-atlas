@@ -27,7 +27,7 @@
     const el=document.createElement('div');el.className='cell';el.innerHTML=`<div class="plot" style="height:100%"></div><button type="button" data-cell="${c.id}" aria-label="Zoom into ${esc(p.name)}, ${esc(m.name)}"></button>`;
     c.el=el;c.plot=el.querySelector('.plot');c.button=el.querySelector('button');stage.append(el);cells.push(c);
   }));
-  data.problems.forEach((p,r)=>{const el=document.createElement('div');el.className='axis-label problem';el.textContent=p.short;stage.append(el);labels.push({el,x:20,y:L.top+r*(L.ch+L.gy),w:L.left-40,h:L.ch})});
+  data.problems.forEach((p,r)=>{const el=document.createElement('div');el.className='axis-label problem';el.textContent=p.short;if(p.id==='cc'){el.classList.add('ccx-row-label');el.innerHTML='<span>'+esc(p.short)+'</span><span class="ccx-row-scale">α: 1 · 2 · 3 · 4 →</span>';}stage.append(el);labels.push({el,x:20,y:L.top+r*(L.ch+L.gy),w:L.left-40,h:L.ch})});
   data.models.forEach((m,i)=>{const el=document.createElement('div');el.className='axis-label';el.title=m.name;el.innerHTML=`<div><span class="axis-name">${esc(m.name)}</span><small>${esc(m.measure)}</small></div>`;stage.append(el);labels.push({el,name:m.name,short:({query_list:'Adj. list',query_matrix:'Adj. matrix',query_combined:'Combined'})[m.id]||m.name,x:L.left+i*(L.cw+L.gx),y:15,w:L.cw,h:65})});
 
   let plotSerial=0;
