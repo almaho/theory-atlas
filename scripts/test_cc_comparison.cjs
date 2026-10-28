@@ -52,3 +52,6 @@ const focus=fs.readFileSync(path.join(root,'src/focus.js'),'utf8');
 assert(focus.includes('compare.mount(root,key,options,rendererFor(key))'));
 assert(focus.includes('compare.summarySVG(key,w,h,options)'),'Full atlas uses the same shared coordinate system');
 console.log('Clustering comparison PASS: 8 models; all verified records accounted for; '+markers+' marker geometries; common linear alpha, reciprocal agreement factors, additive scope, residual correction, filters, sources and removed-page guards.');
+
+assert(api.summarySVG('cc-mpc',330,245).includes('data-graph-shape="square"'),'Restricted graph classes remain visible in the overview');
+assert(api.summarySVG('cc-query_matrix',330,245).includes('data-graph-shape="triangle"'),'Exponential computation baseline has a distinct marker');

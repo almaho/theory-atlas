@@ -174,7 +174,9 @@
           "epsilonCoefficient": -1,
           "label": "1/(1−ε)",
           "scope": "Minor-free · randomized",
-          "reciprocal": true
+          "reciprocal": true,
+          "markerShape": "square",
+          "shapeMeaning": "Restricted positive-edge graph class or minor-free signed graph"
         },
         {
           "id": "cc-local-cs22-maxagree-deterministic",
@@ -183,7 +185,9 @@
           "epsilonCoefficient": -1,
           "label": "1/(1−ε)",
           "scope": "Minor-free · deterministic",
-          "reciprocal": true
+          "reciprocal": true,
+          "markerShape": "square",
+          "shapeMeaning": "Restricted positive-edge graph class or minor-free signed graph"
         }
       ]
     },
@@ -236,7 +240,9 @@
           "group": "pure",
           "base": 3,
           "epsilonCoefficient": 0,
-          "scope": "Positive arboricity λ"
+          "scope": "Positive arboricity λ",
+          "markerShape": "square",
+          "shapeMeaning": "Restricted positive-edge graph class or minor-free signed graph"
         },
         {
           "id": "cc-mpc-cambus-arboricity-det",
@@ -244,7 +250,9 @@
           "base": null,
           "epsilonCoefficient": 0,
           "label": "O(λ²)",
-          "scope": "Positive arboricity λ"
+          "scope": "Positive arboricity λ",
+          "markerShape": "square",
+          "shapeMeaning": "Restricted positive-edge graph class or minor-free signed graph"
         },
         {
           "id": "cc-mpc-cambus-forest-approx-rand",
@@ -252,7 +260,9 @@
           "base": 1,
           "epsilonCoefficient": 1,
           "label": "1+ε",
-          "scope": "Positive forest · randomized"
+          "scope": "Positive forest · randomized",
+          "markerShape": "square",
+          "shapeMeaning": "Restricted positive-edge graph class or minor-free signed graph"
         },
         {
           "id": "cc-mpc-cambus-forest-approx-det",
@@ -260,14 +270,18 @@
           "base": 1,
           "epsilonCoefficient": 1,
           "label": "1+ε",
-          "scope": "Positive forest · deterministic"
+          "scope": "Positive forest · deterministic",
+          "markerShape": "square",
+          "shapeMeaning": "Restricted positive-edge graph class or minor-free signed graph"
         },
         {
           "id": "cc-mpc-cambus-forest",
           "group": "pure",
           "base": 1,
           "epsilonCoefficient": 0,
-          "scope": "Positive forest · exact"
+          "scope": "Positive forest · exact",
+          "markerShape": "square",
+          "shapeMeaning": "Restricted positive-edge graph class or minor-free signed graph"
         }
       ]
     },
@@ -347,7 +361,9 @@
           "group": "pure",
           "base": 1,
           "epsilonCoefficient": 0,
-          "scope": "Exact · exponential optimization"
+          "scope": "Exact · exponential optimization",
+          "markerShape": "triangle",
+          "shapeMeaning": "Exponential computation after full-input queries"
         },
         {
           "id": "cc-query-matrix-mixed-scan-cap",
