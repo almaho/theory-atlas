@@ -1,0 +1,85 @@
+{
+  "upsertPapers": [
+    {
+      "id": "xh22",
+      "title": "Optimal Clustering with Noisy Queries via Multi-Armed Bandit",
+      "authors": [
+        "Jinghui Xia",
+        "Zengfeng Huang"
+      ],
+      "year": 2022,
+      "url": "https://arxiv.org/html/2207.05376v1",
+      "venue": "ICML 2022",
+      "publicationStatus": "conference",
+      "verifiedOn": "2026-10-27"
+    }
+  ],
+  "upsertSlices": [
+    {
+      "id": "cc-stochastic-landscape",
+      "problem": "cc",
+      "model": "stochastic",
+      "label": "Clustering from noisy labels: recovery and query cost",
+      "task": "Persistent noise, a tight fixed-noise reference, and the full accuracy dependence.",
+      "assumptions": [
+        "This is planted-partition recovery, distinct from minimizing disagreements. The fixed reference matches output promises; the tradeoff panel labels large-cluster and exact-recovery results separately. Symbolic columns are not a numerical frontier."
+      ],
+      "mode": "1d",
+      "axis": {
+        "label": "See scoped figure panels; incompatible objectives have separate axes",
+        "categories": [
+          {
+            "id": "fixed",
+            "label": "Persistent noisy pair queries · balanced two clusters"
+          },
+          {
+            "id": "noise",
+            "label": "Noise / cluster-count tradeoff"
+          }
+        ]
+      },
+      "results": [
+        {
+          "id": "cc-stochastic-fixed-upper",
+          "paperId": "xh22",
+          "kind": "upper",
+          "bound": "O(n log n) queries",
+          "guarantee": "Recover both hidden clusters with probability 1−o(1)",
+          "sourceLocation": "Theorem 1.1; fixed k,δ specialization",
+          "plot": null,
+          "notes": "For fixed k=2 and δ=1/16, linear-size clusters exceed the required Ω(k⁴log n/δ²) threshold; the additive log³n term is asymptotically dominated."
+        },
+        {
+          "id": "cc-stochastic-fixed-lower",
+          "paperId": "xh22",
+          "kind": "lower",
+          "bound": "Ω(n log n) expected queries",
+          "guarantee": "Exact recovery with success at least 15/16 on balanced inputs",
+          "sourceLocation": "Theorem 1.2 and §5; conditioning corollary",
+          "plot": null,
+          "notes": "§5 hard distribution assigns independent fair cluster labels. Balance fails with probability≤2exp(−n/18). Conditioning with success slack preserves the 7/8 distributional lower bound; cached distinct queries bound off-promise work by n². This balanced-promise statement is an explicit elementary corollary, not a literal theorem quotation. A hypothetical o(n log n)-query algorithm is truncated after n² queries, with o(1) extra failure by Markov; off-promise work is then bounded."
+        },
+        {
+          "id": "cc-stochastic-noise-upper",
+          "paperId": "xh22",
+          "kind": "upper",
+          "bound": "O(n(k+log n)/δ² + k⁸log³n/δ⁴)",
+          "guarantee": "Recover every cluster of size≥Ω(k⁴log n/δ²)",
+          "sourceLocation": "Theorem 1.1",
+          "plot": null,
+          "notes": "The two terms retain full δ dependence. This is not unconditional exact recovery of all cluster sizes."
+        },
+        {
+          "id": "cc-stochastic-noise-lower",
+          "paperId": "xh22",
+          "kind": "lower",
+          "bound": "Ω(n log n / δ²) expected queries",
+          "guarantee": "Exact recovery with success≥7/8",
+          "sourceLocation": "Theorem 1.2; Lemma 5.1 / Appendix D.1",
+          "plot": null,
+          "notes": "Displayed δ range follows the proof. Do not extrapolate this noisy-query lower bound to δ=1 or compare its exact-recovery contract indiscriminately with large-cluster-only recovery."
+        }
+      ]
+    }
+  ]
+}

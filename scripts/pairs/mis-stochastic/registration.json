@@ -1,0 +1,23 @@
+{
+  "id": "mis-stochastic",
+  "dataFile": "mis-stochastic.json",
+  "javascript": "scoped-landscapes.js",
+  "css": "scoped-landscapes.css",
+  "routes": [
+    {
+      "key": "mis-stochastic",
+      "sliceId": "mis-stochastic-landscape",
+      "label": "Random-input independent sets: algorithm and locality",
+      "problem": "mis",
+      "model": "stochastic",
+      "visible": true
+    }
+  ],
+  "canonicalAliases": {},
+  "pointFields": {},
+  "axisSummary": {
+    "x": "Panel-specific quality or cost axis",
+    "y": "Named theorem and setup",
+    "note": "The upper panel measures expected iterations of PARALLEL-GREEDY. The lower panel measures solution density within fixed-radius local algorithms. Neither red statement is a universal MIS computational lower bound."
+  }
+}

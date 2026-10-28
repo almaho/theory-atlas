@@ -2006,6 +2006,190 @@
         "y": "Passes; exact symbolic bound",
         "note": "Weight approximation is 1−ε; ε dependence retained in passes and space. No comparable lower bound reviewed."
       }
+    },
+    {
+      "id": "edge-online",
+      "dataFile": "edge-online.json",
+      "javascript": "scoped-landscapes.js",
+      "css": "scoped-landscapes.css",
+      "routes": [
+        {
+          "key": "edge-online",
+          "sliceId": "edge-online-landscape",
+          "label": "Online edge coloring: arrival and degree matter",
+          "problem": "edge",
+          "model": "online",
+          "visible": true
+        }
+      ],
+      "canonicalAliases": {},
+      "pointFields": {},
+      "axisSummary": {
+        "x": "Panel-specific quality or cost axis",
+        "y": "Named theorem and setup",
+        "note": "Hollow markers locate asymptotic palette ratios. The exact additive or ε-dependent formula appears beside each point; an anchor at 1 is not an exact Δ-coloring guarantee. Low-degree classic barriers are not inferred from high-degree theorems."
+      }
+    },
+    {
+      "id": "vertex-online",
+      "dataFile": "vertex-online.json",
+      "javascript": "scoped-landscapes.js",
+      "css": "scoped-landscapes.css",
+      "routes": [
+        {
+          "key": "vertex-online",
+          "sliceId": "vertex-online-landscape",
+          "label": "Online vertex coloring: what does randomization buy?",
+          "problem": "vertex",
+          "model": "online",
+          "visible": true
+        }
+      ],
+      "canonicalAliases": {},
+      "pointFields": {},
+      "axisSummary": {
+        "x": "Panel-specific quality or cost axis",
+        "y": "Named theorem and setup",
+        "note": "The first panel plots leading log₂n coefficients, retaining additive terms. Other panels use exact symbolic palette categories. Preprint and exponential-work labels remain visible."
+      }
+    },
+    {
+      "id": "mis-online",
+      "dataFile": "mis-online.json",
+      "javascript": "scoped-landscapes.js",
+      "css": "scoped-landscapes.css",
+      "routes": [
+        {
+          "key": "mis-online",
+          "sliceId": "mis-online-landscape",
+          "label": "Online independent sets: maximal versus maximum",
+          "problem": "mis",
+          "model": "online",
+          "visible": true
+        }
+      ],
+      "canonicalAliases": {},
+      "pointFields": {},
+      "axisSummary": {
+        "x": "Panel-specific quality or cost axis",
+        "y": "Named theorem and setup",
+        "note": "Maximality uses a zero-recourse axis. Maximum-size competitiveness uses symbolic ζ-dependent ratios. The geometric-independent-set preprint concerns graphs via neighborhood independence; no geometric oracle is assumed."
+      }
+    },
+    {
+      "id": "cc-online",
+      "dataFile": "cc-online.json",
+      "javascript": "scoped-landscapes.js",
+      "css": "scoped-landscapes.css",
+      "routes": [
+        {
+          "key": "cc-online",
+          "sliceId": "cc-online-landscape",
+          "label": "Online clustering: decisions determine the guarantee",
+          "problem": "cc",
+          "model": "online",
+          "visible": true
+        }
+      ],
+      "canonicalAliases": {},
+      "pointFields": {},
+      "axisSummary": {
+        "x": "Panel-specific quality or cost axis",
+        "y": "Named theorem and setup",
+        "note": "Algorithms are green; impossibility bounds red. β and α point in different directions and appear on separate axes. Recourse means total moves of one vertex over the input sequence."
+      }
+    },
+    {
+      "id": "mis-stochastic",
+      "dataFile": "mis-stochastic.json",
+      "javascript": "scoped-landscapes.js",
+      "css": "scoped-landscapes.css",
+      "routes": [
+        {
+          "key": "mis-stochastic",
+          "sliceId": "mis-stochastic-landscape",
+          "label": "Random-input independent sets: algorithm and locality",
+          "problem": "mis",
+          "model": "stochastic",
+          "visible": true
+        }
+      ],
+      "canonicalAliases": {},
+      "pointFields": {},
+      "axisSummary": {
+        "x": "Panel-specific quality or cost axis",
+        "y": "Named theorem and setup",
+        "note": "The upper panel measures expected iterations of PARALLEL-GREEDY. The lower panel measures solution density within fixed-radius local algorithms. Neither red statement is a universal MIS computational lower bound."
+      }
+    },
+    {
+      "id": "cc-stochastic",
+      "dataFile": "cc-stochastic.json",
+      "javascript": "scoped-landscapes.js",
+      "css": "scoped-landscapes.css",
+      "routes": [
+        {
+          "key": "cc-stochastic",
+          "sliceId": "cc-stochastic-landscape",
+          "label": "Clustering from noisy labels: recovery and query cost",
+          "problem": "cc",
+          "model": "stochastic",
+          "visible": true
+        }
+      ],
+      "canonicalAliases": {},
+      "pointFields": {},
+      "axisSummary": {
+        "x": "Panel-specific quality or cost axis",
+        "y": "Named theorem and setup",
+        "note": "This is planted-partition recovery, distinct from minimizing disagreements. The fixed reference matches output promises; the tradeoff panel labels large-cluster and exact-recovery results separately. Symbolic columns are not a numerical frontier."
+      }
+    },
+    {
+      "id": "edge-stochastic",
+      "dataFile": "edge-stochastic.json",
+      "javascript": "scoped-landscapes.js",
+      "css": "scoped-landscapes.css",
+      "routes": [
+        {
+          "key": "edge-stochastic",
+          "sliceId": "edge-stochastic-landscape",
+          "label": "Random-graph edge coloring: how rare is failure?",
+          "problem": "edge",
+          "model": "stochastic",
+          "visible": true
+        }
+      ],
+      "canonicalAliases": {},
+      "pointFields": {},
+      "axisSummary": {
+        "x": "Panel-specific quality or cost axis",
+        "y": "Named theorem and setup",
+        "note": "The axis measures an exponential failure-probability coefficient, not time or palette size. Hollow anchors show ε→0 references; exact inequalities retain ε. Green certifies low algorithm failure; red limits how rare failure can be because some inputs are infeasible."
+      }
+    },
+    {
+      "id": "vertex-stochastic",
+      "dataFile": "vertex-stochastic.json",
+      "javascript": "scoped-landscapes.js",
+      "css": "scoped-landscapes.css",
+      "routes": [
+        {
+          "key": "vertex-stochastic",
+          "sliceId": "vertex-stochastic-landscape",
+          "label": "Semirandom coloring: where algorithms beat hardness",
+          "problem": "vertex",
+          "model": "stochastic",
+          "visible": true
+        }
+      ],
+      "canonicalAliases": {},
+      "pointFields": {},
+      "axisSummary": {
+        "x": "Panel-specific quality or cost axis",
+        "y": "Named theorem and setup",
+        "note": "The plot is a fixed-k density reference, not a claim that every variable-k threshold equals 1 or1/2. Exact n,k,ε conditions are beside the points. Green is sufficient density; red is conditional hardness below its boundary."
+      }
     }
   ]
 }

@@ -1,0 +1,119 @@
+{
+  "upsertPapers": [
+    {
+      "id": "cfk92",
+      "title": "On the expected performance of a parallel algorithm for finding maximal independent subsets of a random graph",
+      "authors": [
+        "Neil J. Calkin",
+        "Alan M. Frieze",
+        "Luděk Kučera"
+      ],
+      "year": 1992,
+      "url": "https://www.math.cmu.edu/users/af1p/Texfiles/parind.pdf",
+      "venue": "Random Structures & Algorithms 1992",
+      "publicationStatus": "journal",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "rv17",
+      "title": "Local algorithms for independent sets are half-optimal",
+      "authors": [
+        "Mustazee Rahman",
+        "Bálint Virág"
+      ],
+      "year": 2017,
+      "url": "https://arxiv.org/pdf/1402.0485v2",
+      "venue": "Annals of Probability 2017",
+      "publicationStatus": "journal",
+      "verifiedOn": "2026-10-27"
+    }
+  ],
+  "upsertSlices": [
+    {
+      "id": "mis-stochastic-landscape",
+      "problem": "mis",
+      "model": "stochastic",
+      "label": "Random-input independent sets: algorithm and locality",
+      "task": "Supplied random graphs, prescribed greedy behavior, and maximum-size local algorithms have distinct contracts.",
+      "assumptions": [
+        "The upper panel measures expected iterations of PARALLEL-GREEDY. The lower panel measures solution density within fixed-radius local algorithms. Neither red statement is a universal MIS computational lower bound."
+      ],
+      "mode": "1d",
+      "axis": {
+        "label": "See scoped figure panels; incompatible objectives have separate axes",
+        "categories": [
+          {
+            "id": "greedy",
+            "label": "Supplied G(n,p) · prescribed parallel greedy"
+          },
+          {
+            "id": "local",
+            "label": "Maximum-size IS · fixed-radius local algorithms"
+          }
+        ]
+      },
+      "results": [
+        {
+          "id": "mis-stochastic-sparse-upper",
+          "paperId": "cfk92",
+          "kind": "upper",
+          "bound": "O(log n / log log n)",
+          "guarantee": "Lexicographically first maximal independent set",
+          "sourceLocation": "Theorem 2(a), α=0",
+          "plot": null,
+          "notes": "Red bounds constrain PARALLEL-GREEDY only. Each iteration costs O(1) CRCW PRAM time with a processor per edge; no universal MIS time lower bound is claimed."
+        },
+        {
+          "id": "mis-stochastic-sparse-lower",
+          "paperId": "cfk92",
+          "kind": "lower",
+          "bound": "Ω(log n / log log n)",
+          "guarantee": "Lexicographically first maximal independent set",
+          "sourceLocation": "Theorem 1(a), α=1",
+          "plot": null,
+          "notes": "Red bounds constrain PARALLEL-GREEDY only. Each iteration costs O(1) CRCW PRAM time with a processor per edge; no universal MIS time lower bound is claimed."
+        },
+        {
+          "id": "mis-stochastic-dense-upper",
+          "paperId": "cfk92",
+          "kind": "upper",
+          "bound": "O(log n)",
+          "guarantee": "Lexicographically first maximal independent set",
+          "sourceLocation": "Theorem 1(b)",
+          "plot": null,
+          "notes": "Red bounds constrain PARALLEL-GREEDY only. Each iteration costs O(1) CRCW PRAM time with a processor per edge; no universal MIS time lower bound is claimed."
+        },
+        {
+          "id": "mis-stochastic-dense-lower",
+          "paperId": "cfk92",
+          "kind": "lower",
+          "bound": "Ω(log n)",
+          "guarantee": "Lexicographically first maximal independent set",
+          "sourceLocation": "Theorem 2(b), e.g. α=3/4",
+          "plot": null,
+          "notes": "Red bounds constrain PARALLEL-GREEDY only. Each iteration costs O(1) CRCW PRAM time with a processor per edge; no universal MIS time lower bound is claimed."
+        },
+        {
+          "id": "mis-stochastic-local-upper",
+          "paperId": "rv17",
+          "kind": "upper",
+          "bound": "density ≥ (1−o(1))log λ/λ",
+          "guarantee": "Approximate maximum independent-set size within a restricted local algorithm class",
+          "sourceLocation": "§4.2 construction; Theorem 4.5",
+          "plot": null,
+          "notes": "Radius may depend on λ and accuracy but not n. The red bound is only for factor-of-i.i.d./fixed-radius local algorithms. Unrestricted optimum is asymptotically twice this density; that is structural context, not a runtime lower bound."
+        },
+        {
+          "id": "mis-stochastic-local-lower",
+          "paperId": "rv17",
+          "kind": "lower",
+          "bound": "density ≤ (1+o(1))log λ/λ",
+          "guarantee": "Approximate maximum independent-set size within a restricted local algorithm class",
+          "sourceLocation": "Theorem 4.1",
+          "plot": null,
+          "notes": "Radius may depend on λ and accuracy but not n. The red bound is only for factor-of-i.i.d./fixed-radius local algorithms. Unrestricted optimum is asymptotically twice this density; that is structural context, not a runtime lower bound."
+        }
+      ]
+    }
+  ]
+}

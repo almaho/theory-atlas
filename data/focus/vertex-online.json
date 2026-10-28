@@ -1,0 +1,386 @@
+{
+  "id": "vertex-online",
+  "problem": "vertex",
+  "model": "online",
+  "problemLabel": "Vertex coloring",
+  "modelLabel": "Online",
+  "title": "Online vertex coloring: what does randomization buy?",
+  "subtitle": "Tight deterministic bipartite scale, randomized bounds, and separately labeled broader settings.",
+  "renderer": "scoped-landscape",
+  "reviewedOn": "2026-10-27",
+  "panels": [
+    {
+      "id": "bip",
+      "title": "Bipartite graphs · adversarial vertex order",
+      "shortTitle": "Bipartite · det/rand (preprint included)",
+      "note": "Colors are irrevocable. Coefficients compare the leading log₂n term.",
+      "xLabel": "q / log₂n · leading coefficient",
+      "min": 0,
+      "max": 2,
+      "ticks": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "id": "general",
+      "title": "General k-colorable graphs · adversarial order",
+      "shortTitle": "k=4 reference · preprint",
+      "note": "The k=4 reference is symbolic; this is a 2026 preprint.",
+      "xLabel": "Palette formula · categorical",
+      "categories": [
+        {
+          "id": "n1417",
+          "label": "Õ(n^{14/17})",
+          "short": "n^{14/17}"
+        }
+      ]
+    },
+    {
+      "id": "random",
+      "title": "Random vertex order · known n,k",
+      "shortTitle": "Random order · exp. work · preprint",
+      "note": "Uniform random permutation; EXPONENTIAL computation; 2026 preprint.",
+      "xLabel": "Palette formula · categorical",
+      "categories": [
+        {
+          "id": "polylog",
+          "label": "O(k³log²k log⁴n)",
+          "short": "k³log²k log⁴n"
+        }
+      ]
+    }
+  ],
+  "verifiedRecords": [
+    {
+      "id": "vertex-online-det-upper",
+      "sourceId": "lst89",
+      "panel": "bip",
+      "kind": "upper",
+      "at": 2,
+      "setup": "Deterministic algorithm",
+      "bound": "q ≤ 2log₂(n+1)",
+      "displayBound": "q ≤ 2log₂(n+1)",
+      "plotLabel": "q ≤ 2log₂(n+1)",
+      "quality": "Proper irrevocable vertex coloring with the stated palette",
+      "theorem": "LST bipartite algorithm; exact2log₂(n+1) bound proved in KYY26 Theorems 3.14 and5.1",
+      "graph": "Bipartite graphs; adversarial vertex arrivals",
+      "output": "Immediate irrevocable vertex colors",
+      "probability": "Deterministic",
+      "notes": "Leading coefficient2; additive terms are retained in the stated bound. Original 1989 source states the O(log n) result; the precise coefficient is verified in the later theorem restatement.",
+      "limit": true,
+      "publicationStatus": "published",
+      "year": 1989,
+      "evidenceStatus": "primary_statement_verified",
+      "shortLabel": "Lovász–Saks–Trotter ’89",
+      "verificationUrl": "https://arxiv.org/html/2511.16100v2#S5.SS1",
+      "supportingPaper": {
+        "id": "vertex-online-lst-precision-source",
+        "title": "Online Graph Coloring for k-Colorable Graphs",
+        "authors": [
+          "Ken-ichi Kawarabayashi",
+          "Hirotaka Yoneda",
+          "Masataka Yoneda"
+        ],
+        "year": 2026,
+        "url": "https://arxiv.org/html/2511.16100v2#S5.SS1",
+        "venue": "arXiv, April 2026 revision",
+        "publicationStatus": "preprint",
+        "verifiedOn": "2026-10-27",
+        "sourceId": "kyy26"
+      }
+    },
+    {
+      "id": "vertex-online-det-lower",
+      "sourceId": "gkmz15",
+      "panel": "bip",
+      "kind": "lower",
+      "at": 2,
+      "setup": "Deterministic lower bound",
+      "bound": "q ≥ 2log₂n−10",
+      "displayBound": "q ≥ 2log₂n−10",
+      "plotLabel": "q ≥ 2log₂n−10",
+      "quality": "Proper irrevocable vertex coloring with the stated palette",
+      "theorem": "Theorem 1",
+      "graph": "Bipartite graphs; adaptive presenter",
+      "output": "Immediate irrevocable vertex colors",
+      "probability": "Deterministic algorithms",
+      "notes": "No recoloring allowed. Additive constant10 is not dropped from the theorem.",
+      "limit": true,
+      "publicationStatus": "published",
+      "year": 2014,
+      "evidenceStatus": "primary_statement_verified",
+      "shortLabel": "Gutowski et al. ’14"
+    },
+    {
+      "id": "vertex-online-rand-upper",
+      "sourceId": "kyy26",
+      "panel": "bip",
+      "kind": "upper",
+      "at": 1.034,
+      "setup": "Randomized algorithm · oblivious",
+      "bound": "E[q] ≤ 1.034log₂n+O(1)",
+      "displayBound": "E[q] ≤ 1.034log₂n+O(1)",
+      "plotLabel": "E[q] ≤ 1.034log₂n+O(1)",
+      "quality": "Proper irrevocable vertex coloring with the stated palette",
+      "theorem": "Theorem 5.15, v2",
+      "graph": "Bipartite graphs; oblivious adversary",
+      "output": "Immediate irrevocable vertex colors",
+      "probability": "Expected number of colors",
+      "notes": "April2026 version; computer-assisted coefficient analysis; proof not independently validated.",
+      "limit": true,
+      "publicationStatus": "preprint",
+      "year": 2026,
+      "evidenceStatus": "primary_statement_verified",
+      "shortLabel": "Kawarabayashi–Yoneda–Yoneda ’26"
+    },
+    {
+      "id": "vertex-online-rand-lower",
+      "sourceId": "kyy26",
+      "panel": "bip",
+      "kind": "lower",
+      "at": 0.9479166666666666,
+      "setup": "Randomized lower bound · oblivious",
+      "bound": "E[q] ≥ (91/96)log₂n−O(1)",
+      "displayBound": "E[q] ≥ (91/96)log₂n−O(1)",
+      "plotLabel": "E[q] ≥ (91/96)log₂n−O(1)",
+      "quality": "Proper irrevocable vertex coloring with the stated palette",
+      "theorem": "Theorem 6.1, v2",
+      "graph": "Bipartite graphs; oblivious adversary",
+      "output": "Immediate irrevocable vertex colors",
+      "probability": "Expected number of colors",
+      "notes": "The coefficient is91/96; this lower bound does not apply to uniformly random arrival order.",
+      "limit": true,
+      "publicationStatus": "preprint",
+      "year": 2026,
+      "evidenceStatus": "primary_statement_verified",
+      "shortLabel": "Kawarabayashi–Yoneda–Yoneda ’26"
+    },
+    {
+      "id": "vertex-online-k-four",
+      "sourceId": "kyy26",
+      "panel": "general",
+      "kind": "upper",
+      "at": "n1417",
+      "setup": "Deterministic · k=4 reference",
+      "bound": "q = Õ(n^{14/17})",
+      "displayBound": "q = Õ(n^{14/17})",
+      "plotLabel": "q = Õ(n^{14/17})",
+      "quality": "Proper irrevocable vertex coloring with the stated palette",
+      "theorem": "Corollary 4.15",
+      "graph": "k-colorable graphs, k≥4; adversarial vertex arrivals",
+      "output": "Immediate irrevocable vertex colors",
+      "probability": "Deterministic",
+      "notes": "General bound Õ(n^{1−1/(k(k−1)/2−1/3)}). k=4 gives14/17. No comparable lower bound verified in this panel.",
+      "limit": false,
+      "publicationStatus": "preprint",
+      "year": 2026,
+      "evidenceStatus": "primary_statement_verified",
+      "shortLabel": "Kawarabayashi–Yoneda–Yoneda ’26"
+    },
+    {
+      "id": "vertex-online-random",
+      "sourceId": "yy26",
+      "panel": "random",
+      "kind": "upper",
+      "at": "polylog",
+      "setup": "Randomized · random vertex order",
+      "bound": "E[q] = O(k³log²k log⁴n)",
+      "displayBound": "E[q] = O(k³log²k log⁴n)",
+      "plotLabel": "E[q] = O(k³log²k log⁴n)",
+      "quality": "Proper irrevocable vertex coloring with the stated palette",
+      "theorem": "Theorem 1",
+      "graph": "Fixed k-colorable graph; uniformly random vertex permutation; n,k known",
+      "output": "Immediate irrevocable vertex colors",
+      "probability": "Expectation over order and algorithm coins",
+      "notes": "Random order is distinct from a random graph. No adversarial-order lower bound is transferred.",
+      "limit": false,
+      "publicationStatus": "preprint",
+      "year": 2026,
+      "evidenceStatus": "primary_statement_verified",
+      "shortLabel": "Yoneda–Yoneda ’26",
+      "computation": "Exponential time; this is not a polynomial-time coloring algorithm."
+    }
+  ],
+  "relatedResults": [],
+  "axisNote": "The first panel plots leading log₂n coefficients, retaining additive terms. Other panels use exact symbolic palette categories. Preprint and exponential-work labels remain visible.",
+  "coverageNote": "Bounded primary-source review completed 27 October 2026. Results are scoped comparisons, not an exhaustive or best-known-frontier claim.",
+  "lowerBoundStatus": "Only the lower bounds explicitly shown apply to their labeled setup. An absent bound means no comparable bound was verified in this review.",
+  "sources": {
+    "lst89": {
+      "id": "lst89",
+      "title": "An on-line graph coloring algorithm with sublinear performance ratio",
+      "authors": [
+        "László Lovász",
+        "Michael Saks",
+        "William T. Trotter"
+      ],
+      "year": 1989,
+      "url": "https://workshop.tcs.uj.edu.pl/mszana2015/gutowski/Lovasz.pdf",
+      "venue": "Discrete Mathematics 1989",
+      "publicationStatus": "published",
+      "verifiedOn": "2026-10-27"
+    },
+    "gkmz15": {
+      "id": "gkmz15",
+      "title": "Lower bounds for on-line graph colorings",
+      "authors": [
+        "Grzegorz Gutowski",
+        "Jakub Kozik",
+        "Piotr Micek",
+        "Xuding Zhu"
+      ],
+      "year": 2014,
+      "url": "https://arxiv.org/pdf/1404.7259v2",
+      "venue": "ISAAC 2014; arXiv revision2015",
+      "publicationStatus": "published",
+      "verifiedOn": "2026-10-27"
+    },
+    "kyy26": {
+      "id": "kyy26",
+      "title": "Online Graph Coloring for k-Colorable Graphs",
+      "authors": [
+        "Ken-ichi Kawarabayashi",
+        "Hirotaka Yoneda",
+        "Masataka Yoneda"
+      ],
+      "year": 2026,
+      "url": "https://arxiv.org/html/2511.16100v2",
+      "venue": "arXiv, April 2026 revision",
+      "publicationStatus": "preprint",
+      "verifiedOn": "2026-10-27"
+    },
+    "yy26": {
+      "id": "yy26",
+      "title": "Online Graph Coloring with Random Arrivals",
+      "authors": [
+        "Hirotaka Yoneda",
+        "Masataka Yoneda"
+      ],
+      "year": 2026,
+      "url": "https://arxiv.org/html/2610.23824v1",
+      "venue": "arXiv, October 2026",
+      "publicationStatus": "preprint",
+      "verifiedOn": "2026-10-27"
+    }
+  },
+  "sourceVerification": [
+    {
+      "sourceId": "lst89",
+      "checkedOn": "2026-10-27",
+      "url": "https://workshop.tcs.uj.edu.pl/mszana2015/gutowski/Lovasz.pdf",
+      "theorems": [
+        "LST bipartite algorithm; exact2log₂(n+1) bound proved in KYY26 Theorems 3.14 and5.1"
+      ]
+    },
+    {
+      "sourceId": "gkmz15",
+      "checkedOn": "2026-10-27",
+      "url": "https://arxiv.org/pdf/1404.7259v2",
+      "theorems": [
+        "Theorem 1"
+      ]
+    },
+    {
+      "sourceId": "kyy26",
+      "checkedOn": "2026-10-27",
+      "url": "https://arxiv.org/html/2511.16100v2",
+      "theorems": [
+        "Theorem 5.15, v2",
+        "Theorem 6.1, v2",
+        "Corollary 4.15"
+      ]
+    },
+    {
+      "sourceId": "yy26",
+      "checkedOn": "2026-10-27",
+      "url": "https://arxiv.org/html/2610.23824v1",
+      "theorems": [
+        "Theorem 1"
+      ]
+    }
+  ],
+  "figureAxes": {
+    "bip": {
+      "title": "Bipartite graphs · adversarial vertex order",
+      "x": {
+        "label": "q / log₂n · leading coefficient",
+        "min": 0,
+        "max": 2,
+        "ticks": [
+          0,
+          1,
+          2
+        ]
+      },
+      "y": {
+        "label": "Theorem and setup",
+        "categories": [
+          {
+            "id": "vertex-online-det-upper",
+            "label": "Deterministic algorithm"
+          },
+          {
+            "id": "vertex-online-det-lower",
+            "label": "Deterministic lower bound"
+          },
+          {
+            "id": "vertex-online-rand-upper",
+            "label": "Randomized algorithm · oblivious"
+          },
+          {
+            "id": "vertex-online-rand-lower",
+            "label": "Randomized lower bound · oblivious"
+          }
+        ]
+      }
+    },
+    "general": {
+      "title": "General k-colorable graphs · adversarial order",
+      "x": {
+        "label": "Palette formula · categorical",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "n1417",
+            "label": "Õ(n^{14/17})",
+            "short": "n^{14/17}"
+          }
+        ]
+      },
+      "y": {
+        "label": "Theorem and setup",
+        "categories": [
+          {
+            "id": "vertex-online-k-four",
+            "label": "Deterministic · k=4 reference"
+          }
+        ]
+      }
+    },
+    "random": {
+      "title": "Random vertex order · known n,k",
+      "x": {
+        "label": "Palette formula · categorical",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "polylog",
+            "label": "O(k³log²k log⁴n)",
+            "short": "k³log²k log⁴n"
+          }
+        ]
+      },
+      "y": {
+        "label": "Theorem and setup",
+        "categories": [
+          {
+            "id": "vertex-online-random",
+            "label": "Randomized · random vertex order"
+          }
+        ]
+      }
+    }
+  }
+}

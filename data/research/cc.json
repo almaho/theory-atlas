@@ -15,8 +15,8 @@
     },
     {
       "model": "online",
-      "status": "not_assessed",
-      "note": "Not reviewed. Online arrival information, clustering objective, and permitted cluster revisions must be scoped before comparing competitive guarantees."
+      "status": "researched",
+      "note": "Merge-only, irrevocable, and reassignment models; disagreement and agreement objectives kept separate."
     },
     {
       "model": "lca",
@@ -50,8 +50,8 @@
     },
     {
       "model": "stochastic",
-      "status": "not_assessed",
-      "note": "New column requested by the user; stochastic submodels and theorem figures await scoped review. Random-order online results are not automatically transferred here."
+      "status": "researched",
+      "note": "Persistent noise, a tight fixed-noise reference, and the full accuracy dependence."
     }
   ],
   "papers": [
@@ -689,6 +689,62 @@
       "fullTextUrl": "https://arxiv.org/pdf/2205.08093v2",
       "verifiedOn": "2026-10-27",
       "verificationNote": "Theorem 1.3 and Section 3.3; inspected revised author version v2 (2025-10-23)"
+    },
+    {
+      "id": "cc10",
+      "title": "Online Correlation Clustering",
+      "authors": [
+        "Claire Mathieu",
+        "Ocan Sankur",
+        "Warren Schudy"
+      ],
+      "year": 2010,
+      "url": "https://arxiv.org/pdf/1001.0920v2",
+      "venue": "STACS 2010",
+      "publicationStatus": "conference",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "acn05",
+      "title": "Aggregating Inconsistent Information: Ranking and Clustering",
+      "authors": [
+        "Nir Ailon",
+        "Moses Charikar",
+        "Alantha Newman"
+      ],
+      "year": 2005,
+      "url": "https://users.ece.northwestern.edu/~nickle/randAlg/AilonCN05.pdf",
+      "venue": "STOC 2005",
+      "publicationStatus": "conference",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "cc22online",
+      "title": "Online and Consistent Correlation Clustering",
+      "authors": [
+        "Vincent Cohen-Addad",
+        "Silvio Lattanzi",
+        "Andreas Maggiori",
+        "Nikos Parotsidis"
+      ],
+      "year": 2022,
+      "url": "https://proceedings.mlr.press/v162/cohen-addad22a/cohen-addad22a.pdf",
+      "venue": "ICML 2022",
+      "publicationStatus": "conference",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "xh22",
+      "title": "Optimal Clustering with Noisy Queries via Multi-Armed Bandit",
+      "authors": [
+        "Jinghui Xia",
+        "Zengfeng Huang"
+      ],
+      "year": 2022,
+      "url": "https://arxiv.org/html/2207.05376v1",
+      "venue": "ICML 2022",
+      "publicationStatus": "conference",
+      "verifiedOn": "2026-10-27"
     }
   ],
   "slices": [
@@ -4269,6 +4325,196 @@
             "Potentially expensive local computation is allowed"
           ],
           "notes": "Separate from weighted general graphs and complete-signed minimum-disagreement instances. The proof gathers each component and computes an optimal clustering locally; local computational work is not bounded polynomially. Round exponents are independent of H, while constants may depend on H. Footnote 1 also notes a general-graph LOCAL (1−ε) approximation via low-diameter decomposition; we do not promote that brief observation to an additional fully audited theorem."
+        }
+      ]
+    },
+    {
+      "id": "cc-online-landscape",
+      "problem": "cc",
+      "model": "online",
+      "label": "Online clustering: decisions determine the guarantee",
+      "task": "Merge-only, irrevocable, and reassignment models; disagreement and agreement objectives kept separate.",
+      "assumptions": [
+        "Algorithms are green; impossibility bounds red. β and α point in different directions and appear on separate axes. Recourse means total moves of one vertex over the input sequence."
+      ],
+      "mode": "1d",
+      "axis": {
+        "label": "See scoped figure panels; incompatible objectives have separate axes",
+        "categories": [
+          {
+            "id": "min",
+            "label": "Merge-only · minimize disagreements"
+          },
+          {
+            "id": "max",
+            "label": "Merge-only · maximize agreements"
+          },
+          {
+            "id": "random",
+            "label": "Irrevocable assignments · random vertex order"
+          },
+          {
+            "id": "recourse",
+            "label": "Vertex moves allowed · constant-factor disagreements"
+          }
+        ]
+      },
+      "results": [
+        {
+          "id": "cc-online-min-upper",
+          "paperId": "cc10",
+          "kind": "upper",
+          "bound": "α ≤ 2n+1",
+          "guarantee": "Approximation to minimum disagreements",
+          "sourceLocation": "Theorem 3.1",
+          "plot": null,
+          "notes": "Whole-cluster merges are allowed; splitting is forbidden."
+        },
+        {
+          "id": "cc-online-min-lower",
+          "paperId": "cc10",
+          "kind": "lower",
+          "bound": "α = Ω(n) necessary",
+          "guarantee": "Minimum-disagreement competitive lower bound",
+          "sourceLocation": "Theorem 3.4",
+          "plot": null,
+          "notes": "This is a merge-only adversarial-order statement, not a random-order barrier."
+        },
+        {
+          "id": "cc-online-max-greedy",
+          "paperId": "cc10",
+          "kind": "upper",
+          "bound": "β ≥ 1/2",
+          "guarantee": "Maximize agreements",
+          "sourceLocation": "Theorem 2.1",
+          "plot": null,
+          "notes": "Merge-only model."
+        },
+        {
+          "id": "cc-online-max-random",
+          "paperId": "cc10",
+          "kind": "upper",
+          "bound": "β ≥ 1/2 + 2×10^{−14}",
+          "guarantee": "Maximize expected agreements",
+          "sourceLocation": "Corollary 2.6",
+          "plot": null,
+          "notes": "The tiny positive improvement is printed exactly; its marker is anchored at 1/2, not assigned a visibly fabricated gap."
+        },
+        {
+          "id": "cc-online-max-det-lower",
+          "paperId": "cc10",
+          "kind": "lower",
+          "bound": "β ≤ 0.803",
+          "guarantee": "Maximum-agreement impossibility",
+          "sourceLocation": "Theorem 2.2",
+          "plot": null,
+          "notes": "Not a minimum-disagreement approximation factor."
+        },
+        {
+          "id": "cc-online-max-rand-lower",
+          "paperId": "cc10",
+          "kind": "lower",
+          "bound": "β ≤ 0.834",
+          "guarantee": "Maximum-agreement impossibility",
+          "sourceLocation": "Theorem 2.2",
+          "plot": null,
+          "notes": "An upper bound on achievable β is an algorithmic lower-bound result."
+        },
+        {
+          "id": "cc-online-random-pivot",
+          "paperId": "acn05",
+          "kind": "upper",
+          "bound": "E[cost] ≤ 3 OPT",
+          "guarantee": "Minimize expected disagreements",
+          "sourceLocation": "Theorem 9; online equivalence recorded in CC22 §1",
+          "plot": null,
+          "notes": "Assign each arriving vertex to its earliest positive existing pivot, or open a new pivot. This is the online realization of random Pivot; earlier assignments are unchanged. Elementary specialization; no comparable random-order lower bound reviewed."
+        },
+        {
+          "id": "cc-online-recourse-upper",
+          "paperId": "cc22online",
+          "kind": "upper",
+          "bound": "O(log n) moves per vertex",
+          "guarantee": "Constant-factor minimum-disagreement approximation at every prefix",
+          "sourceLocation": "Theorems E.2 and F.1; §§3.1–3.2",
+          "plot": null,
+          "notes": "Reassignments are cumulative per vertex across the entire sequence, not a worst-case number of moved vertices per arrival."
+        },
+        {
+          "id": "cc-online-recourse-lower",
+          "paperId": "cc22online",
+          "kind": "lower",
+          "bound": "Ω(log n) moves for some vertex",
+          "guarantee": "Any fixed constant approximation",
+          "sourceLocation": "Lemma 4.1",
+          "plot": null,
+          "notes": "Allows vertex moves; the lower-bound construction forces repeated changes for persistent vertices."
+        }
+      ]
+    },
+    {
+      "id": "cc-stochastic-landscape",
+      "problem": "cc",
+      "model": "stochastic",
+      "label": "Clustering from noisy labels: recovery and query cost",
+      "task": "Persistent noise, a tight fixed-noise reference, and the full accuracy dependence.",
+      "assumptions": [
+        "This is planted-partition recovery, distinct from minimizing disagreements. The fixed reference matches output promises; the tradeoff panel labels large-cluster and exact-recovery results separately. Symbolic columns are not a numerical frontier."
+      ],
+      "mode": "1d",
+      "axis": {
+        "label": "See scoped figure panels; incompatible objectives have separate axes",
+        "categories": [
+          {
+            "id": "fixed",
+            "label": "Persistent noisy pair queries · balanced two clusters"
+          },
+          {
+            "id": "noise",
+            "label": "Noise / cluster-count tradeoff"
+          }
+        ]
+      },
+      "results": [
+        {
+          "id": "cc-stochastic-fixed-upper",
+          "paperId": "xh22",
+          "kind": "upper",
+          "bound": "O(n log n) queries",
+          "guarantee": "Recover both hidden clusters with probability 1−o(1)",
+          "sourceLocation": "Theorem 1.1; fixed k,δ specialization",
+          "plot": null,
+          "notes": "For fixed k=2 and δ=1/16, linear-size clusters exceed the required Ω(k⁴log n/δ²) threshold; the additive log³n term is asymptotically dominated."
+        },
+        {
+          "id": "cc-stochastic-fixed-lower",
+          "paperId": "xh22",
+          "kind": "lower",
+          "bound": "Ω(n log n) expected queries",
+          "guarantee": "Exact recovery with success at least 15/16 on balanced inputs",
+          "sourceLocation": "Theorem 1.2 and §5; conditioning corollary",
+          "plot": null,
+          "notes": "§5 hard distribution assigns independent fair cluster labels. Balance fails with probability≤2exp(−n/18). Conditioning with success slack preserves the 7/8 distributional lower bound; cached distinct queries bound off-promise work by n². This balanced-promise statement is an explicit elementary corollary, not a literal theorem quotation. A hypothetical o(n log n)-query algorithm is truncated after n² queries, with o(1) extra failure by Markov; off-promise work is then bounded."
+        },
+        {
+          "id": "cc-stochastic-noise-upper",
+          "paperId": "xh22",
+          "kind": "upper",
+          "bound": "O(n(k+log n)/δ² + k⁸log³n/δ⁴)",
+          "guarantee": "Recover every cluster of size≥Ω(k⁴log n/δ²)",
+          "sourceLocation": "Theorem 1.1",
+          "plot": null,
+          "notes": "The two terms retain full δ dependence. This is not unconditional exact recovery of all cluster sizes."
+        },
+        {
+          "id": "cc-stochastic-noise-lower",
+          "paperId": "xh22",
+          "kind": "lower",
+          "bound": "Ω(n log n / δ²) expected queries",
+          "guarantee": "Exact recovery with success≥7/8",
+          "sourceLocation": "Theorem 1.2; Lemma 5.1 / Appendix D.1",
+          "plot": null,
+          "notes": "Displayed δ range follows the proof. Do not extrapolate this noisy-query lower bound to δ=1 or compare its exact-recovery contract indiscriminately with large-cluster-only recovery."
         }
       ]
     }

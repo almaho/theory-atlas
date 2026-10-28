@@ -1,0 +1,22 @@
+[
+  {
+    "sourceId": "cfk92",
+    "checkedOn": "2026-10-27",
+    "url": "https://www.math.cmu.edu/users/af1p/Texfiles/parind.pdf",
+    "theorems": [
+      "Theorem 2(a), α=0",
+      "Theorem 1(a), α=1",
+      "Theorem 1(b)",
+      "Theorem 2(b), e.g. α=3/4"
+    ]
+  },
+  {
+    "sourceId": "rv17",
+    "checkedOn": "2026-10-27",
+    "url": "https://arxiv.org/pdf/1402.0485v2",
+    "theorems": [
+      "§4.2 construction; Theorem 4.5",
+      "Theorem 4.1"
+    ]
+  }
+]

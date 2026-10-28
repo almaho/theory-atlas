@@ -1,0 +1,23 @@
+{
+  "id": "vertex-online",
+  "dataFile": "vertex-online.json",
+  "javascript": "scoped-landscapes.js",
+  "css": "scoped-landscapes.css",
+  "routes": [
+    {
+      "key": "vertex-online",
+      "sliceId": "vertex-online-landscape",
+      "label": "Online vertex coloring: what does randomization buy?",
+      "problem": "vertex",
+      "model": "online",
+      "visible": true
+    }
+  ],
+  "canonicalAliases": {},
+  "pointFields": {},
+  "axisSummary": {
+    "x": "Panel-specific quality or cost axis",
+    "y": "Named theorem and setup",
+    "note": "The first panel plots leading log₂n coefficients, retaining additive terms. Other panels use exact symbolic palette categories. Preprint and exponential-work labels remain visible."
+  }
+}

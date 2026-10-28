@@ -104,14 +104,14 @@
     {
       "id": "stochastic",
       "name": "Stochastic",
-      "measure": "Queries / degree",
-      "definition": "Optimize under a stated stochastic input model. The initial matching setup has a known base graph whose edges survive independently; select a sparse query subgraph before observing realizations.",
-      "settings": "Independent edge survival · nonadaptive tests · in/out LCA influence · distributional inputs kept separate",
-      "unit": "Tested edges per vertex or subgraph degree at a stated expected guarantee",
+      "measure": "Distribution-specific guarantees",
+      "definition": "Algorithms under a stated random-input or noisy-observation model. Independent edge survival, supplied random graphs, planted partitions, and semirandom additions are distinct setups.",
+      "settings": "Independent edge survival · random graphs · persistent noisy queries · planted/semirandom inputs",
+      "unit": "Setting-specific query, iteration, density, approximation, or failure-probability guarantee",
       "access": {
-        "interface": "Probabilistic input and observations",
-        "operations": "Distributional arrivals or probes revealing uncertain edges, as defined by each setting",
-        "resource": "Expected objective and probe/resource budget under a stated distribution"
+        "interface": "Stated random input or noisy observations",
+        "operations": "Edge tests, supplied random graphs, persistent pair queries, or semirandom inputs as labeled",
+        "resource": "Queries, iterations, solution density, or failure probability; incompatible units remain separate"
       }
     },
     {

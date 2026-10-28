@@ -1,0 +1,463 @@
+{
+  "id": "cc-online",
+  "problem": "cc",
+  "model": "online",
+  "problemLabel": "Correlation clustering",
+  "modelLabel": "Online",
+  "title": "Online clustering: decisions determine the guarantee",
+  "subtitle": "Merge-only, irrevocable, and reassignment models; disagreement and agreement objectives kept separate.",
+  "renderer": "scoped-landscape",
+  "reviewedOn": "2026-10-27",
+  "panels": [
+    {
+      "id": "min",
+      "title": "Merge-only · minimize disagreements",
+      "shortTitle": "Merge-only · disagreements",
+      "note": "Adversarial vertex order; whole clusters may merge, never split.",
+      "xLabel": "Disagreement ratio α · symbolic",
+      "categories": [
+        {
+          "id": "linear",
+          "label": "Θ(n) scale",
+          "short": "linear n"
+        }
+      ]
+    },
+    {
+      "id": "max",
+      "title": "Merge-only · maximize agreements",
+      "shortTitle": "Merge-only · agreements",
+      "note": "Same arrival and merge rules; β=E[agreements]/OPT (larger is better).",
+      "xLabel": "Retained agreements β",
+      "min": 0.5,
+      "max": 0.9,
+      "ticks": [
+        0.5,
+        0.7,
+        0.9
+      ]
+    },
+    {
+      "id": "random",
+      "title": "Irrevocable assignments · random vertex order",
+      "shortTitle": "Random order · irrevocable",
+      "note": "Random permutation; online Pivot makes no later merges or moves.",
+      "xLabel": "Expected disagreement ratio α",
+      "min": 1,
+      "max": 4,
+      "ticks": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "id": "recourse",
+      "title": "Vertex moves allowed · constant-factor disagreements",
+      "shortTitle": "Recourse · per-vertex total",
+      "note": "Count reassignments of EACH vertex over the WHOLE sequence.",
+      "xLabel": "Worst-vertex total recourse · symbolic",
+      "categories": [
+        {
+          "id": "log",
+          "label": "Θ(log n) scale",
+          "short": "log n"
+        }
+      ]
+    }
+  ],
+  "verifiedRecords": [
+    {
+      "id": "cc-online-min-upper",
+      "sourceId": "cc10",
+      "panel": "min",
+      "kind": "upper",
+      "at": "linear",
+      "setup": "Greedy · deterministic",
+      "bound": "α ≤ 2n+1",
+      "displayBound": "α ≤ 2n+1",
+      "plotLabel": "α ≤ 2n+1",
+      "quality": "Approximation to minimum disagreements",
+      "theorem": "Theorem 3.1",
+      "graph": "Complete unweighted signed graph; vertex reveals signed edges to earlier vertices",
+      "output": "Partition of all arrived vertices",
+      "probability": "Deterministic, arbitrary order",
+      "notes": "Whole-cluster merges are allowed; splitting is forbidden.",
+      "limit": false,
+      "publicationStatus": "published",
+      "year": 2010,
+      "evidenceStatus": "primary_statement_verified",
+      "shortLabel": "Mathieu et al. ’10"
+    },
+    {
+      "id": "cc-online-min-lower",
+      "sourceId": "cc10",
+      "panel": "min",
+      "kind": "lower",
+      "at": "linear",
+      "setup": "Randomized impossibility",
+      "bound": "α = Ω(n) necessary",
+      "displayBound": "α = Ω(n) necessary",
+      "plotLabel": "α = Ω(n) necessary",
+      "quality": "Minimum-disagreement competitive lower bound",
+      "theorem": "Theorem 3.4",
+      "graph": "Complete unweighted signed graph; vertex reveals signed edges to earlier vertices",
+      "output": "Partition of all arrived vertices",
+      "probability": "Includes randomized algorithms",
+      "notes": "This is a merge-only adversarial-order statement, not a random-order barrier.",
+      "limit": false,
+      "publicationStatus": "published",
+      "year": 2010,
+      "evidenceStatus": "primary_statement_verified",
+      "shortLabel": "Mathieu et al. ’10"
+    },
+    {
+      "id": "cc-online-max-greedy",
+      "sourceId": "cc10",
+      "panel": "max",
+      "kind": "upper",
+      "at": 0.5,
+      "setup": "Greedy · deterministic",
+      "bound": "β ≥ 1/2",
+      "displayBound": "β ≥ 1/2",
+      "plotLabel": "β ≥ 1/2",
+      "quality": "Maximize agreements",
+      "theorem": "Theorem 2.1",
+      "graph": "Complete unweighted signed graph; vertex reveals signed edges to earlier vertices",
+      "output": "Partition of all arrived vertices",
+      "probability": "Deterministic",
+      "notes": "Merge-only model.",
+      "limit": false,
+      "publicationStatus": "published",
+      "year": 2010,
+      "evidenceStatus": "primary_statement_verified",
+      "shortLabel": "Mathieu et al. ’10"
+    },
+    {
+      "id": "cc-online-max-random",
+      "sourceId": "cc10",
+      "panel": "max",
+      "kind": "upper",
+      "at": 0.5,
+      "setup": "Randomized improvement",
+      "bound": "β ≥ 1/2 + 2×10^{−14}",
+      "displayBound": "β ≥ 1/2 + 2×10^{−14}",
+      "plotLabel": "β ≥ 1/2 + 2×10^{−14}",
+      "quality": "Maximize expected agreements",
+      "theorem": "Corollary 2.6",
+      "graph": "Complete unweighted signed graph; vertex reveals signed edges to earlier vertices",
+      "output": "Partition of all arrived vertices",
+      "probability": "Expected guarantee",
+      "notes": "The tiny positive improvement is printed exactly; its marker is anchored at 1/2, not assigned a visibly fabricated gap.",
+      "limit": true,
+      "publicationStatus": "published",
+      "year": 2010,
+      "evidenceStatus": "primary_statement_verified",
+      "shortLabel": "Mathieu et al. ’10"
+    },
+    {
+      "id": "cc-online-max-det-lower",
+      "sourceId": "cc10",
+      "panel": "max",
+      "kind": "lower",
+      "at": 0.803,
+      "setup": "Deterministic impossibility",
+      "bound": "β ≤ 0.803",
+      "displayBound": "β ≤ 0.803",
+      "plotLabel": "β ≤ 0.803",
+      "quality": "Maximum-agreement impossibility",
+      "theorem": "Theorem 2.2",
+      "graph": "Complete unweighted signed graph; vertex reveals signed edges to earlier vertices",
+      "output": "Partition of all arrived vertices",
+      "probability": "Deterministic algorithms",
+      "notes": "Not a minimum-disagreement approximation factor.",
+      "limit": false,
+      "publicationStatus": "published",
+      "year": 2010,
+      "evidenceStatus": "primary_statement_verified",
+      "shortLabel": "Mathieu et al. ’10"
+    },
+    {
+      "id": "cc-online-max-rand-lower",
+      "sourceId": "cc10",
+      "panel": "max",
+      "kind": "lower",
+      "at": 0.834,
+      "setup": "Randomized impossibility",
+      "bound": "β ≤ 0.834",
+      "displayBound": "β ≤ 0.834",
+      "plotLabel": "β ≤ 0.834",
+      "quality": "Maximum-agreement impossibility",
+      "theorem": "Theorem 2.2",
+      "graph": "Complete unweighted signed graph; vertex reveals signed edges to earlier vertices",
+      "output": "Partition of all arrived vertices",
+      "probability": "Randomized algorithms",
+      "notes": "An upper bound on achievable β is an algorithmic lower-bound result.",
+      "limit": false,
+      "publicationStatus": "published",
+      "year": 2010,
+      "evidenceStatus": "primary_statement_verified",
+      "shortLabel": "Mathieu et al. ’10"
+    },
+    {
+      "id": "cc-online-random-pivot",
+      "sourceId": "acn05",
+      "panel": "random",
+      "kind": "upper",
+      "at": 3,
+      "setup": "Online Pivot · random order",
+      "bound": "E[cost] ≤ 3 OPT",
+      "displayBound": "E[cost] ≤ 3 OPT",
+      "plotLabel": "E[cost] ≤ 3 OPT",
+      "quality": "Minimize expected disagreements",
+      "theorem": "Theorem 9; online equivalence recorded in CC22 §1",
+      "graph": "Complete unweighted signed graph; vertex reveals signed edges to earlier vertices",
+      "output": "Partition of all arrived vertices",
+      "probability": "Expectation over uniformly random vertex order",
+      "notes": "Assign each arriving vertex to its earliest positive existing pivot, or open a new pivot. This is the online realization of random Pivot; earlier assignments are unchanged. Elementary specialization; no comparable random-order lower bound reviewed.",
+      "limit": false,
+      "publicationStatus": "published",
+      "year": 2005,
+      "evidenceStatus": "primary_statement_verified",
+      "shortLabel": "Ailon et al. ’05"
+    },
+    {
+      "id": "cc-online-recourse-upper",
+      "sourceId": "cc22online",
+      "panel": "recourse",
+      "kind": "upper",
+      "at": "log",
+      "setup": "Constant approximation algorithm",
+      "bound": "O(log n) moves per vertex",
+      "displayBound": "O(log n) moves per vertex",
+      "plotLabel": "O(log n) moves per vertex",
+      "quality": "Constant-factor minimum-disagreement approximation at every prefix",
+      "theorem": "Theorems E.2 and F.1; §§3.1–3.2",
+      "graph": "Complete unweighted signed graph; vertex reveals signed edges to earlier vertices",
+      "output": "Partition of all arrived vertices",
+      "probability": "Deterministic; arbitrary vertex-arrival order; guarantees hold at every prefix.",
+      "notes": "Reassignments are cumulative per vertex across the entire sequence, not a worst-case number of moved vertices per arrival.",
+      "limit": false,
+      "publicationStatus": "published",
+      "year": 2022,
+      "evidenceStatus": "primary_statement_verified",
+      "shortLabel": "Cohen-Addad et al. ’22"
+    },
+    {
+      "id": "cc-online-recourse-lower",
+      "sourceId": "cc22online",
+      "panel": "recourse",
+      "kind": "lower",
+      "at": "log",
+      "setup": "Constant-factor impossibility",
+      "bound": "Ω(log n) moves for some vertex",
+      "displayBound": "Ω(log n) moves for some vertex",
+      "plotLabel": "Ω(log n) moves for some vertex",
+      "quality": "Any fixed constant approximation",
+      "theorem": "Lemma 4.1",
+      "graph": "Complete unweighted signed graph; vertex reveals signed edges to earlier vertices",
+      "output": "Partition of all arrived vertices",
+      "probability": "Any algorithm guaranteeing a fixed constant approximation at every prefix; worst-vertex cumulative recourse.",
+      "notes": "Allows vertex moves; the lower-bound construction forces repeated changes for persistent vertices.",
+      "limit": false,
+      "publicationStatus": "published",
+      "year": 2022,
+      "evidenceStatus": "primary_statement_verified",
+      "shortLabel": "Cohen-Addad et al. ’22"
+    }
+  ],
+  "relatedResults": [],
+  "axisNote": "Algorithms are green; impossibility bounds red. β and α point in different directions and appear on separate axes. Recourse means total moves of one vertex over the input sequence.",
+  "coverageNote": "Bounded primary-source review completed 27 October 2026. Results are scoped comparisons, not an exhaustive or best-known-frontier claim.",
+  "lowerBoundStatus": "Only the lower bounds explicitly shown apply to their labeled setup. An absent bound means no comparable bound was verified in this review.",
+  "sources": {
+    "cc10": {
+      "id": "cc10",
+      "title": "Online Correlation Clustering",
+      "authors": [
+        "Claire Mathieu",
+        "Ocan Sankur",
+        "Warren Schudy"
+      ],
+      "year": 2010,
+      "url": "https://arxiv.org/pdf/1001.0920v2",
+      "venue": "STACS 2010",
+      "publicationStatus": "published",
+      "verifiedOn": "2026-10-27"
+    },
+    "acn05": {
+      "id": "acn05",
+      "title": "Aggregating Inconsistent Information: Ranking and Clustering",
+      "authors": [
+        "Nir Ailon",
+        "Moses Charikar",
+        "Alantha Newman"
+      ],
+      "year": 2005,
+      "url": "https://users.ece.northwestern.edu/~nickle/randAlg/AilonCN05.pdf",
+      "venue": "STOC 2005",
+      "publicationStatus": "published",
+      "verifiedOn": "2026-10-27"
+    },
+    "cc22online": {
+      "id": "cc22online",
+      "title": "Online and Consistent Correlation Clustering",
+      "authors": [
+        "Vincent Cohen-Addad",
+        "Silvio Lattanzi",
+        "Andreas Maggiori",
+        "Nikos Parotsidis"
+      ],
+      "year": 2022,
+      "url": "https://proceedings.mlr.press/v162/cohen-addad22a/cohen-addad22a.pdf",
+      "venue": "ICML 2022",
+      "publicationStatus": "published",
+      "verifiedOn": "2026-10-27"
+    }
+  },
+  "sourceVerification": [
+    {
+      "sourceId": "cc10",
+      "checkedOn": "2026-10-27",
+      "url": "https://arxiv.org/pdf/1001.0920v2",
+      "theorems": [
+        "Theorem 3.1",
+        "Theorem 3.4",
+        "Theorem 2.1",
+        "Corollary 2.6",
+        "Theorem 2.2"
+      ]
+    },
+    {
+      "sourceId": "acn05",
+      "checkedOn": "2026-10-27",
+      "url": "https://users.ece.northwestern.edu/~nickle/randAlg/AilonCN05.pdf",
+      "theorems": [
+        "Theorem 9; online equivalence recorded in CC22 §1"
+      ]
+    },
+    {
+      "sourceId": "cc22online",
+      "checkedOn": "2026-10-27",
+      "url": "https://proceedings.mlr.press/v162/cohen-addad22a/cohen-addad22a.pdf",
+      "theorems": [
+        "Theorems E.2 and F.1; §§3.1–3.2",
+        "Lemma 4.1"
+      ]
+    }
+  ],
+  "figureAxes": {
+    "min": {
+      "title": "Merge-only · minimize disagreements",
+      "x": {
+        "label": "Disagreement ratio α · symbolic",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "linear",
+            "label": "Θ(n) scale",
+            "short": "linear n"
+          }
+        ]
+      },
+      "y": {
+        "label": "Theorem and setup",
+        "categories": [
+          {
+            "id": "cc-online-min-upper",
+            "label": "Greedy · deterministic"
+          },
+          {
+            "id": "cc-online-min-lower",
+            "label": "Randomized impossibility"
+          }
+        ]
+      }
+    },
+    "max": {
+      "title": "Merge-only · maximize agreements",
+      "x": {
+        "label": "Retained agreements β",
+        "min": 0.5,
+        "max": 0.9,
+        "ticks": [
+          0.5,
+          0.7,
+          0.9
+        ]
+      },
+      "y": {
+        "label": "Theorem and setup",
+        "categories": [
+          {
+            "id": "cc-online-max-greedy",
+            "label": "Greedy · deterministic"
+          },
+          {
+            "id": "cc-online-max-random",
+            "label": "Randomized improvement"
+          },
+          {
+            "id": "cc-online-max-det-lower",
+            "label": "Deterministic impossibility"
+          },
+          {
+            "id": "cc-online-max-rand-lower",
+            "label": "Randomized impossibility"
+          }
+        ]
+      }
+    },
+    "random": {
+      "title": "Irrevocable assignments · random vertex order",
+      "x": {
+        "label": "Expected disagreement ratio α",
+        "min": 1,
+        "max": 4,
+        "ticks": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "y": {
+        "label": "Theorem and setup",
+        "categories": [
+          {
+            "id": "cc-online-random-pivot",
+            "label": "Online Pivot · random order"
+          }
+        ]
+      }
+    },
+    "recourse": {
+      "title": "Vertex moves allowed · constant-factor disagreements",
+      "x": {
+        "label": "Worst-vertex total recourse · symbolic",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "log",
+            "label": "Θ(log n) scale",
+            "short": "log n"
+          }
+        ]
+      },
+      "y": {
+        "label": "Theorem and setup",
+        "categories": [
+          {
+            "id": "cc-online-recourse-upper",
+            "label": "Constant approximation algorithm"
+          },
+          {
+            "id": "cc-online-recourse-lower",
+            "label": "Constant-factor impossibility"
+          }
+        ]
+      }
+    }
+  }
+}

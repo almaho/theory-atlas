@@ -1,0 +1,23 @@
+{
+  "id": "vertex-stochastic",
+  "dataFile": "vertex-stochastic.json",
+  "javascript": "scoped-landscapes.js",
+  "css": "scoped-landscapes.css",
+  "routes": [
+    {
+      "key": "vertex-stochastic",
+      "sliceId": "vertex-stochastic-landscape",
+      "label": "Semirandom coloring: where algorithms beat hardness",
+      "problem": "vertex",
+      "model": "stochastic",
+      "visible": true
+    }
+  ],
+  "canonicalAliases": {},
+  "pointFields": {},
+  "axisSummary": {
+    "x": "Panel-specific quality or cost axis",
+    "y": "Named theorem and setup",
+    "note": "The plot is a fixed-k density reference, not a claim that every variable-k threshold equals 1 or1/2. Exact n,k,ε conditions are beside the points. Green is sufficient density; red is conditional hardness below its boundary."
+  }
+}

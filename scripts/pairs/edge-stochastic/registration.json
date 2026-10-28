@@ -1,0 +1,23 @@
+{
+  "id": "edge-stochastic",
+  "dataFile": "edge-stochastic.json",
+  "javascript": "scoped-landscapes.js",
+  "css": "scoped-landscapes.css",
+  "routes": [
+    {
+      "key": "edge-stochastic",
+      "sliceId": "edge-stochastic-landscape",
+      "label": "Random-graph edge coloring: how rare is failure?",
+      "problem": "edge",
+      "model": "stochastic",
+      "visible": true
+    }
+  ],
+  "canonicalAliases": {},
+  "pointFields": {},
+  "axisSummary": {
+    "x": "Panel-specific quality or cost axis",
+    "y": "Named theorem and setup",
+    "note": "The axis measures an exponential failure-probability coefficient, not time or palette size. Hollow anchors show ε→0 references; exact inequalities retain ε. Green certifies low algorithm failure; red limits how rare failure can be because some inputs are infeasible."
+  }
+}

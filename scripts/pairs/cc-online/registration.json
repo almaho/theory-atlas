@@ -1,0 +1,23 @@
+{
+  "id": "cc-online",
+  "dataFile": "cc-online.json",
+  "javascript": "scoped-landscapes.js",
+  "css": "scoped-landscapes.css",
+  "routes": [
+    {
+      "key": "cc-online",
+      "sliceId": "cc-online-landscape",
+      "label": "Online clustering: decisions determine the guarantee",
+      "problem": "cc",
+      "model": "online",
+      "visible": true
+    }
+  ],
+  "canonicalAliases": {},
+  "pointFields": {},
+  "axisSummary": {
+    "x": "Panel-specific quality or cost axis",
+    "y": "Named theorem and setup",
+    "note": "Algorithms are green; impossibility bounds red. β and α point in different directions and appear on separate axes. Recourse means total moves of one vertex over the input sequence."
+  }
+}

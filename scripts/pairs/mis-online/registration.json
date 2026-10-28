@@ -1,0 +1,23 @@
+{
+  "id": "mis-online",
+  "dataFile": "mis-online.json",
+  "javascript": "scoped-landscapes.js",
+  "css": "scoped-landscapes.css",
+  "routes": [
+    {
+      "key": "mis-online",
+      "sliceId": "mis-online-landscape",
+      "label": "Online independent sets: maximal versus maximum",
+      "problem": "mis",
+      "model": "online",
+      "visible": true
+    }
+  ],
+  "canonicalAliases": {},
+  "pointFields": {},
+  "axisSummary": {
+    "x": "Panel-specific quality or cost axis",
+    "y": "Named theorem and setup",
+    "note": "Maximality uses a zero-recourse axis. Maximum-size competitiveness uses symbolic ζ-dependent ratios. The geometric-independent-set preprint concerns graphs via neighborhood independence; no geometric oracle is assumed."
+  }
+}

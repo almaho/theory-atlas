@@ -1,0 +1,152 @@
+{
+  "upsertPapers": [
+    {
+      "id": "lst89",
+      "title": "An on-line graph coloring algorithm with sublinear performance ratio",
+      "authors": [
+        "László Lovász",
+        "Michael Saks",
+        "William T. Trotter"
+      ],
+      "year": 1989,
+      "url": "https://workshop.tcs.uj.edu.pl/mszana2015/gutowski/Lovasz.pdf",
+      "venue": "Discrete Mathematics 1989",
+      "publicationStatus": "journal",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "gkmz15",
+      "title": "Lower bounds for on-line graph colorings",
+      "authors": [
+        "Grzegorz Gutowski",
+        "Jakub Kozik",
+        "Piotr Micek",
+        "Xuding Zhu"
+      ],
+      "year": 2014,
+      "url": "https://arxiv.org/pdf/1404.7259v2",
+      "venue": "ISAAC 2014; arXiv revision2015",
+      "publicationStatus": "conference",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "kyy26",
+      "title": "Online Graph Coloring for k-Colorable Graphs",
+      "authors": [
+        "Ken-ichi Kawarabayashi",
+        "Hirotaka Yoneda",
+        "Masataka Yoneda"
+      ],
+      "year": 2026,
+      "url": "https://arxiv.org/html/2511.16100v2",
+      "venue": "arXiv, April 2026 revision",
+      "publicationStatus": "preprint",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "yy26",
+      "title": "Online Graph Coloring with Random Arrivals",
+      "authors": [
+        "Hirotaka Yoneda",
+        "Masataka Yoneda"
+      ],
+      "year": 2026,
+      "url": "https://arxiv.org/html/2610.23824v1",
+      "venue": "arXiv, October 2026",
+      "publicationStatus": "preprint",
+      "verifiedOn": "2026-10-27"
+    }
+  ],
+  "upsertSlices": [
+    {
+      "id": "vertex-online-landscape",
+      "problem": "vertex",
+      "model": "online",
+      "label": "Online vertex coloring: what does randomization buy?",
+      "task": "Tight deterministic bipartite scale, randomized bounds, and separately labeled broader settings.",
+      "assumptions": [
+        "The first panel plots leading log₂n coefficients, retaining additive terms. Other panels use exact symbolic palette categories. Preprint and exponential-work labels remain visible."
+      ],
+      "mode": "1d",
+      "axis": {
+        "label": "See scoped figure panels; incompatible objectives have separate axes",
+        "categories": [
+          {
+            "id": "bip",
+            "label": "Bipartite graphs · adversarial vertex order"
+          },
+          {
+            "id": "general",
+            "label": "General k-colorable graphs · adversarial order"
+          },
+          {
+            "id": "random",
+            "label": "Random vertex order · known n,k"
+          }
+        ]
+      },
+      "results": [
+        {
+          "id": "vertex-online-det-upper",
+          "paperId": "lst89",
+          "kind": "upper",
+          "bound": "q ≤ 2log₂(n+1)",
+          "guarantee": "Proper irrevocable vertex coloring with the stated palette",
+          "sourceLocation": "LST bipartite algorithm; exact2log₂(n+1) bound proved in KYY26 Theorems 3.14 and5.1",
+          "plot": null,
+          "notes": "Leading coefficient2; additive terms are retained in the stated bound. Original 1989 source states the O(log n) result; the precise coefficient is verified in the later theorem restatement."
+        },
+        {
+          "id": "vertex-online-det-lower",
+          "paperId": "gkmz15",
+          "kind": "lower",
+          "bound": "q ≥ 2log₂n−10",
+          "guarantee": "Proper irrevocable vertex coloring with the stated palette",
+          "sourceLocation": "Theorem 1",
+          "plot": null,
+          "notes": "No recoloring allowed. Additive constant10 is not dropped from the theorem."
+        },
+        {
+          "id": "vertex-online-rand-upper",
+          "paperId": "kyy26",
+          "kind": "upper",
+          "bound": "E[q] ≤ 1.034log₂n+O(1)",
+          "guarantee": "Proper irrevocable vertex coloring with the stated palette",
+          "sourceLocation": "Theorem 5.15, v2",
+          "plot": null,
+          "notes": "April2026 version; computer-assisted coefficient analysis; proof not independently validated."
+        },
+        {
+          "id": "vertex-online-rand-lower",
+          "paperId": "kyy26",
+          "kind": "lower",
+          "bound": "E[q] ≥ (91/96)log₂n−O(1)",
+          "guarantee": "Proper irrevocable vertex coloring with the stated palette",
+          "sourceLocation": "Theorem 6.1, v2",
+          "plot": null,
+          "notes": "The coefficient is91/96; this lower bound does not apply to uniformly random arrival order."
+        },
+        {
+          "id": "vertex-online-k-four",
+          "paperId": "kyy26",
+          "kind": "upper",
+          "bound": "q = Õ(n^{14/17})",
+          "guarantee": "Proper irrevocable vertex coloring with the stated palette",
+          "sourceLocation": "Corollary 4.15",
+          "plot": null,
+          "notes": "General bound Õ(n^{1−1/(k(k−1)/2−1/3)}). k=4 gives14/17. No comparable lower bound verified in this panel."
+        },
+        {
+          "id": "vertex-online-random",
+          "paperId": "yy26",
+          "kind": "upper",
+          "bound": "E[q] = O(k³log²k log⁴n)",
+          "guarantee": "Proper irrevocable vertex coloring with the stated palette",
+          "sourceLocation": "Theorem 1",
+          "plot": null,
+          "notes": "Random order is distinct from a random graph. No adversarial-order lower bound is transferred."
+        }
+      ]
+    }
+  ]
+}

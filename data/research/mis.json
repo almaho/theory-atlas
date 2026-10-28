@@ -1,6 +1,6 @@
 {
   "problem": "mis",
-  "reviewedThrough": "2026-10-20",
+  "reviewedThrough": "2026-10-27",
   "searchSummary": "Expanded primary-source survey through 2026-09-27. Inclusion-maximal independent set, maximum-cardinality independent set, lexicographically first MIS, and cardinality estimation have different outputs. Dynamic adversary, stream order and passes, LCA oracle and random seed, LOCAL elapsed/awake rounds, MPC local/global memory, graph classes and matrix/list access remain separated. Historical papers and incomparable bounds are visible; symbolic expressions are not converted to invented numeric regions. This is a substantial curated collection, not a claim of exhaustive coverage of every restricted graph family.",
   "coverage": [
     {
@@ -15,8 +15,8 @@
     },
     {
       "model": "online",
-      "status": "not_assessed",
-      "note": "Not reviewed. The existing problem is maximal independent set; competitive maximum-independent-set optimization is a different task and must not be silently substituted."
+      "status": "researched",
+      "note": "Feasibility and competitive cardinality have separate panels and units."
     },
     {
       "model": "lca",
@@ -50,8 +50,8 @@
     },
     {
       "model": "stochastic",
-      "status": "not_assessed",
-      "note": "New column requested by the user; stochastic submodels and theorem figures await scoped review. Random-order online results are not automatically transferred here."
+      "status": "researched",
+      "note": "Supplied random graphs, prescribed greedy behavior, and maximum-size local algorithms have distinct contracts."
     }
   ],
   "papers": [
@@ -669,6 +669,60 @@
       "url": "https://arxiv.org/abs/2505.00915",
       "fullTextUrl": "https://arxiv.org/pdf/2505.00915",
       "publicationUrl": "https://doi.org/10.1109/FOCS63196.2025.00078",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "cdk18",
+      "title": "Independent Sets in Vertex-Arrival Streams",
+      "authors": [
+        "Graham Cormode",
+        "Jacques Dark",
+        "Christian Konrad"
+      ],
+      "year": 2019,
+      "url": "https://arxiv.org/pdf/1807.08331",
+      "venue": "ICALP 2019",
+      "publicationStatus": "conference",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "ds26",
+      "title": "Online Algorithms for Geometric Independent Set",
+      "authors": [
+        "Minati De",
+        "Satyam Singh"
+      ],
+      "year": 2026,
+      "url": "https://arxiv.org/html/2604.14677v1",
+      "venue": "arXiv 2026",
+      "publicationStatus": "preprint",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "cfk92",
+      "title": "On the expected performance of a parallel algorithm for finding maximal independent subsets of a random graph",
+      "authors": [
+        "Neil J. Calkin",
+        "Alan M. Frieze",
+        "Luděk Kučera"
+      ],
+      "year": 1992,
+      "url": "https://www.math.cmu.edu/users/af1p/Texfiles/parind.pdf",
+      "venue": "Random Structures & Algorithms 1992",
+      "publicationStatus": "journal",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "rv17",
+      "title": "Local algorithms for independent sets are half-optimal",
+      "authors": [
+        "Mustazee Rahman",
+        "Bálint Virág"
+      ],
+      "year": 2017,
+      "url": "https://arxiv.org/pdf/1402.0485v2",
+      "venue": "Annals of Probability 2017",
+      "publicationStatus": "journal",
       "verifiedOn": "2026-10-27"
     }
   ],
@@ -4761,6 +4815,158 @@
           }
         ]
       }
+    },
+    {
+      "id": "mis-online-landscape",
+      "problem": "mis",
+      "model": "online",
+      "label": "Online independent sets: maximal versus maximum",
+      "task": "Feasibility and competitive cardinality have separate panels and units.",
+      "assumptions": [
+        "Maximality uses a zero-recourse axis. Maximum-size competitiveness uses symbolic ζ-dependent ratios. The geometric-independent-set preprint concerns graphs via neighborhood independence; no geometric oracle is assumed."
+      ],
+      "mode": "1d",
+      "axis": {
+        "label": "See scoped figure panels; incompatible objectives have separate axes",
+        "categories": [
+          {
+            "id": "maximal",
+            "label": "Maximality after every prefix"
+          },
+          {
+            "id": "maximum",
+            "label": "Maximum-size competition · bounded neighborhood independence"
+          }
+        ]
+      },
+      "results": [
+        {
+          "id": "mis-online-maximal-greedy",
+          "paperId": "cdk18",
+          "kind": "upper",
+          "bound": "0 revisions · maximal at every prefix",
+          "guarantee": "Maximal independent set after every prefix",
+          "sourceLocation": "§3 Fact 1; immediate online specialization",
+          "plot": null,
+          "notes": "Accept a vertex iff it has no accepted neighbor. Rejected vertices retain an accepted witness; later arrivals cannot destroy maximality. This is a derived online consequence, not a competitive maximum-size theorem."
+        },
+        {
+          "id": "mis-online-zeta-upper",
+          "paperId": "ds26",
+          "kind": "upper",
+          "bound": "α ≤ ζ",
+          "guarantee": "Maximum-cardinality competitive ratio OPT/E[ALG]",
+          "sourceLocation": "Theorem 1; Lemma 5",
+          "plot": null,
+          "notes": "The same greedy output is maximal; this panel measures its size against maximum optimum."
+        },
+        {
+          "id": "mis-online-zeta-det-lower",
+          "paperId": "ds26",
+          "kind": "lower",
+          "bound": "α ≥ ζ",
+          "guarantee": "Maximum-cardinality competitive ratio OPT/E[ALG]",
+          "sourceLocation": "Theorem 1; Lemma 6",
+          "plot": null,
+          "notes": "Do not interpret this ratio lower bound as a lower bound on the effort needed to maintain maximality."
+        },
+        {
+          "id": "mis-online-zeta-rand-lower",
+          "paperId": "ds26",
+          "kind": "lower",
+          "bound": "α ≥ (ζ+1)/2",
+          "guarantee": "Maximum-cardinality competitive ratio OPT/E[ALG]",
+          "sourceLocation": "Theorem 1; Lemma 7",
+          "plot": null,
+          "notes": "The ζ-dependent formulas are categorical anchors, not fixed numerical ratios."
+        }
+      ]
+    },
+    {
+      "id": "mis-stochastic-landscape",
+      "problem": "mis",
+      "model": "stochastic",
+      "label": "Random-input independent sets: algorithm and locality",
+      "task": "Supplied random graphs, prescribed greedy behavior, and maximum-size local algorithms have distinct contracts.",
+      "assumptions": [
+        "The upper panel measures expected iterations of PARALLEL-GREEDY. The lower panel measures solution density within fixed-radius local algorithms. Neither red statement is a universal MIS computational lower bound."
+      ],
+      "mode": "1d",
+      "axis": {
+        "label": "See scoped figure panels; incompatible objectives have separate axes",
+        "categories": [
+          {
+            "id": "greedy",
+            "label": "Supplied G(n,p) · prescribed parallel greedy"
+          },
+          {
+            "id": "local",
+            "label": "Maximum-size IS · fixed-radius local algorithms"
+          }
+        ]
+      },
+      "results": [
+        {
+          "id": "mis-stochastic-sparse-upper",
+          "paperId": "cfk92",
+          "kind": "upper",
+          "bound": "O(log n / log log n)",
+          "guarantee": "Lexicographically first maximal independent set",
+          "sourceLocation": "Theorem 2(a), α=0",
+          "plot": null,
+          "notes": "Red bounds constrain PARALLEL-GREEDY only. Each iteration costs O(1) CRCW PRAM time with a processor per edge; no universal MIS time lower bound is claimed."
+        },
+        {
+          "id": "mis-stochastic-sparse-lower",
+          "paperId": "cfk92",
+          "kind": "lower",
+          "bound": "Ω(log n / log log n)",
+          "guarantee": "Lexicographically first maximal independent set",
+          "sourceLocation": "Theorem 1(a), α=1",
+          "plot": null,
+          "notes": "Red bounds constrain PARALLEL-GREEDY only. Each iteration costs O(1) CRCW PRAM time with a processor per edge; no universal MIS time lower bound is claimed."
+        },
+        {
+          "id": "mis-stochastic-dense-upper",
+          "paperId": "cfk92",
+          "kind": "upper",
+          "bound": "O(log n)",
+          "guarantee": "Lexicographically first maximal independent set",
+          "sourceLocation": "Theorem 1(b)",
+          "plot": null,
+          "notes": "Red bounds constrain PARALLEL-GREEDY only. Each iteration costs O(1) CRCW PRAM time with a processor per edge; no universal MIS time lower bound is claimed."
+        },
+        {
+          "id": "mis-stochastic-dense-lower",
+          "paperId": "cfk92",
+          "kind": "lower",
+          "bound": "Ω(log n)",
+          "guarantee": "Lexicographically first maximal independent set",
+          "sourceLocation": "Theorem 2(b), e.g. α=3/4",
+          "plot": null,
+          "notes": "Red bounds constrain PARALLEL-GREEDY only. Each iteration costs O(1) CRCW PRAM time with a processor per edge; no universal MIS time lower bound is claimed."
+        },
+        {
+          "id": "mis-stochastic-local-upper",
+          "paperId": "rv17",
+          "kind": "upper",
+          "bound": "density ≥ (1−o(1))log λ/λ",
+          "guarantee": "Approximate maximum independent-set size within a restricted local algorithm class",
+          "sourceLocation": "§4.2 construction; Theorem 4.5",
+          "plot": null,
+          "notes": "Radius may depend on λ and accuracy but not n. The red bound is only for factor-of-i.i.d./fixed-radius local algorithms. Unrestricted optimum is asymptotically twice this density; that is structural context, not a runtime lower bound."
+        },
+        {
+          "id": "mis-stochastic-local-lower",
+          "paperId": "rv17",
+          "kind": "lower",
+          "bound": "density ≤ (1+o(1))log λ/λ",
+          "guarantee": "Approximate maximum independent-set size within a restricted local algorithm class",
+          "sourceLocation": "Theorem 4.1",
+          "plot": null,
+          "notes": "Radius may depend on λ and accuracy but not n. The red bound is only for factor-of-i.i.d./fixed-radius local algorithms. Unrestricted optimum is asymptotically twice this density; that is structural context, not a runtime lower bound."
+        }
+      ]
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "problem": "edge",
-  "reviewedThrough": "2026-09-27",
+  "reviewedThrough": "2026-10-27",
   "searchSummary": "Expanded proper edge-coloring record across dynamic, W-streaming, LOCAL, MPC, line-graph LCA, and full-output graph-query oracles. Includes historical algorithms and later improvements, plus distinct palette (number of colors), update time versus recoloring recourse, random/adversarial edge order, simple versus multigraph, low-space MPC conditional lower bounds. q is a palette, not approximation ratio q/χ′. Query-oracle results explicitly compose edge enumeration with sequential algorithms; they do not assert sublinear query SOTA. LCA remains partial, because direct ordinary-graph oracle results were not verified. SOSA 2021, FOCS 2024 and SODA 2025 predecessor results are retained for navigation through progress.",
   "coverage": [
     {
@@ -15,8 +15,8 @@
     },
     {
       "model": "online",
-      "status": "not_assessed",
-      "note": "Not reviewed. Online color commitment, edge or vertex arrivals, order, palette benchmark, and recoloring permissions must be scoped separately."
+      "status": "researched",
+      "note": "Immediate colors, with edge arrivals, one-sided vertex arrivals, and random order kept apart."
     },
     {
       "model": "lca",
@@ -50,8 +50,8 @@
     },
     {
       "model": "stochastic",
-      "status": "not_assessed",
-      "note": "New column requested by the user; stochastic submodels and theorem figures await scoped review. Random-order online results are not automatically transferred here."
+      "status": "researched",
+      "note": "A polynomial algorithm and the probability that the requested palette is impossible."
     }
   ],
   "papers": [
@@ -579,6 +579,64 @@
       "url": "https://arxiv.org/abs/2405.15449",
       "verifiedOn": "2026-10-27",
       "fullTextUrl": "https://arxiv.org/html/2405.15449"
+    },
+    {
+      "id": "bsvw25",
+      "title": "Online Edge Coloring: Sharp Thresholds",
+      "authors": [
+        "Joakim Blikstad",
+        "Ola Svensson",
+        "Radu Vintan",
+        "David Wajc"
+      ],
+      "year": 2025,
+      "url": "https://arxiv.org/html/2507.21560v1",
+      "venue": "FOCS 2025",
+      "publicationStatus": "conference",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "cpw19",
+      "title": "Tight Bounds for Online Edge Coloring",
+      "authors": [
+        "Ilan Reuven Cohen",
+        "Binghui Peng",
+        "David Wajc"
+      ],
+      "year": 2019,
+      "url": "https://arxiv.org/pdf/1904.09222v1",
+      "venue": "FOCS 2019",
+      "publicationStatus": "conference",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "dgs25",
+      "title": "Randomized Greedy Online Edge Coloring Succeeds for Dense and Randomly-Ordered Graphs",
+      "authors": [
+        "Aditi Dudeja",
+        "Rashmika Goswami",
+        "Michael Saks"
+      ],
+      "year": 2025,
+      "url": "https://arxiv.org/html/2406.13000v2",
+      "venue": "SODA 2025",
+      "publicationStatus": "conference",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "fjmr88",
+      "title": "Edge-colouring random graphs",
+      "authors": [
+        "Alan Frieze",
+        "Bill Jackson",
+        "Colin McDiarmid",
+        "Bruce Reed"
+      ],
+      "year": 1988,
+      "url": "https://www.math.cmu.edu/~af1p/Texfiles/EDGECOLOR.pdf",
+      "venue": "Journal of Combinatorial Theory B45(2),135–149 (1988)",
+      "publicationStatus": "journal",
+      "verifiedOn": "2026-10-27"
     }
   ],
   "slices": [
@@ -3573,6 +3631,168 @@
           "frontierStatus": "historical",
           "notes": "The exact matrix-query count is the cost of this full-scan construction, not a matrix-oracle theorem of the cited paper. The same scan runs on sparse and dense graphs. Theorem 1.1 states O(m log n); the sharper degree-sensitive time comes from Corollary C.1(1). The total time includes enumeration. No query lower bound or oracle optimality is claimed. For Δ=0 output is empty; for Δ=1 assign color 1 to each edge in O(m) additional time. The expression log max{2,Δ} extends the displayed time to these trivial cases.",
           "plot": null
+        }
+      ]
+    },
+    {
+      "id": "edge-online-landscape",
+      "problem": "edge",
+      "model": "online",
+      "label": "Online edge coloring: arrival and degree matter",
+      "task": "Immediate colors, with edge arrivals, one-sided vertex arrivals, and random order kept apart.",
+      "assumptions": [
+        "Hollow markers locate asymptotic palette ratios. The exact additive or ε-dependent formula appears beside each point; an anchor at 1 is not an exact Δ-coloring guarantee. Low-degree classic barriers are not inferred from high-degree theorems."
+      ],
+      "mode": "1d",
+      "axis": {
+        "label": "See scoped figure panels; incompatible objectives have separate axes",
+        "categories": [
+          {
+            "id": "edge",
+            "label": "Edge arrivals · irrevocable colors"
+          },
+          {
+            "id": "bip",
+            "label": "One-sided bipartite vertex arrivals"
+          },
+          {
+            "id": "random",
+            "label": "Random edge permutation"
+          }
+        ]
+      },
+      "results": [
+        {
+          "id": "edge-online-greedy",
+          "paperId": "bsvw25",
+          "kind": "upper",
+          "bound": "q ≤ 2Δ−1",
+          "guarantee": "Proper edge coloring with the displayed palette.",
+          "sourceLocation": "§1 greedy baseline",
+          "plot": null,
+          "notes": "Each edge sees at most 2Δ−2 forbidden colors. The marker shows limiting ratio2."
+        },
+        {
+          "id": "edge-online-det",
+          "paperId": "bsvw25",
+          "kind": "upper",
+          "bound": "q = Δ+O(Δ^{15/16}log^{1/16}n)",
+          "guarantee": "Proper edge coloring with the displayed palette.",
+          "sourceLocation": "Theorem 3.1",
+          "plot": null,
+          "notes": "Known n,Δ. The deterministic existence reduction does not establish a polynomial local-computation bound."
+        },
+        {
+          "id": "edge-online-adaptive",
+          "paperId": "bsvw25",
+          "kind": "upper",
+          "bound": "q = Δ+O(Δ^{15/16}log^{1/16}n)",
+          "guarantee": "Proper edge coloring with the displayed palette.",
+          "sourceLocation": "Theorem 3.2",
+          "plot": null,
+          "notes": "Known n,Δ; do not substitute the weaker oblivious-order degree threshold."
+        },
+        {
+          "id": "edge-online-oblivious",
+          "paperId": "bsvw25",
+          "kind": "upper",
+          "bound": "q = Δ+O(Δ^{15/16}log^{1/32}n)",
+          "guarantee": "Proper edge coloring with the displayed palette.",
+          "sourceLocation": "Theorem 4.1",
+          "plot": null,
+          "notes": "Known n,Δ. Marker is the limiting ratio1, not an exact Δ-coloring."
+        },
+        {
+          "id": "edge-online-known",
+          "paperId": "cpw19",
+          "kind": "upper",
+          "bound": "q = (1+o(1))Δ",
+          "guarantee": "Proper edge coloring with the displayed palette.",
+          "sourceLocation": "Theorems 1.3 and4.6; Appendix D refinement",
+          "plot": null,
+          "notes": "One-sided bipartite arrivals; Δ=ω(log n)."
+        },
+        {
+          "id": "edge-online-known-lower",
+          "paperId": "cpw19",
+          "kind": "lower",
+          "bound": "q ≥ Δ+Ω(√Δ)",
+          "guarantee": "Proper edge coloring with the displayed palette.",
+          "sourceLocation": "Theorem 1.3; Observation 5.1",
+          "plot": null,
+          "notes": "Subleading additive obstruction. Marker1 is only a ratio reference."
+        },
+        {
+          "id": "edge-online-unknown",
+          "paperId": "cpw19",
+          "kind": "upper",
+          "bound": "q = (e/(e−1)+o(1))Δ",
+          "guarantee": "Proper edge coloring with the displayed palette.",
+          "sourceLocation": "Theorems 1.4 and4.2; following known-lower-bound remark",
+          "plot": null,
+          "notes": "Final Δ unknown; Δ=ω(log n). A lower bound Δ′≤Δ with Δ′=ω(log n) is known in advance, although final Δ is unknown."
+        },
+        {
+          "id": "edge-online-unknown-lower",
+          "paperId": "cpw19",
+          "kind": "lower",
+          "bound": "q / Δ ≥ e/(e−1) asymptotically",
+          "guarantee": "Proper edge coloring with the displayed palette.",
+          "sourceLocation": "Theorems 1.4 and 5.2",
+          "plot": null,
+          "notes": "This is the bipartite threshold; the distinct1.606 general-graph result is excluded."
+        },
+        {
+          "id": "edge-online-random",
+          "paperId": "dgs25",
+          "kind": "upper",
+          "bound": "q = (1+ε)Δ",
+          "guarantee": "Proper edge coloring with the displayed palette.",
+          "sourceLocation": "Theorems 1 and 5; §7.1",
+          "plot": null,
+          "notes": "For each fixed ε>0, sufficiently large Δ≥N(ε)log n suffices. No nontrivial random-order lower bound verified."
+        }
+      ]
+    },
+    {
+      "id": "edge-stochastic-landscape",
+      "problem": "edge",
+      "model": "stochastic",
+      "label": "Random-graph edge coloring: how rare is failure?",
+      "task": "A polynomial algorithm and the probability that the requested palette is impossible.",
+      "assumptions": [
+        "The axis measures an exponential failure-probability coefficient, not time or palette size. Hollow anchors show ε→0 references; exact inequalities retain ε. Green certifies low algorithm failure; red limits how rare failure can be because some inputs are infeasible."
+      ],
+      "mode": "1d",
+      "axis": {
+        "label": "See scoped figure panels; incompatible objectives have separate axes",
+        "categories": [
+          {
+            "id": "failure",
+            "label": "G(n,1/2) · find a Δ-edge-coloring"
+          }
+        ]
+      },
+      "results": [
+        {
+          "id": "edge-stochastic-algorithm",
+          "paperId": "fjmr88",
+          "kind": "upper",
+          "bound": "Pr[failure] ≤ n^{−(1/8−ε)n}",
+          "guarantee": "Find a proper Δ-edge-coloring when the algorithm succeeds",
+          "sourceLocation": "Theorem 1; p=1/2 specialization",
+          "plot": null,
+          "notes": "General fixed 0<p<1 bound is O(exp(−c n log n/2)) for c<min(p/2,1/3). Marker1/8 is a limiting exponent, not the value for fixedε."
+        },
+        {
+          "id": "edge-stochastic-obstruction",
+          "paperId": "fjmr88",
+          "kind": "lower",
+          "bound": "Pr[χ′(G)=Δ+1] ≥ n^{−(1/2+ε)n}",
+          "guarantee": "Any attempted Δ-coloring must fail on class-2 inputs",
+          "sourceLocation": "Theorem 2; p=1/2 specialization",
+          "plot": null,
+          "notes": "This is unavoidable infeasibility, not a running-time lower bound. The primary formula is exp(−n(log n+O(log log n))/2)."
         }
       ]
     }

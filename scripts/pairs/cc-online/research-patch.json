@@ -1,0 +1,173 @@
+{
+  "upsertPapers": [
+    {
+      "id": "cc10",
+      "title": "Online Correlation Clustering",
+      "authors": [
+        "Claire Mathieu",
+        "Ocan Sankur",
+        "Warren Schudy"
+      ],
+      "year": 2010,
+      "url": "https://arxiv.org/pdf/1001.0920v2",
+      "venue": "STACS 2010",
+      "publicationStatus": "conference",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "acn05",
+      "title": "Aggregating Inconsistent Information: Ranking and Clustering",
+      "authors": [
+        "Nir Ailon",
+        "Moses Charikar",
+        "Alantha Newman"
+      ],
+      "year": 2005,
+      "url": "https://users.ece.northwestern.edu/~nickle/randAlg/AilonCN05.pdf",
+      "venue": "STOC 2005",
+      "publicationStatus": "conference",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "cc22online",
+      "title": "Online and Consistent Correlation Clustering",
+      "authors": [
+        "Vincent Cohen-Addad",
+        "Silvio Lattanzi",
+        "Andreas Maggiori",
+        "Nikos Parotsidis"
+      ],
+      "year": 2022,
+      "url": "https://proceedings.mlr.press/v162/cohen-addad22a/cohen-addad22a.pdf",
+      "venue": "ICML 2022",
+      "publicationStatus": "conference",
+      "verifiedOn": "2026-10-27"
+    }
+  ],
+  "upsertSlices": [
+    {
+      "id": "cc-online-landscape",
+      "problem": "cc",
+      "model": "online",
+      "label": "Online clustering: decisions determine the guarantee",
+      "task": "Merge-only, irrevocable, and reassignment models; disagreement and agreement objectives kept separate.",
+      "assumptions": [
+        "Algorithms are green; impossibility bounds red. β and α point in different directions and appear on separate axes. Recourse means total moves of one vertex over the input sequence."
+      ],
+      "mode": "1d",
+      "axis": {
+        "label": "See scoped figure panels; incompatible objectives have separate axes",
+        "categories": [
+          {
+            "id": "min",
+            "label": "Merge-only · minimize disagreements"
+          },
+          {
+            "id": "max",
+            "label": "Merge-only · maximize agreements"
+          },
+          {
+            "id": "random",
+            "label": "Irrevocable assignments · random vertex order"
+          },
+          {
+            "id": "recourse",
+            "label": "Vertex moves allowed · constant-factor disagreements"
+          }
+        ]
+      },
+      "results": [
+        {
+          "id": "cc-online-min-upper",
+          "paperId": "cc10",
+          "kind": "upper",
+          "bound": "α ≤ 2n+1",
+          "guarantee": "Approximation to minimum disagreements",
+          "sourceLocation": "Theorem 3.1",
+          "plot": null,
+          "notes": "Whole-cluster merges are allowed; splitting is forbidden."
+        },
+        {
+          "id": "cc-online-min-lower",
+          "paperId": "cc10",
+          "kind": "lower",
+          "bound": "α = Ω(n) necessary",
+          "guarantee": "Minimum-disagreement competitive lower bound",
+          "sourceLocation": "Theorem 3.4",
+          "plot": null,
+          "notes": "This is a merge-only adversarial-order statement, not a random-order barrier."
+        },
+        {
+          "id": "cc-online-max-greedy",
+          "paperId": "cc10",
+          "kind": "upper",
+          "bound": "β ≥ 1/2",
+          "guarantee": "Maximize agreements",
+          "sourceLocation": "Theorem 2.1",
+          "plot": null,
+          "notes": "Merge-only model."
+        },
+        {
+          "id": "cc-online-max-random",
+          "paperId": "cc10",
+          "kind": "upper",
+          "bound": "β ≥ 1/2 + 2×10^{−14}",
+          "guarantee": "Maximize expected agreements",
+          "sourceLocation": "Corollary 2.6",
+          "plot": null,
+          "notes": "The tiny positive improvement is printed exactly; its marker is anchored at 1/2, not assigned a visibly fabricated gap."
+        },
+        {
+          "id": "cc-online-max-det-lower",
+          "paperId": "cc10",
+          "kind": "lower",
+          "bound": "β ≤ 0.803",
+          "guarantee": "Maximum-agreement impossibility",
+          "sourceLocation": "Theorem 2.2",
+          "plot": null,
+          "notes": "Not a minimum-disagreement approximation factor."
+        },
+        {
+          "id": "cc-online-max-rand-lower",
+          "paperId": "cc10",
+          "kind": "lower",
+          "bound": "β ≤ 0.834",
+          "guarantee": "Maximum-agreement impossibility",
+          "sourceLocation": "Theorem 2.2",
+          "plot": null,
+          "notes": "An upper bound on achievable β is an algorithmic lower-bound result."
+        },
+        {
+          "id": "cc-online-random-pivot",
+          "paperId": "acn05",
+          "kind": "upper",
+          "bound": "E[cost] ≤ 3 OPT",
+          "guarantee": "Minimize expected disagreements",
+          "sourceLocation": "Theorem 9; online equivalence recorded in CC22 §1",
+          "plot": null,
+          "notes": "Assign each arriving vertex to its earliest positive existing pivot, or open a new pivot. This is the online realization of random Pivot; earlier assignments are unchanged. Elementary specialization; no comparable random-order lower bound reviewed."
+        },
+        {
+          "id": "cc-online-recourse-upper",
+          "paperId": "cc22online",
+          "kind": "upper",
+          "bound": "O(log n) moves per vertex",
+          "guarantee": "Constant-factor minimum-disagreement approximation at every prefix",
+          "sourceLocation": "Theorems E.2 and F.1; §§3.1–3.2",
+          "plot": null,
+          "notes": "Reassignments are cumulative per vertex across the entire sequence, not a worst-case number of moved vertices per arrival."
+        },
+        {
+          "id": "cc-online-recourse-lower",
+          "paperId": "cc22online",
+          "kind": "lower",
+          "bound": "Ω(log n) moves for some vertex",
+          "guarantee": "Any fixed constant approximation",
+          "sourceLocation": "Lemma 4.1",
+          "plot": null,
+          "notes": "Allows vertex moves; the lower-bound construction forces repeated changes for persistent vertices."
+        }
+      ]
+    }
+  ]
+}

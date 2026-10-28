@@ -1,0 +1,169 @@
+{
+  "upsertPapers": [
+    {
+      "id": "bsvw25",
+      "title": "Online Edge Coloring: Sharp Thresholds",
+      "authors": [
+        "Joakim Blikstad",
+        "Ola Svensson",
+        "Radu Vintan",
+        "David Wajc"
+      ],
+      "year": 2025,
+      "url": "https://arxiv.org/html/2507.21560v1",
+      "venue": "FOCS 2025",
+      "publicationStatus": "conference",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "cpw19",
+      "title": "Tight Bounds for Online Edge Coloring",
+      "authors": [
+        "Ilan Reuven Cohen",
+        "Binghui Peng",
+        "David Wajc"
+      ],
+      "year": 2019,
+      "url": "https://arxiv.org/pdf/1904.09222v1",
+      "venue": "FOCS 2019",
+      "publicationStatus": "conference",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "dgs25",
+      "title": "Randomized Greedy Online Edge Coloring Succeeds for Dense and Randomly-Ordered Graphs",
+      "authors": [
+        "Aditi Dudeja",
+        "Rashmika Goswami",
+        "Michael Saks"
+      ],
+      "year": 2025,
+      "url": "https://arxiv.org/html/2406.13000v2",
+      "venue": "SODA 2025",
+      "publicationStatus": "conference",
+      "verifiedOn": "2026-10-27"
+    }
+  ],
+  "upsertSlices": [
+    {
+      "id": "edge-online-landscape",
+      "problem": "edge",
+      "model": "online",
+      "label": "Online edge coloring: arrival and degree matter",
+      "task": "Immediate colors, with edge arrivals, one-sided vertex arrivals, and random order kept apart.",
+      "assumptions": [
+        "Hollow markers locate asymptotic palette ratios. The exact additive or ε-dependent formula appears beside each point; an anchor at 1 is not an exact Δ-coloring guarantee. Low-degree classic barriers are not inferred from high-degree theorems."
+      ],
+      "mode": "1d",
+      "axis": {
+        "label": "See scoped figure panels; incompatible objectives have separate axes",
+        "categories": [
+          {
+            "id": "edge",
+            "label": "Edge arrivals · irrevocable colors"
+          },
+          {
+            "id": "bip",
+            "label": "One-sided bipartite vertex arrivals"
+          },
+          {
+            "id": "random",
+            "label": "Random edge permutation"
+          }
+        ]
+      },
+      "results": [
+        {
+          "id": "edge-online-greedy",
+          "paperId": "bsvw25",
+          "kind": "upper",
+          "bound": "q ≤ 2Δ−1",
+          "guarantee": "Proper edge coloring with the displayed palette.",
+          "sourceLocation": "§1 greedy baseline",
+          "plot": null,
+          "notes": "Each edge sees at most 2Δ−2 forbidden colors. The marker shows limiting ratio2."
+        },
+        {
+          "id": "edge-online-det",
+          "paperId": "bsvw25",
+          "kind": "upper",
+          "bound": "q = Δ+O(Δ^{15/16}log^{1/16}n)",
+          "guarantee": "Proper edge coloring with the displayed palette.",
+          "sourceLocation": "Theorem 3.1",
+          "plot": null,
+          "notes": "Known n,Δ. The deterministic existence reduction does not establish a polynomial local-computation bound."
+        },
+        {
+          "id": "edge-online-adaptive",
+          "paperId": "bsvw25",
+          "kind": "upper",
+          "bound": "q = Δ+O(Δ^{15/16}log^{1/16}n)",
+          "guarantee": "Proper edge coloring with the displayed palette.",
+          "sourceLocation": "Theorem 3.2",
+          "plot": null,
+          "notes": "Known n,Δ; do not substitute the weaker oblivious-order degree threshold."
+        },
+        {
+          "id": "edge-online-oblivious",
+          "paperId": "bsvw25",
+          "kind": "upper",
+          "bound": "q = Δ+O(Δ^{15/16}log^{1/32}n)",
+          "guarantee": "Proper edge coloring with the displayed palette.",
+          "sourceLocation": "Theorem 4.1",
+          "plot": null,
+          "notes": "Known n,Δ. Marker is the limiting ratio1, not an exact Δ-coloring."
+        },
+        {
+          "id": "edge-online-known",
+          "paperId": "cpw19",
+          "kind": "upper",
+          "bound": "q = (1+o(1))Δ",
+          "guarantee": "Proper edge coloring with the displayed palette.",
+          "sourceLocation": "Theorems 1.3 and4.6; Appendix D refinement",
+          "plot": null,
+          "notes": "One-sided bipartite arrivals; Δ=ω(log n)."
+        },
+        {
+          "id": "edge-online-known-lower",
+          "paperId": "cpw19",
+          "kind": "lower",
+          "bound": "q ≥ Δ+Ω(√Δ)",
+          "guarantee": "Proper edge coloring with the displayed palette.",
+          "sourceLocation": "Theorem 1.3; Observation 5.1",
+          "plot": null,
+          "notes": "Subleading additive obstruction. Marker1 is only a ratio reference."
+        },
+        {
+          "id": "edge-online-unknown",
+          "paperId": "cpw19",
+          "kind": "upper",
+          "bound": "q = (e/(e−1)+o(1))Δ",
+          "guarantee": "Proper edge coloring with the displayed palette.",
+          "sourceLocation": "Theorems 1.4 and4.2; following known-lower-bound remark",
+          "plot": null,
+          "notes": "Final Δ unknown; Δ=ω(log n). A lower bound Δ′≤Δ with Δ′=ω(log n) is known in advance, although final Δ is unknown."
+        },
+        {
+          "id": "edge-online-unknown-lower",
+          "paperId": "cpw19",
+          "kind": "lower",
+          "bound": "q / Δ ≥ e/(e−1) asymptotically",
+          "guarantee": "Proper edge coloring with the displayed palette.",
+          "sourceLocation": "Theorems 1.4 and 5.2",
+          "plot": null,
+          "notes": "This is the bipartite threshold; the distinct1.606 general-graph result is excluded."
+        },
+        {
+          "id": "edge-online-random",
+          "paperId": "dgs25",
+          "kind": "upper",
+          "bound": "q = (1+ε)Δ",
+          "guarantee": "Proper edge coloring with the displayed palette.",
+          "sourceLocation": "Theorems 1 and 5; §7.1",
+          "plot": null,
+          "notes": "For each fixed ε>0, sufficiently large Δ≥N(ε)log n suffices. No nontrivial random-order lower bound verified."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "id": "cc-stochastic",
+  "dataFile": "cc-stochastic.json",
+  "javascript": "scoped-landscapes.js",
+  "css": "scoped-landscapes.css",
+  "routes": [
+    {
+      "key": "cc-stochastic",
+      "sliceId": "cc-stochastic-landscape",
+      "label": "Clustering from noisy labels: recovery and query cost",
+      "problem": "cc",
+      "model": "stochastic",
+      "visible": true
+    }
+  ],
+  "canonicalAliases": {},
+  "pointFields": {},
+  "axisSummary": {
+    "x": "Panel-specific quality or cost axis",
+    "y": "Named theorem and setup",
+    "note": "This is planted-partition recovery, distinct from minimizing disagreements. The fixed reference matches output promises; the tradeoff panel labels large-cluster and exact-recovery results separately. Symbolic columns are not a numerical frontier."
+  }
+}

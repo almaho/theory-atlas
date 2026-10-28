@@ -1,0 +1,60 @@
+{
+  "upsertPapers": [
+    {
+      "id": "co07",
+      "title": "Colouring Semirandom Graphs",
+      "authors": [
+        "Amin Coja-Oghlan"
+      ],
+      "year": 2007,
+      "url": "https://edoc.hu-berlin.de/server/api/core/bitstreams/81651e4e-ac99-4b5e-b9ba-68ed2ed7af1a/content",
+      "venue": "Combinatorics, Probability and Computing 2007",
+      "publicationStatus": "journal",
+      "verifiedOn": "2026-10-27"
+    }
+  ],
+  "upsertSlices": [
+    {
+      "id": "vertex-stochastic-landscape",
+      "problem": "vertex",
+      "model": "stochastic",
+      "label": "Semirandom coloring: where algorithms beat hardness",
+      "task": "A planted model with adversarial additions and explicitly conditional low-density hardness.",
+      "assumptions": [
+        "The plot is a fixed-k density reference, not a claim that every variable-k threshold equals 1 or1/2. Exact n,k,ε conditions are beside the points. Green is sufficient density; red is conditional hardness below its boundary."
+      ],
+      "mode": "1d",
+      "axis": {
+        "label": "See scoped figure panels; incompatible objectives have separate axes",
+        "categories": [
+          {
+            "id": "density",
+            "label": "Semirandom planted k-coloring"
+          }
+        ]
+      },
+      "results": [
+        {
+          "id": "vertex-stochastic-algorithm",
+          "paperId": "co07",
+          "kind": "upper",
+          "bound": "np ≥ max{(1+ε)k ln n, C₀k²}",
+          "guarantee": "Certify an optimal k-coloring with high probability",
+          "sourceLocation": "Theorem 1.1, printed p.518 / PDF p.4",
+          "plot": null,
+          "notes": "For fixed k and large n the log term dominates. Marker1 is only a limiting normalized density. Exact k dependence is retained, and C₀ is not numerically instantiated."
+        },
+        {
+          "id": "vertex-stochastic-hardness",
+          "paperId": "co07",
+          "kind": "lower",
+          "bound": "np ≤ (1−ε)(k/2)ln(n/k)",
+          "guarantee": "No polynomial-time k-coloring with high probability unless NP⊆RP",
+          "sourceLocation": "Theorem 1.2, printed p.518 / PDF p.4",
+          "plot": null,
+          "notes": "The fixed-k normalized boundary approaches(1−ε)/2. This is not an information-theoretic impossibility: a planted coloring exists."
+        }
+      ]
+    }
+  ]
+}

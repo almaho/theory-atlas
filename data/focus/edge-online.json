@@ -1,0 +1,431 @@
+{
+  "id": "edge-online",
+  "problem": "edge",
+  "model": "online",
+  "problemLabel": "Edge coloring",
+  "modelLabel": "Online",
+  "title": "Online edge coloring: arrival and degree matter",
+  "subtitle": "Immediate colors, with edge arrivals, one-sided vertex arrivals, and random order kept apart.",
+  "renderer": "scoped-landscape",
+  "reviewedOn": "2026-10-27",
+  "panels": [
+    {
+      "id": "edge",
+      "title": "Edge arrivals · irrevocable colors",
+      "shortTitle": "Edge arrival · degree thresholds",
+      "note": "General simple graphs; n and Δ known for the high-degree algorithms.",
+      "xLabel": "q / Δ · limiting palette ratio (smaller is better)",
+      "min": 1,
+      "max": 2,
+      "ticks": [
+        1,
+        1.5,
+        2
+      ]
+    },
+    {
+      "id": "bip",
+      "title": "One-sided bipartite vertex arrivals",
+      "shortTitle": "Bipartite · known vs unknown Δ",
+      "note": "Offline side known; Δ=ω(log n). Whether Δ is known changes the limit.",
+      "xLabel": "q / Δ · limiting palette ratio",
+      "min": 1,
+      "max": 2,
+      "ticks": [
+        1,
+        {
+          "at": 1.5819767068693265,
+          "label": "e/(e−1)"
+        },
+        2
+      ]
+    },
+    {
+      "id": "random",
+      "title": "Random edge permutation",
+      "shortTitle": "Random edge order",
+      "note": "Uniform permutation of a fixed graph; fixed ε>0; sufficiently large Δ/log n.",
+      "xLabel": "q / Δ · ε→0 reference",
+      "min": 1,
+      "max": 2,
+      "ticks": [
+        1,
+        1.5,
+        2
+      ]
+    }
+  ],
+  "verifiedRecords": [
+    {
+      "id": "edge-online-greedy",
+      "sourceId": "bsvw25",
+      "panel": "edge",
+      "kind": "upper",
+      "at": 2,
+      "setup": "Arbitrary order · deterministic",
+      "bound": "q ≤ 2Δ−1",
+      "displayBound": "q ≤ 2Δ−1",
+      "plotLabel": "q ≤ 2Δ−1",
+      "quality": "Proper edge coloring with the displayed palette.",
+      "theorem": "§1 greedy baseline",
+      "graph": "General simple graphs",
+      "output": "Immediate irrevocable edge colors",
+      "probability": "Deterministic, arbitrary adversary",
+      "notes": "Each edge sees at most 2Δ−2 forbidden colors. The marker shows limiting ratio2.",
+      "limit": true,
+      "publicationStatus": "published",
+      "year": 2025,
+      "evidenceStatus": "primary_statement_verified",
+      "shortLabel": "Blikstad et al. ’25"
+    },
+    {
+      "id": "edge-online-det",
+      "sourceId": "bsvw25",
+      "panel": "edge",
+      "kind": "upper",
+      "at": 1,
+      "setup": "Deterministic · Δ≫log n",
+      "bound": "q = Δ+O(Δ^{15/16}log^{1/16}n)",
+      "displayBound": "q = Δ+O(Δ^{15/16}log^{1/16}n)",
+      "plotLabel": "q = Δ+O(Δ^{15/16}log^{1/16}n)",
+      "quality": "Proper edge coloring with the displayed palette.",
+      "theorem": "Theorem 3.1",
+      "graph": "General simple graphs",
+      "output": "Immediate irrevocable edge colors",
+      "probability": "Deterministic; arbitrary edge arrivals",
+      "notes": "Known n,Δ. The deterministic existence reduction does not establish a polynomial local-computation bound.",
+      "limit": true,
+      "publicationStatus": "published",
+      "year": 2025,
+      "evidenceStatus": "primary_statement_verified",
+      "shortLabel": "Blikstad et al. ’25"
+    },
+    {
+      "id": "edge-online-adaptive",
+      "sourceId": "bsvw25",
+      "panel": "edge",
+      "kind": "upper",
+      "at": 1,
+      "setup": "Randomized · adaptive · Δ≫log n",
+      "bound": "q = Δ+O(Δ^{15/16}log^{1/16}n)",
+      "displayBound": "q = Δ+O(Δ^{15/16}log^{1/16}n)",
+      "plotLabel": "q = Δ+O(Δ^{15/16}log^{1/16}n)",
+      "quality": "Proper edge coloring with the displayed palette.",
+      "theorem": "Theorem 3.2",
+      "graph": "General simple graphs",
+      "output": "Immediate irrevocable edge colors",
+      "probability": "With high probability; adaptive adversary",
+      "notes": "Known n,Δ; do not substitute the weaker oblivious-order degree threshold.",
+      "limit": true,
+      "publicationStatus": "published",
+      "year": 2025,
+      "evidenceStatus": "primary_statement_verified",
+      "shortLabel": "Blikstad et al. ’25"
+    },
+    {
+      "id": "edge-online-oblivious",
+      "sourceId": "bsvw25",
+      "panel": "edge",
+      "kind": "upper",
+      "at": 1,
+      "setup": "Randomized · oblivious · Δ≫√log n",
+      "bound": "q = Δ+O(Δ^{15/16}log^{1/32}n)",
+      "displayBound": "q = Δ+O(Δ^{15/16}log^{1/32}n)",
+      "plotLabel": "q = Δ+O(Δ^{15/16}log^{1/32}n)",
+      "quality": "Proper edge coloring with the displayed palette.",
+      "theorem": "Theorem 4.1",
+      "graph": "General simple graphs",
+      "output": "Immediate irrevocable edge colors",
+      "probability": "With high probability; oblivious adversary",
+      "notes": "Known n,Δ. Marker is the limiting ratio1, not an exact Δ-coloring.",
+      "limit": true,
+      "publicationStatus": "published",
+      "year": 2025,
+      "evidenceStatus": "primary_statement_verified",
+      "shortLabel": "Blikstad et al. ’25"
+    },
+    {
+      "id": "edge-online-known",
+      "sourceId": "cpw19",
+      "panel": "bip",
+      "kind": "upper",
+      "at": 1,
+      "setup": "Known Δ · randomized",
+      "bound": "q = (1+o(1))Δ",
+      "displayBound": "q = (1+o(1))Δ",
+      "plotLabel": "q = (1+o(1))Δ",
+      "quality": "Proper edge coloring with the displayed palette.",
+      "theorem": "Theorems 1.3 and4.6; Appendix D refinement",
+      "graph": "One-sided bipartite vertex arrivals; simple graphs",
+      "output": "Immediate irrevocable edge colors",
+      "probability": "Randomized; high probability",
+      "notes": "One-sided bipartite arrivals; Δ=ω(log n).",
+      "limit": true,
+      "publicationStatus": "published",
+      "year": 2019,
+      "evidenceStatus": "primary_statement_verified",
+      "shortLabel": "Cohen et al. ’19"
+    },
+    {
+      "id": "edge-online-known-lower",
+      "sourceId": "cpw19",
+      "panel": "bip",
+      "kind": "lower",
+      "at": 1,
+      "setup": "Known Δ · impossibility",
+      "bound": "q ≥ Δ+Ω(√Δ)",
+      "displayBound": "q ≥ Δ+Ω(√Δ)",
+      "plotLabel": "q ≥ Δ+Ω(√Δ)",
+      "quality": "Proper edge coloring with the displayed palette.",
+      "theorem": "Theorem 1.3; Observation 5.1",
+      "graph": "One-sided bipartite vertex arrivals; simple graphs",
+      "output": "Immediate irrevocable edge colors",
+      "probability": "Worst-case obstruction, including randomized algorithms",
+      "notes": "Subleading additive obstruction. Marker1 is only a ratio reference.",
+      "limit": true,
+      "publicationStatus": "published",
+      "year": 2019,
+      "evidenceStatus": "primary_statement_verified",
+      "shortLabel": "Cohen et al. ’19"
+    },
+    {
+      "id": "edge-online-unknown",
+      "sourceId": "cpw19",
+      "panel": "bip",
+      "kind": "upper",
+      "at": 1.5819767068693265,
+      "setup": "Unknown final Δ · known Δ′",
+      "bound": "q = (e/(e−1)+o(1))Δ",
+      "displayBound": "q = (e/(e−1)+o(1))Δ",
+      "plotLabel": "q = (e/(e−1)+o(1))Δ",
+      "quality": "Proper edge coloring with the displayed palette.",
+      "theorem": "Theorems 1.4 and4.2; following known-lower-bound remark",
+      "graph": "One-sided bipartite vertex arrivals; simple graphs",
+      "output": "Immediate irrevocable edge colors",
+      "probability": "Randomized; high probability",
+      "notes": "Final Δ unknown; Δ=ω(log n). A lower bound Δ′≤Δ with Δ′=ω(log n) is known in advance, although final Δ is unknown.",
+      "limit": true,
+      "publicationStatus": "published",
+      "year": 2019,
+      "evidenceStatus": "primary_statement_verified",
+      "shortLabel": "Cohen et al. ’19"
+    },
+    {
+      "id": "edge-online-unknown-lower",
+      "sourceId": "cpw19",
+      "panel": "bip",
+      "kind": "lower",
+      "at": 1.5819767068693265,
+      "setup": "Unknown Δ · impossibility",
+      "bound": "q / Δ ≥ e/(e−1) asymptotically",
+      "displayBound": "q / Δ ≥ e/(e−1) asymptotically",
+      "plotLabel": "q / Δ ≥ e/(e−1) asymptotically",
+      "quality": "Proper edge coloring with the displayed palette.",
+      "theorem": "Theorems 1.4 and 5.2",
+      "graph": "One-sided bipartite vertex arrivals; simple graphs",
+      "output": "Immediate irrevocable edge colors",
+      "probability": "Fractional lower bound also obstructs integral randomized coloring",
+      "notes": "This is the bipartite threshold; the distinct1.606 general-graph result is excluded.",
+      "limit": true,
+      "publicationStatus": "published",
+      "year": 2019,
+      "evidenceStatus": "primary_statement_verified",
+      "shortLabel": "Cohen et al. ’19"
+    },
+    {
+      "id": "edge-online-random",
+      "sourceId": "dgs25",
+      "panel": "random",
+      "kind": "upper",
+      "at": 1,
+      "setup": "Random order · Δ≫log n",
+      "bound": "q = (1+ε)Δ",
+      "displayBound": "q = (1+ε)Δ",
+      "plotLabel": "q = (1+ε)Δ",
+      "quality": "Proper edge coloring with the displayed palette.",
+      "theorem": "Theorems 1 and 5; §7.1",
+      "graph": "General simple graphs",
+      "output": "Immediate irrevocable edge colors",
+      "probability": "With high probability over random edge order and algorithm coins",
+      "notes": "For each fixed ε>0, sufficiently large Δ≥N(ε)log n suffices. No nontrivial random-order lower bound verified.",
+      "limit": true,
+      "publicationStatus": "published",
+      "year": 2025,
+      "evidenceStatus": "primary_statement_verified",
+      "shortLabel": "Dudeja et al. ’25"
+    }
+  ],
+  "relatedResults": [],
+  "axisNote": "Hollow markers locate asymptotic palette ratios. The exact additive or ε-dependent formula appears beside each point; an anchor at 1 is not an exact Δ-coloring guarantee. Low-degree classic barriers are not inferred from high-degree theorems.",
+  "coverageNote": "Bounded primary-source review completed 27 October 2026. Results are scoped comparisons, not an exhaustive or best-known-frontier claim.",
+  "lowerBoundStatus": "Only the lower bounds explicitly shown apply to their labeled setup. An absent bound means no comparable bound was verified in this review.",
+  "sources": {
+    "bsvw25": {
+      "id": "bsvw25",
+      "title": "Online Edge Coloring: Sharp Thresholds",
+      "authors": [
+        "Joakim Blikstad",
+        "Ola Svensson",
+        "Radu Vintan",
+        "David Wajc"
+      ],
+      "year": 2025,
+      "url": "https://arxiv.org/html/2507.21560v1",
+      "venue": "FOCS 2025",
+      "publicationStatus": "published",
+      "verifiedOn": "2026-10-27"
+    },
+    "cpw19": {
+      "id": "cpw19",
+      "title": "Tight Bounds for Online Edge Coloring",
+      "authors": [
+        "Ilan Reuven Cohen",
+        "Binghui Peng",
+        "David Wajc"
+      ],
+      "year": 2019,
+      "url": "https://arxiv.org/pdf/1904.09222v1",
+      "venue": "FOCS 2019",
+      "publicationStatus": "published",
+      "verifiedOn": "2026-10-27"
+    },
+    "dgs25": {
+      "id": "dgs25",
+      "title": "Randomized Greedy Online Edge Coloring Succeeds for Dense and Randomly-Ordered Graphs",
+      "authors": [
+        "Aditi Dudeja",
+        "Rashmika Goswami",
+        "Michael Saks"
+      ],
+      "year": 2025,
+      "url": "https://arxiv.org/html/2406.13000v2",
+      "venue": "SODA 2025",
+      "publicationStatus": "published",
+      "verifiedOn": "2026-10-27"
+    }
+  },
+  "sourceVerification": [
+    {
+      "sourceId": "bsvw25",
+      "checkedOn": "2026-10-27",
+      "url": "https://arxiv.org/html/2507.21560v1",
+      "theorems": [
+        "§1 greedy baseline",
+        "Theorem 3.1",
+        "Theorem 3.2",
+        "Theorem 4.1"
+      ]
+    },
+    {
+      "sourceId": "cpw19",
+      "checkedOn": "2026-10-27",
+      "url": "https://arxiv.org/pdf/1904.09222v1",
+      "theorems": [
+        "Theorems 1.3 and4.6; Appendix D refinement",
+        "Theorem 1.3; Observation 5.1",
+        "Theorems 1.4 and4.2; following known-lower-bound remark",
+        "Theorems 1.4 and 5.2"
+      ]
+    },
+    {
+      "sourceId": "dgs25",
+      "checkedOn": "2026-10-27",
+      "url": "https://arxiv.org/html/2406.13000v2",
+      "theorems": [
+        "Theorems 1 and 5; §7.1"
+      ]
+    }
+  ],
+  "figureAxes": {
+    "edge": {
+      "title": "Edge arrivals · irrevocable colors",
+      "x": {
+        "label": "q / Δ · limiting palette ratio (smaller is better)",
+        "min": 1,
+        "max": 2,
+        "ticks": [
+          1,
+          1.5,
+          2
+        ]
+      },
+      "y": {
+        "label": "Theorem and setup",
+        "categories": [
+          {
+            "id": "edge-online-greedy",
+            "label": "Arbitrary order · deterministic"
+          },
+          {
+            "id": "edge-online-det",
+            "label": "Deterministic · Δ≫log n"
+          },
+          {
+            "id": "edge-online-adaptive",
+            "label": "Randomized · adaptive · Δ≫log n"
+          },
+          {
+            "id": "edge-online-oblivious",
+            "label": "Randomized · oblivious · Δ≫√log n"
+          }
+        ]
+      }
+    },
+    "bip": {
+      "title": "One-sided bipartite vertex arrivals",
+      "x": {
+        "label": "q / Δ · limiting palette ratio",
+        "min": 1,
+        "max": 2,
+        "ticks": [
+          1,
+          1.5819767068693265,
+          2
+        ]
+      },
+      "y": {
+        "label": "Theorem and setup",
+        "categories": [
+          {
+            "id": "edge-online-known",
+            "label": "Known Δ · randomized"
+          },
+          {
+            "id": "edge-online-known-lower",
+            "label": "Known Δ · impossibility"
+          },
+          {
+            "id": "edge-online-unknown",
+            "label": "Unknown Δ · randomized"
+          },
+          {
+            "id": "edge-online-unknown-lower",
+            "label": "Unknown Δ · impossibility"
+          }
+        ]
+      }
+    },
+    "random": {
+      "title": "Random edge permutation",
+      "x": {
+        "label": "q / Δ · ε→0 reference",
+        "min": 1,
+        "max": 2,
+        "ticks": [
+          1,
+          1.5,
+          2
+        ]
+      },
+      "y": {
+        "label": "Theorem and setup",
+        "categories": [
+          {
+            "id": "edge-online-random",
+            "label": "Random order · Δ≫log n"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,247 @@
+{
+  "id": "mis-online",
+  "problem": "mis",
+  "model": "online",
+  "problemLabel": "Independent set",
+  "modelLabel": "Online",
+  "title": "Online independent sets: maximal versus maximum",
+  "subtitle": "Feasibility and competitive cardinality have separate panels and units.",
+  "renderer": "scoped-landscape",
+  "reviewedOn": "2026-10-27",
+  "panels": [
+    {
+      "id": "maximal",
+      "title": "Maximality after every prefix",
+      "shortTitle": "Maximal IS · no revisions",
+      "note": "Vertex arrivals reveal earlier neighbors; all previous accept/reject decisions stay fixed.",
+      "xLabel": "Revisions of earlier decisions",
+      "min": 0,
+      "max": 1,
+      "ticks": [
+        0,
+        1
+      ]
+    },
+    {
+      "id": "maximum",
+      "title": "Maximum-size competition · bounded neighborhood independence",
+      "shortTitle": "Maximum IS · ζ ratio · preprint",
+      "note": "ζ=max_v α(G[N(v)])≥1. This is a different optimization objective.",
+      "xLabel": "Competitive ratio OPT/E[ALG] · symbolic (smaller better)",
+      "categories": [
+        {
+          "id": "half",
+          "label": "(ζ+1)/2",
+          "short": "(ζ+1)/2"
+        },
+        {
+          "id": "zeta",
+          "label": "ζ",
+          "short": "ζ"
+        }
+      ]
+    }
+  ],
+  "verifiedRecords": [
+    {
+      "id": "mis-online-maximal-greedy",
+      "sourceId": "cdk18",
+      "panel": "maximal",
+      "kind": "upper",
+      "at": 0,
+      "setup": "Arrival-order greedy",
+      "bound": "0 revisions · maximal at every prefix",
+      "displayBound": "0 revisions · maximal at every prefix",
+      "plotLabel": "0 revisions · maximal at every prefix",
+      "quality": "Maximal independent set after every prefix",
+      "theorem": "§3 Fact 1; immediate online specialization",
+      "graph": "Arbitrary graph with vertex arrivals; edges to earlier vertices revealed",
+      "output": "Consistent maximal independent set after every prefix",
+      "probability": "Deterministic, arbitrary order",
+      "notes": "Accept a vertex iff it has no accepted neighbor. Rejected vertices retain an accepted witness; later arrivals cannot destroy maximality. This is a derived online consequence, not a competitive maximum-size theorem.",
+      "limit": false,
+      "publicationStatus": "published",
+      "year": 2019,
+      "evidenceStatus": "primary_statement_verified",
+      "shortLabel": "Cormode–Dark–Konrad ’19"
+    },
+    {
+      "id": "mis-online-zeta-upper",
+      "sourceId": "ds26",
+      "panel": "maximum",
+      "kind": "upper",
+      "at": "zeta",
+      "setup": "FirstFit · deterministic",
+      "bound": "α ≤ ζ",
+      "displayBound": "α ≤ ζ",
+      "plotLabel": "α ≤ ζ",
+      "quality": "Maximum-cardinality competitive ratio OPT/E[ALG]",
+      "theorem": "Theorem 1; Lemma 5",
+      "graph": "Graphs with neighborhood independence at most ζ; no geometric representation supplied",
+      "output": "Irrevocable independent-set acceptance; maximize cardinality",
+      "probability": "Deterministic",
+      "notes": "The same greedy output is maximal; this panel measures its size against maximum optimum.",
+      "limit": false,
+      "publicationStatus": "preprint",
+      "year": 2026,
+      "evidenceStatus": "primary_statement_verified",
+      "shortLabel": "De–Singh ’26"
+    },
+    {
+      "id": "mis-online-zeta-det-lower",
+      "sourceId": "ds26",
+      "panel": "maximum",
+      "kind": "lower",
+      "at": "zeta",
+      "setup": "Deterministic · adaptive adversary",
+      "bound": "α ≥ ζ",
+      "displayBound": "α ≥ ζ",
+      "plotLabel": "α ≥ ζ",
+      "quality": "Maximum-cardinality competitive ratio OPT/E[ALG]",
+      "theorem": "Theorem 1; Lemma 6",
+      "graph": "Graphs with neighborhood independence at most ζ",
+      "output": "Irrevocable independent-set decisions",
+      "probability": "Deterministic lower bound; adaptive adversary",
+      "notes": "Do not interpret this ratio lower bound as a lower bound on the effort needed to maintain maximality.",
+      "limit": false,
+      "publicationStatus": "preprint",
+      "year": 2026,
+      "evidenceStatus": "primary_statement_verified",
+      "shortLabel": "De–Singh ’26"
+    },
+    {
+      "id": "mis-online-zeta-rand-lower",
+      "sourceId": "ds26",
+      "panel": "maximum",
+      "kind": "lower",
+      "at": "half",
+      "setup": "Randomized · oblivious adversary",
+      "bound": "α ≥ (ζ+1)/2",
+      "displayBound": "α ≥ (ζ+1)/2",
+      "plotLabel": "α ≥ (ζ+1)/2",
+      "quality": "Maximum-cardinality competitive ratio OPT/E[ALG]",
+      "theorem": "Theorem 1; Lemma 7",
+      "graph": "Graphs with neighborhood independence at most ζ",
+      "output": "Irrevocable independent-set decisions",
+      "probability": "Randomized lower bound; oblivious adversary",
+      "notes": "The ζ-dependent formulas are categorical anchors, not fixed numerical ratios.",
+      "limit": false,
+      "publicationStatus": "preprint",
+      "year": 2026,
+      "evidenceStatus": "primary_statement_verified",
+      "shortLabel": "De–Singh ’26"
+    }
+  ],
+  "relatedResults": [],
+  "axisNote": "Maximality uses a zero-recourse axis. Maximum-size competitiveness uses symbolic ζ-dependent ratios. The geometric-independent-set preprint concerns graphs via neighborhood independence; no geometric oracle is assumed.",
+  "coverageNote": "Bounded primary-source review completed 27 October 2026. Results are scoped comparisons, not an exhaustive or best-known-frontier claim.",
+  "lowerBoundStatus": "Only the lower bounds explicitly shown apply to their labeled setup. An absent bound means no comparable bound was verified in this review.",
+  "sources": {
+    "cdk18": {
+      "id": "cdk18",
+      "title": "Independent Sets in Vertex-Arrival Streams",
+      "authors": [
+        "Graham Cormode",
+        "Jacques Dark",
+        "Christian Konrad"
+      ],
+      "year": 2019,
+      "url": "https://arxiv.org/pdf/1807.08331",
+      "venue": "ICALP 2019",
+      "publicationStatus": "published",
+      "verifiedOn": "2026-10-27"
+    },
+    "ds26": {
+      "id": "ds26",
+      "title": "Online Algorithms for Geometric Independent Set",
+      "authors": [
+        "Minati De",
+        "Satyam Singh"
+      ],
+      "year": 2026,
+      "url": "https://arxiv.org/html/2604.14677v1",
+      "venue": "arXiv 2026",
+      "publicationStatus": "preprint",
+      "verifiedOn": "2026-10-27"
+    }
+  },
+  "sourceVerification": [
+    {
+      "sourceId": "cdk18",
+      "checkedOn": "2026-10-27",
+      "url": "https://arxiv.org/pdf/1807.08331",
+      "theorems": [
+        "§3 Fact 1; immediate online specialization"
+      ]
+    },
+    {
+      "sourceId": "ds26",
+      "checkedOn": "2026-10-27",
+      "url": "https://arxiv.org/html/2604.14677v1",
+      "theorems": [
+        "Theorem 1; Lemma 5",
+        "Theorem 1; Lemma 6",
+        "Theorem 1; Lemma 7"
+      ]
+    }
+  ],
+  "figureAxes": {
+    "maximal": {
+      "title": "Maximality after every prefix",
+      "x": {
+        "label": "Revisions of earlier decisions",
+        "min": 0,
+        "max": 1,
+        "ticks": [
+          0,
+          1
+        ]
+      },
+      "y": {
+        "label": "Theorem and setup",
+        "categories": [
+          {
+            "id": "mis-online-maximal-greedy",
+            "label": "Arrival-order greedy"
+          }
+        ]
+      }
+    },
+    "maximum": {
+      "title": "Maximum-size competition · bounded neighborhood independence",
+      "x": {
+        "label": "Competitive ratio OPT/E[ALG] · symbolic (smaller better)",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "half",
+            "label": "(ζ+1)/2",
+            "short": "(ζ+1)/2"
+          },
+          {
+            "id": "zeta",
+            "label": "ζ",
+            "short": "ζ"
+          }
+        ]
+      },
+      "y": {
+        "label": "Theorem and setup",
+        "categories": [
+          {
+            "id": "mis-online-zeta-upper",
+            "label": "FirstFit · deterministic"
+          },
+          {
+            "id": "mis-online-zeta-det-lower",
+            "label": "Deterministic · adaptive adversary"
+          },
+          {
+            "id": "mis-online-zeta-rand-lower",
+            "label": "Randomized · oblivious adversary"
+          }
+        ]
+      }
+    }
+  }
+}

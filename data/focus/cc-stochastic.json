@@ -1,0 +1,249 @@
+{
+  "id": "cc-stochastic",
+  "problem": "cc",
+  "model": "stochastic",
+  "problemLabel": "Correlation clustering",
+  "modelLabel": "Stochastic",
+  "title": "Clustering from noisy labels: recovery and query cost",
+  "subtitle": "Persistent noise, a tight fixed-noise reference, and the full accuracy dependence.",
+  "renderer": "scoped-landscape",
+  "reviewedOn": "2026-10-27",
+  "panels": [
+    {
+      "id": "fixed",
+      "title": "Persistent noisy pair queries · balanced two clusters",
+      "shortTitle": "Persistent noise · fixed-noise reference",
+      "note": "k=2, δ=1/16, both cluster sizes in [n/3,2n/3], n sufficiently large.",
+      "xLabel": "Distinct noisy pair queries · symbolic",
+      "categories": [
+        {
+          "id": "n",
+          "label": "n",
+          "short": "n"
+        },
+        {
+          "id": "nlog",
+          "label": "n log n",
+          "short": "n log n"
+        },
+        {
+          "id": "n2",
+          "label": "n²",
+          "short": "n²"
+        }
+      ]
+    },
+    {
+      "id": "noise",
+      "title": "Noise / cluster-count tradeoff",
+      "shortTitle": "Noise δ and cluster count k",
+      "note": "Query noise is independent across distinct pairs; repeated queries return the same answer.",
+      "xLabel": "Query formula · symbolic (not a ranked frontier)",
+      "categories": [
+        {
+          "id": "lower",
+          "label": "n log n / δ²",
+          "short": "n log n/δ²"
+        },
+        {
+          "id": "full",
+          "label": "Full upper formula",
+          "short": "full upper"
+        }
+      ]
+    }
+  ],
+  "verifiedRecords": [
+    {
+      "id": "cc-stochastic-fixed-upper",
+      "sourceId": "xh22",
+      "panel": "fixed",
+      "kind": "upper",
+      "at": "nlog",
+      "setup": "Polynomial-time recovery",
+      "bound": "O(n log n) queries",
+      "displayBound": "O(n log n) queries",
+      "plotLabel": "O(n log n) queries",
+      "quality": "Recover both hidden clusters with probability 1−o(1)",
+      "theorem": "Theorem 1.1; fixed k,δ specialization",
+      "graph": "Balanced planted two-partition, persistent pair-label noise correct with probability17/32",
+      "output": "Exact hidden-partition recovery, not disagreement approximation",
+      "probability": "Success1−o(1) over noise and algorithm randomness",
+      "notes": "For fixed k=2 and δ=1/16, linear-size clusters exceed the required Ω(k⁴log n/δ²) threshold; the additive log³n term is asymptotically dominated.",
+      "limit": false,
+      "publicationStatus": "published",
+      "year": 2022,
+      "evidenceStatus": "primary_statement_verified",
+      "shortLabel": "Xia–Huang ’22"
+    },
+    {
+      "id": "cc-stochastic-fixed-lower",
+      "sourceId": "xh22",
+      "panel": "fixed",
+      "kind": "lower",
+      "at": "nlog",
+      "setup": "Information-theoretic lower",
+      "bound": "Ω(n log n) expected queries",
+      "displayBound": "Ω(n log n) expected queries",
+      "plotLabel": "Ω(n log n) expected queries",
+      "quality": "Exact recovery with success at least 15/16 on balanced inputs",
+      "theorem": "Theorem 1.2 and §5; conditioning corollary",
+      "graph": "Both hidden clusters have sizes in [n/3,2n/3]; δ=1/16",
+      "output": "Exact hidden-partition recovery",
+      "probability": "Success≥15/16; expected query count",
+      "notes": "§5 hard distribution assigns independent fair cluster labels. Balance fails with probability≤2exp(−n/18). Conditioning with success slack preserves the 7/8 distributional lower bound; cached distinct queries bound off-promise work by n². This balanced-promise statement is an explicit elementary corollary, not a literal theorem quotation. A hypothetical o(n log n)-query algorithm is truncated after n² queries, with o(1) extra failure by Markov; off-promise work is then bounded.",
+      "limit": false,
+      "publicationStatus": "published",
+      "year": 2022,
+      "evidenceStatus": "primary_statement_verified",
+      "shortLabel": "Xia–Huang ’22 · derived"
+    },
+    {
+      "id": "cc-stochastic-noise-upper",
+      "sourceId": "xh22",
+      "panel": "noise",
+      "kind": "upper",
+      "at": "full",
+      "setup": "Recover sufficiently large clusters",
+      "bound": "O(n(k+log n)/δ² + k⁸log³n/δ⁴)",
+      "displayBound": "O(n(k+log n)/δ² + k⁸log³n/δ⁴)",
+      "plotLabel": "O(n(k+log n)/δ² + k⁸log³n/δ⁴)",
+      "quality": "Recover every cluster of size≥Ω(k⁴log n/δ²)",
+      "theorem": "Theorem 1.1",
+      "graph": "Unknown planted k-partition; persistent independent pair noise with correct probability(1+δ)/2",
+      "output": "Large-cluster recovery; arbitrary tiny clusters are not promised",
+      "probability": "Success1−o(1); polynomial time",
+      "notes": "The two terms retain full δ dependence. This is not unconditional exact recovery of all cluster sizes.",
+      "limit": false,
+      "publicationStatus": "published",
+      "year": 2022,
+      "evidenceStatus": "primary_statement_verified",
+      "shortLabel": "Xia–Huang ’22"
+    },
+    {
+      "id": "cc-stochastic-noise-lower",
+      "sourceId": "xh22",
+      "panel": "noise",
+      "kind": "lower",
+      "at": "lower",
+      "setup": "Exact recovery · 0<δ<1/8",
+      "bound": "Ω(n log n / δ²) expected queries",
+      "displayBound": "Ω(n log n / δ²) expected queries",
+      "plotLabel": "Ω(n log n / δ²) expected queries",
+      "quality": "Exact recovery with success≥7/8",
+      "theorem": "Theorem 1.2; Lemma 5.1 / Appendix D.1",
+      "graph": "Unknown planted partition, k≥2; persistent pair noise",
+      "output": "Exact recovery",
+      "probability": "Success≥7/8; expected query count",
+      "notes": "Displayed δ range follows the proof. Do not extrapolate this noisy-query lower bound to δ=1 or compare its exact-recovery contract indiscriminately with large-cluster-only recovery.",
+      "limit": false,
+      "publicationStatus": "published",
+      "year": 2022,
+      "evidenceStatus": "primary_statement_verified",
+      "shortLabel": "Xia–Huang ’22"
+    }
+  ],
+  "relatedResults": [],
+  "axisNote": "This is planted-partition recovery, distinct from minimizing disagreements. The fixed reference matches output promises; the tradeoff panel labels large-cluster and exact-recovery results separately. Symbolic columns are not a numerical frontier.",
+  "coverageNote": "Bounded primary-source review completed 27 October 2026. Results are scoped comparisons, not an exhaustive or best-known-frontier claim.",
+  "lowerBoundStatus": "Only the lower bounds explicitly shown apply to their labeled setup. An absent bound means no comparable bound was verified in this review.",
+  "sources": {
+    "xh22": {
+      "id": "xh22",
+      "title": "Optimal Clustering with Noisy Queries via Multi-Armed Bandit",
+      "authors": [
+        "Jinghui Xia",
+        "Zengfeng Huang"
+      ],
+      "year": 2022,
+      "url": "https://arxiv.org/html/2207.05376v1",
+      "venue": "ICML 2022",
+      "publicationStatus": "published",
+      "verifiedOn": "2026-10-27"
+    }
+  },
+  "sourceVerification": [
+    {
+      "sourceId": "xh22",
+      "checkedOn": "2026-10-27",
+      "url": "https://arxiv.org/html/2207.05376v1",
+      "theorems": [
+        "Theorem 1.1; fixed k,δ specialization",
+        "Theorem 1.2 and §5; conditioning corollary",
+        "Theorem 1.1",
+        "Theorem 1.2; Lemma 5.1 / Appendix D.1"
+      ]
+    }
+  ],
+  "figureAxes": {
+    "fixed": {
+      "title": "Persistent noisy pair queries · balanced two clusters",
+      "x": {
+        "label": "Distinct noisy pair queries · symbolic",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "n",
+            "label": "n",
+            "short": "n"
+          },
+          {
+            "id": "nlog",
+            "label": "n log n",
+            "short": "n log n"
+          },
+          {
+            "id": "n2",
+            "label": "n²",
+            "short": "n²"
+          }
+        ]
+      },
+      "y": {
+        "label": "Theorem and setup",
+        "categories": [
+          {
+            "id": "cc-stochastic-fixed-upper",
+            "label": "Polynomial-time recovery"
+          },
+          {
+            "id": "cc-stochastic-fixed-lower",
+            "label": "Information-theoretic lower"
+          }
+        ]
+      }
+    },
+    "noise": {
+      "title": "Noise / cluster-count tradeoff",
+      "x": {
+        "label": "Query formula · symbolic (not a ranked frontier)",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "lower",
+            "label": "n log n / δ²",
+            "short": "n log n/δ²"
+          },
+          {
+            "id": "full",
+            "label": "Full upper formula",
+            "short": "full upper"
+          }
+        ]
+      },
+      "y": {
+        "label": "Theorem and setup",
+        "categories": [
+          {
+            "id": "cc-stochastic-noise-upper",
+            "label": "Recover sufficiently large clusters"
+          },
+          {
+            "id": "cc-stochastic-noise-lower",
+            "label": "Exact recovery · 0<δ<1/8"
+          }
+        ]
+      }
+    }
+  }
+}

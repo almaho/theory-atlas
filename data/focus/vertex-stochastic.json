@@ -1,0 +1,158 @@
+{
+  "id": "vertex-stochastic",
+  "problem": "vertex",
+  "model": "stochastic",
+  "problemLabel": "Vertex coloring",
+  "modelLabel": "Stochastic",
+  "title": "Semirandom coloring: where algorithms beat hardness",
+  "subtitle": "A planted model with adversarial additions and explicitly conditional low-density hardness.",
+  "renderer": "scoped-landscape",
+  "reviewedOn": "2026-10-27",
+  "panels": [
+    {
+      "id": "density",
+      "title": "Semirandom planted k-coloring",
+      "shortTitle": "Semirandom density · conditional hardness",
+      "note": "Fixed k≥3, k divides n; balanced planted parts; adversary may add cross-part edges.",
+      "xLabel": "np / (k ln n) · fixed-k, ε→0 reference",
+      "min": 0,
+      "max": 1.5,
+      "ticks": [
+        0,
+        0.5,
+        1,
+        1.5
+      ]
+    }
+  ],
+  "verifiedRecords": [
+    {
+      "id": "vertex-stochastic-algorithm",
+      "sourceId": "co07",
+      "panel": "density",
+      "kind": "upper",
+      "at": 1,
+      "setup": "Polynomial algorithm · dense regime",
+      "bound": "np ≥ max{(1+ε)k ln n, C₀k²}",
+      "displayBound": "np ≥ max{(1+ε)k ln n, C₀k²}",
+      "plotLabel": "np ≥ max{(1+ε)k ln n, C₀k²}",
+      "quality": "Certify an optimal k-coloring with high probability",
+      "theorem": "Theorem 1.1, printed p.518 / PDF p.4",
+      "graph": "Balanced planted k-partition; each cross-part edge independently present with probabilityp; adversary only adds cross-part edges",
+      "output": "Proper coloring, certified optimal in the high-density regime",
+      "probability": "With high probability over initial random graph; uniform over permitted adversarial cross-part edge additions.",
+      "notes": "For fixed k and large n the log term dominates. Marker1 is only a limiting normalized density. Exact k dependence is retained, and C₀ is not numerically instantiated.",
+      "limit": true,
+      "publicationStatus": "published",
+      "year": 2007,
+      "evidenceStatus": "primary_statement_verified",
+      "shortLabel": "Coja-Oghlan ’07",
+      "computation": "Polynomial worst-case running time"
+    },
+    {
+      "id": "vertex-stochastic-hardness",
+      "sourceId": "co07",
+      "panel": "density",
+      "kind": "lower",
+      "at": 0.5,
+      "setup": "Low density · conditional hardness",
+      "bound": "np ≤ (1−ε)(k/2)ln(n/k)",
+      "displayBound": "np ≤ (1−ε)(k/2)ln(n/k)",
+      "plotLabel": "np ≤ (1−ε)(k/2)ln(n/k)",
+      "quality": "No polynomial-time k-coloring with high probability unless NP⊆RP",
+      "theorem": "Theorem 1.2, printed p.518 / PDF p.4",
+      "graph": "Same semirandom model;3≤k≤√n",
+      "output": "Proper k-coloring",
+      "probability": "Conditional computational hardness unless NP⊆RP; uniform over permitted adversarial cross-part edge additions.",
+      "notes": "The fixed-k normalized boundary approaches(1−ε)/2. This is not an information-theoretic impossibility: a planted coloring exists.",
+      "limit": true,
+      "publicationStatus": "published",
+      "year": 2007,
+      "evidenceStatus": "primary_statement_verified",
+      "shortLabel": "Coja-Oghlan ’07"
+    }
+  ],
+  "relatedResults": [
+    {
+      "id": "vertex-stochastic-expected",
+      "sourceId": "co07",
+      "panel": "density",
+      "kind": "upper",
+      "at": 1,
+      "setup": "Expected-time variant",
+      "bound": "np ≥ C₀ max{k ln n,k²}",
+      "displayBound": "np ≥ C₀ max{k ln n,k²}",
+      "plotLabel": "np ≥ C₀ max{k ln n,k²}",
+      "quality": "Always outputs a k-coloring on k-colorable graphs",
+      "theorem": "Theorem1.3, printedp519 / PDFp5",
+      "graph": "Same semirandom distribution controls expected computation",
+      "output": "Proper k-coloring",
+      "probability": "Always correct on k-colorable inputs; expected polynomial work in stated regime",
+      "notes": "Unknown absolute constant C₀ is not assigned a numeric marker.",
+      "limit": false,
+      "publicationStatus": "published",
+      "year": 2007,
+      "evidenceStatus": "primary_statement_verified",
+      "shortLabel": "Coja-Oghlan ’07",
+      "computation": "Expected polynomial time; different runtime guarantee"
+    }
+  ],
+  "axisNote": "The plot is a fixed-k density reference, not a claim that every variable-k threshold equals 1 or1/2. Exact n,k,ε conditions are beside the points. Green is sufficient density; red is conditional hardness below its boundary.",
+  "coverageNote": "Bounded primary-source review completed 27 October 2026. Results are scoped comparisons, not an exhaustive or best-known-frontier claim.",
+  "lowerBoundStatus": "Only the lower bounds explicitly shown apply to their labeled setup. An absent bound means no comparable bound was verified in this review.",
+  "sources": {
+    "co07": {
+      "id": "co07",
+      "title": "Colouring Semirandom Graphs",
+      "authors": [
+        "Amin Coja-Oghlan"
+      ],
+      "year": 2007,
+      "url": "https://edoc.hu-berlin.de/server/api/core/bitstreams/81651e4e-ac99-4b5e-b9ba-68ed2ed7af1a/content",
+      "venue": "Combinatorics, Probability and Computing 2007",
+      "publicationStatus": "published",
+      "verifiedOn": "2026-10-27"
+    }
+  },
+  "sourceVerification": [
+    {
+      "sourceId": "co07",
+      "checkedOn": "2026-10-27",
+      "url": "https://edoc.hu-berlin.de/server/api/core/bitstreams/81651e4e-ac99-4b5e-b9ba-68ed2ed7af1a/content",
+      "theorems": [
+        "Theorem 1.1, printed p.518 / PDF p.4",
+        "Theorem 1.2, printed p.518 / PDF p.4",
+        "Theorem1.3, printedp519 / PDFp5"
+      ]
+    }
+  ],
+  "figureAxes": {
+    "density": {
+      "title": "Semirandom planted k-coloring",
+      "x": {
+        "label": "np / (k ln n) · fixed-k, ε→0 reference",
+        "min": 0,
+        "max": 1.5,
+        "ticks": [
+          0,
+          0.5,
+          1,
+          1.5
+        ]
+      },
+      "y": {
+        "label": "Theorem and setup",
+        "categories": [
+          {
+            "id": "vertex-stochastic-algorithm",
+            "label": "Polynomial algorithm · dense regime"
+          },
+          {
+            "id": "vertex-stochastic-hardness",
+            "label": "Low density · conditional hardness"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -265,8 +265,8 @@ def main():
         template = (ROOT / "src" / "index.html").read_text()
         css = (ROOT / "src" / "style.css").read_text() + "\n" + (ROOT / "src" / "focus.css").read_text() + "\n" + (ROOT / "src" / "dynamic.css").read_text() + "\n" + (ROOT / "src" / "streaming.css").read_text() + "\n" + (ROOT / "src" / "lca.css").read_text() + "\n" + (ROOT / "src" / "local.css").read_text() + "\n" + (ROOT / "src" / "mpc.css").read_text() + "\n" + (ROOT / "src" / "query-list.css").read_text()
         css += "\n" + (ROOT / "src" / "paper-links.css").read_text()
-        css += "\n" + "\n".join((ROOT / "src" / p["css"]).read_text() for p in pairs)
-        js = "\n".join((ROOT / "src" / name).read_text() for name in ["app.js", "dynamic.js", "streaming.js", "lca.js", "local.js", "mpc.js", "query-list.js", *[p["javascript"] for p in pairs], "focus.js", "paper-links.js"])
+        css += "\n" + "\n".join((ROOT / "src" / name).read_text() for name in dict.fromkeys(p["css"] for p in pairs))
+        js = "\n".join((ROOT / "src" / name).read_text() for name in ["app.js", "dynamic.js", "streaming.js", "lca.js", "local.js", "mpc.js", "query-list.js", *dict.fromkeys(p["javascript"] for p in pairs), "focus.js", "paper-links.js"])
         payload = json.dumps(project, ensure_ascii=False, separators=(",", ":")).replace("<", "\\u003c").replace("&", "\\u0026")
         for needle in ("/* ATLAS_CSS */", "/* ATLAS_JS */", "/* ATLAS_DATA */"):
             require(template.count(needle) == 1, f"Template marker missing or duplicated: {needle}")

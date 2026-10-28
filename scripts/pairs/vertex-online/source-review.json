@@ -1,0 +1,36 @@
+[
+  {
+    "sourceId": "lst89",
+    "checkedOn": "2026-10-27",
+    "url": "https://workshop.tcs.uj.edu.pl/mszana2015/gutowski/Lovasz.pdf",
+    "theorems": [
+      "LST bipartite algorithm; exact2log₂(n+1) bound proved in KYY26 Theorems 3.14 and5.1"
+    ]
+  },
+  {
+    "sourceId": "gkmz15",
+    "checkedOn": "2026-10-27",
+    "url": "https://arxiv.org/pdf/1404.7259v2",
+    "theorems": [
+      "Theorem 1"
+    ]
+  },
+  {
+    "sourceId": "kyy26",
+    "checkedOn": "2026-10-27",
+    "url": "https://arxiv.org/html/2511.16100v2",
+    "theorems": [
+      "Theorem 5.15, v2",
+      "Theorem 6.1, v2",
+      "Corollary 4.15"
+    ]
+  },
+  {
+    "sourceId": "yy26",
+    "checkedOn": "2026-10-27",
+    "url": "https://arxiv.org/html/2610.23824v1",
+    "theorems": [
+      "Theorem 1"
+    ]
+  }
+]

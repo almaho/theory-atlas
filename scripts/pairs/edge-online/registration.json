@@ -1,0 +1,23 @@
+{
+  "id": "edge-online",
+  "dataFile": "edge-online.json",
+  "javascript": "scoped-landscapes.js",
+  "css": "scoped-landscapes.css",
+  "routes": [
+    {
+      "key": "edge-online",
+      "sliceId": "edge-online-landscape",
+      "label": "Online edge coloring: arrival and degree matter",
+      "problem": "edge",
+      "model": "online",
+      "visible": true
+    }
+  ],
+  "canonicalAliases": {},
+  "pointFields": {},
+  "axisSummary": {
+    "x": "Panel-specific quality or cost axis",
+    "y": "Named theorem and setup",
+    "note": "Hollow markers locate asymptotic palette ratios. The exact additive or ε-dependent formula appears beside each point; an anchor at 1 is not an exact Δ-coloring guarantee. Low-degree classic barriers are not inferred from high-degree theorems."
+  }
+}
