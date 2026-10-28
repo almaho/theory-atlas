@@ -65,3 +65,12 @@ for(const key of ['matching-online','matching-online-weighted']){
   instance.destroy();assert(h.listeners.every(l=>l.options.signal.aborted));
 }
 console.log('Online matching PASS: separate weighted row; arrival/order/decision contracts; ratio direction; symbolic gains; recourse units; source filters; finite geometry and textless overview; inspection and lifecycle.');
+// A stronger attainable guarantee and a tighter impossibility ceiling must never cross.
+for(const key of ['matching-online','matching-online-weighted'])for(const [w,h] of [[40,40],[180,110],[330,245],[738,548],[1100,1100]]){
+ const g=api.layoutGeometry(w,h,{key});
+ for(const p of g.panels)for(const lane of p.rows){
+  const f=lane.frontier;
+  if(f.algorithm&&f.barrier)assert(f.cost?f.algorithm.row.value>=f.barrier.row.value:f.algorithm.row.value<=f.barrier.row.value);
+  if(f.symbolic)assert(!f.equal,'Unspecified delta cannot certify a tight gap');
+ }
+}

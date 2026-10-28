@@ -1,5 +1,5 @@
 {
-  "reviewedOn": "2026-10-20",
+  "reviewedOn": "2026-10-28",
   "problem": "matching",
   "model": "query_list",
   "title": "Matching size through adjacency-list queries",
@@ -364,32 +364,34 @@
         "For every fixed γ>0 in the nontrivial range, a fixed η(γ)>0 exists"
       ],
       "resourceUnit": "Total cost for one global size estimate; not per local-output query"
-    }
-  ],
-  "relatedResults": [
+    },
     {
       "id": "list-bks23-mixed",
       "sourceId": "bks23",
       "kind": "algorithm",
-      "panel": "related",
+      "panel": "additive",
       "qualityFamily": "twothirds-additive",
-      "resourceLane": "average-degree-subquadratic",
+      "resourceLane": "mixed-degree",
       "displayBound": "Õ_ε(n·d̄^{1−Θ(ε²)})",
       "queryComplexity": "Õ_ε(n·d̄^{1−Θ(ε²)}) time and at most this many queries",
-      "quality": "OPT ≤ 1.5·estimate + εn; estimate ≤ OPT",
+      "quality": "OPT ≤ (3/2)·estimate + εn; estimate ≤ OPT",
       "output": "One estimate of the global maximum matching size",
       "graph": "General simple unweighted graphs",
       "oracle": "Adjacency-list access: degree and indexed-neighbor queries",
       "adaptivity": "Adaptive queries allowed",
       "probability": "With high probability",
-      "theorem": "Theorem 1.3(2)",
+      "theorem": "Theorem 1.3(2); §4.3",
       "summaryLabel": "BKS ’23",
       "plotLabel": "BKS ’23",
       "evidenceStatus": "full_text_verified",
-      "notes": "The paper uses the factor convention OPT≤α·estimate+additive slack. This is distinct from the half-additive column.",
+      "notes": "General graphs with adaptive adjacency-list access; mixed multiplicative and additive error. Equivalently estimate ≥ (2/3)OPT − (2/3)εn. Do not treat this as pure 2/3 approximation.",
       "assumptions": [],
-      "resourceUnit": "Total cost for one global size estimate; not per local-output query"
-    },
+      "resourceUnit": "Total cost for one global size estimate; not per local-output query",
+      "exactQueryComplexity": "Õ_ε(n·d̄^{1−Θ(ε²)})",
+      "sourceUrl": "https://arxiv.org/html/2212.00189v2#S1"
+    }
+  ],
+  "relatedResults": [
     {
       "id": "list-shah26-upper-tradeoff",
       "sourceId": "shah26",
@@ -520,6 +522,10 @@
           {
             "id": "pure-additive",
             "label": "|estimate−OPT|≤εn"
+          },
+          {
+            "id": "twothirds-additive",
+            "label": "OPT ≤ (3/2)estimate + εn"
           }
         ]
       },
@@ -534,6 +540,10 @@
           {
             "id": "average-degree",
             "label": "Õ((d̄+1)/ε²)"
+          },
+          {
+            "id": "mixed-degree",
+            "label": "Õ_ε(n·d̄^{1−Θ(ε²)})"
           }
         ]
       }

@@ -37,7 +37,9 @@
     window.DynamicMatching?.release(root);window.StreamingMatching?.release(root);window.LCAMatching?.release(root);window.LocalMatching?.release(root);window.MPCMatching?.release(root);window.ListQueryMatching?.release(root);
     Object.values(window.AtlasPairRenderers||{}).forEach(renderer=>renderer.release?.(root));
     root.classList.remove('query-list-view','dynamic-view','streaming-view','lca-view','local-view','mpc-view');
-    return rendererFor(key).mount(root,key,options);
+    const instance=rendererFor(key).mount(root,key,options);
+    window.AtlasVisualGuides?.mount(root,settingFor(key));
+    return instance;
   }
   function summarySVG(key,w,h,options={}){
     return rendererFor(key).summarySVG(key,w,h,options);

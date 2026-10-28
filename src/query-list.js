@@ -38,13 +38,15 @@
   const qualities={constant:['Fixed β > 0','any constant'],half:['1 / (2 + ε)','fraction of OPT'],point5109:['0.5109','fraction of OPT'],twothirds:['Near 2/3','from below'],'above-twothirds':['2/3 + constant','fraction of OPT'],'half-additive':['½ OPT − εn','mixed error'],'pure-additive':['± εn','absolute error'],'sqrt-factor':['α = √n','simple graphs'],'cuberoot-factor':['α = n^{1/3−γ}','multigraphs · γ > 0']};
   const pointNote=r=>r.id==='list-brr24-additive-lower'?'∀δ > 0 ∃ε(δ) > 0':r.id==='list-shah26-lower'?'η = η(γ) > 0':'';
   const qualityShort={constant:'Fixed β > 0',half:'1/(2+ε)',point5109:'0.5109',twothirds:'Near 2/3','above-twothirds':'2/3 + constant','half-additive':'½ OPT − εn','pure-additive':'± εn','sqrt-factor':'α = √n','cuberoot-factor':'α = n^{1/3−γ}'};
+
+  qualities['twothirds-additive']=['⅔ OPT − ⅔εn','mixed error'];
+  qualityShort['twothirds-additive']='⅔ OPT − ⅔εn';
   function scopePanels(options={}){
-    const rows=records(options);
-    return Object.entries(panels).map(([name,info])=>{
-      const visible=rows.filter(r=>r.panel===name);if(!visible.length)return null;
-      const columns=(data.axes?.[name]?.x?.categories||[]).map(c=>c.id),ordered=(data.axes?.[name]?.y?.categories||[]).map(c=>c.id),lanes=ordered.length?ordered:info.lanes;
-      return {name,...info,columns:columns.length?columns:info.columns,rows:visible,lanes:[...lanes.filter(l=>visible.some(r=>lane(r)===l)),...new Set(visible.map(lane).filter(l=>!lanes.includes(l)))]};
-    }).filter(Boolean);
+    const rows=records(options),adaptive=rows.filter(r=>r.panel!=='nonadaptive'),non=rows.filter(r=>r.panel==='nonadaptive');
+    const list=[];
+    if(adaptive.length)list.push({name:'adaptive',title:'Adaptive matching-size queries · one comparison',shortTitle:'Adaptive · general / bipartite / additive',subtitle:'Blue halo: general, pure ratio · violet: bipartite, pure ratio · amber: additive slack. No frontier connects different guarantees.',columns:['constant','half','point5109','twothirds','above-twothirds','half-additive','twothirds-additive','pure-additive'],lanes:['average-degree','linear','n12','n15','subquadratic','mixed-degree','nearquadratic'].filter(l=>adaptive.some(r=>lane(r)===l)),rows:adaptive});
+    if(non.length)list.push({name:'nonadaptive',...panels.nonadaptive,rows:non});
+    return list;
   }
   function laneCaptions(p,l){
     const unique=[...new Set(p.rows.filter(r=>lane(r)===l).map(formula))];
@@ -63,30 +65,26 @@
   }
   function plotPoint(p,options={}){
     const {r,x,y,paired,index}=p,kind=r.kind==='lower'?'lower':'algorithm',dy=paired?(index===0?-9:9):0;
-    return `<g class="ql-plot-result" data-query-list-result="${esc(r.id)}" data-kind="${kind}" data-guarantee-family="${esc(r.qualityFamily)}" data-resource-lane="${esc(lane(r))}" role="button" tabindex="0" aria-pressed="${r.id===options.selected}" aria-label="Inspect ${esc(title(r))}: ${esc(readable(formula(r)))}; ${esc(readable(r.quality))}" style="--ql-marker:var(--${kind==='lower'?'red':'green'})">${marker(x,y+dy,kind,r.id===options.selected)}${text(x,y+(paired?(index===0?-20:28):-13),label(r),'ql-paper-label','middle')}${pointNote(r)?text(x,y+23,pointNote(r),'ql-point-note','middle'):''}</g>`;
+    return `<g class="ql-plot-result" data-query-list-result="${esc(r.id)}" data-kind="${kind}" data-panel="${r.panel}" data-guarantee-family="${esc(r.qualityFamily)}" data-resource-lane="${esc(lane(r))}" role="button" tabindex="0" aria-pressed="${r.id===options.selected}" aria-label="Inspect ${esc(title(r))}: ${esc(readable(formula(r)))}; ${esc(readable(r.quality))}" style="--ql-marker:var(--${kind==='lower'?'red':'green'})"><circle cx="${x}" cy="${y+dy}" r="10" fill="none" stroke="${r.panel==='bipartite'?'#bba1e7':r.panel==='additive'?'#dfb66e':'var(--blue)'}" stroke-width="1.5"/>${marker(x,y+dy,kind,r.id===options.selected)}${text(x,y+(paired?(index===0?-20:28):-13),label(r),'ql-paper-label','middle')}${pointNote(r)?text(x,y+17,pointNote(r),'ql-point-note','middle'):''}</g>`;
   }
+
   function diagramSVG(options={}){
-    const visible=scopePanels(options);let s='<svg class="ql-map" viewBox="0 0 1100 796" role="img" aria-label="Adjacency-list matching size estimation: four scoped point plots, with guarantee family on x and symbolic total query budget on y."><title>How many probes reveal the matching size?</title><desc>Green circles are algorithms and red diamonds are lower bounds. This figure estimates one global matching size, not an edge membership or partner query. Adaptive general graphs, bipartite graphs, additive error, and non-adaptive graph scopes have separate axes. Both axes use named categories: symbolic formula rows do not imply a uniform numerical ranking.</desc>';
+    const visible=scopePanels(options);let s='<svg class="ql-map" viewBox="0 0 1180 920" role="img" aria-label="Adaptive adjacency-list matching-size results on one shared categorical cost and guarantee plot. Non-adaptive results stay separate."><title>How many probes reveal matching size?</title><desc>General, bipartite and additive scopes have different halo colors. Formula rows have no universal numeric ranking; mixed guarantees do not define a pure-ratio frontier.</desc>';
     visible.forEach((p,i)=>{
-      const col=i%2,row=Math.floor(i/2),left=col?572:20,top=row?416:19,region={l:left+145,r:left+505,t:top+94,b:top+268};
-      s+=`<g data-panel="${p.name}">`+text(left,top+6,String(i+1).padStart(2,'0'),'ql-section-number')+text(left+32,top+6,p.title,'ql-section-title')+text(left+32,top+28,p.subtitle,'ql-muted');
-      s+=text(left,top+60,'Y · TOTAL QUERY BUDGET','ql-axis-title','start','data-axis="y"')+text(left,top+77,'Symbolic bounds · categorical rows','ql-axis-note');
-      p.lanes.forEach((l,j)=>{
-        const y=region.t+(region.b-region.t)*(j+.5)/p.lanes.length,captions=laneCaptions(p,l);
-        s+=`<path d="M${region.l} ${y}H${region.r}" class="ql-grid"/>`;
-        captions.forEach((caption,k)=>s+=svgFormula(region.l-10,y+4+(k-(captions.length-1)/2)*17,caption,'ql-y-label','end'));
-      });
-      p.columns.forEach((q,j)=>{const x=region.l+(region.r-region.l)*(j+.5)/p.columns.length;s+=`<path d="M${x} ${region.t-8}V${region.b}" class="ql-guide"/>`;const labels=qualities[q]||[q];labels.forEach((t,k)=>s+=svgFormula(x,region.b+24+k*17,t,k?'ql-x-note':'ql-x-label','middle'))});
-      s+=`<path d="M${region.l} ${region.t-8}V${region.b}H${region.r}" class="ql-axis"/>`+points(p,region).map(point=>plotPoint(point,options)).join('');
+      const left=20,top=i?610:20,region={l:260,r:1150,t:top+96,b:top+(i?175:422)};
+      s+='<g data-panel="'+p.name+'">'+text(left,top+6,String(i+1).padStart(2,'0'),'ql-section-number')+text(left+32,top+6,p.title,'ql-section-title')+text(left+32,top+28,p.subtitle,'ql-muted');
+      s+=text(left,top+60,'Y · TOTAL QUERY BUDGET','ql-axis-title','start','data-axis="y"')+text(left,top+78,'Symbolic categories; not a numeric ranking','ql-axis-note');
+      p.lanes.forEach((l,j)=>{const y=region.t+(region.b-region.t)*(j+.5)/p.lanes.length;s+='<path d="M'+region.l+' '+y+'H'+region.r+'" class="ql-grid"/>';laneCaptions(p,l).forEach((c,k)=>s+=svgFormula(region.l-12,y+4+k*15,c,'ql-y-label','end'));});
+      p.columns.forEach((q,j)=>{const x=region.l+(region.r-region.l)*(j+.5)/p.columns.length;s+='<path d="M'+x+' '+(region.t-8)+'V'+region.b+'" class="ql-guide"/>';(qualities[q]||[q]).forEach((t,k)=>s+=svgFormula(x,region.b+24+k*17,t,k?'ql-x-note':'ql-x-label','middle'));});
+      s+='<path d="M'+region.l+' '+(region.t-8)+'V'+region.b+'H'+region.r+'" class="ql-axis"/>'+points(p,region).map(point=>plotPoint(point,options)).join('');
       s+=text(region.l,region.b+68,'X · GUARANTEE FAMILY','ql-axis-title','start','data-axis="x"')+'</g>';
     });
-    s+='<path d="M550 15V765M20 388H1080" class="ql-divider"/>';
-    return s+text(20,787,'n = vertices · d̄ = average degree · ε = accuracy · α = OPT / estimate · select a point for exact quantifiers and primary source.','ql-muted')+'</svg>';
+    return s+text(20,902,'All main results estimate global matching size. Additive slack and graph class remain part of every point’s guarantee.','ql-muted')+'</svg>';
   }
   function summarySVG(key,w,h,options={}){
     const levels=['overview','compact','detail'],available=w<220||h<140?0:w<420||h<240?1:2,requested=levels.indexOf(options.level),level=levels[Math.min(available,requested<0?available:requested)],tiny=level==='overview',full=level==='detail',rich=full&&w>=650&&h>=420,visible=scopePanels(options);
     let s=`<svg class="ql-summary${rich?' ql-summary-rich':''}" data-detail-level="${level}" viewBox="0 0 ${w} ${h}" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Adjacency-list matching size: green algorithms and red lower bounds, separated by adaptivity, graph type, and error contract. X is guarantee family; Y is symbolic total query budget.">`;
-    const cols=rich?1:2,rows=Math.ceil(visible.length/cols),cellW=w/cols,cellH=h/rows;
+    const cols=1,rows=visible.length,cellW=w,cellH=h/rows;
     visible.forEach((p,i)=>{
       const left=(i%cols)*cellW,top=Math.floor(i/cols)*cellH,region={l:left+(rich?Math.min(230,w*.30):tiny?7:full?24:15),r:left+cellW-(tiny?7:12),t:top+(tiny?8:rich?29:24),b:top+cellH-(tiny?9:rich?31:full?30:20)};
       s+=`<g data-panel="${p.name}"><path d="M${region.l} ${region.t}V${region.b}H${region.r}" class="ql-axis"/>`;
@@ -104,10 +102,10 @@
       }
       for(const point of points(p,region).filter(p=>!tiny||p.r.kind==='lower'||['list-brr23-multiplicative','list-brr23-bipartite-upper','list-beh21-mixed','list-shah26-upper'].includes(p.r.id))){
         const {r,x,y,paired,index}=point,kind=r.kind==='lower'?'lower':'algorithm',dy=paired?(index===0?-4:4):0;
-        s+=`<g data-query-list-result="${esc(r.id)}" data-kind="${kind}" data-guarantee-family="${esc(r.qualityFamily)}" data-resource-lane="${esc(lane(r))}">${marker(x,y+dy,kind,false,true)}`;
-        if(rich)s+=text(x+(paired?(index===0?-7:7):7),y+(paired?(index===0?-3:7):3),label(r),kind==='lower'?'ql-summary-lower':'ql-summary-upper',paired&&index===0?'end':'start');
+        s+=`<g data-query-list-result="${esc(r.id)}" data-kind="${kind}" data-panel="${r.panel}" data-guarantee-family="${esc(r.qualityFamily)}" data-resource-lane="${esc(lane(r))}"><title>${esc(label(r)+(pointNote(r)?' · '+pointNote(r):''))}</title><circle cx="${x}" cy="${y+dy}" r="5.5" fill="none" stroke="${r.panel==='bipartite'?'#bba1e7':r.panel==='additive'?'#dfb66e':'var(--blue)'}" stroke-width="1"/>${marker(x,y+dy,kind,false,true)}`;
+        if(rich){const end=x>region.r-70||(paired&&index===0);s+=text(x+(end?-7:7),y+(paired?(index===0?-3:7):3),label(r),kind==='lower'?'ql-summary-lower':'ql-summary-upper',end?'end':'start');}
         else if(full&&!paired)s+=text(x,y-7,label(r),kind==='lower'?'ql-summary-lower':'ql-summary-upper','middle');
-        if(rich&&pointNote(r))s+=text(x+7,y+15,pointNote(r),'ql-summary-quantifiers');
+
         s+='</g>';
       }
       s+='</g>';

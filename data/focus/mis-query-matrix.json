@@ -3,8 +3,8 @@
   "title": "Precision and output change the query cost",
   "problem": "mis",
   "model": "query_matrix",
-  "reviewedOn": "2026-10-26",
-  "coverage": "Bounded review of the two supplied statements from Mahabadi et al., with two explicitly identified full-scan baselines.",
+  "reviewedOn": "2026-10-28",
+  "coverage": "Three primary sources: the SODA 2026 n^(3/2) estimator, two independent October 2026 n^(4/3) preprints, and the explicit-output quadratic obstruction. Elementary scan baselines are labeled separately.",
   "sources": {
     "mahabadi-et-al-2026-matrix-mis-size": {
       "id": "mahabadi-et-al-2026-matrix-mis-size",
@@ -24,9 +24,150 @@
       "fullTextUrl": "https://arxiv.org/pdf/2510.11627v1",
       "publicationUrl": "https://epubs.siam.org/doi/10.1137/1.9781611978971.211",
       "verificationVersion": "Author manuscript arXiv:2510.11627v1; SODA 2026 publication confirmed by SIAM and author publication list"
+    },
+    "kiss-kooroshnezhad-2026-matrix-mis-size": {
+      "id": "kiss-kooroshnezhad-2026-matrix-mis-size",
+      "title": "Faster Sublinear Maximal Independent Set Size",
+      "authors": [
+        "Peter Kiss",
+        "Arash Kooroshnezhad"
+      ],
+      "year": 2026,
+      "venue": "arXiv preprint, October 2026",
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/abs/2610.03588",
+      "arxivUrl": "https://arxiv.org/abs/2610.03588",
+      "fullTextUrl": "https://arxiv.org/html/2610.03588v2",
+      "verifiedOn": "2026-10-28",
+      "shortLabel": "Kiss–Kooroshnezhad 2026",
+      "verificationVersion": "arXiv:2610.03588v2, 12 October 2026"
+    },
+    "mahabadi-tarnawski-2026-matrix-mis-size": {
+      "id": "mahabadi-tarnawski-2026-matrix-mis-size",
+      "title": "Improved Sublinear Algorithms for Maximal Independent Set and Metric Steiner Forest",
+      "authors": [
+        "Sepideh Mahabadi",
+        "Jakub Tarnawski"
+      ],
+      "year": 2026,
+      "venue": "arXiv preprint, October 2026",
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/abs/2610.06053",
+      "arxivUrl": "https://arxiv.org/abs/2610.06053",
+      "fullTextUrl": "https://arxiv.org/html/2610.06053v1",
+      "verifiedOn": "2026-10-28",
+      "shortLabel": "Mahabadi–Tarnawski 2026",
+      "verificationVersion": "arXiv:2610.06053v1, 5 October 2026"
     }
   },
   "verifiedRecords": [
+    {
+      "resource": "Adjacency-matrix pair queries",
+      "graph": "General simple undirected n-vertex graph",
+      "oracle": "One query reveals whether the requested vertex pair is an edge",
+      "conditional": false,
+      "evidenceStatus": "verified",
+      "assumptions": [
+        "General simple undirected graph",
+        "Only adjacency-matrix pair queries",
+        "MIS means inclusion-maximal, not maximum independent set",
+        "0 < ε < 1",
+        "π is algorithm-generated; not a permutation fixed externally",
+        "No additive error",
+        "Uniform random generated π",
+        "Expected resource bound, not a worst-case runtime claim"
+      ],
+      "kind": "algorithm",
+      "setup": "estimate",
+      "panel": "estimate",
+      "derivationStatus": "primary_theorem",
+      "id": "mis-query-kiss-kooroshnezhad-2026-matrix-estimator",
+      "sourceId": "kiss-kooroshnezhad-2026-matrix-mis-size",
+      "shortLabel": "Kiss–Kooroshnezhad 2026",
+      "displayBound": "Õ(n⁴ᐟ³/ε²)",
+      "bound": "Õ(n^(4/3)/ε²)",
+      "runtimeType": "expected",
+      "markerShape": "triangle",
+      "markerParameters": [
+        0,
+        0.16666666666666666,
+        0.3333333333333333
+      ],
+      "frontierStatus": "current_best_verified",
+      "sourceUrl": "https://arxiv.org/html/2610.03588v2",
+      "curve": {
+        "parameter": "a",
+        "epsilon": "ε = (1/4)n^(-a)",
+        "domain": [
+          0,
+          0.3333333333333333
+        ],
+        "queryExponent": "4/3+2a",
+        "rawDomain": [
+          0,
+          0.5
+        ],
+        "rawQueryExponent": "4/3+2a"
+      },
+      "quality": "estimate ≤ |RGMIS(π)| ≤ (1+ε)estimate",
+      "output": "Scalar size estimate for a uniformly generated random greedy MIS",
+      "probability": "Correctness with high probability; expected runtime and pair-query count",
+      "theorem": "Theorem 1.1; §2 approximation definition; Lemmas 3.1 and 3.5; Remark 3.6",
+      "notes": "Lemma 3.5 gives expected O(n^(4/3) log⁴n / ε²) time; Remark 3.6 saves log²n, not a power of n. Algorithm 3 draws uniform π. This is a lower estimate of a maximal-set size, not explicit output or maximum independent set."
+    },
+    {
+      "resource": "Adjacency-matrix pair queries",
+      "graph": "General simple undirected n-vertex graph",
+      "oracle": "One query reveals whether the requested vertex pair is an edge",
+      "conditional": false,
+      "evidenceStatus": "verified",
+      "assumptions": [
+        "General simple undirected graph",
+        "Only adjacency-matrix pair queries",
+        "MIS means inclusion-maximal, not maximum independent set",
+        "0 < ε < 1",
+        "π is algorithm-generated; not a permutation fixed externally",
+        "No additive error",
+        "Algorithm-selected π need not be uniform",
+        "Worst-case cap; high-probability correctness"
+      ],
+      "kind": "algorithm",
+      "setup": "estimate",
+      "panel": "estimate",
+      "derivationStatus": "primary_theorem",
+      "id": "mis-query-mahabadi-tarnawski-2026-matrix-estimator",
+      "sourceId": "mahabadi-tarnawski-2026-matrix-mis-size",
+      "shortLabel": "Mahabadi–Tarnawski 2026",
+      "displayBound": "Õ(n⁴ᐟ³/ε²)",
+      "bound": "Õ(n^(4/3)/ε²)",
+      "runtimeType": "worst_case_capped",
+      "markerShape": "circle",
+      "markerParameters": [
+        0.08333333333333333,
+        0.25
+      ],
+      "frontierStatus": "current_best_verified",
+      "sourceUrl": "https://arxiv.org/html/2610.06053v1",
+      "curve": {
+        "parameter": "a",
+        "epsilon": "ε = (1/4)n^(-a)",
+        "domain": [
+          0,
+          0.3333333333333333
+        ],
+        "queryExponent": "4/3+2a",
+        "rawDomain": [
+          0,
+          0.5
+        ],
+        "rawQueryExponent": "4/3+2a"
+      },
+      "quality": "|RGMIS(π)| ≤ estimate ≤ (1+ε)|RGMIS(π)|",
+      "output": "Scalar size estimate and its algorithm-selected permutation π",
+      "probability": "Correctness with high probability; worst-case capped runtime and pair-query count",
+      "theorem": "Theorem 1.1; Algorithm 6; §3.4, Accuracy and worst-case capped running time",
+      "notes": "Independent trials are capped; the first completed trial supplies the estimate and π. Although each trial starts uniformly, the selected π need not be uniform. No MIS vertex list is returned."
+    },
     {
       "sourceId": "mahabadi-et-al-2026-matrix-mis-size",
       "resource": "Adjacency-matrix pair queries",
@@ -69,7 +210,16 @@
         ],
         "rawQueryExponent": "3/2+2a"
       },
-      "derivationStatus": "primary_theorem"
+      "derivationStatus": "primary_theorem",
+      "historical": true,
+      "frontierStatus": "historical",
+      "markerShape": "circle",
+      "runtimeType": "high_probability",
+      "markerParameters": [
+        0,
+        0.125,
+        0.25
+      ]
     },
     {
       "sourceId": "mahabadi-et-al-2026-matrix-mis-size",
@@ -102,10 +252,14 @@
         "parameter": "a",
         "epsilon": "ε = (1/4)n^(-a)",
         "domain": [
-          0.25,
+          0.3333333333333333,
           0.5
         ],
-        "queryExponent": "2"
+        "queryExponent": "2",
+        "publishedDomain": [
+          0.25,
+          0.5
+        ]
       },
       "derivationStatus": "elementary_baseline",
       "derived": true
@@ -211,12 +365,12 @@
         "max": 0.5,
         "ticks": [
           0,
-          0.25,
+          0.3333333333333333,
           0.5
         ],
         "tickLabels": [
           "1/4",
-          "(1/4)n^(-1/4)",
+          "(1/4)n^(-1/3)",
           "(1/4)n^(-1/2)"
         ],
         "parameter": "a",
@@ -229,21 +383,23 @@
       "y": {
         "label": "Pair-query cost (powers of n)",
         "kind": "exponent",
-        "min": 1.5,
+        "min": 1.3333333333333333,
         "max": 2,
         "ticks": [
+          1.3333333333333333,
           1.5,
           1.75,
           2
         ],
         "tickLabels": [
+          "n^(4/3)",
           "n^(3/2)",
           "n^(7/4)",
           "n²"
         ],
         "suppressed": "Constants and polylogarithmic factors; not an exact finite-n runtime crossover",
         "viewDomain": [
-          1.4,
+          1.23,
           2.12
         ],
         "viewDomainNote": "Curated renderer adds framing space outside the data tick extent."
@@ -257,12 +413,12 @@
         "max": 0.5,
         "ticks": [
           0,
-          0.25,
+          0.3333333333333333,
           0.5
         ],
         "tickLabels": [
           "1/4",
-          "(1/4)n^(-1/4)",
+          "(1/4)n^(-1/3)",
           "(1/4)n^(-1/2)"
         ],
         "parameter": "a",
@@ -275,21 +431,23 @@
       "y": {
         "label": "Pair-query cost (powers of n)",
         "kind": "exponent",
-        "min": 1.5,
+        "min": 1.3333333333333333,
         "max": 2,
         "ticks": [
+          1.3333333333333333,
           1.5,
           1.75,
           2
         ],
         "tickLabels": [
+          "n^(4/3)",
           "n^(3/2)",
           "n^(7/4)",
           "n²"
         ],
         "suppressed": "Constants and polylogarithmic factors; not an exact finite-n runtime crossover",
         "viewDomain": [
-          1.4,
+          1.23,
           2.12
         ],
         "viewDomainNote": "Curated renderer adds framing space outside the data tick extent."
@@ -304,10 +462,11 @@
     ],
     "x": true,
     "y": true,
-    "exponentFrontier": "min{3/2+2a,2}",
+    "exponentFrontier": "min{4/3+2a,2}",
     "epsilon": "ε=(1/4)n^(-a)",
-    "range": "0 ≤ a ≤ 1/2 is the displayed window; the full-scan cap continues for all a≥1/4",
-    "lowerBoundScope": "explicit output only"
+    "range": "0 ≤ a ≤ 1/2 displayed; the new scan-cap exponent crossover is a=1/3 (published-only: a=1/4)",
+    "lowerBoundScope": "explicit output only",
+    "publishedExponentFrontier": "min{3/2+2a,2}"
   },
   "axisSummary": {
     "x": "Requested precision ε = (1/4)n^(−a) → tighter",
@@ -328,15 +487,36 @@
         "Introduction footnote 1, printed p. 2"
       ],
       "notes": "Author manuscript verified directly; conference status corroborated by publisher and author. Scan baselines and exponent conversion are elementary deductions, recorded separately."
+    },
+    {
+      "sourceId": "kiss-kooroshnezhad-2026-matrix-mis-size",
+      "urls": [
+        "https://arxiv.org/abs/2610.03588",
+        "https://arxiv.org/html/2610.03588v2"
+      ],
+      "locations": [
+        "Theorem 1.1; §2 approximation definition; Lemmas 3.1 and 3.5; Remark 3.6"
+      ],
+      "notes": "Primary HTML and arXiv metadata inspected 28 October 2026; concurrent preprint, not a conference publication."
+    },
+    {
+      "sourceId": "mahabadi-tarnawski-2026-matrix-mis-size",
+      "urls": [
+        "https://arxiv.org/abs/2610.06053",
+        "https://arxiv.org/html/2610.06053v1"
+      ],
+      "locations": [
+        "Theorem 1.1; Algorithm 6; §3.4, Accuracy and worst-case capped running time"
+      ],
+      "notes": "Primary HTML and arXiv metadata inspected 28 October 2026; concurrent preprint, not a conference publication."
     }
   ],
   "notes": [
-    "No estimation lower bound is supplied or inferred.",
-    "Green marks algorithm upper bounds; red marks lower bounds. Setup color distinguishes the two output contracts.",
-    "The fixed ε=1/4 reference is illustrative and is now explicit, replacing the old unexplained x=1.25 point.",
-    "The raw theorem gives p=3/2+2a. The size panel displays the best available upper bound after adding the full-scan cap, min{3/2+2a,2}. This is an upper bound, not an optimality claim.",
-    "At exponent scale the scan cap starts at a=1/4; constants and logarithms can shift a finite-n crossover.",
-    "A generated π is not an external query and is not the expectation over permutations. The full-scan baseline may generate its own π.",
-    "Any fixed ε∈(0,1) has exponent 3/2; ε₀=1/4 is only the chosen reference. The displayed window a∈[0,1/2] samples polynomial precision regimes."
+    "Green denotes algorithms and red lower bounds. Blue and purple distinguish scalar and explicit output.",
+    "The two concurrent n^(4/3) preprints share a curve exactly. Triangles identify expected-cost Kiss–Kooroshnezhad; circles identify capped-cost Mahabadi–Tarnawski. Source labels remain separately inspectable.",
+    "Historical SODA 2026 n^(3/2) is dashed. No estimation lower bound is supplied or inferred from explicit construction.",
+    "With ε=(1/4)n^(-a), the new exponent is 4/3+2a, capped at 2 by scanning. At fixed accuracy the exponent is 4/3; ε=1/4 is an illustrative reference.",
+    "The new exponent crossover is a=1/3. Suppressed constants and logarithms can shift a finite-n crossover.",
+    "All scalar algorithms choose their own permutation; no claim is made for an externally prescribed MIS or the expectation of its size. Their estimate directions and runtime guarantees remain explicit in theorem details."
   ]
 }

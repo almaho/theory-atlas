@@ -33,17 +33,17 @@ for(const key of ['matching-stochastic','weighted-matching-stochastic']){
   const svg=api.summarySVG(key,w,h),g=api.layoutGeometry(w,h,{key});
   assert(!/NaN|Infinity|undefined/.test(svg));assert.equal((svg.match(/data-mst-result=/g)||[]).length,rr.length);
   assert.equal((svg.match(/data-marker="lower"/g)||[]).length,rr.filter(r=>r.kind==='lower').length);
-  for(const p of g.points){assert(p.x>0&&p.x<g.w&&p.y>0&&p.y<g.h,JSON.stringify({key,w,h,p}));if(p.row.annotation)assert.equal(p.x,g.tiny?g.left:g.left+4);}
+  for(const p of g.points){assert(p.x>0&&p.x<g.w&&p.y>0&&p.y<g.h,JSON.stringify({key,w,h,p}));if(p.annotation){assert(p.x>=g.left&&p.x<=g.left+4);assert.equal(p.beta,null);}}
   if(w<300||h<230)assert(!/<text/.test(svg));
   for(const b of g.blocks){
-   const numeric=b.points.filter(p=>!p.row.annotation&&Number.isFinite(p.row.beta)).sort((a,b)=>a.row.beta-b.row.beta);
+   const numeric=b.points.filter(p=>!p.annotation&&Number.isFinite(p.beta)).sort((a,b)=>a.beta-b.beta);
    for(let i=1;i<numeric.length;i++)assert(numeric[i].x>=numeric[i-1].x);
   }
  }
  assert(!/<text/.test(api.summarySVG(key,1100,800,{level:'overview'})));
  assert.equal((api.diagramSVG(key).match(/role="button"/g)||[]).length,rr.length);
 }
-assert(api.diagramSVG().includes('Non-adaptive'));assert(api.diagramSVG().includes('Adaptive edge'));
+assert(api.diagramSVG().includes('data-marker="nonadaptive"'));assert(api.diagramSVG().includes('data-marker="adaptive"'));
 const changed=JSON.parse(JSON.stringify(data));Object.values(changed.sources).forEach(s=>s.publicationStatus='preprint');
 const empty=load(changed);assert.equal(empty.records({publication:'published'}).length,0);assert(empty.diagramSVG({publication:'published'}).includes('No sources'));
 function host(){const children=new Map(),classes=new Set(),listeners={};return{isConnected:true,innerHTML:'',classes,listeners,classList:{add(...v){v.forEach(s=>classes.add(s))},remove(...v){v.forEach(s=>classes.delete(s))},toggle(s,on){on?classes.add(s):classes.delete(s)}},setAttribute(){},querySelector(s){if(!children.has(s))children.set(s,{innerHTML:'',value:''});return children.get(s)},addEventListener(t,fn,o){listeners[t]={fn,signal:o.signal}}};}
@@ -62,3 +62,23 @@ h.listeners.change.fn({target:{value:'published',classList:{contains:s=>s==='mst
 const old=h.listeners.click.signal;api.mount(h);assert(old.aborted);const fresh=h.listeners.click.signal;api.release(h);assert(fresh.aborted);
 const unsafe=JSON.parse(JSON.stringify(data));unsafe.verifiedRecords.find(r=>r.id==='stochastic-abgr25-near-optimal').notes='<script>x</script>';const safe=load(unsafe),sh=host();safe.mount(sh);assert(sh.querySelector('.mst-theorem').innerHTML.includes('&lt;script&gt;'));
 console.log('Stochastic matching PASS: 27 scoped records/12 sources; weighted/unweighted routes; adaptive versus nonadaptive, maximum-degree versus expected-total budget; symbolic anchors and red cost annotations; 18 zoom geometries; source filters, all theorem inspections, keyboard and lifecycle.');
+
+for(const e of [.01,.05,.25]){
+ const g=api.layoutGeometry(1100,930,{epsilon:e},true),point=id=>g.points.find(p=>p.id===id);
+ assert.equal(point('stochastic-blum15-half').beta,(1-e)/2);
+ assert.equal(point('stochastic-blum15-adaptive').beta,1-e);
+ assert.equal(point('stochastic-blum15-half').family,point('stochastic-blum15-adaptive').family);
+ assert.equal(point('stochastic-bbd22-lower-unweighted').beta,null);
+ assert(g.blocks.find(b=>b.id==='oracle').points.every(p=>p.row.panel==='unweighted-oracle'));
+ for(const p of [.001,.1,.9])for(const parameter of ['epsilon','p'])assert(!/NaN|Infinity|undefined/.test(api.parameterSVG({epsilon:e,p,parameter})));
+}
+assert(Math.abs(api.explicitBudgetLog(.1,.1)-Math.log10(Math.log(20)/Math.pow(.1,20)))<1e-10);
+assert(api.explicitBudgetLog(.05,.1)>api.explicitBudgetLog(.1,.1));
+assert(api.explicitBudgetLog(.1,.01)>api.explicitBudgetLog(.1,.1));
+api.mount(h);
+h.listeners.input.fn({target:{value:'.1',classList:{contains:s=>s==='mst-epsilon'}}});
+assert.equal(h.querySelector('.mst-epsilon-value').textContent,'0.10');
+h.listeners.input.fn({target:{value:'-2',classList:{contains:s=>s==='mst-probability'}}});
+assert.equal(h.querySelector('.mst-p-value').textContent,'0.010');
+h.listeners.change.fn({target:{value:'p',classList:{contains:s=>s==='mst-parameter'}}});
+assert(h.querySelector('.mst-parameter-plot').innerHTML.includes('Fixed ε'));

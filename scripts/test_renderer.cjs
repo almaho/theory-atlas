@@ -455,7 +455,7 @@ for (const [key, host] of [['dynamic-edges', edgesHost], ['dynamic-size', sizeHo
     assert(entry.includes('d-ors-band') && entry.includes('range-of-theorem-bound'), 'ORS records render as interval bands');
     assert(record.orsInterval.lowerEndpoint && record.orsInterval.upperEndpoint && record.orsInterval.rangeSourceUrl.startsWith('https://arxiv.org/'), 'Both symbolic endpoints and published extremal source are recorded');
     assert(entry.includes('Not a runtime lower bound'), 'The extremal lower endpoint is not labeled an algorithmic lower bound');
-    assert(plot.indexOf('data-panel="ors"') < plot.indexOf('data-group="dynamic-edges-gp13"'), 'ORS interval panel is visible before the main milestone plot');
+    assert(plot.indexOf('data-panel="ors"') > plot.indexOf('data-group="dynamic-edges-gp13"') && plot.includes('data-layout="inline-right-intervals"'), 'ORS intervals are plain right-edge lines within the original map');
 
     assert(specials.includes(`href="${record.url}"`), 'Each ORS paper has a direct source link');
   }
@@ -648,13 +648,15 @@ const lcaHost = focusHost();
 const lcaPublicationChanges = [];
 const lcaInstance = realFocus.mount(lcaHost, 'lca', {onPublicationChange: value => lcaPublicationChanges.push(value)});
 const mainLcaPlot = lcaPlot(lcaHost);
+const richLca=lcaAPI.summarySVG('lca',738,548);
+assert(richLca.includes('O(Δ log n)')&&richLca.includes('fixed β &gt; 0')&&richLca.includes('data-derived="partner"'),'Enlarged atlas LCA includes formula ticks, guarantee ticks, and the derived partner marker');
 assertPointLandscape(mainLcaPlot, 'Full LCA map');
 assert(mainLcaPlot.includes('var(--green)') && mainLcaPlot.includes('var(--red)'), 'The full LCA map visibly combines algorithm and lower-bound colors');
 assert(!mainLcaPlot.includes('data-beta=') && !mainLcaPlot.includes('NaN'), 'The main LCA figure uses valid symbolic geometry without numerical approximation coordinates');
 assert(mainLcaPlot.includes('ε ≤ 0.01') && mainLcaPlot.includes('log⁴ n ≤ Δ ≤ n^ε'), 'The near-optimal lower-bound parameter window is visible in the diagram itself');
 assert(mainLcaPlot.includes('Edge membership → partner') && lcaHost.innerHTML.includes('simplified bound absorbs this factor'), 'The shared near-optimal comparison discloses the edge-to-partner conversion');
 const adaptivePanel = mainLcaPlot.slice(mainLcaPlot.indexOf('data-panel="adaptive"'), mainLcaPlot.indexOf('data-panel="history"'));
-assert(adaptivePanel && !adaptivePanel.includes('lca-abgs25-nonadaptive-lower'), 'The non-adaptive lower bound is never projected into the adaptive panel');
+assert(mainLcaPlot.includes('data-scope="fixed-probe-schedule"') && mainLcaPlot.includes('data-adaptivity="nonadaptive"') && mainLcaPlot.includes('not a barrier for adaptive algorithms'), 'Shared LCA axes preserve the non-adaptive-only lower-bound scope');
 const lcaGroups = svg => [...svg.matchAll(/<g\b[^>]*\bdata-lca-result="[^"]+"[^>]*>/g)].map(match => svgAttributes(match[0]));
 const lcaGroupHTML = (svg, id) => [...svg.matchAll(/<g\b[^>]*\bdata-lca-result="[^"]+"[^>]*>[\s\S]*?<\/g>/g)].map(match => match[0]).find(group => svgAttributes(group.match(/^<g\b[^>]*>/)[0])['data-lca-result'] === id);
 const mainLcaGroups = lcaGroups(mainLcaPlot);
@@ -948,8 +950,8 @@ const queryHost=focusHost(),queryChanges=[];
 const queryInstance=realFocus.mount(queryHost,'query-list',{onPublicationChange:value=>queryChanges.push(value)});
 const queryDiagram=queryPlot(queryHost);
 assertPointLandscape(queryDiagram,'Adjacency-list focused map');
-assert.equal((queryDiagram.match(/data-axis="x"/g)||[]).length,4,'Every adjacency-list facet labels its horizontal axis');
-assert.equal((queryDiagram.match(/data-axis="y"/g)||[]).length,4,'Every adjacency-list facet labels its vertical axis');
+assert.equal((queryDiagram.match(/data-axis="x"/g)||[]).length,2,'Both shared-adaptive and non-adaptive plots label their horizontal axis');
+assert.equal((queryDiagram.match(/data-axis="y"/g)||[]).length,2,'Both shared-adaptive and non-adaptive plots label their vertical axis');
 assert(!queryDiagram.includes('data-beta=') && !queryDiagram.includes('data-exponent='),'Symbolic list-query statements do not invent numeric coordinates');
 assert(queryHost.innerHTML.includes('one edge-membership or partner query') && queryHost.innerHTML.includes('global maximum matching size'),'Global size and local-output query costs are explicitly distinguished');
 assert(queryDiagram.includes('∀δ &gt; 0 ∃ε(δ) &gt; 0') && queryDiagram.includes('η = η(γ) &gt; 0'),'The additive and non-adaptive lower-bound quantifiers remain visible');
@@ -1068,3 +1070,4 @@ assert.equal(preserveContext.detailKey,'','An explicit focus action still refres
 require('./test_fine_grained.cjs');
 
 require('./test_navigation_sources.cjs');
+require('./test_talk_design.cjs');

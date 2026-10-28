@@ -29,3 +29,5 @@
 .l-summary .l-summary-y-label{font-size:9px;fill:var(--muted)}
 
 .l-summary .l-summary-nonadaptive-bound{font-family:Georgia,serif;font-size:13px}.l-summary[data-detail-level=compact] .l-summary-nonadaptive-bound{font-size:10px}
+
+.l-key-nonadaptive{background:var(--green);border-radius:0}.l-map .l-section-title{font-size:17px}

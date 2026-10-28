@@ -99,7 +99,7 @@
     "y": "id"
   },
   "axisSummary": {
-    "x": "Retained fraction β; symbolic ε/δ anchors; budget lower bounds are separate annotations",
-    "y": "Theorem rows with exact query budgets; different resources and graph classes remain separate"
+    "x": "Retained fraction evaluated at ε; δ₀ remains symbolic. Red strips state necessary budgets, not approximation ceilings.",
+    "y": "Grouped symbolic query-budget formulas; separate graph and resource contracts. Formula spacing does not rank hidden constants."
   }
 }

@@ -12,6 +12,32 @@
   const weightingFor = (key = ID, options = {}) => options.weighting || options.view || (key.endsWith('-weighted') ? 'weighted' : 'unweighted');
   const panelsFor = options => data.panels.filter(panel => (panel.weighting || 'unweighted') === weightingFor(options.key || ID, options));
   const allRecords = () => [...data.verifiedRecords, ...(data.relatedResults || []).map(row => ({...row, related:true}))];
+  function frontierFor(points,axisType){
+    const cost=axisType==='cost',best=(items,greater)=>items.reduce((a,b)=>!a||(greater?b.row.value>a.row.value:b.row.value<a.row.value)?b:a,null),copy=p=>p?{id:p.id,x:p.x,y:p.y,row:p.row}:null;
+    const algorithm=copy(best(points.filter(p=>p.row.kind!=='lower'),!cost)),barrier=copy(best(points.filter(p=>p.row.kind==='lower'),cost)),symbolic=!!algorithm?.row.symbolicBonus;
+    const equal=!!algorithm&&!!barrier&&!symbolic&&Math.abs(algorithm.row.value-barrier.row.value)<1e-9;
+    return {algorithm,barrier,symbolic,equal,asymptotic:equal&&[algorithm,barrier].some(p=>p.row.asymptoticLimit||/o\(1\)/.test(p.row.displayBound)),cost};
+  }
+  function boundLabel(row,axisType){
+    if(axisType==='cost')return row.displayBound.replace(/ total replacements$/,'');
+    if(row.symbolicBonus)return row.displayBound.includes('δ′')?'½ + δ′':'½ + δ';
+    if(row.asymptoticLimit)return '1/e − 1/n';
+    const v=row.value,near=t=>Math.abs(v-t)<1e-9;
+    let label=near(.5)?'½':near(.75)?'¾':near(1-1/Math.E)?'1−1/e':near(1/Math.E)?'1/e':String(Math.round(v*10000)/10000);
+    if(!near(.5)&&!near(.75)&&!near(1-1/Math.E)&&!near(1/Math.E)&&Math.abs(Number(label)-v)>1e-9)label='≈'+label;
+    if(/o\(1\)/.test(row.displayBound))label+=' + o(1)';
+    if(row.displayBound.includes('Γ*'))label='Γ* ≈ 0.526';return label;
+  }
+  function frontierStrip(p,lane,geometry){
+    const f=lane.frontier,tiny=geometry.level==='overview',focus=geometry.level==='focus',th=tiny?Math.min(2.4,p.rowHeight*.35):Math.min(focus?10:6,p.rowHeight*.32);
+    const band=(a,b,k)=>b-a>.1?'<rect x="'+number(a)+'" y="'+number(lane.y-th/2)+'" width="'+number(b-a)+'" height="'+number(th)+'" rx="'+number(th/2)+'" class="mon-band mon-band-'+k+'" data-region="'+k+'" data-row="'+esc(lane.id)+'"/>':'';
+    let svg='<g class="mon-frontier" data-setup="'+esc(lane.id)+'" data-comparison="'+(f.cost?'cost':'competitive-fraction')+'">';
+    if(f.algorithm)svg+=f.cost?band(f.algorithm.x,p.right,'attainable'):band(p.left,f.algorithm.x,'attainable');
+    if(f.barrier)svg+=f.cost?band(p.left,f.barrier.x,'impossible'):band(f.barrier.x,p.right,'impossible');
+    if(f.algorithm&&f.barrier&&!f.equal){const a=Math.min(f.algorithm.x,f.barrier.x),b=Math.max(f.algorithm.x,f.barrier.x);svg+=f.symbolic?'<path d="M'+number(a)+' '+number(lane.y)+'H'+number(b)+'" class="mon-symbolic-gap" data-region="symbolic-gap"><title>Unspecified δ; gap is not drawn to scale.</title></path>':band(a,b,'unresolved');if(focus&&b-a>108&&!f.symbolic)svg+=text((a+b)/2,lane.y+3,'unresolved','gap-label','middle');}
+    if(f.equal){svg+=line(f.algorithm.x,lane.y-7,f.algorithm.x,lane.y+7,'tight-join');if(focus)svg+=text(f.algorithm.x+14,lane.y+4,f.cost?'same order':f.asymptotic?'tight in the limit':'tight','tight-label');}
+    if(focus&&f.algorithm&&!f.barrier)svg+=text(p.right-4,lane.y+4,'No ceiling reviewed','unreviewed-label','end');return svg+'</g>';
+  }
   function records(options = {}) {
     const panelIds = new Set(panelsFor(options).map(panel => panel.id));
     return allRecords().map(row => ({...data.sources[row.sourceId], ...row})).filter(row =>
@@ -52,6 +78,7 @@
         const offset = Math.min(focus ? 5 : compact ? 2 : tiny ? 1.1 : 3, rowHeight * .18);
         return {id: row.id, x: x(row.value), y: lane.y + (row.kind === 'lower' ? offset : -offset), row, lane};
       }).filter(Boolean);
+      for (const lane of rows) lane.frontier = frontierFor(points.filter(point => point.row.row === lane.id), panel.axisType);
       const result = {panel, top: y, height: panelHeight, left, right, plotTop, axisY, rowHeight, min, max, rows, points, x};
       y += panelHeight + gap;
       return result;
@@ -62,17 +89,20 @@
     const row = point.row, lower = row.kind === 'lower', tiny = geometry.level === 'overview';
     const compact = geometry.level === 'compact', radius = tiny ? 1.8 : compact ? 2.8 : interactive ? 6 : 4;
     const x = point.x, y = point.y, selected = options.selected === row.id;
-    const label = `${row.shortLabel}; ${row.quality}; ${row.displayBound}${row.symbolicBonus ? '; position is a symbolic anchor at one half, not a numeric value for delta' : ''}`;
-    let svg = `<g class="mon-point${lower ? ' mon-lower' : ' mon-upper'}" data-online-result="${esc(row.id)}" data-result-id="${esc(row.id)}" data-kind="${lower ? 'lower' : 'upper'}" data-panel="${esc(row.panel)}" data-point-x="${number(x)}" data-point-y="${number(y)}"${interactive ? ` role="button" tabindex="0" aria-pressed="${selected}"` : ''} aria-label="${esc(label)}"><title>${esc(label)}</title>`;
+    const f = point.lane.frontier, strongest = f.algorithm?.id === row.id || f.barrier?.id === row.id;
+    const meaning = f.cost ? (lower ? 'No algorithm uses asymptotically less recourse' : 'Algorithm uses at most this recourse') : (lower ? 'No algorithm can guarantee above this ceiling' : 'Algorithm reaches at least this competitive fraction');
+    const history = lower && !strongest ? '; weaker reviewed ceiling; the shaded frontier uses the stronger bound in this setup' : '';
+    const label = `${row.shortLabel}; ${meaning}; ${row.quality}; ${row.displayBound}${history}${row.symbolicBonus ? '; position is a symbolic anchor at one half, not a numeric value for delta' : ''}`;
+    let svg = `<g class="mon-point${strongest ? '' : ' mon-secondary'}${lower ? ' mon-lower' : ' mon-upper'}" data-online-result="${esc(row.id)}" data-result-id="${esc(row.id)}" data-kind="${lower ? 'lower' : 'upper'}" data-panel="${esc(row.panel)}" data-point-x="${number(x)}" data-point-y="${number(y)}"${interactive ? ` role="button" tabindex="0" aria-pressed="${selected}"` : ''} aria-label="${esc(label)}"><title>${esc(label)}</title>`;
     if (interactive) svg += `<circle class="mon-hit" cx="${number(x)}" cy="${number(y)}" r="15"/>`;
     if (selected && interactive) svg += `<circle class="mon-selection" cx="${number(x)}" cy="${number(y)}" r="12"/>`;
     svg += lower
       ? `<path class="mon-marker-lower" d="M${number(x)} ${number(y-radius)}l${radius} ${radius}l${-radius} ${radius}l${-radius} ${-radius}Z"/>`
       : `<circle class="mon-marker-upper${row.symbolicBonus || row.asymptoticLimit ? ' mon-symbolic' : ''}" cx="${number(x)}" cy="${number(y)}" r="${radius}"/>`;
     if (row.symbolicBonus) {
-      const length = tiny ? 4 : compact ? 9 : 20;
+      const requested = tiny ? 4 : compact ? 9 : 20;
+      const length = Math.max(2, Math.min(requested, (f.barrier?.x || x+requested+radius+12)-x-radius-10));
       svg += `<path class="mon-symbolic-arrow" d="M${number(x+radius+2)} ${number(y)}h${length}m-4 -3l4 3l-4 3"/>`;
-      if (!tiny) svg += text(x + radius + length + 6, y + (compact ? 2 : 4), row.displayBound.includes('δ′') ? '½+δ′' : '½+δ', 'bonus');
     }
     return svg + '</g>';
   }
@@ -80,7 +110,7 @@
     const geometry = layoutGeometry(width, height, options, interactive);
     const {w, h, level} = geometry, tiny = level === 'overview', compact = level === 'compact', focus = level === 'focus';
     const weighting = weightingFor(options.key || ID, options);
-    let svg = `<svg xmlns="http://www.w3.org/2000/svg" class="mon-${interactive ? 'map' : 'summary'}" viewBox="0 0 ${w} ${h}" preserveAspectRatio="xMidYMid meet" data-detail-level="${level}" data-weighting="${weighting}" role="${interactive ? 'group' : 'img'}" aria-label="${weighting} online matching: algorithms and impossibility bounds in aligned decision-policy panels"><title>Online matching · ${weighting} decisions and guarantees</title><desc>Green circles are algorithms; red diamonds are impossibility bounds. Competitive fraction beta increases to the right. Arrival assumptions and decision policies remain separate. Recourse-cost categories are symbolic, not a numeric runtime scale. Symbolic one-half-plus-delta improvements are not assigned a numerical delta.</desc>`;
+    let svg = `<svg xmlns="http://www.w3.org/2000/svg" class="mon-${interactive ? 'map' : 'summary'}" viewBox="0 0 ${w} ${h}" preserveAspectRatio="xMidYMid meet" data-detail-level="${level}" data-weighting="${weighting}" role="${interactive ? 'group' : 'img'}" aria-label="${weighting} online matching: algorithms and impossibility bounds in aligned decision-policy panels"><title>Online matching · ${weighting} decisions and guarantees</title><desc>Green circles reach at least the marked competitive fraction. Red diamonds are ceilings: no algorithm can guarantee above them. Green strips show attainable guarantees; red strips show impossible guarantees; neutral intervals show the unresolved gap. Competitive fraction beta increases to the right. Arrival assumptions and decision policies remain separate. Recourse-cost categories are symbolic, not a numeric runtime scale. Symbolic one-half-plus-delta improvements are not assigned a numerical delta.</desc>`;
     for (const panelGeometry of geometry.panels) {
       const p = panelGeometry, panel = p.panel;
       svg += `<g data-policy="${esc(panel.id)}" data-panel="${esc(panel.id)}" data-axis-type="${esc(panel.axisType)}">`;
@@ -94,14 +124,14 @@
       let ticks;
       if (panel.axisType === 'cost') ticks = [{value:0,label:'n log n'},{value:1,label:'n log² n'}];
       else if (compact) ticks = [{value:p.min,label:p.min === 0 ? '0' : '.4'},{value:1,label:'1'}];
-      else ticks = (panel.ticks || (p.min < .4 ? [0,.25,.5,.75,1] : [.5,1-1/Math.E,.75,1])).filter(value => value >= p.min && value <= p.max).map(value => ({value,label:Math.abs(value-(1-1/Math.E))<.0001?'1−1/e':value===.5?'½':value===.75?'¾':String(value)}));
+      else ticks = (panel.ticks || (p.min < .4 ? [0,.25,.5,.75,1] : [p.min,.5,1-1/Math.E,.75,1])).filter(value => value >= p.min && value <= p.max).map(value => ({value,label:Math.abs(value-(1-1/Math.E))<.0001?'1−1/e':value===.5?'½':value===.75?'¾':String(value)}));
       for (const tick of ticks) {
         const x = p.x(tick.value);
         svg += line(x, p.plotTop, x, p.axisY);
         if (!tiny) svg += text(x, p.axisY + (compact ? 7 : focus ? 22 : 14), tick.label, 'tick', tick.value === 1 && panel.axisType !== 'cost' ? 'end' : 'middle');
       }
       for (const row of p.rows) {
-        svg += line(p.left, row.y, p.right, row.y, 'row-rule');
+        svg += line(p.left, row.y, p.right, row.y, 'row-rule') + frontierStrip(p,row,geometry);
         if (tiny) continue;
         const labelX = compact ? 8 : 23, maxLength = compact ? 25 : focus ? 43 : 33;
         const label = focus ? row.label : row.compactLabel || row.label;
@@ -110,14 +140,13 @@
       }
       for (const point of p.points) {
         svg += marker(point, geometry, options, interactive);
-        if (focus && !point.row.symbolicBonus) {
-          const rightAligned = point.x > p.right - 155;
-          const labelX = Math.max(p.left + 4, Math.min(p.right - 4, point.x + (rightAligned ? -9 : 9)));
-          svg += text(labelX, point.y + (point.row.kind === 'lower' ? 13 : -10), shorten(point.row.shortLabel, 28), point.row.kind === 'lower' ? 'lower-label' : 'upper-label', rightAligned ? 'end' : 'start');
+        if (focus) {
+          const f=point.lane.frontier,lower=point.row.kind==='lower',labeled=(lower?f.barrier?.id:f.algorithm?.id)===point.id;
+          if(labeled){const rightAligned=point.x>p.right-190,labelX=Math.max(p.left+4,Math.min(p.right-4,point.x+(rightAligned?-9:9))),prefix=f.cost?(lower?'Requires ':'Uses '):(lower?'Ceiling ':'Reaches ');svg+=text(labelX,point.lane.y+(lower?18:-14),prefix+boundLabel(point.row,panel.axisType)+' · '+point.row.shortLabel,lower?'lower-label':'upper-label',rightAligned?'end':'start');}
         }
       }
-      if (focus) svg += text(p.right, p.axisY + 39, panel.axisType === 'cost' ? 'Total recourse · symbolic cost categories' : 'β = expected matching / offline optimum · better →', 'axis-direction', 'end');
-      else if (!tiny && !compact) svg += text(p.right, p.axisY + 28, panel.axisType === 'cost' ? 'Total replacements · symbolic categories' : 'Retained '+(weighting === 'weighted' ? 'weight' : 'cardinality')+' β · better →', 'tick', 'end', 'data-axis="x"');
+      if (focus) svg += text(p.right, p.axisY + 39, panel.axisType === 'cost' ? 'Fewer replacements ← · symbolic cost categories' : 'Retained fraction β · larger guarantees are better →', 'axis-direction', 'end');
+      else if (!tiny && !compact) svg += text(p.right, p.axisY + 28, panel.axisType === 'cost' ? 'Fewer replacements ← · symbolic categories' : 'Retained '+(weighting === 'weighted' ? 'weight' : 'cardinality')+' β · better →', 'tick', 'end', 'data-axis="x"');
       if (!tiny && !p.points.length) svg += text((p.left+p.right)/2, (p.plotTop+p.axisY)/2, compact ? 'Filtered' : 'No sources match this filter', 'empty', 'middle');
       svg += '</g>';
     }
@@ -125,7 +154,7 @@
   }
   function diagramSVG(key = ID, options = {}) {
     if (typeof key === 'object') {options = key || {}; key = options.key || ID;}
-    return chart(1100, 1100, {...options, key, weighting:weightingFor(key, options)}, true);
+    return chart(1100, weightingFor(key, options) === 'weighted' ? 850 : 1100, {...options, key, weighting:weightingFor(key, options)}, true);
   }
   function summarySVG(key, width, height, options = {}) {
     return chart(width, height, {...options, key, weighting:weightingFor(key, options)}, false);
@@ -142,11 +171,14 @@
     const current = () => ({key, publication, weighting, selected});
     root.classList.add('focus-view', 'mon-view'); root.classList.toggle('f-embedded', !!options.embedded);
     root.setAttribute('aria-label', 'Online matching: competitive guarantees and permitted revisions');
-    root.innerHTML = `<p class="f-kicker">MATCHING × ONLINE</p><header class="f-hero"><div><h1>What can be promised without seeing the future?</h1><p>Compare algorithms and impossibility bounds under explicit arrival and decision rules.</p></div></header><div class="mon-toolbar"><div class="mon-views" aria-label="Matching weight model"><button type="button" data-online-weighting="unweighted">Unweighted</button><button type="button" data-online-weighting="weighted">Weighted</button></div><label>Sources <select class="mon-publication" aria-label="Online matching publication filter"><option value="all">All reviewed sources</option><option value="published">Published only</option></select></label></div><div class="mon-legend"><span><i class="mon-key-upper"></i>Algorithm guarantee</span><span><i class="mon-key-lower"></i>Impossibility bound</span><span class="mon-setup-vertex">Vertex arrivals</span><span class="mon-setup-edge">Edge arrivals</span></div><p class="mon-active-scope"></p><div class="mon-scroll" tabindex="0" aria-label="Online matching figure; scroll horizontally on narrow screens"><div class="mon-plot"></div></div><div class="mon-reading"><p><b>Competitive fraction.</b> β = E[ALG]/OPT; larger is better. A red marker limits what algorithms can guarantee. Matching markers can certify tightness only within the same row and assumptions.</p><p><b>Decision rules.</b> Irrevocable acceptance, preemption, and bounded recourse permit different revisions. Arrival type and order remain visible in every row. An open ½+δ marker is symbolic: its short arrow does not specify δ.</p><p><b>Exact recourse.</b> The cost panel uses labeled categories, not a numerical competitive-ratio scale. Inspect a theorem for its precise recourse accounting and graph restrictions.</p></div><section class="mon-theorem" aria-live="polite" aria-label="Selected online matching theorem"></section><details class="mon-evidence"><summary>All results and primary-paper links</summary><div class="mon-records"></div></details><p class="mon-coverage">${esc(data.coverageNote)}</p>`;
+    root.innerHTML = `<p class="f-kicker">MATCHING × ONLINE</p><header class="f-hero"><div><h1>What can be promised without seeing the future?</h1><p>Compare algorithms and impossibility bounds under explicit arrival and decision rules.</p></div></header><div class="mon-toolbar"><div class="mon-views" aria-label="Matching weight model"><button type="button" data-online-weighting="unweighted">Unweighted</button><button type="button" data-online-weighting="weighted">Weighted</button></div><label>Sources <select class="mon-publication" aria-label="Online matching publication filter"><option value="all">All reviewed sources</option><option value="published">Published only</option></select></label></div><div class="mon-legend"><span><i class="mon-key-upper"></i>Algorithm reaches at least</span><span><i class="mon-key-lower"></i>No algorithm can guarantee above</span><span><i class="mon-key-gap"></i>Unresolved gap</span><span><i class="mon-key-secondary"></i>Hollow red: weaker ceiling</span><span class="mon-setup-vertex">Vertex arrivals</span><span class="mon-setup-edge">Edge arrivals</span></div><p class="mon-active-scope"></p><div class="mon-scroll" tabindex="0" aria-label="Online matching figure; scroll horizontally on narrow screens"><div class="mon-plot"></div></div><div class="mon-reading"><p><b>Competitive fraction.</b> β = E[ALG]/OPT; larger is better. Green extends to a proven guarantee; red starts at an impossibility ceiling. The neutral interval between them is unresolved in the reviewed sources. A shared endpoint means the bounds meet, possibly only asymptotically.</p><p><b>Decision rules.</b> Irrevocable acceptance, preemption, and bounded recourse permit different revisions. Arrival type and order remain visible in every row. An open ½+δ marker is symbolic: its arrow and dashed gap do not specify δ. Every paper remains inspectable, including weaker historical ceilings.</p><p><b>Exact recourse.</b> The cost panel uses labeled categories, not a numerical competitive-ratio scale. Inspect a theorem for its precise recourse accounting and graph restrictions.</p></div><section class="mon-theorem" aria-live="polite" aria-label="Selected online matching theorem"></section><details class="mon-evidence"><summary>All results and primary-paper links</summary><div class="mon-records"></div></details><p class="mon-coverage">${esc(data.coverageNote)}</p>`;
     function inspect() {
       const row = records(current()).find(candidate => candidate.id === selected), target = root.querySelector('.mon-theorem');
       if (!row) {target.innerHTML = '<p>No sources match this filter.</p>'; return;}
-      const type = row.kind === 'lower' ? 'Impossibility bound' : 'Algorithm guarantee';
+      const cost = data.panels.find(panel => panel.id === row.panel)?.axisType === 'cost';
+      const peers = records(current()).filter(candidate => !candidate.related && candidate.panel === row.panel && candidate.row === row.row && candidate.kind === 'lower');
+      const weaker = row.kind === 'lower' && !row.related && peers.some(candidate => cost ? candidate.value > row.value : candidate.value < row.value);
+      const type = row.kind === 'lower' ? (cost ? 'Recourse lower bound' : weaker ? 'Weaker reviewed ceiling on β' : 'Impossibility ceiling on β') : (cost ? 'Recourse upper bound' : 'Algorithm guarantee');
       const authors = Array.isArray(row.authors) ? row.authors.join(', ') : row.authors || '';
       const source = row.sourceUrl || row.url;
       target.innerHTML = `<div class="mon-detail-head"><span class="${row.kind === 'lower' ? 'mon-red' : 'mon-green'}">${type}</span><strong>${esc(row.shortLabel)}</strong><a href="${esc(source)}" target="_blank" rel="noopener noreferrer">Read paper ↗</a></div><div class="mon-detail-grid"><div><small>Recorded bound</small><strong>${esc(row.displayBound)}</strong></div><div><small>Output</small><strong>${esc(row.output)}</strong></div><div><small>Probability</small><strong>${esc(row.probability)}</strong></div></div><p><b>Guarantee.</b> ${esc(row.quality)}</p><p><b>Graph.</b> ${esc(row.graph)}</p>${row.resource ? `<p><b>Accounting.</b> ${esc(row.resource)}</p>` : ''}<p>${esc(row.notes)}</p><details><summary>Theorem, assumptions, and source</summary><h3>${esc(row.title)}</h3><p>${esc(authors)} · ${esc(row.venue)} · ${esc(row.year)}</p><p><b>${esc(row.theorem)}</b></p><ul>${(row.assumptions || []).map(assumption => `<li>${esc(assumption)}</li>`).join('')}</ul><p><a href="${esc(source)}" target="_blank" rel="noopener noreferrer">Inspect primary theorem ↗</a></p></details>`;
@@ -187,5 +219,5 @@
     instances.add(instance); return instance;
   }
   window.AtlasPairRenderers = window.AtlasPairRenderers || {};
-  window.AtlasPairRenderers[ID] = {records, diagramSVG, summarySVG, mount, release, layoutGeometry};
+  window.AtlasPairRenderers[ID] = {records, diagramSVG, summarySVG, mount, release, layoutGeometry, frontierFor};
 })();
