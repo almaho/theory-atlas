@@ -10,9 +10,8 @@
   <style>/* ATLAS_CSS */</style>
 </head>
 <body>
-  <nav class="view-nav" aria-label="Atlas views"><a class="atlas-brand" href="#focus">THEORY ATLAS<span>Knowledge, in view.</span></a><div><button id="show-focus" type="button" aria-pressed="true">Focused figures</button><button id="show-atlas" type="button" aria-pressed="false">Explore full atlas <span aria-hidden="true">↗</span></button></div></nav>
-  <main id="focus-view" aria-label="Matching knowledge map"></main>
-  <main id="atlas" hidden aria-label="Graph theory atlas">
+  <!-- SITE_NAV -->
+  <main id="atlas" aria-label="Graph theory atlas">
     <header class="head"><div><h1>Graph theory atlas</h1><p>Problems × computational models · algorithms and lower bounds</p></div><div class="controls"><button type="button" id="zoom-out" aria-label="Zoom out">−</button><output id="zoom-value">1.0×</output><button type="button" id="zoom-in" aria-label="Zoom in">+</button><button type="button" id="overview">Overview</button></div></header>
     <div class="global-search"><label for="global-query">Find a paper or result across the atlas</label><input id="global-query" type="search" autocomplete="off" placeholder="Title, author, theorem, bound, access model…"><span id="global-hint"></span></div>
     <section id="global-results" hidden aria-label="Atlas search results"></section>

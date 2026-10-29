@@ -5,6 +5,7 @@ import json
 import math
 from pathlib import Path
 from fine_grained import build_fine_grained
+from site_pages import site_navigation, build_site_pages
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
@@ -264,17 +265,18 @@ def main():
     if not args.check:
         template = (ROOT / "src" / "index.html").read_text()
         css = (ROOT / "src" / "style.css").read_text() + "\n" + (ROOT / "src" / "focus.css").read_text() + "\n" + (ROOT / "src" / "dynamic.css").read_text() + "\n" + (ROOT / "src" / "streaming.css").read_text() + "\n" + (ROOT / "src" / "lca.css").read_text() + "\n" + (ROOT / "src" / "local.css").read_text() + "\n" + (ROOT / "src" / "mpc.css").read_text() + "\n" + (ROOT / "src" / "query-list.css").read_text()
-        css += "\n" + (ROOT / "src" / "paper-links.css").read_text() + "\n" + (ROOT / "src" / "visual-guides.css").read_text() + "\n" + (ROOT / "src" / "cc-comparison.css").read_text()
+        css += "\n" + (ROOT / "src" / "paper-links.css").read_text() + "\n" + (ROOT / "src" / "visual-guides.css").read_text() + "\n" + (ROOT / "src" / "cc-comparison.css").read_text() + "\n" + (ROOT / "src" / "site.css").read_text()
         css += "\n" + "\n".join((ROOT / "src" / name).read_text() for name in dict.fromkeys(p["css"] for p in pairs))
-        js = "\n".join((ROOT / "src" / name).read_text() for name in ["app.js", "dynamic.js", "streaming.js", "lca.js", "local.js", "mpc.js", "query-list.js", *dict.fromkeys(p["javascript"] for p in pairs), "visual-guides.js", "cc-comparison.js", "focus.js", "paper-links.js"])
+        js = "\n".join((ROOT / "src" / name).read_text() for name in ["app.js", "dynamic.js", "streaming.js", "lca.js", "local.js", "mpc.js", "query-list.js", *dict.fromkeys(p["javascript"] for p in pairs), "visual-guides.js", "cc-comparison.js", "focus.js", "paper-links.js", "navigation.js"])
         payload = json.dumps(project, ensure_ascii=False, separators=(",", ":")).replace("<", "\\u003c").replace("&", "\\u0026")
-        for needle in ("/* ATLAS_CSS */", "/* ATLAS_JS */", "/* ATLAS_DATA */"):
+        for needle in ("/* ATLAS_CSS */", "/* ATLAS_JS */", "/* ATLAS_DATA */", "<!-- SITE_NAV -->"):
             require(template.count(needle) == 1, f"Template marker missing or duplicated: {needle}")
-        html = template.replace("/* ATLAS_CSS */", css).replace("/* ATLAS_JS */", js).replace("/* ATLAS_DATA */", payload)
+        html = template.replace("/* ATLAS_CSS */", css).replace("/* ATLAS_JS */", js).replace("/* ATLAS_DATA */", payload).replace("<!-- SITE_NAV -->", site_navigation("atlas"))
         output = ROOT / "dist" / "index.html"
         output.parent.mkdir(exist_ok=True)
         output.write_text(html)
         print(f"Wrote {output} ({output.stat().st_size:,} bytes)")
+    build_site_pages(ROOT, write=not args.check)
     # Fine-grained page is paused; retain and validate its research without publishing it.
     build_fine_grained(ROOT, write=False)
     if not args.check:

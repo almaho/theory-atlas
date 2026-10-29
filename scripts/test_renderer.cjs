@@ -166,8 +166,8 @@ assert.equal(context.curatedKey(context.currentSlice), null, 'Missing or late-lo
 // Exercise the real focused renderer as well as the atlas adapter. These small
 // element fixtures supply geometry and track lifecycle; browser QA covers layout.
 const focusSource = fs.readFileSync(path.join(__dirname, '../src/focus.js'), 'utf8');
-const bootstrap = focusSource.indexOf("  const root=document.getElementById('focus-view')");
-assert(bootstrap > 0, 'Focused renderer API is separable from page navigation');
+const bootstrap = focusSource.indexOf("  // Atlas-only navigation:");
+assert(bootstrap > 0, 'Figure renderer API is separable from atlas navigation');
 const focusData = {
   one: JSON.parse(fs.readFileSync(path.join(__dirname, '../data/focus/matching-stream.json'), 'utf8')),
   two: JSON.parse(fs.readFileSync(path.join(__dirname, '../data/focus/matching-stream-two-pass.json'), 'utf8')),
@@ -1073,3 +1073,5 @@ require('./test_navigation_sources.cjs');
 require('./test_talk_design.cjs');
 
 require('./test_cc_comparison.cjs');
+
+require('./test_site_pages.cjs');
