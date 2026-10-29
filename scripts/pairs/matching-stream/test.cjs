@@ -7,7 +7,7 @@ const context={document,window:{},AbortController,Set,console};vm.runInNewContex
 const api=context.window.AtlasPairRenderers['matching-stream'];
 const routes=['matching-stream-insertion','matching-stream-insertion-bipartite','matching-stream-turnstile','matching-stream-onepass','matching-stream-bounded','matching-stream-bounded-approx','matching-stream-arboricity'];
 const r=id=>data.verifiedRecords.find(r=>r.id===id);
-assert.equal(patch.upsertSlices.length,7);assert.equal(data.verifiedRecords.length,18);
+assert.equal(patch.upsertSlices.length,7);assert.equal(data.verifiedRecords.length,20);
 for(const s of input.slices)for(const entry of s.results)assert(r(entry.id),'Original result missing '+entry.id);
 for(const entry of data.verifiedRecords){for(const f of ['sourceId','kind','graph','output','stream','bound','quality','space','passes','theorem','probability','assumptions'])assert(entry[f],entry.id+' missing '+f);assert(data.sources[entry.sourceId]);assert(data.figureAxes.some(p=>p.id===entry.panel));}
 // Material model/regression assertions, independent of renderer internals.
@@ -21,7 +21,19 @@ assert(!r('matching-stream-kdd25-approx-lower').bound.includes('ε'));
 assert(r('matching-stream-dynamic-passes-boosted').bound.includes('f(ε)'));
 assert.equal(r('matching-stream-mcgregor26-arboricity').output,'size estimate only');
 assert.notEqual(r('matching-stream-akl17-arboricity-lower').panel,r('matching-stream-mcgregor26-arboricity').panel);
+for(const graph of ['general','bipartite']){
+ const lower=r('matching-stream-lnns26-'+graph);
+ assert.equal(lower.kind,'lower');assert.equal(lower.publicationStatus,'preprint');assert.equal(lower.output,'matching edges; not size estimation');
+ assert(lower.assumptions.some(x=>x.includes('including failed')));assert(lower.assumptions.some(x=>x.includes('independent of n')));
+ assert(lower.notes.includes('No equality impossibility'));assert(lower.probability.includes('1/2+ζ'));
+ const two=JSON.parse(fs.readFileSync(__dirname+'/../../../data/focus/matching-stream-two-pass'+(graph==='bipartite'?'-bipartite':'')+'.json','utf8'));
+ const projected=two.results.find(x=>x.id.startsWith('lnns2026'));assert(projected);assert(projected.strict);
+ assert.equal(projected.ratio,1-Math.pow(3,-2));assert.equal(projected.ratio,8/9);
+ assert(projected.notes.includes('does not improve'));assert(projected.notes.includes('valid matching'));
+}
 assert(!api.records({publication:'published'}).some(x=>x.sourceId==='mcgregor26'));
+assert(!api.records({publication:'published'}).some(x=>x.sourceId==='lnns26'));
+assert.equal(api.records({key:'matching-stream-insertion'}).filter(x=>x.sourceId==='lnns26').length,2);
 assert(api.records({publication:'published',key:'matching-stream-arboricity'}).some(x=>x.sourceId==='akl17'));
 for(const key of routes){
  const diag=api.diagramSVG(key);assert(diag.includes('Y ·'));assert(diag.includes('X ·'));assert(!diag.includes('NaN'));assert(diag.includes('role="button"'));assert(diag.includes('tabindex="0"'));
@@ -44,4 +56,4 @@ api.mount(root,'matching-stream-bounded');assert(root.handlers.slice(0,3).every(
 const activeClick=root.handlers.filter(h=>h.type==='click'&&!h.signal.aborted)[0];activeClick.fn({target:{closest:()=>({dataset:{mstrResult:'matching-stream-kdd25-det-lower'}})}});
 assert(root.querySelector('.mstr-theorem').innerHTML.includes('K≤n/2'));
 api.release(root);assert(root.handlers.every(h=>h.signal.aborted));assert(!root.classes.has('mstr-view'));
-console.log('Streaming pair checks passed: 18 records, 7 routes, 84 summaries, source scope/filtering, theorem selection and release lifecycle.');
+console.log('Streaming pair checks passed: 20 records, 7 routes, 84 summaries, source scope/filtering, theorem selection and release lifecycle.');

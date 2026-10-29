@@ -1,7 +1,7 @@
 {
   "id": "vertex-dynamic",
   "title": "Dynamic vertex coloring",
-  "reviewedThrough": "2026-10-27",
+  "reviewedThrough": "2026-10-29",
   "sources": {
     "flin-halldorsson-2025-dynamic-coloring": {
       "id": "flin-halldorsson-2025-dynamic-coloring",
@@ -93,9 +93,75 @@
       "verifiedOn": "2026-10-27",
       "version": "2512.09218v3",
       "sourceUrl": "https://arxiv.org/html/2512.09218v3"
+    },
+    "gil-halldorsson-2026-dynamic-coloring": {
+      "id": "gil-halldorsson-2026-dynamic-coloring",
+      "title": "Dynamic (Δ+1)-Coloring Against an Adaptive Adversary: Faster, Simpler, Worst-Case, and Bounded Recourse",
+      "authors": [
+        "Yuval Gil",
+        "Magnús M. Halldórsson"
+      ],
+      "year": 2026,
+      "venue": "arXiv v2 · accepted SODA 2027",
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/abs/2610.26182",
+      "version": "2610.26182v2",
+      "sourceUrl": "https://arxiv.org/html/2610.26182v2#S1.Thmtheorem1",
+      "verifiedOn": "2026-10-29"
     }
   },
   "verifiedRecords": [
+    {
+      "panel": "time",
+      "kind": "algorithm",
+      "output": "Explicit proper vertex coloring maintained after every edge insertion or deletion",
+      "graph": "General simple undirected graphs on a fixed n-vertex set",
+      "oracle": "Fully dynamic RAM data structure; edge insertions and deletions",
+      "quality": "Proper coloring with the stated degree-based palette",
+      "randomized": true,
+      "related": false,
+      "delta": "Fixed known degree bound Δ, valid throughout the sequence",
+      "assumptions": [
+        "Simple undirected graph on n vertices.",
+        "Maximum degree always at most a fixed known Δ.",
+        "Colors maintained in a data structure; printing all n colors after every update is not charged.",
+        "Adaptive adversary."
+      ],
+      "setup": "adaptive_worstcase",
+      "costClass": "sqrt",
+      "shortName": "GH 2026 · preprint",
+      "tag": "worst-case · 3 recolorings",
+      "displayBound": "Õ(√n)",
+      "palette": "Δ+1",
+      "probability": "Randomized; worst-case update time with high probability.",
+      "theorem": "Theorem 1.1; §4.2–4.4",
+      "amortization": "Worst-case update time with high probability; recourse at most 3",
+      "initialization": "Initially empty graph; subsequent phase preprocessing is pipelined across updates (§4.2).",
+      "notes": "The adaptive adversary may see earlier random bits and internal state. The plotted version fixes a known Δ; §4.4 also supports the maximum degree observed so far. Neither a √n technique barrier nor this algorithm is a maintenance lower bound.",
+      "id": "vertex-dynamic-adaptive-gil-2026",
+      "originalIds": [
+        "vertex-dynamic-adaptive-gil-2026"
+      ],
+      "sliceId": "vertex-dynamic-adaptive-delta-plus-one",
+      "paperId": "gil-halldorsson-2026-dynamic-coloring",
+      "sourceId": "gil-halldorsson-2026-dynamic-coloring",
+      "title": "Dynamic (Δ+1)-Coloring Against an Adaptive Adversary: Faster, Simpler, Worst-Case, and Bounded Recourse",
+      "authors": [
+        "Yuval Gil",
+        "Magnús M. Halldórsson"
+      ],
+      "venue": "arXiv v2 · accepted SODA 2027",
+      "year": 2026,
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/abs/2610.26182",
+      "sourceUrl": "https://arxiv.org/html/2610.26182v2#S1.Thmtheorem1",
+      "frontierStatus": "candidate",
+      "adversary": "Adaptive, including visibility of previous random bits and data structures.",
+      "version": "2610.26182v2",
+      "verifiedOn": "2026-10-29",
+      "recourse": 3,
+      "evidenceStatus": "primary_statement_checked_preprint"
+    },
     {
       "panel": "time",
       "kind": "algorithm",
@@ -498,6 +564,20 @@
       ]
     },
     {
+      "id": "adaptive_worstcase",
+      "label": "Adaptive · worst-case WHP",
+      "palette": "Δ+1",
+      "color": "adaptive",
+      "lines": [
+        "Adaptive",
+        "worst-case · WHP"
+      ],
+      "compact": [
+        "Adapt.",
+        "worst-case"
+      ]
+    },
+    {
       "id": "oblivious_expected",
       "label": "Oblivious · expected amortized",
       "palette": "Δ+1",
@@ -566,6 +646,11 @@
       "short": "n^{2/3}"
     },
     {
+      "id": "sqrt",
+      "label": "Õ(√n)",
+      "short": "√n"
+    },
+    {
       "id": "polylog",
       "label": "O(polylog Δ)",
       "short": "polylog Δ"
@@ -581,7 +666,7 @@
       "short": "1"
     }
   ],
-  "coverage": "Bounded review of seven supplied records from six primary papers, plus one scoped colorability lower in the same source set. No exhaustive-literature claim.",
+  "coverage": "Eight maintenance records from seven primary papers, plus a separately scoped decision lower bound. GH2026 is an arXiv v2 claim accepted for SODA 2027; its theorem statement and model were checked.",
   "lowerBoundStatus": "No matching nontrivial maintenance update-time lower was verified in these sources. HP2022's decision lower is related only; FH2025's n^{2/3} discussion is not a lower-bound theorem.",
   "figureAxes": {
     "time": {
@@ -591,6 +676,10 @@
           {
             "id": "adaptive",
             "label": "Adaptive; Δ+1"
+          },
+          {
+            "id": "adaptive_worstcase",
+            "label": "Adaptive · worst-case WHP; Δ+1"
           },
           {
             "id": "oblivious_expected",
@@ -622,6 +711,11 @@
             "id": "n23",
             "label": "Õ(n^{2/3})",
             "short": "n^{2/3}"
+          },
+          {
+            "id": "sqrt",
+            "label": "Õ(√n)",
+            "short": "√n"
           },
           {
             "id": "polylog",
@@ -718,6 +812,13 @@
       "theorem": "Appendix A, Theorem A.1 and preceding reduction",
       "verifiedOn": "2026-10-27",
       "scope": "Amortized over a sequence of updates and decision queries"
+    },
+    {
+      "id": "vertex-dynamic-adaptive-gil-2026",
+      "url": "https://arxiv.org/html/2610.26182v2#S1.Thmtheorem1",
+      "theorem": "Theorem 1.1; §4.2–4.4",
+      "verifiedOn": "2026-10-29",
+      "scope": "Statement checked, not independent proof verification; worst-case WHP; recourse 3; fixed-Δ comparison."
     }
   ]
 }

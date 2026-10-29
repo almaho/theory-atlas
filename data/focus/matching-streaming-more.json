@@ -1,7 +1,7 @@
 {
   "id": "matching-stream",
   "title": "Matching beyond two passes",
-  "reviewedOn": "2026-10-20",
+  "reviewedOn": "2026-10-29",
   "sources": {
     "abkns25": {
       "id": "assadi-behnezhad-konrad-naidu-sundaresan-2025-passes",
@@ -163,6 +163,25 @@
       "verifiedOn": "2026-10-20",
       "label": "AKL ’17",
       "fullTextUrl": "https://arxiv.org/html/1701.04364"
+    },
+    "lnns26": {
+      "id": "liu-naidu-nguyen-sundaresan-2026-streaming",
+      "title": "An Unconditional Space-Approximation Lower Bound for Semi-Streaming Matching",
+      "authors": [
+        "Yang P. Liu",
+        "Kheeran Naidu",
+        "Hoai-An Nguyen",
+        "Janani Sundaresan"
+      ],
+      "year": 2026,
+      "venue": "arXiv v1 · 27 October 2026",
+      "publicationStatus": "preprint",
+      "version": "2610.36577v1",
+      "url": "https://arxiv.org/abs/2610.36577",
+      "sourceUrl": "https://arxiv.org/html/2610.36577v1#Thmtheorem1",
+      "verifiedOn": "2026-10-29",
+      "fullTextUrl": "https://arxiv.org/html/2610.36577v1#Thmtheorem1",
+      "label": "LNNS ’26 · preprint"
     }
   },
   "verifiedRecords": [
@@ -734,6 +753,70 @@
       "evidenceStatus": "full_text_verified",
       "sourceUrl": "https://arxiv.org/html/1701.04364",
       "plotLane": "Ω(√n/r^{5/2}) bits"
+    },
+    {
+      "id": "matching-stream-lnns26-general",
+      "sourceId": "lnns26",
+      "sliceId": "matching-stream-multipass-general",
+      "kind": "lower",
+      "panel": "insertion-general",
+      "xCategory": "rand",
+      "bound": "Ω(log(1/ε)) passes",
+      "displayBound": "Ω(log(1/ε)) passes",
+      "quality": "|M| ≥ (1−ε) OPT; fixed sufficiently small ε>0",
+      "space": "O(n polylog n) bits",
+      "passes": "Ω(log(1/ε))",
+      "theorem": "Theorem 1; §7.5; Appendix A.2",
+      "probability": "Success ≥1/2+ζ, fixed ζ>0; always-valid matching output",
+      "notes": "For fixed p and δ>0, β=1−3^{−p}+δ is impossible in semi-streaming space. No equality impossibility or size-estimation lower bound is asserted. Fixed small ε gives Ω(log(1/ε)) passes; no ε(n) extrapolation.",
+      "graph": "bipartite graphs (hence also a general-graph lower bound)",
+      "output": "matching edges; not size estimation",
+      "stream": "arbitrary-order insertion-only",
+      "assumptions": [
+        "Fixed constant pass count p and accuracy slack independent of n.",
+        "Arbitrary-order insertion-only stream; same stream each pass; O(n polylog n) bits.",
+        "Success at least 1/2+ζ for fixed ζ>0 on every input.",
+        "Every run outputs a valid matching, including failed approximation runs."
+      ],
+      "label": "LNNS ’26 · preprint",
+      "shortLabel": "LNNS ’26 · preprint",
+      "year": 2026,
+      "publicationStatus": "preprint",
+      "evidenceStatus": "primary_statement_checked_preprint",
+      "sourceUrl": "https://arxiv.org/html/2610.36577v1#Thmtheorem1",
+      "plotLane": "Ω(log(1/ε)) passes"
+    },
+    {
+      "id": "matching-stream-lnns26-bipartite",
+      "sourceId": "lnns26",
+      "sliceId": "matching-stream-multipass-bipartite",
+      "kind": "lower",
+      "panel": "insertion-bipartite",
+      "xCategory": "rand",
+      "bound": "Ω(log(1/ε)) passes",
+      "displayBound": "Ω(log(1/ε)) passes",
+      "quality": "|M| ≥ (1−ε) OPT; fixed sufficiently small ε>0",
+      "space": "O(n polylog n) bits",
+      "passes": "Ω(log(1/ε))",
+      "theorem": "Theorem 1; §7.5; Appendix A.2",
+      "probability": "Success ≥1/2+ζ, fixed ζ>0; always-valid matching output",
+      "notes": "For fixed p and δ>0, β=1−3^{−p}+δ is impossible in semi-streaming space. No equality impossibility or size-estimation lower bound is asserted. Fixed small ε gives Ω(log(1/ε)) passes; no ε(n) extrapolation.",
+      "graph": "bipartite graphs",
+      "output": "matching edges; not size estimation",
+      "stream": "arbitrary-order insertion-only",
+      "assumptions": [
+        "Fixed constant pass count p and accuracy slack independent of n.",
+        "Arbitrary-order insertion-only stream; same stream each pass; O(n polylog n) bits.",
+        "Success at least 1/2+ζ for fixed ζ>0 on every input.",
+        "Every run outputs a valid matching, including failed approximation runs."
+      ],
+      "label": "LNNS ’26 · preprint",
+      "shortLabel": "LNNS ’26 · preprint",
+      "year": 2026,
+      "publicationStatus": "preprint",
+      "evidenceStatus": "primary_statement_checked_preprint",
+      "sourceUrl": "https://arxiv.org/html/2610.36577v1#Thmtheorem1",
+      "plotLane": "Ω(log(1/ε)) passes"
     }
   ],
   "relatedResults": [],
@@ -772,6 +855,10 @@
           {
             "id": "matching-stream-assadi25-weighted-specialization",
             "label": "O(log n/ε) passes"
+          },
+          {
+            "id": "matching-stream-lnns26-general",
+            "label": "Ω(log(1/ε)) passes"
           }
         ]
       },
@@ -807,6 +894,10 @@
           {
             "id": "matching-stream-assadi25-bipartite",
             "label": "O(log n/ε) passes"
+          },
+          {
+            "id": "matching-stream-lnns26-bipartite",
+            "label": "Ω(log(1/ε)) passes"
           }
         ]
       },
@@ -1147,14 +1238,29 @@
         "matching-stream-akl17-arboricity-lower"
       ],
       "note": "Lower bound stays separate from McGregor’s exact approximation factor."
+    },
+    {
+      "sourceId": "lnns26",
+      "url": "https://arxiv.org/html/2610.36577v1#Thmtheorem1",
+      "verifiedOn": "2026-10-29",
+      "theorems": [
+        "Theorem 1",
+        "§7.5",
+        "Appendix A.2"
+      ],
+      "recordIds": [
+        "matching-stream-lnns26-general",
+        "matching-stream-lnns26-bipartite"
+      ],
+      "note": "For fixed p and δ>0, β=1−3^{−p}+δ is impossible in semi-streaming space. No equality impossibility or size-estimation lower bound is asserted. Fixed small ε gives Ω(log(1/ε)) passes; no ε(n) extrapolation."
     }
   ],
-  "coverageNote": "Seven existing pending slices, eight supplied primary sources, plus the directly comparable AS22 one-pass upper bound and AKL17 sparse value lower bound. Existing one/two-pass insertion figures remain untouched. No claim of complete literature coverage.",
+  "coverageNote": "Existing multipass and deletion-stream source set, extended by LNNS2026 v1. Its primary theorem and output convention were checked; the proof was not independently verified.",
   "comparisonNotes": [
     "Do not compare pass counts to bits of memory.",
     "Approximate edge output, exact maximality and size estimation remain separate.",
-    "No comparable insertion-only multipass lower bound was supplied in this bounded source set.",
     "Symbolic formula rows are categorical; their vertical order does not rank multivariate functions.",
-    "For bounded-deletion exact maximality, display the randomized lower-bound proof convention on failure outputs."
+    "For bounded-deletion exact maximality, display the randomized lower-bound proof convention on failure outputs.",
+    "LNNS2026: fixed-pass unconditional preprint lower bound; failed outputs must remain valid matchings. Not a size-estimation bound."
   ]
 }

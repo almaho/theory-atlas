@@ -140,6 +140,23 @@
       "publicationStatus": "conference",
       "url": "https://arxiv.org/abs/1701.04364",
       "verifiedOn": "2026-10-20"
+    },
+    {
+      "id": "liu-naidu-nguyen-sundaresan-2026-streaming",
+      "title": "An Unconditional Space-Approximation Lower Bound for Semi-Streaming Matching",
+      "authors": [
+        "Yang P. Liu",
+        "Kheeran Naidu",
+        "Hoai-An Nguyen",
+        "Janani Sundaresan"
+      ],
+      "year": 2026,
+      "venue": "arXiv v1 · 27 October 2026",
+      "publicationStatus": "preprint",
+      "version": "2610.36577v1",
+      "url": "https://arxiv.org/abs/2610.36577",
+      "sourceUrl": "https://arxiv.org/html/2610.36577v1#Thmtheorem1",
+      "verifiedOn": "2026-10-29"
     }
   ],
   "upsertSlices": [
@@ -169,7 +186,8 @@
         "categories": [
           "O(ε⁻¹⁹) passes",
           "O(ε⁻⁶) passes",
-          "O(log n/ε) passes"
+          "O(log n/ε) passes",
+          "Ω(log(1/ε)) passes"
         ]
       },
       "parameters": {
@@ -232,6 +250,25 @@
             "Semi-streaming O(n·polylog n) memory",
             "ε is a parameter; count passes"
           ]
+        },
+        {
+          "id": "matching-stream-lnns26-general",
+          "paperId": "liu-naidu-nguyen-sundaresan-2026-streaming",
+          "kind": "lower",
+          "bound": "Ω(log(1/ε)) passes",
+          "guarantee": "|M| ≥ (1−ε) OPT; fixed sufficiently small ε>0",
+          "sourceLocation": "Theorem 1; §7.5; Appendix A.2",
+          "sourceUrl": "https://arxiv.org/html/2610.36577v1#Thmtheorem1",
+          "evidenceStatus": "primary_statement_checked_preprint",
+          "frontierStatus": "candidate",
+          "notes": "For fixed p and δ>0, β=1−3^{−p}+δ is impossible in semi-streaming space. No equality impossibility or size-estimation lower bound is asserted. Fixed small ε gives Ω(log(1/ε)) passes; no ε(n) extrapolation.",
+          "plot": null,
+          "assumptions": [
+            "Fixed constant pass count p and accuracy slack independent of n.",
+            "Arbitrary-order insertion-only stream; same stream each pass; O(n polylog n) bits.",
+            "Success at least 1/2+ζ for fixed ζ>0 on every input.",
+            "Every run outputs a valid matching, including failed approximation runs."
+          ]
         }
       ],
       "mode": "2d",
@@ -261,7 +298,8 @@
         "label": "Passes / space (symbolic theorem formulas)",
         "categories": [
           "O(log n · log(1/ε)/ε) passes",
-          "O(log n/ε) passes"
+          "O(log n/ε) passes",
+          "Ω(log(1/ε)) passes"
         ]
       },
       "parameters": {
@@ -302,6 +340,25 @@
             "Arbitrary edge order, multiple passes",
             "Bipartite input",
             "Semi-streaming memory"
+          ]
+        },
+        {
+          "id": "matching-stream-lnns26-bipartite",
+          "paperId": "liu-naidu-nguyen-sundaresan-2026-streaming",
+          "kind": "lower",
+          "bound": "Ω(log(1/ε)) passes",
+          "guarantee": "|M| ≥ (1−ε) OPT; fixed sufficiently small ε>0",
+          "sourceLocation": "Theorem 1; §7.5; Appendix A.2",
+          "sourceUrl": "https://arxiv.org/html/2610.36577v1#Thmtheorem1",
+          "evidenceStatus": "primary_statement_checked_preprint",
+          "frontierStatus": "candidate",
+          "notes": "For fixed p and δ>0, β=1−3^{−p}+δ is impossible in semi-streaming space. No equality impossibility or size-estimation lower bound is asserted. Fixed small ε gives Ω(log(1/ε)) passes; no ε(n) extrapolation.",
+          "plot": null,
+          "assumptions": [
+            "Fixed constant pass count p and accuracy slack independent of n.",
+            "Arbitrary-order insertion-only stream; same stream each pass; O(n polylog n) bits.",
+            "Success at least 1/2+ζ for fixed ζ>0 on every input.",
+            "Every run outputs a valid matching, including failed approximation runs."
           ]
         }
       ],

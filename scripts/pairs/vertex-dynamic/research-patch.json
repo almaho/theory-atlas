@@ -87,6 +87,21 @@
       "url": "https://arxiv.org/abs/2512.09218",
       "verifiedOn": "2026-10-27",
       "version": "2512.09218v3"
+    },
+    {
+      "id": "gil-halldorsson-2026-dynamic-coloring",
+      "title": "Dynamic (Δ+1)-Coloring Against an Adaptive Adversary: Faster, Simpler, Worst-Case, and Bounded Recourse",
+      "authors": [
+        "Yuval Gil",
+        "Magnús M. Halldórsson"
+      ],
+      "year": 2026,
+      "venue": "arXiv v2 · accepted SODA 2027",
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/abs/2610.26182",
+      "version": "2610.26182v2",
+      "sourceUrl": "https://arxiv.org/html/2610.26182v2#S1.Thmtheorem1",
+      "verifiedOn": "2026-10-29"
     }
   ],
   "upsertSlices": [
@@ -102,11 +117,16 @@
         "Adaptive adversary; edge insertions and deletions"
       ],
       "xAxis": {
+        "kind": "categorical",
         "label": "Adversary, palette and averaging contract (categorical)",
         "categories": [
           {
             "id": "adaptive",
             "label": "Adaptive; Δ+1"
+          },
+          {
+            "id": "adaptive_worstcase",
+            "label": "Adaptive · worst-case WHP; Δ+1"
           },
           {
             "id": "oblivious_expected",
@@ -124,10 +144,10 @@
             "id": "deterministic",
             "label": "Deterministic · amortized; (1+o(1))Δ"
           }
-        ],
-        "kind": "categorical"
+        ]
       },
       "yAxis": {
+        "kind": "categorical",
         "label": "Symbolic update-time classes; not a universal asymptotic ranking",
         "categories": [
           {
@@ -139,6 +159,11 @@
             "id": "n23",
             "label": "Õ(n^{2/3})",
             "short": "n^{2/3}"
+          },
+          {
+            "id": "sqrt",
+            "label": "Õ(√n)",
+            "short": "√n"
           },
           {
             "id": "polylog",
@@ -155,8 +180,7 @@
             "label": "O(1)",
             "short": "1"
           }
-        ],
-        "kind": "categorical"
+        ]
       },
       "parameters": {
         "n": "fixed vertex count",
@@ -189,6 +213,19 @@
           "notes": "Restores the amortized qualifier omitted from the input abstract-only record. FH2025 improves the same adaptive contract. Periodic rebuilding is amortized over phases; §5.4.1 notes sufficiently long sequences for matching initialization.",
           "plot": null,
           "sourceUrl": "https://arxiv.org/pdf/2411.04418v2"
+        },
+        {
+          "id": "vertex-dynamic-adaptive-gil-2026",
+          "paperId": "gil-halldorsson-2026-dynamic-coloring",
+          "kind": "upper",
+          "bound": "Õ(√n) worst-case update time WHP; at most 3 recolorings",
+          "guarantee": "Maintain a proper (Δ+1)-coloring under adaptive edge insertions and deletions",
+          "sourceLocation": "Theorem 1.1; §4.2–4.4",
+          "sourceUrl": "https://arxiv.org/html/2610.26182v2#S1.Thmtheorem1",
+          "evidenceStatus": "primary_statement_checked_preprint",
+          "frontierStatus": "candidate",
+          "notes": "Initially empty graph; subsequent phase preprocessing is pipelined across updates (§4.2). The adaptive adversary may see earlier random bits and internal state. The plotted version fixes a known Δ; §4.4 also supports the maximum degree observed so far. Neither a √n technique barrier nor this algorithm is a maintenance lower bound.",
+          "plot": null
         }
       ]
     },
@@ -204,11 +241,16 @@
         "Edge insertion/deletion; graph maximum degree bounded by Δ"
       ],
       "xAxis": {
+        "kind": "categorical",
         "label": "Adversary, palette and averaging contract (categorical)",
         "categories": [
           {
             "id": "adaptive",
             "label": "Adaptive; Δ+1"
+          },
+          {
+            "id": "adaptive_worstcase",
+            "label": "Adaptive · worst-case WHP; Δ+1"
           },
           {
             "id": "oblivious_expected",
@@ -226,10 +268,10 @@
             "id": "deterministic",
             "label": "Deterministic · amortized; (1+o(1))Δ"
           }
-        ],
-        "kind": "categorical"
+        ]
       },
       "yAxis": {
+        "kind": "categorical",
         "label": "Symbolic update-time classes; not a universal asymptotic ranking",
         "categories": [
           {
@@ -241,6 +283,11 @@
             "id": "n23",
             "label": "Õ(n^{2/3})",
             "short": "n^{2/3}"
+          },
+          {
+            "id": "sqrt",
+            "label": "Õ(√n)",
+            "short": "√n"
           },
           {
             "id": "polylog",
@@ -257,8 +304,7 @@
             "label": "O(1)",
             "short": "1"
           }
-        ],
-        "kind": "categorical"
+        ]
       },
       "parameters": {
         "n": "fixed vertex count",
@@ -332,11 +378,16 @@
         "Palette larger than Δ+1"
       ],
       "xAxis": {
+        "kind": "categorical",
         "label": "Adversary, palette and averaging contract (categorical)",
         "categories": [
           {
             "id": "adaptive",
             "label": "Adaptive; Δ+1"
+          },
+          {
+            "id": "adaptive_worstcase",
+            "label": "Adaptive · worst-case WHP; Δ+1"
           },
           {
             "id": "oblivious_expected",
@@ -354,10 +405,10 @@
             "id": "deterministic",
             "label": "Deterministic · amortized; (1+o(1))Δ"
           }
-        ],
-        "kind": "categorical"
+        ]
       },
       "yAxis": {
+        "kind": "categorical",
         "label": "Symbolic update-time classes; not a universal asymptotic ranking",
         "categories": [
           {
@@ -369,6 +420,11 @@
             "id": "n23",
             "label": "Õ(n^{2/3})",
             "short": "n^{2/3}"
+          },
+          {
+            "id": "sqrt",
+            "label": "Õ(√n)",
+            "short": "√n"
           },
           {
             "id": "polylog",
@@ -385,8 +441,7 @@
             "label": "O(1)",
             "short": "1"
           }
-        ],
-        "kind": "categorical"
+        ]
       },
       "parameters": {
         "n": "fixed vertex count",
