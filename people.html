@@ -4,12 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
-  <script>/* Shared board appearance, applied before the page paints. */
+  <script>/* Shared appearance, applied before the page paints. */
 (()=>{
   'use strict';
-  const key='theory-atlas-theme',root=document.documentElement;
+  const key='theory-atlas-appearance',root=document.documentElement;
   const valid=value=>value==='light'||value==='dark';
-  const system=window.matchMedia('(prefers-color-scheme: dark)');
   let saved;
   try{saved=window.localStorage.getItem(key);}catch{}
   let explicit=valid(saved);
@@ -20,7 +19,7 @@
       button.setAttribute('aria-pressed',String(button.dataset.siteTheme===value));
     });
   }
-  apply(explicit?saved:system.matches?'dark':'light');
+  apply(explicit?saved:'dark');
   document.addEventListener('DOMContentLoaded',()=>{
     apply(root.dataset.theme);
     document.querySelectorAll('[data-site-theme]').forEach(button=>button.addEventListener('click',()=>{
@@ -30,15 +29,14 @@
       try{window.localStorage.setItem(key,value);}catch{}
     }));
   });
-  system.addEventListener('change',event=>{if(!explicit)apply(event.matches?'dark':'light');});
-  function sync(value){explicit=valid(value);apply(explicit?value:system.matches?'dark':'light');}
+  function sync(value){explicit=valid(value);apply(explicit?value:'dark');}
   window.addEventListener('storage',event=>{if(event.key===key||event.key===null)sync(event.newValue);});
   window.addEventListener('pageshow',()=>{try{sync(window.localStorage.getItem(key));}catch{}});
 })();
 </script>
   <meta name="description" content="Meet Alma Ghafari, project initiator, and Soheil Behnezhad, Principal Investigator. Theory Atlas welcomes contributions from the theoretical computer science community.">
   <title>People · Theory Atlas</title>
-  <style>:root{color-scheme:light dark;--bg:light-dark(#fafbf8,#18382f);--surface:light-dark(#ffffff,#1c3e34);--ink:light-dark(#182b24,#f6f3e8);--muted:light-dark(#4d6156,#c9d5cb);--line:light-dark(#ccd6cf,#527366);--blue:light-dark(#245c4d,#b9dbd2);--soft:light-dark(#eef3ec,#2a4b3f);--green:light-dark(#167548,#91e5ac);--green-fill:light-dark(#e0f1e3,#264f39);--red:light-dark(#ac3541,#ffa3a8);--red-fill:light-dark(#f9e4e5,#573d3d);--unknown:light-dark(#eef1ed,#29483b)}
+  <style>:root{color-scheme:light dark;--bg:light-dark(#f9fbfd,#12191f);--surface:light-dark(#fff,#1a242d);--ink:light-dark(#192e3b,#e5edf3);--muted:light-dark(#536673,#a3b5c2);--line:light-dark(#d9e3e9,#354956);--blue:light-dark(#275b86,#94c7f0);--soft:light-dark(#e9f1f8,#223b4e);--green:light-dark(#167548,#71d7a0);--green-fill:light-dark(#dcefe4,#203e31);--red:light-dark(#b4444e,#fa959d);--red-fill:light-dark(#f7e2e5,#492831);--unknown:light-dark(#edf1f5,#26343e)}
 :root[data-theme="light"]{color-scheme:light}:root[data-theme="dark"]{color-scheme:dark}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.48 ui-sans-serif,system-ui,sans-serif}button,select{font:inherit;color:inherit}button{border:1px solid var(--line);border-radius:6px;background:var(--surface);padding:8px 12px;min-height:42px}button:hover{background:var(--soft)}button:focus-visible,select:focus-visible,summary:focus-visible,a:focus-visible{outline:3px solid var(--blue);outline-offset:2px}button:disabled{opacity:.45}a{color:var(--blue);text-underline-offset:3px}h1,h2{font-family:Georgia,serif;font-weight:500;line-height:1.2}h1{font-size:27px;margin:0}h2{font-size:24px;margin:0}h3{font-size:18px;font-weight:500;margin:0 0 8px}p{margin:0 0 12px}small,.small{font-size:13px;color:var(--muted)}#atlas{max-width:1300px;margin:auto;background:var(--bg);border-inline:1px solid var(--line)}.head{padding:18px 22px 15px;display:flex;gap:16px;justify-content:space-between;align-items:center;flex-wrap:wrap;background:var(--surface);border-bottom:1px solid var(--line)}.head p{margin:3px 0 0;color:var(--muted);font-size:14px}.controls{display:flex;align-items:center;gap:7px}.controls button[aria-label]{font-size:21px;min-width:44px;padding:2px 8px}.controls output{font-size:14px;min-width:48px;text-align:center;font-variant-numeric:tabular-nums;color:var(--muted)}.locator{min-height:44px;padding:10px 22px;display:flex;justify-content:space-between;gap:12px;align-items:center;font-size:14px}.locator strong{font-weight:500}.locator span{color:var(--muted);font-size:13px}#stage{position:relative;height:600px;overflow:hidden;touch-action:none;overscroll-behavior:contain;user-select:none}#stage.dragging{cursor:grabbing}.cell{position:absolute;background:var(--surface);border:1px solid var(--line);border-radius:6px;overflow:hidden}.cell.selected{border-color:var(--blue)}.cell .plot{position:absolute;inset:0;min-width:0;min-height:0}.cell svg{display:block;width:100%;height:100%;overflow:hidden;pointer-events:none}.cell svg text{font:12px ui-sans-serif,system-ui,sans-serif;fill:var(--ink)}.cell[data-chart-level="overview"] svg text{display:none}.cell[data-chart-level="compact"] svg:not([data-detail-level]) text{font-size:10px}.cell button{position:absolute;inset:0;width:100%;height:100%;padding:0;border:0;border-radius:5px;background:transparent}.cell button:hover{background:transparent;box-shadow:inset 0 0 0 2px var(--blue)}.cell button:focus-visible{outline:3px solid var(--blue);outline-offset:-4px}.axis-label{position:absolute;display:flex;align-items:center;justify-content:center;text-align:center;font-size:14px;line-height:1.25;pointer-events:none}.axis-label>div{max-width:100%}.axis-name{display:block;overflow:hidden;text-overflow:ellipsis}.axis-label.problem{justify-content:flex-start;text-align:left}.axis-label small{display:block;margin-top:3px;font-size:12px}.legend{background:var(--surface);border-top:1px solid var(--line);padding:13px 22px;display:flex;gap:16px;flex-wrap:wrap;align-items:center;font-size:14px}.key{display:inline-block;width:12px;height:12px;vertical-align:-1px;margin-right:5px;border-radius:2px}.key.green{background:var(--green)}.key.red{background:var(--red)}.key.gray{background:var(--unknown)}.hint{color:var(--muted);font-size:13px;margin-left:auto}#detail{padding:22px;background:var(--surface);border-top:1px solid var(--line)}.detail-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}.settings{display:flex;gap:12px;align-items:center;flex-wrap:wrap}.settings label{font-size:14px;color:var(--muted)}select{border:1px solid var(--line);background:var(--bg);border-radius:5px;padding:7px 9px;min-height:42px;max-width:100%;margin-left:6px}.pills{display:flex;gap:7px;flex-wrap:wrap;margin:14px 0}.pill{font-size:13px;color:var(--muted);background:var(--unknown);padding:4px 8px;border-radius:4px}.summary{font-size:17px}.note{font-size:14px;color:var(--muted)}.inspect{font-size:14px;min-height:26px;margin-top:12px}.formula{font:500 21px/1.5 Georgia,serif;padding:4px 0 12px;overflow-wrap:anywhere}.source{display:grid;grid-template-columns:84px 1fr;gap:12px;border-top:1px solid var(--line);padding:12px 0;font-size:14px}.source p{margin:4px 0 0}.tag{color:var(--muted);font-size:13px}.tag.upper{color:var(--green)}.tag.lower{color:var(--red)}.tag.candidate{color:var(--muted)}.subtle{color:var(--muted);font-size:13px}details{border-top:1px solid var(--line);margin-top:15px;padding-top:9px}summary{padding:7px 0;color:var(--blue);font-size:14px}.definition-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:15px 0}.definition-grid p{font-size:14px}.related{display:flex;gap:7px;flex-wrap:wrap}.related button{font-size:14px;text-align:left}.related button[aria-pressed="true"]{background:var(--soft);border-color:var(--blue)}.relationship{font-size:14px;margin:14px 0}.status-chip{font-size:13px;color:var(--muted)}footer{display:flex;gap:10px;justify-content:space-between;flex-wrap:wrap;padding:9px 22px;color:var(--muted);font-size:13px;border-top:1px solid var(--line)}[hidden]{display:none!important}
 @media(max-width:650px){.head{padding:14px}.locator,.legend,#detail,footer{padding:12px 14px}.locator span{display:none}.legend{gap:11px}.hint{margin-left:0}.definition-grid{grid-template-columns:1fr;gap:9px}.source{grid-template-columns:1fr;gap:2px}.settings{display:block}.settings select{display:block;margin:5px 0 0}.axis-label{font-size:12px}}
@@ -80,19 +78,17 @@
 .f-summary{display:block;overflow:hidden}.f-summary.f-summary text{font-family:ui-sans-serif,system-ui,sans-serif}.f-summary-overview{pointer-events:none}
 .figure-picker{margin:0;padding:0;border:0;position:relative;max-width:100%;z-index:12}.figure-picker summary{cursor:pointer;font-size:12px;line-height:20px;padding:7px 11px;border:1px solid var(--line);border-radius:7px;color:var(--ink);background:var(--surface)}.figure-picker summary:focus-visible{outline:2px solid var(--blue);outline-offset:3px}.figure-picker-menu{position:absolute;left:0;top:calc(100% + 7px);width:min(720px,calc(100vw - 44px));max-height:55vh;overflow-y:auto;display:flex;flex-wrap:wrap;align-content:flex-start;gap:7px;padding:12px;border:1px solid var(--line);border-radius:9px;background:var(--surface);box-shadow:0 12px 30px #0003}.figure-picker-menu button{text-align:left}.featured-settings:has(.figure-picker){padding-top:7px;padding-bottom:7px}.f-settings:has(.figure-picker){margin-top:12px}
 
-/* Board navigation and centered community pages. */
+/* Site navigation and centered community pages. */
 .view-nav{position:sticky;top:0;z-index:50;background:var(--bg);max-width:1300px}
 #atlas,#stage{scroll-margin-top:100px}
-.view-nav .site-controls{display:flex;align-items:center;gap:24px}
 .view-nav .site-links{display:flex;align-items:center;gap:6px}
 .view-nav .site-link{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:8px 15px;border-radius:5px;font-size:14px;text-decoration:none;color:var(--ink)}
 .view-nav .site-link:hover{background:var(--soft)}
 .view-nav .site-link[aria-current="page"]{background:var(--ink);color:var(--bg)}
-.theme-switch{display:flex;gap:3px;padding:3px;border:1px solid var(--line);border-radius:7px}
-.view-nav .theme-switch button{display:flex;align-items:center;gap:7px;padding:7px 10px;min-height:38px;font-size:13px;color:var(--ink);white-space:nowrap;border-radius:4px;cursor:pointer}
-.view-nav .theme-switch button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
-.theme-swatch{display:inline-block;width:11px;height:11px;border:1px solid currentColor;border-radius:2px}
-.whiteboard-swatch{background:#fafbf8}.chalkboard-swatch{background:#18382f}
+.site-appearance{display:flex;gap:4px;align-items:center;padding:3px;border:1px solid var(--line);border-radius:6px}
+.site-appearance button{font-size:13px;min-height:36px;padding:6px 10px;color:var(--ink);border:0;background:transparent;cursor:pointer}
+.site-appearance button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+#atlas>footer{align-items:center}
 .community-page{--editorial-accent:var(--ink);--muted:var(--ink);--blue:var(--ink)}
 .editorial-page{max-width:1120px;margin:auto;padding:72px 30px 88px}
 .editorial-eyebrow{font-size:14px;letter-spacing:.13em;line-height:1.6;font-weight:650;color:var(--ink);margin:0 0 20px}
@@ -134,15 +130,14 @@
 .contribution-actions{display:flex;flex-wrap:wrap;align-items:center;gap:24px;margin-top:28px}
 .contribution-actions>a:not(.editorial-action){font-size:16px;margin-top:12px}
 @media(max-width:900px){
- .view-nav .site-controls{gap:12px}.view-nav .theme-switch button{font-size:12px;padding:7px 9px}
  .editorial-page{padding:54px 26px 64px}.people-invitation{gap:35px}.people-profiles{gap:30px}
 }
 @media(max-width:700px){
  .view-nav{display:grid;grid-template-columns:1fr auto;gap:12px;padding:16px 20px}
- .view-nav .site-controls{display:contents}.view-nav .site-links{justify-content:flex-end;gap:0}
- .view-nav .site-link{padding:8px 12px}.theme-switch{grid-column:1/-1;justify-self:center}
+ .view-nav .site-links{justify-content:flex-end;gap:0}
+ .view-nav .site-link{padding:8px 12px}
  .atlas-brand{max-width:none;font-size:11px}.atlas-brand span{font-size:13px}
- #atlas,#stage{scroll-margin-top:150px}
+ #atlas,#stage{scroll-margin-top:90px}
  .editorial-page{padding-top:42px}.editorial-lead{font-size:21px}
  .vision-intro,.community-statement p:not(.editorial-eyebrow){font-size:19px}
  .vision-principles p{font-size:18px}.vision-principles h2{font-size:28px}
@@ -163,10 +158,14 @@
  .contribution-actions{gap:12px;margin-top:24px}.editorial-action{width:100%;text-align:center}
  .contribution-actions>a:not(.editorial-action){margin-top:6px}
 }
+
+/* Keep these two Vision statements on one line at every supported width. */
+#vision .editorial-hero h1{white-space:nowrap;font-size:clamp(24px,7.2vw,72px)}
+#vision #community-title{white-space:nowrap;font-size:clamp(15px,4.6vw,44px)}
 </style>
 </head>
 <body class="community-page">
-  <nav class="view-nav" aria-label="Site navigation"><a class="atlas-brand" href="index.html#atlas" data-atlas-home="true">THEORY ATLAS<span>Knowledge, in view.</span></a><div class="site-controls"><div class="site-links"><a class="site-link" href="index.html#atlas" data-atlas-home="true">Atlas</a><a class="site-link" href="vision.html">Vision</a><a class="site-link" href="people.html" aria-current="page">People</a></div><div class="theme-switch" role="group" aria-label="Board appearance"><button type="button" data-site-theme="light" aria-label="Light mode — Whiteboard" aria-pressed="false"><span class="theme-swatch whiteboard-swatch" aria-hidden="true"></span>Whiteboard</button><button type="button" data-site-theme="dark" aria-label="Dark mode — Chalkboard" aria-pressed="false"><span class="theme-swatch chalkboard-swatch" aria-hidden="true"></span>Chalkboard</button></div></div></nav>
+  <nav class="view-nav" aria-label="Site navigation"><a class="atlas-brand" href="index.html#atlas" data-atlas-home="true">THEORY ATLAS<span>Knowledge, in view.</span></a><div class="site-links"><a class="site-link" href="index.html#atlas" data-atlas-home="true">Atlas</a><a class="site-link" href="vision.html">Vision</a><a class="site-link" href="people.html" aria-current="page">People</a></div></nav>
   <main class="editorial-page" id="people">
     <header class="editorial-hero people-hero">
       <h1>People</h1>
@@ -191,6 +190,6 @@
     </section>
     <div class="contribution-actions"><a class="editorial-action" href="https://github.com/almaho/theory-atlas/issues" target="_blank" rel="noopener noreferrer">Propose an addition ↗</a><a href="https://github.com/almaho/theory-atlas" target="_blank" rel="noopener noreferrer">Explore the project on GitHub ↗</a></div>
   </main>
-  <footer class="site-footer"><a href="index.html#atlas">Explore the atlas ↗</a><span>A community effort in theoretical computer science.</span><a href="https://github.com/almaho/theory-atlas" target="_blank" rel="noopener noreferrer">Project on GitHub ↗</a></footer>
+  <footer class="site-footer"><a href="index.html#atlas">Explore the atlas ↗</a><span>A community effort in theoretical computer science.</span><a href="https://github.com/almaho/theory-atlas" target="_blank" rel="noopener noreferrer">Project on GitHub ↗</a><div class="site-appearance" role="group" aria-label="Appearance"><button type="button" data-site-theme="dark" aria-pressed="false">Dark mode</button><button type="button" data-site-theme="light" aria-pressed="false">Light mode</button></div></footer>
 </body>
 </html>
