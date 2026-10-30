@@ -1,12 +1,12 @@
 {
   "problem": "vertex",
-  "reviewedThrough": "2026-10-29",
+  "reviewedThrough": "2026-10-30",
   "searchSummary": "Expanded primary-source survey through 2026-09-27, now including historical and current palettes Δ+1, degree+1 lists, (1+ε)Δ, Brooks Δ and Δ−1, degeneracy κ, chromatic-gap decisions; dynamic adaptivity, stream robustness, communication versus graph queries, and memory regimes remain separate. Every entry has a primary-paper link and explicit assumptions. Symbolic bounds remain unshaded where no common numeric axes justify interpolation. LCA coverage now separates deterministic degree+1 lists, randomized MIS-reduction, and average-case exact k-coloring. The bibliography is an evolving atlas, not a systematic review of every graph class and theorem.",
   "coverage": [
     {
       "model": "dynamic",
       "status": "researched",
-      "note": "Adaptive and oblivious adversaries separated; Δ+1 palette only. Other coloring tradeoffs are outside current scope."
+      "note": "Nine maintenance records from eight primary papers, plus a separately scoped decision lower bound. GH2026 v2 and AY2026 v1 are preprint claims to appear at SODA 2027; their theorem statements and models were checked. Amortized and worst-case guarantees remain separate."
     },
     {
       "model": "stream",
@@ -695,6 +695,21 @@
       "version": "2610.26182v2",
       "sourceUrl": "https://arxiv.org/html/2610.26182v2#S1.Thmtheorem1",
       "verifiedOn": "2026-10-29"
+    },
+    {
+      "id": "assadi-yazdanyar-2026-dynamic-coloring",
+      "title": "Dynamic (Δ+1) Vertex Coloring with Adaptive Adversaries: Entropy Compression to the Rescue",
+      "authors": [
+        "Sepehr Assadi",
+        "Helia Yazdanyar"
+      ],
+      "year": 2026,
+      "venue": "arXiv v1 · to appear SODA 2027",
+      "publicationStatus": "preprint",
+      "version": "2610.38787v1",
+      "url": "https://arxiv.org/abs/2610.38787",
+      "sourceUrl": "https://arxiv.org/html/2610.38787v1",
+      "verifiedOn": "2026-10-30"
     }
   ],
   "slices": [
@@ -818,6 +833,19 @@
           "evidenceStatus": "primary_statement_checked_preprint",
           "frontierStatus": "candidate",
           "notes": "Initially empty graph; subsequent phase preprocessing is pipelined across updates (§4.2). The adaptive adversary may see earlier random bits and internal state. The plotted version fixes a known Δ; §4.4 also supports the maximum degree observed so far. Neither a √n technique barrier nor this algorithm is a maintenance lower bound.",
+          "plot": null
+        },
+        {
+          "id": "vertex-dynamic-adaptive-assadi-yazdanyar-2026",
+          "paperId": "assadi-yazdanyar-2026-dynamic-coloring",
+          "kind": "upper",
+          "bound": "O(√n log³n) amortized update time with high probability",
+          "guarantee": "Maintain an explicit proper (Δ+1)-coloring under adaptive edge insertions/deletions",
+          "sourceLocation": "Theorem 1; §2; §4.4–4.5; §5.4",
+          "sourceUrl": "https://arxiv.org/html/2610.38787v1",
+          "evidenceStatus": "primary_statement_checked_preprint",
+          "frontierStatus": "candidate",
+          "notes": "Initially empty graph on a fixed known n-vertex set; initial colors are sampled (§4.4). No separate preprocessing-time theorem is asserted here. Known fixed maximum-degree bound Δ remains valid throughout. For smaller Δ use the greedy O(Δ) update algorithm. The high-probability analysis covers polynomially many updates. No constant-recourse or separate query-time guarantee is asserted. The √n discussion concerns the technique, not a maintenance lower bound; this independent result remains separate from GH's worst-case guarantee.",
           "plot": null
         }
       ]

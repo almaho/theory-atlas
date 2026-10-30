@@ -1,7 +1,7 @@
 {
   "id": "vertex-dynamic",
   "title": "Dynamic vertex coloring",
-  "reviewedThrough": "2026-10-29",
+  "reviewedThrough": "2026-10-30",
   "sources": {
     "flin-halldorsson-2025-dynamic-coloring": {
       "id": "flin-halldorsson-2025-dynamic-coloring",
@@ -108,6 +108,21 @@
       "version": "2610.26182v2",
       "sourceUrl": "https://arxiv.org/html/2610.26182v2#S1.Thmtheorem1",
       "verifiedOn": "2026-10-29"
+    },
+    "assadi-yazdanyar-2026-dynamic-coloring": {
+      "id": "assadi-yazdanyar-2026-dynamic-coloring",
+      "title": "Dynamic (Δ+1) Vertex Coloring with Adaptive Adversaries: Entropy Compression to the Rescue",
+      "authors": [
+        "Sepehr Assadi",
+        "Helia Yazdanyar"
+      ],
+      "year": 2026,
+      "venue": "arXiv v1 · to appear SODA 2027",
+      "publicationStatus": "preprint",
+      "version": "2610.38787v1",
+      "url": "https://arxiv.org/abs/2610.38787",
+      "sourceUrl": "https://arxiv.org/html/2610.38787v1",
+      "verifiedOn": "2026-10-30"
     }
   },
   "verifiedRecords": [
@@ -502,6 +517,56 @@
       "sourceUrl": "https://arxiv.org/html/1711.04355v1",
       "frontierStatus": "historical",
       "adversary": "Arbitrary updates; deterministic algorithm permits adaptive choices."
+    },
+    {
+      "panel": "time",
+      "kind": "algorithm",
+      "output": "Explicit proper vertex coloring maintained after every edge insertion or deletion",
+      "graph": "General simple undirected graphs on a fixed n-vertex set",
+      "oracle": "Fully dynamic RAM data structure; edge insertions and deletions",
+      "quality": "Proper coloring with the stated degree-based palette",
+      "randomized": true,
+      "related": false,
+      "delta": "Fixed known degree bound Δ, valid throughout the sequence",
+      "assumptions": [
+        "Simple undirected graph on n vertices.",
+        "Maximum degree always at most a fixed known Δ.",
+        "Colors maintained in a data structure; printing all n colors after every update is not charged.",
+        "Adaptive adversary."
+      ],
+      "setup": "adaptive",
+      "costClass": "sqrt",
+      "shortName": "AY 2026 · preprint",
+      "tag": "amort. · WHP",
+      "displayBound": "O(√n log³n)",
+      "palette": "Δ+1",
+      "probability": "Randomized; proper coloring and amortized update bound with high probability over a polynomial-length update sequence.",
+      "theorem": "Theorem 1; §2; §4.4–4.5; §5.4",
+      "amortization": "Amortized O(√n log³n) update time with high probability; not a per-update worst-case guarantee.",
+      "initialization": "Initially empty graph on a fixed known n-vertex set; initial colors are sampled (§4.4). No separate preprocessing-time theorem is asserted here.",
+      "notes": "Known fixed maximum-degree bound Δ remains valid throughout. For smaller Δ use the greedy O(Δ) update algorithm. The high-probability analysis covers polynomially many updates. No constant-recourse or separate query-time guarantee is asserted. The √n discussion concerns the technique, not a maintenance lower bound; this independent result remains separate from GH's worst-case guarantee.",
+      "id": "vertex-dynamic-adaptive-assadi-yazdanyar-2026",
+      "originalIds": [
+        "vertex-dynamic-adaptive-assadi-yazdanyar-2026"
+      ],
+      "sliceId": "vertex-dynamic-adaptive-delta-plus-one",
+      "paperId": "assadi-yazdanyar-2026-dynamic-coloring",
+      "sourceId": "assadi-yazdanyar-2026-dynamic-coloring",
+      "title": "Dynamic (Δ+1) Vertex Coloring with Adaptive Adversaries: Entropy Compression to the Rescue",
+      "authors": [
+        "Sepehr Assadi",
+        "Helia Yazdanyar"
+      ],
+      "venue": "arXiv v1 · to appear SODA 2027",
+      "year": 2026,
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/abs/2610.38787",
+      "sourceUrl": "https://arxiv.org/html/2610.38787v1",
+      "frontierStatus": "candidate",
+      "adversary": "Adaptive, allowed to see previous random choices.",
+      "version": "2610.38787v1",
+      "verifiedOn": "2026-10-30",
+      "evidenceStatus": "primary_statement_checked_preprint"
     }
   ],
   "relatedResults": [
@@ -666,7 +731,7 @@
       "short": "1"
     }
   ],
-  "coverage": "Eight maintenance records from seven primary papers, plus a separately scoped decision lower bound. GH2026 is an arXiv v2 claim accepted for SODA 2027; its theorem statement and model were checked.",
+  "coverage": "Nine maintenance records from eight primary papers, plus a separately scoped decision lower bound. GH2026 v2 and AY2026 v1 are preprint claims to appear at SODA 2027; their theorem statements and models were checked. Amortized and worst-case guarantees remain separate.",
   "lowerBoundStatus": "No matching nontrivial maintenance update-time lower was verified in these sources. HP2022's decision lower is related only; FH2025's n^{2/3} discussion is not a lower-bound theorem.",
   "figureAxes": {
     "time": {
@@ -819,6 +884,13 @@
       "theorem": "Theorem 1.1; §4.2–4.4",
       "verifiedOn": "2026-10-29",
       "scope": "Statement checked, not independent proof verification; worst-case WHP; recourse 3; fixed-Δ comparison."
+    },
+    {
+      "id": "vertex-dynamic-adaptive-assadi-yazdanyar-2026",
+      "url": "https://arxiv.org/html/2610.38787v1",
+      "theorem": "Theorem 1; §2; §4.4–4.5; §5.4",
+      "verifiedOn": "2026-10-30",
+      "scope": "Primary statement/model checked; no independent proof certification. Adaptive random-history visibility, polynomial-length sequence, fixed known Δ and initially empty graph; amortized WHP, no constant recourse claimed."
     }
   ]
 }
