@@ -82,3 +82,5 @@
 /* Keep these two Vision statements on one line at every supported width. */
 #vision .editorial-hero h1{white-space:nowrap;font-size:clamp(24px,7.2vw,72px)}
 #vision #community-title{white-space:nowrap;font-size:clamp(15px,4.6vw,44px)}
+
+.people-profiles:has(>.person-profile:only-child){grid-template-columns:minmax(0,480px);justify-content:center}
