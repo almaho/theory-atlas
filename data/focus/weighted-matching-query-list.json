@@ -1,0 +1,242 @@
+{
+  "reviewedOn": "2026-10-30",
+  "problem": "weighted_matching",
+  "problemLabel": "Weighted matching",
+  "renderer": "weighted-query-landscape",
+  "sources": {
+    "weighted-query-edmonds-1965": {
+      "id": "weighted-query-edmonds-1965",
+      "title": "Maximum Matching and a Polyhedron With 0,1-Vertices",
+      "authors": [
+        "Jack Edmonds"
+      ],
+      "year": 1965,
+      "venue": "Journal of Research of the National Bureau of Standards B 69B",
+      "publicationStatus": "journal",
+      "url": "https://nvlpubs.nist.gov/nistpubs/jres/69B/jresv69Bn1-2p125_A1b.pdf",
+      "verifiedOn": "2026-10-30",
+      "sourceLocation": "Sections 1–4 and 7; Theorems (P) and (M)"
+    },
+    "weighted-query-nguyen-onak-2008": {
+      "id": "weighted-query-nguyen-onak-2008",
+      "title": "Constant-Time Approximation Algorithms via Local Improvements",
+      "authors": [
+        "Huy N. Nguyen",
+        "Krzysztof Onak"
+      ],
+      "year": 2008,
+      "venue": "FOCS 2008",
+      "publicationStatus": "conference",
+      "url": "https://people.csail.mit.edu/konak/download/publications/Nguyen_Onak-constant_time_approximation.pdf",
+      "publicationUrl": "https://doi.org/10.1109/FOCS.2008.81",
+      "verifiedOn": "2026-10-30",
+      "sourceLocation": "Sections 1.3–1.5, PDF page 3; Maximum Weight Matching paragraph",
+      "proofStatus": "Weighted theorem statement inspected; this conference version explicitly omits its proof. No independent proof validation claimed."
+    }
+  },
+  "relatedResults": [],
+  "coverageNote": "Two separate output contracts: exact matching edges with unrestricted nonnegative weights, and εn-additive weight estimation with bounded degree and weights in [0,1]. The dense lower bound is an elementary atlas proof, not an attributed paper theorem. These are verified baselines, not an exhaustive frontier.",
+  "lowerBoundStatus": "An elementary dense-input obstruction for explicit matching output is shown in red. No lower bound for the bounded-degree εn-additive estimation panel was verified in this source set.",
+  "sourceVerification": [
+    {
+      "sourceId": "weighted-query-edmonds-1965",
+      "url": "https://nvlpubs.nist.gov/nistpubs/jres/69B/jresv69Bn1-2p125_A1b.pdf",
+      "verifiedOn": "2026-10-30",
+      "theorem": "Theorems (P), (M), and the algorithm in §7",
+      "notes": "Primary paper inspected. Exact oracle scan counts are elementary compositions, not query theorems attributed to Edmonds."
+    },
+    {
+      "sourceId": "weighted-query-nguyen-onak-2008",
+      "url": "https://people.csail.mit.edu/konak/download/publications/Nguyen_Onak-constant_time_approximation.pdf#page=3",
+      "verifiedOn": "2026-10-30",
+      "theorem": "Definition 3, Model §1.4, and Maximum Weight Matching statement in §1.5",
+      "notes": "For fixed d and ε, the number of queries is independent of n. The weighted proof is explicitly omitted in this conference version. We retain f(d,ε) rather than invent a quantitative parameter bound."
+    }
+  ],
+  "axisNote": "Horizontal positions are symbolic query-cost classes. Panel colors distinguish output contracts; green circles are algorithms and red diamonds are lower bounds. No additive guarantee is converted into a multiplicative guarantee.",
+  "model": "query_list",
+  "modelLabel": "Adjacency-list",
+  "title": "Weighted matching: edges or a weight estimate",
+  "subtitle": "The output and weight assumptions determine which query bounds can be compared.",
+  "verifiedRecords": [
+    {
+      "id": "wmq-list-scan-exact",
+      "sourceId": "weighted-query-edmonds-1965",
+      "sliceId": "weighted-query-list-landscape",
+      "kind": "algorithm",
+      "panel": "explicit",
+      "at": "input",
+      "setup": "Any graph · exact edges",
+      "shortLabel": "Scan + Edmonds",
+      "displayBound": "Q = n+2m",
+      "plotLabel": "n+2m queries",
+      "quality": "w(M)=OPT, an exact maximum-weight matching.",
+      "output": "An explicit list of matching edges; its total weight can also be reported.",
+      "graph": "Undirected simple graph; arbitrary finite nonnegative edge weights; n vertices and m edges.",
+      "oracle": "WeightedNeighbor(v,i) returns the i-th neighbor together with its edge weight, or ⊥ past the end of the fixed list. The n labeled vertices are known. No free edge list or global weight table.",
+      "theorem": "Edmonds, Theorems (P), (M), and §7; exact query accounting is an atlas composition.",
+      "probability": "Deterministic exact scan and deterministic exact optimization on the stored graph.",
+      "notes": "Read each vertex list until the first ⊥. There are 2m successful weighted-neighbor replies and n terminal replies, hence exactly n+2m queries. Deduplicate the two copies of each edge and solve the stored weighted graph. Query cost is not computation time.",
+      "derivation": "Read each vertex list until the first ⊥. There are 2m successful weighted-neighbor replies and n terminal replies, hence exactly n+2m queries. Deduplicate the two copies of each edge and solve the stored weighted graph.",
+      "computation": "Run an exact weighted-matching algorithm only after the scan; no further oracle calls. Polynomial-time optimization is separate from the displayed query count.",
+      "derived": true,
+      "frontierStatus": "full-input baseline"
+    },
+    {
+      "id": "wmq-list-additive-no08",
+      "sourceId": "weighted-query-nguyen-onak-2008",
+      "sliceId": "weighted-query-list-landscape",
+      "kind": "algorithm",
+      "panel": "additive",
+      "at": "constant",
+      "setup": "Bounded Δ · estimate OPT",
+      "shortLabel": "Nguyen–Onak",
+      "displayBound": "Q ≤ f(Δ,ε)",
+      "plotLabel": "f(Δ,ε), independent of n",
+      "quality": "OPT ≤ estimate ≤ OPT+εn, with probability at least 2/3. This is additive error, not a fixed multiplicative ratio.",
+      "output": "One scalar estimate of maximum matching weight; no list of matching edges.",
+      "graph": "Undirected simple graph of maximum degree at most Δ, with each edge weight in [0,1]; fixed Δ and 0<ε<1.",
+      "oracle": "WeightedNeighbor(v,i) returns the i-th neighbor together with its edge weight, or ⊥ past the end of the fixed list. The n labeled vertices are known. No free edge list or global weight table.",
+      "theorem": "Nguyen–Onak, Definition 3 and §1.5 Maximum Weight Matching, PDF page 3.",
+      "probability": "Randomized; success probability at least 2/3 for each input.",
+      "proofStatus": "Weighted theorem statement inspected; this conference version explicitly omits its proof. No independent proof validation claimed.",
+      "notes": "The published statement establishes a finite f(Δ,ε) independent of n; this view does not claim a particular dependence on Δ or ε. Weight access is counted in the weighted-neighbor reply.",
+      "computation": "The conference paper bounds computation by a polynomial in its query bound; the figure counts oracle queries only.",
+      "derived": false
+    }
+  ],
+  "derivedBounds": [
+    {
+      "id": "wmq-list-hidden-heavy-edge",
+      "kind": "lower",
+      "derived": true,
+      "panel": "explicit",
+      "at": "quadratic",
+      "setup": "Dense graph · fixed β>0",
+      "shortLabel": "Elementary atlas proof",
+      "title": "Hidden heavy edge: explicit-output query obstruction",
+      "displayBound": "Ω(n²) weight-revealing queries",
+      "plotLabel": "Ω(n²) · dense inputs",
+      "quality": "Any fixed retained fraction β∈(0,1] of optimal matching weight, including exact output.",
+      "output": "An explicit β-approximate matching. The lower bound shown is not for an additive scalar estimate.",
+      "graph": "Complete graph K_n with all weights 1 except one hidden edge of weight ceil(n/β). Even the entire topology may be supplied for free.",
+      "oracle": "WeightedNeighbor(v,i) returns the i-th neighbor together with its edge weight, or ⊥ past the end of the fixed list. The n labeled vertices are known. No free edge list or global weight table.",
+      "theorem": "Elementary hidden-heavy-edge proof by the atlas; no separate paper theorem is attributed.",
+      "probability": "Any randomized algorithm succeeding with probability at least 2/3 on every input, with a worst-case query budget.",
+      "proof": "Let N=n(n−1)/2. Give the algorithm the entire topology of K_n for free. Choose a uniform hidden edge e*, assign it weight H=ceil(n/β), and give every other edge weight 1, for a fixed 0<β≤1. A matching omitting e* has weight at most floor(n/2), while β·OPT≥βH≥n, so every successful β-approximate matching must contain e*. Fix the algorithm’s random coins. Until it reads e*, its transcript is identical to the all-unit-weight graph. Its at-most-q probes inspect at most q distinct edges along that transcript; its no-hit output contains at most floor(n/2) further candidate edges. Thus success over the uniform hidden edge is at most (q+floor(n/2))/N. Averaging over the coins preserves this bound. Success probability at least 2/3 on every input requires q≥2N/3−floor(n/2)=Ω(n²). A weighted-neighbor query or pair query reveals at most one edge weight; duplicated reads do not help. This is a worst-case query-budget bound for explicit matching output, with polynomial weight range H=O(n) when β is fixed. It does not assert a lower bound for εn-additive scalar estimation.",
+      "notes": "Let N=n(n−1)/2. Give the algorithm the entire topology of K_n for free. Choose a uniform hidden edge e*, assign it weight H=ceil(n/β), and give every other edge weight 1, for a fixed 0<β≤1. A matching omitting e* has weight at most floor(n/2), while β·OPT≥βH≥n, so every successful β-approximate matching must contain e*. Fix the algorithm’s random coins. Until it reads e*, its transcript is identical to the all-unit-weight graph. Its at-most-q probes inspect at most q distinct edges along that transcript; its no-hit output contains at most floor(n/2) further candidate edges. Thus success over the uniform hidden edge is at most (q+floor(n/2))/N. Averaging over the coins preserves this bound. Success probability at least 2/3 on every input requires q≥2N/3−floor(n/2)=Ω(n²). A weighted-neighbor query or pair query reveals at most one edge weight; duplicated reads do not help. This is a worst-case query-budget bound for explicit matching output, with polynomial weight range H=O(n) when β is fixed. It does not assert a lower bound for εn-additive scalar estimation.",
+      "publicationStatus": "derived",
+      "url": "",
+      "sourceUrl": "",
+      "supportingPaper": null
+    }
+  ],
+  "panels": [
+    {
+      "id": "explicit",
+      "title": "Explicit matching · unrestricted weights",
+      "shortTitle": "Matching edges · unrestricted weights",
+      "note": "Full scan works on every graph; the red obstruction is for dense inputs.",
+      "xLabel": "Queries · symbolic cost classes",
+      "categories": [
+        {
+          "id": "linear",
+          "label": "n"
+        },
+        {
+          "id": "input",
+          "label": "n+m"
+        },
+        {
+          "id": "quadratic",
+          "label": "n²"
+        }
+      ]
+    },
+    {
+      "id": "additive",
+      "title": "Weight estimation · bounded degree and weights in [0,1]",
+      "shortTitle": "OPT estimate · bounded Δ, weights [0,1]",
+      "note": "Error εn; fixed Δ and ε. No comparable lower bound verified.",
+      "xLabel": "Queries as n grows · fixed Δ and ε",
+      "categories": [
+        {
+          "id": "constant",
+          "label": "constant in n",
+          "short": "1"
+        },
+        {
+          "id": "linear",
+          "label": "n"
+        },
+        {
+          "id": "quadratic",
+          "label": "n²"
+        }
+      ]
+    }
+  ],
+  "figureAxes": {
+    "explicit": {
+      "x": {
+        "label": "Queries · symbolic cost classes",
+        "categories": [
+          {
+            "id": "linear",
+            "label": "n"
+          },
+          {
+            "id": "input",
+            "label": "n+m"
+          },
+          {
+            "id": "quadratic",
+            "label": "n²"
+          }
+        ]
+      },
+      "y": {
+        "label": "Output contract and graph promise",
+        "categories": [
+          {
+            "id": "wmq-list-scan-exact",
+            "label": "Any graph · exact edges"
+          },
+          {
+            "id": "wmq-list-hidden-heavy-edge",
+            "label": "Dense graph · fixed β>0"
+          }
+        ]
+      }
+    },
+    "additive": {
+      "x": {
+        "label": "Queries as n grows · fixed Δ and ε",
+        "categories": [
+          {
+            "id": "constant",
+            "label": "constant in n",
+            "short": "1"
+          },
+          {
+            "id": "linear",
+            "label": "n"
+          },
+          {
+            "id": "quadratic",
+            "label": "n²"
+          }
+        ]
+      },
+      "y": {
+        "label": "Output contract and graph promise",
+        "categories": [
+          {
+            "id": "wmq-list-additive-no08",
+            "label": "Bounded Δ · estimate OPT"
+          }
+        ]
+      }
+    }
+  }
+}

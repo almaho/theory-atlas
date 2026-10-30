@@ -1,0 +1,248 @@
+{
+  "id": "weighted-matching-lca",
+  "problem": "weighted_matching",
+  "model": "lca",
+  "title": "Weighted matching through local probes",
+  "reviewedOn": "2026-10-30",
+  "sources": {
+    "emr14": {
+      "title": "Best of Two Local Models: Centralized Local and Distributed Local Algorithms",
+      "authors": [
+        "Guy Even",
+        "Moti Medina",
+        "Dana Ron"
+      ],
+      "firstYear": 2014,
+      "year": 2018,
+      "venue": "Information and Computation 262 (2018), 69–89",
+      "publicationStatus": "published",
+      "url": "https://arxiv.org/abs/1402.3796",
+      "fullTextUrl": "https://arxiv.org/html/1402.3796v3",
+      "publicationUrl": "https://doi.org/10.1016/j.ic.2018.07.001",
+      "shortLabel": "EMR 2014 / 2018",
+      "verifiedOn": "2026-10-30"
+    },
+    "brr23": {
+      "title": "Local Computation Algorithms for Maximum Matching: New Lower Bounds",
+      "authors": [
+        "Soheil Behnezhad",
+        "Mohammad Roghani",
+        "Aviad Rubinstein"
+      ],
+      "firstYear": 2023,
+      "year": 2023,
+      "venue": "FOCS 2023",
+      "publicationStatus": "published",
+      "url": "https://arxiv.org/abs/2311.09359",
+      "fullTextUrl": "https://arxiv.org/html/2311.09359v1",
+      "publicationUrl": "https://doi.org/10.1109/FOCS57990.2023.00143",
+      "shortLabel": "BRR 2023",
+      "verifiedOn": "2026-10-30"
+    }
+  },
+  "verifiedRecords": [
+    {
+      "panel": "mate",
+      "randomization": "deterministic",
+      "quality": "w(M) ≥ (1−ε) OPT_w",
+      "output": "For a queried vertex, return its mate or unmatched, consistently with one matching.",
+      "model": "LCA",
+      "costMeasure": "ordinary indexed-neighbor probes per mate query",
+      "plot": null,
+      "probability": "Deterministic; no failure probability.",
+      "appliesTo": [
+        "deterministic"
+      ],
+      "evidenceStatus": "Primary theorem and input/probe definitions checked; conversion is explicitly derived by the atlas.",
+      "frontierStatus": "verified baseline, not a claim of best known complexity",
+      "publicationStatus": "published",
+      "id": "weighted-lca-emr14-weighted",
+      "sourceId": "emr14",
+      "kind": "upper",
+      "year": 2014,
+      "setupKey": "mixed",
+      "shortLabel": "EMR · weighted",
+      "displaySetup": "Positive edge weights",
+      "compactSetup": "Weighted · deterministic",
+      "referenceLabel": "EMR Theorem 24 · converted oracle",
+      "bound": "O(Δ² · (1/w_min(ε))^{Δ^{O(1/ε)}} · (log* n)^{O(ε⁻¹ log(1/ε))})",
+      "displayLines": [
+        "Δ² · (1/wₘᵢₙ(ε))^{Δ^{O(1/ε)}}",
+        "· (log* n)^{O(ε⁻¹ log(1/ε))}"
+      ],
+      "compactLines": [
+        "Δ² · (1/wₘᵢₙ)^{Δ^{O(1/ε)}}",
+        "· (log* n)^{O(ε⁻¹ log(1/ε))}"
+      ],
+      "graph": "Undirected labeled graphs, degree at most Δ. Positive edge weights normalized to maximum 1; n, Δ, ε and the maximum weight are supplied. Theorem 24 states w_min(ε)<1. Weights are available with adjacency entries (or O(1) weight reads).",
+      "theorem": "EMR arXiv v3, Theorem 24; Sections 2.2 and 8.1–8.2; Algorithms 8–10.",
+      "notes": "Explicit atlas conversion: the source probe returns the reverse port. Recovering it by scanning the returned neighbor costs at most Δ ordinary indexed-neighbor probes. To return the mate of v, inspect its at most Δ incident edges with the consistent edge-membership oracle. Thus a source cost Q gives O(Δ²(Q+1)) ordinary probes per mate query. These are probes, not distributed LOCAL rounds or CPU time. Source Q=(1/w_min(ε))^{Δ^{O(1/ε)}}(log* n)^{O(ε⁻¹ log(1/ε))}. Here w_min(ε)=min{w(e):w(e)≥ε/n} after normalization, following the source notation and its rounding argument. Do not suppress this dependence when tiny weights are allowed. This upper row covers the source’s w_min(ε)<1 regime; the equal-weight case is separately shown below. For fixed Δ, ε and a constant positive weight floor, the n dependence is polynomial in log* n. No global weight-estimation claim is included. This bound need not be sublinear for every parameter regime.",
+      "rowFoot": "Known maximum weight · wₘᵢₙ(ε)<1 · outer O(·) suppressed",
+      "boundKey": "weighted-lca-emr14-weighted",
+      "label": "EMR · weighted",
+      "displayBound": "O(Δ² · (1/w_min(ε))^{Δ^{O(1/ε)}} · (log* n)^{O(ε⁻¹ log(1/ε))})",
+      "sourceUrl": "https://arxiv.org/html/1402.3796v3",
+      "sourceLocation": "EMR arXiv v3, Theorem 24; Sections 2.2 and 8.1–8.2; Algorithms 8–10.",
+      "displayQuality": "Retain ≥ 1−ε of optimum weight",
+      "plotNote": "Explicit atlas conversion: the source probe returns the reverse port. Recovering it by scanning the returned neighbor costs at most Δ ordinary indexed-neighbor probes. To return the mate of v, inspect its at most Δ incident edges with the consistent edge-membership oracle. Thus a source cost Q gives O(Δ²(Q+1)) ordinary probes per mate query. These are probes, not distributed LOCAL rounds or CPU time. Source Q=(1/w_min(ε))^{Δ^{O(1/ε)}}(log* n)^{O(ε⁻¹ log(1/ε))}. Here w_min(ε)=min{w(e):w(e)≥ε/n} after normalization, following the source notation and its rounding argument. Do not suppress this dependence when tiny weights are allowed. This upper row covers the source’s w_min(ε)<1 regime; the equal-weight case is separately shown below. For fixed Δ, ε and a constant positive weight floor, the n dependence is polynomial in log* n. No global weight-estimation claim is included.",
+      "summaryNote": "Known maximum weight · wₘᵢₙ(ε)<1 · outer O(·) suppressed"
+    },
+    {
+      "panel": "mate",
+      "randomization": "deterministic",
+      "quality": "w(M) ≥ (1−ε) OPT_w",
+      "output": "For a queried vertex, return its mate or unmatched, consistently with one matching.",
+      "model": "LCA",
+      "costMeasure": "ordinary indexed-neighbor probes per mate query",
+      "plot": null,
+      "probability": "Deterministic; no failure probability.",
+      "appliesTo": [
+        "deterministic"
+      ],
+      "evidenceStatus": "Primary theorem and input/probe definitions checked; conversion is explicitly derived by the atlas.",
+      "frontierStatus": "verified baseline, not a claim of best known complexity",
+      "publicationStatus": "published",
+      "id": "weighted-lca-emr14-unit",
+      "sourceId": "emr14",
+      "kind": "upper",
+      "year": 2014,
+      "setupKey": "unit",
+      "shortLabel": "EMR · unit weights",
+      "displaySetup": "Unit weights · algorithm",
+      "compactSetup": "Unit weights · algorithm",
+      "referenceLabel": "EMR Theorem 17 · converted oracle",
+      "bound": "O(Δ² · 2^{Δ^{O(1/ε)}} · (log* n)^{⌈1/ε⌉+1})",
+      "displayLines": [
+        "Δ² · 2^{Δ^{O(1/ε)}}",
+        "· (log* n)^{⌈1/ε⌉+1}"
+      ],
+      "compactLines": [
+        "Δ² · 2^{Δ^{O(1/ε)}}",
+        "· (log* n)^{⌈1/ε⌉+1}"
+      ],
+      "graph": "Undirected labeled graphs of maximum degree Δ with every edge weight equal to 1; n, Δ and ε supplied. The unit-weight problem is maximum cardinality matching.",
+      "theorem": "EMR arXiv v3, Theorem 17 and Section 2.2; Algorithm 4.",
+      "notes": "Explicit atlas conversion: the source probe returns the reverse port. Recovering it by scanning the returned neighbor costs at most Δ ordinary indexed-neighbor probes. To return the mate of v, inspect its at most Δ incident edges with the consistent edge-membership oracle. Thus a source cost Q gives O(Δ²(Q+1)) ordinary probes per mate query. These are probes, not distributed LOCAL rounds or CPU time. Theorem 17 states Q=(log* n)^{⌈1/ε⌉+1}·2^{Δ^{O(1/ε)}} for deterministic stateless edge membership. Unit weights turn the cardinality guarantee into the identical total-weight guarantee. This is a compatible baseline beside the unit-weight lower bound; it is not claimed to be the fastest cardinality LCA.",
+      "rowFoot": "Same ordinary-neighbor / mate contract as the red bound",
+      "boundKey": "weighted-lca-emr14-unit",
+      "label": "EMR · unit weights",
+      "displayBound": "O(Δ² · 2^{Δ^{O(1/ε)}} · (log* n)^{⌈1/ε⌉+1})",
+      "sourceUrl": "https://arxiv.org/html/1402.3796v3",
+      "sourceLocation": "EMR arXiv v3, Theorem 17 and Section 2.2; Algorithm 4.",
+      "displayQuality": "Retain ≥ 1−ε of optimum weight",
+      "plotNote": "Explicit atlas conversion: the source probe returns the reverse port. Recovering it by scanning the returned neighbor costs at most Δ ordinary indexed-neighbor probes. To return the mate of v, inspect its at most Δ incident edges with the consistent edge-membership oracle. Thus a source cost Q gives O(Δ²(Q+1)) ordinary probes per mate query. These are probes, not distributed LOCAL rounds or CPU time. Theorem 17 states Q=(log* n)^{⌈1/ε⌉+1}·2^{Δ^{O(1/ε)}} for deterministic stateless edge membership. Unit weights turn the cardinality guarantee into the identical total-weight guarantee. This is a compatible baseline beside the unit-weight lower bound; it is not claimed to be the fastest cardinality LCA.",
+      "summaryNote": "Same ordinary-neighbor / mate contract as the red bound"
+    },
+    {
+      "panel": "mate",
+      "randomization": "randomized",
+      "quality": "w(M) ≥ (1−ε) OPT_w",
+      "output": "For a queried vertex, return its mate or unmatched, consistently with one matching.",
+      "model": "LCA",
+      "costMeasure": "ordinary indexed-neighbor probes per mate query",
+      "plot": null,
+      "probability": "Applies to any algorithm whose approximation succeeds with probability at least 0.51, including deterministic algorithms.",
+      "appliesTo": [
+        "deterministic",
+        "randomized"
+      ],
+      "evidenceStatus": "Primary theorem and input/probe definitions checked; conversion is explicitly derived by the atlas.",
+      "frontierStatus": "verified baseline, not a claim of best known complexity",
+      "publicationStatus": "published",
+      "id": "weighted-lca-brr23-lower",
+      "sourceId": "brr23",
+      "kind": "lower",
+      "year": 2023,
+      "setupKey": "unit",
+      "shortLabel": "BRR · necessary probes",
+      "displaySetup": "Unit weights · lower bound",
+      "compactSetup": "Unit weights · necessary probes",
+      "referenceLabel": "BRR Theorem 1 · unit-weight transfer",
+      "bound": "Δ^{Ω(1/ε)}",
+      "displayLines": [
+        "Δ^{Ω(1/ε)}"
+      ],
+      "compactLines": [
+        "Δ^{Ω(1/ε)}"
+      ],
+      "graph": "Bipartite hard instances with all edge weights 1; 0<ε≤0.01 and log⁴ n≤Δ≤n^ε. This is not a bound for fixed Δ as n tends to infinity.",
+      "theorem": "BRR arXiv v1, Theorem 1, Remark 1 and Introduction: The LCA Model.",
+      "notes": "Explicit unit-weight transfer: w(M)=|M| and OPT_w=OPT≤n/2. A (1−ε)-multiplicative weighted matching therefore also satisfies |M|≥OPT−εn. Theorem 1 rules out fewer than Δ^{Ω(1/ε)} ordinary adjacency-list probes per mate query in its stated degree window. The source already requests the mate or unmatched, so there is no edge-output conversion in this lower bound. It remains valid without query-order obliviousness. This is not a lower bound on weight-range dependence or on fixed-degree n dependence.",
+      "rowFoot": "0<ε≤.01 · log⁴ n≤Δ≤n^ε · success ≥.51",
+      "boundKey": "weighted-lca-brr23-lower",
+      "label": "BRR · necessary probes",
+      "displayBound": "Δ^{Ω(1/ε)}",
+      "sourceUrl": "https://arxiv.org/html/2311.09359v1",
+      "sourceLocation": "BRR arXiv v1, Theorem 1, Remark 1 and Introduction: The LCA Model.",
+      "displayQuality": "Retain ≥ 1−ε of optimum weight",
+      "plotNote": "Explicit unit-weight transfer: w(M)=|M| and OPT_w=OPT≤n/2. A (1−ε)-multiplicative weighted matching therefore also satisfies |M|≥OPT−εn. Theorem 1 rules out fewer than Δ^{Ω(1/ε)} ordinary adjacency-list probes per mate query in its stated degree window. The source already requests the mate or unmatched, so there is no edge-output conversion in this lower bound. It remains valid without query-order obliviousness. This is not a lower bound on weight-range dependence or on fixed-degree n dependence.",
+      "summaryNote": "0<ε≤.01 · log⁴ n≤Δ≤n^ε · success ≥.51"
+    }
+  ],
+  "relatedResults": [],
+  "figureAxes": {
+    "mate": {
+      "title": "Consistent local mate queries",
+      "x": {
+        "kind": "categorical",
+        "label": "Probe formulas, shown symbolically",
+        "categories": [
+          {
+            "id": "weighted-lca-emr14-weighted",
+            "label": "O(Δ² · (1/w_min(ε))^{Δ^{O(1/ε)}} · (log* n)^{O(ε⁻¹ log(1/ε))})"
+          },
+          {
+            "id": "weighted-lca-emr14-unit",
+            "label": "O(Δ² · 2^{Δ^{O(1/ε)}} · (log* n)^{⌈1/ε⌉+1})"
+          },
+          {
+            "id": "weighted-lca-brr23-lower",
+            "label": "Δ^{Ω(1/ε)}"
+          }
+        ]
+      },
+      "y": {
+        "kind": "categorical",
+        "label": "Weight setup and guarantee",
+        "categories": [
+          {
+            "id": "mixed",
+            "label": "Positive normalized weights, w_min(ε)<1"
+          },
+          {
+            "id": "unit",
+            "label": "All weights 1"
+          }
+        ]
+      }
+    }
+  },
+  "coverageNote": "Verified deterministic weighted LCA baseline plus an explicitly compatible unit-weight comparison. These records do not claim exhaustive coverage or weight-range optimality. Global optimum-weight estimation is a separate task and is not plotted.",
+  "lowerBoundStatus": "BRR Theorem 1 transfers on unit weights only; its growing-degree window is shown. No weighted-specific lower bound on the weight ratio is claimed.",
+  "axisNote": "Symbolic theorem formulas; row order and spacing do not order mixed functions of n, Δ, ε and the minimum weight.",
+  "sourceVerification": [
+    {
+      "sourceId": "emr14",
+      "checkedOn": "2026-10-30",
+      "url": "https://arxiv.org/html/1402.3796v3",
+      "theorems": [
+        "Theorem 24 (weighted edge membership)",
+        "Theorem 17 (unit-weight edge membership)",
+        "Section 2.2 (reverse-port oracle and consistency)",
+        "Section 8.1 (known maximum, normalization, rounding)"
+      ],
+      "note": "Ordinary-neighbor mate cost is derived with two explicit factors Δ; published CentLocal probes are not LOCAL rounds."
+    },
+    {
+      "sourceId": "brr23",
+      "checkedOn": "2026-10-30",
+      "url": "https://arxiv.org/html/2311.09359v1",
+      "theorems": [
+        "Theorem 1",
+        "Remark 1",
+        "Introduction: The LCA Model"
+      ],
+      "note": "Unit-weight multiplicative-to-additive implication, same mate-output contract; ε and Δ window retained."
+    }
+  ]
+}

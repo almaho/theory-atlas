@@ -2190,6 +2190,118 @@
         "y": "Named theorem and setup",
         "note": "The plot is a fixed-k density reference, not a claim that every variable-k threshold equals 1 or1/2. Exact n,k,ε conditions are beside the points. Green is sufficient density; red is conditional hardness below its boundary."
       }
+    },
+    {
+      "id": "weighted-matching-dynamic",
+      "dataFile": "weighted-matching-dynamic.json",
+      "javascript": "weighted-matching-dynamic.js",
+      "css": "weighted-matching-dynamic.css",
+      "routes": [
+        {
+          "key": "weighted-matching-dynamic",
+          "sliceId": "weighted-matching-dynamic-approximate",
+          "label": "Dynamic · weighted matching",
+          "problem": "weighted_matching",
+          "model": "dynamic",
+          "visible": true
+        },
+        {
+          "key": "weighted-matching-dynamic-exact",
+          "sliceId": "weighted-matching-dynamic-exact",
+          "label": "Dynamic · exact weight queries",
+          "problem": "weighted_matching",
+          "model": "dynamic",
+          "visible": false
+        }
+      ],
+      "canonicalAliases": {
+        "weighted-matching-dynamic-exact": "weighted-matching-dynamic"
+      },
+      "axisSummary": {
+        "x": "Update time; symbolic formulas and dense exact reference",
+        "y": "Retained weight, with exact-query contracts separate",
+        "note": "Selected verified milestones and recent preprints, not an exhaustive frontier. Approximate maintained edges and exact weight queries have separate main panels. Restricted graph families, approximate value-only output, and the ORS reduction are related results."
+      },
+      "pointFields": {
+        "x": "costKey",
+        "y": "plotY"
+      }
+    },
+    {
+      "id": "weighted-matching-lca",
+      "dataFile": "weighted-matching-lca.json",
+      "javascript": "weighted-matching-lca.js",
+      "css": "weighted-matching-lca.css",
+      "routes": [
+        {
+          "key": "weighted-matching-lca",
+          "sliceId": "weighted-matching-lca-probes",
+          "label": "Weighted matching · LCA probes",
+          "problem": "weighted_matching",
+          "model": "lca",
+          "visible": true
+        }
+      ],
+      "canonicalAliases": {},
+      "pointFields": {
+        "x": "boundKey",
+        "y": "setupKey"
+      },
+      "axisSummary": {
+        "x": "Ordinary indexed-neighbor probes per local mate query",
+        "y": "Weight setup and (1−ε) guarantee",
+        "note": "Symbolic theorem formulas; row order and spacing do not order mixed functions of n, Δ, ε and the minimum weight."
+      }
+    },
+    {
+      "id": "weighted_matching-query_list",
+      "dataFile": "weighted-matching-query-list.json",
+      "javascript": "weighted-matching-query.js",
+      "css": "weighted-matching-query.css",
+      "routes": [
+        {
+          "key": "weighted_matching-query_list",
+          "sliceId": "weighted-query-list-landscape",
+          "label": "Weighted matching · Adjacency-list",
+          "problem": "weighted_matching",
+          "model": "query_list",
+          "visible": true
+        }
+      ],
+      "canonicalAliases": {},
+      "axisSummary": {
+        "x": "Query cost; symbolic classes",
+        "y": "Explicit edges versus bounded-weight additive estimate",
+        "note": "Green algorithms, red derived dense lower bound; separate assumptions."
+      },
+      "pointFields": {
+        "x": "at"
+      }
+    },
+    {
+      "id": "weighted_matching-query_matrix",
+      "dataFile": "weighted-matching-query-matrix.json",
+      "javascript": "weighted-matching-query.js",
+      "css": "weighted-matching-query.css",
+      "routes": [
+        {
+          "key": "weighted_matching-query_matrix",
+          "sliceId": "weighted-query-matrix-landscape",
+          "label": "Weighted matching · Adjacency-matrix",
+          "problem": "weighted_matching",
+          "model": "query_matrix",
+          "visible": true
+        }
+      ],
+      "canonicalAliases": {},
+      "axisSummary": {
+        "x": "Query cost; symbolic classes",
+        "y": "Explicit edges versus bounded-weight additive estimate",
+        "note": "Green algorithms, red derived dense lower bound; separate assumptions."
+      },
+      "pointFields": {
+        "x": "at"
+      }
     }
   ]
 }

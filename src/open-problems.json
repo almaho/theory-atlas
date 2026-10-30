@@ -102,5 +102,27 @@
         }
       ]
     }
+  },
+  "settings": {
+    "weighted_matching:dynamic": {
+      "title": "Can near-optimal matching be maintained in polylogarithmic time?",
+      "question": "Can a fully dynamic algorithm maintain an explicit (1−ε)-approximate maximum-weight matching with update time polynomial in log n and 1/ε?",
+      "models": [
+        "dynamic"
+      ],
+      "setup": "General graphs · positive edge weights with polynomial aspect ratio · edge insertions and deletions · explicit matching edges",
+      "context": "The displayed near-optimal algorithms still depend polynomially on graph size. Value-only estimates and partially dynamic updates are different contracts.",
+      "sources": [
+        {
+          "title": "Chen (2026 preprint), Introduction",
+          "url": "https://arxiv.org/html/2608.27805v2"
+        },
+        {
+          "title": "Bernstein–Chen (2025 preprint), §1.1",
+          "url": "https://arxiv.org/html/2510.19049v1"
+        }
+      ],
+      "status": "Open direction identified in the cited preprints; stronger polynomial dependence on 1/ε is the target stated here."
+    }
   }
 }

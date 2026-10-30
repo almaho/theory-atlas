@@ -4,7 +4,7 @@
   const data=JSON.parse(document.getElementById('atlas-data').textContent);
   const esc=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   function questionHTML(problem,model){
-    const q=data.openProblems?.problems?.[problem];
+    const q=data.openProblems?.settings?.[problem+':'+model]||data.openProblems?.problems?.[problem];
     if(!q)return '';
     const family=data.problems.find(p=>p.id===problem)?.name||problem;
     const scope=q.models?.includes(model)?'In this setting':'Across the '+family.toLowerCase()+' problem family';

@@ -50,6 +50,7 @@ def validate(catalog, research):
             all_slices.add(sid)
             require(s["problem"] == pid and s["model"] in models, f"Bad slice scope: {sid}")
             require(s["task"] and s["assumptions"], f"Missing task or assumptions: {sid}")
+            require(isinstance(s["assumptions"], list) and all(isinstance(a, str) for a in s["assumptions"]), f"Assumptions must be a list of text statements: {sid}")
             axes = [s.get("axis")] if s.get("mode") == "1d" else [s.get("xAxis"), s.get("yAxis")]
             for axis in axes:
                 require(isinstance(axis, dict) and axis.get("label"), f"Axis missing: {sid}")

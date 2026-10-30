@@ -1,0 +1,27 @@
+'use strict';
+const fs=require('fs'),path=require('path'),vm=require('vm'),assert=require('assert');
+const root=path.resolve(__dirname,'../../..'),ID='weighted-matching-dynamic',data=JSON.parse(fs.readFileSync(path.join(root,'data/focus/'+ID+'.json'),'utf8')),source=fs.readFileSync(path.join(root,'src/'+ID+'.js'),'utf8');
+function load(d=data){const c={window:{},document:{getElementById(){return{textContent:JSON.stringify({focus:{[ID]:d}})}}},AbortController,Set};vm.runInNewContext(source,c);return c.window.AtlasPairRenderers[ID];}
+const api=load(),rr=api.records();assert.equal(rr.length,9);assert.equal(api.related().length,4);assert.equal(rr.filter(r=>r.panel==='approximate').length,6);assert.equal(rr.filter(r=>r.kind==='lower').length,1);
+for(const r of [...rr,...api.related()])for(const k of ['quality','output','graph','theorem','probability','timeType','adversary','sourceUrl'])assert(r[k],r.id+'/'+k);
+const lower=rr.find(r=>r.kind==='lower');assert.equal(lower.panel,'exact');assert(lower.notes.includes('neither an Ω(n) theorem nor an approximation lower bound'));assert(lower.notes.includes('weight equals maximum matching cardinality'));assert(lower.queryTime.includes('m^{1−δ}'));assert(lower.probability.includes('OMv'));
+const eager=rr.find(r=>r.id.endsWith('exact-eager')),lazy=rr.find(r=>r.id.endsWith('exact-lazy'));assert.equal(eager.queryTime,'O(1)');assert.equal(lazy.bound,'O(1)');assert(lazy.queryTime.includes('n(m+n log n)'));assert(lazy.graph.includes('O(n²)-space'));
+assert.equal(rr.find(r=>r.id.endsWith('chen26-near')).publicationStatus,'preprint');assert.equal(api.records({publication:'published'}).length,7);
+for(const r of data.verifiedRecords){const a=data.figureAxes[r.panel];assert(a.x.categories.some(c=>c.id===r.costKey));if(a.y.categories)assert(a.y.categories.some(c=>c.id===r.plotY));else assert(r.plotY>=a.y.min&&r.plotY<=a.y.max);}
+for(const [w,h]of [[90,60],[110,280],[450,90],[240,160],[299,229],[300,230],[330,245],[500,280],[738,548],[900,700],[1000,760]]){
+ const svg=api.summarySVG(ID,w,h),g=api.layoutGeometry(w,h);assert(!/NaN|Infinity|undefined/.test(svg));assert.equal((svg.match(/data-wmd-result=/g)||[]).length,9);assert.equal((svg.match(/data-kind="lower"/g)||[]).length,1);
+ for(const p of g.points)assert(p.x>=0&&p.x<=w&&p.y>=0&&p.y<=h,p.id+' out of '+w+'x'+h);
+ if(w<300||h<230)assert(!/<text/.test(svg));else{assert(svg.includes('maintained edges'));assert(svg.includes('Exact optimum weight'));}
+}
+assert(!/<text/.test(api.summarySVG(ID,1000,760,{level:'overview'})));assert(api.summarySVG(ID,330,245,{level:'detail'}).includes('data-detail-level="compact"'));
+const early=api.layoutGeometry(1000,760,{epsilon:.01},true),late=api.layoutGeometry(1000,760,{epsilon:.15},true);for(const r of rr){const a=early.points.find(p=>p.id===r.id),b=late.points.find(p=>p.id===r.id);assert.equal(a.x,b.x);if(r.panel==='approximate')assert(b.y>a.y);else assert.equal(a.y,b.y);}
+assert.equal(api.diagramSVG({epsilon:.06}),api.diagramSVG(ID,{epsilon:.06}));assert.equal((api.diagramSVG().match(/role="button"/g)||[]).length,9);
+function host(){const classes=new Set(),children=new Map(),listeners={};return{isConnected:true,innerHTML:'',classList:{add(...s){s.forEach(v=>classes.add(v))},remove(...s){s.forEach(v=>classes.delete(v))},toggle(v,on){on?classes.add(v):classes.delete(v)}},setAttribute(){},querySelector(s){if(!children.has(s))children.set(s,{innerHTML:'',value:'',textContent:''});return children.get(s)},addEventListener(t,f,o){listeners[t]={fn:f,signal:o.signal}},classes,listeners};}
+const h=host();let changed;api.mount(h,ID,{onPublicationChange:v=>changed=v});assert(h.innerHTML.indexOf('wmd-plot')<h.innerHTML.indexOf('wmd-theorem'));const detail=()=>h.querySelector('.wmd-theorem').innerHTML;assert(detail().includes('Theorem 5.11'));
+const event=id=>({target:{closest(){return{dataset:{wmdResult:id}}}}});h.listeners.click.fn(event(lower.id));assert(detail().includes('exact only'));assert(detail().includes('Corollary 3.4'));assert(detail().includes('Primary full text'));
+let prevented=false;h.listeners.keydown.fn({...event(lazy.id),key:'Enter',preventDefault(){prevented=true}});assert(prevented);assert(detail().includes('lazy-query wrapper'));
+h.listeners.input.fn({target:{value:'0.12',classList:{contains:c=>c==='wmd-epsilon'}}});assert.equal(h.querySelector('.wmd-epsilon-value').textContent,'0.12');assert(h.querySelector('.wmd-plot').innerHTML.includes('ε = 0.12'));
+h.listeners.change.fn({target:{value:'published',classList:{contains:c=>c==='wmd-publication'}}});assert.equal(changed,'published');assert(!h.querySelector('.wmd-plot').innerHTML.includes('data-wmd-result="weighted-dynamic-chen26-near"'));
+const signal=h.listeners.click.signal;api.mount(h);assert(signal.aborted);const next=h.listeners.click.signal;api.release(h);assert(next.aborted);assert(!h.classes.has('wmd-view'));
+const bad=JSON.parse(JSON.stringify(data));bad.verifiedRecords[0].notes='<script>unsafe</script>';const bh=host();load(bad).mount(bh);assert(bh.querySelector('.wmd-theorem').innerHTML.includes('&lt;script&gt;'));assert(!bh.querySelector('.wmd-theorem').innerHTML.includes('<script>'));
+console.log('Weighted dynamic PASS: 9 main/4 related records; exact-only unit-weight OMv scope; derived fast/slow-query baselines; 11 viewport sizes; text-free overview; ε interaction, publication filtering, theorem links, keyboard access, escaping and disposal.');

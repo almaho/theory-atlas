@@ -1,0 +1,634 @@
+{
+  "id": "weighted-matching-dynamic",
+  "problem": "weighted_matching",
+  "model": "dynamic",
+  "title": "Weighted matching · fully dynamic",
+  "reviewedOn": "2026-10-30",
+  "sources": {
+    "gp13": {
+      "title": "Fully Dynamic (1+ε)-Approximate Matchings",
+      "authors": [
+        "Manoj Gupta",
+        "Richard Peng"
+      ],
+      "year": 2013,
+      "venue": "FOCS 2013",
+      "publicationStatus": "published",
+      "url": "https://arxiv.org/abs/1304.0378",
+      "fullTextUrl": "https://arxiv.org/pdf/1304.0378v2",
+      "shortLabel": "Gupta–Peng ’13",
+      "verifiedOn": "2026-10-30"
+    },
+    "bdl21": {
+      "title": "A Framework for Dynamic Matching in Weighted Graphs",
+      "authors": [
+        "Aaron Bernstein",
+        "Aditi Dudeja",
+        "Zachary Langley"
+      ],
+      "year": 2021,
+      "venue": "STOC 2021",
+      "publicationStatus": "published",
+      "url": "https://aditidudeja.github.io/weightedMatching.pdf",
+      "publicationUrl": "https://doi.org/10.1145/3406325.3451113",
+      "shortLabel": "BDL ’21",
+      "verifiedOn": "2026-10-30"
+    },
+    "bcd25": {
+      "title": "Matching Composition and Efficient Weight Reduction in Dynamic Matching",
+      "authors": [
+        "Aaron Bernstein",
+        "Jiale Chen",
+        "Aditi Dudeja",
+        "Zachary Langley",
+        "Aaron Sidford",
+        "Ta-Wei Tu"
+      ],
+      "year": 2025,
+      "venue": "SODA 2025; revised full version July 2026",
+      "publicationStatus": "published",
+      "url": "https://arxiv.org/abs/2410.18936",
+      "fullTextUrl": "https://arxiv.org/html/2410.18936v2",
+      "publicationUrl": "https://doi.org/10.1137/1.9781611978322.97",
+      "shortLabel": "BCDLST ’25",
+      "verifiedOn": "2026-10-30"
+    },
+    "bc25": {
+      "title": "From Unweighted to Weighted Dynamic Matching in Non-Bipartite Graphs: A Low-Loss Reduction",
+      "authors": [
+        "Aaron Bernstein",
+        "Jiale Chen"
+      ],
+      "year": 2025,
+      "venue": "arXiv preprint v1, October 2025",
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/abs/2510.19049",
+      "fullTextUrl": "https://arxiv.org/html/2510.19049v1",
+      "shortLabel": "Bernstein–Chen ’25",
+      "verifiedOn": "2026-10-30"
+    },
+    "chen26": {
+      "title": "The Power of Local Marginals: An O(ε⁻¹)-Aspect-Ratio Reduction for Dynamic Weighted Matching",
+      "authors": [
+        "Jiale Chen"
+      ],
+      "year": 2026,
+      "venue": "arXiv preprint v2, 7 October 2026",
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/abs/2608.27805",
+      "fullTextUrl": "https://arxiv.org/html/2608.27805v2",
+      "shortLabel": "Chen ’26",
+      "verifiedOn": "2026-10-30"
+    },
+    "gabow16": {
+      "title": "Data Structures for Weighted Matching and Extensions to b-matching and f-factors",
+      "authors": [
+        "Harold N. Gabow"
+      ],
+      "year": 2018,
+      "venue": "ACM Transactions on Algorithms 2018; full version arXiv 2016",
+      "publicationStatus": "published",
+      "url": "https://arxiv.org/abs/1611.07541",
+      "fullTextUrl": "https://arxiv.org/pdf/1611.07541v1",
+      "shortLabel": "Gabow · recompute",
+      "verifiedOn": "2026-10-30"
+    },
+    "hkns15": {
+      "title": "Unifying and Strengthening Hardness for Dynamic Problems via the Online Matrix-Vector Multiplication Conjecture",
+      "authors": [
+        "Monika Henzinger",
+        "Sebastian Krinninger",
+        "Danupon Nanongkai",
+        "Thatchaphol Saranurak"
+      ],
+      "year": 2015,
+      "venue": "STOC 2015",
+      "publicationStatus": "published",
+      "url": "https://arxiv.org/abs/1511.06773",
+      "fullTextUrl": "https://arxiv.org/html/1511.06773v1#S3.SS1",
+      "shortLabel": "HKNS ’15 · OMv",
+      "verifiedOn": "2026-10-30"
+    }
+  },
+  "verifiedRecords": [
+    {
+      "id": "weighted-dynamic-bdl21-half",
+      "sourceId": "bdl21",
+      "kind": "upper",
+      "panel": "approximate",
+      "output": "An explicit matching M after every edge update",
+      "graph": "General undirected graphs; positive edge weights; fully dynamic edge insertions and deletions",
+      "probability": "Las Vegas randomized; update-time bound with high probability",
+      "adversary": "adaptive",
+      "queryTime": "Matching maintained after updates; reporting all edges costs O(|M|)",
+      "evidenceStatus": "full_text_verified",
+      "shortLabel": "BDL ’21",
+      "displayBound": "Oε(log⁵ n · log R)",
+      "bound": "Oε(log⁵ n · log R)",
+      "quality": "w(M) ≥ (1/2−ε) OPTw",
+      "betaBase": 0.5,
+      "betaError": 1,
+      "plotY": 0.45,
+      "costKey": "polylog",
+      "timeType": "worst-case with high probability",
+      "theorem": "Theorem 5.11",
+      "notes": "R is the largest/smallest allowed edge weight. Oε hides ε-dependent factors, including exponential dependence on 1/ε. The approximation is always correct; the time bound is probabilistic. Use R=max{2,w_max/w_min}, so logarithms stay at least constant.",
+      "compactCost": "polylog n",
+      "formulaLines": [
+        "Oε(log⁵ n · log R)"
+      ],
+      "sourceUrl": "https://aditidudeja.github.io/weightedMatching.pdf",
+      "publicationStatus": "published",
+      "sourceLocation": "Theorem 5.11",
+      "year": 2021
+    },
+    {
+      "id": "weighted-dynamic-bdl21-two-thirds",
+      "sourceId": "bdl21",
+      "kind": "upper",
+      "panel": "approximate",
+      "output": "An explicit matching M after every edge update",
+      "graph": "General undirected graphs; positive edge weights; fully dynamic edge insertions and deletions",
+      "probability": "deterministic",
+      "adversary": "arbitrary update sequence",
+      "queryTime": "Matching maintained after updates; reporting all edges costs O(|M|)",
+      "evidenceStatus": "full_text_verified",
+      "shortLabel": "BDL ’21",
+      "displayBound": "Oε(m¼ · log R)",
+      "bound": "Oε(m¼ · log R)",
+      "quality": "w(M) ≥ (2/3−ε) OPTw",
+      "betaBase": 0.6666666666666666,
+      "betaError": 1,
+      "plotY": 0.6166666666666666,
+      "costKey": "quarter",
+      "timeType": "amortized",
+      "theorem": "Theorem 5.12",
+      "notes": "Deterministic general-graph guarantee. Oε hides exponential dependence on 1/ε; R is the weight aspect ratio. This does not assert the same bound in worst-case time. Use R=max{2,w_max/w_min}, so logarithms stay at least constant.",
+      "compactCost": "m¼",
+      "formulaLines": [
+        "Oε(m¼ · log R)"
+      ],
+      "sourceUrl": "https://aditidudeja.github.io/weightedMatching.pdf",
+      "publicationStatus": "published",
+      "sourceLocation": "Theorem 5.12",
+      "year": 2021
+    },
+    {
+      "id": "weighted-dynamic-bc25-near",
+      "sourceId": "bc25",
+      "kind": "upper",
+      "panel": "approximate",
+      "output": "An explicit matching M after every edge update",
+      "graph": "General undirected graphs; positive edge weights; fully dynamic edge insertions and deletions; weights remain in a fixed interval of aspect ratio R≤poly(n)",
+      "probability": "randomized, with high probability",
+      "adversary": "adaptive",
+      "queryTime": "Matching maintained after updates; reporting all edges costs O(|M|)",
+      "evidenceStatus": "full_text_verified",
+      "shortLabel": "Bernstein–Chen ’25",
+      "displayBound": "O(poly(ε⁻¹) · n / 2^{Ω(√log n)})",
+      "bound": "O(poly(ε⁻¹) · n / 2^{Ω(√log n)})",
+      "quality": "w(M) ≥ (1−ε) OPTw",
+      "betaBase": 1,
+      "betaError": 1,
+      "plotY": 0.95,
+      "costKey": "sublinear",
+      "timeType": "amortized",
+      "theorem": "Corollary 1.3; Theorems 1.1 and 6.5",
+      "notes": "Preprint. Instantiates the general weighted-to-bipartite-unweighted reduction. This is a subpolynomial-factor saving from n, not an n^{1−c} algorithm for fixed c>0. Accuracy is rescaled through the reduction.",
+      "compactCost": "n / subexp",
+      "formulaLines": [
+        "O(poly(ε⁻¹) · n /",
+        "2^{Ω(√log n)})"
+      ],
+      "sourceUrl": "https://arxiv.org/html/2510.19049v1",
+      "publicationStatus": "preprint",
+      "sourceLocation": "Corollary 1.3; Theorems 1.1 and 6.5",
+      "year": 2025
+    },
+    {
+      "id": "weighted-dynamic-gp13-near",
+      "sourceId": "gp13",
+      "kind": "upper",
+      "panel": "approximate",
+      "output": "An explicit matching M after every edge update",
+      "graph": "General undirected graphs; positive edge weights; fully dynamic edge insertions and deletions",
+      "probability": "deterministic",
+      "adversary": "arbitrary update sequence",
+      "queryTime": "Matching maintained after updates; reporting all edges costs O(|M|)",
+      "evidenceStatus": "full_text_verified",
+      "shortLabel": "Gupta–Peng ’13",
+      "displayBound": "Oε(√m · log R)",
+      "bound": "Oε(√m · log R)",
+      "quality": "w(M) ≥ (1−ε) OPTw, after reparameterizing η=ε/(1−ε)",
+      "betaBase": 1,
+      "betaError": 1,
+      "plotY": 0.95,
+      "costKey": "root-historical",
+      "timeType": "worst-case",
+      "theorem": "Theorem 1.3 and Section 4.2",
+      "notes": "The source states a (1+η)-approximation for each fixed η<1/2. Set η=ε/(1−ε), so retained weight is exactly 1−ε. Oε hides ε^{-O(1/ε)}. The source uses weights in [1,N]; scaling gives R. Use R=max{2,w_max/w_min}, so logarithms stay at least constant.",
+      "compactCost": "√m · log R",
+      "formulaLines": [
+        "Oε(√m · log R)"
+      ],
+      "sourceUrl": "https://arxiv.org/pdf/1304.0378v2",
+      "publicationStatus": "published",
+      "sourceLocation": "Theorem 1.3 and Section 4.2",
+      "year": 2013
+    },
+    {
+      "id": "weighted-dynamic-bcd25-near",
+      "sourceId": "bcd25",
+      "kind": "upper",
+      "panel": "approximate",
+      "output": "An explicit matching M after every edge update",
+      "graph": "General undirected graphs; positive edge weights; fully dynamic edge insertions and deletions; weights remain in a fixed interval of aspect ratio R≤poly(n); Θ(log n)-bit word-RAM",
+      "probability": "deterministic",
+      "adversary": "arbitrary update sequence",
+      "queryTime": "Matching maintained after updates; reporting all edges costs O(|M|)",
+      "evidenceStatus": "full_text_verified",
+      "shortLabel": "BCDLST ’25",
+      "displayBound": "O((√m ε⁻⁴ + ε⁻⁶) polylog(1/ε))",
+      "bound": "O((√m ε⁻⁴ + ε⁻⁶) polylog(1/ε))",
+      "quality": "w(M) ≥ (1−ε) OPTw",
+      "betaBase": 1,
+      "betaError": 1,
+      "plotY": 0.95,
+      "costKey": "root-poly-epsilon",
+      "timeType": "amortized",
+      "theorem": "Lemma 6.7, using Theorem 3.5; computational model in Section 2",
+      "notes": "Removes the exponential accuracy cost in the earlier near-optimal weighted algorithm. Amortized update time follows from the reduction in Theorem 3.5. The plotted position is a symbolic formula category, not a measured runtime.",
+      "compactCost": "√m · poly(1/ε)",
+      "formulaLines": [
+        "O((√m ε⁻⁴ + ε⁻⁶)",
+        "polylog(1/ε))"
+      ],
+      "sourceUrl": "https://arxiv.org/html/2410.18936v2",
+      "publicationStatus": "published",
+      "sourceLocation": "Lemma 6.7, using Theorem 3.5; computational model in Section 2",
+      "year": 2025
+    },
+    {
+      "id": "weighted-dynamic-chen26-near",
+      "sourceId": "chen26",
+      "kind": "upper",
+      "panel": "approximate",
+      "output": "An explicit matching M after every edge update",
+      "graph": "General undirected graphs; positive edge weights; fully dynamic edge insertions and deletions; weights remain in a fixed interval of aspect ratio R≤poly(n)",
+      "probability": "deterministic",
+      "adversary": "arbitrary update sequence",
+      "queryTime": "Matching maintained after updates; reporting all edges costs O(|M|)",
+      "evidenceStatus": "full_text_verified",
+      "shortLabel": "Chen ’26",
+      "displayBound": "Õ(√m ε⁻³)",
+      "bound": "Õ(√m ε⁻³)",
+      "quality": "w(M) ≥ (1−ε) OPTw",
+      "betaBase": 1,
+      "betaError": 1,
+      "plotY": 0.95,
+      "costKey": "root-cubic-epsilon",
+      "timeType": "amortized",
+      "theorem": "Corollary 4.17, using Theorem 4.8",
+      "notes": "Preprint v2. Improves the ε dependence using local weight windows. Õ suppresses polylogarithmic factors. Deterministic guarantee for a graph with at most m edges at all times.",
+      "compactCost": "√m ε⁻³",
+      "formulaLines": [
+        "Õ(√m ε⁻³)"
+      ],
+      "sourceUrl": "https://arxiv.org/html/2608.27805v2",
+      "publicationStatus": "preprint",
+      "sourceLocation": "Corollary 4.17, using Theorem 4.8",
+      "year": 2026
+    },
+    {
+      "id": "weighted-dynamic-exact-eager",
+      "sourceId": "gabow16",
+      "kind": "upper",
+      "panel": "exact",
+      "output": "Exact optimum weight stored after each update",
+      "graph": "General undirected graphs; positive edge weights; fully dynamic edge insertions and deletions; arithmetic-operation model",
+      "probability": "deterministic",
+      "adversary": "arbitrary update sequence",
+      "queryTime": "O(1)",
+      "evidenceStatus": "full_text_verified",
+      "shortLabel": "Recompute per update",
+      "costKey": "cubic",
+      "plotY": "fast",
+      "displayBound": "O(n(m+n log n)) update; O(1) weight query",
+      "bound": "O(n(m+n log n))",
+      "quality": "Exact optimum matching weight",
+      "timeType": "worst-case",
+      "theorem": "Introduction pp. 1–2, Sections 2–3 and Theorem 3.4; elementary dynamic wrapper",
+      "notes": "Derived baseline, not a specialized dynamic theorem or a best-known claim. Run Gabow’s static algorithm after each update and save the optimum weight. Under m=Θ(n²), update time is O(n³).",
+      "sourceUrl": "https://arxiv.org/pdf/1611.07541v1",
+      "publicationStatus": "published",
+      "sourceLocation": "Introduction pp. 1–2, Sections 2–3 and Theorem 3.4; elementary dynamic wrapper",
+      "year": 2018
+    },
+    {
+      "id": "weighted-dynamic-exact-lazy",
+      "sourceId": "gabow16",
+      "kind": "upper",
+      "panel": "exact",
+      "output": "Exact optimum weight returned only when queried",
+      "graph": "General undirected graphs; positive edge weights; fully dynamic edge insertions and deletions; O(n²)-space direct-address graph storage; arithmetic-operation model",
+      "probability": "deterministic",
+      "adversary": "arbitrary update sequence",
+      "queryTime": "O(n(m+n log n))",
+      "evidenceStatus": "full_text_verified",
+      "shortLabel": "Recompute on query",
+      "costKey": "constant",
+      "plotY": "slow",
+      "displayBound": "O(1) update; O(n(m+n log n)) weight query",
+      "bound": "O(1)",
+      "quality": "Exact optimum matching weight on demand",
+      "timeType": "worst-case",
+      "theorem": "Same static algorithm; elementary lazy-query wrapper",
+      "notes": "Derived baseline. Store edge insertions/deletions in a direct-address adjacency structure and invoke the static algorithm on a weight query. Dense reference: O(n³) query time. Fast updates here do not provide a maintained matching.",
+      "sourceUrl": "https://arxiv.org/pdf/1611.07541v1",
+      "publicationStatus": "published",
+      "sourceLocation": "Same static algorithm; elementary lazy-query wrapper",
+      "year": 2018
+    },
+    {
+      "id": "weighted-dynamic-exact-omv",
+      "sourceId": "hkns15",
+      "kind": "lower",
+      "panel": "exact",
+      "output": "Exact optimum weight (hard instances have every edge weight 1)",
+      "graph": "Bipartite unit-weight graphs; therefore also a restriction of general weighted matching",
+      "probability": "Rules out error probability at most 1/3, assuming OMv",
+      "adversary": "The source reduction supplies the hard update sequence",
+      "queryTime": "Lower bound requires q=O(m^{1−δ}); includes O(1) queries",
+      "evidenceStatus": "full_text_verified",
+      "shortLabel": "OMv barrier",
+      "costKey": "linear-barrier",
+      "plotY": "fast",
+      "displayBound": "No O(m^{1/2−δ}) updates together with O(m^{1−δ}) queries",
+      "bound": "No simultaneous u=O(m^{1/2−δ}), q=O(m^{1−δ}) for fixed δ>0",
+      "quality": "Exact weight only; conditional on the OMv conjecture",
+      "timeType": "amortized updates",
+      "theorem": "Corollary 3.4 and parameter-preserving matching reductions immediately following it; Table 5 footnote",
+      "notes": "Transfer: with every edge weighted 1, optimum weight equals maximum matching cardinality, without overhead. With polynomial preprocessing, exact fast queries cannot coexist with truly sub-√m amortized updates. On dense graphs this excludes truly sublinear-in-n updates. This is neither an Ω(n) theorem nor an approximation lower bound.",
+      "sourceUrl": "https://arxiv.org/html/1511.06773v1#S3.SS1",
+      "publicationStatus": "published",
+      "sourceLocation": "Corollary 3.4 and parameter-preserving matching reductions immediately following it; Table 5 footnote",
+      "year": 2015
+    }
+  ],
+  "relatedResults": [
+    {
+      "id": "weighted-dynamic-chen26-value",
+      "sourceId": "chen26",
+      "kind": "upper",
+      "panel": "related",
+      "output": "Weight estimate only; no matching edges",
+      "graph": "Bipartite graphs; fixed polynomial weight aspect ratio",
+      "probability": "randomized, with high probability",
+      "adversary": "adaptive",
+      "queryTime": "Matching maintained after updates; reporting all edges costs O(|M|)",
+      "evidenceStatus": "full_text_verified",
+      "shortLabel": "Bipartite weight estimate",
+      "displayBound": "m^{1/2−Ωε(1)}",
+      "bound": "m^{1/2−Ωε(1)}",
+      "quality": "(1−ε)OPTw ≤ estimate ≤ (1+ε)OPTw",
+      "timeType": "worst-case",
+      "theorem": "Corollary 3.5",
+      "notes": "Preprint v2; constant ε>0. Kept outside the explicit-matching scatter because estimating optimum weight is a different output contract.",
+      "sourceUrl": "https://arxiv.org/html/2608.27805v2",
+      "publicationStatus": "preprint",
+      "sourceLocation": "Corollary 3.5",
+      "year": 2026
+    },
+    {
+      "id": "weighted-dynamic-chen26-degree",
+      "sourceId": "chen26",
+      "kind": "upper",
+      "panel": "related",
+      "output": "An explicit matching M after every edge update",
+      "graph": "General undirected graphs; positive edge weights; fully dynamic edge insertions and deletions; weights remain in a fixed interval of aspect ratio R≤poly(n); maximum degree at most Δ throughout",
+      "probability": "deterministic",
+      "adversary": "arbitrary update sequence",
+      "queryTime": "Matching maintained after updates; reporting all edges costs O(|M|)",
+      "evidenceStatus": "full_text_verified",
+      "shortLabel": "Bounded maximum degree Δ",
+      "displayBound": "Õ(Δ ε⁻³)",
+      "bound": "Õ(Δ ε⁻³)",
+      "quality": "w(M) ≥ (1−ε) OPTw",
+      "timeType": "amortized",
+      "theorem": "Corollary 4.14",
+      "notes": "Preprint v2. Restricted graph parameter kept explicit instead of ranking Δ against √m.",
+      "sourceUrl": "https://arxiv.org/html/2608.27805v2",
+      "publicationStatus": "preprint",
+      "sourceLocation": "Corollary 4.14",
+      "year": 2026
+    },
+    {
+      "id": "weighted-dynamic-chen26-arboricity",
+      "sourceId": "chen26",
+      "kind": "upper",
+      "panel": "related",
+      "output": "An explicit matching M after every edge update",
+      "graph": "General undirected graphs; positive edge weights; fully dynamic edge insertions and deletions; weights remain in a fixed interval of aspect ratio R≤poly(n); arboricity at most α after every update",
+      "probability": "deterministic",
+      "adversary": "arbitrary update sequence",
+      "queryTime": "Matching maintained after updates; reporting all edges costs O(|M|)",
+      "evidenceStatus": "full_text_verified",
+      "shortLabel": "Bounded arboricity α",
+      "displayBound": "Õ(α ε⁻⁴)",
+      "bound": "Õ(α ε⁻⁴)",
+      "quality": "w(M) ≥ (1−ε) OPTw",
+      "timeType": "amortized",
+      "theorem": "Theorem 4.15",
+      "notes": "Preprint v2. Arboricity is a graph-density parameter, not the approximation factor.",
+      "sourceUrl": "https://arxiv.org/html/2608.27805v2",
+      "publicationStatus": "preprint",
+      "sourceLocation": "Theorem 4.15",
+      "year": 2026
+    },
+    {
+      "id": "weighted-dynamic-bc25-ors",
+      "sourceId": "bc25",
+      "kind": "upper",
+      "panel": "related",
+      "output": "An explicit matching M after every edge update",
+      "graph": "General undirected graphs; positive edge weights; fully dynamic edge insertions and deletions; weights remain in a fixed interval of aspect ratio R≤poly(n)",
+      "probability": "randomized, with high probability",
+      "adversary": "adaptive",
+      "queryTime": "Matching maintained after updates; reporting all edges costs O(|M|)",
+      "evidenceStatus": "full_text_verified",
+      "shortLabel": "ORS-dependent weighted matching",
+      "displayBound": "poly(ε⁻¹) · n^β · ORS(n, poly(ε)n)",
+      "bound": "poly(ε⁻¹) · n^β · ORS(n, poly(ε)n)",
+      "quality": "w(M) ≥ (1−ε) OPTw; ε∈(0,1/4), any fixed β>0",
+      "timeType": "amortized",
+      "theorem": "Corollary 1.5 and Theorem 6.5",
+      "notes": "Preprint. The polynomial degree depends on β. The weighted reduction builds on the ORS line initiated by Behnezhad–Ghafari; its exact extremal parameter must remain visible. No numerical ORS endpoint or unconditional polynomial saving is invented.",
+      "sourceUrl": "https://arxiv.org/html/2510.19049v1",
+      "publicationStatus": "preprint",
+      "sourceLocation": "Corollary 1.5 and Theorem 6.5",
+      "year": 2025
+    }
+  ],
+  "defaultEpsilon": 0.05,
+  "defaultScope": "General undirected graphs; positive edge weights; fully dynamic edge insertions and deletions; weights remain in a fixed interval of aspect ratio R≤poly(n)",
+  "coverageNote": "Selected verified milestones and recent preprints, not an exhaustive frontier. Approximate maintained edges and exact weight queries have separate main panels. Restricted graph families, approximate value-only output, and the ORS reduction are related results.",
+  "lowerBoundStatus": "No approximation lower bound for the main explicit-matching rows was verified. The red barrier is conditional, exact-only, and requires sufficiently fast weight queries.",
+  "sourceVerification": [
+    {
+      "sourceId": "gp13",
+      "url": "https://arxiv.org/pdf/1304.0378v2",
+      "checkedOn": "2026-10-30",
+      "locations": [
+        "Theorem 1.3 and Section 4.2"
+      ],
+      "status": "primary_full_statement_checked"
+    },
+    {
+      "sourceId": "bdl21",
+      "url": "https://aditidudeja.github.io/weightedMatching.pdf",
+      "checkedOn": "2026-10-30",
+      "locations": [
+        "Theorem 5.11",
+        "Theorem 5.12"
+      ],
+      "status": "primary_full_statement_checked"
+    },
+    {
+      "sourceId": "bcd25",
+      "url": "https://arxiv.org/html/2410.18936v2",
+      "checkedOn": "2026-10-30",
+      "locations": [
+        "Lemma 6.7, using Theorem 3.5; computational model in Section 2"
+      ],
+      "status": "primary_full_statement_checked"
+    },
+    {
+      "sourceId": "bc25",
+      "url": "https://arxiv.org/html/2510.19049v1",
+      "checkedOn": "2026-10-30",
+      "locations": [
+        "Corollary 1.3; Theorems 1.1 and 6.5",
+        "Corollary 1.5 and Theorem 6.5"
+      ],
+      "status": "primary_full_statement_checked"
+    },
+    {
+      "sourceId": "chen26",
+      "url": "https://arxiv.org/html/2608.27805v2",
+      "checkedOn": "2026-10-30",
+      "locations": [
+        "Corollary 4.17, using Theorem 4.8",
+        "Corollary 3.5",
+        "Corollary 4.14",
+        "Theorem 4.15"
+      ],
+      "status": "primary_full_statement_checked"
+    },
+    {
+      "sourceId": "gabow16",
+      "url": "https://arxiv.org/pdf/1611.07541v1",
+      "checkedOn": "2026-10-30",
+      "locations": [
+        "Introduction pp. 1–2, Sections 2–3 and Theorem 3.4; elementary dynamic wrapper",
+        "Same static algorithm; elementary lazy-query wrapper"
+      ],
+      "status": "primary_full_statement_checked"
+    },
+    {
+      "sourceId": "hkns15",
+      "url": "https://arxiv.org/html/1511.06773v1#S3.SS1",
+      "checkedOn": "2026-10-30",
+      "locations": [
+        "Corollary 3.4 and parameter-preserving matching reductions immediately following it; Table 5 footnote"
+      ],
+      "status": "primary_full_statement_checked"
+    }
+  ],
+  "figureAxes": {
+    "approximate": {
+      "title": "Explicit approximate matchings",
+      "x": {
+        "label": "Update-time formulas; symbolic categories, not numerical distances",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "polylog",
+            "label": "Oε(log⁵ n · log R)"
+          },
+          {
+            "id": "quarter",
+            "label": "Oε(m¼ · log R)"
+          },
+          {
+            "id": "sublinear",
+            "label": "O(poly(ε⁻¹) · n / 2^{Ω(√log n)})"
+          },
+          {
+            "id": "root-historical",
+            "label": "Oε(√m · log R)"
+          },
+          {
+            "id": "root-poly-epsilon",
+            "label": "O((√m ε⁻⁴ + ε⁻⁶) polylog(1/ε))"
+          },
+          {
+            "id": "root-cubic-epsilon",
+            "label": "Õ(√m ε⁻³)"
+          }
+        ]
+      },
+      "y": {
+        "label": "Retained weight w(M)/OPTw; ε=0.05 reference",
+        "min": 0.35,
+        "max": 1,
+        "ticks": [
+          0.35,
+          0.5,
+          0.6666666666666666,
+          0.9,
+          1
+        ]
+      }
+    },
+    "exact": {
+      "title": "Exact weight queries",
+      "x": {
+        "label": "Dense reference update time; m=Θ(n²)",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "constant",
+            "label": "O(1)"
+          },
+          {
+            "id": "linear-barrier",
+            "label": "No n^{1−c} update with sufficiently fast queries under OMv"
+          },
+          {
+            "id": "cubic",
+            "label": "O(n³)"
+          }
+        ]
+      },
+      "y": {
+        "label": "Query contract",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "fast",
+            "label": "O(1) query"
+          },
+          {
+            "id": "slow",
+            "label": "O(n³) query; recompute on demand"
+          }
+        ]
+      }
+    }
+  },
+  "representation": {
+    "approximation": "Numeric retained-weight scale; ε slider changes guarantees, not constants hidden in asymptotic update bounds.",
+    "cost": "Approximate formulas have categorical spacing. General, sparsity-sensitive, and accuracy-sensitive formulas are not totally ordered.",
+    "exact": "Dense-graph reference only; red excludes fixed polynomial improvements below n for fast queries under OMv, not an unconditional Ω(n) lower bound."
+  }
+}

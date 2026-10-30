@@ -1,12 +1,12 @@
 {
   "problem": "weighted_matching",
-  "reviewedThrough": "2026-10-27",
-  "searchSummary": "New separate row requested by the user. Initial online baseline reviewed; other model panels await future design and source review. Existing weighted results in older mixed matching figures remain available in their original locations.",
+  "reviewedThrough": "2026-10-30",
+  "searchSummary": "All nine visible weighted-matching models have scoped figures. The 30 October review filled Dynamic, LCA and both query cells with verified baselines and explicitly labeled reductions/derivations; no claim of exhaustive frontier coverage.",
   "coverage": [
     {
       "model": "dynamic",
-      "status": "not_assessed",
-      "note": "Weighted matching panel awaits design and scoped source review."
+      "status": "curated",
+      "note": "Two main panels: approximate maintained edge weights and exact weight queries; 9 main results and 4 related contracts from 7 primary sources."
     },
     {
       "model": "stream",
@@ -20,8 +20,8 @@
     },
     {
       "model": "lca",
-      "status": "not_assessed",
-      "note": "Weighted matching panel awaits design and scoped source review."
+      "status": "curated",
+      "note": "Verified deterministic weighted LCA baseline plus an explicitly compatible unit-weight comparison. These records do not claim exhaustive coverage or weight-range optimality. Global optimum-weight estimation is a separate task and is not plotted."
     },
     {
       "model": "local",
@@ -35,13 +35,13 @@
     },
     {
       "model": "query_list",
-      "status": "not_assessed",
-      "note": "Weighted matching panel awaits design and scoped source review."
+      "status": "curated",
+      "note": "Exact full-input baseline; bounded-degree additive estimator; separately proved dense explicit-output lower bound. Separate output panels."
     },
     {
       "model": "query_matrix",
-      "status": "not_assessed",
-      "note": "Weighted matching panel awaits design and scoped source review."
+      "status": "curated",
+      "note": "Exact full-input baseline; bounded-degree additive estimator; separately proved dense explicit-output lower bound. Separate output panels."
     },
     {
       "model": "query_combined",
@@ -420,6 +420,182 @@
       "label": "Assadi ’25",
       "fullTextUrl": "https://arxiv.org/html/2307.02968",
       "shortLabel": "Assadi ’25"
+    },
+    {
+      "id": "wmd-gp13",
+      "title": "Fully Dynamic (1+ε)-Approximate Matchings",
+      "authors": [
+        "Manoj Gupta",
+        "Richard Peng"
+      ],
+      "year": 2013,
+      "venue": "FOCS 2013",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1304.0378",
+      "fullTextUrl": "https://arxiv.org/pdf/1304.0378v2",
+      "shortLabel": "Gupta–Peng ’13",
+      "verifiedOn": "2026-10-30"
+    },
+    {
+      "id": "wmd-bdl21",
+      "title": "A Framework for Dynamic Matching in Weighted Graphs",
+      "authors": [
+        "Aaron Bernstein",
+        "Aditi Dudeja",
+        "Zachary Langley"
+      ],
+      "year": 2021,
+      "venue": "STOC 2021",
+      "publicationStatus": "conference",
+      "url": "https://aditidudeja.github.io/weightedMatching.pdf",
+      "publicationUrl": "https://doi.org/10.1145/3406325.3451113",
+      "shortLabel": "BDL ’21",
+      "verifiedOn": "2026-10-30"
+    },
+    {
+      "id": "wmd-bcd25",
+      "title": "Matching Composition and Efficient Weight Reduction in Dynamic Matching",
+      "authors": [
+        "Aaron Bernstein",
+        "Jiale Chen",
+        "Aditi Dudeja",
+        "Zachary Langley",
+        "Aaron Sidford",
+        "Ta-Wei Tu"
+      ],
+      "year": 2025,
+      "venue": "SODA 2025; revised full version July 2026",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2410.18936",
+      "fullTextUrl": "https://arxiv.org/html/2410.18936v2",
+      "publicationUrl": "https://doi.org/10.1137/1.9781611978322.97",
+      "shortLabel": "BCDLST ’25",
+      "verifiedOn": "2026-10-30"
+    },
+    {
+      "id": "wmd-bc25",
+      "title": "From Unweighted to Weighted Dynamic Matching in Non-Bipartite Graphs: A Low-Loss Reduction",
+      "authors": [
+        "Aaron Bernstein",
+        "Jiale Chen"
+      ],
+      "year": 2025,
+      "venue": "arXiv preprint v1, October 2025",
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/abs/2510.19049",
+      "fullTextUrl": "https://arxiv.org/html/2510.19049v1",
+      "shortLabel": "Bernstein–Chen ’25",
+      "verifiedOn": "2026-10-30"
+    },
+    {
+      "id": "wmd-chen26",
+      "title": "The Power of Local Marginals: An O(ε⁻¹)-Aspect-Ratio Reduction for Dynamic Weighted Matching",
+      "authors": [
+        "Jiale Chen"
+      ],
+      "year": 2026,
+      "venue": "arXiv preprint v2, 7 October 2026",
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/abs/2608.27805",
+      "fullTextUrl": "https://arxiv.org/html/2608.27805v2",
+      "shortLabel": "Chen ’26",
+      "verifiedOn": "2026-10-30"
+    },
+    {
+      "id": "wmd-gabow16",
+      "title": "Data Structures for Weighted Matching and Extensions to b-matching and f-factors",
+      "authors": [
+        "Harold N. Gabow"
+      ],
+      "year": 2018,
+      "venue": "ACM Transactions on Algorithms 2018; full version arXiv 2016",
+      "publicationStatus": "journal",
+      "url": "https://arxiv.org/abs/1611.07541",
+      "fullTextUrl": "https://arxiv.org/pdf/1611.07541v1",
+      "shortLabel": "Gabow · recompute",
+      "verifiedOn": "2026-10-30"
+    },
+    {
+      "id": "wmd-hkns15",
+      "title": "Unifying and Strengthening Hardness for Dynamic Problems via the Online Matrix-Vector Multiplication Conjecture",
+      "authors": [
+        "Monika Henzinger",
+        "Sebastian Krinninger",
+        "Danupon Nanongkai",
+        "Thatchaphol Saranurak"
+      ],
+      "year": 2015,
+      "venue": "STOC 2015",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1511.06773",
+      "fullTextUrl": "https://arxiv.org/html/1511.06773v1#S3.SS1",
+      "shortLabel": "HKNS ’15 · OMv",
+      "verifiedOn": "2026-10-30"
+    },
+    {
+      "title": "Best of Two Local Models: Centralized Local and Distributed Local Algorithms",
+      "authors": [
+        "Guy Even",
+        "Moti Medina",
+        "Dana Ron"
+      ],
+      "firstYear": 2014,
+      "year": 2018,
+      "venue": "Information and Computation 262 (2018), 69–89",
+      "publicationStatus": "journal",
+      "url": "https://arxiv.org/abs/1402.3796",
+      "fullTextUrl": "https://arxiv.org/html/1402.3796v3",
+      "publicationUrl": "https://doi.org/10.1016/j.ic.2018.07.001",
+      "shortLabel": "EMR 2014 / 2018",
+      "verifiedOn": "2026-10-30",
+      "id": "weighted-lca-emr14"
+    },
+    {
+      "title": "Local Computation Algorithms for Maximum Matching: New Lower Bounds",
+      "authors": [
+        "Soheil Behnezhad",
+        "Mohammad Roghani",
+        "Aviad Rubinstein"
+      ],
+      "firstYear": 2023,
+      "year": 2023,
+      "venue": "FOCS 2023",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/2311.09359",
+      "fullTextUrl": "https://arxiv.org/html/2311.09359v1",
+      "publicationUrl": "https://doi.org/10.1109/FOCS57990.2023.00143",
+      "shortLabel": "BRR 2023",
+      "verifiedOn": "2026-10-30",
+      "id": "weighted-lca-brr23"
+    },
+    {
+      "id": "weighted-query-edmonds-1965",
+      "title": "Maximum Matching and a Polyhedron With 0,1-Vertices",
+      "authors": [
+        "Jack Edmonds"
+      ],
+      "year": 1965,
+      "venue": "Journal of Research of the National Bureau of Standards B 69B",
+      "publicationStatus": "journal",
+      "url": "https://nvlpubs.nist.gov/nistpubs/jres/69B/jresv69Bn1-2p125_A1b.pdf",
+      "verifiedOn": "2026-10-30",
+      "sourceLocation": "Sections 1–4 and 7; Theorems (P) and (M)"
+    },
+    {
+      "id": "weighted-query-nguyen-onak-2008",
+      "title": "Constant-Time Approximation Algorithms via Local Improvements",
+      "authors": [
+        "Huy N. Nguyen",
+        "Krzysztof Onak"
+      ],
+      "year": 2008,
+      "venue": "FOCS 2008",
+      "publicationStatus": "conference",
+      "url": "https://people.csail.mit.edu/konak/download/publications/Nguyen_Onak-constant_time_approximation.pdf",
+      "publicationUrl": "https://doi.org/10.1109/FOCS.2008.81",
+      "verifiedOn": "2026-10-30",
+      "sourceLocation": "Sections 1.3–1.5, PDF page 3; Maximum Weight Matching paragraph",
+      "proofStatus": "Weighted theorem statement inspected; this conference version explicitly omits its proof. No independent proof validation claimed."
     }
   ],
   "slices": [
@@ -1185,6 +1361,490 @@
           "notes": "Positive integer weights; unit weights give cardinality. Different ε conventions are retained; no numerical quality coordinate is assigned. Memory O(n log² n/ε) bits; success ≥1−exp(−Θ(n)). No comparable insertion-only multipass lower bound was verified in this source set. Lower bounds for streams with deletions are not transferred to this insertion-only contract.",
           "plot": null,
           "sourceUrl": "https://arxiv.org/html/2307.02968"
+        }
+      ]
+    },
+    {
+      "id": "weighted-matching-dynamic-approximate",
+      "problem": "weighted_matching",
+      "model": "dynamic",
+      "label": "Approximate maintained edge-weight matching",
+      "task": "Maintain explicit approximate maximum-weight matching",
+      "assumptions": [
+        "General undirected graphs; positive edge weights; fully dynamic edge insertions and deletions"
+      ],
+      "xAxis": {
+        "label": "Update time; symbolic bound"
+      },
+      "yAxis": {
+        "label": "Retained weight"
+      },
+      "results": [
+        {
+          "id": "weighted-dynamic-bdl21-half",
+          "paperId": "wmd-bdl21",
+          "kind": "upper",
+          "bound": "Oε(log⁵ n · log R)",
+          "guarantee": "w(M) ≥ (1/2−ε) OPTw",
+          "sourceLocation": "Theorem 5.11",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "verified_algorithm",
+          "notes": "General undirected graphs; positive edge weights; fully dynamic edge insertions and deletions · An explicit matching M after every edge update · worst-case with high probability · Las Vegas randomized; update-time bound with high probability · adaptive · Matching maintained after updates; reporting all edges costs O(|M|) · R is the largest/smallest allowed edge weight. Oε hides ε-dependent factors, including exponential dependence on 1/ε. The approximation is always correct; the time bound is probabilistic. Use R=max{2,w_max/w_min}, so logarithms stay at least constant.",
+          "plot": null
+        },
+        {
+          "id": "weighted-dynamic-bdl21-two-thirds",
+          "paperId": "wmd-bdl21",
+          "kind": "upper",
+          "bound": "Oε(m¼ · log R)",
+          "guarantee": "w(M) ≥ (2/3−ε) OPTw",
+          "sourceLocation": "Theorem 5.12",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "verified_algorithm",
+          "notes": "General undirected graphs; positive edge weights; fully dynamic edge insertions and deletions · An explicit matching M after every edge update · amortized · deterministic · arbitrary update sequence · Matching maintained after updates; reporting all edges costs O(|M|) · Deterministic general-graph guarantee. Oε hides exponential dependence on 1/ε; R is the weight aspect ratio. This does not assert the same bound in worst-case time. Use R=max{2,w_max/w_min}, so logarithms stay at least constant.",
+          "plot": null
+        },
+        {
+          "id": "weighted-dynamic-bc25-near",
+          "paperId": "wmd-bc25",
+          "kind": "upper",
+          "bound": "O(poly(ε⁻¹) · n / 2^{Ω(√log n)})",
+          "guarantee": "w(M) ≥ (1−ε) OPTw",
+          "sourceLocation": "Corollary 1.3; Theorems 1.1 and 6.5",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "verified_algorithm",
+          "notes": "General undirected graphs; positive edge weights; fully dynamic edge insertions and deletions; weights remain in a fixed interval of aspect ratio R≤poly(n) · An explicit matching M after every edge update · amortized · randomized, with high probability · adaptive · Matching maintained after updates; reporting all edges costs O(|M|) · Preprint. Instantiates the general weighted-to-bipartite-unweighted reduction. This is a subpolynomial-factor saving from n, not an n^{1−c} algorithm for fixed c>0. Accuracy is rescaled through the reduction.",
+          "plot": null
+        },
+        {
+          "id": "weighted-dynamic-gp13-near",
+          "paperId": "wmd-gp13",
+          "kind": "upper",
+          "bound": "Oε(√m · log R)",
+          "guarantee": "w(M) ≥ (1−ε) OPTw, after reparameterizing η=ε/(1−ε)",
+          "sourceLocation": "Theorem 1.3 and Section 4.2",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "verified_algorithm",
+          "notes": "General undirected graphs; positive edge weights; fully dynamic edge insertions and deletions · An explicit matching M after every edge update · worst-case · deterministic · arbitrary update sequence · Matching maintained after updates; reporting all edges costs O(|M|) · The source states a (1+η)-approximation for each fixed η<1/2. Set η=ε/(1−ε), so retained weight is exactly 1−ε. Oε hides ε^{-O(1/ε)}. The source uses weights in [1,N]; scaling gives R. Use R=max{2,w_max/w_min}, so logarithms stay at least constant.",
+          "plot": null
+        },
+        {
+          "id": "weighted-dynamic-bcd25-near",
+          "paperId": "wmd-bcd25",
+          "kind": "upper",
+          "bound": "O((√m ε⁻⁴ + ε⁻⁶) polylog(1/ε))",
+          "guarantee": "w(M) ≥ (1−ε) OPTw",
+          "sourceLocation": "Lemma 6.7, using Theorem 3.5; computational model in Section 2",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "verified_algorithm",
+          "notes": "General undirected graphs; positive edge weights; fully dynamic edge insertions and deletions; weights remain in a fixed interval of aspect ratio R≤poly(n); Θ(log n)-bit word-RAM · An explicit matching M after every edge update · amortized · deterministic · arbitrary update sequence · Matching maintained after updates; reporting all edges costs O(|M|) · Removes the exponential accuracy cost in the earlier near-optimal weighted algorithm. Amortized update time follows from the reduction in Theorem 3.5. The plotted position is a symbolic formula category, not a measured runtime.",
+          "plot": null
+        },
+        {
+          "id": "weighted-dynamic-chen26-near",
+          "paperId": "wmd-chen26",
+          "kind": "upper",
+          "bound": "Õ(√m ε⁻³)",
+          "guarantee": "w(M) ≥ (1−ε) OPTw",
+          "sourceLocation": "Corollary 4.17, using Theorem 4.8",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "verified_algorithm",
+          "notes": "General undirected graphs; positive edge weights; fully dynamic edge insertions and deletions; weights remain in a fixed interval of aspect ratio R≤poly(n) · An explicit matching M after every edge update · amortized · deterministic · arbitrary update sequence · Matching maintained after updates; reporting all edges costs O(|M|) · Preprint v2. Improves the ε dependence using local weight windows. Õ suppresses polylogarithmic factors. Deterministic guarantee for a graph with at most m edges at all times.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "weighted-matching-dynamic-exact",
+      "problem": "weighted_matching",
+      "model": "dynamic",
+      "label": "Exact maximum-weight queries",
+      "task": "Return the exact maximum matching weight",
+      "assumptions": [
+        "Exact value queries; polynomial preprocessing for conditional bound"
+      ],
+      "xAxis": {
+        "label": "Update time; symbolic bound"
+      },
+      "yAxis": {
+        "label": "Query cost"
+      },
+      "results": [
+        {
+          "id": "weighted-dynamic-exact-eager",
+          "paperId": "wmd-gabow16",
+          "kind": "upper",
+          "bound": "O(n(m+n log n))",
+          "guarantee": "Exact optimum matching weight",
+          "sourceLocation": "Introduction pp. 1–2, Sections 2–3 and Theorem 3.4; elementary dynamic wrapper",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "derived_recompute_baseline",
+          "notes": "General undirected graphs; positive edge weights; fully dynamic edge insertions and deletions; arithmetic-operation model · Exact optimum weight stored after each update · worst-case · deterministic · arbitrary update sequence · O(1) · Derived baseline, not a specialized dynamic theorem or a best-known claim. Run Gabow’s static algorithm after each update and save the optimum weight. Under m=Θ(n²), update time is O(n³).",
+          "plot": null
+        },
+        {
+          "id": "weighted-dynamic-exact-lazy",
+          "paperId": "wmd-gabow16",
+          "kind": "upper",
+          "bound": "O(1)",
+          "guarantee": "Exact optimum matching weight on demand",
+          "sourceLocation": "Same static algorithm; elementary lazy-query wrapper",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "derived_recompute_baseline",
+          "notes": "General undirected graphs; positive edge weights; fully dynamic edge insertions and deletions; O(n²)-space direct-address graph storage; arithmetic-operation model · Exact optimum weight returned only when queried · worst-case · deterministic · arbitrary update sequence · O(n(m+n log n)) · Derived baseline. Store edge insertions/deletions in a direct-address adjacency structure and invoke the static algorithm on a weight query. Dense reference: O(n³) query time. Fast updates here do not provide a maintained matching.",
+          "plot": null
+        },
+        {
+          "id": "weighted-dynamic-exact-omv",
+          "paperId": "wmd-hkns15",
+          "kind": "lower",
+          "bound": "No simultaneous u=O(m^{1/2−δ}), q=O(m^{1−δ}) for fixed δ>0",
+          "guarantee": "Exact weight only; conditional on the OMv conjecture",
+          "sourceLocation": "Corollary 3.4 and parameter-preserving matching reductions immediately following it; Table 5 footnote",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "conditional_exact_only",
+          "notes": "Bipartite unit-weight graphs; therefore also a restriction of general weighted matching · Exact optimum weight (hard instances have every edge weight 1) · amortized updates · Rules out error probability at most 1/3, assuming OMv · The source reduction supplies the hard update sequence · Lower bound requires q=O(m^{1−δ}); includes O(1) queries · Transfer: with every edge weighted 1, optimum weight equals maximum matching cardinality, without overhead. With polynomial preprocessing, exact fast queries cannot coexist with truly sub-√m amortized updates. On dense graphs this excludes truly sublinear-in-n updates. This is neither an Ω(n) theorem nor an approximation lower bound.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "weighted-matching-dynamic-related",
+      "problem": "weighted_matching",
+      "model": "dynamic",
+      "label": "Related weighted dynamic contracts",
+      "task": "Separate graph/output contracts",
+      "assumptions": [
+        "Use the per-result graph and output assumptions"
+      ],
+      "xAxis": {
+        "label": "Update time"
+      },
+      "yAxis": {
+        "label": "Related output or graph class"
+      },
+      "results": [
+        {
+          "id": "weighted-dynamic-chen26-value",
+          "paperId": "wmd-chen26",
+          "kind": "upper",
+          "bound": "m^{1/2−Ωε(1)}",
+          "guarantee": "(1−ε)OPTw ≤ estimate ≤ (1+ε)OPTw",
+          "sourceLocation": "Corollary 3.5",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "related_result",
+          "notes": "Bipartite graphs; fixed polynomial weight aspect ratio · Weight estimate only; no matching edges · worst-case · randomized, with high probability · adaptive · Matching maintained after updates; reporting all edges costs O(|M|) · Preprint v2; constant ε>0. Kept outside the explicit-matching scatter because estimating optimum weight is a different output contract.",
+          "plot": null
+        },
+        {
+          "id": "weighted-dynamic-chen26-degree",
+          "paperId": "wmd-chen26",
+          "kind": "upper",
+          "bound": "Õ(Δ ε⁻³)",
+          "guarantee": "w(M) ≥ (1−ε) OPTw",
+          "sourceLocation": "Corollary 4.14",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "related_result",
+          "notes": "General undirected graphs; positive edge weights; fully dynamic edge insertions and deletions; weights remain in a fixed interval of aspect ratio R≤poly(n); maximum degree at most Δ throughout · An explicit matching M after every edge update · amortized · deterministic · arbitrary update sequence · Matching maintained after updates; reporting all edges costs O(|M|) · Preprint v2. Restricted graph parameter kept explicit instead of ranking Δ against √m.",
+          "plot": null
+        },
+        {
+          "id": "weighted-dynamic-chen26-arboricity",
+          "paperId": "wmd-chen26",
+          "kind": "upper",
+          "bound": "Õ(α ε⁻⁴)",
+          "guarantee": "w(M) ≥ (1−ε) OPTw",
+          "sourceLocation": "Theorem 4.15",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "related_result",
+          "notes": "General undirected graphs; positive edge weights; fully dynamic edge insertions and deletions; weights remain in a fixed interval of aspect ratio R≤poly(n); arboricity at most α after every update · An explicit matching M after every edge update · amortized · deterministic · arbitrary update sequence · Matching maintained after updates; reporting all edges costs O(|M|) · Preprint v2. Arboricity is a graph-density parameter, not the approximation factor.",
+          "plot": null
+        },
+        {
+          "id": "weighted-dynamic-bc25-ors",
+          "paperId": "wmd-bc25",
+          "kind": "upper",
+          "bound": "poly(ε⁻¹) · n^β · ORS(n, poly(ε)n)",
+          "guarantee": "w(M) ≥ (1−ε) OPTw; ε∈(0,1/4), any fixed β>0",
+          "sourceLocation": "Corollary 1.5 and Theorem 6.5",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "related_result",
+          "notes": "General undirected graphs; positive edge weights; fully dynamic edge insertions and deletions; weights remain in a fixed interval of aspect ratio R≤poly(n) · An explicit matching M after every edge update · amortized · randomized, with high probability · adaptive · Matching maintained after updates; reporting all edges costs O(|M|) · Preprint. The polynomial degree depends on β. The weighted reduction builds on the ORS line initiated by Behnezhad–Ghafari; its exact extremal parameter must remain visible. No numerical ORS endpoint or unconditional polynomial saving is invented.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "weighted-matching-lca-probes",
+      "problem": "weighted_matching",
+      "model": "lca",
+      "label": "LCA · consistent weighted mate queries",
+      "task": "Answer a vertex’s mate in one approximate maximum-weight matching",
+      "assumptions": [
+        "Indexed-neighbor access with edge weights; reverse ports are not given.",
+        "Main cost is probes per mate query, not LOCAL rounds or total weight-estimation work.",
+        "Mixed weights: known maximum; source w_min(ε)<1. Unit-weight upper and lower are separately labeled.",
+        "BRR: 0<ε≤.01 and log⁴n≤Δ≤n^ε; success at least .51."
+      ],
+      "xAxis": {
+        "kind": "categorical",
+        "label": "Probe formulas, shown symbolically",
+        "categories": [
+          {
+            "id": "weighted-lca-emr14-weighted",
+            "label": "O(Δ² · (1/w_min(ε))^{Δ^{O(1/ε)}} · (log* n)^{O(ε⁻¹ log(1/ε))})"
+          },
+          {
+            "id": "weighted-lca-emr14-unit",
+            "label": "O(Δ² · 2^{Δ^{O(1/ε)}} · (log* n)^{⌈1/ε⌉+1})"
+          },
+          {
+            "id": "weighted-lca-brr23-lower",
+            "label": "Δ^{Ω(1/ε)}"
+          }
+        ]
+      },
+      "yAxis": {
+        "kind": "categorical",
+        "label": "Weight setup and guarantee",
+        "categories": [
+          {
+            "id": "mixed",
+            "label": "Positive normalized weights, w_min(ε)<1"
+          },
+          {
+            "id": "unit",
+            "label": "All weights 1"
+          }
+        ]
+      },
+      "results": [
+        {
+          "panel": "mate",
+          "randomization": "deterministic",
+          "quality": "w(M) ≥ (1−ε) OPT_w",
+          "output": "For a queried vertex, return its mate or unmatched, consistently with one matching.",
+          "model": "LCA",
+          "costMeasure": "ordinary indexed-neighbor probes per mate query",
+          "plot": null,
+          "probability": "Deterministic; no failure probability.",
+          "appliesTo": [
+            "deterministic"
+          ],
+          "evidenceStatus": "Primary theorem and input/probe definitions checked; conversion is explicitly derived by the atlas.",
+          "frontierStatus": "verified baseline, not a claim of best known complexity",
+          "publicationStatus": "published",
+          "id": "weighted-lca-emr14-weighted",
+          "sourceId": "emr14",
+          "kind": "upper",
+          "year": 2014,
+          "setupKey": "mixed",
+          "shortLabel": "EMR · weighted",
+          "displaySetup": "Positive edge weights",
+          "compactSetup": "Weighted · deterministic",
+          "referenceLabel": "EMR Theorem 24 · converted oracle",
+          "bound": "O(Δ² · (1/w_min(ε))^{Δ^{O(1/ε)}} · (log* n)^{O(ε⁻¹ log(1/ε))})",
+          "displayLines": [
+            "Δ² · (1/wₘᵢₙ(ε))^{Δ^{O(1/ε)}}",
+            "· (log* n)^{O(ε⁻¹ log(1/ε))}"
+          ],
+          "compactLines": [
+            "Δ² · (1/wₘᵢₙ)^{Δ^{O(1/ε)}}",
+            "· (log* n)^{O(ε⁻¹ log(1/ε))}"
+          ],
+          "graph": "Undirected labeled graphs, degree at most Δ. Positive edge weights normalized to maximum 1; n, Δ, ε and the maximum weight are supplied. Theorem 24 states w_min(ε)<1. Weights are available with adjacency entries (or O(1) weight reads).",
+          "theorem": "EMR arXiv v3, Theorem 24; Sections 2.2 and 8.1–8.2; Algorithms 8–10.",
+          "notes": "Undirected labeled graphs, degree at most Δ. Positive edge weights normalized to maximum 1; n, Δ, ε and the maximum weight are supplied. Theorem 24 states w_min(ε)<1. Weights are available with adjacency entries (or O(1) weight reads). · For a queried vertex, return its mate or unmatched, consistently with one matching. · Deterministic; no failure probability. · Explicit atlas conversion: the source probe returns the reverse port. Recovering it by scanning the returned neighbor costs at most Δ ordinary indexed-neighbor probes. To return the mate of v, inspect its at most Δ incident edges with the consistent edge-membership oracle. Thus a source cost Q gives O(Δ²(Q+1)) ordinary probes per mate query. These are probes, not distributed LOCAL rounds or CPU time. Source Q=(1/w_min(ε))^{Δ^{O(1/ε)}}(log* n)^{O(ε⁻¹ log(1/ε))}. Here w_min(ε)=min{w(e):w(e)≥ε/n} after normalization, following the source notation and its rounding argument. Do not suppress this dependence when tiny weights are allowed. This upper row covers the source’s w_min(ε)<1 regime; the equal-weight case is separately shown below. For fixed Δ, ε and a constant positive weight floor, the n dependence is polynomial in log* n. No global weight-estimation claim is included. This bound need not be sublinear for every parameter regime.",
+          "rowFoot": "Known maximum weight · wₘᵢₙ(ε)<1 · outer O(·) suppressed",
+          "boundKey": "weighted-lca-emr14-weighted",
+          "label": "EMR · weighted",
+          "displayBound": "O(Δ² · (1/w_min(ε))^{Δ^{O(1/ε)}} · (log* n)^{O(ε⁻¹ log(1/ε))})",
+          "sourceUrl": "https://arxiv.org/html/1402.3796v3",
+          "sourceLocation": "EMR arXiv v3, Theorem 24; Sections 2.2 and 8.1–8.2; Algorithms 8–10.",
+          "displayQuality": "Retain ≥ 1−ε of optimum weight",
+          "plotNote": "Explicit atlas conversion: the source probe returns the reverse port. Recovering it by scanning the returned neighbor costs at most Δ ordinary indexed-neighbor probes. To return the mate of v, inspect its at most Δ incident edges with the consistent edge-membership oracle. Thus a source cost Q gives O(Δ²(Q+1)) ordinary probes per mate query. These are probes, not distributed LOCAL rounds or CPU time. Source Q=(1/w_min(ε))^{Δ^{O(1/ε)}}(log* n)^{O(ε⁻¹ log(1/ε))}. Here w_min(ε)=min{w(e):w(e)≥ε/n} after normalization, following the source notation and its rounding argument. Do not suppress this dependence when tiny weights are allowed. This upper row covers the source’s w_min(ε)<1 regime; the equal-weight case is separately shown below. For fixed Δ, ε and a constant positive weight floor, the n dependence is polynomial in log* n. No global weight-estimation claim is included.",
+          "summaryNote": "Known maximum weight · wₘᵢₙ(ε)<1 · outer O(·) suppressed",
+          "paperId": "weighted-lca-emr14",
+          "guarantee": "w(M) ≥ (1−ε) OPT_w"
+        },
+        {
+          "panel": "mate",
+          "randomization": "deterministic",
+          "quality": "w(M) ≥ (1−ε) OPT_w",
+          "output": "For a queried vertex, return its mate or unmatched, consistently with one matching.",
+          "model": "LCA",
+          "costMeasure": "ordinary indexed-neighbor probes per mate query",
+          "plot": null,
+          "probability": "Deterministic; no failure probability.",
+          "appliesTo": [
+            "deterministic"
+          ],
+          "evidenceStatus": "Primary theorem and input/probe definitions checked; conversion is explicitly derived by the atlas.",
+          "frontierStatus": "verified baseline, not a claim of best known complexity",
+          "publicationStatus": "published",
+          "id": "weighted-lca-emr14-unit",
+          "sourceId": "emr14",
+          "kind": "upper",
+          "year": 2014,
+          "setupKey": "unit",
+          "shortLabel": "EMR · unit weights",
+          "displaySetup": "Unit weights · algorithm",
+          "compactSetup": "Unit weights · algorithm",
+          "referenceLabel": "EMR Theorem 17 · converted oracle",
+          "bound": "O(Δ² · 2^{Δ^{O(1/ε)}} · (log* n)^{⌈1/ε⌉+1})",
+          "displayLines": [
+            "Δ² · 2^{Δ^{O(1/ε)}}",
+            "· (log* n)^{⌈1/ε⌉+1}"
+          ],
+          "compactLines": [
+            "Δ² · 2^{Δ^{O(1/ε)}}",
+            "· (log* n)^{⌈1/ε⌉+1}"
+          ],
+          "graph": "Undirected labeled graphs of maximum degree Δ with every edge weight equal to 1; n, Δ and ε supplied. The unit-weight problem is maximum cardinality matching.",
+          "theorem": "EMR arXiv v3, Theorem 17 and Section 2.2; Algorithm 4.",
+          "notes": "Undirected labeled graphs of maximum degree Δ with every edge weight equal to 1; n, Δ and ε supplied. The unit-weight problem is maximum cardinality matching. · For a queried vertex, return its mate or unmatched, consistently with one matching. · Deterministic; no failure probability. · Explicit atlas conversion: the source probe returns the reverse port. Recovering it by scanning the returned neighbor costs at most Δ ordinary indexed-neighbor probes. To return the mate of v, inspect its at most Δ incident edges with the consistent edge-membership oracle. Thus a source cost Q gives O(Δ²(Q+1)) ordinary probes per mate query. These are probes, not distributed LOCAL rounds or CPU time. Theorem 17 states Q=(log* n)^{⌈1/ε⌉+1}·2^{Δ^{O(1/ε)}} for deterministic stateless edge membership. Unit weights turn the cardinality guarantee into the identical total-weight guarantee. This is a compatible baseline beside the unit-weight lower bound; it is not claimed to be the fastest cardinality LCA.",
+          "rowFoot": "Same ordinary-neighbor / mate contract as the red bound",
+          "boundKey": "weighted-lca-emr14-unit",
+          "label": "EMR · unit weights",
+          "displayBound": "O(Δ² · 2^{Δ^{O(1/ε)}} · (log* n)^{⌈1/ε⌉+1})",
+          "sourceUrl": "https://arxiv.org/html/1402.3796v3",
+          "sourceLocation": "EMR arXiv v3, Theorem 17 and Section 2.2; Algorithm 4.",
+          "displayQuality": "Retain ≥ 1−ε of optimum weight",
+          "plotNote": "Explicit atlas conversion: the source probe returns the reverse port. Recovering it by scanning the returned neighbor costs at most Δ ordinary indexed-neighbor probes. To return the mate of v, inspect its at most Δ incident edges with the consistent edge-membership oracle. Thus a source cost Q gives O(Δ²(Q+1)) ordinary probes per mate query. These are probes, not distributed LOCAL rounds or CPU time. Theorem 17 states Q=(log* n)^{⌈1/ε⌉+1}·2^{Δ^{O(1/ε)}} for deterministic stateless edge membership. Unit weights turn the cardinality guarantee into the identical total-weight guarantee. This is a compatible baseline beside the unit-weight lower bound; it is not claimed to be the fastest cardinality LCA.",
+          "summaryNote": "Same ordinary-neighbor / mate contract as the red bound",
+          "paperId": "weighted-lca-emr14",
+          "guarantee": "w(M) ≥ (1−ε) OPT_w"
+        },
+        {
+          "panel": "mate",
+          "randomization": "randomized",
+          "quality": "w(M) ≥ (1−ε) OPT_w",
+          "output": "For a queried vertex, return its mate or unmatched, consistently with one matching.",
+          "model": "LCA",
+          "costMeasure": "ordinary indexed-neighbor probes per mate query",
+          "plot": null,
+          "probability": "Applies to any algorithm whose approximation succeeds with probability at least 0.51, including deterministic algorithms.",
+          "appliesTo": [
+            "deterministic",
+            "randomized"
+          ],
+          "evidenceStatus": "Primary theorem and input/probe definitions checked; conversion is explicitly derived by the atlas.",
+          "frontierStatus": "verified baseline, not a claim of best known complexity",
+          "publicationStatus": "published",
+          "id": "weighted-lca-brr23-lower",
+          "sourceId": "brr23",
+          "kind": "lower",
+          "year": 2023,
+          "setupKey": "unit",
+          "shortLabel": "BRR · necessary probes",
+          "displaySetup": "Unit weights · lower bound",
+          "compactSetup": "Unit weights · necessary probes",
+          "referenceLabel": "BRR Theorem 1 · unit-weight transfer",
+          "bound": "Δ^{Ω(1/ε)}",
+          "displayLines": [
+            "Δ^{Ω(1/ε)}"
+          ],
+          "compactLines": [
+            "Δ^{Ω(1/ε)}"
+          ],
+          "graph": "Bipartite hard instances with all edge weights 1; 0<ε≤0.01 and log⁴ n≤Δ≤n^ε. This is not a bound for fixed Δ as n tends to infinity.",
+          "theorem": "BRR arXiv v1, Theorem 1, Remark 1 and Introduction: The LCA Model.",
+          "notes": "Bipartite hard instances with all edge weights 1; 0<ε≤0.01 and log⁴ n≤Δ≤n^ε. This is not a bound for fixed Δ as n tends to infinity. · For a queried vertex, return its mate or unmatched, consistently with one matching. · Applies to any algorithm whose approximation succeeds with probability at least 0.51, including deterministic algorithms. · Explicit unit-weight transfer: w(M)=|M| and OPT_w=OPT≤n/2. A (1−ε)-multiplicative weighted matching therefore also satisfies |M|≥OPT−εn. Theorem 1 rules out fewer than Δ^{Ω(1/ε)} ordinary adjacency-list probes per mate query in its stated degree window. The source already requests the mate or unmatched, so there is no edge-output conversion in this lower bound. It remains valid without query-order obliviousness. This is not a lower bound on weight-range dependence or on fixed-degree n dependence.",
+          "rowFoot": "0<ε≤.01 · log⁴ n≤Δ≤n^ε · success ≥.51",
+          "boundKey": "weighted-lca-brr23-lower",
+          "label": "BRR · necessary probes",
+          "displayBound": "Δ^{Ω(1/ε)}",
+          "sourceUrl": "https://arxiv.org/html/2311.09359v1",
+          "sourceLocation": "BRR arXiv v1, Theorem 1, Remark 1 and Introduction: The LCA Model.",
+          "displayQuality": "Retain ≥ 1−ε of optimum weight",
+          "plotNote": "Explicit unit-weight transfer: w(M)=|M| and OPT_w=OPT≤n/2. A (1−ε)-multiplicative weighted matching therefore also satisfies |M|≥OPT−εn. Theorem 1 rules out fewer than Δ^{Ω(1/ε)} ordinary adjacency-list probes per mate query in its stated degree window. The source already requests the mate or unmatched, so there is no edge-output conversion in this lower bound. It remains valid without query-order obliviousness. This is not a lower bound on weight-range dependence or on fixed-degree n dependence.",
+          "summaryNote": "0<ε≤.01 · log⁴ n≤Δ≤n^ε · success ≥.51",
+          "paperId": "weighted-lca-brr23",
+          "guarantee": "w(M) ≥ (1−ε) OPT_w"
+        }
+      ]
+    },
+    {
+      "id": "weighted-query-list-landscape",
+      "problem": "weighted_matching",
+      "model": "query_list",
+      "label": "Matching edges and bounded-weight estimation",
+      "task": "Compare explicit maximum-weight matching with additive estimation of optimal weight in separate panels.",
+      "assumptions": [
+        "WeightedNeighbor(v,i) returns the i-th neighbor together with its edge weight, or ⊥ past the end of the fixed list. The n labeled vertices are known. No free edge list or global weight table. Arbitrary-weight matching and [0,1]-weight additive estimation are distinct output contracts."
+      ],
+      "mode": "1d",
+      "axis": {
+        "label": "Oracle queries; separate output contracts",
+        "categories": [
+          "constant in n",
+          "n",
+          "n+m",
+          "n²"
+        ]
+      },
+      "results": [
+        {
+          "id": "wmq-list-scan-exact",
+          "paperId": "weighted-query-edmonds-1965",
+          "kind": "upper",
+          "bound": "Q = n+2m",
+          "guarantee": "w(M)=OPT, an exact maximum-weight matching.",
+          "sourceLocation": "Edmonds, Theorems (P), (M), and §7; exact query accounting is an atlas composition.",
+          "plot": null,
+          "notes": "Read each vertex list until the first ⊥. There are 2m successful weighted-neighbor replies and n terminal replies, hence exactly n+2m queries. Deduplicate the two copies of each edge and solve the stored weighted graph. Query cost is not computation time."
+        },
+        {
+          "id": "wmq-list-additive-no08",
+          "paperId": "weighted-query-nguyen-onak-2008",
+          "kind": "upper",
+          "bound": "Q ≤ f(Δ,ε)",
+          "guarantee": "OPT ≤ estimate ≤ OPT+εn, with probability at least 2/3. This is additive error, not a fixed multiplicative ratio.",
+          "sourceLocation": "Nguyen–Onak, Definition 3 and §1.5 Maximum Weight Matching, PDF page 3.",
+          "plot": null,
+          "notes": "The published statement establishes a finite f(Δ,ε) independent of n; this view does not claim a particular dependence on Δ or ε. Weight access is counted in the weighted-neighbor reply."
+        }
+      ]
+    },
+    {
+      "id": "weighted-query-matrix-landscape",
+      "problem": "weighted_matching",
+      "model": "query_matrix",
+      "label": "Matching edges and bounded-weight estimation",
+      "task": "Compare explicit maximum-weight matching with additive estimation of optimal weight in separate panels.",
+      "assumptions": [
+        "WeightedPair(u,v) returns the edge weight, including zero, or a distinct absence symbol ⊥. The n labeled vertices are known. One query reveals one unordered pair; no degree or neighbor oracle. Arbitrary-weight matching and [0,1]-weight additive estimation are distinct output contracts."
+      ],
+      "mode": "1d",
+      "axis": {
+        "label": "Oracle queries; separate output contracts",
+        "categories": [
+          "constant in n",
+          "n",
+          "n+m",
+          "n²"
+        ]
+      },
+      "results": [
+        {
+          "id": "wmq-matrix-scan-exact",
+          "paperId": "weighted-query-edmonds-1965",
+          "kind": "upper",
+          "bound": "Q = n(n−1)/2",
+          "guarantee": "w(M)=OPT, an exact maximum-weight matching.",
+          "sourceLocation": "Edmonds, Theorems (P), (M), and §7; exact query accounting is an atlas composition.",
+          "plot": null,
+          "notes": "Read every unordered pair u<v exactly once. There are n(n−1)/2 such pairs. Retain all present weighted edges and solve the stored weighted graph. Query cost is not computation time."
+        },
+        {
+          "id": "wmq-matrix-additive-no08",
+          "paperId": "weighted-query-nguyen-onak-2008",
+          "kind": "upper",
+          "bound": "Q = O(n f(Δ,ε))",
+          "guarantee": "OPT ≤ estimate ≤ OPT+εn, with probability at least 2/3. This is additive error, not a fixed multiplicative ratio.",
+          "sourceLocation": "Nguyen–Onak, Definition 3 and §1.5 Maximum Weight Matching, PDF page 3. Matrix access is an elementary oracle simulation.",
+          "plot": null,
+          "notes": "To answer a simulated indexed-neighbor request, scan that vertex’s matrix row and order its present neighbors by vertex label; cache the row. Each simulated request costs at most n−1 pair queries, so f(Δ,ε) requests cost at most (n−1)f(Δ,ε). The theorem’s probability and additive error are unchanged. Full enumeration is always an alternative. The displayed O(n) class fixes Δ and ε."
         }
       ]
     }

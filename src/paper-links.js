@@ -71,5 +71,6 @@
     if((e.key==='Enter'||e.key===' ')&&!card.contains(e.target)){const hit=target(e.target);if(hit){show(hit,true);queueMicrotask(()=>card.querySelector('a')?.focus());}}
   },true);
   document.addEventListener('focusin',e=>{if(card.contains(e.target))return;const hit=target(e.target);if(hit&&!pinned)show(hit);});
+  window.addEventListener('hashchange',hide);window.addEventListener('atlas:selection',hide);
   window.addEventListener('resize',hide);window.addEventListener('scroll',()=>{if(!pinned)hide();},true);
 })();
