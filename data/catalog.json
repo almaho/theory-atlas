@@ -102,19 +102,6 @@
       }
     },
     {
-      "id": "stochastic",
-      "name": "Stochastic",
-      "measure": "Distribution-specific guarantees",
-      "definition": "Algorithms under a stated random-input or noisy-observation model. Independent edge survival, supplied random graphs, planted partitions, and semirandom additions are distinct setups.",
-      "settings": "Independent edge survival · random graphs · persistent noisy queries · planted/semirandom inputs",
-      "unit": "Setting-specific query, iteration, density, approximation, or failure-probability guarantee",
-      "access": {
-        "interface": "Stated random input or noisy observations",
-        "operations": "Edge tests, supplied random graphs, persistent pair queries, or semirandom inputs as labeled",
-        "resource": "Queries, iterations, solution density, or failure probability; incompatible units remain separate"
-      }
-    },
-    {
       "id": "lca",
       "name": "LCA",
       "measure": "Probes per answer",
@@ -192,6 +179,19 @@
         "resource": "Queries, communication bits, or rounds as stated"
       },
       "visible": false
+    },
+    {
+      "id": "stochastic",
+      "name": "Stochastic",
+      "measure": "Distribution-specific guarantees",
+      "definition": "Algorithms under a stated random-input or noisy-observation model. Independent edge survival, supplied random graphs, planted partitions, and semirandom additions are distinct setups.",
+      "settings": "Independent edge survival · random graphs · persistent noisy queries · planted/semirandom inputs",
+      "unit": "Setting-specific query, iteration, density, approximation, or failure-probability guarantee",
+      "access": {
+        "interface": "Stated random input or noisy observations",
+        "operations": "Edge tests, supplied random graphs, persistent pair queries, or semirandom inputs as labeled",
+        "resource": "Queries, iterations, solution density, or failure probability; incompatible units remain separate"
+      }
     }
   ],
   "relations": [

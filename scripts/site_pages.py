@@ -1,5 +1,6 @@
 """Build the community pages with the same navigation as the atlas."""
 from pathlib import Path
+import base64
 
 
 def site_navigation(active):
@@ -26,6 +27,12 @@ def build_site_pages(root: Path, write=True):
               'rel="noopener noreferrer">Project on GitHub ↗</a></footer>')
     for page in ('vision', 'people'):
         template = (root / 'src' / f'{page}.html').read_text()
+        if page == 'people':
+            for slug in ('alma-ghafari', 'soheil-behnezhad'):
+                token = '{{PORTRAIT_' + slug.upper().replace('-', '_') + '}}'
+                assert template.count(token) == 1, f'{page}: missing or repeated portrait {slug}'
+                portrait = (root / 'src' / 'assets' / 'people' / f'{slug}.jpg').read_bytes()
+                template = template.replace(token, 'data:image/jpeg;base64,' + base64.b64encode(portrait).decode('ascii'))
         for token in ('/* SITE_CSS */', '<!-- SITE_NAV -->', '<!-- SITE_FOOTER -->'):
             assert template.count(token) == 1, f'{page}: missing or repeated {token}'
         html = template.replace('/* SITE_CSS */', css).replace(
