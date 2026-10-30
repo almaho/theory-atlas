@@ -19,4 +19,4 @@
 .problem-open-question .open-problem-source{font-size:14px}
 .problem-open-question .open-problem-status{font-size:13px;color:var(--muted)}
 .figure-first>.f-scope{margin-top:16px}
-@media(max-width:700px){#detail{scroll-margin-top:145px}.problem-open-question{padding:17px 16px}.problem-open-question h3{font-size:23px}.problem-open-question .open-problem-question{font-size:17px}}
+@media(max-width:700px){#detail{scroll-margin-top:90px}.problem-open-question{padding:17px 16px}.problem-open-question h3{font-size:23px}.problem-open-question .open-problem-question{font-size:17px}}

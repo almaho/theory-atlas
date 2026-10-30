@@ -20,13 +20,14 @@ def site_navigation(active):
     return ('<nav class="view-nav" aria-label="Site navigation">'
             '<a class="atlas-brand" href="index.html#atlas" data-atlas-home="true">'
             'THEORY ATLAS<span>Knowledge, in view.</span></a>'
-            '<div class="site-controls"><div class="site-links">' + ''.join(items) + '</div>'
-            '<div class="theme-switch" role="group" aria-label="Board appearance">'
-            '<button type="button" data-site-theme="light" aria-label="Light mode — Whiteboard" aria-pressed="false">'
-            '<span class="theme-swatch whiteboard-swatch" aria-hidden="true"></span>Whiteboard</button>'
-            '<button type="button" data-site-theme="dark" aria-label="Dark mode — Chalkboard" aria-pressed="false">'
-            '<span class="theme-swatch chalkboard-swatch" aria-hidden="true"></span>Chalkboard</button>'
-            '</div></div></nav>')
+            '<div class="site-links">' + ''.join(items) + '</div></nav>')
+
+
+def site_appearance():
+    return ('<div class="site-appearance" role="group" aria-label="Appearance">'
+            '<button type="button" data-site-theme="dark" aria-pressed="false">Dark mode</button>'
+            '<button type="button" data-site-theme="light" aria-pressed="false">Light mode</button>'
+            '</div>')
 
 
 def build_site_pages(root: Path, write=True):
@@ -35,7 +36,7 @@ def build_site_pages(root: Path, write=True):
     footer = ('<footer class="site-footer"><a href="index.html#atlas">Explore the atlas ↗</a>'
               '<span>A community effort in theoretical computer science.</span>'
               '<a href="https://github.com/almaho/theory-atlas" target="_blank" '
-              'rel="noopener noreferrer">Project on GitHub ↗</a></footer>')
+              'rel="noopener noreferrer">Project on GitHub ↗</a>' + site_appearance() + '</footer>')
     for page in ('vision', 'people'):
         template = (root / 'src' / f'{page}.html').read_text()
         if page == 'people':

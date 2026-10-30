@@ -1,16 +1,14 @@
-/* Board navigation and centered community pages. */
+/* Site navigation and centered community pages. */
 .view-nav{position:sticky;top:0;z-index:50;background:var(--bg);max-width:1300px}
 #atlas,#stage{scroll-margin-top:100px}
-.view-nav .site-controls{display:flex;align-items:center;gap:24px}
 .view-nav .site-links{display:flex;align-items:center;gap:6px}
 .view-nav .site-link{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:8px 15px;border-radius:5px;font-size:14px;text-decoration:none;color:var(--ink)}
 .view-nav .site-link:hover{background:var(--soft)}
 .view-nav .site-link[aria-current="page"]{background:var(--ink);color:var(--bg)}
-.theme-switch{display:flex;gap:3px;padding:3px;border:1px solid var(--line);border-radius:7px}
-.view-nav .theme-switch button{display:flex;align-items:center;gap:7px;padding:7px 10px;min-height:38px;font-size:13px;color:var(--ink);white-space:nowrap;border-radius:4px;cursor:pointer}
-.view-nav .theme-switch button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
-.theme-swatch{display:inline-block;width:11px;height:11px;border:1px solid currentColor;border-radius:2px}
-.whiteboard-swatch{background:#fafbf8}.chalkboard-swatch{background:#18382f}
+.site-appearance{display:flex;gap:4px;align-items:center;padding:3px;border:1px solid var(--line);border-radius:6px}
+.site-appearance button{font-size:13px;min-height:36px;padding:6px 10px;color:var(--ink);border:0;background:transparent;cursor:pointer}
+.site-appearance button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+#atlas>footer{align-items:center}
 .community-page{--editorial-accent:var(--ink);--muted:var(--ink);--blue:var(--ink)}
 .editorial-page{max-width:1120px;margin:auto;padding:72px 30px 88px}
 .editorial-eyebrow{font-size:14px;letter-spacing:.13em;line-height:1.6;font-weight:650;color:var(--ink);margin:0 0 20px}
@@ -52,15 +50,14 @@
 .contribution-actions{display:flex;flex-wrap:wrap;align-items:center;gap:24px;margin-top:28px}
 .contribution-actions>a:not(.editorial-action){font-size:16px;margin-top:12px}
 @media(max-width:900px){
- .view-nav .site-controls{gap:12px}.view-nav .theme-switch button{font-size:12px;padding:7px 9px}
  .editorial-page{padding:54px 26px 64px}.people-invitation{gap:35px}.people-profiles{gap:30px}
 }
 @media(max-width:700px){
  .view-nav{display:grid;grid-template-columns:1fr auto;gap:12px;padding:16px 20px}
- .view-nav .site-controls{display:contents}.view-nav .site-links{justify-content:flex-end;gap:0}
- .view-nav .site-link{padding:8px 12px}.theme-switch{grid-column:1/-1;justify-self:center}
+ .view-nav .site-links{justify-content:flex-end;gap:0}
+ .view-nav .site-link{padding:8px 12px}
  .atlas-brand{max-width:none;font-size:11px}.atlas-brand span{font-size:13px}
- #atlas,#stage{scroll-margin-top:150px}
+ #atlas,#stage{scroll-margin-top:90px}
  .editorial-page{padding-top:42px}.editorial-lead{font-size:21px}
  .vision-intro,.community-statement p:not(.editorial-eyebrow){font-size:19px}
  .vision-principles p{font-size:18px}.vision-principles h2{font-size:28px}
@@ -81,3 +78,7 @@
  .contribution-actions{gap:12px;margin-top:24px}.editorial-action{width:100%;text-align:center}
  .contribution-actions>a:not(.editorial-action){margin-top:6px}
 }
+
+/* Keep these two Vision statements on one line at every supported width. */
+#vision .editorial-hero h1{white-space:nowrap;font-size:clamp(24px,7.2vw,72px)}
+#vision #community-title{white-space:nowrap;font-size:clamp(15px,4.6vw,44px)}

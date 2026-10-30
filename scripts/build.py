@@ -5,7 +5,7 @@ import json
 import math
 from pathlib import Path
 from fine_grained import build_fine_grained
-from site_pages import site_navigation, site_theme, build_site_pages
+from site_pages import site_navigation, site_theme, site_appearance, build_site_pages
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
@@ -275,9 +275,9 @@ def main():
         css += "\n" + (ROOT / "src" / "figure-first.css").read_text()
         js = "\n".join((ROOT / "src" / name).read_text() for name in ["app.js", "dynamic.js", "streaming.js", "lca.js", "local.js", "mpc.js", "query-list.js", *dict.fromkeys(p["javascript"] for p in pairs), "visual-guides.js", "cc-comparison.js", "focus.js", "paper-links.js", "figure-first.js", "navigation.js"])
         payload = json.dumps(project, ensure_ascii=False, separators=(",", ":")).replace("<", "\\u003c").replace("&", "\\u0026")
-        for needle in ("/* ATLAS_CSS */", "/* ATLAS_JS */", "/* ATLAS_DATA */", "<!-- SITE_NAV -->", "<!-- SITE_THEME -->"):
+        for needle in ("/* ATLAS_CSS */", "/* ATLAS_JS */", "/* ATLAS_DATA */", "<!-- SITE_NAV -->", "<!-- SITE_THEME -->", "<!-- SITE_APPEARANCE -->"):
             require(template.count(needle) == 1, f"Template marker missing or duplicated: {needle}")
-        html = template.replace("/* ATLAS_CSS */", css).replace("/* ATLAS_JS */", js).replace("/* ATLAS_DATA */", payload).replace("<!-- SITE_NAV -->", site_navigation("atlas")).replace("<!-- SITE_THEME -->", site_theme(ROOT))
+        html = template.replace("/* ATLAS_CSS */", css).replace("/* ATLAS_JS */", js).replace("/* ATLAS_DATA */", payload).replace("<!-- SITE_NAV -->", site_navigation("atlas")).replace("<!-- SITE_THEME -->", site_theme(ROOT)).replace("<!-- SITE_APPEARANCE -->", site_appearance())
         output = ROOT / "dist" / "index.html"
         output.parent.mkdir(exist_ok=True)
         output.write_text(html)

@@ -1,9 +1,8 @@
-/* Shared board appearance, applied before the page paints. */
+/* Shared appearance, applied before the page paints. */
 (()=>{
   'use strict';
-  const key='theory-atlas-theme',root=document.documentElement;
+  const key='theory-atlas-appearance',root=document.documentElement;
   const valid=value=>value==='light'||value==='dark';
-  const system=window.matchMedia('(prefers-color-scheme: dark)');
   let saved;
   try{saved=window.localStorage.getItem(key);}catch{}
   let explicit=valid(saved);
@@ -14,7 +13,7 @@
       button.setAttribute('aria-pressed',String(button.dataset.siteTheme===value));
     });
   }
-  apply(explicit?saved:system.matches?'dark':'light');
+  apply(explicit?saved:'dark');
   document.addEventListener('DOMContentLoaded',()=>{
     apply(root.dataset.theme);
     document.querySelectorAll('[data-site-theme]').forEach(button=>button.addEventListener('click',()=>{
@@ -24,8 +23,7 @@
       try{window.localStorage.setItem(key,value);}catch{}
     }));
   });
-  system.addEventListener('change',event=>{if(!explicit)apply(event.matches?'dark':'light');});
-  function sync(value){explicit=valid(value);apply(explicit?value:system.matches?'dark':'light');}
+  function sync(value){explicit=valid(value);apply(explicit?value:'dark');}
   window.addEventListener('storage',event=>{if(event.key===key||event.key===null)sync(event.newValue);});
   window.addEventListener('pageshow',()=>{try{sync(window.localStorage.getItem(key));}catch{}});
 })();
