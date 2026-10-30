@@ -5,7 +5,7 @@ import json
 import math
 from pathlib import Path
 from fine_grained import build_fine_grained
-from site_pages import site_navigation, build_site_pages
+from site_pages import site_navigation, site_theme, build_site_pages
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
@@ -261,17 +261,23 @@ def main():
     focus["query-list"] = query_list
     pairs = load_pairs(focus, catalog, research)
     visible_models = [m for m in catalog["models"] if m.get("visible", True)]
-    project = {**catalog, "models": visible_models, "ccComparison": json.loads((DATA / "cc-comparison.json").read_text()), "paperLinks": json.loads((DATA / "paper-links.json").read_text()), "research": research, "focus": focus, "focusPairs": pairs, "reviewedThrough": max(d["reviewedThrough"] for d in research)}
+    open_problems = json.loads((ROOT / "src" / "open-problems.json").read_text())
+    require(set(open_problems["problems"]) == set(PROBLEMS), "Every problem family needs a sourced open question")
+    for problem, question in open_problems["problems"].items():
+        require(all(question.get(k) for k in ("title", "setup", "question", "context", "status", "sources")), f"Incomplete open question: {problem}")
+        require(all(s.get("title") and s.get("url", "").startswith("https://") for s in question["sources"]), f"Open question needs a primary-source link: {problem}")
+    project = {**catalog, "openProblems": open_problems, "models": visible_models, "ccComparison": json.loads((DATA / "cc-comparison.json").read_text()), "paperLinks": json.loads((DATA / "paper-links.json").read_text()), "research": research, "focus": focus, "focusPairs": pairs, "reviewedThrough": max(d["reviewedThrough"] for d in research)}
     if not args.check:
         template = (ROOT / "src" / "index.html").read_text()
         css = (ROOT / "src" / "style.css").read_text() + "\n" + (ROOT / "src" / "focus.css").read_text() + "\n" + (ROOT / "src" / "dynamic.css").read_text() + "\n" + (ROOT / "src" / "streaming.css").read_text() + "\n" + (ROOT / "src" / "lca.css").read_text() + "\n" + (ROOT / "src" / "local.css").read_text() + "\n" + (ROOT / "src" / "mpc.css").read_text() + "\n" + (ROOT / "src" / "query-list.css").read_text()
         css += "\n" + (ROOT / "src" / "paper-links.css").read_text() + "\n" + (ROOT / "src" / "visual-guides.css").read_text() + "\n" + (ROOT / "src" / "cc-comparison.css").read_text() + "\n" + (ROOT / "src" / "site.css").read_text()
         css += "\n" + "\n".join((ROOT / "src" / name).read_text() for name in dict.fromkeys(p["css"] for p in pairs))
-        js = "\n".join((ROOT / "src" / name).read_text() for name in ["app.js", "dynamic.js", "streaming.js", "lca.js", "local.js", "mpc.js", "query-list.js", *dict.fromkeys(p["javascript"] for p in pairs), "visual-guides.js", "cc-comparison.js", "focus.js", "paper-links.js", "navigation.js"])
+        css += "\n" + (ROOT / "src" / "figure-first.css").read_text()
+        js = "\n".join((ROOT / "src" / name).read_text() for name in ["app.js", "dynamic.js", "streaming.js", "lca.js", "local.js", "mpc.js", "query-list.js", *dict.fromkeys(p["javascript"] for p in pairs), "visual-guides.js", "cc-comparison.js", "focus.js", "paper-links.js", "figure-first.js", "navigation.js"])
         payload = json.dumps(project, ensure_ascii=False, separators=(",", ":")).replace("<", "\\u003c").replace("&", "\\u0026")
-        for needle in ("/* ATLAS_CSS */", "/* ATLAS_JS */", "/* ATLAS_DATA */", "<!-- SITE_NAV -->"):
+        for needle in ("/* ATLAS_CSS */", "/* ATLAS_JS */", "/* ATLAS_DATA */", "<!-- SITE_NAV -->", "<!-- SITE_THEME -->"):
             require(template.count(needle) == 1, f"Template marker missing or duplicated: {needle}")
-        html = template.replace("/* ATLAS_CSS */", css).replace("/* ATLAS_JS */", js).replace("/* ATLAS_DATA */", payload).replace("<!-- SITE_NAV -->", site_navigation("atlas"))
+        html = template.replace("/* ATLAS_CSS */", css).replace("/* ATLAS_JS */", js).replace("/* ATLAS_DATA */", payload).replace("<!-- SITE_NAV -->", site_navigation("atlas")).replace("<!-- SITE_THEME -->", site_theme(ROOT))
         output = ROOT / "dist" / "index.html"
         output.parent.mkdir(exist_ok=True)
         output.write_text(html)

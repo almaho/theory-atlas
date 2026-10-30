@@ -1,6 +1,11 @@
 """Build the community pages with the same navigation as the atlas."""
 from pathlib import Path
 import base64
+import json
+
+
+def site_theme(root: Path):
+    return '<script>' + (root / 'src' / 'theme.js').read_text() + '</script>'
 
 
 def site_navigation(active):
@@ -15,7 +20,13 @@ def site_navigation(active):
     return ('<nav class="view-nav" aria-label="Site navigation">'
             '<a class="atlas-brand" href="index.html#atlas" data-atlas-home="true">'
             'THEORY ATLAS<span>Knowledge, in view.</span></a>'
-            '<div class="site-links">' + ''.join(items) + '</div></nav>')
+            '<div class="site-controls"><div class="site-links">' + ''.join(items) + '</div>'
+            '<div class="theme-switch" role="group" aria-label="Board appearance">'
+            '<button type="button" data-site-theme="light" aria-label="Light mode — Whiteboard" aria-pressed="false">'
+            '<span class="theme-swatch whiteboard-swatch" aria-hidden="true"></span>Whiteboard</button>'
+            '<button type="button" data-site-theme="dark" aria-label="Dark mode — Chalkboard" aria-pressed="false">'
+            '<span class="theme-swatch chalkboard-swatch" aria-hidden="true"></span>Chalkboard</button>'
+            '</div></div></nav>')
 
 
 def build_site_pages(root: Path, write=True):
@@ -28,15 +39,17 @@ def build_site_pages(root: Path, write=True):
     for page in ('vision', 'people'):
         template = (root / 'src' / f'{page}.html').read_text()
         if page == 'people':
-            for slug in ('alma-ghafari', 'soheil-behnezhad'):
+            photos = json.loads((root / 'src' / 'assets' / 'people' / 'sources.json').read_text())
+            for photo in photos:
+                slug = photo['id']
                 token = '{{PORTRAIT_' + slug.upper().replace('-', '_') + '}}'
                 assert template.count(token) == 1, f'{page}: missing or repeated portrait {slug}'
-                portrait = (root / 'src' / 'assets' / 'people' / f'{slug}.jpg').read_bytes()
-                template = template.replace(token, 'data:image/jpeg;base64,' + base64.b64encode(portrait).decode('ascii'))
-        for token in ('/* SITE_CSS */', '<!-- SITE_NAV -->', '<!-- SITE_FOOTER -->'):
+                portrait = (root / 'src' / 'assets' / 'people' / photo['filename']).read_bytes()
+                template = template.replace(token, 'data:' + photo['mimeType'] + ';base64,' + base64.b64encode(portrait).decode('ascii'))
+        for token in ('/* SITE_CSS */', '<!-- SITE_NAV -->', '<!-- SITE_FOOTER -->', '<!-- SITE_THEME -->'):
             assert template.count(token) == 1, f'{page}: missing or repeated {token}'
         html = template.replace('/* SITE_CSS */', css).replace(
-            '<!-- SITE_NAV -->', site_navigation(page)).replace('<!-- SITE_FOOTER -->', footer)
+            '<!-- SITE_NAV -->', site_navigation(page)).replace('<!-- SITE_FOOTER -->', footer).replace('<!-- SITE_THEME -->', site_theme(root))
         if write:
             (root / 'dist').mkdir(exist_ok=True)
             (root / 'dist' / f'{page}.html').write_text(html)

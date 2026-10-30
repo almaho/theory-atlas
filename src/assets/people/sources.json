@@ -1,18 +1,22 @@
 [
   {
+    "id": "alma-ghafari",
     "name": "Alma Ghafari",
-    "profileUrl": "https://simons.berkeley.edu/people/alma-ghafari",
-    "imageUrl": "https://simons.berkeley.edu/sites/default/files/styles/post_card_lg_2x/public/profiles/avatar381442587_8.jpg?h=93fa4828&itok=HOoOWaob",
-    "filename": "alma-ghafari.jpg",
+    "profileUrl": "https://almaghafari.github.io/",
+    "imageUrl": "https://almaghafari.github.io/Alma.png",
+    "filename": "alma-ghafari.png",
+    "mimeType": "image/png",
     "retrievedOn": "2026-10-29",
-    "attribution": "Portrait from the Simons Institute profile. Photographer not specified on the source page."
+    "attribution": "Current portrait from Alma Ghafari’s personal website; photographer not stated on the source page."
   },
   {
+    "id": "soheil-behnezhad",
     "name": "Soheil Behnezhad",
-    "profileUrl": "https://simons.berkeley.edu/people/soheil-behnezhad",
-    "imageUrl": "https://simons.berkeley.edu/sites/default/files/styles/post_card_lg_2x/public/profiles/photo-2_15.jpg?h=4de2b418&itok=V0Q_3gWm",
+    "profileUrl": "http://behnezhad.com/",
+    "imageUrl": "http://behnezhad.com/static/img/photo.jpg",
     "filename": "soheil-behnezhad.jpg",
+    "mimeType": "image/jpeg",
     "retrievedOn": "2026-10-29",
-    "attribution": "Portrait from the Simons Institute profile. Photographer not specified on the source page."
+    "attribution": "Current portrait from Soheil Behnezhad’s personal website; photographer not stated on the source page."
   }
 ]

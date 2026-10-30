@@ -1,0 +1,106 @@
+{
+  "reviewedOn": "2026-10-29",
+  "scopeNote": "Each research question keeps its own computational model and assumptions. The linked source states the question or supplies the unresolved bounds gap; this review does not certify an exhaustive search.",
+  "problems": {
+    "matching": {
+      "title": "How many passes does near-optimal matching need?",
+      "setup": "Unweighted bipartite matching · insertion-only streams · O(n polylog n) bits · output matching edges",
+      "question": "What is the optimal dependence on ε of the number of passes needed to return a (1−ε)-approximate maximum matching?",
+      "context": "The reviewed landscape has O(1/ε²) passes for algorithms whose pass bound is independent of n, versus an Ω(log(1/ε)) lower bound for sufficiently small fixed ε. Closing this gap could improve either side.",
+      "status": "Open direction inferred from a reviewed bounds gap · lower-bound source is a preprint",
+      "models": [
+        "stream"
+      ],
+      "sources": [
+        {
+          "title": "Liu–Naidu–Nguyen–Sundaresan (2026), Introduction and Theorem 1",
+          "url": "https://arxiv.org/abs/2610.36577",
+          "theoremUrl": "https://arxiv.org/html/2610.36577v1#Thmtheorem1"
+        }
+      ]
+    },
+    "weighted_matching": {
+      "title": "How much weight can linear-in-1/p queries preserve?",
+      "setup": "Edge-weighted stochastic matching · independent edge survival · non-adaptive queries · p = min pₑ",
+      "question": "Can a subgraph of maximum degree O(1/p) preserve more of the expected optimum matching weight? What is the best approximation in this query regime?",
+      "context": "Derakhshan–Saneian obtain retained-weight fractions 0.68 on general graphs and 0.73 on bipartite graphs. Their question fixes the linear dependence on 1/p; allowing a larger polynomial or exponential dependence is a different regime.",
+      "status": "Question posed in the cited paper; scope checked against the atlas review",
+      "models": [
+        "stochastic"
+      ],
+      "sources": [
+        {
+          "title": "Derakhshan–Saneian (ICALP 2025), Introduction and Theorem 1",
+          "url": "https://arxiv.org/abs/2311.08513",
+          "theoremUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol334-icalp2025/html/LIPIcs.ICALP.2025.67/LIPIcs.ICALP.2025.67.html"
+        }
+      ]
+    },
+    "mis": {
+      "title": "Can general-graph MIS beat logarithmic rounds?",
+      "setup": "Maximal independent set · classical randomized LOCAL · general graphs · all vertices finish with high probability",
+      "question": "Is there an o(log n)-round randomized LOCAL algorithm for maximal independent set on every n-vertex graph?",
+      "context": "Khoury–Schild achieve sublogarithmic rounds when there are no cycles of length at most six. They explicitly leave the general-graph question open. The resource here is elapsed rounds, not awake rounds or local probe count.",
+      "status": "Open Question 1 in the cited paper",
+      "models": [
+        "local"
+      ],
+      "sources": [
+        {
+          "title": "Khoury–Schild (STOC 2026), Open Question 1 and Theorem 1",
+          "url": "https://arxiv.org/abs/2505.15652",
+          "theoremUrl": "https://arxiv.org/html/2505.15652v1#S1"
+        }
+      ]
+    },
+    "cc": {
+      "title": "Can the cluster-LP gap reach 4/3?",
+      "setup": "Correlation clustering · complete unweighted signed graphs · minimize disagreements · cluster LP",
+      "question": "Can every feasible cluster-LP solution be rounded with approximation factor 4/3, or is its integrality gap strictly larger?",
+      "context": "The reviewed 2026 preprint places the gap between 4/3 and 1.3865. This concerns the LP relaxation: 4/3 is not a hardness threshold for all algorithms, nor a bound for maximizing agreements.",
+      "status": "Open direction inferred from the cited integrality-gap bounds · preprint",
+      "models": [],
+      "sources": [
+        {
+          "title": "García-Soriano–Schohn (2026), Theorem 1.3",
+          "url": "https://arxiv.org/abs/2607.27829",
+          "theoremUrl": "https://arxiv.org/html/2607.27829v2#S1"
+        }
+      ]
+    },
+    "edge": {
+      "title": "Fewer colors with little recoloring",
+      "setup": "Fully dynamic proper edge coloring · simple graphs · Δ+C colors · recourse counts recolored edges",
+      "question": "Can shift-tree methods maintain low recoloring recourse with a much smaller extra palette C, especially when C is constant?",
+      "context": "Sadeh–Kaplan obtain tight recourse for large extra palettes and identify smaller palettes as a next step. They also ask how to reduce update time while retaining low recourse; the two costs must remain distinct.",
+      "status": "Question posed in Section 3 of the cited preprint",
+      "models": [
+        "dynamic"
+      ],
+      "sources": [
+        {
+          "title": "Sadeh–Kaplan (2026), Conclusions and Open Questions",
+          "url": "https://arxiv.org/abs/2602.09497",
+          "theoremUrl": "https://arxiv.org/html/2602.09497v2#S3"
+        }
+      ]
+    },
+    "vertex": {
+      "title": "Beyond √n for adaptive dynamic coloring",
+      "setup": "Fully dynamic (Δ+1)-vertex coloring · adaptive adversary · general graphs · update time",
+      "question": "Can adaptive dynamic (Δ+1)-coloring achieve update time below the √n scale, or can a nontrivial lower bound explain the barrier?",
+      "context": "Gil–Halldórsson give Õ(√n) worst-case update time and at most three recolorings. They identify faster algorithms or lower bounds as open directions. Their discussion of random color trials is a technique limitation, not a lower bound for the problem.",
+      "status": "Question posed in the cited preprint, accepted to SODA 2027",
+      "models": [
+        "dynamic"
+      ],
+      "sources": [
+        {
+          "title": "Gil–Halldórsson (2026), Introduction and Theorem 1.1",
+          "url": "https://arxiv.org/abs/2610.26182",
+          "theoremUrl": "https://arxiv.org/html/2610.26182v2#S1"
+        }
+      ]
+    }
+  }
+}

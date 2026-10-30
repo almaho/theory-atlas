@@ -60,3 +60,5 @@ currentSlice={id:'second'};vm.runInContext('updateDetail();',announcementContext
 currentCell=null;vm.runInContext('updateDetail();',announcementContext);
 assert.deepEqual(announcements,['first','second',null],'URLs follow changed tabs/selections and overview, without per-frame history updates');
 console.log('Site pages PASS: shared navigation, atlas default, all 60 legacy figure links, canonical setting routes, Vision/People content and local links; no separate figure mode or fine-grained page.');
+require('./test_site_theme.cjs');
+require('./test_open_problems.cjs');
