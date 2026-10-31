@@ -1,0 +1,23 @@
+{
+  "id": "maximum_is-local",
+  "dataFile": "maximum_is-local.json",
+  "javascript": "scoped-landscapes.js",
+  "css": "scoped-landscapes.css",
+  "routes": [
+    {
+      "key": "maximum_is-local",
+      "sliceId": "maximum_is-local-landscape",
+      "label": "Maximum independent set in LOCAL",
+      "problem": "maximum_is",
+      "model": "local",
+      "visible": true
+    }
+  ],
+  "canonicalAliases": {},
+  "pointFields": {},
+  "axisSummary": {
+    "x": "Round complexity · symbolic growth",
+    "y": "Approximation and graph class",
+    "note": "Symbolic round bounds, not numerical distances. The upper panel fixes a near-optimal ratio on chordal graphs, with a lower bound even on paths. The lower panel permits a degree-dependent approximation on general graphs."
+  }
+}

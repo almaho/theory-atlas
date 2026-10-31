@@ -13,19 +13,6 @@
       "venue": "ICALP 2019",
       "publicationStatus": "conference",
       "verifiedOn": "2026-10-27"
-    },
-    {
-      "id": "ds26",
-      "title": "Online Algorithms for Geometric Independent Set",
-      "authors": [
-        "Minati De",
-        "Satyam Singh"
-      ],
-      "year": 2026,
-      "url": "https://arxiv.org/html/2604.14677v1",
-      "venue": "arXiv 2026",
-      "publicationStatus": "preprint",
-      "verifiedOn": "2026-10-27"
     }
   ],
   "upsertSlices": [
@@ -33,10 +20,10 @@
       "id": "mis-online-landscape",
       "problem": "mis",
       "model": "online",
-      "label": "Online independent sets: maximal versus maximum",
-      "task": "Feasibility and competitive cardinality have separate panels and units.",
+      "label": "Online maximal independent set",
+      "task": "Arrival-order greedy maintains maximality after every prefix without revisions.",
       "assumptions": [
-        "Maximality uses a zero-recourse axis. Maximum-size competitiveness uses symbolic ζ-dependent ratios. The geometric-independent-set preprint concerns graphs via neighborhood independence; no geometric oracle is assumed."
+        "Zero-recourse feasibility for maximal independent set. Maximum-cardinality competition is in the separate Maximum independent set row."
       ],
       "mode": "1d",
       "axis": {
@@ -45,10 +32,6 @@
           {
             "id": "maximal",
             "label": "Maximality after every prefix"
-          },
-          {
-            "id": "maximum",
-            "label": "Maximum-size competition · bounded neighborhood independence"
           }
         ]
       },
@@ -62,36 +45,6 @@
           "sourceLocation": "§3 Fact 1; immediate online specialization",
           "plot": null,
           "notes": "Accept a vertex iff it has no accepted neighbor. Rejected vertices retain an accepted witness; later arrivals cannot destroy maximality. This is a derived online consequence, not a competitive maximum-size theorem."
-        },
-        {
-          "id": "mis-online-zeta-upper",
-          "paperId": "ds26",
-          "kind": "upper",
-          "bound": "α ≤ ζ",
-          "guarantee": "Maximum-cardinality competitive ratio OPT/E[ALG]",
-          "sourceLocation": "Theorem 1; Lemma 5",
-          "plot": null,
-          "notes": "The same greedy output is maximal; this panel measures its size against maximum optimum."
-        },
-        {
-          "id": "mis-online-zeta-det-lower",
-          "paperId": "ds26",
-          "kind": "lower",
-          "bound": "α ≥ ζ",
-          "guarantee": "Maximum-cardinality competitive ratio OPT/E[ALG]",
-          "sourceLocation": "Theorem 1; Lemma 6",
-          "plot": null,
-          "notes": "Do not interpret this ratio lower bound as a lower bound on the effort needed to maintain maximality."
-        },
-        {
-          "id": "mis-online-zeta-rand-lower",
-          "paperId": "ds26",
-          "kind": "lower",
-          "bound": "α ≥ (ζ+1)/2",
-          "guarantee": "Maximum-cardinality competitive ratio OPT/E[ALG]",
-          "sourceLocation": "Theorem 1; Lemma 7",
-          "plot": null,
-          "notes": "The ζ-dependent formulas are categorical anchors, not fixed numerical ratios."
         }
       ]
     }

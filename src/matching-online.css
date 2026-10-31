@@ -1,4 +1,4 @@
-.mon-view { --mon-vertex:light-dark(#355e93,#acc7eb); --mon-edge:light-dark(#795487,#d2b2df); }
+.mon-view { --mon-vertex:light-dark(#595959,#c8c8c8); --mon-edge:light-dark(#595959,#c8c8c8); }
 .mon-toolbar,.mon-legend,.mon-views,.mon-detail-head { display:flex; align-items:center; flex-wrap:wrap; gap:12px; }
 .mon-toolbar { justify-content:space-between; margin:20px 0 13px; }
 .mon-toolbar label,.mon-toolbar select { font-size:12px; }
@@ -30,8 +30,8 @@
 .mon-map .mon-lower-label { font-size:11px; fill:var(--red); }
 .mon-map .mon-bonus { font-size:12px; fill:var(--green); }
 .mon-summary .mon-bonus { font-size:9px; fill:var(--green); }
-.mon-map .mon-setup-vertex,.mon-summary .mon-setup-vertex { fill:var(--mon-vertex,light-dark(#355e93,#acc7eb)); }
-.mon-map .mon-setup-edge,.mon-summary .mon-setup-edge { fill:var(--mon-edge,light-dark(#795487,#d2b2df)); }
+.mon-map .mon-setup-vertex,.mon-summary .mon-setup-vertex { fill:var(--mon-vertex,light-dark(#595959,#c8c8c8)); }
+.mon-map .mon-setup-edge,.mon-summary .mon-setup-edge { fill:var(--mon-edge,light-dark(#595959,#c8c8c8)); }
 .mon-axis { stroke:var(--muted); stroke-width:1; fill:none; }
 .mon-grid { stroke:var(--line); stroke-width:.65; stroke-dasharray:2 4; fill:none; }
 .mon-row-rule { stroke:var(--line); stroke-width:.5; fill:none; opacity:.6; }

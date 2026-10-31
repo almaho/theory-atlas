@@ -44,7 +44,7 @@
   function scopePanels(options={}){
     const rows=records(options),adaptive=rows.filter(r=>r.panel!=='nonadaptive'),non=rows.filter(r=>r.panel==='nonadaptive');
     const list=[];
-    if(adaptive.length)list.push({name:'adaptive',title:'Adaptive matching-size queries · one comparison',shortTitle:'Adaptive · general / bipartite / additive',subtitle:'Blue halo: general, pure ratio · violet: bipartite, pure ratio · amber: additive slack. No frontier connects different guarantees.',columns:['constant','half','point5109','twothirds','above-twothirds','half-additive','twothirds-additive','pure-additive'],lanes:['average-degree','linear','n12','n15','subquadratic','mixed-degree','nearquadratic'].filter(l=>adaptive.some(r=>lane(r)===l)),rows:adaptive});
+    if(adaptive.length)list.push({name:'adaptive',title:'Adaptive matching-size queries · one comparison',shortTitle:'Adaptive · general / bipartite / additive',subtitle:'Labels distinguish general pure ratio, bipartite pure ratio, and additive slack. No frontier connects different guarantees.',columns:['constant','half','point5109','twothirds','above-twothirds','half-additive','twothirds-additive','pure-additive'],lanes:['average-degree','linear','n12','n15','subquadratic','mixed-degree','nearquadratic'].filter(l=>adaptive.some(r=>lane(r)===l)),rows:adaptive});
     if(non.length)list.push({name:'nonadaptive',...panels.nonadaptive,rows:non});
     return list;
   }
@@ -65,11 +65,11 @@
   }
   function plotPoint(p,options={}){
     const {r,x,y,paired,index}=p,kind=r.kind==='lower'?'lower':'algorithm',dy=paired?(index===0?-9:9):0;
-    return `<g class="ql-plot-result" data-query-list-result="${esc(r.id)}" data-kind="${kind}" data-panel="${r.panel}" data-guarantee-family="${esc(r.qualityFamily)}" data-resource-lane="${esc(lane(r))}" role="button" tabindex="0" aria-pressed="${r.id===options.selected}" aria-label="Inspect ${esc(title(r))}: ${esc(readable(formula(r)))}; ${esc(readable(r.quality))}" style="--ql-marker:var(--${kind==='lower'?'red':'green'})"><circle cx="${x}" cy="${y+dy}" r="10" fill="none" stroke="${r.panel==='bipartite'?'#bba1e7':r.panel==='additive'?'#dfb66e':'var(--blue)'}" stroke-width="1.5"/>${marker(x,y+dy,kind,r.id===options.selected)}${text(x,y+(paired?(index===0?-20:28):-13),label(r),'ql-paper-label','middle')}${pointNote(r)?text(x,y+17,pointNote(r),'ql-point-note','middle'):''}</g>`;
+    return `<g class="ql-plot-result" data-query-list-result="${esc(r.id)}" data-kind="${kind}" data-panel="${r.panel}" data-guarantee-family="${esc(r.qualityFamily)}" data-resource-lane="${esc(lane(r))}" role="button" tabindex="0" aria-pressed="${r.id===options.selected}" aria-label="Inspect ${esc(title(r))}: ${esc(readable(formula(r)))}; ${esc(readable(r.quality))}" style="--ql-marker:var(--${kind==='lower'?'red':'green'})"><circle cx="${x}" cy="${y+dy}" r="10" fill="none" stroke="${r.panel==='bipartite'?'var(--muted)':r.panel==='additive'?'var(--muted)':'var(--blue)'}" stroke-width="1.5" stroke-dasharray="${r.panel==='bipartite'?'3 2':r.panel==='additive'?'1 2':'none'}"/>${marker(x,y+dy,kind,r.id===options.selected)}${text(x,y+(paired?(index===0?-20:28):-13),label(r),'ql-paper-label','middle')}${pointNote(r)?text(x,y+17,pointNote(r),'ql-point-note','middle'):''}</g>`;
   }
 
   function diagramSVG(options={}){
-    const visible=scopePanels(options);let s='<svg class="ql-map" viewBox="0 0 1180 920" role="img" aria-label="Adaptive adjacency-list matching-size results on one shared categorical cost and guarantee plot. Non-adaptive results stay separate."><title>How many probes reveal matching size?</title><desc>General, bipartite and additive scopes have different halo colors. Formula rows have no universal numeric ranking; mixed guarantees do not define a pure-ratio frontier.</desc>';
+    const visible=scopePanels(options);let s='<svg class="ql-map" viewBox="0 0 1180 920" role="img" aria-label="Adaptive adjacency-list matching-size results on one shared categorical cost and guarantee plot. Non-adaptive results stay separate."><title>How many probes reveal matching size?</title><desc>General, bipartite and additive scopes have separate labels and marker outlines. Formula rows have no universal numeric ranking; mixed guarantees do not define a pure-ratio frontier.</desc>';
     visible.forEach((p,i)=>{
       const left=20,top=i?610:20,region={l:260,r:1150,t:top+96,b:top+(i?175:422)};
       s+='<g data-panel="'+p.name+'">'+text(left,top+6,String(i+1).padStart(2,'0'),'ql-section-number')+text(left+32,top+6,p.title,'ql-section-title')+text(left+32,top+28,p.subtitle,'ql-muted');
@@ -102,7 +102,7 @@
       }
       for(const point of points(p,region).filter(p=>!tiny||p.r.kind==='lower'||['list-brr23-multiplicative','list-brr23-bipartite-upper','list-beh21-mixed','list-shah26-upper'].includes(p.r.id))){
         const {r,x,y,paired,index}=point,kind=r.kind==='lower'?'lower':'algorithm',dy=paired?(index===0?-4:4):0;
-        s+=`<g data-query-list-result="${esc(r.id)}" data-kind="${kind}" data-panel="${r.panel}" data-guarantee-family="${esc(r.qualityFamily)}" data-resource-lane="${esc(lane(r))}"><title>${esc(label(r)+(pointNote(r)?' · '+pointNote(r):''))}</title><circle cx="${x}" cy="${y+dy}" r="5.5" fill="none" stroke="${r.panel==='bipartite'?'#bba1e7':r.panel==='additive'?'#dfb66e':'var(--blue)'}" stroke-width="1"/>${marker(x,y+dy,kind,false,true)}`;
+        s+=`<g data-query-list-result="${esc(r.id)}" data-kind="${kind}" data-panel="${r.panel}" data-guarantee-family="${esc(r.qualityFamily)}" data-resource-lane="${esc(lane(r))}"><title>${esc(label(r)+(pointNote(r)?' · '+pointNote(r):''))}</title><circle cx="${x}" cy="${y+dy}" r="5.5" fill="none" stroke="${r.panel==='bipartite'?'var(--muted)':r.panel==='additive'?'var(--muted)':'var(--blue)'}" stroke-width="1"/>${marker(x,y+dy,kind,false,true)}`;
         if(rich){const end=x>region.r-70||(paired&&index===0);s+=text(x+(end?-7:7),y+(paired?(index===0?-3:7):3),label(r),kind==='lower'?'ql-summary-lower':'ql-summary-upper',end?'end':'start');}
         else if(full&&!paired)s+=text(x,y-7,label(r),kind==='lower'?'ql-summary-lower':'ql-summary-upper','middle');
 

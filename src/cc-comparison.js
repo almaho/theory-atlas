@@ -5,7 +5,7 @@ const payload=JSON.parse(document.getElementById('atlas-data').textContent),conf
 if(!config)return;
 const instances=new Set(),esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const titles={pure:'Disagreements · no additive error',additive:'Disagreements · additive error allowed',agreement:'Agreements · separate objective'};
-const colors={pure:'#6ca9d2',additive:'#b18acc',agreement:'#d3ae69'};
+const colors={pure:'var(--muted)',additive:'var(--muted)',agreement:'var(--muted)'};
 const tx=(x,y,s,cls='',anchor='start')=>'<text x="'+x+'" y="'+y+'" class="ccx-'+cls+'" text-anchor="'+anchor+'">'+esc(s)+'</text>';
 const n=x=>Math.round(x*1000)/1000;
 function idFor(key){return Object.keys(config.pairs).find(id=>key===id||key.startsWith(id+'-'));}

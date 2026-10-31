@@ -7,7 +7,7 @@
     {
       "key": "mis-online",
       "sliceId": "mis-online-landscape",
-      "label": "Online independent sets: maximal versus maximum",
+      "label": "Online maximal independent set",
       "problem": "mis",
       "model": "online",
       "visible": true
@@ -18,6 +18,6 @@
   "axisSummary": {
     "x": "Panel-specific quality or cost axis",
     "y": "Named theorem and setup",
-    "note": "Maximality uses a zero-recourse axis. Maximum-size competitiveness uses symbolic ζ-dependent ratios. The geometric-independent-set preprint concerns graphs via neighborhood independence; no geometric oracle is assumed."
+    "note": "Zero-recourse feasibility for maximal independent set. Maximum-cardinality competition is in the separate Maximum independent set row."
   }
 }

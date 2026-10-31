@@ -7,7 +7,7 @@
     {
       "key": "mis-stochastic",
       "sliceId": "mis-stochastic-landscape",
-      "label": "Random-input independent sets: algorithm and locality",
+      "label": "Random-input maximal independent set",
       "problem": "mis",
       "model": "stochastic",
       "visible": true
@@ -18,6 +18,6 @@
   "axisSummary": {
     "x": "Panel-specific quality or cost axis",
     "y": "Named theorem and setup",
-    "note": "The upper panel measures expected iterations of PARALLEL-GREEDY. The lower panel measures solution density within fixed-radius local algorithms. Neither red statement is a universal MIS computational lower bound."
+    "note": "Expected iterations of PARALLEL-GREEDY. Red bounds constrain this algorithm only; maximum-size density results are in the separate Maximum independent set row."
   }
 }

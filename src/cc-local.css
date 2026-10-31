@@ -8,9 +8,9 @@
 .cc-local-key-lower { width:7px; height:7px; transform:rotate(45deg); background:var(--red); }
 .cc-local-key-guide { width:18px; border-top:2px dashed var(--green); }
 .cc-local-setup-legend i { width:4px; height:13px; border-radius:2px; }
-.cc-local-complete { background:#3b78b0; }
-.cc-local-weighted { background:#8955a8; }
-.cc-local-minorfree { background:#a97224; }
+.cc-local-complete { background:var(--muted); }
+.cc-local-weighted { background:var(--muted); }
+.cc-local-minorfree { background:var(--muted); }
 .cc-local-publication { min-height:32px; padding:5px 8px; font-size:11px; }
 .cc-local-scroll { overflow-x:auto; overscroll-behavior-x:contain; border:1px solid var(--line); border-radius:8px; background:var(--surface); }
 .cc-local-plot { min-width:780px; padding:8px; }
@@ -26,9 +26,9 @@
 .cc-local-point:focus { outline:none; }
 .cc-local-point:focus .cc-local-algorithm { stroke:var(--ink); stroke-width:2; }
 .cc-local-card { fill:var(--surface); stroke:var(--line); stroke-width:.8; }
-.cc-local-setup-complete { fill:none; stroke:#3b78b0; stroke-width:3; }
-.cc-local-setup-weighted { fill:none; stroke:#8955a8; stroke-width:3; }
-.cc-local-setup-minorfree { fill:none; stroke:#a97224; stroke-width:3; }
+.cc-local-setup-complete { fill:none; stroke:var(--muted); stroke-width:3; }
+.cc-local-setup-weighted { fill:none; stroke:var(--muted); stroke-width:3; }
+.cc-local-setup-minorfree { fill:none; stroke:var(--muted); stroke-width:3; }
 .cc-local-map .cc-local-section { font-size:15px; font-weight:750; letter-spacing:.5px; }
 .cc-local-map .cc-local-subtitle { font-size:12px; fill:var(--muted); }
 .cc-local-map .cc-local-tick { font:12px Georgia,serif; fill:var(--muted); }

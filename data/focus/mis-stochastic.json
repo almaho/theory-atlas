@@ -2,10 +2,10 @@
   "id": "mis-stochastic",
   "problem": "mis",
   "model": "stochastic",
-  "problemLabel": "Independent set",
+  "problemLabel": "Maximal independent set",
   "modelLabel": "Stochastic",
-  "title": "Random-input independent sets: algorithm and locality",
-  "subtitle": "Supplied random graphs, prescribed greedy behavior, and maximum-size local algorithms have distinct contracts.",
+  "title": "Random-input maximal independent set",
+  "subtitle": "Expected iterations of prescribed parallel greedy on supplied Erdős–Rényi graphs.",
   "renderer": "scoped-landscape",
   "reviewedOn": "2026-10-27",
   "panels": [
@@ -26,20 +26,6 @@
           "label": "log n",
           "short": "log n"
         }
-      ]
-    },
-    {
-      "id": "local",
-      "title": "Maximum-size IS · fixed-radius local algorithms",
-      "shortTitle": "Maximum IS · fixed-radius locality",
-      "note": "G(n,λ/n); n→∞ first, then λ→∞. Radius can depend on λ, not n.",
-      "xLabel": "Density divided by (log λ)/λ · limiting value",
-      "min": 0,
-      "max": 2,
-      "ticks": [
-        0,
-        1,
-        2
       ]
     }
   ],
@@ -131,56 +117,12 @@
       "year": 1992,
       "evidenceStatus": "primary_statement_verified",
       "shortLabel": "Calkin–Frieze–Kučera ’92"
-    },
-    {
-      "id": "mis-stochastic-local-upper",
-      "sourceId": "rv17",
-      "panel": "local",
-      "kind": "upper",
-      "at": 1,
-      "setup": "Fixed-radius local construction",
-      "bound": "density ≥ (1−o(1))log λ/λ",
-      "displayBound": "density ≥ (1−o(1))log λ/λ",
-      "plotLabel": "density ≥ (1−o(1))log λ/λ",
-      "quality": "Approximate maximum independent-set size within a restricted local algorithm class",
-      "theorem": "§4.2 construction; Theorem 4.5",
-      "graph": "G(n,λ/n); sparse Poisson random graph",
-      "output": "Independent set; maximum-cardinality objective",
-      "probability": "Asymptotic local-algorithm density; n→∞ before λ→∞",
-      "notes": "Radius may depend on λ and accuracy but not n. The red bound is only for factor-of-i.i.d./fixed-radius local algorithms. Unrestricted optimum is asymptotically twice this density; that is structural context, not a runtime lower bound.",
-      "limit": true,
-      "publicationStatus": "published",
-      "year": 2017,
-      "evidenceStatus": "primary_statement_verified",
-      "shortLabel": "Rahman–Virág ’17"
-    },
-    {
-      "id": "mis-stochastic-local-lower",
-      "sourceId": "rv17",
-      "panel": "local",
-      "kind": "lower",
-      "at": 1,
-      "setup": "Fixed-radius local obstruction",
-      "bound": "density ≤ (1+o(1))log λ/λ",
-      "displayBound": "density ≤ (1+o(1))log λ/λ",
-      "plotLabel": "density ≤ (1+o(1))log λ/λ",
-      "quality": "Approximate maximum independent-set size within a restricted local algorithm class",
-      "theorem": "Theorem 4.1",
-      "graph": "G(n,λ/n); sparse Poisson random graph",
-      "output": "Independent set; maximum-cardinality objective",
-      "probability": "Asymptotic local-algorithm density; n→∞ before λ→∞",
-      "notes": "Radius may depend on λ and accuracy but not n. The red bound is only for factor-of-i.i.d./fixed-radius local algorithms. Unrestricted optimum is asymptotically twice this density; that is structural context, not a runtime lower bound.",
-      "limit": true,
-      "publicationStatus": "published",
-      "year": 2017,
-      "evidenceStatus": "primary_statement_verified",
-      "shortLabel": "Rahman–Virág ’17"
     }
   ],
   "relatedResults": [],
-  "axisNote": "The upper panel measures expected iterations of PARALLEL-GREEDY. The lower panel measures solution density within fixed-radius local algorithms. Neither red statement is a universal MIS computational lower bound.",
+  "axisNote": "Expected iterations of PARALLEL-GREEDY. Red bounds constrain this algorithm only; maximum-size density results are in the separate Maximum independent set row.",
   "coverageNote": "Bounded primary-source review completed 27 October 2026. Results are scoped comparisons, not an exhaustive or best-known-frontier claim.",
-  "lowerBoundStatus": "Only the lower bounds explicitly shown apply to their labeled setup. An absent bound means no comparable bound was verified in this review.",
+  "lowerBoundStatus": "The plotted lower bounds constrain PARALLEL-GREEDY only, not all maximal-independent-set algorithms.",
   "sources": {
     "cfk92": {
       "id": "cfk92",
@@ -195,19 +137,6 @@
       "venue": "Random Structures & Algorithms 1992",
       "publicationStatus": "published",
       "verifiedOn": "2026-10-27"
-    },
-    "rv17": {
-      "id": "rv17",
-      "title": "Local algorithms for independent sets are half-optimal",
-      "authors": [
-        "Mustazee Rahman",
-        "Bálint Virág"
-      ],
-      "year": 2017,
-      "url": "https://arxiv.org/pdf/1402.0485v2",
-      "venue": "Annals of Probability 2017",
-      "publicationStatus": "published",
-      "verifiedOn": "2026-10-27"
     }
   },
   "sourceVerification": [
@@ -220,15 +149,6 @@
         "Theorem 1(a), α=1",
         "Theorem 1(b)",
         "Theorem 2(b), e.g. α=3/4"
-      ]
-    },
-    {
-      "sourceId": "rv17",
-      "checkedOn": "2026-10-27",
-      "url": "https://arxiv.org/pdf/1402.0485v2",
-      "theorems": [
-        "§4.2 construction; Theorem 4.5",
-        "Theorem 4.1"
       ]
     }
   ],
@@ -269,32 +189,6 @@
           {
             "id": "mis-stochastic-dense-lower",
             "label": "p=1/2 · same-algorithm lower"
-          }
-        ]
-      }
-    },
-    "local": {
-      "title": "Maximum-size IS · fixed-radius local algorithms",
-      "x": {
-        "label": "Density divided by (log λ)/λ · limiting value",
-        "min": 0,
-        "max": 2,
-        "ticks": [
-          0,
-          1,
-          2
-        ]
-      },
-      "y": {
-        "label": "Theorem and setup",
-        "categories": [
-          {
-            "id": "mis-stochastic-local-upper",
-            "label": "Fixed-radius local construction"
-          },
-          {
-            "id": "mis-stochastic-local-lower",
-            "label": "Fixed-radius local obstruction"
           }
         ]
       }

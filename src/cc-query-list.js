@@ -56,7 +56,7 @@ function chart(w,h,o={},focused=false){
   const y=h-77,gap=14,pad=24,cw=(w-2*pad-gap)/2;
   s+='<g data-scope="related-oracles">'+text(pad,y-13,'RELATED · DIFFERENT ACCESS MODELS','ccql-related-title');
   rr.forEach((r,i)=>{
-   const x=pad+i*(cw+gap),cy=y+24,color=i?'var(--amber, #9a6226)':'var(--purple, #8064a8)',click=focused?' tabindex="0" role="button" aria-pressed="'+(o.selected===r.id)+'"':'';
+   const x=pad+i*(cw+gap),cy=y+24,color=i?'var(--amber, var(--muted))':'var(--purple, var(--muted))',click=focused?' tabindex="0" role="button" aria-pressed="'+(o.selected===r.id)+'"':'';
    s+='<g class="ccql-related-result" data-ccql-result="'+esc(r.id)+'" data-kind="lower"'+click+' aria-label="Related lower bound: '+esc(r.shortLabel+'; '+r.displayBound+' queries; any finite factor at success at least 99 percent')+'"><rect x="'+x+'" y="'+y+'" width="'+cw+'" height="56" rx="5" class="ccql-related-box"/><path d="M'+(x+1)+' '+(y+7)+'V'+(y+49)+'" stroke="'+color+'" stroke-width="3"/><path data-marker="related-lower" data-center-x="'+(x+16)+'" data-center-y="'+cy+'" d="M'+(x+16)+' '+(cy-5)+'L'+(x+21)+' '+cy+'L'+(x+16)+' '+(cy+5)+'L'+(x+11)+' '+cy+'Z" fill="none" stroke="var(--red)" stroke-width="1.8"/>'+text(x+30,y+24,r.shortLabel+' · '+r.displayBound+' queries','ccql-related-bound')+text(x+30,y+43,'Any finite factor · success ≥99%','ccql-fine')+'</g>';
   });s+='</g>';
  }

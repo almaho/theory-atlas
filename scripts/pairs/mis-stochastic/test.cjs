@@ -1,1 +1,1 @@
-require('../../test_scoped_landscapes.cjs')("mis-stochastic");
+require("../../test_scoped_landscapes.cjs")("mis-stochastic");

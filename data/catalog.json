@@ -31,6 +31,16 @@
       "axisShort": "α"
     },
     {
+      "id": "maximum_is",
+      "name": "Maximum independent set",
+      "short": "Maximum IS",
+      "definition": "Find an independent vertex set of largest possible cardinality. A maximal independent set cannot be extended, but need not be close to this optimum.",
+      "quality": "Approximation factor α ≥ 1 means |I| ≥ OPT/α. Online competitive ratios and random-input densities retain their own conventions.",
+      "variants": "Exact / approximate · explicit vertices / value · general / restricted / random graphs",
+      "axisLabel": "Approximation / guarantee",
+      "axisShort": "α"
+    },
+    {
       "id": "cc",
       "name": "Correlation clustering",
       "short": "Correlation clustering",

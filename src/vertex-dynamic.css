@@ -1,5 +1,5 @@
 
-.vdy-view,.vdy-map,.vdy-summary{--vdy-adaptive:light-dark(#4c6eaa,#9cbae8);--vdy-oblivious:light-dark(#8b639f,#ccabe0);--vdy-deterministic:light-dark(#967238,#e5c080)}
+.vdy-view,.vdy-map,.vdy-summary{--vdy-adaptive:light-dark(#595959,#c8c8c8);--vdy-oblivious:light-dark(#595959,#c8c8c8);--vdy-deterministic:light-dark(#595959,#c8c8c8)}
 .vdy-view .f-hero h1{font-size:32px}.vdy-toolbar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;margin:18px 0 12px;font-size:11px}.vdy-legend,.vdy-filters{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center}.vdy-legend i{display:inline-block;width:8px;height:8px;margin-right:6px}.vdy-key-alg{background:var(--green);border-radius:50%}.vdy-key-lower{border:1.5px solid var(--red);transform:rotate(45deg);box-sizing:border-box}.vdy-filters select{font-size:11px;min-height:32px;margin-left:5px}.vdy-scroll{overflow-x:auto;overscroll-behavior-x:contain;border:1px solid var(--line);border-radius:7px;background:var(--surface)}.vdy-plot{min-width:800px;padding:8px}.vdy-map{display:block;width:100%;height:auto}
 svg.vdy-map text,svg.vdy-summary text,.cell svg.vdy-summary text{font:11px ui-sans-serif,system-ui,sans-serif;fill:var(--ink)}
 svg.vdy-summary .vdy-heading,.cell svg.vdy-summary .vdy-heading{font-size:16px;font-weight:600}

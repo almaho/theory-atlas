@@ -26,4 +26,4 @@ for(const photo of photos){
  const original=fs.readFileSync(path.join(root,'src/assets/people',photo.filename)).toString('base64');
  assert(people.includes('data:'+photo.mimeType+';base64,'+original),'Published portrait is the current personal-site asset');
 }
-console.log('Open problems PASS: six sourced family questions, setup labels on all '+cards+' setting pages, inference/preprint qualifications, and current personal-site portraits with linked names.');
+console.log('Open problems PASS: '+data.problems.length+' sourced family questions, setup labels on all '+cards+' setting pages, inference/preprint qualifications, and current personal-site portraits with linked names.');

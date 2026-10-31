@@ -527,7 +527,7 @@
     {
       "id": "adaptive-fixed",
       "label": "Adaptive · fixed-time success",
-      "color": "var(--blue)"
+      "color": "var(--muted)"
     },
     {
       "id": "oblivious-expected",

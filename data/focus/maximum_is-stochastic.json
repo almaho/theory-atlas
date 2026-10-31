@@ -1,0 +1,131 @@
+{
+  "id": "maximum_is-stochastic",
+  "problem": "maximum_is",
+  "model": "stochastic",
+  "problemLabel": "Maximum independent set",
+  "modelLabel": "Stochastic",
+  "title": "Maximum independent sets in sparse random graphs",
+  "subtitle": "Fixed-radius local constructions and their density obstruction share a random-input setup.",
+  "renderer": "scoped-landscape",
+  "reviewedOn": "2026-10-30",
+  "panels": [
+    {
+      "id": "local",
+      "title": "Maximum-size IS · fixed-radius local algorithms",
+      "shortTitle": "Maximum IS · fixed-radius locality",
+      "note": "G(n,λ/n); n→∞ first, then λ→∞. Radius can depend on λ, not n.",
+      "xLabel": "Density divided by (log λ)/λ · limiting value",
+      "min": 0,
+      "max": 2,
+      "ticks": [
+        0,
+        1,
+        2
+      ]
+    }
+  ],
+  "verifiedRecords": [
+    {
+      "id": "mis-stochastic-local-upper",
+      "sourceId": "rv17",
+      "panel": "local",
+      "kind": "upper",
+      "at": 1,
+      "setup": "Fixed-radius local construction",
+      "bound": "density ≥ (1−o(1))log λ/λ",
+      "displayBound": "density ≥ (1−o(1))log λ/λ",
+      "plotLabel": "density ≥ (1−o(1))log λ/λ",
+      "quality": "Approximate maximum independent-set size within a restricted local algorithm class",
+      "theorem": "§4.2 construction; Theorem 4.5",
+      "graph": "G(n,λ/n); sparse Poisson random graph",
+      "output": "Independent set; maximum-cardinality objective",
+      "probability": "Asymptotic local-algorithm density; n→∞ before λ→∞",
+      "notes": "Radius may depend on λ and accuracy but not n. The red bound is only for factor-of-i.i.d./fixed-radius local algorithms. Unrestricted optimum is asymptotically twice this density; that is structural context, not a runtime lower bound.",
+      "limit": true,
+      "publicationStatus": "published",
+      "year": 2017,
+      "evidenceStatus": "primary_statement_verified",
+      "shortLabel": "Rahman–Virág ’17"
+    },
+    {
+      "id": "mis-stochastic-local-lower",
+      "sourceId": "rv17",
+      "panel": "local",
+      "kind": "lower",
+      "at": 1,
+      "setup": "Fixed-radius local obstruction",
+      "bound": "density ≤ (1+o(1))log λ/λ",
+      "displayBound": "density ≤ (1+o(1))log λ/λ",
+      "plotLabel": "density ≤ (1+o(1))log λ/λ",
+      "quality": "Approximate maximum independent-set size within a restricted local algorithm class",
+      "theorem": "Theorem 4.1",
+      "graph": "G(n,λ/n); sparse Poisson random graph",
+      "output": "Independent set; maximum-cardinality objective",
+      "probability": "Asymptotic local-algorithm density; n→∞ before λ→∞",
+      "notes": "Radius may depend on λ and accuracy but not n. The red bound is only for factor-of-i.i.d./fixed-radius local algorithms. Unrestricted optimum is asymptotically twice this density; that is structural context, not a runtime lower bound.",
+      "limit": true,
+      "publicationStatus": "published",
+      "year": 2017,
+      "evidenceStatus": "primary_statement_verified",
+      "shortLabel": "Rahman–Virág ’17"
+    }
+  ],
+  "relatedResults": [],
+  "axisNote": "Density within factor-of-i.i.d./fixed-radius local algorithms on G(n,λ/n). Take n→∞ before λ→∞; radius may depend on λ and accuracy but not n. This is not a universal computational lower bound.",
+  "coverageNote": "Moved to the maximum-independent-set row on 30 October 2026; primary statements reviewed 27 October. Scoped coverage, not an exhaustive frontier.",
+  "lowerBoundStatus": "Red results apply only to their stated adversary or fixed-radius algorithm class.",
+  "sources": {
+    "rv17": {
+      "id": "rv17",
+      "title": "Local algorithms for independent sets are half-optimal",
+      "authors": [
+        "Mustazee Rahman",
+        "Bálint Virág"
+      ],
+      "year": 2017,
+      "url": "https://arxiv.org/pdf/1402.0485v2",
+      "venue": "Annals of Probability 2017",
+      "publicationStatus": "published",
+      "verifiedOn": "2026-10-27"
+    }
+  },
+  "sourceVerification": [
+    {
+      "sourceId": "rv17",
+      "checkedOn": "2026-10-27",
+      "url": "https://arxiv.org/pdf/1402.0485v2",
+      "theorems": [
+        "§4.2 construction; Theorem 4.5",
+        "Theorem 4.1"
+      ]
+    }
+  ],
+  "figureAxes": {
+    "local": {
+      "title": "Maximum-size IS · fixed-radius local algorithms",
+      "x": {
+        "label": "Density divided by (log λ)/λ · limiting value",
+        "min": 0,
+        "max": 2,
+        "ticks": [
+          0,
+          1,
+          2
+        ]
+      },
+      "y": {
+        "label": "Theorem and setup",
+        "categories": [
+          {
+            "id": "mis-stochastic-local-upper",
+            "label": "Fixed-radius local construction"
+          },
+          {
+            "id": "mis-stochastic-local-lower",
+            "label": "Fixed-radius local obstruction"
+          }
+        ]
+      }
+    }
+  }
+}

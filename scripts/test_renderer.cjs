@@ -1075,3 +1075,5 @@ require('./test_talk_design.cjs');
 require('./test_cc_comparison.cjs');
 
 require('./test_site_pages.cjs');
+
+require("./test_semantic_palette.cjs");

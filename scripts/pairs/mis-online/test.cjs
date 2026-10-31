@@ -1,1 +1,1 @@
-require('../../test_scoped_landscapes.cjs')("mis-online");
+require("../../test_scoped_landscapes.cjs")("mis-online");

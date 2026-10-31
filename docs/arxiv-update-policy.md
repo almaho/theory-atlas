@@ -6,7 +6,7 @@ Alma authorized daily arXiv review and verified website updates on 2026-10-27. T
 
 Read `../arxiv-monitor-state.json` from the project root. Search new and revised arXiv submissions in cs.DS and cs.CC, with targeted related-category searches for the problems and models already represented in the graph atlas. The fine-grained page is paused and excluded from monitoring and publication until Alma resumes it. Include weighted and stochastic matching. The first run covers the preceding seven days; subsequent runs overlap the last successful search by seven days. Follow pagination and rate limits, record search intervals and query coverage, and do not claim a complete check when retrieval was partial.
 
-Deduplicate by base arXiv ID and version, and compare against existing bibliography records. A new version can correct, retract, or strengthen an older result. Keep candidate dispositions (`integrated`, `already_covered`, `irrelevant`, `needs_review`, `needs_setup_choice`) with source/version, date, and reason. Update the successful checkpoint only after a complete search; deployment status is recorded separately.
+Deduplicate by base arXiv ID and version, and compare against existing bibliography records. A new version can correct, retract, or strengthen an older result. Keep candidate dispositions (`integrated`, `already_covered`, `irrelevant`, `needs_review`, `needs_setup_choice`) with source/version, date, and reason. Update the successful checkpoint only after a complete search; deployment status is recorded separately. Respect user exclusions/deferred setups stored in the monitor state across revisions; do not repeatedly ask about them unless Alma reopens the setup. Maximum independent set now has its own row, distinct from maximal MIS.
 
 ## Evidence before publication
 
@@ -14,7 +14,7 @@ Read full theorem statements and model definitions. Preserve graph/input classes
 
 If fine-grained work is explicitly resumed in the future, store the reduction direction and exact algorithmic consequence separately. Record input-size transformation, exponent loss, reduction cost, decision versus reporting, and computational model. A path of edges is not automatically composable. Never infer equivalence from a one-way reduction.
 
-Use green for algorithms and red for lower bounds, with distinct graph/setup colors. Do not put incompatible contracts on one numerical axis. Ask Alma only when a new setup or ambiguous comparison requires a substantive choice; retain the candidate and continue independent review.
+Use green for algorithms and red for lower bounds, with neutral labels, panels and line/marker styles for graph/setup distinctions (Alma's 31 October preference: no additional categorical hues). Do not put incompatible contracts on one numerical axis. Ask Alma only when a new setup or ambiguous comparison requires a substantive choice; retain the candidate and continue independent review.
 
 ## Release
 

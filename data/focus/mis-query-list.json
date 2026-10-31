@@ -108,7 +108,7 @@
     {
       "id": "explicit",
       "label": "Explicit MIS · adjacency array",
-      "color": "#2563eb",
+      "color": "var(--muted)",
       "output": "Explicit MIS",
       "resource": "Total time"
     }

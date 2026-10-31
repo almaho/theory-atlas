@@ -1,0 +1,61 @@
+{
+  "upsertPapers": [
+    {
+      "id": "rv17",
+      "title": "Local algorithms for independent sets are half-optimal",
+      "authors": [
+        "Mustazee Rahman",
+        "Bálint Virág"
+      ],
+      "year": 2017,
+      "url": "https://arxiv.org/pdf/1402.0485v2",
+      "venue": "Annals of Probability 2017",
+      "publicationStatus": "journal",
+      "verifiedOn": "2026-10-27"
+    }
+  ],
+  "upsertSlices": [
+    {
+      "id": "maximum_is-stochastic-landscape",
+      "problem": "maximum_is",
+      "model": "stochastic",
+      "label": "Maximum independent sets in sparse random graphs",
+      "task": "Fixed-radius local constructions and their density obstruction share a random-input setup.",
+      "assumptions": [
+        "Density within factor-of-i.i.d./fixed-radius local algorithms on G(n,λ/n). Take n→∞ before λ→∞; radius may depend on λ and accuracy but not n. This is not a universal computational lower bound."
+      ],
+      "mode": "1d",
+      "axis": {
+        "label": "See scoped figure panels; incompatible objectives have separate axes",
+        "categories": [
+          {
+            "id": "local",
+            "label": "Maximum-size IS · fixed-radius local algorithms"
+          }
+        ]
+      },
+      "results": [
+        {
+          "id": "mis-stochastic-local-upper",
+          "paperId": "rv17",
+          "kind": "upper",
+          "bound": "density ≥ (1−o(1))log λ/λ",
+          "guarantee": "Approximate maximum independent-set size within a restricted local algorithm class",
+          "sourceLocation": "§4.2 construction; Theorem 4.5",
+          "plot": null,
+          "notes": "Radius may depend on λ and accuracy but not n. The red bound is only for factor-of-i.i.d./fixed-radius local algorithms. Unrestricted optimum is asymptotically twice this density; that is structural context, not a runtime lower bound."
+        },
+        {
+          "id": "mis-stochastic-local-lower",
+          "paperId": "rv17",
+          "kind": "lower",
+          "bound": "density ≤ (1+o(1))log λ/λ",
+          "guarantee": "Approximate maximum independent-set size within a restricted local algorithm class",
+          "sourceLocation": "Theorem 4.1",
+          "plot": null,
+          "notes": "Radius may depend on λ and accuracy but not n. The red bound is only for factor-of-i.i.d./fixed-radius local algorithms. Unrestricted optimum is asymptotically twice this density; that is structural context, not a runtime lower bound."
+        }
+      ]
+    }
+  ]
+}

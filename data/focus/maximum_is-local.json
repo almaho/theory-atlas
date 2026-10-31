@@ -1,0 +1,223 @@
+{
+  "id": "maximum_is-local",
+  "problem": "maximum_is",
+  "model": "local",
+  "problemLabel": "Maximum independent set",
+  "modelLabel": "LOCAL",
+  "renderer": "scoped-landscape",
+  "title": "Maximum independent set in LOCAL",
+  "subtitle": "Rounds and approximation; graph classes and probability guarantees stay explicit.",
+  "reviewedOn": "2026-10-30",
+  "panels": [
+    {
+      "id": "near",
+      "title": "(1+ε)-approximation · chordal graphs / paths",
+      "shortTitle": "1+ε · chordal / paths",
+      "note": "0<ε<1/2; algorithms deterministic, lower bound allows randomness.",
+      "xLabel": "Rounds · symbolic growth families",
+      "categories": [
+        {
+          "id": "lower",
+          "label": "1/ε",
+          "short": "1/ε"
+        },
+        {
+          "id": "upper",
+          "label": "ε⁻¹ log(1/ε) log* n",
+          "short": "ε⁻¹ log(1/ε) log* n"
+        }
+      ]
+    },
+    {
+      "id": "general",
+      "title": "(1+ε)Δ-approximation · general graphs",
+      "shortTitle": "(1+ε)Δ · general graphs",
+      "note": "Unit-weight specialization of a weighted theorem; not a near-optimal ratio.",
+      "xLabel": "Rounds · symbolic bound",
+      "categories": [
+        {
+          "id": "polyloglog",
+          "label": "poly(log log n)/ε",
+          "short": "poly(log log n)/ε"
+        }
+      ]
+    }
+  ],
+  "verifiedRecords": [
+    {
+      "output": "An independent vertex set; each vertex learns its membership",
+      "limit": false,
+      "evidenceStatus": "primary_statement_verified",
+      "publicationStatus": "conference",
+      "id": "maximum-is-local-chordal-upper",
+      "sourceId": "kz19",
+      "panel": "near",
+      "kind": "upper",
+      "at": "upper",
+      "setup": "Chordal · deterministic",
+      "displayBound": "O(ε⁻¹ log(1/ε) log* n) rounds",
+      "quality": "|I| ≥ OPT/(1+ε), 0<ε<1/2",
+      "theorem": "Theorem 16",
+      "graph": "Unweighted chordal graphs",
+      "probability": "Deterministic",
+      "notes": "Standard LOCAL with unique IDs and initial neighbor knowledge. The algorithm computes the needed decomposition; no tree decomposition is supplied as input.",
+      "shortLabel": "Konrad–Zamaraev ’19",
+      "bound": "O(ε⁻¹ log(1/ε) log* n) rounds",
+      "plotLabel": "O(ε⁻¹ log(1/ε) log* n) rounds",
+      "sourceUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol138-mfcs2019/LIPIcs.MFCS.2019.21/LIPIcs.MFCS.2019.21.pdf"
+    },
+    {
+      "output": "An independent vertex set; each vertex learns its membership",
+      "limit": false,
+      "evidenceStatus": "primary_statement_verified",
+      "publicationStatus": "conference",
+      "id": "maximum-is-local-path-lower",
+      "sourceId": "kz19",
+      "panel": "near",
+      "kind": "lower",
+      "at": "lower",
+      "setup": "Even paths · randomized",
+      "displayBound": "Ω(ε⁻¹) rounds",
+      "quality": "Expected approximation factor at most 1+ε",
+      "theorem": "Theorem 17; §6",
+      "graph": "Even unweighted paths, hence a subclass of chordal graphs; sufficiently large n",
+      "probability": "Randomized algorithms; expectation guarantee",
+      "notes": "The source states an expected approximation-factor requirement, not a high-probability guarantee. Compare the common 0<ε<1/2 range; no general-graph lower bound for a degree-sized approximation follows.",
+      "shortLabel": "Konrad–Zamaraev ’19",
+      "bound": "Ω(ε⁻¹) rounds",
+      "plotLabel": "Ω(ε⁻¹) rounds",
+      "sourceUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol138-mfcs2019/LIPIcs.MFCS.2019.21/LIPIcs.MFCS.2019.21.pdf"
+    },
+    {
+      "output": "An independent vertex set; each vertex learns its membership",
+      "limit": false,
+      "evidenceStatus": "primary_statement_verified",
+      "publicationStatus": "conference",
+      "id": "maximum-is-local-general-upper",
+      "sourceId": "kkss20",
+      "panel": "general",
+      "kind": "upper",
+      "at": "polyloglog",
+      "setup": "General graphs · randomized",
+      "displayBound": "poly(log log n)/ε rounds",
+      "quality": "(1+ε)Δ approximation; unit-weight specialization",
+      "theorem": "Theorem 2; §3 assumptions",
+      "graph": "General unweighted graphs of maximum degree Δ; isolated vertices can be included",
+      "probability": "With high probability",
+      "notes": "The theorem is stated for maximum-weight independent set; assigning every vertex unit weight gives this cardinality result. It works in CONGEST and therefore also LOCAL. Unique IDs and a polynomial upper bound on n are assumed. This is a weaker quality target than a (1+ε)-approximation; its theorem does not require maximality.",
+      "shortLabel": "Kawarabayashi et al. ’20",
+      "bound": "poly(log log n)/ε rounds",
+      "plotLabel": "poly(log log n)/ε rounds",
+      "sourceUrl": "https://arxiv.org/html/1906.11524v2"
+    }
+  ],
+  "relatedResults": [],
+  "sources": {
+    "kz19": {
+      "id": "kz19",
+      "title": "Distributed Minimum Vertex Coloring and Maximum Independent Set in Chordal Graphs",
+      "authors": [
+        "Christian Konrad",
+        "Viktor Zamaraev"
+      ],
+      "year": 2019,
+      "venue": "MFCS 2019",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1805.04544",
+      "sourceUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol138-mfcs2019/LIPIcs.MFCS.2019.21/LIPIcs.MFCS.2019.21.pdf",
+      "verifiedOn": "2026-10-30"
+    },
+    "kkss20": {
+      "id": "kkss20",
+      "title": "Improved Distributed Approximations for Maximum-Weight Independent Set",
+      "authors": [
+        "Ken-ichi Kawarabayashi",
+        "Seri Khoury",
+        "Aaron Schild",
+        "Gregory Schwartzman"
+      ],
+      "year": 2020,
+      "venue": "PODC 2020",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1906.11524",
+      "sourceUrl": "https://arxiv.org/html/1906.11524v2",
+      "verifiedOn": "2026-10-30"
+    }
+  },
+  "sourceVerification": [
+    {
+      "sourceId": "kz19",
+      "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol138-mfcs2019/LIPIcs.MFCS.2019.21/LIPIcs.MFCS.2019.21.pdf",
+      "checkedOn": "2026-10-30",
+      "theorems": [
+        "Theorem 16",
+        "Theorem 17"
+      ]
+    },
+    {
+      "sourceId": "kkss20",
+      "url": "https://arxiv.org/html/1906.11524v2",
+      "checkedOn": "2026-10-30",
+      "theorems": [
+        "Theorem 2",
+        "§3 assumptions"
+      ]
+    }
+  ],
+  "axisNote": "Symbolic round bounds, not numerical distances. The upper panel fixes a near-optimal ratio on chordal graphs, with a lower bound even on paths. The lower panel permits a degree-dependent approximation on general graphs.",
+  "coverageNote": "Initial source review: three scoped records from two papers. This is not an exhaustive frontier.",
+  "lowerBoundStatus": "The path lower bound belongs only to near-optimal approximation. No matching lower bound for the general-graph degree-dependent approximation was verified.",
+  "figureAxes": {
+    "near": {
+      "x": {
+        "label": "Rounds · symbolic growth families",
+        "categories": [
+          {
+            "id": "lower",
+            "label": "1/ε",
+            "short": "1/ε"
+          },
+          {
+            "id": "upper",
+            "label": "ε⁻¹ log(1/ε) log* n",
+            "short": "ε⁻¹ log(1/ε) log* n"
+          }
+        ]
+      },
+      "y": {
+        "label": "Theorem / setup",
+        "categories": [
+          {
+            "id": "maximum-is-local-chordal-upper",
+            "label": "Chordal · deterministic"
+          },
+          {
+            "id": "maximum-is-local-path-lower",
+            "label": "Even paths · randomized"
+          }
+        ]
+      }
+    },
+    "general": {
+      "x": {
+        "label": "Rounds · symbolic bound",
+        "categories": [
+          {
+            "id": "polyloglog",
+            "label": "poly(log log n)/ε",
+            "short": "poly(log log n)/ε"
+          }
+        ]
+      },
+      "y": {
+        "label": "Theorem / setup",
+        "categories": [
+          {
+            "id": "maximum-is-local-general-upper",
+            "label": "General graphs · randomized"
+          }
+        ]
+      }
+    }
+  }
+}

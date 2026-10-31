@@ -520,15 +520,15 @@
   "setups": {
     "complete": {
       "label": "Complete signed · min disagreements",
-      "color": "#3b78b0"
+      "color": "var(--muted)"
     },
     "weighted": {
       "label": "General weighted signed · max agreements",
-      "color": "#8955a8"
+      "color": "var(--muted)"
     },
     "minorfree": {
       "label": "H-minor-free signed · max agreements",
-      "color": "#a97224"
+      "color": "var(--muted)"
     }
   }
 }

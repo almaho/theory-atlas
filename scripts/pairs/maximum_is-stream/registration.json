@@ -1,0 +1,23 @@
+{
+  "id": "maximum_is-stream",
+  "dataFile": "maximum_is-stream.json",
+  "javascript": "maximum-is-stream.js",
+  "css": "maximum-is-stream.css",
+  "routes": [
+    {
+      "key": "maximum_is-stream",
+      "sliceId": "maximum-is-stream-deterministic-space",
+      "label": "Maximum independent set: space for approximation",
+      "problem": "maximum_is",
+      "model": "stream",
+      "visible": true
+    }
+  ],
+  "canonicalAliases": {},
+  "pointFields": {},
+  "axisSummary": {
+    "x": "Approximation exponent t for β=n^t, fixed as n grows",
+    "y": "Leading bit-space exponent s; logarithmic factors suppressed",
+    "note": "Both bounds have leading exponent s=2−t. Green and red are separated by a few screen pixels only for visibility; that offset does not encode a numerical gap. Logarithmic factors and exact finite-n ranges are retained below. Open endpoints mean fixed t<1 (algorithm) and fixed t<1/2 (lower bound), not inclusion of β=n or β=√n."
+  }
+}

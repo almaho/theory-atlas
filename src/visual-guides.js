@@ -4,6 +4,7 @@ const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&
 const talks={
  matching:['Matching: keep the picture fixed as the algorithm changes','Mitrović–Sheu · SPAA 2025 slides, pp. 35–37','https://whsheu.github.io/slides/MS25_slides_long.pdf#page=35'],
  weighted_matching:['Weight and size are different objectives','Mitrović–Sheu · separate parameter costs, slide 12','https://whsheu.github.io/slides/MS25_slides_long.pdf#page=12'],
+ maximum_is:['Largest independent set versus merely maximal','Medina · independent-set background','https://adga-workshop.org/2017/medina.pdf#page=30'],
  mis:['One graph, two meanings of independent set','Medina · ADGA 2017, slides 30–39','https://adga-workshop.org/2017/medina.pdf#page=30'],
  cc:['Count disagreements on the graph','Wirth–Veldt · correlation clustering, slides 4 and 12','https://users.monash.edu/~gfarr/research/slides/Wirth-cc-awirth-2018-12-03.pdf#page=4'],
  edge:['Adjacent edges need different colors','Blikstad · Online Edge Coloring, slides 50 and 57','https://blikstad.gitlab.io/slides/Deterministic_Online_Bipartite_Edge_Coloring.pdf#page=50'],
@@ -33,7 +34,7 @@ function example(problem,model,step){
   selected=step?[0,1,2]:[];vertices=step===2?[1,3]:[];
   caption=step===0?'Ask whether v₁ belongs to the greedy MIS. The fixed priorities are 4, 3, 2, 1.':step===1?'Follow smaller-priority neighbors: v₁ → v₂ → v₃ → v₄. These are dependencies, not a radius bound.':'v₄ is in, v₃ is out, v₂ is in, v₁ is out. Reusing the priorities keeps later answers consistent.';
   points.forEach((p,i)=>svg+=`<text x="${p[0]}" y="120" class="vg-weight">priority ${4-i}</text>`);
- }else if(problem==='mis'){
+ }else if(problem==='mis'||problem==='maximum_is'){
   points=[[240,75],[100,30],[100,125],[380,75]];edges=[[0,1],[0,2],[0,3]];buttons=['Maximal: 1 vertex','Maximum: 3 vertices'];vertices=step?[1,2,3]:[0];
   caption=step?'The three leaves form a maximum independent set. Maximum means largest possible.':'The center alone is maximal: no other vertex can be added. Maximal does not mean maximum.';
  }else if(problem==='cc'&&model==='stochastic'){
@@ -47,7 +48,7 @@ function example(problem,model,step){
  }else{
   colored=!!step;caption=problem==='edge'?(step?'Two edge colors suffice for this path. Edges meeting at a vertex have different colors.':'Color the edges. The number of colors is the palette size, not the runtime.'):(step?'Two vertex colors suffice for this path. Every edge joins different colors.':'Color the vertices. This example explains a proper coloring; it is not a general two-color guarantee.');
  }
- const palette=['#b6a1ef','#e4bb75'];
+ const palette=['var(--ink)','var(--muted)'];
  edges.forEach(([a,b],i)=>{
   let cls=selected.includes(i)?'vg-chosen':'';
   const negative=problem==='cc'&&(model==='stochastic'?i>0&&!(step&&i===1):i===2);

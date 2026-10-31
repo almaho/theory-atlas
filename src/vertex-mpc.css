@@ -1,4 +1,4 @@
-.vmpc-view,.vmpc-map{--vmpc-list:light-dark(#7651a1,#c9b1e8);--vmpc-degree:light-dark(#996000,#efc372);--vmpc-deg:light-dark(#397b7b,#8bd7d3)}
+.vmpc-view,.vmpc-map{--vmpc-list:light-dark(#595959,#c8c8c8);--vmpc-degree:light-dark(#595959,#c8c8c8);--vmpc-deg:light-dark(#595959,#c8c8c8)}
 .vmpc-map{display:block;width:100%;height:auto;background:var(--surface);border-radius:12px}
 .vmpc-map .vmpc-heading{font:650 21px system-ui,sans-serif;fill:var(--ink)}
 .vmpc-map .vmpc-muted{font:14px system-ui,sans-serif;fill:var(--muted)}

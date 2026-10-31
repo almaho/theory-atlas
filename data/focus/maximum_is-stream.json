@@ -1,0 +1,118 @@
+{
+  "id": "maximum_is-stream",
+  "problem": "maximum_is",
+  "model": "stream",
+  "reviewedOn": "2026-10-30",
+  "title": "Maximum independent set: space for approximation",
+  "subtitle": "One pass · deterministic · insertions and deletions · explicit independent set",
+  "sources": {
+    "diddapur-2026-deterministic-streaming": {
+      "id": "diddapur-2026-deterministic-streaming",
+      "title": "Deterministic Streaming Lower Bounds for Approximate Maximum Clique and Maximum Independent Set",
+      "authors": [
+        "Adithya Diddapur"
+      ],
+      "year": 2026,
+      "venue": "arXiv v2",
+      "publicationStatus": "preprint",
+      "version": "2609.18635v2",
+      "url": "https://arxiv.org/abs/2609.18635",
+      "sourceUrl": "https://arxiv.org/html/2609.18635v2",
+      "verifiedOn": "2026-10-30"
+    }
+  },
+  "verifiedRecords": [
+    {
+      "sourceId": "diddapur-2026-deterministic-streaming",
+      "sliceId": "maximum-is-stream-deterministic-space",
+      "panel": "space",
+      "quality": "|I| ≥ α(G)/β",
+      "output": "Explicit independent vertex set I",
+      "graph": "General simple unweighted graphs; vertex set known in advance",
+      "probability": "Deterministic",
+      "oracle": "One-pass arbitrary-order insertion–deletion edge stream",
+      "computation": "Unrestricted computation",
+      "sourceUrl": "https://arxiv.org/html/2609.18635v2",
+      "publicationStatus": "preprint",
+      "tMin": 0,
+      "endOpen": true,
+      "id": "maximum-is-stream-folklore-partition",
+      "kind": "algorithm",
+      "shortName": "Folklore partition algorithm",
+      "displayBound": "O(n²/β) bits",
+      "theorem": "Theorem A.1 (folklore algorithm presented in Appendix A)",
+      "range": "1 ≤ β ≤ n/log₂ n",
+      "tMax": 1,
+      "assumptions": [
+        "Output after the stream",
+        "Simple graph"
+      ],
+      "notes": "Partition the vertices into balanced groups, store each induced adjacency matrix, and return the largest exact independent set among the groups. Computation may be exponential. This is a folklore algorithm, not a new algorithm claim."
+    },
+    {
+      "sourceId": "diddapur-2026-deterministic-streaming",
+      "sliceId": "maximum-is-stream-deterministic-space",
+      "panel": "space",
+      "quality": "|I| ≥ α(G)/β",
+      "output": "Explicit independent vertex set I",
+      "graph": "General simple unweighted graphs; vertex set known in advance",
+      "probability": "Deterministic",
+      "oracle": "One-pass arbitrary-order insertion–deletion edge stream",
+      "computation": "Unrestricted computation",
+      "sourceUrl": "https://arxiv.org/html/2609.18635v2",
+      "publicationStatus": "preprint",
+      "tMin": 0,
+      "endOpen": true,
+      "id": "maximum-is-stream-diddapur-lower",
+      "kind": "lower",
+      "shortName": "Diddapur 2026 · v2",
+      "displayBound": "Ω(n²/(β log₂ n)) bits",
+      "theorem": "Theorem 1.2 and §4.1",
+      "range": "1 ≤ β ≤ √n/(36 log₂ n)",
+      "tMax": 0.5,
+      "assumptions": [
+        "Sufficiently large n",
+        "No insertion-only lower bound asserted"
+      ],
+      "notes": "The complement construction uses deletions. Version 2 narrows the earlier version's approximation range following corrections. The preprint statement and model were checked; its proof was not independently certified."
+    }
+  ],
+  "relatedResults": [],
+  "figureAxes": {
+    "space": {
+      "x": {
+        "label": "Approximation exponent t for β=n^t, fixed as n grows",
+        "min": 0,
+        "max": 1,
+        "ticks": [
+          0,
+          0.25,
+          0.5,
+          0.75,
+          1
+        ]
+      },
+      "y": {
+        "label": "Leading bit-space exponent s; logarithmic factors suppressed",
+        "min": 1,
+        "max": 2,
+        "ticks": [
+          1,
+          1.5,
+          2
+        ]
+      }
+    }
+  },
+  "sourceVerification": [
+    {
+      "sourceId": "diddapur-2026-deterministic-streaming",
+      "url": "https://arxiv.org/html/2609.18635v2",
+      "verifiedOn": "2026-10-30",
+      "theorem": "Theorem 1.2; §1, §4.1; Theorem A.1"
+    }
+  ],
+  "axisNote": "Both bounds have leading exponent s=2−t. Green and red are separated by a few screen pixels only for visibility; that offset does not encode a numerical gap. Logarithmic factors and exact finite-n ranges are retained below. Open endpoints mean fixed t<1 (algorithm) and fixed t<1/2 (lower bound), not inclusion of β=n or β=√n.",
+  "coverageNote": "One preprint contains a new deterministic lower bound and a folklore upper bound. Maximum cardinality is distinct from inclusion-maximality. This is not a randomized streaming frontier."
+}
+

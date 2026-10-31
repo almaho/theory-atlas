@@ -11,7 +11,7 @@ for(let mask=0;mask<32;mask++)if(!(mask&(mask<<1))){
 assert.equal(Math.max(...matchings.map(m=>m.size)),3);
 assert.equal(Math.max(...matchings.map(m=>m.weight)),18);
 assert.equal(matchings.find(m=>m.size===3).weight,3);
-for(const problem of ['matching','weighted_matching','mis','cc','edge','vertex'])for(const model of ['dynamic','stream','online','stochastic','lca','local','mpc','query_list','query_matrix']){
+for(const problem of ['matching','weighted_matching','mis','maximum_is','cc','edge','vertex'])for(const model of ['dynamic','stream','online','stochastic','lca','local','mpc','query_list','query_matrix']){
  const initial=example(problem,model,0);
  for(let step=0;step<initial.buttons.length;step++){
   const r=example(problem,model,step);assert(!/NaN|undefined/.test(r.svg));assert(r.caption&&r.svg.includes('aria-label='));

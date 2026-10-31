@@ -195,17 +195,17 @@
     {
       "id": "positive-lists",
       "label": "Positive lists",
-      "color": "var(--blue)"
+      "color": "var(--muted)"
     },
     {
       "id": "full-signed-lists",
       "label": "Full signed lists · related",
-      "color": "#8b5daa"
+      "color": "var(--muted)"
     },
     {
       "id": "negative-lists",
       "label": "Negative lists · related",
-      "color": "#b06b2d"
+      "color": "var(--muted)"
     }
   ],
   "figureAxes": {

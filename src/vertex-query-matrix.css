@@ -1,4 +1,4 @@
-.vqm-view,.vqm-map{--vqm-det:light-dark(#754ca1,#c7b0eb)}
+.vqm-view,.vqm-map{--vqm-det:light-dark(#595959,#c8c8c8)}
 .vqm-map{display:block;width:100%;height:auto;background:var(--surface);color:var(--ink);font-family:ui-sans-serif,system-ui,sans-serif}
 .vqm-map .vqm-label,.vqm-map .vqm-heading,.vqm-map .vqm-muted,.vqm-map .vqm-legend,.vqm-map .vqm-rand-label,.vqm-map .vqm-det-label,.vqm-map .vqm-axis-title,.vqm-map .vqm-tick,.vqm-map .vqm-bound,.vqm-map .vqm-low-label,.vqm-map .vqm-side-label,.vqm-map .vqm-callout,.vqm-map .vqm-note{font-family:ui-sans-serif,system-ui,sans-serif;fill:var(--ink)}
 .vqm-map .vqm-heading{font-size:21px;font-weight:700}.vqm-map .vqm-muted{font-size:13px;fill:var(--muted)}

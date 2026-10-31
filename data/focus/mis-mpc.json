@@ -143,42 +143,42 @@
       "label": "Near-linear",
       "short": "≈ n",
       "detail": "General graphs; Õ(n) local memory",
-      "color": "light-dark(#466ab3,#94bdf5)"
+      "color": "var(--muted)"
     },
     {
       "id": "general",
       "label": "Low-space",
       "short": "General",
       "detail": "General graphs; n^δ local memory",
-      "color": "light-dark(#8b5daa,#c5a2ed)"
+      "color": "var(--muted)"
     },
     {
       "id": "degree",
       "label": "Restricted Δ",
       "short": "Small Δ",
       "detail": "Δ=2^(log^o(1) n); n^δ local memory",
-      "color": "light-dark(#975514,#e5b56e)"
+      "color": "var(--muted)"
     },
     {
       "id": "arboricity",
       "label": "Arboricity α",
       "short": "α",
       "detail": "Variable arboricity; n^δ local memory",
-      "color": "light-dark(#32717a,#7ad3dd)"
+      "color": "var(--muted)"
     },
     {
       "id": "bounded",
       "label": "Bounded α",
       "short": "α=O(1)",
       "detail": "Fixed arboricity; n^δ local memory",
-      "color": "light-dark(#8e546f,#e2a7c0)"
+      "color": "var(--muted)"
     },
     {
       "id": "trees",
       "label": "Trees",
       "short": "Trees",
       "detail": "Trees; strongly sublinear local memory",
-      "color": "light-dark(#697224,#c7cf83)"
+      "color": "var(--muted)"
     }
   ],
   "lanes": [
@@ -638,42 +638,42 @@
             "label": "Near-linear",
             "short": "≈ n",
             "detail": "General graphs; Õ(n) local memory",
-            "color": "light-dark(#466ab3,#94bdf5)"
+            "color": "var(--muted)"
           },
           {
             "id": "general",
             "label": "Low-space",
             "short": "General",
             "detail": "General graphs; n^δ local memory",
-            "color": "light-dark(#8b5daa,#c5a2ed)"
+            "color": "var(--muted)"
           },
           {
             "id": "degree",
             "label": "Restricted Δ",
             "short": "Small Δ",
             "detail": "Δ=2^(log^o(1) n); n^δ local memory",
-            "color": "light-dark(#975514,#e5b56e)"
+            "color": "var(--muted)"
           },
           {
             "id": "arboricity",
             "label": "Arboricity α",
             "short": "α",
             "detail": "Variable arboricity; n^δ local memory",
-            "color": "light-dark(#32717a,#7ad3dd)"
+            "color": "var(--muted)"
           },
           {
             "id": "bounded",
             "label": "Bounded α",
             "short": "α=O(1)",
             "detail": "Fixed arboricity; n^δ local memory",
-            "color": "light-dark(#8e546f,#e2a7c0)"
+            "color": "var(--muted)"
           },
           {
             "id": "trees",
             "label": "Trees",
             "short": "Trees",
             "detail": "Trees; strongly sublinear local memory",
-            "color": "light-dark(#697224,#c7cf83)"
+            "color": "var(--muted)"
           }
         ]
       },
@@ -736,42 +736,42 @@
           "label": "Near-linear",
           "short": "≈ n",
           "detail": "General graphs; Õ(n) local memory",
-          "color": "light-dark(#466ab3,#94bdf5)"
+          "color": "var(--muted)"
         },
         {
           "id": "general",
           "label": "Low-space",
           "short": "General",
           "detail": "General graphs; n^δ local memory",
-          "color": "light-dark(#8b5daa,#c5a2ed)"
+          "color": "var(--muted)"
         },
         {
           "id": "degree",
           "label": "Restricted Δ",
           "short": "Small Δ",
           "detail": "Δ=2^(log^o(1) n); n^δ local memory",
-          "color": "light-dark(#975514,#e5b56e)"
+          "color": "var(--muted)"
         },
         {
           "id": "arboricity",
           "label": "Arboricity α",
           "short": "α",
           "detail": "Variable arboricity; n^δ local memory",
-          "color": "light-dark(#32717a,#7ad3dd)"
+          "color": "var(--muted)"
         },
         {
           "id": "bounded",
           "label": "Bounded α",
           "short": "α=O(1)",
           "detail": "Fixed arboricity; n^δ local memory",
-          "color": "light-dark(#8e546f,#e2a7c0)"
+          "color": "var(--muted)"
         },
         {
           "id": "trees",
           "label": "Trees",
           "short": "Trees",
           "detail": "Trees; strongly sublinear local memory",
-          "color": "light-dark(#697224,#c7cf83)"
+          "color": "var(--muted)"
         }
       ]
     },

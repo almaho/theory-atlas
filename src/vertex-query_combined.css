@@ -10,7 +10,7 @@
 .vqc-axis{stroke:var(--muted);stroke-width:1;fill:none;opacity:.65}.vqc-grid{stroke:var(--line);stroke-width:1;fill:none}
 .vqc-curve{stroke:var(--green);stroke-width:2.2;fill:none}.vqc-card{fill:var(--surface);stroke:var(--line);stroke-width:1}
 .vqc-upper{fill:var(--green)}.vqc-lower{fill:var(--red)}
-.vqc-halo{fill:var(--blue)}.vqc-setup-communication .vqc-halo{fill:#a794ef}.vqc-setup-lists .vqc-halo{fill:#d3b473}
+.vqc-halo{fill:var(--blue)}.vqc-setup-communication .vqc-halo{fill:var(--muted)}.vqc-setup-lists .vqc-halo{fill:var(--muted)}
 .vqc-point[role=button]{cursor:pointer;outline:none}.vqc-point[role=button]:focus .vqc-halo,.vqc-point[role=button]:hover .vqc-halo{opacity:.7}
 .vqc-reading,.vqc-coverage{font-size:13px;line-height:1.55;color:var(--muted);margin:12px 0}
 .vqc-theorem{padding:18px;border:1px solid var(--line);border-radius:12px;background:var(--surface);line-height:1.55}
@@ -39,7 +39,7 @@
 .vqc-map .vqc-comm-cost,.vqc-summary .vqc-comm-cost{font-size:11px;fill:var(--green)}
 .vqc-map .vqc-comm-round,.vqc-summary .vqc-comm-round{font-size:10px;fill:var(--green)}
 .vqc-map .vqc-query-key,.vqc-summary .vqc-query-key{font-size:11px;fill:var(--blue)}
-.vqc-map .vqc-comm-key,.vqc-summary .vqc-comm-key{font-size:11px;fill:#a794ef}
+.vqc-map .vqc-comm-key,.vqc-summary .vqc-comm-key{font-size:11px;fill:var(--muted)}
 .vqc-summary[data-detail-level=compact] .vqc-heading{font-size:13px}
 .vqc-summary[data-detail-level=compact] .vqc-subhead{font-size:8px}
 .vqc-summary[data-detail-level=compact] .vqc-tick{font-size:8px}

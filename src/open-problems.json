@@ -101,6 +101,23 @@
           "theoremUrl": "https://arxiv.org/html/2610.26182v2#S1"
         }
       ]
+    },
+    "maximum_is": {
+      "title": "Can deterministic streaming close the logarithmic space gap?",
+      "setup": "Maximum-cardinality independent set · one-pass insertion–deletion streams · deterministic · explicit output",
+      "question": "What is the optimal bit-space dependence on n and approximation factor β in the shared range 1≤β≤√n/(36 log₂ n)?",
+      "context": "The reviewed preprint gives Ω(n²/(β log₂ n)) bits, while the folklore algorithm uses O(n²/β) bits. This is a logarithmic-factor gap; computation is unrestricted.",
+      "status": "Open direction inferred from the reviewed bounds gap · preprint theorem statement checked",
+      "models": [
+        "stream"
+      ],
+      "sources": [
+        {
+          "title": "Diddapur (2026), Theorem 1.2 and Appendix A",
+          "url": "https://arxiv.org/abs/2609.18635",
+          "theoremUrl": "https://arxiv.org/html/2609.18635v2"
+        }
+      ]
     }
   },
   "settings": {

@@ -8,14 +8,14 @@ const merge=r=>({...data.sources[r.sourceId],...r});
 const filter=(r,o)=>o.publication!=='published'||r.publicationStatus!=='preprint';
 const records=(o={})=>data.verifiedRecords.map(merge).filter(r=>filter(r,o));
 const related=(o={})=>data.relatedResults.map(merge).filter(r=>filter(r,o));
-const colors={general:'var(--blue)',arboricity:'var(--purple, #8064a8)',forest:'var(--amber, #a66b2e)'};
+const colors={general:'var(--blue)',arboricity:'var(--purple, var(--muted))',forest:'var(--amber, var(--muted))'};
 const categories=['constant','loglogstar','loglogcube','polylog'];
 function chart(w,h,o={},focus=false){
  const levels=['overview','compact','detail'],available=w<250||h<160?0:w<680||h<500?1:2,requested=levels.indexOf(o.level),level=focus?'detail':levels[Math.min(available,requested<0?available:requested)];
  const tiny=level==='overview',detail=level==='detail',rows=records(o),extras=related(o);
  const left=tiny?12:detail?w*.40:w*.30,right=w-(tiny?12:detail?27:22);
  const top=tiny?14:detail?106:62,bottom=h-(tiny?15:detail?118:62),x=k=>left+categories.indexOf(k)*(right-left)/3;
- let s='<svg class="'+(focus?'ccmp-map':'ccmp-summary')+'" viewBox="0 0 '+w+' '+h+'" preserveAspectRatio="xMidYMid meet" data-detail-level="'+level+'" role="img" aria-label="Correlation clustering MPC: symbolic round growth at fixed epsilon, delta and positive arboricity; general, arboric and forest algorithms. No general lower bound verified."><title>Correlation clustering · MPC rounds</title><desc>Green circles are algorithm upper bounds; setup colors identify general graphs, bounded positive arboricity and positive forests. The horizontal symbolic axis fixes epsilon, delta, and lambda at least two. Detailed rows retain exact parameter dependence. Related results have separate objective or memory assumptions. No general lower bound verified in the reviewed sources.</desc>';
+ let s='<svg class="'+(focus?'ccmp-map':'ccmp-summary')+'" viewBox="0 0 '+w+' '+h+'" preserveAspectRatio="xMidYMid meet" data-detail-level="'+level+'" role="img" aria-label="Correlation clustering MPC: symbolic round growth at fixed epsilon, delta and positive arboricity; general, arboric and forest algorithms. No general lower bound verified."><title>Correlation clustering · MPC rounds</title><desc>Green circles are algorithm upper bounds; setup labels identify general graphs, bounded positive arboricity and positive forests. The horizontal symbolic axis fixes epsilon, delta, and lambda at least two. Detailed rows retain exact parameter dependence. Related results have separate objective or memory assumptions. No general lower bound verified in the reviewed sources.</desc>';
  if(!rows.length)return s+(tiny?'':txt(w/2,h/2,'No results match this filter.','ccmp-muted','middle'))+'</svg>';
  if(detail){
   s+=txt(22,28,'MPC · total disagreements','ccmp-title')+txt(22,51,'Green: algorithms   ·   No general lower bound verified in the reviewed sources.','ccmp-muted');

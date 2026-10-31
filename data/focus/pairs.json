@@ -2062,7 +2062,7 @@
         {
           "key": "mis-online",
           "sliceId": "mis-online-landscape",
-          "label": "Online independent sets: maximal versus maximum",
+          "label": "Online maximal independent set",
           "problem": "mis",
           "model": "online",
           "visible": true
@@ -2073,7 +2073,7 @@
       "axisSummary": {
         "x": "Panel-specific quality or cost axis",
         "y": "Named theorem and setup",
-        "note": "Maximality uses a zero-recourse axis. Maximum-size competitiveness uses symbolic ζ-dependent ratios. The geometric-independent-set preprint concerns graphs via neighborhood independence; no geometric oracle is assumed."
+        "note": "Zero-recourse feasibility for maximal independent set. Maximum-cardinality competition is in the separate Maximum independent set row."
       }
     },
     {
@@ -2108,7 +2108,7 @@
         {
           "key": "mis-stochastic",
           "sliceId": "mis-stochastic-landscape",
-          "label": "Random-input independent sets: algorithm and locality",
+          "label": "Random-input maximal independent set",
           "problem": "mis",
           "model": "stochastic",
           "visible": true
@@ -2119,7 +2119,7 @@
       "axisSummary": {
         "x": "Panel-specific quality or cost axis",
         "y": "Named theorem and setup",
-        "note": "The upper panel measures expected iterations of PARALLEL-GREEDY. The lower panel measures solution density within fixed-radius local algorithms. Neither red statement is a universal MIS computational lower bound."
+        "note": "Expected iterations of PARALLEL-GREEDY. Red bounds constrain this algorithm only; maximum-size density results are in the separate Maximum independent set row."
       }
     },
     {
@@ -2301,6 +2301,98 @@
       },
       "pointFields": {
         "x": "at"
+      }
+    },
+    {
+      "id": "maximum_is-online",
+      "dataFile": "maximum_is-online.json",
+      "javascript": "scoped-landscapes.js",
+      "css": "scoped-landscapes.css",
+      "routes": [
+        {
+          "key": "maximum_is-online",
+          "sliceId": "maximum_is-online-landscape",
+          "label": "Online maximum independent set",
+          "problem": "maximum_is",
+          "model": "online",
+          "visible": true
+        }
+      ],
+      "canonicalAliases": {},
+      "pointFields": {},
+      "axisSummary": {
+        "x": "Panel-specific quality or cost axis",
+        "y": "Named theorem and setup",
+        "note": "Competitive ratio OPT/E[ALG] uses symbolic ζ-dependent categories. ζ is the maximum independent-set size inside one neighborhood; no geometric representation is assumed."
+      }
+    },
+    {
+      "id": "maximum_is-stochastic",
+      "dataFile": "maximum_is-stochastic.json",
+      "javascript": "scoped-landscapes.js",
+      "css": "scoped-landscapes.css",
+      "routes": [
+        {
+          "key": "maximum_is-stochastic",
+          "sliceId": "maximum_is-stochastic-landscape",
+          "label": "Maximum independent sets in sparse random graphs",
+          "problem": "maximum_is",
+          "model": "stochastic",
+          "visible": true
+        }
+      ],
+      "canonicalAliases": {},
+      "pointFields": {},
+      "axisSummary": {
+        "x": "Panel-specific quality or cost axis",
+        "y": "Named theorem and setup",
+        "note": "Density within factor-of-i.i.d./fixed-radius local algorithms on G(n,λ/n). Take n→∞ before λ→∞; radius may depend on λ and accuracy but not n. This is not a universal computational lower bound."
+      }
+    },
+    {
+      "id": "maximum_is-stream",
+      "dataFile": "maximum_is-stream.json",
+      "javascript": "maximum-is-stream.js",
+      "css": "maximum-is-stream.css",
+      "routes": [
+        {
+          "key": "maximum_is-stream",
+          "sliceId": "maximum-is-stream-deterministic-space",
+          "label": "Maximum independent set: space for approximation",
+          "problem": "maximum_is",
+          "model": "stream",
+          "visible": true
+        }
+      ],
+      "canonicalAliases": {},
+      "pointFields": {},
+      "axisSummary": {
+        "x": "Approximation exponent t for β=n^t, fixed as n grows",
+        "y": "Leading bit-space exponent s; logarithmic factors suppressed",
+        "note": "Both bounds have leading exponent s=2−t. Green and red are separated by a few screen pixels only for visibility; that offset does not encode a numerical gap. Logarithmic factors and exact finite-n ranges are retained below. Open endpoints mean fixed t<1 (algorithm) and fixed t<1/2 (lower bound), not inclusion of β=n or β=√n."
+      }
+    },
+    {
+      "id": "maximum_is-local",
+      "dataFile": "maximum_is-local.json",
+      "javascript": "scoped-landscapes.js",
+      "css": "scoped-landscapes.css",
+      "routes": [
+        {
+          "key": "maximum_is-local",
+          "sliceId": "maximum_is-local-landscape",
+          "label": "Maximum independent set in LOCAL",
+          "problem": "maximum_is",
+          "model": "local",
+          "visible": true
+        }
+      ],
+      "canonicalAliases": {},
+      "pointFields": {},
+      "axisSummary": {
+        "x": "Round complexity · symbolic growth",
+        "y": "Approximation and graph class",
+        "note": "Symbolic round bounds, not numerical distances. The upper panel fixes a near-optimal ratio on chordal graphs, with a lower bound even on paths. The lower panel permits a degree-dependent approximation on general graphs."
       }
     }
   ]

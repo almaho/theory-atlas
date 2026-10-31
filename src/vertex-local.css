@@ -1,5 +1,5 @@
 
-.vloc-view{--vloc-det:light-dark(#6952aa,#a794ef);--vloc-rand:var(--blue);color:var(--ink)}
+.vloc-view{--vloc-det:light-dark(#595959,#c8c8c8);--vloc-rand:var(--blue);color:var(--ink)}
 .vloc-toolbar,.vloc-tabs,.vloc-key{display:flex;flex-wrap:wrap;align-items:center;gap:9px}
 .vloc-toolbar{justify-content:space-between;margin:18px 0 12px}
 .vloc-tabs button,.vloc-publication,.vloc-record{color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:9px;padding:9px 12px;font:inherit}
@@ -9,7 +9,7 @@
 .vloc-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
 .vloc-map{display:block;width:100%;min-width:800px;height:auto}
 .vloc-summary{display:block;width:100%;height:100%}
-.vloc-map,.vloc-summary{--vloc-det:light-dark(#6952aa,#a794ef);--vloc-rand:var(--blue);overflow:visible}
+.vloc-map,.vloc-summary{--vloc-det:light-dark(#595959,#c8c8c8);--vloc-rand:var(--blue);overflow:visible}
 .vloc-map text,.vloc-summary text{font:12px ui-sans-serif,system-ui,sans-serif;fill:var(--ink)}
 .vloc-map .vloc-heading,.vloc-summary .vloc-heading{font-size:20px;font-weight:650}
 .vloc-map .vloc-legend,.vloc-summary .vloc-legend{font-size:12px;fill:var(--muted)}
@@ -21,8 +21,8 @@
 .vloc-map .vloc-note,.vloc-summary .vloc-note{font-size:11px;fill:var(--muted)}
 .vloc-map .vloc-mini,.vloc-summary .vloc-mini{font-size:10px;fill:var(--muted)}
 .vloc-map .vloc-mini-bound,.vloc-summary .vloc-mini-bound{font-size:12px;font-weight:650}
-.vloc-map .vloc-det-label,.vloc-summary .vloc-det-label,.vloc-view .vloc-det-label{fill:var(--vloc-det,#a794ef);color:var(--vloc-det,#a794ef);font-size:11px}
-.vloc-map .vloc-rand-label,.vloc-summary .vloc-rand-label,.vloc-view .vloc-rand-label{fill:var(--vloc-rand,#67b5eb);color:var(--vloc-rand,#67b5eb);font-size:11px}
+.vloc-map .vloc-det-label,.vloc-summary .vloc-det-label,.vloc-view .vloc-det-label{fill:var(--vloc-det,var(--muted));color:var(--vloc-det,var(--muted));font-size:11px}
+.vloc-map .vloc-rand-label,.vloc-summary .vloc-rand-label,.vloc-view .vloc-rand-label{fill:var(--vloc-rand,var(--muted));color:var(--vloc-rand,var(--muted));font-size:11px}
 .vloc-map .vloc-upper-label,.vloc-summary .vloc-upper-label{fill:var(--green);font-size:12px}
 .vloc-map .vloc-lower-label,.vloc-summary .vloc-lower-label{fill:var(--red);font-size:12px}
 .vloc-axis{stroke:var(--muted);stroke-width:1;fill:none;opacity:.65}
@@ -31,8 +31,8 @@
 .vloc-card{fill:var(--surface);stroke:var(--line);stroke-width:1}
 .vloc-upper{fill:var(--green)}
 .vloc-lower{fill:var(--red)}
-.vloc-det .vloc-halo{fill:var(--vloc-det,#a794ef)}
-.vloc-rand .vloc-halo{fill:var(--vloc-rand,#67b5eb)}
+.vloc-det .vloc-halo{fill:var(--vloc-det,var(--muted))}
+.vloc-rand .vloc-halo{fill:var(--vloc-rand,var(--muted))}
 .vloc-point[role=button]{cursor:pointer;outline:none}
 .vloc-point[role=button]:focus .vloc-halo,.vloc-point[role=button]:hover .vloc-halo{opacity:.7}
 .vloc-summary[data-detail-level=compact] .vloc-heading{font-size:13px}

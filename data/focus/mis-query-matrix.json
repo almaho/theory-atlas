@@ -348,7 +348,7 @@
     {
       "id": "estimate",
       "label": "Estimate a generated greedy MIS size",
-      "color": "var(--blue)"
+      "color": "var(--muted)"
     },
     {
       "id": "explicit",

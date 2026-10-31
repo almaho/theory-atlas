@@ -7,7 +7,7 @@ const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&
 const math=s=>esc(s).replace(/\^\{([^{}]*)\}/g,'<tspan baseline-shift="super" font-size=".75em">$1</tspan>');
 const tx=(x,y,s,cls='',anchor='start')=>'<text x="'+x+'" y="'+y+'" class="wmq-'+cls+'" text-anchor="'+anchor+'">'+math(s)+'</text>';
 const ln=(x,y,X,Y,cls='grid')=>'<line x1="'+x+'" y1="'+y+'" x2="'+X+'" y2="'+Y+'" class="wmq-'+cls+'"/>';
-const colors=['#9bb8e8','#c4a6dd','#e1bb79','#8fc4bd'];
+const colors=['var(--muted)','var(--muted)','var(--muted)','var(--muted)'];
 const instances=new Set();
 function wrap(s,max=56){const a=String(s).split(' '),out=[];let line='';for(const w of a){if(line.length+w.length+1>max&&line){out.push(line);line=w;}else line+=(line?' ':'')+w;}if(line)out.push(line);return out;}
 function panelX(p,at,left,right){if(p.categories){const i=p.categories.findIndex(c=>c.id===at);return left+(right-left)*(i+.5)/p.categories.length;}return left+(right-left)*(at-p.min)/(p.max-p.min);}
@@ -20,7 +20,7 @@ for(const [ID,data] of Object.entries(payload.focus).filter(([,d])=>d.renderer==
  function full(o={}){
   const rows=records(o),heights=data.panels.map(p=>120+Math.max(1,panelRows(p,o).length)*46),H=54+heights.reduce((a,b)=>a+b,0);
   let s='<svg class="wmq-map" viewBox="0 0 1100 '+H+'" data-detail-level="detail" role="img" aria-label="'+esc(data.title+'; algorithms green and scoped lower bounds red')+'">';
-  s+=tx(24,25,'● Algorithm    ◇ Lower bound (atlas proof)    Panel colors distinguish output contracts','legend');
+  s+=tx(24,25,'● Algorithm    ◇ Lower bound (atlas proof)    Panels distinguish output contracts','legend');
   let top=44;
   data.panels.forEach((p,i)=>{
    const rr=panelRows(p,o),h=heights[i],left=280,right=690,bottom=top+h-46;
@@ -70,7 +70,7 @@ for(const [ID,data] of Object.entries(payload.focus).filter(([,d])=>d.renderer==
   for(const [id,renderer]of Object.entries(window.AtlasPairRenderers||{}))if(id!==ID)renderer.release?.(root);
   const controller=new AbortController();let publication=options.publication||'all',selected=data.verifiedRecords[0]?.id;
   root.classList.add('focus-view','wmq-view');root.classList.toggle('f-embedded',!!options.embedded);
-  root.innerHTML='<p class="f-kicker">'+esc(data.problemLabel+' × '+data.modelLabel)+'</p><header class="f-hero"><div><h1>'+esc(data.title)+'</h1><p>'+esc(data.subtitle)+'</p></div></header><div class="wmq-toolbar"><span><b class="wmq-green">● Algorithms</b> · <b class="wmq-red">◇ Lower bounds</b> · colors on panel edges distinguish setups</span><label>Sources <select class="wmq-publication" aria-label="Sources for '+esc(data.title)+'"><option value="all">All reviewed sources</option><option value="published">Published papers + atlas proofs</option></select></label></div><div class="wmq-scroll" tabindex="0" aria-label="Figure; scroll horizontally on narrow screens"><div class="wmq-plot"></div></div><p class="wmq-axis-note">'+esc(data.axisNote)+'</p><section class="wmq-inspector" aria-live="polite" aria-label="Selected theorem"></section><div class="wmq-related"></div><p class="wmq-coverage">'+esc(data.coverageNote)+'</p>';
+  root.innerHTML='<p class="f-kicker">'+esc(data.problemLabel+' × '+data.modelLabel)+'</p><header class="f-hero"><div><h1>'+esc(data.title)+'</h1><p>'+esc(data.subtitle)+'</p></div></header><div class="wmq-toolbar"><span><b class="wmq-green">● Algorithms</b> · <b class="wmq-red">◇ Lower bounds</b> · labels and panels distinguish setups</span><label>Sources <select class="wmq-publication" aria-label="Sources for '+esc(data.title)+'"><option value="all">All reviewed sources</option><option value="published">Published papers + atlas proofs</option></select></label></div><div class="wmq-scroll" tabindex="0" aria-label="Figure; scroll horizontally on narrow screens"><div class="wmq-plot"></div></div><p class="wmq-axis-note">'+esc(data.axisNote)+'</p><section class="wmq-inspector" aria-live="polite" aria-label="Selected theorem"></section><div class="wmq-related"></div><p class="wmq-coverage">'+esc(data.coverageNote)+'</p>';
   function inspect(){
    const r=allRecords({publication}).find(r=>r.id===selected),box=root.querySelector('.wmq-inspector');
    if(!r){box.innerHTML='<p>No result matches the source filter.</p>';return;}

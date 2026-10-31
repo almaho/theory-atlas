@@ -688,17 +688,17 @@
     {
       "id": "general",
       "label": "General positive graph",
-      "color": "var(--blue)"
+      "color": "var(--muted)"
     },
     {
       "id": "arboricity",
       "label": "λ-arboric positive graph · λ≥2",
-      "color": "var(--purple, #8064a8)"
+      "color": "var(--muted)"
     },
     {
       "id": "forest",
       "label": "Positive forests / trees",
-      "color": "var(--amber, #a66b2e)"
+      "color": "var(--muted)"
     }
   ],
   "figureAxes": {

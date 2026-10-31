@@ -219,7 +219,7 @@
       '<span>Shown r=1–128; the theorem holds for every integer r≥1.</span></div>'+
       '<div class="cc-local-notes"><p><b>Two objectives.</b> The top panel bounds cost/OPT for disagreements. The bottom panel bounds ALG/OPT for agreements. Their factors cannot be ranked against each other.</p>'+
       '<p><b>Two kinds of axis.</b> The BCMT22 curve uses numeric log axes and retains +δₙ. Factor 3 and 1442 are separate cards. The bottom panel uses symbolic round categories for fixed ε, with exact expressions in inspection.</p>'+
-      '<p><b>Setup colors.</b> Colored row edges identify graph and objective contracts. Every algorithm marker stays green. Minor-free algorithms permit expensive local computation; absent pairs in a signed network have no cost.</p></div></section>'+
+      '<p><b>Setup labels.</b> Row labels identify graph and objective contracts. Every algorithm marker stays green. Minor-free algorithms permit expensive local computation; absent pairs in a signed network have no cost.</p></div></section>'+
       '<section class="cc-local-theorem" aria-live="polite" aria-label="Selected theorem"></section>'+
       '<details class="cc-local-audit"><summary>Lower-bound scope and source coverage</summary><p>'+esc(data.lowerBoundStatus)+'</p>'+
       '<p>The Ω(log n) bound for full parallel greedy Pivot is procedure-specific. Neither approximation 3 nor the absence of a red marker is a general hardness claim.</p></details>'+

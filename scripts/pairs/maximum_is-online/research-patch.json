@@ -1,0 +1,71 @@
+{
+  "upsertPapers": [
+    {
+      "id": "ds26",
+      "title": "Online Algorithms for Geometric Independent Set",
+      "authors": [
+        "Minati De",
+        "Satyam Singh"
+      ],
+      "year": 2026,
+      "url": "https://arxiv.org/html/2604.14677v1",
+      "venue": "arXiv 2026",
+      "publicationStatus": "preprint",
+      "verifiedOn": "2026-10-27"
+    }
+  ],
+  "upsertSlices": [
+    {
+      "id": "maximum_is-online-landscape",
+      "problem": "maximum_is",
+      "model": "online",
+      "label": "Online maximum independent set",
+      "task": "Irrevocable vertex decisions; competitive cardinality under bounded neighborhood independence.",
+      "assumptions": [
+        "Competitive ratio OPT/E[ALG] uses symbolic ζ-dependent categories. ζ is the maximum independent-set size inside one neighborhood; no geometric representation is assumed."
+      ],
+      "mode": "1d",
+      "axis": {
+        "label": "See scoped figure panels; incompatible objectives have separate axes",
+        "categories": [
+          {
+            "id": "maximum",
+            "label": "Maximum-size competition · bounded neighborhood independence"
+          }
+        ]
+      },
+      "results": [
+        {
+          "id": "mis-online-zeta-upper",
+          "paperId": "ds26",
+          "kind": "upper",
+          "bound": "α ≤ ζ",
+          "guarantee": "Maximum-cardinality competitive ratio OPT/E[ALG]",
+          "sourceLocation": "Theorem 1; Lemma 5",
+          "plot": null,
+          "notes": "The same greedy output is maximal; this panel measures its size against maximum optimum."
+        },
+        {
+          "id": "mis-online-zeta-det-lower",
+          "paperId": "ds26",
+          "kind": "lower",
+          "bound": "α ≥ ζ",
+          "guarantee": "Maximum-cardinality competitive ratio OPT/E[ALG]",
+          "sourceLocation": "Theorem 1; Lemma 6",
+          "plot": null,
+          "notes": "Do not interpret this ratio lower bound as a lower bound on the effort needed to maintain maximality."
+        },
+        {
+          "id": "mis-online-zeta-rand-lower",
+          "paperId": "ds26",
+          "kind": "lower",
+          "bound": "α ≥ (ζ+1)/2",
+          "guarantee": "Maximum-cardinality competitive ratio OPT/E[ALG]",
+          "sourceLocation": "Theorem 1; Lemma 7",
+          "plot": null,
+          "notes": "The ζ-dependent formulas are categorical anchors, not fixed numerical ratios."
+        }
+      ]
+    }
+  ]
+}

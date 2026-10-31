@@ -9,7 +9,7 @@ from site_pages import site_navigation, site_theme, site_appearance, build_site_
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
-PROBLEMS = ("matching", "weighted_matching", "mis", "cc", "edge", "vertex")
+PROBLEMS = ("matching", "weighted_matching", "mis", "maximum_is", "cc", "edge", "vertex")
 
 
 def require(condition, message):

@@ -1,0 +1,331 @@
+{
+  "problem": "maximum_is",
+  "reviewedThrough": "2026-10-30",
+  "searchSummary": "Maximum-cardinality independent set is separate from inclusion-maximal MIS. This initial row includes streaming, online competition, random-graph local-density and LOCAL approximation results. Every theorem retains its graph class, adversary and resource model; unreviewed cells are not claims that no algorithms exist.",
+  "coverage": [
+    {
+      "model": "dynamic",
+      "status": "not_assessed",
+      "note": "No scoped maximum-independent-set result entered for this model yet."
+    },
+    {
+      "model": "stream",
+      "status": "curated",
+      "note": "One pass · deterministic · insertions and deletions · explicit independent set"
+    },
+    {
+      "model": "online",
+      "status": "curated",
+      "note": "Irrevocable vertex decisions; competitive cardinality under bounded neighborhood independence."
+    },
+    {
+      "model": "lca",
+      "status": "not_assessed",
+      "note": "No scoped maximum-independent-set result entered for this model yet."
+    },
+    {
+      "model": "local",
+      "status": "curated",
+      "note": "Rounds and approximation; graph classes and probability guarantees stay explicit."
+    },
+    {
+      "model": "mpc",
+      "status": "not_assessed",
+      "note": "No scoped maximum-independent-set result entered for this model yet."
+    },
+    {
+      "model": "query_list",
+      "status": "not_assessed",
+      "note": "No scoped maximum-independent-set result entered for this model yet."
+    },
+    {
+      "model": "query_matrix",
+      "status": "not_assessed",
+      "note": "No scoped maximum-independent-set result entered for this model yet."
+    },
+    {
+      "model": "query_combined",
+      "status": "not_assessed",
+      "note": "No scoped maximum-independent-set result entered for this model yet."
+    },
+    {
+      "model": "stochastic",
+      "status": "curated",
+      "note": "Fixed-radius local constructions and their density obstruction share a random-input setup."
+    }
+  ],
+  "papers": [
+    {
+      "id": "ds26",
+      "title": "Online Algorithms for Geometric Independent Set",
+      "authors": [
+        "Minati De",
+        "Satyam Singh"
+      ],
+      "year": 2026,
+      "url": "https://arxiv.org/html/2604.14677v1",
+      "venue": "arXiv 2026",
+      "publicationStatus": "preprint",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "rv17",
+      "title": "Local algorithms for independent sets are half-optimal",
+      "authors": [
+        "Mustazee Rahman",
+        "Bálint Virág"
+      ],
+      "year": 2017,
+      "url": "https://arxiv.org/pdf/1402.0485v2",
+      "venue": "Annals of Probability 2017",
+      "publicationStatus": "journal",
+      "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "diddapur-2026-deterministic-streaming",
+      "title": "Deterministic Streaming Lower Bounds for Approximate Maximum Clique and Maximum Independent Set",
+      "authors": [
+        "Adithya Diddapur"
+      ],
+      "year": 2026,
+      "venue": "arXiv v2",
+      "publicationStatus": "preprint",
+      "version": "2609.18635v2",
+      "url": "https://arxiv.org/abs/2609.18635",
+      "sourceUrl": "https://arxiv.org/html/2609.18635v2",
+      "verifiedOn": "2026-10-30"
+    },
+    {
+      "id": "kz19",
+      "title": "Distributed Minimum Vertex Coloring and Maximum Independent Set in Chordal Graphs",
+      "authors": [
+        "Christian Konrad",
+        "Viktor Zamaraev"
+      ],
+      "year": 2019,
+      "venue": "MFCS 2019",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1805.04544",
+      "sourceUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol138-mfcs2019/LIPIcs.MFCS.2019.21/LIPIcs.MFCS.2019.21.pdf",
+      "verifiedOn": "2026-10-30"
+    },
+    {
+      "id": "kkss20",
+      "title": "Improved Distributed Approximations for Maximum-Weight Independent Set",
+      "authors": [
+        "Ken-ichi Kawarabayashi",
+        "Seri Khoury",
+        "Aaron Schild",
+        "Gregory Schwartzman"
+      ],
+      "year": 2020,
+      "venue": "PODC 2020",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1906.11524",
+      "sourceUrl": "https://arxiv.org/html/1906.11524v2",
+      "verifiedOn": "2026-10-30"
+    }
+  ],
+  "slices": [
+    {
+      "id": "maximum_is-online-landscape",
+      "problem": "maximum_is",
+      "model": "online",
+      "label": "Online maximum independent set",
+      "task": "Irrevocable vertex decisions; competitive cardinality under bounded neighborhood independence.",
+      "assumptions": [
+        "Competitive ratio OPT/E[ALG] uses symbolic ζ-dependent categories. ζ is the maximum independent-set size inside one neighborhood; no geometric representation is assumed."
+      ],
+      "mode": "1d",
+      "axis": {
+        "label": "See scoped figure panels; incompatible objectives have separate axes",
+        "categories": [
+          {
+            "id": "maximum",
+            "label": "Maximum-size competition · bounded neighborhood independence"
+          }
+        ]
+      },
+      "results": [
+        {
+          "id": "mis-online-zeta-upper",
+          "paperId": "ds26",
+          "kind": "upper",
+          "bound": "α ≤ ζ",
+          "guarantee": "Maximum-cardinality competitive ratio OPT/E[ALG]",
+          "sourceLocation": "Theorem 1; Lemma 5",
+          "plot": null,
+          "notes": "The same greedy output is maximal; this panel measures its size against maximum optimum."
+        },
+        {
+          "id": "mis-online-zeta-det-lower",
+          "paperId": "ds26",
+          "kind": "lower",
+          "bound": "α ≥ ζ",
+          "guarantee": "Maximum-cardinality competitive ratio OPT/E[ALG]",
+          "sourceLocation": "Theorem 1; Lemma 6",
+          "plot": null,
+          "notes": "Do not interpret this ratio lower bound as a lower bound on the effort needed to maintain maximality."
+        },
+        {
+          "id": "mis-online-zeta-rand-lower",
+          "paperId": "ds26",
+          "kind": "lower",
+          "bound": "α ≥ (ζ+1)/2",
+          "guarantee": "Maximum-cardinality competitive ratio OPT/E[ALG]",
+          "sourceLocation": "Theorem 1; Lemma 7",
+          "plot": null,
+          "notes": "The ζ-dependent formulas are categorical anchors, not fixed numerical ratios."
+        }
+      ]
+    },
+    {
+      "id": "maximum_is-stochastic-landscape",
+      "problem": "maximum_is",
+      "model": "stochastic",
+      "label": "Maximum independent sets in sparse random graphs",
+      "task": "Fixed-radius local constructions and their density obstruction share a random-input setup.",
+      "assumptions": [
+        "Density within factor-of-i.i.d./fixed-radius local algorithms on G(n,λ/n). Take n→∞ before λ→∞; radius may depend on λ and accuracy but not n. This is not a universal computational lower bound."
+      ],
+      "mode": "1d",
+      "axis": {
+        "label": "See scoped figure panels; incompatible objectives have separate axes",
+        "categories": [
+          {
+            "id": "local",
+            "label": "Maximum-size IS · fixed-radius local algorithms"
+          }
+        ]
+      },
+      "results": [
+        {
+          "id": "mis-stochastic-local-upper",
+          "paperId": "rv17",
+          "kind": "upper",
+          "bound": "density ≥ (1−o(1))log λ/λ",
+          "guarantee": "Approximate maximum independent-set size within a restricted local algorithm class",
+          "sourceLocation": "§4.2 construction; Theorem 4.5",
+          "plot": null,
+          "notes": "Radius may depend on λ and accuracy but not n. The red bound is only for factor-of-i.i.d./fixed-radius local algorithms. Unrestricted optimum is asymptotically twice this density; that is structural context, not a runtime lower bound."
+        },
+        {
+          "id": "mis-stochastic-local-lower",
+          "paperId": "rv17",
+          "kind": "lower",
+          "bound": "density ≤ (1+o(1))log λ/λ",
+          "guarantee": "Approximate maximum independent-set size within a restricted local algorithm class",
+          "sourceLocation": "Theorem 4.1",
+          "plot": null,
+          "notes": "Radius may depend on λ and accuracy but not n. The red bound is only for factor-of-i.i.d./fixed-radius local algorithms. Unrestricted optimum is asymptotically twice this density; that is structural context, not a runtime lower bound."
+        }
+      ]
+    },
+    {
+      "id": "maximum-is-stream-deterministic-space",
+      "problem": "maximum_is",
+      "model": "stream",
+      "label": "Maximum independent set: space for approximation",
+      "task": "One pass · deterministic · insertions and deletions · explicit independent set",
+      "assumptions": [
+        "Both bounds have leading exponent s=2−t. Green and red are separated by a few screen pixels only for visibility; that offset does not encode a numerical gap. Logarithmic factors and exact finite-n ranges are retained below. Open endpoints mean fixed t<1 (algorithm) and fixed t<1/2 (lower bound), not inclusion of β=n or β=√n."
+      ],
+      "mode": "1d",
+      "axis": {
+        "label": "Scoped resource bounds",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "bounds",
+            "label": "Theorem-specific resources"
+          }
+        ]
+      },
+      "results": [
+        {
+          "id": "maximum-is-stream-folklore-partition",
+          "paperId": "diddapur-2026-deterministic-streaming",
+          "kind": "upper",
+          "bound": "O(n²/β) bits",
+          "guarantee": "|I| ≥ α(G)/β",
+          "sourceLocation": "Theorem A.1 (folklore algorithm presented in Appendix A)",
+          "sourceUrl": "https://arxiv.org/html/2609.18635v2",
+          "evidenceStatus": "primary_statement_verified",
+          "notes": "General simple unweighted graphs; vertex set known in advance; Explicit independent vertex set I; Deterministic; 1 ≤ β ≤ n/log₂ n; Partition the vertices into balanced groups, store each induced adjacency matrix, and return the largest exact independent set among the groups. Computation may be exponential. This is a folklore algorithm, not a new algorithm claim.",
+          "plot": null
+        },
+        {
+          "id": "maximum-is-stream-diddapur-lower",
+          "paperId": "diddapur-2026-deterministic-streaming",
+          "kind": "lower",
+          "bound": "Ω(n²/(β log₂ n)) bits",
+          "guarantee": "|I| ≥ α(G)/β",
+          "sourceLocation": "Theorem 1.2 and §4.1",
+          "sourceUrl": "https://arxiv.org/html/2609.18635v2",
+          "evidenceStatus": "primary_statement_verified",
+          "notes": "General simple unweighted graphs; vertex set known in advance; Explicit independent vertex set I; Deterministic; 1 ≤ β ≤ √n/(36 log₂ n); The complement construction uses deletions. Version 2 narrows the earlier version's approximation range following corrections. The preprint statement and model were checked; its proof was not independently certified.",
+          "plot": null
+        }
+      ]
+    },
+    {
+      "id": "maximum_is-local-landscape",
+      "problem": "maximum_is",
+      "model": "local",
+      "label": "Maximum independent set in LOCAL",
+      "task": "Rounds and approximation; graph classes and probability guarantees stay explicit.",
+      "assumptions": [
+        "Symbolic round bounds, not numerical distances. The upper panel fixes a near-optimal ratio on chordal graphs, with a lower bound even on paths. The lower panel permits a degree-dependent approximation on general graphs."
+      ],
+      "mode": "1d",
+      "axis": {
+        "label": "Scoped resource bounds",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "bounds",
+            "label": "Theorem-specific resources"
+          }
+        ]
+      },
+      "results": [
+        {
+          "id": "maximum-is-local-chordal-upper",
+          "paperId": "kz19",
+          "kind": "upper",
+          "bound": "O(ε⁻¹ log(1/ε) log* n) rounds",
+          "guarantee": "|I| ≥ OPT/(1+ε), 0<ε<1/2",
+          "sourceLocation": "Theorem 16",
+          "sourceUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol138-mfcs2019/LIPIcs.MFCS.2019.21/LIPIcs.MFCS.2019.21.pdf",
+          "evidenceStatus": "primary_statement_verified",
+          "notes": "Unweighted chordal graphs; An independent vertex set; each vertex learns its membership; Deterministic; ; Standard LOCAL with unique IDs and initial neighbor knowledge. The algorithm computes the needed decomposition; no tree decomposition is supplied as input.",
+          "plot": null
+        },
+        {
+          "id": "maximum-is-local-path-lower",
+          "paperId": "kz19",
+          "kind": "lower",
+          "bound": "Ω(ε⁻¹) rounds",
+          "guarantee": "Expected approximation factor at most 1+ε",
+          "sourceLocation": "Theorem 17; §6",
+          "sourceUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol138-mfcs2019/LIPIcs.MFCS.2019.21/LIPIcs.MFCS.2019.21.pdf",
+          "evidenceStatus": "primary_statement_verified",
+          "notes": "Even unweighted paths, hence a subclass of chordal graphs; sufficiently large n; An independent vertex set; each vertex learns its membership; Randomized algorithms; expectation guarantee; ; The source states an expected approximation-factor requirement, not a high-probability guarantee. Compare the common 0<ε<1/2 range; no general-graph lower bound for a degree-sized approximation follows.",
+          "plot": null
+        },
+        {
+          "id": "maximum-is-local-general-upper",
+          "paperId": "kkss20",
+          "kind": "upper",
+          "bound": "poly(log log n)/ε rounds",
+          "guarantee": "(1+ε)Δ approximation; unit-weight specialization",
+          "sourceLocation": "Theorem 2; §3 assumptions",
+          "sourceUrl": "https://arxiv.org/html/1906.11524v2",
+          "evidenceStatus": "primary_statement_verified",
+          "notes": "General unweighted graphs of maximum degree Δ; isolated vertices can be included; An independent vertex set; each vertex learns its membership; With high probability; ; The theorem is stated for maximum-weight independent set; assigning every vertex unit weight gives this cardinality result. It works in CONGEST and therefore also LOCAL. Unique IDs and a polynomial upper bound on n are assumed. This is a weaker quality target than a (1+ε)-approximation; its theorem does not require maximality.",
+          "plot": null
+        }
+      ]
+    }
+  ]
+}

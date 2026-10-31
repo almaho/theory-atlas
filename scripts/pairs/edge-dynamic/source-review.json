@@ -6,7 +6,7 @@
     "userChoice": "Both update time and number of recolored existing edges, in aligned panels",
     "axes": "Categorical cost-formula columns and common graph/palette/update rows. Column order is not a universal asymptotic ranking when Δ and ε vary.",
     "semanticZoom": "Detail 738×548 restores formula and cost-quantifier labels; compact 330×245 shows setup labels and markers; overview hides all text; focus uses the same chart.",
-    "color": "Green algorithm circles/squares, red lower diamonds. Setup colors are restricted to row labels/brackets.",
+    "color": "Green algorithm circles/squares, red lower diamonds. Setup labels are restricted to row labels/brackets.",
     "resources": "No recourse bound is copied into update time. Recourse excludes the new edge's first color."
   },
   "sources": [

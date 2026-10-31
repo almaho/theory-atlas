@@ -2,10 +2,10 @@
   "id": "mis-online",
   "problem": "mis",
   "model": "online",
-  "problemLabel": "Independent set",
+  "problemLabel": "Maximal independent set",
   "modelLabel": "Online",
-  "title": "Online independent sets: maximal versus maximum",
-  "subtitle": "Feasibility and competitive cardinality have separate panels and units.",
+  "title": "Online maximal independent set",
+  "subtitle": "Arrival-order greedy maintains maximality after every prefix without revisions.",
   "renderer": "scoped-landscape",
   "reviewedOn": "2026-10-27",
   "panels": [
@@ -20,25 +20,6 @@
       "ticks": [
         0,
         1
-      ]
-    },
-    {
-      "id": "maximum",
-      "title": "Maximum-size competition · bounded neighborhood independence",
-      "shortTitle": "Maximum IS · ζ ratio · preprint",
-      "note": "ζ=max_v α(G[N(v)])≥1. This is a different optimization objective.",
-      "xLabel": "Competitive ratio OPT/E[ALG] · symbolic (smaller better)",
-      "categories": [
-        {
-          "id": "half",
-          "label": "(ζ+1)/2",
-          "short": "(ζ+1)/2"
-        },
-        {
-          "id": "zeta",
-          "label": "ζ",
-          "short": "ζ"
-        }
       ]
     }
   ],
@@ -64,78 +45,12 @@
       "year": 2019,
       "evidenceStatus": "primary_statement_verified",
       "shortLabel": "Cormode–Dark–Konrad ’19"
-    },
-    {
-      "id": "mis-online-zeta-upper",
-      "sourceId": "ds26",
-      "panel": "maximum",
-      "kind": "upper",
-      "at": "zeta",
-      "setup": "FirstFit · deterministic",
-      "bound": "α ≤ ζ",
-      "displayBound": "α ≤ ζ",
-      "plotLabel": "α ≤ ζ",
-      "quality": "Maximum-cardinality competitive ratio OPT/E[ALG]",
-      "theorem": "Theorem 1; Lemma 5",
-      "graph": "Graphs with neighborhood independence at most ζ; no geometric representation supplied",
-      "output": "Irrevocable independent-set acceptance; maximize cardinality",
-      "probability": "Deterministic",
-      "notes": "The same greedy output is maximal; this panel measures its size against maximum optimum.",
-      "limit": false,
-      "publicationStatus": "preprint",
-      "year": 2026,
-      "evidenceStatus": "primary_statement_verified",
-      "shortLabel": "De–Singh ’26"
-    },
-    {
-      "id": "mis-online-zeta-det-lower",
-      "sourceId": "ds26",
-      "panel": "maximum",
-      "kind": "lower",
-      "at": "zeta",
-      "setup": "Deterministic · adaptive adversary",
-      "bound": "α ≥ ζ",
-      "displayBound": "α ≥ ζ",
-      "plotLabel": "α ≥ ζ",
-      "quality": "Maximum-cardinality competitive ratio OPT/E[ALG]",
-      "theorem": "Theorem 1; Lemma 6",
-      "graph": "Graphs with neighborhood independence at most ζ",
-      "output": "Irrevocable independent-set decisions",
-      "probability": "Deterministic lower bound; adaptive adversary",
-      "notes": "Do not interpret this ratio lower bound as a lower bound on the effort needed to maintain maximality.",
-      "limit": false,
-      "publicationStatus": "preprint",
-      "year": 2026,
-      "evidenceStatus": "primary_statement_verified",
-      "shortLabel": "De–Singh ’26"
-    },
-    {
-      "id": "mis-online-zeta-rand-lower",
-      "sourceId": "ds26",
-      "panel": "maximum",
-      "kind": "lower",
-      "at": "half",
-      "setup": "Randomized · oblivious adversary",
-      "bound": "α ≥ (ζ+1)/2",
-      "displayBound": "α ≥ (ζ+1)/2",
-      "plotLabel": "α ≥ (ζ+1)/2",
-      "quality": "Maximum-cardinality competitive ratio OPT/E[ALG]",
-      "theorem": "Theorem 1; Lemma 7",
-      "graph": "Graphs with neighborhood independence at most ζ",
-      "output": "Irrevocable independent-set decisions",
-      "probability": "Randomized lower bound; oblivious adversary",
-      "notes": "The ζ-dependent formulas are categorical anchors, not fixed numerical ratios.",
-      "limit": false,
-      "publicationStatus": "preprint",
-      "year": 2026,
-      "evidenceStatus": "primary_statement_verified",
-      "shortLabel": "De–Singh ’26"
     }
   ],
   "relatedResults": [],
-  "axisNote": "Maximality uses a zero-recourse axis. Maximum-size competitiveness uses symbolic ζ-dependent ratios. The geometric-independent-set preprint concerns graphs via neighborhood independence; no geometric oracle is assumed.",
+  "axisNote": "Zero-recourse feasibility for maximal independent set. Maximum-cardinality competition is in the separate Maximum independent set row.",
   "coverageNote": "Bounded primary-source review completed 27 October 2026. Results are scoped comparisons, not an exhaustive or best-known-frontier claim.",
-  "lowerBoundStatus": "Only the lower bounds explicitly shown apply to their labeled setup. An absent bound means no comparable bound was verified in this review.",
+  "lowerBoundStatus": "No lower bound for maintaining maximality was verified here. Competitive-size obstructions concern a different objective.",
   "sources": {
     "cdk18": {
       "id": "cdk18",
@@ -150,19 +65,6 @@
       "venue": "ICALP 2019",
       "publicationStatus": "published",
       "verifiedOn": "2026-10-27"
-    },
-    "ds26": {
-      "id": "ds26",
-      "title": "Online Algorithms for Geometric Independent Set",
-      "authors": [
-        "Minati De",
-        "Satyam Singh"
-      ],
-      "year": 2026,
-      "url": "https://arxiv.org/html/2604.14677v1",
-      "venue": "arXiv 2026",
-      "publicationStatus": "preprint",
-      "verifiedOn": "2026-10-27"
     }
   },
   "sourceVerification": [
@@ -172,16 +74,6 @@
       "url": "https://arxiv.org/pdf/1807.08331",
       "theorems": [
         "§3 Fact 1; immediate online specialization"
-      ]
-    },
-    {
-      "sourceId": "ds26",
-      "checkedOn": "2026-10-27",
-      "url": "https://arxiv.org/html/2604.14677v1",
-      "theorems": [
-        "Theorem 1; Lemma 5",
-        "Theorem 1; Lemma 6",
-        "Theorem 1; Lemma 7"
       ]
     }
   ],
@@ -203,42 +95,6 @@
           {
             "id": "mis-online-maximal-greedy",
             "label": "Arrival-order greedy"
-          }
-        ]
-      }
-    },
-    "maximum": {
-      "title": "Maximum-size competition · bounded neighborhood independence",
-      "x": {
-        "label": "Competitive ratio OPT/E[ALG] · symbolic (smaller better)",
-        "kind": "categorical",
-        "categories": [
-          {
-            "id": "half",
-            "label": "(ζ+1)/2",
-            "short": "(ζ+1)/2"
-          },
-          {
-            "id": "zeta",
-            "label": "ζ",
-            "short": "ζ"
-          }
-        ]
-      },
-      "y": {
-        "label": "Theorem and setup",
-        "categories": [
-          {
-            "id": "mis-online-zeta-upper",
-            "label": "FirstFit · deterministic"
-          },
-          {
-            "id": "mis-online-zeta-det-lower",
-            "label": "Deterministic · adaptive adversary"
-          },
-          {
-            "id": "mis-online-zeta-rand-lower",
-            "label": "Randomized · oblivious adversary"
           }
         ]
       }

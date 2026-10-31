@@ -1,0 +1,23 @@
+{
+  "id": "maximum_is-stochastic",
+  "dataFile": "maximum_is-stochastic.json",
+  "javascript": "scoped-landscapes.js",
+  "css": "scoped-landscapes.css",
+  "routes": [
+    {
+      "key": "maximum_is-stochastic",
+      "sliceId": "maximum_is-stochastic-landscape",
+      "label": "Maximum independent sets in sparse random graphs",
+      "problem": "maximum_is",
+      "model": "stochastic",
+      "visible": true
+    }
+  ],
+  "canonicalAliases": {},
+  "pointFields": {},
+  "axisSummary": {
+    "x": "Panel-specific quality or cost axis",
+    "y": "Named theorem and setup",
+    "note": "Density within factor-of-i.i.d./fixed-radius local algorithms on G(n,λ/n). Take n→∞ before λ→∞; radius may depend on λ and accuracy but not n. This is not a universal computational lower bound."
+  }
+}

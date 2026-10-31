@@ -1,0 +1,95 @@
+{
+  "upsertPapers": [
+    {
+      "id": "kz19",
+      "title": "Distributed Minimum Vertex Coloring and Maximum Independent Set in Chordal Graphs",
+      "authors": [
+        "Christian Konrad",
+        "Viktor Zamaraev"
+      ],
+      "year": 2019,
+      "venue": "MFCS 2019",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1805.04544",
+      "sourceUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol138-mfcs2019/LIPIcs.MFCS.2019.21/LIPIcs.MFCS.2019.21.pdf",
+      "verifiedOn": "2026-10-30"
+    },
+    {
+      "id": "kkss20",
+      "title": "Improved Distributed Approximations for Maximum-Weight Independent Set",
+      "authors": [
+        "Ken-ichi Kawarabayashi",
+        "Seri Khoury",
+        "Aaron Schild",
+        "Gregory Schwartzman"
+      ],
+      "year": 2020,
+      "venue": "PODC 2020",
+      "publicationStatus": "conference",
+      "url": "https://arxiv.org/abs/1906.11524",
+      "sourceUrl": "https://arxiv.org/html/1906.11524v2",
+      "verifiedOn": "2026-10-30"
+    }
+  ],
+  "upsertSlices": [
+    {
+      "id": "maximum_is-local-landscape",
+      "problem": "maximum_is",
+      "model": "local",
+      "label": "Maximum independent set in LOCAL",
+      "task": "Rounds and approximation; graph classes and probability guarantees stay explicit.",
+      "assumptions": [
+        "Symbolic round bounds, not numerical distances. The upper panel fixes a near-optimal ratio on chordal graphs, with a lower bound even on paths. The lower panel permits a degree-dependent approximation on general graphs."
+      ],
+      "mode": "1d",
+      "axis": {
+        "label": "Scoped resource bounds",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "bounds",
+            "label": "Theorem-specific resources"
+          }
+        ]
+      },
+      "results": [
+        {
+          "id": "maximum-is-local-chordal-upper",
+          "paperId": "kz19",
+          "kind": "upper",
+          "bound": "O(ε⁻¹ log(1/ε) log* n) rounds",
+          "guarantee": "|I| ≥ OPT/(1+ε), 0<ε<1/2",
+          "sourceLocation": "Theorem 16",
+          "sourceUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol138-mfcs2019/LIPIcs.MFCS.2019.21/LIPIcs.MFCS.2019.21.pdf",
+          "evidenceStatus": "primary_statement_verified",
+          "notes": "Unweighted chordal graphs; An independent vertex set; each vertex learns its membership; Deterministic; ; Standard LOCAL with unique IDs and initial neighbor knowledge. The algorithm computes the needed decomposition; no tree decomposition is supplied as input.",
+          "plot": null
+        },
+        {
+          "id": "maximum-is-local-path-lower",
+          "paperId": "kz19",
+          "kind": "lower",
+          "bound": "Ω(ε⁻¹) rounds",
+          "guarantee": "Expected approximation factor at most 1+ε",
+          "sourceLocation": "Theorem 17; §6",
+          "sourceUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol138-mfcs2019/LIPIcs.MFCS.2019.21/LIPIcs.MFCS.2019.21.pdf",
+          "evidenceStatus": "primary_statement_verified",
+          "notes": "Even unweighted paths, hence a subclass of chordal graphs; sufficiently large n; An independent vertex set; each vertex learns its membership; Randomized algorithms; expectation guarantee; ; The source states an expected approximation-factor requirement, not a high-probability guarantee. Compare the common 0<ε<1/2 range; no general-graph lower bound for a degree-sized approximation follows.",
+          "plot": null
+        },
+        {
+          "id": "maximum-is-local-general-upper",
+          "paperId": "kkss20",
+          "kind": "upper",
+          "bound": "poly(log log n)/ε rounds",
+          "guarantee": "(1+ε)Δ approximation; unit-weight specialization",
+          "sourceLocation": "Theorem 2; §3 assumptions",
+          "sourceUrl": "https://arxiv.org/html/1906.11524v2",
+          "evidenceStatus": "primary_statement_verified",
+          "notes": "General unweighted graphs of maximum degree Δ; isolated vertices can be included; An independent vertex set; each vertex learns its membership; With high probability; ; The theorem is stated for maximum-weight independent set; assigning every vertex unit weight gives this cardinality result. It works in CONGEST and therefore also LOCAL. Unique IDs and a polynomial upper bound on n are assumed. This is a weaker quality target than a (1+ε)-approximation; its theorem does not require maximality.",
+          "plot": null
+        }
+      ]
+    }
+  ]
+}
