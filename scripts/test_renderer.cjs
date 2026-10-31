@@ -2,7 +2,7 @@
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
-const vm = require('node:vm');
+const vm = require('./atlas-test-vm.cjs');
 
 const source = fs.readFileSync(path.join(__dirname, '../src/app.js'), 'utf8');
 const start = source.indexOf('  let plotSerial=0;');
@@ -256,7 +256,7 @@ for (const [key, id] of settings) {
     assert(marks(summaries[0]) < marks(summaries[1]), 'Dynamic overview selects representative guarantees instead of shrinking every paper marker');
   } else {
     assert(summaries.every(svg => svg.includes('var(--red)')), `${key} streaming lower bounds remain red at every zoom level`);
-    assert(summaries.every(svg => /<circle\b[^>]*stroke="var\(--green\)"/.test(svg) && /<path\b[^>]*stroke="var\(--red\)"/.test(svg)), 'Streaming algorithm circles and lower-bound diamonds survive the zoom transition');
+    assert(summaries.every(svg => /<path\b[^>]*data-marker="algorithm"[^>]*stroke="var\(--green\)"/.test(svg) && /<path\b[^>]*stroke="var\(--red\)"/.test(svg)), 'Streaming algorithms and lower bounds preserve setup symbols and semantic colors through zoom');
   }
   for (const width of [180, 330]) {
     const summary = context.plot(cell, width, 245);
@@ -375,11 +375,11 @@ for (const graph of ['general', 'bipartite']) {
   }
   assert(plottedRows.find(row => row.passes === 2).y < plottedRows.find(row => row.passes === 1).y, 'Larger pass budgets sit above one pass, so fewer passes is downward');
   const current = graph === 'bipartite' ? 'abr2024-bipartite' : 'abr2024';
-  assert(streamGroup(standalone, current)?.includes('fill="var(--surface)" stroke="var(--green)"'), 'The two-pass limiting algorithm endpoint is hollow');
+  assert(streamGroup(standalone, current)?.includes('fill="none" stroke="var(--green)"'), 'The two-pass limiting algorithm endpoint is hollow');
   assert(streamGroup(standalone, 'greedy').includes('fill="var(--green)" stroke="var(--green)"'), 'The attained half guarantee is filled');
   const twoBarrier = barrier(graph, 'all', 2);
   assert.equal(twoBarrier.ratio, 8/9, 'The unrestricted two-pass ceiling is 8/9 for both graph scopes');
-  assert(streamGroup(standalone, twoBarrier.id).includes('fill="var(--surface)" stroke="var(--red)"'), 'The universal lower-bound endpoint remains open');
+  assert(streamGroup(standalone, twoBarrier.id).includes('fill="none" stroke="var(--red)"'), 'The universal lower-bound endpoint remains open');
   const special = standalone.querySelector('.s-specials').innerHTML;
   for (const id of ['kn2021-greedy-first', 'assadi2022-rs', 'ar2020-exact']) {
     assert(special.includes(`data-streaming-result="${id}"`) && !plot.includes(id), `${id} is separated from the unrestricted numerical frontier`);
@@ -670,9 +670,9 @@ const lcaFamilies = id => mainLcaGroups.filter(group => group['data-lca-result']
 assert(lcaFamilies('lca-brr23-nearoptimal-lower').every(family => family === 'additive-nearoptimal'), 'BRR hardness is plotted only for additive deficit, never as beta=1-epsilon');
 assert(lcaFamilies('lca-kmnft19-constant').every(family => family === 'constant-unspecified'), 'KMNFT retains its unspecified constant-quality family');
 const lryGroup = lcaGroupHTML(mainLcaPlot, 'lca-lry15-nearoptimal');
-const derivedPartnerTag = lryGroup.match(/<circle\b[^>]*\bdata-derived="partner"[^>]*>/)?.[0];
+const derivedPartnerTag = lryGroup.match(/<(?:circle|path)\b[^>]*\bdata-derived="partner"[^>]*>/)?.[0];
 assert(lcaFamilies('lca-lry15-nearoptimal').includes('multiplicative-nearoptimal') && derivedPartnerTag?.includes('data-guarantee-family="additive-nearoptimal"'), 'LRY shows its original multiplicative result and the separately identified derived additive partner guarantee');
-assert(derivedPartnerTag.includes('fill="var(--surface)"'), 'The LRY partner point is outlined to identify its reduction');
+assert(derivedPartnerTag.includes('data-open-marker="true"'), 'The LRY partner point is outlined to identify its reduction');
 const lryPoint = pointLocation(lryGroup), partnerPoint = pointLocation(derivedPartnerTag), brrPoint = pointLocation(lcaGroupHTML(mainLcaPlot, 'lca-brr23-nearoptimal-lower'));
 assert.equal(lryPoint.y, partnerPoint.y, 'The absorbed partner conversion preserves the displayed simplified cost family');
 assert.equal(partnerPoint.x, brrPoint.x, 'LRY partner upper and BRR lower share the additive guarantee column');
@@ -878,7 +878,7 @@ for (const row of mpcData.verifiedRecords) {
   if (row.kind==='lower') {
     assert(row.conditional && row.condition && row.componentStability,'MPC lower bound assumptions cannot be dropped');
     assert.equal(row.memoryRegime,'sublinear','No lower bound is extended into the near-linear column');
-    assert(group.includes('fill="var(--surface)"') && group.includes('stroke-dasharray='),'Conditional lower bounds are hollow dashed markers');
+    assert(group.includes('data-open-marker="true"') && group.includes('stroke-dasharray='),'Conditional lower bounds are hollow dashed markers');
   }
   mpcHost.listeners.find(e=>e.type==='click').listener({target:{closest:selector=>selector==='[data-mpc-result]'?{dataset:{mpcResult:row.id}}:null}});
   assert(mpcTheorem(mpcHost).includes(mpcData.sources[row.sourceId].title),`${row.id} opens its primary source`);
@@ -1077,3 +1077,5 @@ require('./test_cc_comparison.cjs');
 require('./test_site_pages.cjs');
 
 require("./test_semantic_palette.cjs");
+
+require("./test_marker_shapes.cjs");

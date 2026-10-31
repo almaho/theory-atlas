@@ -10,3 +10,7 @@
 
 .query-list-view .f-hero h1{font-size:32px}.ql-map .ql-section-title{font-size:19px}.ql-map .ql-paper-label{font-size:11px}.ql-map .ql-y-label{font-size:12px}.ql-map .ql-x-label{font-size:11px}.ql-map .ql-x-note{font-size:10px;fill:var(--muted)}.ql-map .ql-axis-title{font-size:10px}.ql-map .ql-axis-note{font-size:10px}.ql-summary .ql-grid{stroke:var(--line);stroke-width:.65;fill:none}.ql-summary .ql-summary-axis{font-size:8px;fill:var(--muted);letter-spacing:.015em}.ql-summary-rich .ql-summary-title{font-size:10px}.ql-summary-rich .ql-summary-formula{font-family:Georgia,serif;font-size:10px;fill:var(--muted)}.ql-summary-rich .ql-summary-upper,.ql-summary-rich .ql-summary-lower{font-size:9px}.ql-summary-rich .ql-summary-note{font-size:9px}.ql-summary-rich .ql-summary-axis{font-size:8px}.ql-plot-result{touch-action:manipulation}
 .ql-summary .ql-summary-quantifiers{font-size:8px;fill:var(--red)}
+
+/* Color keys encode theorem role; marker shape encodes setup. */
+.ql-legend .ql-key-algorithm,.ql-legend .ql-key-lower{width:14px;height:3px;transform:none;border:0;border-radius:0;vertical-align:middle}
+.ql-legend .ql-key-lower{background:var(--red)}

@@ -12,17 +12,17 @@
   }
   function mount(root,problem,model){
     if(root.querySelector('.problem-visualization'))return;
-    const svg=root.querySelector('svg');
+    const svg=root.querySelector('svg:not([aria-hidden="true"])');
     if(!svg)return;
     // Every renderer owns its chart host. Retain that host (including responsive
     // variants), rather than copying an SVG and losing updates or paper clicks.
     let plot=svg.closest('[class*="-scroll"]');
     if(!plot||!root.contains(plot))plot=svg.parentElement===root?svg:svg.parentElement;
-    const legend=[...root.querySelectorAll('[class]')].find(el=>[...el.classList].some(c=>c.endsWith('-legend'))&&!el.closest('details'));
+    const legends=[...root.querySelectorAll('[class]')].filter(el=>[...el.classList].some(c=>c.endsWith('-legend'))&&!el.closest('details')&&!el.parentElement.closest('[class*="-legend"]'));
     const figure=document.createElement('section');
     figure.className='problem-visualization';
     figure.setAttribute('aria-label','Bounds figure');
-    if(legend&&!plot.contains(legend))figure.append(legend);
+    for(const legend of legends)if(!plot.contains(legend))figure.append(legend);
     figure.append(plot);
     root.prepend(figure);
     figure.insertAdjacentHTML('afterend',questionHTML(problem,model));

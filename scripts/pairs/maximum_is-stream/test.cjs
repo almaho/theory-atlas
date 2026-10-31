@@ -1,4 +1,4 @@
-const fs=require('fs'),vm=require('vm'),assert=require('assert/strict'),path=require('path');
+const fs=require('fs'),vm=require('../../atlas-test-vm.cjs'),assert=require('assert/strict'),path=require('path');
 const root=path.resolve(__dirname,'../../..'),read=p=>fs.readFileSync(path.join(root,p),'utf8');
 const ID='maximum_is-stream',data=JSON.parse(read('data/focus/maximum_is-stream.json')),code=read('src/maximum-is-stream.js');
 const ctx={window:{},document:{getElementById:()=>({textContent:JSON.stringify({focus:{[ID]:data}})})},AbortController};

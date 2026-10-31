@@ -1,4 +1,4 @@
-const fs=require('fs'),vm=require('vm'),assert=require('assert');
+const fs=require('fs'),vm=require('../../atlas-test-vm.cjs'),assert=require('assert');
 const read=n=>fs.readFileSync(__dirname+'/'+n,'utf8'),data=JSON.parse(read('../../../data/focus/vertex-query-list.json')),input=JSON.parse(read('input-research.json')),patch=JSON.parse(read('research-patch.json')),reg=JSON.parse(read('registration.json'));
 function renderer(d=data){const c={window:{},document:{getElementById:()=>({textContent:JSON.stringify({focus:{'vertex-query_list':d}})})},AbortController};vm.runInNewContext(read('../../../src/vertex-query-list.js'),c);return c.window.AtlasPairRenderers['vertex-query_list']}
 const R=renderer(),row=data.verifiedRecords[0];

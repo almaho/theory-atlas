@@ -1,4 +1,4 @@
-const fs=require('fs'),vm=require('vm'),assert=require('assert');
+const fs=require('fs'),vm=require('../../atlas-test-vm.cjs'),assert=require('assert');
 const read=name=>fs.readFileSync(__dirname+'/'+name,'utf8'),data=JSON.parse(read('../../../data/focus/edge-query-matrix.json')),input=JSON.parse(read('input-research.json')),patch=JSON.parse(read('research-patch.json')),reg=JSON.parse(read('registration.json'));
 function renderer(d=data){const ctx={window:{},document:{getElementById:()=>({textContent:JSON.stringify({focus:{'edge-query_matrix':d}})})},AbortController};vm.runInNewContext(read('../../../src/edge-query-matrix.js'),ctx);return ctx.window.AtlasPairRenderers['edge-query_matrix']}
 const R=renderer(),rows=[...data.verifiedRecords,...data.relatedResults];

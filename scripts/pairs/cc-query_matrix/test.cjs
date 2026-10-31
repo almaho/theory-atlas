@@ -1,5 +1,5 @@
 'use strict';
-const fs=require('fs'),vm=require('vm'),assert=require('assert/strict');
+const fs=require('fs'),vm=require('../../atlas-test-vm.cjs'),assert=require('assert/strict');
 const data=JSON.parse(fs.readFileSync(__dirname+'/../../../data/focus/cc-query-matrix.json','utf8')),patch=JSON.parse(fs.readFileSync(__dirname+'/research-patch.json','utf8')),input=JSON.parse(fs.readFileSync(__dirname+'/input-research.json','utf8')),src=fs.readFileSync(__dirname+'/../../../src/cc-query-matrix.js','utf8'),css=fs.readFileSync(__dirname+'/../../../src/cc-query-matrix.css','utf8');
 function load(d=data){const ctx={window:{},AbortController,document:{getElementById:()=>({textContent:JSON.stringify({focus:{'cc-query_matrix':d}})})}};vm.runInNewContext(src,ctx);return ctx.window.AtlasPairRenderers['cc-query_matrix'];}
 const api=load();for(const k of ['mount','summarySVG','diagramSVG','records','release'])assert.equal(typeof api[k],'function');
@@ -19,7 +19,7 @@ function check(svg,w,h,tiny=false){
  const boundaries=[...svg.matchAll(/data-boundary="([^"]+)" d="([^"]+)"/g)];assert.equal(boundaries.length,5);
  assert(!boundaries.some(m=>m[1]===announced.id),'No guessed epsilon domain for informal lower');
  assert.equal(boundaries.find(m=>m[1]===lower.id)[2],boundaries.find(m=>m[1]===upper.id)[2],'Matched mixed-error bounds coincide');
- const markers=[...svg.matchAll(/data-marker="([^"]+)" data-a="([^"]+)" data-p="([^"]+)"(?: data-excluded="([^"]+)")? data-center-x="([^"]+)" data-center-y="([^"]+)"/g)];
+ const markers=[...svg.matchAll(/<path\b[^>]*data-marker="[^"]+"[^>]*>/g)].map(m=>{const a=k=>m[0].match(new RegExp('data-'+k+'="([^"]*)"'))?.[1];return[m[0],a('marker'),a('a'),a('p'),a('excluded'),a('center-x'),a('center-y')];});
  assert.equal(markers.length,13);for(const m of markers){assert(+m[5]>=6&&+m[5]<=w-6);assert(+m[6]>=6&&+m[6]<=h-6);assert(+m[3]<=2,'Query cap holds');}
  assert(markers.some(m=>m[1]==='lower'&&m[2]==='1'&&m[4]==='true'),'Excluded lower endpoint explicitly encoded');
  if(tiny)assert(!/<text/.test(svg));

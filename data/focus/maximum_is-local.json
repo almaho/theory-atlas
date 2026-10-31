@@ -64,7 +64,9 @@
       "shortLabel": "Konrad–Zamaraev ’19",
       "bound": "O(ε⁻¹ log(1/ε) log* n) rounds",
       "plotLabel": "O(ε⁻¹ log(1/ε) log* n) rounds",
-      "sourceUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol138-mfcs2019/LIPIcs.MFCS.2019.21/LIPIcs.MFCS.2019.21.pdf"
+      "sourceUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol138-mfcs2019/LIPIcs.MFCS.2019.21/LIPIcs.MFCS.2019.21.pdf",
+      "markerShape": "square",
+      "markerLabel": "Chordal graphs"
     },
     {
       "output": "An independent vertex set; each vertex learns its membership",
@@ -86,7 +88,9 @@
       "shortLabel": "Konrad–Zamaraev ’19",
       "bound": "Ω(ε⁻¹) rounds",
       "plotLabel": "Ω(ε⁻¹) rounds",
-      "sourceUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol138-mfcs2019/LIPIcs.MFCS.2019.21/LIPIcs.MFCS.2019.21.pdf"
+      "sourceUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol138-mfcs2019/LIPIcs.MFCS.2019.21/LIPIcs.MFCS.2019.21.pdf",
+      "markerShape": "triangle",
+      "markerLabel": "Even paths"
     },
     {
       "output": "An independent vertex set; each vertex learns its membership",
@@ -108,7 +112,9 @@
       "shortLabel": "Kawarabayashi et al. ’20",
       "bound": "poly(log log n)/ε rounds",
       "plotLabel": "poly(log log n)/ε rounds",
-      "sourceUrl": "https://arxiv.org/html/1906.11524v2"
+      "sourceUrl": "https://arxiv.org/html/1906.11524v2",
+      "markerShape": "circle",
+      "markerLabel": "General graphs"
     }
   ],
   "relatedResults": [],

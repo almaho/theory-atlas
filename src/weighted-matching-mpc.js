@@ -13,7 +13,7 @@ function geometry(w,h,o={},focus=false){
  return{w,h,level,left,right,top,bottom,points:records(o).map(r=>({id:r.id,x:w*.71,y:h*(tiny?.47:compact?.48:.49)}))};
 }
 function marker(r,p,interactive,o,size){
- return'<g class="wmpc-point" data-wmpc-result="'+esc(r.id)+'" data-kind="upper" data-panel="nearlinear" data-point-x="'+p.x+'" data-point-y="'+p.y+'"'+(interactive?' role="button" tabindex="0" aria-pressed="'+(o.selected===r.id)+'"':'')+' aria-label="'+esc(r.shortLabel+'; '+r.quality+'; '+r.roundComplexity+'; local memory '+r.localMemory)+'"><title>'+esc(r.shortLabel+' · '+r.roundComplexity+' · '+r.quality)+'</title><circle class="wmpc-halo" cx="'+p.x+'" cy="'+p.y+'" r="'+(size+7)+'"/><circle class="wmpc-upper-marker" cx="'+p.x+'" cy="'+p.y+'" r="'+size+'"/></g>';
+ return'<g class="wmpc-point" data-wmpc-result="'+esc(r.id)+'" data-kind="upper" data-panel="nearlinear" data-point-x="'+p.x+'" data-point-y="'+p.y+'"'+(interactive?' role="button" tabindex="0" aria-pressed="'+(o.selected===r.id)+'"':'')+' aria-label="'+esc(r.shortLabel+'; '+r.quality+'; '+r.roundComplexity+'; local memory '+r.localMemory)+'"><title>'+esc(r.shortLabel+' · '+r.roundComplexity+' · '+r.quality)+'</title><circle class="wmpc-halo" cx="'+p.x+'" cy="'+p.y+'" r="'+(size+7)+'"/>'+window.AtlasSymbols.mark(p.x,p.y,size,'circle','algorithm')+'</g>';
 }
 function chart(w,h,o={},interactive=false){
  const g=geometry(w,h,o,interactive),r=records(o)[0],p=g.points[0],tiny=g.level==='overview',compact=g.level==='compact';

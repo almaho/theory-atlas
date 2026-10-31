@@ -1,4 +1,4 @@
-const fs=require('fs'),vm=require('vm'),assert=require('assert'),path=require('path');
+const fs=require('fs'),vm=require('../../atlas-test-vm.cjs'),assert=require('assert'),path=require('path');
 const root=path.resolve(__dirname,'../../..'),model=path.basename(__dirname).endsWith('query_list')?'query_list':'query_matrix',id='weighted_matching-'+model,filetag=model==='query_list'?'list':'matrix';
 const read=p=>fs.readFileSync(path.join(root,p),'utf8'),both={};for(const[k,t]of[['query_list','list'],['query_matrix','matrix']])both['weighted_matching-'+k]=JSON.parse(read('data/focus/weighted-matching-query-'+t+'.json'));
 const data=both[id],code=read('src/weighted-matching-query.js'),css=read('src/weighted-matching-query.css'),ctx={window:{},document:{getElementById:()=>({textContent:JSON.stringify({focus:both})})},AbortController};vm.runInNewContext(code,ctx);const R=ctx.window.AtlasPairRenderers[id];

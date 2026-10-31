@@ -1,5 +1,5 @@
 'use strict';
-const fs=require('fs'),vm=require('vm'),assert=require('assert');
+const fs=require('fs'),vm=require('../../atlas-test-vm.cjs'),assert=require('assert');
 const data=JSON.parse(fs.readFileSync(__dirname+'/../../../data/focus/mis-stream.json','utf8'));
 const original=JSON.parse(fs.readFileSync(__dirname+'/input-research.json','utf8'));
 const patch=JSON.parse(fs.readFileSync(__dirname+'/research-patch.json','utf8'));

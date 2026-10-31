@@ -1,4 +1,4 @@
-const fs=require('fs'),vm=require('vm'),assert=require('assert');
+const fs=require('fs'),vm=require('../../atlas-test-vm.cjs'),assert=require('assert');
 const data=JSON.parse(fs.readFileSync(__dirname+'/../../../data/focus/cc-query-list.json','utf8')),input=JSON.parse(fs.readFileSync(__dirname+'/input-research.json','utf8')),patch=JSON.parse(fs.readFileSync(__dirname+'/research-patch.json','utf8'));
 const context={window:{},document:{getElementById:()=>({textContent:JSON.stringify({focus:{'cc-query_list':data}})})},AbortController};vm.runInNewContext(fs.readFileSync(__dirname+'/../../../src/cc-query-list.js','utf8'),context);const R=context.window.AtlasPairRenderers['cc-query_list'];
 assert(R&&['mount','summarySVG','diagramSVG','records','release'].every(k=>typeof R[k]==='function'));
@@ -18,7 +18,7 @@ for(const [w,h]of sizes){const svg=R.summarySVG('cc-query_list',w,h,{});assert(!
  const main=svg.split('data-scope="main-positive-lists"')[1].split('data-scope="related-oracles"')[0];assert(!main.includes('data-kind="lower"'));
  for(const m of svg.matchAll(/data-center-x="([^"]+)" data-center-y="([^"]+)"/g)){assert(+m[1]>0&&+m[1]<w);assert(+m[2]>0&&+m[2]<h);}
  for(const m of svg.matchAll(/<text x="([^"]+)" y="([^"]+)"/g)){assert(+m[1]>=0&&+m[1]<=w);assert(+m[2]>=0&&+m[2]<=h);}
- const n=(svg.match(/<text /g)||[]).length;counts.push(n);if(w<220||h<140){assert.equal(n,0);assert(!svg.includes('data-marker="related-lower"'));}if(w===738&&h===548){assert(svg.includes('RELATED · DIFFERENT ACCESS MODELS'));assert.equal((svg.match(/data-marker="related-lower"/g)||[]).length,2);assert(svg.includes('Full signed lists')&&svg.includes('Negative lists'));}}
+ const n=(svg.match(/<text /g)||[]).length;counts.push(n);if(w<220||h<140){assert.equal(n,0);assert(!svg.includes('data-marker="lower"'));}if(w===738&&h===548){assert(svg.includes('RELATED · DIFFERENT ACCESS MODELS'));assert.equal((svg.match(/data-marker="lower"/g)||[]).length,2);assert(svg.includes('Full signed lists')&&svg.includes('Negative lists'));}}
 assert(counts[0]<counts[1]&&counts[1]<counts[2]&&counts[2]<counts[3]);
 const over=R.summarySVG('cc-query_list',738,548,{level:'overview'});assert.equal((over.match(/<text /g)||[]).length,0);
 const plot=R.diagramSVG();assert(plot.includes('data-axis="x"')&&plot.includes('data-axis="y"'));assert(plot.includes('data-range="density-upper-bound"'));assert(plot.includes('implementation-derived'));assert(plot.includes('C=O(1)'));

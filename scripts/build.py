@@ -273,8 +273,8 @@ def main():
         css = (ROOT / "src" / "style.css").read_text() + "\n" + (ROOT / "src" / "focus.css").read_text() + "\n" + (ROOT / "src" / "dynamic.css").read_text() + "\n" + (ROOT / "src" / "streaming.css").read_text() + "\n" + (ROOT / "src" / "lca.css").read_text() + "\n" + (ROOT / "src" / "local.css").read_text() + "\n" + (ROOT / "src" / "mpc.css").read_text() + "\n" + (ROOT / "src" / "query-list.css").read_text()
         css += "\n" + (ROOT / "src" / "paper-links.css").read_text() + "\n" + (ROOT / "src" / "visual-guides.css").read_text() + "\n" + (ROOT / "src" / "cc-comparison.css").read_text() + "\n" + (ROOT / "src" / "site.css").read_text()
         css += "\n" + "\n".join((ROOT / "src" / name).read_text() for name in dict.fromkeys(p["css"] for p in pairs))
-        css += "\n" + (ROOT / "src" / "figure-first.css").read_text()
-        js = "\n".join((ROOT / "src" / name).read_text() for name in ["app.js", "dynamic.js", "streaming.js", "lca.js", "local.js", "mpc.js", "query-list.js", *dict.fromkeys(p["javascript"] for p in pairs), "visual-guides.js", "cc-comparison.js", "focus.js", "paper-links.js", "figure-first.js", "navigation.js"])
+        css += "\n" + (ROOT / "src" / "figure-first.css").read_text() + "\n" + (ROOT / "src" / "marker-shapes.css").read_text()
+        js = "\n".join((ROOT / "src" / name).read_text() for name in ["marker-shapes.js", "app.js", "dynamic.js", "streaming.js", "lca.js", "local.js", "mpc.js", "query-list.js", *dict.fromkeys(p["javascript"] for p in pairs), "visual-guides.js", "cc-comparison.js", "focus.js", "paper-links.js", "figure-first.js", "navigation.js"])
         payload = json.dumps(project, ensure_ascii=False, separators=(",", ":")).replace("<", "\\u003c").replace("&", "\\u0026")
         for needle in ("/* ATLAS_CSS */", "/* ATLAS_JS */", "/* ATLAS_DATA */", "<!-- SITE_NAV -->", "<!-- SITE_THEME -->", "<!-- SITE_APPEARANCE -->"):
             require(template.count(needle) == 1, f"Template marker missing or duplicated: {needle}")

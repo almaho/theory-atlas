@@ -1,5 +1,5 @@
 'use strict';
-const fs=require('fs'),path=require('path'),vm=require('vm'),assert=require('assert');
+const fs=require('fs'),path=require('path'),vm=require('../../atlas-test-vm.cjs'),assert=require('assert');
 const at=name=>path.join(__dirname,name);
 const local=fs.existsSync(at('focus.json'));
 const data=JSON.parse(fs.readFileSync(local?at('focus.json'):at('../../../data/focus/edge-mpc.json'),'utf8'));

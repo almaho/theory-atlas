@@ -88,7 +88,9 @@
       "publicationStatus": "published",
       "year": 2010,
       "evidenceStatus": "primary_statement_verified",
-      "shortLabel": "Mathieu et al. ’10"
+      "shortLabel": "Mathieu et al. ’10",
+      "markerShape": "circle",
+      "markerLabel": "Irrevocable · disagreements"
     },
     {
       "id": "cc-online-min-lower",
@@ -110,7 +112,9 @@
       "publicationStatus": "published",
       "year": 2010,
       "evidenceStatus": "primary_statement_verified",
-      "shortLabel": "Mathieu et al. ’10"
+      "shortLabel": "Mathieu et al. ’10",
+      "markerShape": "circle",
+      "markerLabel": "Irrevocable · disagreements"
     },
     {
       "id": "cc-online-max-greedy",
@@ -132,7 +136,9 @@
       "publicationStatus": "published",
       "year": 2010,
       "evidenceStatus": "primary_statement_verified",
-      "shortLabel": "Mathieu et al. ’10"
+      "shortLabel": "Mathieu et al. ’10",
+      "markerShape": "square",
+      "markerLabel": "Merge-only · deterministic agreements"
     },
     {
       "id": "cc-online-max-random",
@@ -154,7 +160,9 @@
       "publicationStatus": "published",
       "year": 2010,
       "evidenceStatus": "primary_statement_verified",
-      "shortLabel": "Mathieu et al. ’10"
+      "shortLabel": "Mathieu et al. ’10",
+      "markerShape": "triangle",
+      "markerLabel": "Merge-only · randomized agreements"
     },
     {
       "id": "cc-online-max-det-lower",
@@ -176,7 +184,9 @@
       "publicationStatus": "published",
       "year": 2010,
       "evidenceStatus": "primary_statement_verified",
-      "shortLabel": "Mathieu et al. ’10"
+      "shortLabel": "Mathieu et al. ’10",
+      "markerShape": "square",
+      "markerLabel": "Merge-only · deterministic agreements"
     },
     {
       "id": "cc-online-max-rand-lower",
@@ -198,7 +208,9 @@
       "publicationStatus": "published",
       "year": 2010,
       "evidenceStatus": "primary_statement_verified",
-      "shortLabel": "Mathieu et al. ’10"
+      "shortLabel": "Mathieu et al. ’10",
+      "markerShape": "triangle",
+      "markerLabel": "Merge-only · randomized agreements"
     },
     {
       "id": "cc-online-random-pivot",
@@ -220,7 +232,9 @@
       "publicationStatus": "published",
       "year": 2005,
       "evidenceStatus": "primary_statement_verified",
-      "shortLabel": "Ailon et al. ’05"
+      "shortLabel": "Ailon et al. ’05",
+      "markerShape": "diamond",
+      "markerLabel": "Random arrival · disagreements"
     },
     {
       "id": "cc-online-recourse-upper",
@@ -242,7 +256,9 @@
       "publicationStatus": "published",
       "year": 2022,
       "evidenceStatus": "primary_statement_verified",
-      "shortLabel": "Cohen-Addad et al. ’22"
+      "shortLabel": "Cohen-Addad et al. ’22",
+      "markerShape": "hexagon",
+      "markerLabel": "Recourse · disagreements"
     },
     {
       "id": "cc-online-recourse-lower",
@@ -264,7 +280,9 @@
       "publicationStatus": "published",
       "year": 2022,
       "evidenceStatus": "primary_statement_verified",
-      "shortLabel": "Cohen-Addad et al. ’22"
+      "shortLabel": "Cohen-Addad et al. ’22",
+      "markerShape": "hexagon",
+      "markerLabel": "Recourse · disagreements"
     }
   ],
   "relatedResults": [],

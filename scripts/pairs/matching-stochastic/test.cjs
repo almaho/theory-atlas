@@ -1,5 +1,5 @@
 'use strict';
-const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),assert=require('node:assert/strict');
+const fs=require('node:fs'),path=require('node:path'),vm=require('../../atlas-test-vm.cjs'),assert=require('node:assert/strict');
 const root=path.resolve(__dirname,'../../..'),id='matching-stochastic';
 const data=JSON.parse(fs.readFileSync(path.join(root,'data/focus',id+'.json'),'utf8'));
 const source=fs.readFileSync(path.join(root,'src',id+'.js'),'utf8');
@@ -43,7 +43,7 @@ for(const key of ['matching-stochastic','weighted-matching-stochastic']){
  assert(!/<text/.test(api.summarySVG(key,1100,800,{level:'overview'})));
  assert.equal((api.diagramSVG(key).match(/role="button"/g)||[]).length,rr.length);
 }
-assert(api.diagramSVG().includes('data-marker="nonadaptive"'));assert(api.diagramSVG().includes('data-marker="adaptive"'));
+assert(api.diagramSVG().includes('data-adaptivity="nonadaptive"'));assert(api.diagramSVG().includes('data-adaptivity="adaptive"'));assert(api.diagramSVG().includes('data-setup-shape="triangle"'));assert(api.diagramSVG().includes('data-setup-shape="circle"'));
 const changed=JSON.parse(JSON.stringify(data));Object.values(changed.sources).forEach(s=>s.publicationStatus='preprint');
 const empty=load(changed);assert.equal(empty.records({publication:'published'}).length,0);assert(empty.diagramSVG({publication:'published'}).includes('No sources'));
 function host(){const children=new Map(),classes=new Set(),listeners={};return{isConnected:true,innerHTML:'',classes,listeners,classList:{add(...v){v.forEach(s=>classes.add(s))},remove(...v){v.forEach(s=>classes.delete(s))},toggle(s,on){on?classes.add(s):classes.delete(s)}},setAttribute(){},querySelector(s){if(!children.has(s))children.set(s,{innerHTML:'',value:''});return children.get(s)},addEventListener(t,fn,o){listeners[t]={fn,signal:o.signal}}};}

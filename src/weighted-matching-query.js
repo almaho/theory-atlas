@@ -7,11 +7,11 @@ const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&
 const math=s=>esc(s).replace(/\^\{([^{}]*)\}/g,'<tspan baseline-shift="super" font-size=".75em">$1</tspan>');
 const tx=(x,y,s,cls='',anchor='start')=>'<text x="'+x+'" y="'+y+'" class="wmq-'+cls+'" text-anchor="'+anchor+'">'+math(s)+'</text>';
 const ln=(x,y,X,Y,cls='grid')=>'<line x1="'+x+'" y1="'+y+'" x2="'+X+'" y2="'+Y+'" class="wmq-'+cls+'"/>';
-const colors=['var(--muted)','var(--muted)','var(--muted)','var(--muted)'];
+
 const instances=new Set();
 function wrap(s,max=56){const a=String(s).split(' '),out=[];let line='';for(const w of a){if(line.length+w.length+1>max&&line){out.push(line);line=w;}else line+=(line?' ':'')+w;}if(line)out.push(line);return out;}
 function panelX(p,at,left,right){if(p.categories){const i=p.categories.findIndex(c=>c.id===at);return left+(right-left)*(i+.5)/p.categories.length;}return left+(right-left)*(at-p.min)/(p.max-p.min);}
-function mark(r,x,y,size,interactive,selected){const lower=r.kind==='lower';return '<g class="wmq-marker '+(lower?'wmq-lower':'wmq-upper')+(r.limit?' wmq-limit':'')+'" data-wmq-result="'+esc(r.id)+'" data-row-ids="'+esc(r.supportingPaper?.id||'')+'" data-kind="'+(lower?'lower':'upper')+'" data-point-x="'+x+'" data-point-y="'+y+'"'+(interactive?' role="button" tabindex="0" aria-pressed="'+(selected===r.id)+'"':'')+' aria-label="'+esc(r.setup+'; '+r.displayBound+'; '+r.shortLabel)+'"><title>'+esc(r.displayBound+' · '+r.quality+' · '+r.probability)+'</title>'+(lower?'<path d="M'+x+' '+(y-size)+'l'+size+' '+size+' -'+size+' '+size+' -'+size+' -'+size+'Z"/>':'<circle cx="'+x+'" cy="'+y+'" r="'+size+'"/>')+'</g>';}
+function mark(r,x,y,size,interactive,selected){const lower=r.kind==='lower';return '<g class="wmq-marker '+(lower?'wmq-lower':'wmq-upper')+(r.limit?' wmq-limit':'')+'" data-wmq-result="'+esc(r.id)+'" data-row-ids="'+esc(r.supportingPaper?.id||'')+'" data-kind="'+(lower?'lower':'upper')+'" data-point-x="'+x+'" data-point-y="'+y+'"'+(interactive?' role="button" tabindex="0" aria-pressed="'+(selected===r.id)+'"':'')+' aria-label="'+esc(r.setup+'; '+r.displayBound+'; '+r.shortLabel)+'"><title>'+esc(r.displayBound+' · '+r.quality+' · '+r.probability)+'</title>'+window.AtlasSymbols.mark(x,y,size,r.panel==='additive'?'square':'circle',lower?'lower':'algorithm','',{open:!!r.limit})+'</g>';}
 function release(root){for(const i of instances)if(!i.root.isConnected||i.root===root)i.destroy();}
 for(const [ID,data] of Object.entries(payload.focus).filter(([,d])=>d.renderer==='weighted-query-landscape')){
  const records=(o={})=>[...data.verifiedRecords,...(data.derivedBounds||[])].map(r=>({...data.sources[r.sourceId],...r})).filter(r=>o.publication!=='published'||r.publicationStatus!=='preprint');
@@ -20,11 +20,11 @@ for(const [ID,data] of Object.entries(payload.focus).filter(([,d])=>d.renderer==
  function full(o={}){
   const rows=records(o),heights=data.panels.map(p=>120+Math.max(1,panelRows(p,o).length)*46),H=54+heights.reduce((a,b)=>a+b,0);
   let s='<svg class="wmq-map" viewBox="0 0 1100 '+H+'" data-detail-level="detail" role="img" aria-label="'+esc(data.title+'; algorithms green and scoped lower bounds red')+'">';
-  s+=tx(24,25,'● Algorithm    ◇ Lower bound (atlas proof)    Panels distinguish output contracts','legend');
+  s+=tx(24,25,'Green: algorithm · Red: lower bound · Circle: matching edges · Square: weight estimate','legend');
   let top=44;
   data.panels.forEach((p,i)=>{
    const rr=panelRows(p,o),h=heights[i],left=280,right=690,bottom=top+h-46;
-   s+='<rect class="wmq-panel" x="8" y="'+top+'" width="1084" height="'+(h-12)+'" rx="9"/><rect x="8" y="'+top+'" width="4" height="'+(h-12)+'" fill="'+colors[i%4]+'"/>';
+   s+='<rect class="wmq-panel" x="8" y="'+top+'" width="1084" height="'+(h-12)+'" rx="9"/>';
    s+=tx(26,top+26,p.title,'heading');
    s+=tx(26,top+48,p.note,'note');
    if(!rr.length)s+=tx(280,top+83,'No sources match this filter.','note');
@@ -55,7 +55,7 @@ for(const [ID,data] of Object.entries(payload.focus).filter(([,d])=>d.renderer==
   g.panels.forEach((z,i)=>{
    const p=z.panel,axisY=z.bottom-4;
    s+='<rect class="wmq-panel" x="3" y="'+z.top+'" width="'+(w-6)+'" height="'+(z.bottom-z.top)+'" rx="4"/>';
-   s+='<rect x="3" y="'+z.top+'" width="3" height="'+(z.bottom-z.top)+'" fill="'+colors[i%4]+'"/>';
+
    s+=ln(z.left,axisY,z.right,axisY,'axis');
    if(!tiny)s+=tx(9,z.top+14,p.shortTitle||p.title,'mini-title');
    z.rows.forEach((r,j)=>{const point=z.points[j];s+=ln(z.left,point.y,z.right,point.y,'row')+mark(r,point.x,point.y,tiny?2.2:3,false,o.selected);});
@@ -70,7 +70,7 @@ for(const [ID,data] of Object.entries(payload.focus).filter(([,d])=>d.renderer==
   for(const [id,renderer]of Object.entries(window.AtlasPairRenderers||{}))if(id!==ID)renderer.release?.(root);
   const controller=new AbortController();let publication=options.publication||'all',selected=data.verifiedRecords[0]?.id;
   root.classList.add('focus-view','wmq-view');root.classList.toggle('f-embedded',!!options.embedded);
-  root.innerHTML='<p class="f-kicker">'+esc(data.problemLabel+' × '+data.modelLabel)+'</p><header class="f-hero"><div><h1>'+esc(data.title)+'</h1><p>'+esc(data.subtitle)+'</p></div></header><div class="wmq-toolbar"><span><b class="wmq-green">● Algorithms</b> · <b class="wmq-red">◇ Lower bounds</b> · labels and panels distinguish setups</span><label>Sources <select class="wmq-publication" aria-label="Sources for '+esc(data.title)+'"><option value="all">All reviewed sources</option><option value="published">Published papers + atlas proofs</option></select></label></div><div class="wmq-scroll" tabindex="0" aria-label="Figure; scroll horizontally on narrow screens"><div class="wmq-plot"></div></div><p class="wmq-axis-note">'+esc(data.axisNote)+'</p><section class="wmq-inspector" aria-live="polite" aria-label="Selected theorem"></section><div class="wmq-related"></div><p class="wmq-coverage">'+esc(data.coverageNote)+'</p>';
+  root.innerHTML='<p class="f-kicker">'+esc(data.problemLabel+' × '+data.modelLabel)+'</p><header class="f-hero"><div><h1>'+esc(data.title)+'</h1><p>'+esc(data.subtitle)+'</p></div></header><div class="wmq-toolbar"><span><b class="wmq-green">Green · algorithms</b> · <b class="wmq-red">Red · lower bounds</b> '+window.AtlasSymbols.key('circle','Matching edges')+window.AtlasSymbols.key('square','Weight estimate')+'</span><label>Sources <select class="wmq-publication" aria-label="Sources for '+esc(data.title)+'"><option value="all">All reviewed sources</option><option value="published">Published papers + atlas proofs</option></select></label></div><div class="wmq-scroll" tabindex="0" aria-label="Figure; scroll horizontally on narrow screens"><div class="wmq-plot"></div></div><p class="wmq-axis-note">'+esc(data.axisNote)+'</p><section class="wmq-inspector" aria-live="polite" aria-label="Selected theorem"></section><div class="wmq-related"></div><p class="wmq-coverage">'+esc(data.coverageNote)+'</p>';
   function inspect(){
    const r=allRecords({publication}).find(r=>r.id===selected),box=root.querySelector('.wmq-inspector');
    if(!r){box.innerHTML='<p>No result matches the source filter.</p>';return;}

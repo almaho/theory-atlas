@@ -9,3 +9,7 @@
 .loc-summary-rich .loc-summary-formula{font-family:Georgia,serif;font-size:var(--loc-summary-font,11px);fill:var(--muted)}.loc-summary-rich .loc-grid{stroke:var(--line);stroke-width:.75;fill:none}
 
 .loc-summary-rich .loc-summary-scope{font-size:8px;fill:var(--muted)}
+
+/* Color keys encode theorem role; marker shape encodes setup. */
+.loc-legend .loc-key-algorithm,.loc-legend .loc-key-lower{width:14px;height:3px;transform:none;border:0;border-radius:0;vertical-align:middle}
+.loc-legend .loc-key-lower{background:var(--red)}

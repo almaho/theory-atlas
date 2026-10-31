@@ -74,7 +74,9 @@
       "publicationStatus": "published",
       "year": 2022,
       "evidenceStatus": "primary_statement_verified",
-      "shortLabel": "Xia–Huang ’22"
+      "shortLabel": "Xia–Huang ’22",
+      "markerShape": "circle",
+      "markerLabel": "Two clusters · δ=1/16"
     },
     {
       "id": "cc-stochastic-fixed-lower",
@@ -96,7 +98,9 @@
       "publicationStatus": "published",
       "year": 2022,
       "evidenceStatus": "primary_statement_verified",
-      "shortLabel": "Xia–Huang ’22 · derived"
+      "shortLabel": "Xia–Huang ’22 · derived",
+      "markerShape": "circle",
+      "markerLabel": "Two clusters · δ=1/16"
     },
     {
       "id": "cc-stochastic-noise-upper",
@@ -118,7 +122,9 @@
       "publicationStatus": "published",
       "year": 2022,
       "evidenceStatus": "primary_statement_verified",
-      "shortLabel": "Xia–Huang ’22"
+      "shortLabel": "Xia–Huang ’22",
+      "markerShape": "square",
+      "markerLabel": "Variable k and δ"
     },
     {
       "id": "cc-stochastic-noise-lower",
@@ -140,7 +146,9 @@
       "publicationStatus": "published",
       "year": 2022,
       "evidenceStatus": "primary_statement_verified",
-      "shortLabel": "Xia–Huang ’22"
+      "shortLabel": "Xia–Huang ’22",
+      "markerShape": "square",
+      "markerLabel": "Variable k and δ"
     }
   ],
   "relatedResults": [],

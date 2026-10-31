@@ -1,5 +1,5 @@
 'use strict';
-const fs=require('fs'),path=require('path'),vm=require('vm'),assert=require('assert');
+const fs=require('fs'),path=require('path'),vm=require('../../atlas-test-vm.cjs'),assert=require('assert');
 const at=n=>path.join(__dirname,n),data=JSON.parse(fs.readFileSync(at('../../../data/focus/weighted-matching-local.json'),'utf8')),source=fs.readFileSync(at('../../../src/weighted-matching-local.js'),'utf8'),reg=JSON.parse(fs.readFileSync(at('registration.json'),'utf8')),patch=JSON.parse(fs.readFileSync(at('research-patch.json'),'utf8'));
 const ID='weighted-matching-local';
 function load(d=data){const c={window:{},document:{getElementById(){return{textContent:JSON.stringify({focus:{[ID]:d}})}}},AbortController,Set};vm.runInNewContext(source,c);return c.window.AtlasPairRenderers[ID];}

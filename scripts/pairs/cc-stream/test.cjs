@@ -1,5 +1,5 @@
 'use strict';
-const fs=require('fs'),vm=require('vm'),assert=require('assert');
+const fs=require('fs'),vm=require('../../atlas-test-vm.cjs'),assert=require('assert');
 const data=JSON.parse(fs.readFileSync(__dirname+'/../../../data/focus/cc-stream.json','utf8')),original=JSON.parse(fs.readFileSync(__dirname+'/input-research.json','utf8')),patch=JSON.parse(fs.readFileSync(__dirname+'/research-patch.json','utf8')),reg=JSON.parse(fs.readFileSync(__dirname+'/registration.json','utf8')),js=fs.readFileSync(__dirname+'/../../../src/cc-stream.js','utf8'),css=fs.readFileSync(__dirname+'/../../../src/cc-stream.css','utf8');
 function load(f=data){const context={window:{},document:{getElementById(){return{textContent:JSON.stringify({focus:{'cc-stream':f}})}}},AbortController,Set};vm.runInNewContext(js,context);return context.window.AtlasPairRenderers['cc-stream']}
 const api=load(),all=[...data.verifiedRecords,...data.relatedResults],by=id=>all.find(r=>r.id===id);

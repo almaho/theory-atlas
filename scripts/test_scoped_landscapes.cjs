@@ -1,6 +1,6 @@
 'use strict';
 module.exports=function(ID){
- const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),assert=require('node:assert/strict'),root=path.resolve(__dirname,'..');
+ const fs=require('node:fs'),path=require('node:path'),vm=require('./atlas-test-vm.cjs'),assert=require('node:assert/strict'),root=path.resolve(__dirname,'..');
  const data=JSON.parse(fs.readFileSync(path.join(root,'data/focus',ID+'.json'),'utf8'));
  const src=fs.readFileSync(path.join(root,'src/scoped-landscapes.js'),'utf8');
  function load(d=data){const c={window:{},document:{getElementById:()=>({textContent:JSON.stringify({focus:{[ID]:d}})})},AbortController};vm.runInNewContext(src,c);return c.window.AtlasPairRenderers[ID];}

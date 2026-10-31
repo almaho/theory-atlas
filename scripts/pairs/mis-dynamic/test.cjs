@@ -1,4 +1,4 @@
-const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict');
+const fs=require('node:fs'),vm=require('../../atlas-test-vm.cjs'),assert=require('node:assert/strict');
 const focus=JSON.parse(fs.readFileSync(__dirname+'/../../../data/focus/mis-dynamic.json','utf8'));
 const input=JSON.parse(fs.readFileSync(__dirname+'/input-research.json','utf8'));
 const patch=JSON.parse(fs.readFileSync(__dirname+'/research-patch.json','utf8'));

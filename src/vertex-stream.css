@@ -35,3 +35,5 @@ svg.vst-summary[data-detail-level=compact] .vst-tick,.cell svg.vst-summary[data-
 
 svg.vst-map .vst-axis-label{font-size:10px;fill:var(--muted)}
 svg.vst-summary .vst-axis-label,.cell svg.vst-summary .vst-axis-label{font-size:8px;fill:var(--muted)}
+
+.vst-shape-key{display:flex;flex-wrap:wrap;gap:10px 18px;margin:12px 0;font-size:12px}

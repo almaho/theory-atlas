@@ -1,5 +1,5 @@
 'use strict';
-const assert=require('assert/strict'),fs=require('fs'),path=require('path'),vm=require('vm');
+const assert=require('assert/strict'),fs=require('fs'),path=require('path'),vm=require('../../atlas-test-vm.cjs');
 const dir=__dirname,read=n=>fs.readFileSync(path.join(dir,n),'utf8'),d=JSON.parse(read('../../../data/focus/edge-query_list.json')),patch=JSON.parse(read('research-patch.json')),registration=JSON.parse(read('registration.json')),src=read('../../../src/edge-query_list.js'),css=read('../../../src/edge-query_list.css');
 const ids=['query-adjacency-list-greedy-baseline','edge-query-vizing-2025-enumerated','edge-query-near-vizing-2025-enumerated','edge-query-density-2024-enumerated','edge-query-nearlinear-2026-enumerated','edge-query-vizing2024-mnthird','edge-query-vizing2025-mnfourth'],by=id=>d.verifiedRecords.find(r=>r.id===id);
 assert.equal(d.verifiedRecords.length,7);assert.equal(Object.keys(d.sources).length,7);assert.equal(d.derivedBounds.length,1);assert.equal(d.relatedResults.length,0);assert.equal(new Set(d.verifiedRecords.map(r=>r.id)).size,7);

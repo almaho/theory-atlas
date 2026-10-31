@@ -25,7 +25,7 @@ function chart(w,h,o={},focused=false){
  const g=geometry(w,h,{...o,focus:focused}),{left,right,top,bottom,px,py,tiny,detail,level,rows}=g;
  const by=id=>rows.find(r=>r.id===id),matrix=rows.some(r=>r.panel==='matrix'),list=rows.some(r=>r.panel==='positive-list');
  const interactive=(id,mode)=>focused?' tabindex="0" role="button" aria-pressed="'+(o.selected===id&&(id!=='cc-lca-bonchi-four'||o.mode===mode))+'"':'';
- let s='<svg class="'+(focused?'cclca-map':'cclca-summary')+'" viewBox="0 0 '+w+' '+h+'" preserveAspectRatio="xMidYMid meet" data-detail-level="'+level+'" role="'+(focused?'group':'img')+'" aria-label="Correlation clustering local labels: positive-list and matrix access on a symbolic per-label probe axis"><title>Correlation clustering · LCA</title><desc>Green circles and a degree-dependent band are algorithm upper bounds. Red diamonds are historical non-adaptive matrix lower bounds. Labels distinguish positive-list and matrix access. Preprocessing is separate. The axis orders one over epsilon, one over epsilon squared, and n over epsilon when one over n is less than epsilon and epsilon is less than one. Polynomial exponents and general c dependence are unpositioned insets.</desc>';
+ let s='<svg class="'+(focused?'cclca-map':'cclca-summary')+'" viewBox="0 0 '+w+' '+h+'" preserveAspectRatio="xMidYMid meet" data-detail-level="'+level+'" role="'+(focused?'group':'img')+'" aria-label="Correlation clustering local labels: positive-list and matrix access on a symbolic per-label probe axis"><title>Correlation clustering · LCA</title><desc>Green marks and a degree-dependent band are algorithm upper bounds. Red triangles are historical non-adaptive matrix lower bounds. Circles denote positive-list access; squares matrix algorithms. Labels distinguish positive-list and matrix access. Preprocessing is separate. The axis orders one over epsilon, one over epsilon squared, and n over epsilon when one over n is less than epsilon and epsilon is less than one. Polynomial exponents and general c dependence are unpositioned insets.</desc>';
  if(!rows.length)return s+(tiny?'':tx(w/2,h/2,'No results match the source filter.','cclca-muted','middle'))+'</svg>';
  if(detail){
   s+=tx(24,30,'Consistent labels · local query cost','cclca-heading')+tx(24,54,'One implicit partition; common randomness across vertex requests','cclca-muted');
@@ -44,16 +44,13 @@ function chart(w,h,o={},focused=false){
  for(const p of g.points){
   const r=by(p.id),radius=tiny?2.8:detail?6:4,mark=' data-center-x="'+p.x+'" data-center-y="'+p.y+'"';
   s+='<g class="cclca-result '+(p.kind==='lower'?'cclca-lower':'cclca-algorithm')+'" data-cclca-result="'+p.id+'"'+(p.mode?' data-cclca-mode="'+p.mode+'"':'')+' data-kind="'+p.kind+'"'+interactive(p.id,p.mode)+' aria-label="Inspect '+esc(r.shortLabel+'; '+r.displayBound+(p.mode?'; '+p.mode:''))+'">';
-  if(p.role==='band'){
-   s+='<rect x="'+p.x+'" y="'+(p.y-radius)+'" width="'+(p.x2-p.x)+'" height="'+(2*radius)+'" rx="2" class="cclca-band-fill"/><path d="M'+p.x+' '+p.y+'H'+p.x2+'M'+p.x+' '+(p.y-radius-2)+'V'+(p.y+radius+2)+'M'+p.x2+' '+(p.y-radius-2)+'V'+(p.y+radius+2)+'" class="cclca-band"/><circle cx="'+p.x+'" cy="'+p.y+'" r="'+radius+'" fill="var(--green)"'+mark+' data-marker="algorithm"/>';
-  }else if(p.kind==='lower'){
-   s+='<path d="M'+p.x+' '+(p.y-radius-1)+'L'+(p.x+radius+1)+' '+p.y+'L'+p.x+' '+(p.y+radius+1)+'L'+(p.x-radius-1)+' '+p.y+'Z" fill="none" stroke="var(--red)" stroke-width="1.8"'+mark+' data-marker="lower"/>';
-  }else{s+='<circle cx="'+p.x+'" cy="'+p.y+'" r="'+radius+'" fill="var(--green)"'+mark+' data-marker="algorithm"/>';}
+  if(p.role==='band')s+='<rect x="'+p.x+'" y="'+(p.y-radius)+'" width="'+(p.x2-p.x)+'" height="'+(2*radius)+'" rx="2" class="cclca-band-fill"/><path d="M'+p.x+' '+p.y+'H'+p.x2+'M'+p.x+' '+(p.y-radius-2)+'V'+(p.y+radius+2)+'M'+p.x2+' '+(p.y-radius-2)+'V'+(p.y+radius+2)+'" class="cclca-band"/>';
+  s+=window.AtlasSymbols.mark(p.x,p.y,radius,p.kind==='lower'?'triangle':r.panel==='positive-list'?'circle':'square',p.kind,'',{open:p.kind==='lower'});
   if(detail){
    const lx=24;
-   if(p.row===0)s+=tx(lx,p.y-3,'Positive lists','cclca-setup-label cclca-positive-label')+tx(lx,p.y+17,'Expected (3+ε) · no additive term','cclca-fine')+tx((p.x+p.x2)/2,p.y-16,'O(Δ/ε)','cclca-bound','middle')+tx((p.x+p.x2)/2,p.y+27,'Degree-dependent family · 1 ≤ Δ < n','cclca-muted','middle');
-   if(p.row===1)s+=tx(lx,p.y-3,'Matrix · prepared','cclca-setup-label cclca-matrix-label')+tx(lx,p.y+17,'4OPT + εn² · success ≥2/3','cclca-fine')+tx(p.x+17,p.y+5,'O(1/ε)','cclca-bound')+tx(p.x+17,p.y+25,'After preprocessing','cclca-preprocessing');
-   if(p.row===2)s+=tx(lx,p.y-3,'Matrix · lower bound','cclca-setup-label cclca-matrix-label')+tx(lx,p.y+17,'Constant c · sufficiently large n','cclca-fine')+tx(p.x+17,p.y+5,'Ω(1/ε) · non-adaptive','cclca-lower-bound');
+   if(p.row===0)s+=tx(lx,p.y-3,'● Positive lists','cclca-setup-label cclca-positive-label')+tx(lx,p.y+17,'Expected (3+ε) · no additive term','cclca-fine')+tx((p.x+p.x2)/2,p.y-16,'O(Δ/ε)','cclca-bound','middle')+tx((p.x+p.x2)/2,p.y+27,'Degree-dependent family · 1 ≤ Δ < n','cclca-muted','middle');
+   if(p.row===1)s+=tx(lx,p.y-3,'■ Matrix · prepared','cclca-setup-label cclca-matrix-label')+tx(lx,p.y+17,'4OPT + εn² · success ≥2/3','cclca-fine')+tx(p.x+17,p.y+5,'O(1/ε)','cclca-bound')+tx(p.x+17,p.y+25,'After preprocessing','cclca-preprocessing');
+   if(p.row===2)s+=tx(lx,p.y-3,'△ Matrix · non-adaptive lower','cclca-setup-label cclca-matrix-label')+tx(lx,p.y+17,'Constant c · sufficiently large n','cclca-fine')+tx(p.x+17,p.y+5,'Ω(1/ε) · non-adaptive','cclca-lower-bound');
    if(p.row===3)s+=tx(lx,p.y-3,'Matrix · no prep','cclca-setup-label cclca-matrix-label')+tx(lx,p.y+17,'4OPT + εn² · success ≥2/3','cclca-fine')+tx(p.x,p.y-15,'O(1/ε²)','cclca-bound','middle')+tx(p.x,p.y+24,'Recompute with the same seed','cclca-preprocessing','middle');
   }else if(!tiny){
    const name=['Positive lists','Matrix · prep','Matrix · lower','Matrix · no prep'][p.row];
@@ -69,8 +66,7 @@ function chart(w,h,o={},focused=false){
  for(const b of g.insets){
   const r=by(b.id),lower=b.kind==='lower',cx=b.x+13,cy=b.y+(tiny?b.h/2:detail?24:16),rad=tiny?2:detail?4.5:3;
   s+='<g class="cclca-result cclca-inset '+(lower?'cclca-lower':'cclca-algorithm')+'" data-cclca-result="'+b.id+'" data-kind="'+b.kind+'" data-position="unranked"'+interactive(b.id)+' aria-label="Inspect '+esc(r.shortLabel+'; '+r.displayBound)+'"><rect x="'+b.x+'" y="'+b.y+'" width="'+b.w+'" height="'+b.h+'" rx="4" class="cclca-inset-box"/>';
-  if(lower)s+='<path d="M'+cx+' '+(cy-rad)+'L'+(cx+rad)+' '+cy+'L'+cx+' '+(cy+rad)+'L'+(cx-rad)+' '+cy+'Z" fill="none" stroke="var(--red)" stroke-width="1.6" data-marker="unranked-lower"/>';
-  else s+='<circle cx="'+cx+'" cy="'+cy+'" r="'+rad+'" fill="var(--green)" data-marker="unranked-algorithm"/>';
+  s+=window.AtlasSymbols.mark(cx,cy,rad,lower?'triangle':'square',lower?'lower':'algorithm','',{open:lower});
   if(detail){
    if(lower)s+=tx(b.x+27,b.y+28,'Ω(1/(εc²)) · general c ≥ 1','cclca-inset-bound cclca-lower-bound')+tx(b.x+16,b.y+52,'Non-adaptive · 1/n < ε < 1/(100c)','cclca-fine')+tx(b.x+16,b.y+73,'ε-only preprocessing; n sufficiently large','cclca-fine')+tx(b.x+16,b.y+92,'Same lower-bound family as the constant-c marker','cclca-fine');
    else s+=tx(b.x+27,b.y+28,'poly(1/ε) · OPT + εn²','cclca-inset-bound cclca-bound')+tx(b.x+16,b.y+52,'After preprocessing · see theorem details','cclca-preprocessing')+tx(b.x+16,b.y+73,'Success ≥2/3 · polynomial exponent unspecified','cclca-fine')+tx(b.x+16,b.y+92,'Unranked on the cost axis','cclca-fine');

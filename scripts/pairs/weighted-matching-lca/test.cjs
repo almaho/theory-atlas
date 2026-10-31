@@ -1,5 +1,5 @@
 'use strict';
-const fs=require('fs'),path=require('path'),vm=require('vm'),assert=require('assert');
+const fs=require('fs'),path=require('path'),vm=require('../../atlas-test-vm.cjs'),assert=require('assert');
 const root=path.resolve(__dirname,'../../..'),ID='weighted-matching-lca',data=JSON.parse(fs.readFileSync(path.join(root,'data/focus/'+ID+'.json'),'utf8')),source=fs.readFileSync(path.join(root,'src/'+ID+'.js'),'utf8');
 function load(d=data){const c={window:{},document:{getElementById(){return{textContent:JSON.stringify({focus:{[ID]:d}})}}},AbortController,Set};vm.runInNewContext(source,c);return c.window.AtlasPairRenderers[ID];}
 const api=load(),rr=api.records();assert.equal(rr.length,3);assert.equal(api.related().length,0);assert.equal(rr.filter(r=>r.kind==='upper').length,2);assert.equal(rr.filter(r=>r.kind==='lower').length,1);

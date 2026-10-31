@@ -1,5 +1,5 @@
 'use strict';
-const assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
+const assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('../../atlas-test-vm.cjs');
 const data=JSON.parse(fs.readFileSync(__dirname+'/../../../data/focus/matching-query-matrix.json','utf8'));
 const patch=JSON.parse(fs.readFileSync(__dirname+'/research-patch.json','utf8'));
 const input=JSON.parse(fs.readFileSync(__dirname+'/input-research.json','utf8'));

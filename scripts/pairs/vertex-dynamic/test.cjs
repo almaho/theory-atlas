@@ -1,5 +1,5 @@
 'use strict';
-const assert=require('assert/strict'),fs=require('fs'),path=require('path'),vm=require('vm');
+const assert=require('assert/strict'),fs=require('fs'),path=require('path'),vm=require('../../atlas-test-vm.cjs');
 const dir=__dirname,read=n=>fs.readFileSync(path.join(dir,n),'utf8'),d=JSON.parse(read('../../../data/focus/vertex-dynamic.json')),patch=JSON.parse(read('research-patch.json')),registration=JSON.parse(read('registration.json')),src=read('../../../src/vertex-dynamic.js'),css=read('../../../src/vertex-dynamic.css');
 const ids=['vertex-dynamic-adaptive-flin-2025','vertex-dynamic-adaptive-brw-2025','vertex-dynamic-oblivious-constant-2022','vertex-result-19','vertex-extended-vertex-dynamic-oblivious-delta-plus-one-12','vertex-extended-vertex-dynamic-oblivious-delta-plus-one-13','vertex-result-22'],by=id=>d.verifiedRecords.find(r=>r.id===id);
 assert.equal(d.verifiedRecords.length,9);assert.equal(Object.keys(d.sources).length,8);assert.equal(d.relatedResults.length,1);

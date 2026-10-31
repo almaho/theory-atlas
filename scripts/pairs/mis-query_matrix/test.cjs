@@ -1,5 +1,5 @@
 'use strict';
-const fs=require('fs'),vm=require('vm'),assert=require('assert/strict');
+const fs=require('fs'),vm=require('../../atlas-test-vm.cjs'),assert=require('assert/strict');
 const data=JSON.parse(fs.readFileSync(__dirname+'/../../../data/focus/mis-query-matrix.json','utf8')),patch=JSON.parse(fs.readFileSync(__dirname+'/research-patch.json','utf8')),input=JSON.parse(fs.readFileSync(__dirname+'/input-research.json','utf8')),src=fs.readFileSync(__dirname+'/../../../src/mis-query-matrix.js','utf8'),css=fs.readFileSync(__dirname+'/../../../src/mis-query-matrix.css','utf8');
 function load(d=data){const ctx={window:{},AbortController,document:{getElementById:()=>({textContent:JSON.stringify({focus:{'mis-query_matrix':d}})})}};vm.runInNewContext(src,ctx);return ctx.window.AtlasPairRenderers['mis-query_matrix'];}
 const api=load();for(const k of ['mount','summarySVG','diagramSVG','records','release'])assert.equal(typeof api[k],'function');

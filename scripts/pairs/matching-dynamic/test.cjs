@@ -1,5 +1,5 @@
 'use strict';
-const fs=require('fs'),vm=require('vm'),assert=require('assert'),path=require('path'),dir=__dirname;
+const fs=require('fs'),vm=require('../../atlas-test-vm.cjs'),assert=require('assert'),path=require('path'),dir=__dirname;
 const data=JSON.parse(fs.readFileSync(path.join(dir,'../../../data/focus/matching-dynamic-more.json'),'utf8')),input=JSON.parse(fs.readFileSync(path.join(dir,'input-research.json'),'utf8')),patch=JSON.parse(fs.readFileSync(path.join(dir,'research-patch.json'),'utf8'));
 const window={},context={window,document:{getElementById:()=>({textContent:JSON.stringify({focus:{'matching-dynamic':data}})})},AbortController,Set};
 vm.createContext(context);vm.runInContext(fs.readFileSync(path.join(dir,'../../../src/dynamic-more.js'),'utf8'),context);const R=window.AtlasPairRenderers['matching-dynamic'];

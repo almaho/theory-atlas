@@ -44,7 +44,9 @@
       "publicationStatus": "published",
       "year": 2019,
       "evidenceStatus": "primary_statement_verified",
-      "shortLabel": "Cormode–Dark–Konrad ’19"
+      "shortLabel": "Cormode–Dark–Konrad ’19",
+      "markerShape": "circle",
+      "markerLabel": "Irrevocable greedy"
     }
   ],
   "relatedResults": [],

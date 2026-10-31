@@ -1,5 +1,5 @@
 'use strict';
-const assert=require('assert/strict'),fs=require('fs'),path=require('path'),vm=require('vm');
+const assert=require('assert/strict'),fs=require('fs'),path=require('path'),vm=require('../../atlas-test-vm.cjs');
 const dir=__dirname,data=JSON.parse(fs.readFileSync(path.join(dir,'../../../data/focus/edge-dynamic.json'),'utf8')),patch=JSON.parse(fs.readFileSync(path.join(dir,'research-patch.json'),'utf8')),registration=JSON.parse(fs.readFileSync(path.join(dir,'registration.json'),'utf8')),src=fs.readFileSync(path.join(dir,'../../../src/edge-dynamic.js'),'utf8'),css=fs.readFileSync(path.join(dir,'../../../src/edge-dynamic.css'),'utf8');
 const original=['forest-greedy-recourse-2026','forest-random-fully-2026','general-large-palette-recourse-2026','forest-incremental-random-2026','forest-full-delta-lower-2026','dynamic-arboricity-recourse-2026','edge-dynamic-duan-2019','edge-dynamic-christiansen-2023','edge-dynamic-nibble-2024','edge-dynamic-deterministic-2026','edge-dynamic-bchn-2018','edge-dynamic-arbor-bcps-2024','edge-dynamic-sparse-crv-2024'];
 const all=[...data.verifiedRecords,...data.relatedResults],by=id=>all.find(r=>r.id===id);

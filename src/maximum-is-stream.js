@@ -38,12 +38,12 @@ function draw(w,h,o={},interactive=false){
   s+='<g class="mxs-result mxs-'+(lower?'lower':'upper')+(o.selected===r.id?' mxs-selected':'')+'" data-mxs-result="'+esc(r.id)+'" data-kind="'+(lower?'lower':'upper')+'" data-point-x="'+p.marker.x+'" data-point-y="'+p.marker.y+'"'+(interactive?' role="button" tabindex="0" aria-pressed="'+(o.selected===r.id)+'"':'')+' aria-label="'+esc(r.shortName+'; '+r.displayBound+'; '+r.range)+'"><title>'+esc(r.displayBound+'; '+r.range+'; leading exponent 2−t')+'</title>';
   s+=line(p.start.x,p.start.y,p.end.x,p.end.y,'curve');
   s+='<circle class="mxs-end" cx="'+p.start.x+'" cy="'+p.start.y+'" r="'+radius+'"/><circle class="mxs-end mxs-end-open" cx="'+p.end.x+'" cy="'+p.end.y+'" r="'+radius+'"/>';
-  s+=lower?'<path class="mxs-point" d="M'+p.marker.x+' '+(p.marker.y-radius)+'l'+radius+' '+radius+' -'+radius+' '+radius+' -'+radius+' -'+radius+'Z"/>':'<circle class="mxs-point" cx="'+p.marker.x+'" cy="'+p.marker.y+'" r="'+radius+'"/>';s+='</g>';
+  s+=window.AtlasSymbols.mark(p.marker.x,p.marker.y,radius,'circle',r.kind);s+='</g>';
  }
  if(!tiny&&!rows.length)s+=tx((g.left+g.right)/2,(g.top+g.bottom)/2,'No published source in this reviewed panel.',detail?'label':'mini-label','middle');
  if(detail){
   if(rows.some(r=>r.kind!=='lower'))s+=tx(g.left,h*.82,'● Algorithm  O(n²/β) bits · 1 ≤ β ≤ n/log₂ n','bound-upper');
-  if(rows.some(r=>r.kind==='lower'))s+=tx(g.left,h*.875,'◇ Lower bound  Ω(n²/(β log₂ n)) bits · 1 ≤ β ≤ √n/(36 log₂ n)','bound-lower');
+  if(rows.some(r=>r.kind==='lower'))s+=tx(g.left,h*.875,'● Lower bound  Ω(n²/(β log₂ n)) bits · 1 ≤ β ≤ √n/(36 log₂ n)','bound-lower');
   s+=tx(g.left,h*.93,'Open ends: fixed t<1 and t<1/2. Screen offset separates the marks; it is not a space gap.','note');
   s+=tx(g.left,h*.975,'Deterministic · one pass · insertion–deletion · explicit output · unrestricted computation','note');
  }
@@ -58,7 +58,7 @@ function mount(root,key=ID,options={}){
  for(const [id,r]of Object.entries(window.AtlasPairRenderers))if(id!==ID)r.release?.(root);
  const controller=new AbortController();let publication=options.publication||'all',selected=data.verifiedRecords[0].id;
  root.classList.add('focus-view','mxs-view');root.classList.toggle('f-embedded',!!options.embedded);
- root.innerHTML='<p class="f-kicker">MAXIMUM INDEPENDENT SET × STREAMING</p><header class="f-hero"><div><h1>'+esc(data.title)+'</h1><p>'+esc(data.subtitle)+'</p></div></header><div class="mxs-toolbar"><span><b class="mxs-green">● Algorithm</b> · <b class="mxs-red">◇ Lower bound</b> · both have leading exponent 2−t</span><label>Sources <select class="mxs-publication" aria-label="Maximum independent-set streaming publication filter"><option value="all">All reviewed sources</option><option value="published">Published only</option></select></label></div><div class="mxs-scroll" tabindex="0" aria-label="Streaming approximation figure; scroll horizontally on narrow screens"><div class="mxs-plot"></div></div><p class="mxs-reading">'+esc(data.axisNote)+'</p><section class="mxs-theorem" aria-live="polite" aria-label="Selected streaming theorem"></section><p class="mxs-coverage">'+esc(data.coverageNote)+'</p>';
+ root.innerHTML='<p class="f-kicker">MAXIMUM INDEPENDENT SET × STREAMING</p><header class="f-hero"><div><h1>'+esc(data.title)+'</h1><p>'+esc(data.subtitle)+'</p></div></header><div class="mxs-toolbar"><span><b class="mxs-green">● Algorithm</b> · <b class="mxs-red">● Lower bound</b> · circles: deterministic insertion–deletion · both have leading exponent 2−t</span><label>Sources <select class="mxs-publication" aria-label="Maximum independent-set streaming publication filter"><option value="all">All reviewed sources</option><option value="published">Published only</option></select></label></div><div class="mxs-scroll" tabindex="0" aria-label="Streaming approximation figure; scroll horizontally on narrow screens"><div class="mxs-plot"></div></div><p class="mxs-reading">'+esc(data.axisNote)+'</p><section class="mxs-theorem" aria-live="polite" aria-label="Selected streaming theorem"></section><p class="mxs-coverage">'+esc(data.coverageNote)+'</p>';
  function inspect(){
   const r=records({publication}).find(z=>z.id===selected),box=root.querySelector('.mxs-theorem');
   if(!r){box.innerHTML='<p>Both reviewed records are documented in a preprint. Select all reviewed sources to inspect them.</p>';return;}

@@ -1,4 +1,4 @@
-const fs=require('fs'),vm=require('vm'),assert=require('assert');
+const fs=require('fs'),vm=require('../../atlas-test-vm.cjs'),assert=require('assert');
 const data=JSON.parse(fs.readFileSync(__dirname+'/../../../data/focus/cc-query-combined.json','utf8')),input=JSON.parse(fs.readFileSync(__dirname+'/input-research.json','utf8')),patch=JSON.parse(fs.readFileSync(__dirname+'/research-patch.json','utf8')),registration=JSON.parse(fs.readFileSync(__dirname+'/registration.json','utf8'));
 const context={window:{},document:{getElementById:()=>({textContent:JSON.stringify({focus:{'cc-query_combined':data}})})},AbortController};
 vm.runInNewContext(fs.readFileSync(__dirname+'/../../../src/cc-query-combined.js','utf8'),context);

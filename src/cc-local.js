@@ -76,7 +76,7 @@
       '" data-setup="'+esc(row.setup)+'" '+extra+accessible+'><title>'+
       esc(row.shortLabel+': '+row.quality+'; '+row.displayBound)+'</title>'+
       (selected && !tiny ? '<circle class="cc-local-selection" cx="'+num(x)+'" cy="'+num(y)+'" r="10"/>' : '')+
-      '<circle class="cc-local-algorithm" cx="'+num(x)+'" cy="'+num(y)+'" r="'+radius+'"/></g>';
+      window.AtlasSymbols.mark(x,y,radius,({complete:'circle',weighted:'diamond',minorfree:'square'})[row.setup]||'circle',row.kind)+'</g>';
   }
 
   function renderSVG(w, h, options = {}) {
@@ -211,9 +211,9 @@
       '<span><i class="cc-local-key-guide"></i>Parameter guide</span></div>'+
       '<label>Sources <select class="cc-local-publication" aria-label="Correlation clustering LOCAL publication filter">'+
       '<option value="all">All verified sources</option><option value="published">Published only</option></select></label></div>'+
-      '<div class="cc-local-setup-legend"><span><i class="cc-local-complete"></i>Complete signed · min disagreements</span>'+
-      '<span><i class="cc-local-weighted"></i>General weighted signed · max agreements</span>'+
-      '<span><i class="cc-local-minorfree"></i>H-minor-free signed · max agreements</span></div>'+
+      '<div class="cc-local-setup-legend">'+window.AtlasSymbols.key('circle','Complete signed · min disagreements')+''+
+      ''+window.AtlasSymbols.key('diamond','General weighted signed · max agreements')+''+
+      ''+window.AtlasSymbols.key('square','H-minor-free signed · max agreements')+'</div>'+
       '<div class="cc-local-scroll" tabindex="0" aria-label="LOCAL figure; scroll horizontally on narrow screens"><div class="cc-local-plot"></div></div>'+
       '<div class="cc-local-controls"><label for="'+prefix+'-r">Inspect BCMT22 phase r <input id="'+prefix+'-r" class="cc-local-r-input" type="number" min="1" max="128" step="1"></label>'+
       '<span>Shown r=1–128; the theorem holds for every integer r≥1.</span></div>'+

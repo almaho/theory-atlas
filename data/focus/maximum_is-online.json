@@ -50,7 +50,9 @@
       "publicationStatus": "preprint",
       "year": 2026,
       "evidenceStatus": "primary_statement_verified",
-      "shortLabel": "De–Singh ’26"
+      "shortLabel": "De–Singh ’26",
+      "markerShape": "circle",
+      "markerLabel": "Deterministic · adversarial order"
     },
     {
       "id": "mis-online-zeta-det-lower",
@@ -72,7 +74,9 @@
       "publicationStatus": "preprint",
       "year": 2026,
       "evidenceStatus": "primary_statement_verified",
-      "shortLabel": "De–Singh ’26"
+      "shortLabel": "De–Singh ’26",
+      "markerShape": "circle",
+      "markerLabel": "Deterministic · adversarial order"
     },
     {
       "id": "mis-online-zeta-rand-lower",
@@ -94,7 +98,9 @@
       "publicationStatus": "preprint",
       "year": 2026,
       "evidenceStatus": "primary_statement_verified",
-      "shortLabel": "De–Singh ’26"
+      "shortLabel": "De–Singh ’26",
+      "markerShape": "triangle",
+      "markerLabel": "Randomized · oblivious adversary"
     }
   ],
   "relatedResults": [],

@@ -50,7 +50,9 @@
       "publicationStatus": "published",
       "year": 1992,
       "evidenceStatus": "primary_statement_verified",
-      "shortLabel": "Calkin–Frieze–Kučera ’92"
+      "shortLabel": "Calkin–Frieze–Kučera ’92",
+      "markerShape": "circle",
+      "markerLabel": "Sparse random graph · p=1/n"
     },
     {
       "id": "mis-stochastic-sparse-lower",
@@ -72,7 +74,9 @@
       "publicationStatus": "published",
       "year": 1992,
       "evidenceStatus": "primary_statement_verified",
-      "shortLabel": "Calkin–Frieze–Kučera ’92"
+      "shortLabel": "Calkin–Frieze–Kučera ’92",
+      "markerShape": "circle",
+      "markerLabel": "Sparse random graph · p=1/n"
     },
     {
       "id": "mis-stochastic-dense-upper",
@@ -94,7 +98,9 @@
       "publicationStatus": "published",
       "year": 1992,
       "evidenceStatus": "primary_statement_verified",
-      "shortLabel": "Calkin–Frieze–Kučera ’92"
+      "shortLabel": "Calkin–Frieze–Kučera ’92",
+      "markerShape": "square",
+      "markerLabel": "Dense random graph · p=1/2"
     },
     {
       "id": "mis-stochastic-dense-lower",
@@ -116,7 +122,9 @@
       "publicationStatus": "published",
       "year": 1992,
       "evidenceStatus": "primary_statement_verified",
-      "shortLabel": "Calkin–Frieze–Kučera ’92"
+      "shortLabel": "Calkin–Frieze–Kučera ’92",
+      "markerShape": "square",
+      "markerLabel": "Dense random graph · p=1/2"
     }
   ],
   "relatedResults": [],

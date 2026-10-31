@@ -1,6 +1,6 @@
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
-const vm = require('node:vm');
+const vm = require('../../atlas-test-vm.cjs');
 const path = require('node:path');
 const root = path.resolve(__dirname, '../../..');
 const read = file => JSON.parse(fs.readFileSync(path.join(root,file),'utf8'));

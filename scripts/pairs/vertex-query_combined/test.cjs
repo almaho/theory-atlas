@@ -1,5 +1,5 @@
 'use strict';
-const fs=require('fs'),path=require('path'),vm=require('vm'),assert=require('assert');
+const fs=require('fs'),path=require('path'),vm=require('../../atlas-test-vm.cjs'),assert=require('assert');
 const at=n=>path.join(__dirname,n),data=JSON.parse(fs.readFileSync(at('../../../data/focus/vertex-query_combined.json'),'utf8')),source=fs.readFileSync(at('../../../src/vertex-query_combined.js'),'utf8'),input=JSON.parse(fs.readFileSync(at('input-research.json'),'utf8')),patch=JSON.parse(fs.readFileSync(at('research-patch.json'),'utf8')),reg=JSON.parse(fs.readFileSync(at('registration.json'),'utf8')),css=fs.readFileSync(at('../../../src/vertex-query_combined.css'),'utf8');
 function load(d=data){const c={window:{},document:{getElementById(){return{textContent:JSON.stringify({focus:{'vertex-query_combined':d}})}}},AbortController};vm.runInNewContext(source,c);return c.window.AtlasPairRenderers['vertex-query_combined'];}
 const api=load(),rows=api.records(),ids=input.slices.flatMap(s=>s.results.map(r=>r.id)),get=id=>rows.find(r=>r.id===id);

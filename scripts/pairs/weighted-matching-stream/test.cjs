@@ -1,5 +1,5 @@
 'use strict';
-const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
+const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),vm=require('../../atlas-test-vm.cjs');
 const root=path.resolve(__dirname,'../../..'),ID='weighted-matching-stream';
 const data=JSON.parse(fs.readFileSync(path.join(root,'data/focus',ID+'.json'),'utf8'));
 const source=fs.readFileSync(path.join(root,'src',ID+'.js'),'utf8');

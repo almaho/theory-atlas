@@ -45,7 +45,9 @@
       "publicationStatus": "published",
       "year": 2017,
       "evidenceStatus": "primary_statement_verified",
-      "shortLabel": "Rahman–Virág ’17"
+      "shortLabel": "Rahman–Virág ’17",
+      "markerShape": "circle",
+      "markerLabel": "Fixed-radius local algorithms"
     },
     {
       "id": "mis-stochastic-local-lower",
@@ -67,7 +69,9 @@
       "publicationStatus": "published",
       "year": 2017,
       "evidenceStatus": "primary_statement_verified",
-      "shortLabel": "Rahman–Virág ’17"
+      "shortLabel": "Rahman–Virág ’17",
+      "markerShape": "circle",
+      "markerLabel": "Fixed-radius local algorithms"
     }
   ],
   "relatedResults": [],

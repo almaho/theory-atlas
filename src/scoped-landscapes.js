@@ -10,7 +10,7 @@ const colors=['var(--muted)','var(--muted)','var(--muted)','var(--muted)'];
 const instances=new Set();
 function wrap(s,max=56){const a=String(s).split(' '),out=[];let line='';for(const w of a){if(line.length+w.length+1>max&&line){out.push(line);line=w;}else line+=(line?' ':'')+w;}if(line)out.push(line);return out;}
 function panelX(p,at,left,right){if(p.categories){const i=p.categories.findIndex(c=>c.id===at);return left+(right-left)*(i+.5)/p.categories.length;}return left+(right-left)*(at-p.min)/(p.max-p.min);}
-function mark(r,x,y,size,interactive,selected){const lower=r.kind==='lower';return '<g class="sl-marker '+(lower?'sl-lower':'sl-upper')+(r.limit?' sl-limit':'')+'" data-scope-result="'+esc(r.id)+'" data-row-ids="'+esc(r.supportingPaper?.id||'')+'" data-kind="'+(lower?'lower':'upper')+'" data-point-x="'+x+'" data-point-y="'+y+'"'+(interactive?' role="button" tabindex="0" aria-pressed="'+(selected===r.id)+'"':'')+' aria-label="'+esc(r.setup+'; '+r.displayBound+'; '+r.shortLabel)+'"><title>'+esc(r.displayBound+' · '+r.quality+' · '+r.probability)+'</title>'+(lower?'<path d="M'+x+' '+(y-size)+'l'+size+' '+size+' -'+size+' '+size+' -'+size+' -'+size+'Z"/>':'<circle cx="'+x+'" cy="'+y+'" r="'+size+'"/>')+'</g>';}
+function mark(r,x,y,size,interactive,selected){const lower=r.kind==='lower';return '<g class="sl-marker '+(lower?'sl-lower':'sl-upper')+(r.limit?' sl-limit':'')+'" data-scope-result="'+esc(r.id)+'" data-row-ids="'+esc(r.supportingPaper?.id||'')+'" data-kind="'+(lower?'lower':'upper')+'" data-point-x="'+x+'" data-point-y="'+y+'"'+(interactive?' role="button" tabindex="0" aria-pressed="'+(selected===r.id)+'"':'')+' aria-label="'+esc(r.setup+'; '+r.displayBound+'; '+r.shortLabel)+'"><title>'+esc(r.displayBound+' · '+r.quality+' · '+r.probability)+'</title>'+window.AtlasSymbols.mark(x,y,size,r.markerShape||'circle',r.kind,'',{open:!!r.limit})+'</g>';}
 function release(root){for(const i of instances)if(!i.root.isConnected||i.root===root)i.destroy();}
 for(const [ID,data] of Object.entries(payload.focus).filter(([,d])=>d.renderer==='scoped-landscape')){
  const records=(o={})=>data.verifiedRecords.map(r=>({...data.sources[r.sourceId],...r})).filter(r=>o.publication!=='published'||r.publicationStatus!=='preprint');
@@ -19,7 +19,7 @@ for(const [ID,data] of Object.entries(payload.focus).filter(([,d])=>d.renderer==
  function full(o={}){
   const rows=records(o),heights=data.panels.map(p=>120+Math.max(1,panelRows(p,o).length)*46),H=54+heights.reduce((a,b)=>a+b,0);
   let s='<svg class="sl-map" viewBox="0 0 1100 '+H+'" data-detail-level="detail" role="img" aria-label="'+esc(data.title+'; algorithms green and scoped lower bounds red')+'">';
-  s+='<circle cx="29" cy="21" r="4" fill="var(--green)"/>'+tx(40,25,'Algorithm','legend')+'<path d="M135 17l4 4 -4 4 -4 -4Z" fill="var(--red)"/>'+tx(146,25,'Lower bound / obstruction','legend')+tx(360,25,'○ Asymptotic reference; exact formula beside marker','legend');
+  s+=tx(18,25,'Green: algorithm · Red: lower bound · Shape: setup (see legend)','legend')+tx(520,25,'Hollow: asymptotic reference; exact formula beside marker','legend');
   let top=44;
   data.panels.forEach((p,i)=>{
    const rr=panelRows(p,o),h=heights[i],left=280,right=690,bottom=top+h-46;
@@ -68,7 +68,7 @@ for(const [ID,data] of Object.entries(payload.focus).filter(([,d])=>d.renderer==
   for(const [id,renderer]of Object.entries(window.AtlasPairRenderers||{}))if(id!==ID)renderer.release?.(root);
   const controller=new AbortController();let publication=options.publication||'all',selected=data.verifiedRecords[0]?.id;
   root.classList.add('focus-view','sl-view');root.classList.toggle('f-embedded',!!options.embedded);
-  root.innerHTML='<p class="f-kicker">'+esc(data.problemLabel+' × '+data.modelLabel)+'</p><header class="f-hero"><div><h1>'+esc(data.title)+'</h1><p>'+esc(data.subtitle)+'</p></div></header><div class="sl-toolbar"><span><b class="sl-green">● Algorithms</b> · <b class="sl-red">◇ Lower bounds</b> · labels and panels distinguish setups</span><label>Sources <select class="sl-publication" aria-label="Sources for '+esc(data.title)+'"><option value="all">All reviewed sources</option><option value="published">Published only</option></select></label></div><div class="sl-scroll" tabindex="0" aria-label="Figure; scroll horizontally on narrow screens"><div class="sl-plot"></div></div><p class="sl-axis-note">'+esc(data.axisNote)+'</p><section class="sl-inspector" aria-live="polite" aria-label="Selected theorem"></section><div class="sl-related"></div><p class="sl-coverage">'+esc(data.coverageNote)+'</p>';
+  root.innerHTML='<p class="f-kicker">'+esc(data.problemLabel+' × '+data.modelLabel)+'</p><header class="f-hero"><div><h1>'+esc(data.title)+'</h1><p>'+esc(data.subtitle)+'</p></div></header><div class="sl-toolbar"><span><b class="sl-green">Algorithms</b> · <b class="sl-red">Lower bounds</b> · shapes distinguish setups</span><label>Sources <select class="sl-publication" aria-label="Sources for '+esc(data.title)+'"><option value="all">All reviewed sources</option><option value="published">Published only</option></select></label></div><div class="atlas-shape-legend sl-shape-legend" aria-label="Setup shapes"></div><div class="sl-scroll" tabindex="0" aria-label="Figure; scroll horizontally on narrow screens"><div class="sl-plot"></div></div><p class="sl-axis-note">'+esc(data.axisNote)+'</p><section class="sl-inspector" aria-live="polite" aria-label="Selected theorem"></section><div class="sl-related"></div><p class="sl-coverage">'+esc(data.coverageNote)+'</p>';
   function inspect(){
    const r=allRecords({publication}).find(r=>r.id===selected),box=root.querySelector('.sl-inspector');
    if(!r){box.innerHTML='<p>No result matches the source filter.</p>';return;}
@@ -78,6 +78,8 @@ for(const [ID,data] of Object.entries(payload.focus).filter(([,d])=>d.renderer==
    const rr=allRecords({publication});if(!rr.some(r=>r.id===selected))selected=rr[0]?.id;
    root.querySelector('.sl-publication').value=publication;
    root.querySelector('.sl-plot').innerHTML=full({publication,selected});
+   const setups=[...new Map(records({publication}).map(r=>[r.markerShape||'circle',{shape:r.markerShape||'circle',label:r.markerLabel||r.setup}])).values()];
+   root.querySelector('.sl-shape-legend').innerHTML=setups.map(v=>window.AtlasSymbols.key(v.shape,v.label)).join('');
    root.querySelector('.sl-related').innerHTML=(data.relatedResults||[]).filter(r=>publication!=='published'||r.publicationStatus!=='preprint').map(r=>'<button type="button" data-scope-result="'+esc(r.id)+'"><small>Related setup</small><strong>'+esc(r.setup)+'</strong><span>'+esc(r.displayBound)+'</span></button>').join('');
    inspect();
   }

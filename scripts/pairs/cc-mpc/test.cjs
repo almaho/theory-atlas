@@ -1,4 +1,4 @@
-const fs=require('fs'),vm=require('vm'),assert=require('assert');
+const fs=require('fs'),vm=require('../../atlas-test-vm.cjs'),assert=require('assert');
 const data=JSON.parse(fs.readFileSync(__dirname+'/../../../data/focus/cc-mpc.json','utf8')),input=JSON.parse(fs.readFileSync(__dirname+'/input-research.json','utf8')),patch=JSON.parse(fs.readFileSync(__dirname+'/research-patch.json','utf8'));
 const code=fs.readFileSync(__dirname+'/../../../src/cc-mpc.js','utf8');
 function runtime(d){const c={window:{},document:{getElementById:()=>({textContent:JSON.stringify({focus:{'cc-mpc':d}})})},AbortController};vm.runInNewContext(code,c);return c.window.AtlasPairRenderers['cc-mpc'];}
@@ -31,7 +31,7 @@ for(const [w,h]of sizes){const svg=R.summarySVG('cc-mpc',w,h);assert(!/NaN|undef
  if(w===738&&h===548){assert(svg.includes('fixed ε, δ; fixed λ≥2 in arboric rows'));assert(svg.includes('No general lower bound verified'));assert(svg.includes('k^(k+1)'));assert(svg.includes('O(ε⁻¹(log ε⁻¹+log log* n))'));assert(svg.includes('data-axis="x"')&&svg.includes('data-axis="y"'));}}
 assert(counts[0]<counts[1]&&counts[1]<counts[3]);assert.equal((R.summarySVG('cc-mpc',738,548,{level:'overview'}).match(/<text /g)||[]).length,0);
 const focus=R.diagramSVG();for(const r of data.verifiedRecords)assert(focus.includes('data-ccmp-result="'+r.id+'"'));for(const r of data.relatedResults)assert(!focus.includes('data-ccmp-result="'+r.id+'"'));
-assert(focus.includes('polylog n')&&!focus.includes('≥ log n'));assert(code.includes('fill="var(--green)"'));
+assert(focus.includes('polylog n')&&!focus.includes('≥ log n'));assert(R.summarySVG('cc-mpc',330,245).includes('fill="var(--green)"'));
 const nodes={},events={},signals=[];const root={isConnected:true,classList:{add(){},remove(){},toggle(){}},setAttribute(){},querySelector:s=>nodes[s]||(nodes[s]={innerHTML:'',value:'',hidden:false}),addEventListener(n,f,o){events[n]=f;signals.push(o.signal)}};let changed;
 R.mount(root,'cc-mpc',{onPublicationChange:p=>changed=p});
 assert(nodes['.ccmp-theorem'].innerHTML.includes('C=O(1)'));

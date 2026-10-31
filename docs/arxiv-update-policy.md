@@ -14,7 +14,7 @@ Read full theorem statements and model definitions. Preserve graph/input classes
 
 If fine-grained work is explicitly resumed in the future, store the reduction direction and exact algorithmic consequence separately. Record input-size transformation, exponent loss, reduction cost, decision versus reporting, and computational model. A path of edges is not automatically composable. Never infer equivalence from a one-way reduction.
 
-Use green for algorithms and red for lower bounds, with neutral labels, panels and line/marker styles for graph/setup distinctions (Alma's 31 October preference: no additional categorical hues). Do not put incompatible contracts on one numerical axis. Ask Alma only when a new setup or ambiguous comparison requires a substantive choice; retain the candidate and continue independent review.
+Use green for algorithms and red for lower bounds, with distinct marker shapes and explicit legends for model/setup distinctions (Alma's 31 October preference: no additional categorical hues). The same setup keeps its shape for green algorithms and red lower bounds in overview and enlarged figures. Use the shared AtlasSymbols primitive; reserve neutral paint for structural guides and text, not bound markers. Do not put incompatible contracts on one numerical axis. Ask Alma only when a new setup or ambiguous comparison requires a substantive choice; retain the candidate and continue independent review.
 
 ## Release
 

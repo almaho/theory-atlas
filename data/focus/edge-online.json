@@ -76,7 +76,9 @@
       "publicationStatus": "published",
       "year": 2025,
       "evidenceStatus": "primary_statement_verified",
-      "shortLabel": "Blikstad et al. ’25"
+      "shortLabel": "Blikstad et al. ’25",
+      "markerShape": "circle",
+      "markerLabel": "Edge arrival · deterministic"
     },
     {
       "id": "edge-online-det",
@@ -98,7 +100,9 @@
       "publicationStatus": "published",
       "year": 2025,
       "evidenceStatus": "primary_statement_verified",
-      "shortLabel": "Blikstad et al. ’25"
+      "shortLabel": "Blikstad et al. ’25",
+      "markerShape": "circle",
+      "markerLabel": "Edge arrival · deterministic"
     },
     {
       "id": "edge-online-adaptive",
@@ -120,7 +124,9 @@
       "publicationStatus": "published",
       "year": 2025,
       "evidenceStatus": "primary_statement_verified",
-      "shortLabel": "Blikstad et al. ’25"
+      "shortLabel": "Blikstad et al. ’25",
+      "markerShape": "triangle",
+      "markerLabel": "Edge arrival · adaptive adversary"
     },
     {
       "id": "edge-online-oblivious",
@@ -142,7 +148,9 @@
       "publicationStatus": "published",
       "year": 2025,
       "evidenceStatus": "primary_statement_verified",
-      "shortLabel": "Blikstad et al. ’25"
+      "shortLabel": "Blikstad et al. ’25",
+      "markerShape": "hexagon",
+      "markerLabel": "Edge arrival · oblivious adversary"
     },
     {
       "id": "edge-online-known",
@@ -164,7 +172,9 @@
       "publicationStatus": "published",
       "year": 2019,
       "evidenceStatus": "primary_statement_verified",
-      "shortLabel": "Cohen et al. ’19"
+      "shortLabel": "Cohen et al. ’19",
+      "markerShape": "square",
+      "markerLabel": "One-sided vertex arrival · known Δ"
     },
     {
       "id": "edge-online-known-lower",
@@ -186,7 +196,9 @@
       "publicationStatus": "published",
       "year": 2019,
       "evidenceStatus": "primary_statement_verified",
-      "shortLabel": "Cohen et al. ’19"
+      "shortLabel": "Cohen et al. ’19",
+      "markerShape": "square",
+      "markerLabel": "One-sided vertex arrival · known Δ"
     },
     {
       "id": "edge-online-unknown",
@@ -208,7 +220,9 @@
       "publicationStatus": "published",
       "year": 2019,
       "evidenceStatus": "primary_statement_verified",
-      "shortLabel": "Cohen et al. ’19"
+      "shortLabel": "Cohen et al. ’19",
+      "markerShape": "triangle-down",
+      "markerLabel": "One-sided vertex arrival · unknown Δ"
     },
     {
       "id": "edge-online-unknown-lower",
@@ -230,7 +244,9 @@
       "publicationStatus": "published",
       "year": 2019,
       "evidenceStatus": "primary_statement_verified",
-      "shortLabel": "Cohen et al. ’19"
+      "shortLabel": "Cohen et al. ’19",
+      "markerShape": "triangle-down",
+      "markerLabel": "One-sided vertex arrival · unknown Δ"
     },
     {
       "id": "edge-online-random",
@@ -252,7 +268,9 @@
       "publicationStatus": "published",
       "year": 2025,
       "evidenceStatus": "primary_statement_verified",
-      "shortLabel": "Dudeja et al. ’25"
+      "shortLabel": "Dudeja et al. ’25",
+      "markerShape": "diamond",
+      "markerLabel": "Random edge order"
     }
   ],
   "relatedResults": [],

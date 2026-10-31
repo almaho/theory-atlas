@@ -4,3 +4,7 @@
 @media print{.s-toolbar{display:none}.s-plot-host{min-width:0}.s-plot-scroll{overflow:visible}.s-map,.s-theorem{break-inside:avoid}}
 
 .s-related button.s-related-algorithm{border-left-color:var(--green)}
+
+/* Color keys encode theorem role; marker shape encodes setup. */
+.s-legend .s-key-algorithm,.s-legend .s-key-barrier{width:14px;height:3px;transform:none;border:0;border-radius:0;vertical-align:middle}
+.s-legend .s-key-barrier{background:var(--red)}

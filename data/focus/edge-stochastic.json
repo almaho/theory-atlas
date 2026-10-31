@@ -52,7 +52,9 @@
       "year": 1988,
       "evidenceStatus": "primary_statement_verified",
       "shortLabel": "Frieze–Jackson–McDiarmid–Reed ’88",
-      "computation": "O(n⁴) deterministic running time"
+      "computation": "O(n⁴) deterministic running time",
+      "markerShape": "circle",
+      "markerLabel": "Random-graph edge coloring"
     },
     {
       "id": "edge-stochastic-obstruction",
@@ -74,7 +76,9 @@
       "publicationStatus": "published",
       "year": 1988,
       "evidenceStatus": "primary_statement_verified",
-      "shortLabel": "Frieze–Jackson–McDiarmid–Reed ’88"
+      "shortLabel": "Frieze–Jackson–McDiarmid–Reed ’88",
+      "markerShape": "circle",
+      "markerLabel": "Random-graph edge coloring"
     }
   ],
   "relatedResults": [],

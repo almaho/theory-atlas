@@ -1,5 +1,5 @@
 /* Integration checks using the exact data and renderers shipped to readers. */
-const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),assert=require('node:assert/strict');
+const fs=require('node:fs'),path=require('node:path'),vm=require('./atlas-test-vm.cjs'),assert=require('node:assert/strict');
 const root=path.resolve(__dirname,'..'),html=fs.readFileSync(path.join(root,'dist/index.html'),'utf8');
 const data=JSON.parse(html.match(/<script id="atlas-data" type="application\/json">([\s\S]*?)<\/script>/)[1]);
 assert.equal(data.models.length,9);

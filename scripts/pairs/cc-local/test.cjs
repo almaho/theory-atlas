@@ -1,6 +1,6 @@
 'use strict';
 const fs = require('fs');
-const vm = require('vm');
+const vm = require('../../atlas-test-vm.cjs');
 const assert = require('assert');
 const base = __dirname + '/../../../';
 const data = JSON.parse(fs.readFileSync(base+'data/focus/cc-local.json','utf8'));

@@ -47,7 +47,9 @@
       "year": 2007,
       "evidenceStatus": "primary_statement_verified",
       "shortLabel": "Coja-Oghlan ’07",
-      "computation": "Polynomial worst-case running time"
+      "computation": "Polynomial worst-case running time",
+      "markerShape": "circle",
+      "markerLabel": "Semirandom planted k-partition"
     },
     {
       "id": "vertex-stochastic-hardness",
@@ -69,7 +71,9 @@
       "publicationStatus": "published",
       "year": 2007,
       "evidenceStatus": "primary_statement_verified",
-      "shortLabel": "Coja-Oghlan ’07"
+      "shortLabel": "Coja-Oghlan ’07",
+      "markerShape": "circle",
+      "markerLabel": "Semirandom planted k-partition"
     }
   ],
   "relatedResults": [

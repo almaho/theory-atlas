@@ -1,4 +1,4 @@
-const fs=require('fs'),vm=require('vm'),assert=require('assert');
+const fs=require('fs'),vm=require('../../atlas-test-vm.cjs'),assert=require('assert');
 const data=JSON.parse(fs.readFileSync(__dirname+'/../../../data/focus/mis-mpc.json','utf8')),input=JSON.parse(fs.readFileSync(__dirname+'/input-research.json','utf8')),patch=JSON.parse(fs.readFileSync(__dirname+'/research-patch.json','utf8'));
 const context={window:{},document:{getElementById:()=>({textContent:JSON.stringify({focus:{'mis-mpc':data}})})},AbortController};vm.runInNewContext(fs.readFileSync(__dirname+'/../../../src/mis-mpc.js','utf8'),context);const R=context.window.AtlasPairRenderers['mis-mpc'];
 assert.equal(R.records().length,13);assert.equal(R.records({publication:'published'}).length,11);

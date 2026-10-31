@@ -1,5 +1,5 @@
 'use strict';
-const assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm'),path=require('node:path');
+const assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('./atlas-test-vm.cjs'),path=require('node:path');
 const root=path.resolve(__dirname,'..'),c={window:{},document:{addEventListener(){}}};
 vm.runInNewContext(fs.readFileSync(path.join(root,'src/visual-guides.js'),'utf8'),c);
 const example=c.window.AtlasVisualGuides.example;

@@ -3,3 +3,7 @@
 @media(max-width:750px){.mqm-toolbar{align-items:start;flex-wrap:wrap}.mqm-chart-notes{grid-template-columns:1fr;gap:6px}.mqm-evidence-list{grid-template-columns:1fr 1fr}.matching-query-matrix-view .f-hero h1{font-size:30px}}
 @media(max-width:510px){.matching-query-matrix-view .f-hero h1{font-size:27px}.mqm-legend{gap:9px 15px;font-size:10px}.mqm-plot-scroll:before{content:'Swipe to compare pair-query bounds and error contracts →';display:block;position:sticky;left:0;padding:9px 12px;font-size:10px;color:var(--muted);background:var(--bg)}.mqm-related-results,.mqm-detail-grid,.mqm-evidence-list{grid-template-columns:1fr}.mqm-theorem{padding:13px}.mqm-theorem-top>span:last-child{margin-left:0;max-width:none}.mqm-record{gap:5px}}
 @media print{.mqm-toolbar{display:none}.mqm-plot-host{min-width:0}.mqm-plot-scroll{overflow:visible}.mqm-map,.mqm-theorem{break-inside:avoid}}
+
+/* Color keys encode theorem role; marker shape encodes setup. */
+.mqm-legend .mqm-key-algorithm,.mqm-legend .mqm-key-lower{width:14px;height:3px;transform:none;border:0;border-radius:0;vertical-align:middle}
+.mqm-legend .mqm-key-lower{background:var(--red)}

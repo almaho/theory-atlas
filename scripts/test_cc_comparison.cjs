@@ -1,5 +1,5 @@
 'use strict';
-const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),assert=require('node:assert/strict');
+const fs=require('node:fs'),path=require('node:path'),vm=require('./atlas-test-vm.cjs'),assert=require('node:assert/strict');
 const root=path.resolve(__dirname,'..'),html=fs.readFileSync(path.join(root,'dist/index.html'),'utf8');
 const data=JSON.parse(html.match(/<script id="atlas-data" type="application\/json">([\s\S]*?)<\/script>/)[1]);
 const c={window:{},document:{getElementById:()=>({textContent:JSON.stringify(data)})},Set};vm.createContext(c);

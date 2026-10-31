@@ -1,0 +1,9 @@
+.atlas-shape-legend{display:flex;flex-wrap:wrap;gap:10px 22px;margin:12px 0 18px;color:var(--ink);font-size:13px;line-height:1.4}
+.atlas-shape-key{display:inline-flex;align-items:center;gap:5px;vertical-align:middle}
+.atlas-shape-key>svg{width:38px;height:20px;flex:none;overflow:visible}
+.atlas-shape-legend-note{flex-basis:100%;color:var(--ink);font-size:13px}
+/* Authoritative bound paint: setup accents must never override algorithm/lower semantics. */
+svg .atlas-bound-symbol[data-marker="algorithm"]{fill:var(--green);stroke:var(--green)}
+svg .atlas-bound-symbol[data-marker="lower"]{fill:var(--red);stroke:var(--red)}
+svg .atlas-bound-symbol[data-open-marker="true"]{fill:none}
+@media(max-width:600px){.atlas-shape-legend{gap:9px 16px}}

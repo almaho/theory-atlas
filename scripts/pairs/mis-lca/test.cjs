@@ -1,5 +1,5 @@
 'use strict';
-const fs=require('fs'),vm=require('vm'),assert=require('assert'),path=require('path');
+const fs=require('fs'),vm=require('../../atlas-test-vm.cjs'),assert=require('assert'),path=require('path');
 const installed=fs.existsSync(path.join(__dirname,'../../../data/focus/mis-lca.json'));
 const data=JSON.parse(fs.readFileSync(installed?path.join(__dirname,'../../../data/focus/mis-lca.json'):path.join(__dirname,'focus.json'),'utf8'));
 const original=JSON.parse(fs.readFileSync(path.join(__dirname,'input-research.json'),'utf8'));

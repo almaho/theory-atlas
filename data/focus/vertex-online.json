@@ -89,7 +89,9 @@
         "publicationStatus": "preprint",
         "verifiedOn": "2026-10-27",
         "sourceId": "kyy26"
-      }
+      },
+      "markerShape": "circle",
+      "markerLabel": "Bipartite · deterministic"
     },
     {
       "id": "vertex-online-det-lower",
@@ -111,7 +113,9 @@
       "publicationStatus": "published",
       "year": 2014,
       "evidenceStatus": "primary_statement_verified",
-      "shortLabel": "Gutowski et al. ’14"
+      "shortLabel": "Gutowski et al. ’14",
+      "markerShape": "circle",
+      "markerLabel": "Bipartite · deterministic"
     },
     {
       "id": "vertex-online-rand-upper",
@@ -133,7 +137,9 @@
       "publicationStatus": "preprint",
       "year": 2026,
       "evidenceStatus": "primary_statement_verified",
-      "shortLabel": "Kawarabayashi–Yoneda–Yoneda ’26"
+      "shortLabel": "Kawarabayashi–Yoneda–Yoneda ’26",
+      "markerShape": "triangle",
+      "markerLabel": "Bipartite · randomized"
     },
     {
       "id": "vertex-online-rand-lower",
@@ -155,7 +161,9 @@
       "publicationStatus": "preprint",
       "year": 2026,
       "evidenceStatus": "primary_statement_verified",
-      "shortLabel": "Kawarabayashi–Yoneda–Yoneda ’26"
+      "shortLabel": "Kawarabayashi–Yoneda–Yoneda ’26",
+      "markerShape": "triangle",
+      "markerLabel": "Bipartite · randomized"
     },
     {
       "id": "vertex-online-k-four",
@@ -177,7 +185,9 @@
       "publicationStatus": "preprint",
       "year": 2026,
       "evidenceStatus": "primary_statement_verified",
-      "shortLabel": "Kawarabayashi–Yoneda–Yoneda ’26"
+      "shortLabel": "Kawarabayashi–Yoneda–Yoneda ’26",
+      "markerShape": "square",
+      "markerLabel": "General k-colorable graph"
     },
     {
       "id": "vertex-online-random",
@@ -200,7 +210,9 @@
       "year": 2026,
       "evidenceStatus": "primary_statement_verified",
       "shortLabel": "Yoneda–Yoneda ’26",
-      "computation": "Exponential time; this is not a polynomial-time coloring algorithm."
+      "computation": "Exponential time; this is not a polynomial-time coloring algorithm.",
+      "markerShape": "diamond",
+      "markerLabel": "Random arrival order"
     }
   ],
   "relatedResults": [],
