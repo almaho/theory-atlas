@@ -100,6 +100,7 @@
     },
     {
       "id": "online",
+      "visible": false,
       "name": "Online",
       "measure": "Competitive guarantee",
       "definition": "Make decisions as input arrives without knowing future arrivals. The arrival process, information revealed, and permitted revisions are specified separately for each submodel.",

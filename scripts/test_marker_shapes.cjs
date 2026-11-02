@@ -17,20 +17,29 @@ for(const shape of symbols.shapes)for(const kind of ['upper','lower','barrier','
  assert.equal(+a['data-center-x'],10/3,'Coordinate metadata retains exact precision');
  assert.equal(a['data-setup-shape'],shape);
 }
-let checked=0,shapeRoutes=0;
-for(const route of api.settings()){
+const visibleRoutes=api.settings(),nativeShapeRoutes=new Set(['dynamic-edges','dynamic-size','edge-lca','edge-query_matrix','edge-query_list','vertex-query_matrix','vertex-query_list']);
+assert.equal(visibleRoutes.length,61,'The current visible atlas has 61 figure routes after hiding Online');
+assert(!visibleRoutes.some(route=>route.model==='online'||route.model==='query_combined'),'Archived models have no visible shape routes');
+let checked=0,shapeRoutes=0;const nativeRoutesSeen=[];
+for(const route of visibleRoutes){
  const sizes=[[180,110],[330,245],[738,548]],seen=sizes.map(([w,h])=>symbolTags(api.summarySVG(route.key,w,h)));
- if(seen.some(a=>a.length))shapeRoutes++;
+ if(seen.some(a=>a.length))shapeRoutes++;else nativeRoutesSeen.push(route.key);
  for(const rows of seen)for(const a of rows){
   assert(symbols.shapes.includes(a['data-setup-shape']),route.key);
   assert.equal(a.stroke,a['data-marker']==='lower'?'var(--red)':'var(--green)',route.key+': bound paint must not come from setup accents');
   assert.equal(a.fill,a['data-open-marker']?'none':a.stroke);checked++;
  }
 }
-assert(shapeRoutes>=55,'All multi-setup routes use the shared shape encoding');
+assert.deepEqual(nativeRoutesSeen.sort(),[...nativeShapeRoutes].sort(),'Only the seven reviewed native-symbol routes omit the shared marker primitive');
+assert.equal(shapeRoutes,54,'All 54 remaining visible figure routes use the shared shape encoding');
+const archivedOnlineRenderer=c.window.AtlasPairRenderers['maximum_is-online'];
+assert(archivedOnlineRenderer&&typeof archivedOnlineRenderer.summarySVG==='function','Archived Online renderer remains available for regression checks');
 function shapesFor(key,id){
  return [180,330,738].map(w=>{
-  const svg=api.summarySVG(key,w,w===180?110:w===330?245:548);
+  // Exercise archived evidence directly; hidden keys must not fall through the
+  // public coordinator to an unrelated visible setting.
+  const renderer=key==='maximum_is-online'?archivedOnlineRenderer:api;
+  const svg=renderer.summarySVG(key,w,w===180?110:w===330?245:548);
   const groups=[...svg.matchAll(/<g\b[^>]*data-[\w-]*result="[^"]+"[^>]*>[\s\S]*?<\/g>/g)].map(m=>m[0]).filter(s=>s.includes('result="'+id+'"'));
   return new Set(groups.flatMap(symbolTags).map(a=>a['data-setup-shape']));
  });

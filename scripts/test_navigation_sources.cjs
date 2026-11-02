@@ -2,17 +2,36 @@
 const fs=require('node:fs'),path=require('node:path'),vm=require('./atlas-test-vm.cjs'),assert=require('node:assert/strict');
 const root=path.resolve(__dirname,'..'),html=fs.readFileSync(path.join(root,'dist/index.html'),'utf8');
 const data=JSON.parse(html.match(/<script id="atlas-data" type="application\/json">([\s\S]*?)<\/script>/)[1]);
-assert.equal(data.models.length,9);
-assert(!data.models.some(m=>m.id==='query_combined'));
-assert(data.research.some(r=>r.slices.some(s=>s.model==='query_combined')),'Removed column research remains archived without changing its oracle assumptions');
+assert.equal(data.models.length,8);
+const hiddenModels=['query_combined','online'];
+for(const model of hiddenModels){
+  assert(!data.models.some(m=>m.id===model),model+': hidden column is absent from the built atlas');
+  assert(data.research.some(r=>r.slices.some(s=>s.model===model)),model+': removed column research remains archived without changing its assumptions');
+}
 const context={window:{},document:{getElementById:id=>id==='atlas-data'?{textContent:JSON.stringify(data)}:null},AbortController,Set};
 vm.createContext(context);
 for(const name of ['dynamic.js','streaming.js','lca.js','local.js','mpc.js','query-list.js',...data.focusPairs.map(p=>p.javascript),'cc-comparison.js','paper-links.js'])vm.runInContext(fs.readFileSync(path.join(root,'src',name),'utf8'),context);
-const coordinator=fs.readFileSync(path.join(root,'src/focus.js'),'utf8').split("  const featured=")[0]+'})();';
+const coordinator=fs.readFileSync(path.join(root,'src/focus.js'),'utf8');
 vm.runInContext(coordinator,context);
 const api=context.window.AtlasFocus,papers=context.window.AtlasPapers;
-assert(!api.settings().some(s=>s.model==='query_combined'),'Hidden model cannot appear in either figure picker');
+for(const model of hiddenModels)assert(!api.settings().some(s=>s.model===model),model+': hidden model cannot appear in either figure picker');
 assert.equal(api.keyForSlice('cc-query-combined-ssac'),null);
+const archivedOnlineRoutes=data.focusPairs.flatMap(pair=>pair.routes.filter(route=>route.model==='online'));
+assert.equal(archivedOnlineRoutes.length,12,'All Online source routes remain archived');
+const navigation=fs.readFileSync(path.join(root,'src/navigation.js'),'utf8');
+for(const route of archivedOnlineRoutes){
+  assert.equal(api.keyForSlice(route.sliceId),null,route.key+': archived slice is not discoverable');
+  for(const hash of ['#focus-'+route.key,'#atlas/'+route.key]){
+    assert.equal(api.routeForHash(hash),null,hash+': old Online link is no longer an active setting');
+    const location={hash},events=[];
+    const boot={location,encodeURIComponent,document:{querySelectorAll:()=>[]},CustomEvent:class{constructor(type,options={}){this.type=type;this.detail=options.detail;}}};
+    boot.window={AtlasFocus:api,history:{replaceState:(_,title,url)=>{location.hash=url;}},addEventListener(){},dispatchEvent:event=>events.push(event)};
+    vm.runInNewContext(navigation,boot);
+    assert.equal(location.hash,'#atlas',hash+': old Online link returns to the overview');
+    assert.deepEqual(events.map(event=>event.type),['atlas:overview'],hash+': no hidden cell is opened');
+  }
+}
+
 assert.equal(papers.arxivURL('https://arxiv.org/pdf/2404.06069v2#page=4'),'https://arxiv.org/abs/2404.06069v2');
 assert.equal(papers.arxivURL('https://arxiv.org/abs/cs/0502011'),'https://arxiv.org/abs/cs/0502011');
 assert.equal(papers.arxivURL('https://example.org/arxiv.org/abs/1234.5678'),null);

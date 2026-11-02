@@ -8,6 +8,8 @@ Read `../arxiv-monitor-state.json` from the project root. Search new and revised
 
 Deduplicate by base arXiv ID and version, and compare against existing bibliography records. A new version can correct, retract, or strengthen an older result. Keep candidate dispositions (`integrated`, `already_covered`, `irrelevant`, `needs_review`, `needs_setup_choice`) with source/version, date, and reason. Update the successful checkpoint only after a complete search; deployment status is recorded separately. Respect user exclusions/deferred setups stored in the monitor state across revisions; do not repeatedly ask about them unless Alma reopens the setup. Maximum independent set now has its own row, distinct from maximal MIS.
 
+Online was hidden at Alma's request on 2 November 2026. Retain its archived research, but defer Online-only additions and setup questions until she restores the column. This also defers the pending three-colorable online-coloring panel for arXiv:2610.41516; it does not exclude coloring construction in the remaining models.
+
 ## Evidence before publication
 
 Read full theorem statements and model definitions. Preserve graph/input classes, objectives and outputs, query interfaces, approximation thresholds, parameter regimes, randomness, adversaries, resource units, and theorem locations. Abstracts identify candidates; they are insufficient evidence for plotted bounds. Preprints keep a visible status and version. A claimed resolution of a conjecture must be clearly distinguished from a historical conditional implication and from an independently checked or published result.
