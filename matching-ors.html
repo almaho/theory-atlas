@@ -1,0 +1,559 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark"><script>/* Shared appearance, applied before the page paints. */
+(()=>{
+  'use strict';
+  const key='theory-atlas-appearance',root=document.documentElement;
+  const valid=value=>value==='light'||value==='dark';
+  let saved;
+  try{saved=window.localStorage.getItem(key);}catch{}
+  let explicit=valid(saved);
+  function apply(value){
+    root.dataset.theme=value;
+    root.style.colorScheme=value;
+    document.querySelectorAll('[data-site-theme]').forEach(button=>{
+      button.setAttribute('aria-pressed',String(button.dataset.siteTheme===value));
+    });
+  }
+  apply(explicit?saved:'dark');
+  document.addEventListener('DOMContentLoaded',()=>{
+    apply(root.dataset.theme);
+    document.querySelectorAll('[data-site-theme]').forEach(button=>button.addEventListener('click',()=>{
+      const value=button.dataset.siteTheme;
+      if(!valid(value))return;
+      explicit=true;apply(value);
+      try{window.localStorage.setItem(key,value);}catch{}
+    }));
+  });
+  function sync(value){explicit=valid(value);apply(explicit?value:'dark');}
+  window.addEventListener('storage',event=>{if(event.key===key||event.key===null)sync(event.newValue);});
+  window.addEventListener('pageshow',()=>{try{sync(window.localStorage.getItem(key));}catch{}});
+})();
+</script>
+  <title>Dynamic matching, step by step · Theory Atlas</title>
+  <meta name="description" content="Replay graph updates, certificate storage, and random sampling in an interactive explanation of Behnezhad–Ghafari's ORS dynamic-matching algorithm.">
+  <style>:root{color-scheme:light dark;--bg:light-dark(#fafafa,#141414);--surface:light-dark(#fff,#202020);--ink:light-dark(#242424,#ededed);--muted:light-dark(#606060,#b5b5b5);--line:light-dark(#dddddd,#444444);--blue:light-dark(#404040,#d4d4d4);--soft:light-dark(#f2f2f2,#2a2a2a);--green:light-dark(#167548,#71d7a0);--green-fill:light-dark(#dcefe4,#203e31);--red:light-dark(#b4444e,#fa959d);--red-fill:light-dark(#f7e2e5,#492831);--unknown:light-dark(#f1f1f1,#262626)}
+:root[data-theme="light"]{color-scheme:light}:root[data-theme="dark"]{color-scheme:dark}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.48 ui-sans-serif,system-ui,sans-serif}button,select{font:inherit;color:inherit}button{border:1px solid var(--line);border-radius:6px;background:var(--surface);padding:8px 12px;min-height:42px}button:hover{background:var(--soft)}button:focus-visible,select:focus-visible,summary:focus-visible,a:focus-visible{outline:3px solid var(--blue);outline-offset:2px}button:disabled{opacity:.45}a{color:var(--blue);text-underline-offset:3px}h1,h2{font-family:Georgia,serif;font-weight:500;line-height:1.2}h1{font-size:27px;margin:0}h2{font-size:24px;margin:0}h3{font-size:18px;font-weight:500;margin:0 0 8px}p{margin:0 0 12px}small,.small{font-size:13px;color:var(--muted)}#atlas{max-width:1300px;margin:auto;background:var(--bg);border-inline:1px solid var(--line)}.head{padding:18px 22px 15px;display:flex;gap:16px;justify-content:space-between;align-items:center;flex-wrap:wrap;background:var(--surface);border-bottom:1px solid var(--line)}.head p{margin:3px 0 0;color:var(--muted);font-size:14px}.controls{display:flex;align-items:center;gap:7px}.controls button[aria-label]{font-size:21px;min-width:44px;padding:2px 8px}.controls output{font-size:14px;min-width:48px;text-align:center;font-variant-numeric:tabular-nums;color:var(--muted)}.locator{min-height:44px;padding:10px 22px;display:flex;justify-content:space-between;gap:12px;align-items:center;font-size:14px}.locator strong{font-weight:500}.locator span{color:var(--muted);font-size:13px}#stage{position:relative;height:600px;overflow:hidden;touch-action:none;overscroll-behavior:contain;user-select:none}#stage.dragging{cursor:grabbing}.cell{position:absolute;background:var(--surface);border:1px solid var(--line);border-radius:6px;overflow:hidden}.cell.selected{border-color:var(--blue)}.cell .plot{position:absolute;inset:0;min-width:0;min-height:0}.cell svg{display:block;width:100%;height:100%;overflow:hidden;pointer-events:none}.cell svg text{font:12px ui-sans-serif,system-ui,sans-serif;fill:var(--ink)}.cell[data-chart-level="overview"] svg text{display:none}.cell[data-chart-level="compact"] svg:not([data-detail-level]) text{font-size:10px}.cell button{position:absolute;inset:0;width:100%;height:100%;padding:0;border:0;border-radius:5px;background:transparent}.cell button:hover{background:transparent;box-shadow:inset 0 0 0 2px var(--blue)}.cell button:focus-visible{outline:3px solid var(--blue);outline-offset:-4px}.axis-label{position:absolute;display:flex;align-items:center;justify-content:center;text-align:center;font-size:14px;line-height:1.25;pointer-events:none}.axis-label>div{max-width:100%}.axis-name{display:block;overflow:hidden;text-overflow:ellipsis}.axis-label.problem{justify-content:flex-start;text-align:left}.axis-label small{display:block;margin-top:3px;font-size:12px}.legend{background:var(--surface);border-top:1px solid var(--line);padding:13px 22px;display:flex;gap:16px;flex-wrap:wrap;align-items:center;font-size:14px}.key{display:inline-block;width:12px;height:12px;vertical-align:-1px;margin-right:5px;border-radius:2px}.key.green{background:var(--green)}.key.red{background:var(--red)}.key.gray{background:var(--unknown)}.hint{color:var(--muted);font-size:13px;margin-left:auto}#detail{padding:22px;background:var(--surface);border-top:1px solid var(--line)}.detail-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}.settings{display:flex;gap:12px;align-items:center;flex-wrap:wrap}.settings label{font-size:14px;color:var(--muted)}select{border:1px solid var(--line);background:var(--bg);border-radius:5px;padding:7px 9px;min-height:42px;max-width:100%;margin-left:6px}.pills{display:flex;gap:7px;flex-wrap:wrap;margin:14px 0}.pill{font-size:13px;color:var(--muted);background:var(--unknown);padding:4px 8px;border-radius:4px}.summary{font-size:17px}.note{font-size:14px;color:var(--muted)}.inspect{font-size:14px;min-height:26px;margin-top:12px}.formula{font:500 21px/1.5 Georgia,serif;padding:4px 0 12px;overflow-wrap:anywhere}.source{display:grid;grid-template-columns:84px 1fr;gap:12px;border-top:1px solid var(--line);padding:12px 0;font-size:14px}.source p{margin:4px 0 0}.tag{color:var(--muted);font-size:13px}.tag.upper{color:var(--green)}.tag.lower{color:var(--red)}.tag.candidate{color:var(--muted)}.subtle{color:var(--muted);font-size:13px}details{border-top:1px solid var(--line);margin-top:15px;padding-top:9px}summary{padding:7px 0;color:var(--blue);font-size:14px}.definition-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:15px 0}.definition-grid p{font-size:14px}.related{display:flex;gap:7px;flex-wrap:wrap}.related button{font-size:14px;text-align:left}.related button[aria-pressed="true"]{background:var(--soft);border-color:var(--blue)}.relationship{font-size:14px;margin:14px 0}.status-chip{font-size:13px;color:var(--muted)}footer{display:flex;gap:10px;justify-content:space-between;flex-wrap:wrap;padding:9px 22px;color:var(--muted);font-size:13px;border-top:1px solid var(--line)}[hidden]{display:none!important}
+@media(max-width:650px){.head{padding:14px}.locator,.legend,#detail,footer{padding:12px 14px}.locator span{display:none}.legend{gap:11px}.hint{margin-left:0}.definition-grid{grid-template-columns:1fr;gap:9px}.source{grid-template-columns:1fr;gap:2px}.settings{display:block}.settings select{display:block;margin:5px 0 0}.axis-label{font-size:12px}}
+.global-search{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:12px 22px;background:var(--surface);border-bottom:1px solid var(--line)}.global-search label{font-size:14px;font-weight:600}.global-search input,.filters input{border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--ink);padding:9px 11px;min-height:42px;flex:1;min-width:220px}.global-search #global-hint{color:var(--muted);font-size:13px;margin-left:auto}#global-results{background:var(--surface);border-bottom:1px solid var(--line);padding:10px 22px;max-height:340px;overflow-y:auto}.search-head{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:14px;padding:4px 0 11px}.search-head span{color:var(--muted)}.search-hit{display:block;width:100%;text-align:left;border-radius:0;border:0;border-top:1px solid var(--line);padding:10px 4px;min-height:0}.search-hit strong,.search-hit span,.search-hit small{display:block}.search-hit strong{font-size:14px;font-weight:600}.search-hit span{color:var(--blue);font-size:13px;margin:2px 0}.search-hit small{color:var(--muted);font-size:12px}.cell button{z-index:2}.cell-total{color:var(--muted);margin:4px 0 0;font-size:14px}.chart-scope{padding:14px 0;border-bottom:1px solid var(--line)}.chart-scope>label{font-size:14px;font-weight:600}.chart-scope select{max-width:min(100%,600px);font-weight:400}.chart-scope>p:not(.note){margin:12px 0 4px}.chart-scope .pills{margin:9px 0}.chart-scope .note{margin-bottom:0}.definitions{margin-top:0;border-top:0}.bibliography{padding-top:22px}.bibliography-head{display:flex;justify-content:space-between;gap:12px;align-items:end;flex-wrap:wrap}.bibliography-head h3{font:500 23px Georgia,serif;margin-bottom:2px}.bibliography-head p{font-size:14px;color:var(--muted);margin:0}.bibliography-head output{font-size:14px;color:var(--blue)}.filters{display:flex;align-items:end;gap:12px;flex-wrap:wrap;margin:17px 0 20px}.filters label{display:flex;flex-direction:column;gap:5px;font-size:13px;color:var(--muted)}.filters label:first-child{flex:1;min-width:230px}.filters input{width:100%;min-width:0}.filters select{margin:0}.setting-group{border:1px solid var(--line);border-radius:8px;background:var(--bg);margin:13px 0;padding:14px 17px;scroll-margin-top:20px}.setting-heading{display:flex;justify-content:space-between;align-items:center;gap:12px}.setting-heading button{border:0;background:transparent;color:var(--blue);text-align:left;padding:0;font:500 19px/1.25 Georgia,serif;min-height:0}.setting-heading button:hover{text-decoration:underline;background:transparent}.setting-heading button[aria-current="true"]{color:var(--green)}.setting-heading button span{font:12px ui-sans-serif,system-ui,sans-serif;vertical-align:2px;white-space:nowrap}.setting-heading strong{font-size:13px;color:var(--muted);white-space:nowrap;font-weight:500}.setting-task{font-size:14px;margin:9px 0 3px}.setting-assumptions{font-size:12px;color:var(--muted);margin:0 0 12px}.setting-group .source{grid-template-columns:100px 1fr;padding:13px 0}.setting-group .source:last-child{padding-bottom:0}.source .bound{font-weight:600;color:var(--ink)}.empty-setting{color:var(--muted);font-size:13px;margin:12px 0 0}.research-scope{margin-top:18px;line-height:1.5}
+@media(max-width:650px){.global-search,#global-results{padding:11px 14px}.global-search label{width:100%}.global-search input{min-width:0;width:100%}.global-search #global-hint{margin-left:0}.chart-scope select{display:block;margin:6px 0 0}.setting-group{padding:12px}.setting-group .source{grid-template-columns:1fr;gap:2px}.setting-heading{align-items:flex-start}.setting-heading button{font-size:17px}.setting-heading strong{font-size:12px}.filters label,.filters label:first-child{width:100%}.filters select{width:100%}}
+.coverage-note{font-size:13px;color:var(--muted);max-width:760px;margin:5px 0 0}
+.detail-chart{width:100%;margin:18px 0 6px;border:1px solid var(--line);border-radius:8px;background:var(--surface);overflow:hidden}.detail-chart svg{display:block;width:100%;height:auto;min-height:300px}.detail-chart svg text{font:13px ui-sans-serif,system-ui,sans-serif;fill:var(--ink)}.detail-chart svg .plot-label{font-size:12px;font-weight:650}.plot-key{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:8px;margin:9px 0 2px}.plot-key-row{display:grid;grid-template-columns:24px 1fr;gap:6px;align-items:start;padding:8px 10px;border:1px solid var(--line);border-radius:6px;background:var(--bg);font-size:13px}.plot-marker{font-size:20px;line-height:1}.plot-marker.upper{color:var(--green)}.plot-marker.lower{color:var(--red)}.plot-key-row strong,.plot-key-row span,.plot-key-row small{display:block}.plot-key-row span{margin-top:2px}.plot-key-row small{color:var(--muted);margin-top:3px}.plot-key-note{margin:8px 0 0;padding:8px 10px;border-left:3px solid var(--line);background:var(--bg);color:var(--muted);font-size:13px}.plot-key-note p{margin:3px 0}
+.access-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:0 0 18px}.access-grid>div{border:1px solid var(--line);border-radius:5px;background:var(--bg);padding:9px 11px;min-width:0}.access-grid dt{font-size:12px;letter-spacing:.035em;text-transform:uppercase;color:var(--muted)}.access-grid dd{margin:3px 0 0;font-size:14px;overflow-wrap:anywhere}.setting-access{font-size:12px;color:var(--muted);margin:4px 0 12px}.setting-access strong{color:var(--ink)}.results-scroll{overflow-x:auto}.results-table{border-collapse:collapse;text-align:left;width:100%;min-width:730px;font-size:13px}.results-table caption{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}.results-table th{border-bottom:2px solid var(--line);padding:7px 10px;color:var(--muted);font-weight:600;white-space:nowrap}.results-table td{vertical-align:top;border-bottom:1px solid var(--line);padding:10px;overflow-wrap:anywhere}.results-table td:nth-child(1){width:112px}.results-table td:nth-child(2){width:23%}.results-table td:nth-child(3){width:28%}.results-table td:nth-child(4){width:32%}.results-table td small{display:block;font-size:12px;color:var(--muted);margin-top:6px}.results-table td strong{font-weight:600}.results-table tr:last-child td{border-bottom:0}
+@media(max-width:650px){.access-grid{grid-template-columns:1fr}.results-table{min-width:650px}}
+
+.view-nav .section-link{font-size:12px;color:var(--muted);padding:10px 12px;display:inline-block;white-space:nowrap}
+
+.atlas-canvas{display:grid;position:relative;isolation:isolate}.atlas-canvas>#stage,.atlas-canvas>#detail{grid-area:1/1;align-self:start;min-width:0}#stage{scroll-margin-top:16px}.cell{transition:opacity 180ms ease}.atlas-canvas>#detail{z-index:3;margin:14px 24px 24px;padding:20px 24px;border:1px solid var(--line);border-radius:12px;box-shadow:0 12px 40px #00000012;animation:spotlight-in 220ms ease both}.has-spotlight #stage .cell.selected{opacity:.06!important}.has-spotlight #stage .axis-label{opacity:.12}.has-spotlight .detail-head{position:sticky;top:0;z-index:5;background:var(--surface);padding:10px 0;border-bottom:1px solid var(--line)}.has-spotlight .detail-head h2{font-size:23px}.has-spotlight .cell-total{display:none}.has-spotlight .f-embedded>.f-kicker,.has-spotlight .f-embedded>.f-hero{display:none}.has-spotlight .curated-settings{margin-top:0}.has-spotlight #detail-overview{font-size:12px;white-space:nowrap}.has-spotlight #stage{pointer-events:none}@keyframes spotlight-in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}@media(max-width:650px){.atlas-canvas>#detail{margin:8px;padding:14px 12px}.has-spotlight .detail-head h2{font-size:20px}.has-spotlight .detail-head{position:relative}.has-spotlight #detail-overview{min-height:38px}}@media(prefers-reduced-motion:reduce){.cell{transition:none}.atlas-canvas>#detail{animation:none}}
+
+@media(max-width:600px){.view-nav>div{flex-wrap:wrap;justify-content:flex-end}.view-nav .section-link{width:100%;padding:3px 8px 7px;font-size:11px;text-align:right}}
+
+.view-nav{max-width:1240px;margin:auto;padding:19px 30px;display:flex;align-items:center;justify-content:space-between;gap:20px;border-bottom:1px solid var(--line)}
+.atlas-brand{font-size:12px;letter-spacing:.14em;font-weight:700;color:var(--ink);text-decoration:none}.atlas-brand span{display:block;font:13px/1.5 Georgia,serif;letter-spacing:0;color:var(--muted);margin-top:2px}.view-nav>div{display:flex;gap:7px}.view-nav button{border-color:transparent;background:transparent;font-size:13px;min-height:38px}.view-nav button[aria-pressed="true"]{background:var(--ink);color:var(--surface);border-radius:5px}
+.focus-view{--f-green:var(--green);--f-green-fill:var(--green-fill);--f-red:var(--red);--f-red-fill:var(--red-fill);--f-soft:light-dark(#f0f1ee,#27333a);max-width:1240px;padding:29px 30px 22px;margin:auto}
+.f-kicker{font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);font-weight:600;margin:0 0 9px}.f-hero{display:flex;justify-content:space-between;gap:24px;align-items:start}.f-hero h1{font-size:38px;letter-spacing:-.035em;line-height:1.1;margin:0 0 11px}.f-hero p{font-size:14px;color:var(--muted);margin:0;max-width:680px}.f-seal{text-align:right;flex:none;padding-top:6px;font-size:12px;color:var(--muted)}.f-seal strong{display:block;color:var(--ink);font-weight:500;margin-bottom:4px}.f-scope{display:flex;gap:0;flex-wrap:wrap;margin:18px 0 0;padding:12px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:12px}.f-scope span{padding:0 15px;border-left:1px solid var(--line)}.f-scope span:first-child{padding-left:0;border-left:0}.f-scope b{font-weight:600}
+.f-chart-head{display:flex;align-items:baseline;justify-content:space-between;gap:15px;margin-top:20px}.f-chart-head h2{font:500 19px/1.25 Georgia,serif}.f-chart-head p{font-size:12px;color:var(--muted);margin:0}.f-strip{width:100%;margin:8px 0 0}.f-strip svg{display:block;width:100%;overflow:visible}.f-strip svg text,.f-history svg text,.f-demo svg text{font:12px/1.3 ui-sans-serif,system-ui,sans-serif;fill:var(--ink)}.f-strip svg .f-small-label{font-size:11px;fill:var(--muted)}.f-strip svg .f-strong-label{font-weight:600}.f-footnote{font-size:12px;color:var(--muted);margin:0;line-height:1.6}.f-footnote a{color:inherit}
+.f-body{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:32px;margin-top:22px;border-top:1px solid var(--line);padding-top:19px}.f-history h2,.f-demo h2{font:500 19px/1.25 Georgia,serif;margin:0}.f-subhead{font-size:12px;color:var(--muted);margin:6px 0 14px;line-height:1.5}.f-history-plot{position:relative}.f-history-plot svg{width:100%;display:block}.f-history-rows{position:absolute;inset:0;pointer-events:none}.f-history-row{position:absolute;left:0;width:100%;height:44px;display:flex;align-items:center;pointer-events:auto;border:0;border-radius:3px;background:transparent;padding:0;text-align:left}.f-history-row:hover,.f-history-row[aria-pressed="true"]{background:color-mix(in srgb,var(--ink) 5%,transparent)}.f-row-title{display:flex;gap:10px;align-items:baseline;max-width:215px;font-size:12px}.f-row-year{color:var(--muted);width:36px;flex:none;font-variant-numeric:tabular-nums}.f-row-name{font-weight:500}.f-row-formula{position:absolute;right:0;width:140px;font:14px/1.4 Georgia,serif;color:var(--ink)}.f-row-formula small{display:block;font:10px/1.4 ui-sans-serif,system-ui,sans-serif;color:var(--muted)}.f-history-caption{font-size:11px;color:var(--muted);margin-top:6px}.f-legend{display:flex;gap:16px;flex-wrap:wrap;font-size:11px;color:var(--muted);margin-top:9px}.f-legend i{display:inline-block;width:7px;height:7px;margin-right:6px;vertical-align:1px;background:var(--f-green);border-radius:50%}.f-legend .barrier{border-radius:0;transform:rotate(45deg);background:var(--f-red)}
+.f-demo{border-left:1px solid var(--line);padding-left:26px;min-width:0}.f-demo svg{display:block;width:100%;height:auto}.f-graph-label{font-size:11px;color:var(--muted);margin:5px 0}.f-demo .f-demo-copy{font-size:12px;line-height:1.6;color:var(--muted);margin:9px 0}.f-demo .f-demo-copy strong{color:var(--ink);font-weight:500}.f-demo-actions{display:flex;gap:6px;margin-top:10px}.f-demo-actions button{font-size:12px;min-height:36px;padding:6px 10px}.f-demo-actions button[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:var(--surface)}.f-proof{margin:11px 0 0;border-top:1px solid var(--line);padding-top:10px;font-size:12px;color:var(--muted)}.f-proof strong{font-weight:500;color:var(--ink)}
+.f-detail{margin-top:19px;padding:17px 0 0;border-top:1px solid var(--line);display:grid;grid-template-columns:160px 1fr;gap:20px}.f-detail-meta{font-size:11px;color:var(--muted);line-height:1.7}.f-detail-meta strong{display:block;font-size:12px;font-weight:500;color:var(--ink)}.f-detail h3{font:500 16px/1.35 Georgia,serif;margin:0 0 5px}.f-detail p{font-size:12px;line-height:1.6;margin:5px 0;color:var(--muted)}.f-detail a{font-size:12px}.f-reference-list{margin-top:18px;padding-top:11px}.f-reference-list summary{font-size:12px}.f-reference-list ol{padding-left:20px;display:grid;grid-template-columns:1fr 1fr;gap:12px 28px;margin:12px 0 0;font-size:12px}.f-reference-list li{padding-left:2px}.f-reference-list p{margin:4px 0;color:var(--muted);font-size:11px;line-height:1.5}.f-bottom{display:flex;justify-content:space-between;gap:16px;border-top:1px solid var(--line);margin-top:15px;padding-top:12px;font-size:11px;color:var(--muted)}
+@media(min-width:1400px){.focus-view{padding-top:34px}.f-body{margin-top:25px}}
+@media(max-width:950px){.f-body{grid-template-columns:minmax(0,1fr) 250px;gap:20px}.f-demo{padding-left:19px}.f-row-title{max-width:175px;gap:6px;font-size:11px}.f-row-formula{width:115px;font-size:12px}.f-row-formula small{font-size:10px}.f-scope span{padding:0 10px}}
+@media(max-width:780px){.view-nav{padding:15px 20px}.atlas-brand span{display:none}.focus-view{padding:24px 20px}.f-hero h1{font-size:32px}.f-seal{display:none}.f-body{grid-template-columns:1fr;gap:25px}.f-demo{border-left:0;border-top:1px solid var(--line);padding:20px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:0 24px}.f-demo h2,.f-demo>.f-subhead{grid-column:1/-1}.f-demo .f-demo-copy{margin:0}.f-scope{gap:8px 0}.f-scope span{border:0;padding:0 15px 0 0}.f-row-title{max-width:205px;font-size:12px}.f-row-formula{width:140px;font-size:14px}.f-row-formula small{font-size:11px}.f-history-caption,.f-legend{font-size:12px}.f-detail{grid-template-columns:120px 1fr}.f-chart-head{align-items:start}.f-chart-head p{max-width:230px;text-align:right}}
+@media(max-width:510px){.view-nav{align-items:start;gap:12px;padding:14px}.view-nav>div{gap:0}.view-nav button{font-size:11px;padding:7px 9px;min-height:36px}.atlas-brand{font-size:10px;line-height:1.5;max-width:54px}.focus-view{padding:22px 14px 16px}.f-hero h1{font-size:29px;max-width:310px}.f-hero p{font-size:13px}.f-chart-head{display:block;margin-top:19px}.f-chart-head p{text-align:left;max-width:none;margin-top:6px}.f-strip svg text{font-size:11px}.f-row-title{font-size:11px;max-width:130px;gap:4px;align-items:center}.f-row-year{width:31px;font-size:10px}.f-row-name{max-width:89px;line-height:1.3}.f-row-formula{width:99px;font-size:12px}.f-row-formula small{font-size:10px}.f-demo{display:block}.f-demo svg{max-width:300px;margin:0 auto}.f-demo .f-demo-copy{margin-top:12px}.f-detail{display:block}.f-detail-meta{margin-bottom:7px}.f-detail-meta strong{display:inline;margin-right:10px}.f-reference-list ol{grid-template-columns:1fr}.f-bottom{display:block}.f-bottom span{display:block;margin-bottom:4px}.f-footnote{font-size:11px}.f-subhead{font-size:12px}.f-kicker{font-size:10px}}
+@media print{.view-nav,.f-demo-actions,.f-reference-list summary{display:none}.focus-view{max-width:none;padding:0}.f-detail{break-inside:avoid}.f-reference-list{display:block}.f-body{grid-template-columns:1fr 270px}.f-demo{border-left:1px solid var(--line);padding-left:20px;display:block}.f-hero h1{font-size:28px}}
+
+.f-settings{display:flex;align-items:center;gap:6px;margin:20px auto 0;max-width:1240px;padding:0 30px;flex-wrap:wrap}.f-settings button{font-size:12px;min-height:36px;padding:7px 12px}.f-settings button[aria-pressed="true"]{background:var(--ink);color:var(--surface);border-color:var(--ink)}.f-settings span{font-size:11px;color:var(--muted);margin-left:10px}.f-conditional{margin:12px 0 0;padding-top:11px;border-top:1px solid var(--line);font-size:11px;line-height:1.6;color:var(--muted)}.f-conditional strong{font-weight:500;color:var(--ink)}.focus-view.f-embedded{padding:16px 0;max-width:none}.f-embedded .f-hero h1{font-size:31px}.f-embedded .f-seal{max-width:220px}.atlas-focus-chart svg{display:block;width:100%;height:auto;min-height:0}.atlas-focus-chart .f-history-row{min-height:0}.atlas-focus-chart .f-strip svg text,.atlas-focus-chart .f-history svg text{fill:var(--ink)}
+@media(max-width:510px){.f-settings{padding:0 14px}.f-settings span{width:100%;margin:4px 0 0}.f-embedded .f-hero h1{font-size:27px}.f-conditional{font-size:12px}}
+
+/* Curated settings are discoverable in the overview and in the selected cell. */
+.featured-settings{display:flex;gap:7px;align-items:center;flex-wrap:wrap;padding:12px 22px;border-bottom:1px solid var(--line)}.featured-settings>span{font-size:12px;color:var(--muted);margin-right:8px}.featured-settings button,.curated-settings button{font-size:12px;min-height:35px;padding:7px 11px}.featured-settings small{font-size:9px;letter-spacing:.06em;margin-left:4px;color:var(--green)}.curated-settings{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 12px}.curated-settings button[aria-pressed="true"]{background:var(--ink);color:var(--surface);border-color:var(--ink)}.f-settings .f-atlas-jump{margin-left:auto;border-color:var(--line);color:var(--blue)}.f-settings>span{width:100%;margin:3px 0 0}.focus-view{--f-amber:var(--red);--f-amber-fill:var(--red-fill)}.f-bound-scope{display:block}.f-restricted-plot svg{width:100%;display:block;margin:12px 0 4px}.f-bound-scope .f-inspect-restricted{font-size:12px;padding:6px 9px;margin-top:8px;min-height:34px;color:var(--f-amber)}.f-scope-insight{font-size:12px;line-height:1.6;border-top:1px solid var(--line);margin-top:19px;padding-top:12px;color:var(--muted)}.f-scope-insight strong{font-weight:600;color:var(--ink)}.f-scope-insight p{margin:7px 0 0}.f-bound-scope .f-demo-copy{font-size:12px}.f-restricted-plot svg text{font-size:11px}
+@media(max-width:650px){.featured-settings{padding:12px 14px}.featured-settings>span{width:100%}.f-settings .f-atlas-jump{margin-left:0}.curated-settings{gap:5px}.curated-settings button{font-size:11px;padding:7px 8px}}
+
+/* Summary figures keep geometry and type at their actual cell size. */
+.f-summary{display:block;overflow:hidden}.f-summary.f-summary text{font-family:ui-sans-serif,system-ui,sans-serif}.f-summary-overview{pointer-events:none}
+.figure-picker{margin:0;padding:0;border:0;position:relative;max-width:100%;z-index:12}.figure-picker summary{cursor:pointer;font-size:12px;line-height:20px;padding:7px 11px;border:1px solid var(--line);border-radius:7px;color:var(--ink);background:var(--surface)}.figure-picker summary:focus-visible{outline:2px solid var(--blue);outline-offset:3px}.figure-picker-menu{position:absolute;left:0;top:calc(100% + 7px);width:min(720px,calc(100vw - 44px));max-height:55vh;overflow-y:auto;display:flex;flex-wrap:wrap;align-content:flex-start;gap:7px;padding:12px;border:1px solid var(--line);border-radius:9px;background:var(--surface);box-shadow:0 12px 30px #0003}.figure-picker-menu button{text-align:left}.featured-settings:has(.figure-picker){padding-top:7px;padding-bottom:7px}.f-settings:has(.figure-picker){margin-top:12px}
+
+/* Site navigation and centered community pages. */
+.view-nav{position:sticky;top:0;z-index:50;background:var(--bg);max-width:1300px}
+#atlas,#stage{scroll-margin-top:100px}
+.view-nav .site-links{display:flex;align-items:center;gap:6px}
+.view-nav .site-link{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:8px 15px;border-radius:5px;font-size:14px;text-decoration:none;color:var(--ink)}
+.view-nav .site-link:hover{background:var(--soft)}
+.view-nav .site-link[aria-current="page"]{background:var(--ink);color:var(--bg)}
+.site-appearance{display:flex;gap:4px;align-items:center;padding:3px;border:1px solid var(--line);border-radius:6px}
+.site-appearance button{font-size:13px;min-height:36px;padding:6px 10px;color:var(--ink);border:0;background:transparent;cursor:pointer}
+.site-appearance button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+#atlas>footer{align-items:center}
+.community-page{--editorial-accent:var(--ink);--muted:var(--ink);--blue:var(--ink)}
+.editorial-page{max-width:1120px;margin:auto;padding:72px 30px 88px}
+.editorial-eyebrow{font-size:14px;letter-spacing:.13em;line-height:1.6;font-weight:650;color:var(--ink);margin:0 0 20px}
+.editorial-hero{max-width:860px;margin-inline:auto;text-align:center}
+.editorial-hero h1{font-size:clamp(46px,6vw,72px);line-height:1.08;letter-spacing:-.035em;margin:0 0 30px}
+.editorial-lead{font-size:23px;line-height:1.65;max-width:780px;color:var(--ink);margin:0 auto}
+#vision{max-width:1000px}
+.vision-intro,.vision-principles,.community-statement{max-width:760px;margin-inline:auto}
+.vision-intro{margin-top:54px;margin-bottom:54px;font-size:20px;line-height:1.8;color:var(--ink)}
+.vision-intro p{margin-bottom:22px}.vision-intro p:last-child{margin-bottom:0}
+.vision-principles{display:grid;grid-template-columns:1fr;border-top:1px solid var(--line)}
+.vision-principles article{display:grid;grid-template-columns:48px minmax(0,1fr);gap:10px 22px;padding:30px 0;border-bottom:1px solid var(--line)}
+.principle-number{grid-row:1/3;font:26px/1.4 Georgia,serif;color:var(--ink)}
+.vision-principles h2{font-size:30px;line-height:1.25;letter-spacing:-.02em;margin:0}
+.vision-principles p{grid-column:2;font-size:19px;line-height:1.75;color:var(--ink);margin:0}
+.community-statement{margin-top:62px;text-align:center}
+.community-statement h2,.people-invitation h2{font-size:clamp(34px,3.6vw,46px);letter-spacing:-.025em;line-height:1.16;margin:0 0 28px}
+.community-statement p:not(.editorial-eyebrow){font-size:20px;line-height:1.8;text-align:left;color:var(--ink);margin-bottom:22px}
+.editorial-action{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:46px;margin-top:12px;padding:12px 20px;border:1px solid var(--ink);border-radius:5px;color:var(--ink);text-decoration:none;font-size:16px;font-weight:600;line-height:1.5}
+.editorial-action:hover{background:var(--soft)}
+.site-footer{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;max-width:1180px;margin:0 auto;padding:28px 30px;border-top:1px solid var(--line);font-size:14px;color:var(--ink)}
+.site-footer a{font-size:14px;color:var(--ink)}
+.people-hero{margin-bottom:54px}
+.people-profiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:48px;max-width:1000px;margin-inline:auto}
+.person-profile{padding:30px 0;border-top:1px solid var(--line)}
+.person-portrait{display:block;width:220px;height:220px;object-fit:cover;border-radius:6px;margin-bottom:25px}
+.person-profile .photo-credit{margin-top:20px}.person-profile .photo-credit a{font-size:15px}
+.person-profile .editorial-eyebrow{margin-bottom:9px}
+.person-profile h2{font-size:34px;letter-spacing:-.025em;margin-bottom:16px}
+.person-profile p:not(.editorial-eyebrow){font-size:18px;line-height:1.75;color:var(--ink);max-width:590px}
+.person-profile a{font-size:16px;color:var(--ink)}
+.person-profile h2 a{font:inherit;text-decoration-thickness:1px;text-underline-offset:6px}
+.people-invitation{display:grid;grid-template-columns:1fr 1.25fr;gap:64px;margin-top:65px}
+.people-invitation p:not(.editorial-eyebrow){font-size:18px;line-height:1.8;color:var(--ink)}
+.contribution-list article{padding:24px 0;border-bottom:1px solid var(--line)}
+.contribution-list article:first-child{padding-top:0}
+.contribution-list h3{font-size:21px;font-weight:600;line-height:1.4;margin-bottom:12px}
+.contribution-list p{margin:0}
+.contribution-actions{display:flex;flex-wrap:wrap;align-items:center;gap:24px;margin-top:28px}
+.contribution-actions>a:not(.editorial-action){font-size:16px;margin-top:12px}
+@media(max-width:900px){
+ .editorial-page{padding:54px 26px 64px}.people-invitation{gap:35px}.people-profiles{gap:30px}
+}
+@media(max-width:700px){
+ .view-nav{display:grid;grid-template-columns:1fr auto;gap:12px;padding:16px 20px}
+ .view-nav .site-links{justify-content:flex-end;gap:0}
+ .view-nav .site-link{padding:8px 12px}
+ .atlas-brand{max-width:none;font-size:11px}.atlas-brand span{font-size:13px}
+ #atlas,#stage{scroll-margin-top:90px}
+ .editorial-page{padding-top:42px}.editorial-lead{font-size:21px}
+ .vision-intro,.community-statement p:not(.editorial-eyebrow){font-size:19px}
+ .vision-principles p{font-size:18px}.vision-principles h2{font-size:28px}
+ .people-invitation{grid-template-columns:1fr;gap:26px}
+ .person-portrait{width:180px;height:180px}
+}
+@media(max-width:560px){
+ .editorial-page{padding:38px 22px 52px}.editorial-hero h1{font-size:46px;margin-bottom:24px}
+ .editorial-eyebrow{font-size:13px;letter-spacing:.1em}.editorial-lead{font-size:20px;line-height:1.7}
+ .vision-intro{margin-top:36px;margin-bottom:36px}
+ .vision-principles article{grid-template-columns:30px minmax(0,1fr);gap:10px 14px;padding:26px 0}
+ .principle-number{font-size:22px}.vision-principles h2{font-size:27px}
+ .community-statement{margin-top:42px}.community-statement h2{font-size:35px}
+ .site-footer{padding:25px 22px;align-items:center;text-align:center;flex-direction:column;gap:14px}
+ .people-hero{margin-bottom:34px}.people-profiles{grid-template-columns:1fr;gap:14px}
+ .person-profile{padding:28px 0}.person-portrait{width:200px;height:200px;margin-bottom:24px}
+ .person-profile h2{font-size:32px}.people-invitation{margin-top:42px}
+ .contribution-actions{gap:12px;margin-top:24px}.editorial-action{width:100%;text-align:center}
+ .contribution-actions>a:not(.editorial-action){margin-top:6px}
+}
+
+/* Keep these two Vision statements on one line at every supported width. */
+#vision .editorial-hero h1{white-space:nowrap;font-size:clamp(24px,7.2vw,72px)}
+#vision #community-title{white-space:nowrap;font-size:clamp(15px,4.6vw,44px)}
+
+.people-profiles:has(>.person-profile:only-child){grid-template-columns:minmax(0,480px);justify-content:center}
+
+.walk-page{max-width:1240px;margin:auto;padding:30px 24px 64px}.walk-header{max-width:1000px;margin-bottom:28px}.walk-back{display:inline-block;margin-bottom:30px;font-size:14px}.walk-eyebrow{font-size:12px;font-weight:650;letter-spacing:.13em;margin:0 0 12px}.walk-header h1{font-size:clamp(30px,4.1vw,51px);letter-spacing:-.025em;margin:0 0 16px}.walk-header>p:last-child{line-height:1.8;font-size:15px}.walk-player{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--surface)}.walk-tabs{display:flex;gap:6px;padding:15px 20px 0;flex-wrap:wrap}.walk-tabs button{border-color:transparent;background:transparent}.walk-tabs button[aria-pressed=true]{border-color:var(--ink);background:var(--ink);color:var(--bg)}.walk-scope{padding:15px 23px 0;max-width:1050px;font-size:14px;color:var(--ink);margin:0}.walk-controls{display:flex;align-items:center;flex-wrap:wrap;gap:8px;padding:19px 22px 8px}.walk-controls button{cursor:pointer}.walk-controls #walk-play{background:var(--green);color:var(--bg);border-color:var(--green);min-width:93px;font-weight:650}.walk-controls output{margin-left:auto;font-size:13px;font-variant-numeric:tabular-nums}.walk-speed{display:flex;align-items:center;font-size:13px;margin-left:10px}.walk-speed select{font-size:13px}.walk-timeline{display:block;padding:0 22px 12px}.walk-timeline input{width:100%;accent-color:var(--green);cursor:pointer}.walk-workspace{display:grid;grid-template-columns:minmax(0,1.8fr) minmax(260px,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.walk-canvas{padding:20px 22px 16px;min-width:0}.walk-graph-heading{display:flex;justify-content:space-between;align-items:center;gap:10px;min-height:38px}.walk-graph-heading h2{font:600 16px/1.4 system-ui}.walk-graph-heading button{font-size:12px;min-height:34px;padding:6px 10px}.walk-canvas svg{display:block;width:100%;height:auto;max-height:370px;overflow:visible}.walk-canvas svg text{fill:var(--ink);font:20px system-ui}.walk-canvas svg .walk-edge{transition:stroke .2s,opacity .2s,stroke-width .2s}.walk-canvas svg .walk-node{transition:opacity .2s,fill .2s}.walk-canvas svg .walk-query{stroke-dasharray:6 5;animation:walk-flow 1.1s linear infinite}.walk-step{border-left:1px solid var(--line);padding:25px 24px;min-height:420px;background:var(--bg)}.walk-step h2{font-size:29px;margin-bottom:17px}.walk-step>p:not(.walk-eyebrow){font-size:16px;line-height:1.7;min-height:108px}.walk-step>a{font-size:13px}.walk-jump{display:block;margin-top:24px;font-size:12px;letter-spacing:.02em}.walk-jump select{display:block;margin:6px 0 0;font-size:13px;width:100%}.walk-legend{display:flex;flex-wrap:wrap;gap:12px;font-size:11px;margin-top:6px}.walk-legend span{display:flex;align-items:center;gap:5px}.walk-legend i{display:inline-block;width:14px;height:14px}.walk-key-matching{border-top:3px solid var(--green);height:0!important}.walk-key-sample{border:1.5px solid var(--ink);border-radius:2px}.walk-key-active{border:3px double var(--ink);border-radius:50%}.walk-key-deleted{border-top:1px dashed var(--muted);height:0!important}.walk-counters{display:flex;flex-wrap:wrap;gap:8px 18px;border-top:1px solid var(--line);margin-top:18px;padding-top:12px;font-size:12px}.walk-counters b{font-weight:600;color:var(--ink)}.walk-state-heading{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:22px 22px 12px}.walk-state-heading h2{font:600 15px system-ui}.walk-state-heading span{font-size:12px}.walk-sets{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;padding:0 22px 22px}.walk-set{padding:12px;text-align:left;min-width:0;cursor:pointer;background:var(--bg)}.walk-set[aria-pressed=true]{border-color:var(--green)}.walk-set-top{display:flex;justify-content:space-between;gap:8px;font-size:14px;font-weight:600}.walk-set-top span:last-child{font:12px system-ui}.walk-set svg{width:100%;display:block;height:80px;margin:8px 0}.walk-set small{display:block;font-size:11px;line-height:1.45;color:var(--ink);min-height:32px}.walk-set-empty{font:24px Georgia!important;fill:var(--muted)}.walk-blackbox{border-top:1px solid var(--line);padding:22px;background:var(--bg)}.walk-blackbox>p{font-size:13px;line-height:1.6}.walk-box-flow{display:grid;grid-template-columns:minmax(0,1fr) 30px minmax(0,1fr) 30px minmax(0,1fr);gap:10px;align-items:center}.walk-flow-arrow{text-align:center;font-size:25px;color:var(--muted)}.walk-port{font-size:11px;letter-spacing:.04em;line-height:1.6;margin-bottom:8px}.walk-port-value{font:13px/1.65 system-ui;overflow-wrap:anywhere}.walk-box{border:1px solid var(--ink);border-radius:8px;padding:20px 15px;min-height:140px;display:flex;flex-direction:column;justify-content:center;gap:9px}.walk-box h3{font-size:17px;margin:0}.walk-box a,.walk-box span{font-size:12px}.walk-box-flow svg{display:block;width:100%;height:95px}.walk-box.active{box-shadow:0 0 0 1px var(--green);border-color:var(--green)}.walk-explanation{padding-top:48px}.walk-explanation>h2{font-size:31px;margin-bottom:14px}.walk-explanation>p{font-size:16px}.walk-dependencies{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin:30px 0}.walk-dependencies article{padding:20px;border:1px solid var(--line);border-radius:8px}.walk-dependencies article>p:not(.walk-port){font-size:14px;line-height:1.7}.walk-dependencies article>a{font-size:13px}.walk-dependency-box{border:1px solid var(--ink);padding:16px;margin:15px 0}.walk-dependency-box h3{font-size:16px}.walk-dependency-box a{display:block;font-size:12px;margin-top:8px}.walk-method{max-width:900px;padding:20px 0}.walk-method p{font-size:14px;line-height:1.8;margin-bottom:20px}.walk-explanation summary{font-size:16px;cursor:pointer}.walk-chips{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}.walk-chips span{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border:1px solid var(--ink);border-radius:3px;font-size:12px}.walk-sample-label{font-size:12px;margin-top:20px}.walk-past-edge{stroke-dasharray:7 4}.walkthrough-page .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}@keyframes walk-flow{to{stroke-dashoffset:-22}}@media(max-width:850px){.walk-workspace{grid-template-columns:1fr}.walk-step{border-left:0;border-top:1px solid var(--line);min-height:0}.walk-step>p:not(.walk-eyebrow){min-height:0}.walk-step h2{font-size:25px}.walk-canvas svg{max-height:330px}.walk-dependencies{grid-template-columns:1fr}.walk-dependency-box{max-width:500px}.walk-sets{grid-template-columns:repeat(2,minmax(0,1fr))}.walk-set svg{height:90px}}@media(max-width:550px){.walk-page{padding:23px 12px 40px}.walk-header{padding:0 6px}.walk-back{margin-bottom:22px}.walk-header h1{font-size:33px}.walk-header>p:last-child{font-size:13px}.walk-tabs{padding:12px 10px 0;gap:4px}.walk-tabs button{font-size:12px;padding:8px}.walk-scope{padding:14px 14px 0;font-size:13px}.walk-controls{padding:14px 12px 8px;gap:6px}.walk-controls button{font-size:12px;padding:8px 10px}.walk-speed{margin-left:0}.walk-controls output{font-size:11px}.walk-timeline{padding-inline:12px}.walk-canvas{padding:12px}.walk-legend{font-size:10px;gap:9px}.walk-counters{font-size:11px}.walk-step{padding:20px 16px}.walk-state-heading{padding:18px 14px 12px;display:block}.walk-state-heading span{display:block;margin-top:6px}.walk-sets{padding:0 12px 16px;gap:8px}.walk-set{padding:9px}.walk-set svg{height:68px}.walk-set small{font-size:10px}.walk-blackbox{padding:16px}.walk-box-flow{grid-template-columns:1fr}.walk-flow-arrow{transform:rotate(90deg)}.walk-box-flow svg{height:90px}.walk-port-value{font-size:12px}.walk-explanation{padding:34px 6px 0}.walk-explanation>h2{font-size:28px}}@media(prefers-reduced-motion:reduce){.walk-canvas svg .walk-query{animation:none}.walk-canvas svg .walk-edge,.walk-canvas svg .walk-node{transition:none}}
+
+/* Keep the graph close to the entry point. */
+.walk-header{margin-bottom:20px}.walk-back{margin-bottom:16px}.walk-header h1{font-size:clamp(28px,3.2vw,40px);margin-bottom:12px}.walk-header .walk-eyebrow{margin-bottom:8px}.walk-header>p:last-child{line-height:1.6}.walk-page{padding-top:22px}
+
+.walk-output-pair{display:grid;grid-template-columns:1fr 1fr;gap:10px}.walk-output-pair span{font:13px Georgia}.walk-output-pair svg{height:80px}
+</style>
+</head>
+<body class="walkthrough-page">
+  <nav class="view-nav" aria-label="Site navigation"><a class="atlas-brand" href="index.html#atlas" data-atlas-home="true">THEORY ATLAS<span>Knowledge, in view.</span></a><div class="site-links"><a class="site-link" href="index.html#atlas" aria-current="page" data-atlas-home="true">Atlas</a><a class="site-link" href="vision.html">Vision</a><a class="site-link" href="people.html">People</a></div></nav>
+  <main class="walk-page">
+    <header class="walk-header">
+      <a class="walk-back" href="index.html#atlas/dynamic-edges">← Dynamic matching in the atlas</a>
+      <p class="walk-eyebrow">INSIDE THE ALGORITHM · FOCS 2024</p>
+      <h1>A matching that changes with the graph.</h1>
+      <p><a href="https://arxiv.org/abs/2404.06069" target="_blank" rel="noopener noreferrer">Fully Dynamic Matching and Ordered Ruzsa–Szemerédi Graphs ↗</a><br>Soheil Behnezhad &amp; Alma Ghafari</p>
+    </header>
+    <section class="walk-player" aria-label="Interactive algorithm walkthrough">
+      <div class="walk-tabs" role="group" aria-label="Walkthrough chapter">
+        <button type="button" data-chapter="dynamic" aria-pressed="true">01 · Dynamic graph</button>
+        <button type="button" data-chapter="sampling" aria-pressed="false">02 · Inside random sampling</button>
+      </div>
+      <p id="walk-scope" class="walk-scope"></p>
+      <div class="walk-controls">
+        <button type="button" id="walk-play">▶ Play</button>
+        <button type="button" id="walk-back" aria-label="Previous step">←</button>
+        <button type="button" id="walk-next" aria-label="Next step">→</button>
+        <button type="button" id="walk-replay">↺ Replay</button>
+        <label class="walk-speed">Speed <select id="walk-speed" aria-label="Playback speed"><option value="1600">Slow</option><option value="850" selected>Normal</option><option value="350">Fast</option></select></label>
+        <button type="button" id="walk-new-sample" hidden>New random run</button>
+        <output id="walk-count"></output>
+      </div>
+      <label class="walk-timeline"><span class="sr-only">Walkthrough step</span><input id="walk-scrub" type="range" min="0" max="1" value="0" aria-label="Walkthrough step"></label>
+      <div class="walk-workspace">
+        <div class="walk-canvas">
+          <div class="walk-graph-heading"><h2 id="walk-graph-title">Input graph G</h2><button id="walk-show-all" type="button" hidden>Show input graph</button></div>
+          <div id="walk-graph"></div>
+          <div class="walk-legend"><span><i class="walk-key-matching"></i> Matching</span><span><i class="walk-key-sample"></i> Sampled vertex</span><span><i class="walk-key-active"></i> Vertex being queried</span><span><i class="walk-key-deleted"></i><span id="walk-pair-legend">Deleted edge</span></span></div>
+          <div id="walk-counters" class="walk-counters"></div>
+        </div>
+        <aside class="walk-step" aria-label="Current algorithm step">
+          <p id="walk-step-kind" class="walk-eyebrow"></p>
+          <h2 id="walk-step-title"></h2>
+          <p id="walk-step-description"></p>
+          <a id="walk-step-source" target="_blank" rel="noopener noreferrer"></a>
+          <div id="walk-samples"></div>
+          <label class="walk-jump">Jump to an event<select id="walk-jump" aria-label="Jump to an event"></select></label>
+        </aside>
+      </div>
+      <div class="walk-state-heading"><h2>What the algorithm keeps</h2><span>Click a set to inspect it on the graph.</span></div>
+      <div id="walk-sets" class="walk-sets"></div>
+      <section id="walk-blackbox" class="walk-blackbox" aria-label="Subroutine input and output"></section>
+      <p class="walk-live sr-only" id="walk-live" aria-live="polite" aria-atomic="true"></p>
+    </section>
+    <section class="walk-explanation">
+      <h2>Where the other results enter</h2>
+      <p>Each box has a contract. Its output becomes the next step’s input.</p>
+      <div class="walk-dependencies">
+        <article><p class="walk-port">INPUT · Graph G + an oracle on vertex sets U</p><div class="walk-dependency-box"><h3>Approximation boosting</h3><a href="https://www.cs.umass.edu/~mcgregor/papers/05-approx1.pdf" target="_blank" rel="noopener noreferrer">McGregor · 2005 ↗</a><a href="https://arxiv.org/abs/2302.05030" target="_blank" rel="noopener noreferrer">Bhattacharya–Kiss–Saranurak · 2023 ↗</a></div><p class="walk-port">OUTPUT · A matching of size at least μ(G) − εn</p><p>The framework chooses U. MatchAndCertify answers those requests using stored edges or sampling.</p><a href="https://arxiv.org/html/2404.06069v4#Thmlemma3" target="_blank" rel="noopener noreferrer">Contract: Proposition 3 ↗</a></article>
+        <article><p class="walk-port">INPUT · Matrix access to a graph H; accuracy η</p><div class="walk-dependency-box"><h3>Matching-size estimation</h3><a href="https://arxiv.org/abs/2106.02942" target="_blank" rel="noopener noreferrer">Behnezhad · FOCS 2021 ↗</a></div><p class="walk-port">OUTPUT · A number μ̃, not matching edges</p><p>½μ(H) − ηn ≤ μ̃ ≤ μ(H), with high probability. The paper discusses this existence check; its v4 pseudocode does not specify a call site, so no call is invented in the animation.</p><a href="https://arxiv.org/html/2404.06069v4#Thmlemma4" target="_blank" rel="noopener noreferrer">Contract: Proposition 4 ↗</a></article>
+        <article><p class="walk-port">INPUT · A dynamic algorithm with additive error</p><div class="walk-dependency-box"><h3>From additive to multiplicative</h3><a href="https://arxiv.org/abs/2108.10461" target="_blank" rel="noopener noreferrer">Kiss · ITCS 2022 ↗</a><a href="https://arxiv.org/abs/1705.02280" target="_blank" rel="noopener noreferrer">Assadi–Khanna–Li · EC 2017 ↗</a></div><p class="walk-port">OUTPUT · A (1 − ε)-approximate dynamic matching</p><p>Vertex sparsification wraps the additive algorithm shown above. This reduction is outside the animated example.</p><a href="https://arxiv.org/html/2404.06069v4#Thmlemma5" target="_blank" rel="noopener noreferrer">Contract: Proposition 5 ↗</a></article>
+      </div>
+      <details><summary>What is executed, and what is illustrated?</summary><div class="walk-method">
+        <p><strong>Dynamic graph:</strong> Algorithm 2’s edge updates, counters, refresh schedule, phase reset, and certificate bookkeeping are executed. The example uses n = 16, ε = ½, and a teaching threshold t = 16. MatchAndCertify’s input/output contract is illustrated using an exact solver on this small graph; this is not an implementation or timing demonstration of the full boosting algorithm.</p>
+        <p><strong>Sampling:</strong> the sampling loop uses a seeded random generator, n = 16 and δ = ¼. Samples are uniform subsets without replacement, capped at the remaining set size; the paper does not specify replacement. Every replay keeps the seed, while “New random run” changes it. The displayed run ends at the printed loop limit if no round succeeds. The v4 pseudocode’s loop limit and its proof’s final-budget discussion differ; this page does not silently extend the loop.</p>
+        <p><strong>Certificates:</strong> H<sub>cert</sub> can contain stale edges and need not be a matching. Deleted edges are filtered out before a refresh. A certificate need not equal the output matching or be an induced matching. ORS is a parameter in the running-time analysis; the input need not be an ORS graph.</p>
+      </div></details>
+    </section>
+  </main>
+  <footer class="site-footer"><a href="index.html#atlas/dynamic-edges">Return to the bounds figure ↗</a><a href="https://arxiv.org/abs/2404.06069v4" target="_blank" rel="noopener noreferrer">Source: arXiv 2404.06069v4 ↗</a><div class="site-appearance" role="group" aria-label="Appearance"><button type="button" data-site-theme="dark" aria-pressed="false">Dark mode</button><button type="button" data-site-theme="light" aria-pressed="false">Light mode</button></div></footer>
+  <script>/* Reproducible graph traces for the Behnezhad–Ghafari walkthrough.
+ * Dynamic bookkeeping follows Algorithm 2. MatchAndCertify outputs are an
+ * explicitly labelled small-instance contract illustration, not a replacement
+ * implementation of the paper's approximation-boosting framework.
+ */
+(function (root, factory) {
+  const api = factory();
+  if (typeof module === 'object' && module.exports) module.exports = api;
+  if (root) root.ORSWalkthrough = api;
+})(typeof window !== 'undefined' ? window : globalThis, function () {
+  'use strict';
+  const PAPER = 'https://arxiv.org/html/2404.06069v4';
+  const SOURCES = {
+    dynamic: {label: 'Algorithm 2 · dynamic updates', url: PAPER + '#S4.SS2.pic1.tab1'},
+    sampling: {label: 'Algorithm 1 · RandomSampling', url: PAPER + '#S4.SS1.pic1.tab1'},
+    certificate: {label: 'Lemma 6 · MatchAndCertify', url: PAPER + '#Thmlemma6'}
+  };
+  const V = Array.from({length: 16}, (_, i) => i);
+  const NOTES = {
+    dynamic: 'Algorithm 2 bookkeeping on 16 vertices. MatchAndCertify is a contract illustration: an exact small-graph solver supplies example outputs; the paper’s boosting routine and running time are not simulated. ε = 1/2, refresh every 4 updates, phase threshold t = 16 chosen for this lesson.',
+    sampling: 'Algorithm 1 on a 16-vertex example, δ = 1/4. Samples are uniform subsets without replacement, capped by |U′|; the paper does not specify replacement. The displayed budgets are 1 and 4. This trace stops within the two printed rounds and makes no claim about the pseudocode’s final-budget convention.'
+  };
+  const edge = (u, v) => u < v ? u + '-' + v : v + '-' + u;
+  const endpoints = e => e.split('-').map(Number);
+  const sorted = iterable => Array.from(iterable).sort((a, b) => {
+    const [u, v] = endpoints(a), [x, y] = endpoints(b);
+    return u - x || v - y;
+  });
+  const list = iterable => sorted(iterable).join(', ') || '∅';
+  const clone = value => JSON.parse(JSON.stringify(value));
+  function greedyMatching(edges) {
+    const used = new Set(), matching = [];
+    for (const e of sorted(edges)) {
+      const [u, v] = endpoints(e);
+      if (!used.has(u) && !used.has(v)) {
+        used.add(u); used.add(v); matching.push(e);
+      }
+    }
+    return matching;
+  }
+  // Exhaustive dynamic programming is only the small-instance contract oracle.
+  function exactMatching(edges, n = 16) {
+    const adjacency = Array.from({length: n}, () => []);
+    for (const e of sorted(edges)) {
+      const [u, v] = endpoints(e);
+      adjacency[u].push(v); adjacency[v].push(u);
+    }
+    const memo = new Map([[0, []]]);
+    function solve(mask) {
+      if (memo.has(mask)) return memo.get(mask);
+      let v = 0;
+      while (!(mask & (1 << v))) v++;
+      const rest = mask & ~(1 << v);
+      let best = solve(rest);
+      for (const u of adjacency[v]) if (rest & (1 << u)) {
+        const candidate = [edge(v, u), ...solve(rest & ~(1 << u))];
+        if (candidate.length > best.length) best = candidate;
+      }
+      memo.set(mask, best);
+      return best;
+    }
+    return sorted(solve((1 << n) - 1));
+  }
+  function validMatching(matching, edges) {
+    const available = new Set(edges), used = new Set();
+    for (const e of matching) {
+      const [u, v] = endpoints(e);
+      if (!available.has(e) || u === v || used.has(u) || used.has(v)) return false;
+      used.add(u); used.add(v);
+    }
+    return true;
+  }
+  function dynamicTrace() {
+    const epsilon = 0.5, batch = 4, phaseLength = 16;
+    const edges = new Set(), add = new Set(), deleted = new Set(), cert = new Set();
+    let matching = [], count = 0, update = 0, phase = 1;
+    const frames = [];
+    function emit(kind, title, description, extra = {}) {
+      frames.push(clone({chapter: 'dynamic', kind, title, description,
+        source: SOURCES.dynamic, modeNote: NOTES.dynamic, vertices: V,
+        edges: sorted(edges), matching: sorted(matching), pastMatching: [],
+        add: sorted(add), deleted: sorted(deleted), cert: sorted(cert),
+        available: [], samples: [], activeVertex: null, activeEdge: null,
+        counters: {n: 16, epsilon, batch, phaseLength, update, phaseUpdate: count,
+          phase, matched: matching.length, certificates: cert.size}, ...extra}));
+    }
+    emit('start', 'Start with an empty graph', 'G is the live graph. The three auxiliary edge sets and the maintained matching M_G begin empty.');
+    const insertions = V.slice(0, 8).map(v => edge(v, v + 8)).concat([
+      '0-1', '1-2', '2-3', '3-4', '4-5', '5-6', '6-7', '0-2'
+    ]);
+    const events = insertions.map(e => ({type: 'insert', edge: e})).concat([
+      {type: 'delete', edge: '0-8'},
+      {type: 'insert', edge: '0-8'},
+      {type: 'delete', edge: '1-9'},
+      {type: 'insert', edge: '1-3'},
+      {type: 'delete', edge: '2-10'},
+      {type: 'insert', edge: '2-10'},
+      {type: 'delete', edge: '3-11'},
+      {type: 'insert', edge: '1-9'}
+    ]);
+    for (const event of events) {
+      const e = event.edge;
+      if (event.type === 'insert') {
+        if (edges.has(e)) throw new Error('Invalid duplicate insertion: ' + e);
+        edges.add(e); add.add(e); deleted.delete(e);
+      } else {
+        if (!edges.has(e)) throw new Error('Invalid deletion: ' + e);
+        edges.delete(e); add.delete(e); matching = matching.filter(x => x !== e); deleted.add(e);
+      }
+      update++; count++;
+      emit('update', (event.type === 'insert' ? 'Insert ' : 'Delete ') + e,
+        event.type === 'insert'
+          ? 'Add the edge to G and G_add; remove its deletion marker if present. M_G waits for the next refresh.'
+          : 'Remove the edge from G, G_add, and M_G. Keep it in H_cert if cached; G_del prevents reuse while it is absent.',
+        {event, activeEdge: e});
+      if (count === phaseLength) {
+        add.clear(); deleted.clear(); cert.clear(); count = 0; phase++;
+        emit('phase-reset', 'Start a new phase', 'Clear G_add, G_del, and H_cert. The live graph G and current matching remain. Counter 0 triggers a refresh immediately.');
+      }
+      if (count % batch !== 0) continue;
+      const dense = sorted([...edges].filter(e => !add.has(e)));
+      const sparse = sorted(new Set([...add, ...cert].filter(e => !deleted.has(e))));
+      const optimum = exactMatching(edges), sparseGreedy = greedyMatching(sparse);
+      const additiveError = (epsilon / 2) * V.length;
+      const useSparse = sparseGreedy.length >= optimum.length - additiveError;
+      const outputMatching = useSparse ? sparseGreedy : optimum;
+      const outputCertificate = useSparse ? [] : exactMatching(dense.filter(e => !sparse.includes(e)));
+      const box = {
+        name: 'MatchAndCertify · contract illustration',
+        sourceUrl: SOURCES.certificate.url,
+        input: 'E_dense = G − G_add = {' + list(dense) + '}; E_sparse = (G_add ∪ H_cert) − G_del = {' + list(sparse) + '}; accuracy ε/2 = 1/4.',
+        output: '', inputEdges: sorted(new Set([...dense, ...sparse])),
+        denseEdges: dense, sparseEdges: sparse, outputEdges: [], certificateEdges: [],
+        implementation: 'An exact 16-vertex solver chooses valid example outputs. This box does not execute the paper’s boosting framework or model its cost.'
+      };
+      emit('call', 'Prepare both graph access views', 'Old live edges provide matrix access; recent and reusable edges provide list access. Their union is exactly G.',
+        {source: SOURCES.certificate, dense, sparse, box, oracleOptimum: optimum.length, additiveError});
+      box.output = 'M = {' + list(outputMatching) + '}; M_C = {' + list(outputCertificate) + '}. ' +
+        (useSparse ? 'A sparse matching meets the displayed additive contract.' : 'The example returns dense edges as a reusable certificate.');
+      box.outputEdges = outputMatching; box.certificateEdges = outputCertificate;
+      emit('return', 'Receive a matching and its certificate', 'M will become the maintained answer. M_C is separate bookkeeping for future calls and the time analysis.',
+        {source: SOURCES.certificate, dense, sparse, outputMatching, outputCertificate, box,
+          oracleOptimum: optimum.length, additiveError, contractCase: useSparse ? 'C1' : 'C2'});
+      outputCertificate.forEach(e => cert.add(e));
+      matching = outputMatching;
+      emit('commit', outputCertificate.length ? 'Store the certificate; publish M' : 'Publish the refreshed matching',
+        outputCertificate.length
+          ? 'Union M_C into H_cert. Later refreshes try these stored edges before seeking another certificate.'
+          : 'Replace M_G by M. H_cert stays available, including any stale edges excluded by G_del.',
+        {source: SOURCES.certificate, dense, sparse, outputMatching, outputCertificate, box,
+          oracleOptimum: optimum.length, additiveError, contractCase: useSparse ? 'C1' : 'C2'});
+    }
+    emit('done', 'The state is ready for the next update', 'Replay the same update sequence, or open the sampling view to inspect how the paper searches an induced subgraph.');
+    return frames;
+  }
+  function randomGenerator(seed) {
+    let state = Number(seed) >>> 0;
+    return function () {
+      state += 0x6D2B79F5;
+      let t = Math.imul(state ^ state >>> 15, 1 | state);
+      t ^= t + Math.imul(t ^ t >>> 7, 61 | t);
+      return ((t ^ t >>> 14) >>> 0) / 4294967296;
+    };
+  }
+  function uniformSubset(values, k, random) {
+    const copy = values.slice();
+    for (let i = 0; i < Math.min(k, copy.length); i++) {
+      const j = i + Math.floor(random() * (copy.length - i));
+      [copy[i], copy[j]] = [copy[j], copy[i]];
+    }
+    return copy.slice(0, Math.min(k, copy.length));
+  }
+  function samplingTrace(seed = DEFAULT_SEED) {
+    seed = Number(seed) >>> 0;
+    const delta = 0.25, target = delta * delta * V.length;
+    const edges = V.slice(0, 8).map(v => edge(v, v + 8)), edgeSet = new Set(edges);
+    const available = new Set(V), random = randomGenerator(seed), frames = [];
+    let matching = [], pastMatching = [], iteration = 0, budget = 1, queries = 0;
+    function emit(kind, title, description, extra = {}) {
+      frames.push(clone({chapter: 'sampling', kind, title, description,
+        source: SOURCES.sampling, modeNote: NOTES.sampling, vertices: V,
+        edges, matching, pastMatching, add: [], deleted: [], cert: [],
+        available: [...available], samples: [], activeVertex: null, activeEdge: null,
+        counters: {n: 16, delta, target, seed, iteration, budget, queries,
+          roundSize: matching.length, totalMatched: matching.length + pastMatching.length}, ...extra}));
+    }
+    emit('start', 'Choose an induced subgraph', 'Here U = V and G[U] is eight disjoint edges. Its maximum matching has size 8 ≥ δn = 4. All 16 vertices start available.');
+    for (let round = 1; round <= 2; round++) {
+      iteration = round;
+      matching = [];
+      emit('round', 'Round ' + iteration + ' · sample budget ' + budget, 'Start M_i empty. Keep U′ from the previous round; matched endpoints never return.');
+      for (const v of [...available]) {
+        if (!available.has(v)) continue;
+        const samplePool = [...available];
+        const samples = uniformSubset(samplePool, budget, random);
+        emit('sample', 'Sample from U′ for vertex ' + v, 'Draw ' + samples.length + ' of the ' + samplePool.length + ' available vertices uniformly. The outer circle marks v; squares mark the sampled vertices.',
+          {activeVertex: v, samples, samplePool, samplingOutcome: 'not-tested'});
+        const u = samples.find(u => u !== v && edgeSet.has(edge(u, v)) && available.has(u));
+        queries += samples.length;
+        const found = u !== undefined;
+        const probeVertex = found ? u : samples.find(u => u !== v);
+        emit('query', found ? 'The sample contains a neighbor' : 'No usable edge in this sample',
+          found ? 'The matrix query for ' + edge(u, v) + ' is positive and both endpoints are available.'
+            : 'A sampled vertex may be a non-neighbor or v itself. Leave U′ and M_i unchanged.',
+          {activeVertex: v, samples, samplePool, samplingOutcome: found ? 'hit' : 'miss',
+            activeEdge: probeVertex === undefined ? null : edge(v, probeVertex),
+            queryEdges: samples.map(u => edge(v, u)), hit: found});
+        if (found) {
+          matching.push(edge(v, u)); available.delete(v); available.delete(u);
+          emit('accept', 'Keep edge ' + edge(v, u), 'Add the edge to M_i and remove both endpoints from U′. Their matched state persists while the remaining vertices are processed.',
+            {activeVertex: v, samples, samplePool, activeEdge: edge(v, u), samplingOutcome: 'accepted'});
+        }
+      }
+      emit('round-end', '|M_' + iteration + '| = ' + matching.length + ' · target ' + target,
+        matching.length >= target ? 'This round meets |M_i| ≥ δ²n. Return this round’s matching.'
+          : iteration < 2 ? 'This round is too small. Increase b by n^(2δ) = 4 and continue on the remaining vertices.' : 'This round is too small and the two printed rounds are exhausted.');
+      if (matching.length >= target) {
+        emit('result', 'Return M_' + iteration, 'The returned matching is a building block for MatchAndCertify. It is not by itself the full near-optimal dynamic answer.',
+          {result: matching, success: true});
+        return frames;
+      }
+      pastMatching = [...pastMatching, ...matching];
+      if (iteration < 2) budget *= 4;
+    }
+    emit('no-return', 'No return in the two displayed rounds', 'This seed did not reach the target within the printed loop. Choose a different seed to inspect another trace; this demonstration does not silently add an extra round.', {success: false});
+    return frames;
+  }
+  // A first-round miss followed by a successful second round exposes budget growth.
+  const DEFAULT_SEED = 0;
+  return {dynamicTrace, samplingTrace, DEFAULT_SEED, SOURCES, NOTES,
+    _test: {edge, exactMatching, greedyMatching, validMatching, randomGenerator, uniformSubset}};
+});
+
+/* UI for the sourced, replayable ORS paper walkthrough. */
+(()=>{
+  'use strict';
+  const api=window.ORSWalkthrough,el=id=>document.getElementById(id);
+  const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const pos=v=>[48+(v%8)*72,v<8?80:250];
+  const edgeEnds=e=>String(e).split('-').map(Number);
+  function edgePath(e){const [a,b]=edgeEnds(e),[x,y]=pos(a),[xx,yy]=pos(b);return y===yy?`M${x} ${y}Q${(x+xx)/2} ${y+(y<150?-1:1)*(26+Math.abs(a-b)*8)} ${xx} ${yy}`:`M${x} ${y}L${xx} ${yy}`;}
+  function mini(edges=[],vertices=[],matching=[]){
+    const selected=new Set(vertices),highlight=new Set(matching);
+    return `<svg viewBox="0 0 600 330" role="img" aria-label="${edges.length} edges; ${vertices.length} highlighted vertices">${edges.map(e=>`<path d="${edgePath(e)}" stroke="${highlight.has(e)?'var(--green)':'var(--ink)'}" stroke-width="${highlight.has(e)?8:5}" fill="none"/>`).join('')}${Array.from({length:16},(_,v)=>{const [x,y]=pos(v);return `<circle cx="${x}" cy="${y}" r="${selected.has(v)?12:7}" fill="${selected.has(v)?'var(--green)':'var(--muted)'}" opacity="${vertices.length&&!selected.has(v)?.25:1}"/>`;}).join('')}${!edges.length&&!vertices.length?'<text x="300" y="175" text-anchor="middle" font-size="74" fill="var(--muted)">∅</text>':''}</svg>`;
+  }
+  let chapter='dynamic',seed=api.DEFAULT_SEED??19,frames=[],index=0,timer=null,layer='graph';
+  const hash=location.hash.slice(1).split('/');
+  if(hash[0]==='sampling')chapter='sampling';
+  if(hash[1]&&Number.isFinite(+hash[1]))seed=(+hash[1])>>>0;
+  const initialStep=Number.isInteger(+hash[2])?Math.max(0,+hash[2]):0;
+  const graph=el('walk-graph');
+  graph.innerHTML='<svg viewBox="0 0 600 330" role="img" aria-label="Input graph"><g class="walk-edges">'+Array.from({length:16},(_,a)=>Array.from({length:15-a},(_,i)=>{const b=a+i+1;return `<path class="walk-edge" data-edge="${a}-${b}" d="${edgePath(`${a}-${b}`)}" fill="none" opacity="0"/>`;}).join('')).join('')+'</g><g class="walk-nodes">'+Array.from({length:16},(_,v)=>{const [x,y]=pos(v);return `<g data-vertex="${v}" class="walk-node"><rect class="sampled" x="${x-22}" y="${y-22}" width="44" height="44" rx="4" fill="none" stroke="var(--ink)" stroke-width="1.6" opacity="0"/><circle class="active" cx="${x}" cy="${y}" r="26" fill="none" stroke="var(--ink)" stroke-width="2" opacity="0"/><circle class="vertex" cx="${x}" cy="${y}" r="19" fill="var(--surface)" stroke="var(--ink)" stroke-width="1.4"/><text x="${x}" y="${y+7}" text-anchor="middle">${v}</text></g>`;}).join('')+'</g></svg>';
+  const edgeElements=[...graph.querySelectorAll('[data-edge]')],nodeElements=[...graph.querySelectorAll('[data-vertex]')];
+  function stop(){clearTimeout(timer);timer=null;el('walk-play').textContent='▶ Play';el('walk-play').setAttribute('aria-pressed','false');}
+  function schedule(){timer=setTimeout(()=>{if(index>=frames.length-1){stop();return;}index++;render();schedule();},+el('walk-speed').value);}
+  function play(){if(timer){stop();return;}if(index>=frames.length-1)index=0;el('walk-play').textContent='Ⅱ Pause';el('walk-play').setAttribute('aria-pressed','true');render();schedule();}
+  function load(step=0){
+    stop();layer='graph';frames=chapter==='dynamic'?api.dynamicTrace():api.samplingTrace(seed);index=Math.min(step,frames.length-1);
+    document.querySelectorAll('[data-chapter]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.chapter===chapter)));
+    el('walk-scope').textContent=chapter==='dynamic'?'Undirected graph · Exact update bookkeeping. MatchAndCertify is a contract demonstration with toy solver outputs; open Sampling to run the sampling procedure.':'RandomSampling · Watch uniform draws, adjacency queries, and the shrinking available set. Replay keeps the seed; a new run changes the draws.';
+    el('walk-new-sample').hidden=chapter!=='sampling';
+    el('walk-pair-legend').textContent=chapter==='sampling'?'Queried pair (dashed if absent)':'Deleted edge';
+    el('walk-scrub').max=frames.length-1;
+    el('walk-jump').innerHTML=frames.map((f,i)=>`<option value="${i}">${i+1}. ${esc(f.title)}</option>`).join('');render();
+  }
+  function setCards(f){
+    const dynamic=[['matching','M_G',f.matching,[],'The maintained output matching.'],['add','G_add',f.add,[],'Edges inserted in this phase.'],['deleted','G_del',f.deleted,[],'Deletion records; filter stale edges.'],['cert','H_cert',f.cert,[],'Stored certificates, including stale edges.']];
+    const sampling=[['available','U′',[],f.available,'Vertices still available to match.'],['samples','S',[],f.samples,'Uniformly sampled candidates.'],['matching','M_i',f.matching,[],'Matching in the current round.'],['pastMatching','Earlier rounds',f.pastMatching||[],[],'Kept visible; not the returned M_i.']];
+    el('walk-sets').innerHTML=(chapter==='dynamic'?dynamic:sampling).map(([key,name,edges,vs,description])=>`<button type="button" class="walk-set" data-layer="${key}" aria-pressed="${layer===key}"><span class="walk-set-top"><span>${esc(name)}</span><span>${edges.length||vs.length} ${key==='available'||key==='samples'?'vertices':'edges'}</span></span>${mini(edges,vs,key==='matching'?edges:[])}<small>${description}</small></button>`).join('');
+  }
+  function renderBox(f){
+    const box=f.box;
+    if(chapter==='sampling'){
+      const isResult=f.kind==='result', noResult=f.kind==='no-return';
+      el('walk-blackbox').innerHTML=`<p class="walk-eyebrow">RETURN TO THE CALLER</p><div class="walk-box-flow"><div><p class="walk-port">INPUT · G[U], δ = ¼</p>${mini(f.edges,[],[])}</div><span class="walk-flow-arrow" aria-hidden="true">→</span><div class="walk-box ${isResult?'active':''}"><h3>RandomSampling</h3><a href="https://arxiv.org/html/2404.06069v4#S4.SS1.pic1.tab1" target="_blank" rel="noopener noreferrer">Behnezhad–Ghafari · Algorithm 1 ↗</a><span>This procedure is executed above.</span></div><span class="walk-flow-arrow" aria-hidden="true">→</span><div><p class="walk-port">${isResult?'OUTPUT':noResult?'NO OUTPUT':'IN PROGRESS'} · M_i</p>${mini(f.matching,[],f.matching)}</div></div><p>The caller can retain a sampled matching as a certificate after choosing the smallest-density call and removing edges already in the sparse input. That selection is part of MatchAndCertify.</p>`;return;
+    }
+    const dense=f.dense||f.edges.filter(e=>!f.add.includes(e));
+    const sparse=f.sparse||[...new Set([...f.add,...f.cert])].filter(e=>!f.deleted.includes(e));
+    const out=f.outputMatching||box?.outputEdges||[],cert=f.outputCertificate||box?.certificateEdges||[];
+    el('walk-blackbox').innerHTML=`<p class="walk-eyebrow">${box?'SUBROUTINE CONTRACT':'AT THE NEXT REFRESH'}</p><div class="walk-box-flow"><div><p class="walk-port">INPUT · Dense + sparse access</p>${mini([...new Set([...dense,...sparse])])}<p class="walk-port-value">E_dense = G ∖ G_add (${dense.length} edges)<br>E_sparse = (G_add ∪ H_cert) ∖ G_del (${sparse.length} edges)</p></div><span class="walk-flow-arrow" aria-hidden="true">→</span><div class="walk-box ${box?'active':''}"><h3>MatchAndCertify</h3><a href="https://arxiv.org/html/2404.06069v4#Thmlemma6" target="_blank" rel="noopener noreferrer">Behnezhad–Ghafari · Lemma 6 ↗</a><span>Illustrated contract · toy exact solver</span></div><span class="walk-flow-arrow" aria-hidden="true">→</span><div><p class="walk-port">OUTPUT · M and certificate M_C</p><div class="walk-output-pair"><div><span>M</span>${mini(out,[],out)}</div><div><span>M_C</span>${mini(cert,[],cert)}</div></div><p class="walk-port-value">${box?`${out.length} matching edges · ${cert.length} certificate edges`:'Waiting for a refresh.'}<br>M replaces M_G; M_C joins H_cert.</p></div></div><p>${box?esc(box.output||box.input||'The two outputs have different jobs: answer the matching query and remember useful edges.'):'The stored sets determine the next call. The same graph can be exposed through two access interfaces.'}</p>`;
+  }
+  function render(){
+    const f=frames[index],E=new Set(f.edges),M=new Set(f.matching),P=new Set(f.pastMatching||[]),A=new Set(f.available||[]),S=new Set(f.samples||[]),D=new Set(f.deleted||[]),Q=new Set(f.queryEdges||[]);
+    let selectedEdges=null,selectedVertices=null;
+    if(layer==='available'||layer==='samples')selectedVertices=new Set(f[layer]||[]);else if(layer!=='graph')selectedEdges=new Set(f[layer]||[]);
+    edgeElements.forEach(p=>{const edge=p.dataset.edge,active=edge===f.activeEdge,shown=E.has(edge)||active||Q.has(edge)||(layer==='deleted'&&D.has(edge))||(layer==='cert'&&(f.cert||[]).includes(edge));
+      const [a,b]=edgeEnds(edge);let opacity=shown?1:0;
+      if(shown&&selectedEdges&&!selectedEdges.has(edge))opacity=.08;
+      if(shown&&selectedVertices&&(!selectedVertices.has(a)||!selectedVertices.has(b)))opacity=.08;
+      p.style.opacity=opacity;p.style.stroke=M.has(edge)?'var(--green)':(active||Q.has(edge))?'var(--ink)':'var(--muted)';p.style.strokeWidth=M.has(edge)?5:(active||Q.has(edge))?2.4:1.5;
+      p.style.strokeDasharray=!E.has(edge)||P.has(edge)?'6 5':'';p.classList.toggle('walk-query',chapter==='sampling'&&Q.has(edge)&&!E.has(edge));
+    });
+    nodeElements.forEach(g=>{const v=+g.dataset.vertex,matched=[...M].some(e=>edgeEnds(e).includes(v));g.style.opacity=selectedVertices?(selectedVertices.has(v)?1:.22):(chapter==='sampling'&&!A.has(v)&&!matched?.35:1);g.querySelector('.sampled').style.opacity=S.has(v)?1:0;g.querySelector('.active').style.opacity=f.activeVertex===v?1:0;g.querySelector('.vertex').style.stroke=matched?'var(--green)':'var(--ink)';g.querySelector('.vertex').style.fill=matched?'var(--green-fill)':'var(--surface)';});
+    graph.querySelector('svg').setAttribute('aria-label',`${f.title}. Graph has ${f.edges.length} edges. Matching has ${f.matching.length} edges.`);
+    const names={graph:'Input graph G',matching:chapter==='dynamic'?'Output matching M_G':'Current round M_i',add:'Inserted edges G_add',deleted:'Deletion records G_del',cert:'Stored certificates H_cert',available:'Available vertices U′',samples:'Sampled candidates S',pastMatching:'Matchings from earlier rounds'};
+    el('walk-graph-title').textContent=names[layer];el('walk-show-all').hidden=layer==='graph';
+    el('walk-count').textContent=`Step ${index+1} / ${frames.length}`;el('walk-scrub').value=index;el('walk-jump').value=index;
+    el('walk-back').disabled=index===0;el('walk-next').disabled=index===frames.length-1;
+    el('walk-step-kind').textContent=chapter==='dynamic'?'DYNAMIC UPDATE':'RANDOM SAMPLING';
+    el('walk-step-title').textContent=f.title;el('walk-step-description').textContent=f.description;
+    el('walk-step-source').textContent=f.source.label+' ↗';el('walk-step-source').href=f.source.url;
+    el('walk-counters').innerHTML=Object.entries(f.counters||{}).filter(([k])=>k!=='seed').map(([k,v])=>`<span>${esc(k.replace(/([a-z])([A-Z])/g,'$1 $2').replaceAll('_',' '))}: <b>${esc(v)}</b></span>`).join('')+(chapter==='sampling'?`<span>seed: <b>${seed}</b></span>`:'');
+    el('walk-samples').innerHTML=chapter==='sampling'?`<p class="walk-sample-label">${f.activeVertex!=null?`Querying vertex ${f.activeVertex} · `:''}S = {${(f.samples||[]).map(v=>v).join(', ')}}</p><div class="walk-chips">${(f.samples||[]).map(v=>`<span>${v}</span>`).join('')}</div>`:'';
+    setCards(f);renderBox(f);el('walk-live').textContent=`Step ${index+1}. ${f.title}. ${f.description}`;
+    document.querySelector('.walk-player').dataset.step=index;document.querySelector('.walk-player').dataset.chapter=chapter;
+    history.replaceState(null,'',`#${chapter}/${seed}/${index}`);
+  }
+  el('walk-play').addEventListener('click',play);
+  el('walk-next').addEventListener('click',()=>{stop();index=Math.min(index+1,frames.length-1);render();});
+  el('walk-back').addEventListener('click',()=>{stop();index=Math.max(index-1,0);render();});
+  el('walk-replay').addEventListener('click',()=>{stop();index=0;render();play();});
+  el('walk-speed').addEventListener('change',()=>{if(timer){stop();play();}});
+  el('walk-scrub').addEventListener('input',e=>{stop();index=+e.target.value;render();});
+  el('walk-jump').addEventListener('change',e=>{stop();index=+e.target.value;render();});
+  el('walk-new-sample').addEventListener('click',()=>{seed=(seed+1)>>>0;load();});
+  el('walk-sets').addEventListener('click',e=>{const b=e.target.closest('[data-layer]');if(b){layer=layer===b.dataset.layer?'graph':b.dataset.layer;render();}});
+  el('walk-show-all').addEventListener('click',()=>{layer='graph';render();});
+  document.querySelectorAll('[data-chapter]').forEach(b=>b.addEventListener('click',()=>{chapter=b.dataset.chapter;load();}));
+  document.addEventListener('visibilitychange',()=>{if(document.hidden)stop();});
+  load(initialStep);
+})();
+</script>
+</body>
+</html>
