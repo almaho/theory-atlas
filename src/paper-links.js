@@ -37,7 +37,7 @@
     const a=arxiv(r),url=primary(r),title=r.title||r.shortName||r.shortLabel||'Source statement';
     if(!url)return '<article><strong>'+esc(title)+'</strong><p>Elementary derivation; no separate paper is attributed. See the theorem details.</p></article>';
     const search='https://arxiv.org/search/?query='+encodeURIComponent(title)+'&searchtype=title';
-    return '<article><strong>'+esc(title)+'</strong>'+(r.authors?'<p>'+esc(Array.isArray(r.authors)?r.authors.join(', '):r.authors)+'</p>':'')+'<div class="paper-actions">'+(a?'<a href="'+esc(a)+'" target="_blank" rel="noopener noreferrer">arXiv ↗</a>':'<a href="'+esc(search)+'" target="_blank" rel="noopener noreferrer">Find on arXiv ↗</a>')+'<a href="'+esc(url)+'" target="_blank" rel="noopener noreferrer">Cited source ↗</a></div>'+(a?'':'<small>No arXiv identifier recorded; the first link searches by title.</small>')+'</article>';
+    return '<article><strong>'+esc(title)+'</strong>'+(r.authors?'<p>'+esc(Array.isArray(r.authors)?r.authors.join(', '):r.authors)+'</p>':'')+'<div class="paper-actions">'+(a?'<a href="'+esc(a)+'" target="_blank" rel="noopener noreferrer">arXiv ↗</a>':'<a href="'+esc(search)+'" target="_blank" rel="noopener noreferrer">Find on arXiv ↗</a>')+'<a href="'+esc(url)+'" target="_blank" rel="noopener noreferrer">Cited source ↗</a>'+(r.walkthroughUrl?'<a href="'+esc(r.walkthroughUrl)+'">Watch the algorithm →</a>':'')+'</div>'+(a?'':'<small>No arXiv identifier recorded; the first link searches by title.</small>')+'</article>';
   }
   window.AtlasPapers={resolve,arxivURL,arxiv,referenceHTML};
   if(!document.addEventListener)return;

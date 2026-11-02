@@ -361,6 +361,7 @@
     },
     {
       "id": "dynamic-edges-bg24",
+      "walkthroughUrl": "matching-ors.html",
       "title": "Fully Dynamic Matching and Ordered Ruzsa-Szemerédi Graphs",
       "statement": "For every fixed ε>0, maintains the edges of a (1−ε)-approximate maximum matching in Õ(√(n^{1+ε} · ORSₙ(Θ(ε²n)))) amortized update time, against adaptive adversaries.",
       "url": "https://arxiv.org/pdf/2404.06069v2#page=4",

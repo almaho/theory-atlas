@@ -38,6 +38,11 @@ assert.equal(papers.arxivURL('https://example.org/arxiv.org/abs/1234.5678'),null
 assert.equal(papers.arxivURL('https://arxiv.org.evil.example/abs/1234.5678'),null);
 assert(papers.referenceHTML({title:'A publisher-only source',url:'https://doi.org/example'}).includes('Find on arXiv'),'Unknown arXiv IDs are never invented');
 assert(papers.referenceHTML({title:'Elementary derivation',derived:true}).includes('no separate paper'));
+const bg24=papers.resolve(['dynamic-edges-bg24']);
+assert.equal(bg24.length,1,'The ORS interval resolves to its own paper');
+assert.equal(bg24[0].walkthroughUrl,'matching-ors.html','The selected ORS result carries its standalone walkthrough');
+assert(papers.referenceHTML(bg24[0]).includes('<a href="matching-ors.html">Watch the algorithm →</a>'),'The result popup offers same-tab algorithm navigation');
+assert(!papers.referenceHTML({title:'Another source',url:'https://arxiv.org/abs/1234.5678'}).includes('Watch the algorithm'),'Other papers do not inherit an unrelated walkthrough');
 const legacy={dynamic:context.window.DynamicMatching,streaming:context.window.StreamingMatching,lca:context.window.LCAMatching,local:context.window.LocalMatching,mpc:context.window.MPCMatching,query_list:context.window.ListQueryMatching};
 const figures=[],unresolved=[],missingArxiv=new Map();let dots=0,arxiv=0;
 for(const route of api.settings()){

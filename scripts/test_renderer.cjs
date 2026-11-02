@@ -1090,3 +1090,4 @@ require('./test_site_pages.cjs');
 require("./test_semantic_palette.cjs");
 
 require("./test_marker_shapes.cjs");
+require('./test_algorithm_walkthrough.cjs');

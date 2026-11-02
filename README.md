@@ -32,6 +32,8 @@ This is an evolving research collection, not an exhaustive bibliography. Review 
 
 The dynamic-matching figure includes Behnezhad–Ghafari’s **Fully Dynamic Matching and Ordered Ruzsa-Szemerédi Graphs** (FOCS 2024) in its main ORS-dependent algorithm panel, together with subsequent work. Its parameter-dependent update cost is shown explicitly inside the atlas at overview and detail zoom.
 
+Select **Watch the algorithm** on that result to open the [interactive walkthrough](https://almaho.github.io/theory-atlas/matching-ors.html). It executes dynamic bookkeeping and seeded sampling on a small graph, with persistent sets, replay, and source-linked black boxes. MatchAndCertify's outputs are explicitly illustrated by a small exact solver; the page is not an implementation or benchmark of the complete approximation-boosting framework. See [walkthrough scope and evidence](docs/ors-walkthrough-2026-11-02.md).
+
 ## Iterate
 
 1. Edit the relevant records in `data/research/` and the corresponding curated figure data in `data/focus/`.

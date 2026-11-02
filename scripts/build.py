@@ -6,6 +6,7 @@ import math
 from pathlib import Path
 from fine_grained import build_fine_grained
 from site_pages import site_navigation, site_theme, site_appearance, build_site_pages
+from algorithm_pages import build_algorithm_pages
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
@@ -284,6 +285,7 @@ def main():
         output.write_text(html)
         print(f"Wrote {output} ({output.stat().st_size:,} bytes)")
     build_site_pages(ROOT, write=not args.check)
+    build_algorithm_pages(ROOT, write=not args.check)
     # Fine-grained page is paused; retain and validate its research without publishing it.
     build_fine_grained(ROOT, write=False)
     if not args.check:
