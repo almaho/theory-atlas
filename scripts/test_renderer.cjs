@@ -1051,10 +1051,21 @@ const resizeSource=source.slice(source.indexOf('  function resize(){'),source.in
 const resizeChecks=[],resizeContext={stage:{clientWidth:1278,style:{}},raf:42,W:960,H:630,base:1,WORLD:{w:3081,h:1430},camera:{k:1},state:{selected:'matching:query_matrix',selectedSlice:'matching-query-matrix-mixed-value'},cancelAnimationFrame:id=>resizeChecks.push(['cancel',id]),selectedCell:()=>({id:'matching:query_matrix'}),focus:(cell,slice,scroll,preserve)=>resizeChecks.push(['focus',cell.id,slice,scroll,preserve]),render:()=>resizeChecks.push(['render'])};
 vm.createContext(resizeContext);vm.runInContext(resizeSource+'\nresize();',resizeContext);
 assert.deepEqual(resizeChecks,[['cancel',42],['focus','matching:query_matrix','matching-query-matrix-mixed-value',false,true]],'A revealed atlas cancels stale geometry and refits the selected slice without scrolling');
-assert.equal(resizeContext.stage.style.height,'580px');
-assert.equal(resizeContext.H,580);
+assert.equal(resizeContext.stage.style.height,'680px');
+assert.equal(resizeContext.H,680);
 resizeChecks.length=0;resizeContext.state.selected=null;vm.runInContext('resize();',resizeContext);
 assert.deepEqual(resizeChecks,[['cancel',42],['render']],'Overview resize cancels the animation before laying out the grid');
+resizeContext.stage.clientWidth=390;
+resizeContext.WORLD={w:3417,h:2258};
+vm.runInContext('resize();',resizeContext);
+assert.equal(resizeContext.H,450,'Mobile keeps its compact pannable canvas');
+assert(resizeContext.camera.y>=0,'Mobile overview starts with the model headings visible');
+assert(resizeContext.camera.y+(95+245)*resizeContext.camera.k<resizeContext.H,'The complete first row fits below the mobile headings');
+Object.assign(resizeContext,{move:target=>Object.assign(resizeContext.camera,target),setLocation(){},document:{getElementById:()=>({textContent:''})}});
+resizeContext.camera.y=-190;
+const fitSource=source.slice(source.indexOf('  function fit(){'),source.indexOf('  function zoom('));
+vm.runInContext(fitSource+'\nfit();',resizeContext);
+assert(resizeContext.camera.y>=0,'Overview restores the first row after panning on mobile');
 
 // Resizing the same selection preserves the mounted view; changing settings does not.
 const preserveSource=source.slice(source.indexOf('  function focus('),source.indexOf('  function fit('));
