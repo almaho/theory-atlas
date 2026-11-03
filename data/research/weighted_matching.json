@@ -1,6 +1,6 @@
 {
   "problem": "weighted_matching",
-  "reviewedThrough": "2026-10-30",
+  "reviewedThrough": "2026-11-03",
   "searchSummary": "All nine visible weighted-matching models have scoped figures. The 30 October review filled Dynamic, LCA and both query cells with verified baselines and explicitly labeled reductions/derivations; no claim of exhaustive frontier coverage.",
   "coverage": [
     {
@@ -596,6 +596,20 @@
       "verifiedOn": "2026-10-30",
       "sourceLocation": "Sections 1.3–1.5, PDF page 3; Maximum Weight Matching paragraph",
       "proofStatus": "Weighted theorem statement inspected; this conference version explicitly omits its proof. No independent proof validation claimed."
+    },
+    {
+      "id": "chen26-unified",
+      "title": "Faster Semi-Streaming and Dynamic Approximate Maximum Weight Matchings in General Graphs: A Unified Framework",
+      "authors": [
+        "Jiale Chen"
+      ],
+      "year": 2026,
+      "venue": "arXiv preprint v1, 1 November 2026",
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/abs/2611.02105v1",
+      "fullTextUrl": "https://arxiv.org/html/2611.02105v1",
+      "verifiedOn": "2026-11-03",
+      "shortLabel": "Chen ’26 · unified"
     }
   ],
   "slices": [
@@ -1321,7 +1335,7 @@
         "Arbitrary-order insertion-only stream; multiple passes over the input.",
         "General graph with positive integer edge weights.",
         "Output is an explicit matching of edges with weight at least (1−ε)OPTweight.",
-        "Working memory is O(n log² n/ε) bits; semi-streaming for fixed ε.",
+        "Working memory and approximation-error dependence are stated per result; semi-streaming for fixed ε.",
         "This is an approximation guarantee with respect to total matching weight, not only cardinality."
       ],
       "xAxis": {
@@ -1331,6 +1345,10 @@
           {
             "id": "space-bits",
             "label": "O(n log² n/ε) bits"
+          },
+          {
+            "id": "mu-epsilon-squared",
+            "label": "O(μ(G) ε⁻² log² n) bits"
           }
         ]
       },
@@ -1341,6 +1359,10 @@
           {
             "id": "logn-over-epsilon",
             "label": "O(log n/ε) passes"
+          },
+          {
+            "id": "epsilon-squared-log",
+            "label": "O(ε⁻² log(1/ε)) passes"
           }
         ]
       },
@@ -1361,6 +1383,19 @@
           "notes": "Positive integer weights; unit weights give cardinality. Different ε conventions are retained; no numerical quality coordinate is assigned. Memory O(n log² n/ε) bits; success ≥1−exp(−Θ(n)). No comparable insertion-only multipass lower bound was verified in this source set. Lower bounds for streams with deletions are not transferred to this insertion-only contract.",
           "plot": null,
           "sourceUrl": "https://arxiv.org/html/2307.02968"
+        },
+        {
+          "id": "weighted-stream-chen26",
+          "paperId": "chen26-unified",
+          "kind": "upper",
+          "bound": "O(ε⁻² log(1/ε)) passes",
+          "guarantee": "weight(M) ≥ (1−ε)OPTweight",
+          "sourceLocation": "Theorem 1.1(2); Section 4.2 proof; Section 1.3 computational model",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "verified_preprint",
+          "notes": "Preprint v1; theorem and model statements checked, proof not independently verified. μ(G) is maximum matching cardinality, not optimum matching weight. Pass count is independent of n; its ε dependence differs from Assadi’s bound, so neither symbolic position implies unconditional dominance. The space formula retains μ(G)≤n/2. O(μ(G) ε⁻² log² n) bits general undirected graphs; positive integer edge weights in [1,W], W≤poly(n)",
+          "plot": null,
+          "sourceUrl": "https://arxiv.org/html/2611.02105v1#S1.Thmlemma1"
         }
       ]
     },
@@ -1451,6 +1486,19 @@
           "frontierStatus": "verified_algorithm",
           "notes": "General undirected graphs; positive edge weights; fully dynamic edge insertions and deletions; weights remain in a fixed interval of aspect ratio R≤poly(n) · An explicit matching M after every edge update · amortized · deterministic · arbitrary update sequence · Matching maintained after updates; reporting all edges costs O(|M|) · Preprint v2. Improves the ε dependence using local weight windows. Õ suppresses polylogarithmic factors. Deterministic guarantee for a graph with at most m edges at all times.",
           "plot": null
+        },
+        {
+          "id": "weighted-dynamic-chen26-reduction",
+          "paperId": "chen26-unified",
+          "kind": "upper",
+          "bound": "Õ(ε⁻⁴) · U_b(Õ(nε⁻²), Õ((m+n)ε⁻²), Θ̃(ε))",
+          "guarantee": "w(M) ≥ (1−ε) OPTw; 0<ε≤1/4",
+          "sourceLocation": "Theorem 1.4; Section 6.6.2 proof and Section 6 footnote 6",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "verified_preprint",
+          "notes": "Preprint v1; theorem/model statements inspected, proof not independently verified. This is an oracle reduction, not a standalone update-time bound. U_b(N,M,ρ) is the amortized cost of maintaining an explicit (1−ρ)-approximate cardinality matching in a bipartite graph against adaptive updates. Õ and Θ̃ hide only polylog(1/ε), not log n. The source normalizes U_b to be monotone in instance size/accuracy and uses U_b=Ω(1/ρ). Auxiliary sizes and accuracy must be substituted before comparing costs.  Initially empty general undirected graph; fully dynamic edge insertions and deletions; at most n vertices and m edges; integer weights in [1,W], W≤poly(n); Θ(log n)-bit word RAM",
+          "plot": null,
+          "sourceUrl": "https://arxiv.org/html/2611.02105v1#S1.Thmlemma4"
         }
       ]
     },

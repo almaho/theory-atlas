@@ -7,3 +7,5 @@
 @media(max-width:700px){.wstr-toolbar{align-items:flex-start;flex-direction:column}.wstr-notes,.wstr-detail-values{grid-template-columns:1fr;gap:12px}.wstr-view .f-hero h1{font-size:26px}}
 
 .wstr-legend i{transform:none;border-radius:0;width:14px;height:3px;vertical-align:middle}
+
+.wstr-summary[data-detail-level=compact] .wstr-pass-compact{font:14px Georgia,serif}.wstr-summary[data-detail-level=compact] .wstr-memory{font-size:12px}.wstr-map .wstr-formula,.wstr-summary[data-detail-level=detail] .wstr-formula{font-size:24px}.wstr-map .wstr-memory,.wstr-summary[data-detail-level=detail] .wstr-memory{font-size:18px}

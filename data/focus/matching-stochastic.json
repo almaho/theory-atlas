@@ -3,7 +3,7 @@
   "problem": "matching",
   "model": "stochastic",
   "title": "Stochastic matching: approximation and query budgets",
-  "reviewedOn": "2026-10-27",
+  "reviewedOn": "2026-11-03",
   "sources": {
     "azarmehr-behnezhad-ghafari-rubinfeld-2025-stochastic": {
       "id": "azarmehr-behnezhad-ghafari-rubinfeld-2025-stochastic",
@@ -185,6 +185,22 @@
       "fullTextUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol334-icalp2025/html/LIPIcs.ICALP.2025.67/LIPIcs.ICALP.2025.67.html",
       "verifiedOn": "2026-10-27",
       "doi": "10.4230/LIPIcs.ICALP.2025.67"
+    },
+    "behnezhad26-polynomial-degree": {
+      "id": "behnezhad26-polynomial-degree",
+      "title": "Stochastic Matching with Polynomial Degree",
+      "authors": [
+        "Soheil Behnezhad"
+      ],
+      "year": 2026,
+      "venue": "arXiv preprint v1 · 2 November 2026",
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/abs/2611.03367v1",
+      "fullTextUrl": "https://arxiv.org/html/2611.03367v1",
+      "arxivId": "2611.03367",
+      "arxivVersion": "v1",
+      "verifiedOn": "2026-11-03",
+      "verificationNote": "Primary theorem/model statements and algorithm inspected; proof not independently verified."
     }
   },
   "verifiedRecords": [
@@ -937,6 +953,62 @@
       "plot": null,
       "annotation": true,
       "sliceId": "weighted-matching-stochastic-expected"
+    },
+    {
+      "id": "stochastic-beh26-near",
+      "sourceId": "behnezhad26-polynomial-degree",
+      "shortLabel": "Behnezhad ’26 · preprint",
+      "weighting": "unweighted",
+      "panel": "unweighted-near",
+      "beta": 1,
+      "ratioLabel": "1−ε",
+      "symbolic": "minus",
+      "kind": "upper",
+      "quality": "1−ε of expected optimum",
+      "displayBound": "O(log(1/ε) / (p ε⁴))",
+      "bound": "Maximum degree Δ(H) ≤ O(log(1/ε) / (p ε⁴))",
+      "budgetLabel": "O(log(1/ε) / (p ε⁴))",
+      "theorem": "Theorem 1; Algorithm 1; Result 1",
+      "sourceLocation": "Section 4, Theorem 1 and Sample-and-Union Algorithm 1; §1 Result 1",
+      "sourceUrl": "https://arxiv.org/html/2611.03367v1#Thmtheorem1",
+      "graph": "Finite simple undirected general unweighted graph; every edge survives independently with the same known p∈(0,1]",
+      "probability": "Ratio of expectations over independent test-edge realizations and the algorithm’s independent simulations; no high-probability approximation statement",
+      "oracle": "Known base graph G and p; maximum queried degree counts tests on the unknown realization; no test outcomes used to select H",
+      "output": "Randomized query subgraph H selected nonadaptively, followed by maximum cardinality matching in H∩Gₚ",
+      "guarantee": "E μ(H∩Gₚ) ≥ (1−ε) E μ(Gₚ), for ε∈(0,1)",
+      "notes": "Preprint v1: theorem statement checked; proof not independently verified. Sample-and-union takes R independent simulated realizations and unions one maximum matching from each; Δ(H)≤R. The budget is polynomial jointly in 1/ε and 1/p. Remark 4.1 states that a refined analysis of the same efficient sample-and-union algorithm gives O(log(1/ε)·(1/(p ε²)+1/ε³)); the plotted point retains numbered Theorem 1. Appendix B removes the logarithmic factor using a different construction with exact edge-selection marginals, giving O(1/(p ε²)+1/ε³), but claims no efficient exact computation of those marginals. The guarantee is unweighted and non-adaptive, not a weighted or adaptive-testing theorem.",
+      "evidenceStatus": "full_text_verified",
+      "frontierStatus": "preprint_claim",
+      "plot": null,
+      "sliceId": "matching-stochastic-near"
+    },
+    {
+      "id": "stochastic-beh26-lower",
+      "sourceId": "behnezhad26-polynomial-degree",
+      "shortLabel": "Behnezhad ’26 · preprint · necessary degree",
+      "weighting": "unweighted",
+      "panel": "unweighted-near",
+      "beta": null,
+      "ratioLabel": "1−ε requires",
+      "symbolic": null,
+      "kind": "lower",
+      "quality": "1−ε requires",
+      "displayBound": "Ω(1/(p ε))",
+      "bound": "Ω(1/(p ε))",
+      "budgetLabel": "Ω(1/(p ε))",
+      "theorem": "Theorem 3; Appendix A",
+      "sourceLocation": "Appendix A, Theorem 3; proof uses p≤1/2 and ε≤1/16",
+      "sourceUrl": "https://arxiv.org/html/2611.03367v1#Thmtheorem3",
+      "graph": "Bipartite unweighted hard instances; every edge survives independently with uniform p∈(0,1/2]",
+      "probability": "Expected maximum matching size; randomized bounded-degree sparsifiers included when independent of the test realization",
+      "oracle": "Known base graph; non-adaptive query subgraph H independent of unknown edge realizations",
+      "output": "Maximum matching of the queried surviving subgraph H∩Gₚ",
+      "guarantee": "For every p∈(0,1/2] and sufficiently small ε>0, some bipartite G requires Δ(H)=Ω(1/(p ε)) for a (1−ε) ratio of expectations",
+      "notes": "Preprint v1: Theorem 3 and parameter regime inspected; proof not independently verified. This is a maximum-degree necessity and holds for randomized sparsifiers that obey the degree cap. The hard graph is bipartite. No transfer to adaptive testing is asserted. The earlier BBD ’22 bound is retained with its own small-p scope.",
+      "evidenceStatus": "full_text_verified",
+      "plot": null,
+      "annotation": true,
+      "sliceId": "matching-stochastic-near"
     }
   ],
   "relatedResults": [],
@@ -1043,6 +1115,14 @@
           {
             "id": "stochastic-bbd22-lower-unweighted",
             "label": "BBD ’22 · necessary degree"
+          },
+          {
+            "id": "stochastic-beh26-near",
+            "label": "Behnezhad ’26 · preprint"
+          },
+          {
+            "id": "stochastic-beh26-lower",
+            "label": "Behnezhad ’26 · preprint · necessary degree"
           }
         ]
       }
@@ -1229,7 +1309,7 @@
       }
     }
   },
-  "coverageNote": "Reviewed history and current guarantees for known-graph independent edge realizations. Query-commit, correlated realizations, and distributional online arrivals are separate models. This is a scoped collection, not an exhaustive bibliography.",
+  "coverageNote": "Reviewed history and current guarantees for known-graph independent edge realizations. Query-commit, correlated realizations, and distributional online arrivals are separate models. This is a scoped collection, not an exhaustive bibliography. Behnezhad 2026 v1 is a preprint; its theorem statements are checked, not its proof independently.",
   "lowerBoundStatus": "Red rows state necessary query budgets. They are not approximation ceilings and are not silently transferred to adaptive testing.",
   "sourceVerification": [
     {
@@ -1336,6 +1416,18 @@
       "theorems": [
         "Theorem 1"
       ]
+    },
+    {
+      "sourceId": "behnezhad26-polynomial-degree",
+      "url": "https://arxiv.org/html/2611.03367v1",
+      "checkedOn": "2026-11-03",
+      "theorems": [
+        "Theorem 1; Algorithm 1; Result 1",
+        "Remark 4.1: refined analysis of the efficient sample-and-union algorithm; details only",
+        "Appendix A, Theorem 3",
+        "Appendix B: stronger exact-marginal construction, no efficient exact computation claimed"
+      ],
+      "proofsIndependentlyVerified": false
     }
   ],
   "representation": {
@@ -1381,7 +1473,9 @@
       "rows": [
         "stochastic-bdh20-near",
         "stochastic-abgr25-near-optimal",
-        "stochastic-bbd22-lower-unweighted"
+        "stochastic-bbd22-lower-unweighted",
+        "stochastic-beh26-near",
+        "stochastic-beh26-lower"
       ]
     },
     {

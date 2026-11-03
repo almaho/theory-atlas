@@ -14,6 +14,20 @@
       "label": "Assadi ’25",
       "fullTextUrl": "https://arxiv.org/html/2307.02968",
       "shortLabel": "Assadi ’25"
+    },
+    {
+      "id": "chen26-unified",
+      "title": "Faster Semi-Streaming and Dynamic Approximate Maximum Weight Matchings in General Graphs: A Unified Framework",
+      "authors": [
+        "Jiale Chen"
+      ],
+      "year": 2026,
+      "venue": "arXiv preprint v1, 1 November 2026",
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/abs/2611.02105v1",
+      "fullTextUrl": "https://arxiv.org/html/2611.02105v1",
+      "verifiedOn": "2026-11-03",
+      "shortLabel": "Chen ’26 · unified"
     }
   ],
   "upsertSlices": [
@@ -27,7 +41,7 @@
         "Arbitrary-order insertion-only stream; multiple passes over the input.",
         "General graph with positive integer edge weights.",
         "Output is an explicit matching of edges with weight at least (1−ε)OPTweight.",
-        "Working memory is O(n log² n/ε) bits; semi-streaming for fixed ε.",
+        "Working memory and approximation-error dependence are stated per result; semi-streaming for fixed ε.",
         "This is an approximation guarantee with respect to total matching weight, not only cardinality."
       ],
       "xAxis": {
@@ -37,6 +51,10 @@
           {
             "id": "space-bits",
             "label": "O(n log² n/ε) bits"
+          },
+          {
+            "id": "mu-epsilon-squared",
+            "label": "O(μ(G) ε⁻² log² n) bits"
           }
         ]
       },
@@ -47,6 +65,10 @@
           {
             "id": "logn-over-epsilon",
             "label": "O(log n/ε) passes"
+          },
+          {
+            "id": "epsilon-squared-log",
+            "label": "O(ε⁻² log(1/ε)) passes"
           }
         ]
       },
@@ -67,6 +89,19 @@
           "notes": "Positive integer weights; unit weights give cardinality. Different ε conventions are retained; no numerical quality coordinate is assigned. Memory O(n log² n/ε) bits; success ≥1−exp(−Θ(n)). No comparable insertion-only multipass lower bound was verified in this source set. Lower bounds for streams with deletions are not transferred to this insertion-only contract.",
           "plot": null,
           "sourceUrl": "https://arxiv.org/html/2307.02968"
+        },
+        {
+          "id": "weighted-stream-chen26",
+          "paperId": "chen26-unified",
+          "kind": "upper",
+          "bound": "O(ε⁻² log(1/ε)) passes",
+          "guarantee": "weight(M) ≥ (1−ε)OPTweight",
+          "sourceLocation": "Theorem 1.1(2); Section 4.2 proof; Section 1.3 computational model",
+          "evidenceStatus": "full_text_verified",
+          "frontierStatus": "verified_preprint",
+          "notes": "Preprint v1; theorem and model statements checked, proof not independently verified. μ(G) is maximum matching cardinality, not optimum matching weight. Pass count is independent of n; its ε dependence differs from Assadi’s bound, so neither symbolic position implies unconditional dominance. The space formula retains μ(G)≤n/2. O(μ(G) ε⁻² log² n) bits general undirected graphs; positive integer edge weights in [1,W], W≤poly(n)",
+          "plot": null,
+          "sourceUrl": "https://arxiv.org/html/2611.02105v1#S1.Thmlemma1"
         }
       ]
     }

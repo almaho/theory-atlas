@@ -3,7 +3,7 @@
   "problem": "weighted_matching",
   "model": "dynamic",
   "title": "Weighted matching · fully dynamic",
-  "reviewedOn": "2026-10-30",
+  "reviewedOn": "2026-11-03",
   "sources": {
     "gp13": {
       "title": "Fully Dynamic (1+ε)-Approximate Matchings",
@@ -108,6 +108,20 @@
       "fullTextUrl": "https://arxiv.org/html/1511.06773v1#S3.SS1",
       "shortLabel": "HKNS ’15 · OMv",
       "verifiedOn": "2026-10-30"
+    },
+    "chen26-unified": {
+      "id": "chen26-unified",
+      "title": "Faster Semi-Streaming and Dynamic Approximate Maximum Weight Matchings in General Graphs: A Unified Framework",
+      "authors": [
+        "Jiale Chen"
+      ],
+      "year": 2026,
+      "venue": "arXiv preprint v1, 1 November 2026",
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/abs/2611.02105v1",
+      "fullTextUrl": "https://arxiv.org/html/2611.02105v1",
+      "verifiedOn": "2026-11-03",
+      "shortLabel": "Chen ’26 · unified"
     }
   },
   "verifiedRecords": [
@@ -300,6 +314,39 @@
       "year": 2026
     },
     {
+      "id": "weighted-dynamic-chen26-reduction",
+      "sourceId": "chen26-unified",
+      "kind": "upper",
+      "panel": "approximate",
+      "boundKind": "oracle-reduction",
+      "output": "An explicit matching M after every edge update",
+      "graph": "Initially empty general undirected graph; fully dynamic edge insertions and deletions; at most n vertices and m edges; integer weights in [1,W], W≤poly(n); Θ(log n)-bit word RAM",
+      "probability": "deterministic reduction; preserves determinism of the base algorithm",
+      "adversary": "adaptive, provided the bipartite unweighted base algorithm supports adaptive updates",
+      "queryTime": "Matching maintained explicitly; reporting all edges costs O(|M|)",
+      "evidenceStatus": "full_text_verified",
+      "shortLabel": "Chen ’26 · reduction",
+      "displayBound": "Õ(ε⁻⁴) · U_b(Õ(nε⁻²), Õ((m+n)ε⁻²), Θ̃(ε))",
+      "bound": "Õ(ε⁻⁴) · U_b(Õ(nε⁻²), Õ((m+n)ε⁻²), Θ̃(ε))",
+      "quality": "w(M) ≥ (1−ε) OPTw; 0<ε≤1/4",
+      "betaBase": 1,
+      "betaError": 1,
+      "plotY": 0.95,
+      "costKey": "oracle-reduction",
+      "timeType": "amortized",
+      "theorem": "Theorem 1.4; Section 6.6.2 proof and Section 6 footnote 6",
+      "notes": "Preprint v1; theorem/model statements inspected, proof not independently verified. This is an oracle reduction, not a standalone update-time bound. U_b(N,M,ρ) is the amortized cost of maintaining an explicit (1−ρ)-approximate cardinality matching in a bipartite graph against adaptive updates. Õ and Θ̃ hide only polylog(1/ε), not log n. The source normalizes U_b to be monotone in instance size/accuracy and uses U_b=Ω(1/ρ). Auxiliary sizes and accuracy must be substituted before comparing costs.",
+      "compactCost": "reduction × U_b",
+      "formulaLines": [
+        "Õ(ε⁻⁴) · U_b(…)",
+        "bipartite base required"
+      ],
+      "sourceUrl": "https://arxiv.org/html/2611.02105v1#S1.Thmlemma4",
+      "publicationStatus": "preprint",
+      "sourceLocation": "Theorem 1.4; Section 6.6.2",
+      "year": 2026
+    },
+    {
       "id": "weighted-dynamic-exact-eager",
       "sourceId": "gabow16",
       "kind": "upper",
@@ -471,7 +518,7 @@
   ],
   "defaultEpsilon": 0.05,
   "defaultScope": "General undirected graphs; positive edge weights; fully dynamic edge insertions and deletions; weights remain in a fixed interval of aspect ratio R≤poly(n)",
-  "coverageNote": "Selected verified milestones and recent preprints, not an exhaustive frontier. Approximate maintained edges and exact weight queries have separate main panels. Restricted graph families, approximate value-only output, and the ORS reduction are related results.",
+  "coverageNote": "Selected verified milestones and recent preprints, not an exhaustive frontier. Approximate maintained edges and exact weight queries have separate main panels. Restricted graph families, approximate value-only output, and the ORS reduction are related results. Chen’s November 2026 preprint adds a separately marked oracle reduction; it is not interpreted as a standalone update-time bound.",
   "lowerBoundStatus": "No approximation lower bound for the main explicit-matching rows was verified. The red barrier is conditional, exact-only, and requires sufficiently fast weight queries.",
   "sourceVerification": [
     {
@@ -542,6 +589,16 @@
         "Corollary 3.4 and parameter-preserving matching reductions immediately following it; Table 5 footnote"
       ],
       "status": "primary_full_statement_checked"
+    },
+    {
+      "sourceId": "chen26-unified",
+      "checkedOn": "2026-11-03",
+      "url": "https://arxiv.org/html/2611.02105v1#S1.Thmlemma4",
+      "theorems": [
+        "Theorem 1.4",
+        "Section 6.6.2"
+      ],
+      "note": "Reduction contract, auxiliary graph sizes, accuracy rescaling, adaptive-adversary assumption, integer weight/word-RAM model and tilde convention checked. Preprint, not independently proof-verified."
     }
   ],
   "figureAxes": {
@@ -574,6 +631,10 @@
           {
             "id": "root-cubic-epsilon",
             "label": "Õ(√m ε⁻³)"
+          },
+          {
+            "id": "oracle-reduction",
+            "label": "Õ(ε⁻⁴) · U_b(Õ(nε⁻²), Õ((m+n)ε⁻²), Θ̃(ε))"
           }
         ]
       },

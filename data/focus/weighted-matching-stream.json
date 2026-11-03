@@ -3,7 +3,7 @@
   "problem": "weighted_matching",
   "model": "stream",
   "title": "Weighted matching · Streaming",
-  "reviewedOn": "2026-10-20",
+  "reviewedOn": "2026-11-03",
   "migratedOn": "2026-10-27",
   "sources": {
     "assadi-2025-simple-weighted": {
@@ -20,6 +20,20 @@
       "label": "Assadi ’25",
       "fullTextUrl": "https://arxiv.org/html/2307.02968",
       "shortLabel": "Assadi ’25"
+    },
+    "chen26-unified": {
+      "id": "chen26-unified",
+      "title": "Faster Semi-Streaming and Dynamic Approximate Maximum Weight Matchings in General Graphs: A Unified Framework",
+      "authors": [
+        "Jiale Chen"
+      ],
+      "year": 2026,
+      "venue": "arXiv preprint v1, 1 November 2026",
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/abs/2611.02105v1",
+      "fullTextUrl": "https://arxiv.org/html/2611.02105v1",
+      "verifiedOn": "2026-11-03",
+      "shortLabel": "Chen ’26 · unified"
     }
   },
   "verifiedRecords": [
@@ -60,11 +74,51 @@
       "memoryKey": "space-bits",
       "passKey": "logn-over-epsilon",
       "parameters": "n vertices; approximation error ε>0; the displayed pass and bit-space bounds retain their ε dependence",
+      "plot": null,
+      "markerShape": "circle"
+    },
+    {
+      "id": "weighted-stream-chen26",
+      "sourceId": "chen26-unified",
+      "paperId": "chen26-unified",
+      "sliceId": "weighted-matching-stream-insertion",
+      "kind": "upper",
+      "panel": "insertion",
+      "xCategory": "det",
+      "markerShape": "diamond",
+      "bound": "O(ε⁻² log(1/ε)) passes",
+      "displayBound": "O(ε⁻² log(1/ε)) passes",
+      "quality": "weight(M) ≥ (1−ε)OPTweight",
+      "space": "O(μ(G) ε⁻² log² n) bits",
+      "passes": "O(ε⁻² log(1/ε))",
+      "theorem": "Theorem 1.1(2); Section 4.2 proof; Section 1.3 computational model",
+      "probability": "deterministic",
+      "notes": "Preprint v1; theorem and model statements checked, proof not independently verified. μ(G) is maximum matching cardinality, not optimum matching weight. Pass count is independent of n; its ε dependence differs from Assadi’s bound, so neither symbolic position implies unconditional dominance. The space formula retains μ(G)≤n/2.",
+      "graph": "general undirected graphs; positive integer edge weights in [1,W], W≤poly(n)",
+      "output": "matching edges",
+      "stream": "arbitrary-order insertion-only",
+      "assumptions": [
+        "General graphs with positive integer edge weights in [1,W], W≤poly(n).",
+        "Arbitrary-order edge stream; repeated passes; no deletions in the stream.",
+        "Explicit matching of weight at least (1−ε)OPTweight.",
+        "Standard word RAM with Θ(log n)-bit words; ε may be assumed inverse-polynomial in n.",
+        "μ(G) denotes maximum matching cardinality, not maximum matching weight."
+      ],
+      "label": "Chen ’26",
+      "shortLabel": "Chen ’26",
+      "year": 2026,
+      "publicationStatus": "preprint",
+      "evidenceStatus": "full_text_verified",
+      "sourceUrl": "https://arxiv.org/html/2611.02105v1#S1.Thmlemma1",
+      "plotLane": "O(ε⁻² log(1/ε)) passes",
+      "memoryKey": "mu-epsilon-squared",
+      "passKey": "epsilon-squared-log",
+      "parameters": "n vertices; error ε; μ(G) maximum matching cardinality; integer weights W≤poly(n)",
       "plot": null
     }
   ],
   "relatedResults": [],
-  "coverageNote": "One existing full-text-verified weighted streaming theorem, migrated from the mixed matching figure. This is a scoped baseline, not an exhaustive literature review.",
+  "coverageNote": "Two verified source statements: a randomized log-n-dependent pass bound and a deterministic ε-only pass bound (Chen preprint v1). This is a bounded review, not a complete streaming frontier.",
   "lowerBoundStatus": "No comparable insertion-only multipass lower bound was verified in this source set. Lower bounds for streams with deletions are not transferred to this insertion-only contract.",
   "axisNote": "Pass count and bit-space are symbolic resource categories; their positions do not encode a numerical tradeoff curve. The same ε appears in approximation, passes and space.",
   "figureAxes": {
@@ -77,6 +131,10 @@
           {
             "id": "space-bits",
             "label": "O(n log² n/ε) bits"
+          },
+          {
+            "id": "mu-epsilon-squared",
+            "label": "O(μ(G) ε⁻² log² n) bits"
           }
         ]
       },
@@ -87,6 +145,10 @@
           {
             "id": "logn-over-epsilon",
             "label": "O(log n/ε) passes"
+          },
+          {
+            "id": "epsilon-squared-log",
+            "label": "O(ε⁻² log(1/ε)) passes"
           }
         ]
       }
@@ -101,6 +163,17 @@
         "Introduction, maximum-weight main result; Section 4"
       ],
       "note": "Reuses full-text verification from matching-streaming-more.json, weighted maximum-matching result. No new theorem or lower-bound transfer added."
+    },
+    {
+      "sourceId": "chen26-unified",
+      "checkedOn": "2026-11-03",
+      "url": "https://arxiv.org/html/2611.02105v1#S1.Thmlemma1",
+      "theorems": [
+        "Theorem 1.1(2)",
+        "Section 4.2",
+        "Section 1.3"
+      ],
+      "note": "Primary theorem, weight assumptions, bit-space and final weight-reduction proof inspected. Preprint; proofs not independently verified."
     }
   ]
 }

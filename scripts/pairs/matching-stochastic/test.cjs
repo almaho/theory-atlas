@@ -7,8 +7,8 @@ const registration=JSON.parse(fs.readFileSync(path.join(__dirname,'registration.
 function load(d=data){const c={window:{},document:{getElementById(){return{textContent:JSON.stringify({focus:{[id]:d}})}}},AbortController,Set};vm.runInNewContext(source,c);return c.window.AtlasPairRenderers[id];}
 
 const api=load(),all=data.verifiedRecords,by=Object.fromEntries(all.map(r=>[r.id,r]));
-assert.equal(all.length,27);assert.equal(Object.keys(data.sources).length,12);
-assert.equal(api.records().length,17);assert.equal(api.records({key:'weighted-matching-stochastic'}).length,10);
+assert.equal(all.length,29);assert.equal(Object.keys(data.sources).length,13);
+assert.equal(api.records().length,19);assert.equal(api.records({key:'weighted-matching-stochastic'}).length,10);
 assert.equal(registration.routes.filter(r=>r.visible).length,2);
 assert(by['stochastic-abgr25-near-optimal'].bound.includes('Oε(1)'));
 assert.equal(by['stochastic-abgr25-near-optimal'].symbolic,'minus');
@@ -50,7 +50,7 @@ function host(){const children=new Map(),classes=new Set(),listeners={};return{i
 
 const h=host();let changedPublication;api.mount(h,'matching-stochastic',{onPublicationChange:p=>changedPublication=p});
 const details=()=>h.querySelector('.mst-theorem').innerHTML;
-assert(details().includes('Theorem 1'));assert(details().includes('Published paper'));
+assert(details().includes('Theorem 1'));assert(details().includes('Preprint v1'));assert(details().includes('2611.03367v1'));
 for(const key of ['matching-stochastic','weighted-matching-stochastic']){
  api.mount(h,key);
  for(const r of api.records({key})){h.listeners.click.fn({target:{closest(){return{dataset:{mstResult:r.id}}}}});assert(details().includes(r.sourceUrl));assert(details().includes(r.theorem.replace(/&/g,'&amp;')));}
@@ -60,8 +60,8 @@ let prevented=false;h.listeners.keydown.fn({key:'Enter',preventDefault(){prevent
 assert(prevented);assert(details().includes('Theorem 7.3'));assert(details().includes('No adaptive-testing transfer'));
 h.listeners.change.fn({target:{value:'published',classList:{contains:s=>s==='mst-publication'}}});assert.equal(changedPublication,'published');
 const old=h.listeners.click.signal;api.mount(h);assert(old.aborted);const fresh=h.listeners.click.signal;api.release(h);assert(fresh.aborted);
-const unsafe=JSON.parse(JSON.stringify(data));unsafe.verifiedRecords.find(r=>r.id==='stochastic-abgr25-near-optimal').notes='<script>x</script>';const safe=load(unsafe),sh=host();safe.mount(sh);assert(sh.querySelector('.mst-theorem').innerHTML.includes('&lt;script&gt;'));
-console.log('Stochastic matching PASS: 27 scoped records/12 sources; weighted/unweighted routes; adaptive versus nonadaptive, maximum-degree versus expected-total budget; symbolic anchors and red cost annotations; 18 zoom geometries; source filters, all theorem inspections, keyboard and lifecycle.');
+const unsafe=JSON.parse(JSON.stringify(data));unsafe.verifiedRecords.find(r=>r.id==='stochastic-beh26-near').notes='<script>x</script>';const safe=load(unsafe),sh=host();safe.mount(sh);assert(sh.querySelector('.mst-theorem').innerHTML.includes('&lt;script&gt;'));
+console.log('Stochastic matching PASS: 29 scoped records/13 sources; weighted/unweighted routes; adaptive versus nonadaptive, maximum-degree versus expected-total budget; symbolic anchors and red cost annotations; 18 zoom geometries; source filters, all theorem inspections, keyboard and lifecycle.');
 
 for(const e of [.01,.05,.25]){
  const g=api.layoutGeometry(1100,930,{epsilon:e},true),point=id=>g.points.find(p=>p.id===id);
@@ -82,3 +82,18 @@ h.listeners.input.fn({target:{value:'-2',classList:{contains:s=>s==='mst-probabi
 assert.equal(h.querySelector('.mst-p-value').textContent,'0.010');
 h.listeners.change.fn({target:{value:'p',classList:{contains:s=>s==='mst-parameter'}}});
 assert(h.querySelector('.mst-parameter-plot').innerHTML.includes('Fixed ε'));
+
+// The new preprint uses the existing non-adaptive unweighted contract.
+assert.equal(by['stochastic-beh26-near'].weighting,'unweighted');
+assert(by['stochastic-beh26-near'].bound.includes('p ε⁴'));
+assert(by['stochastic-beh26-near'].notes.includes('no efficient exact computation'));
+assert(by['stochastic-beh26-near'].notes.includes('Remark 4.1'));
+assert(by['stochastic-beh26-near'].notes.includes('same efficient sample-and-union'));
+assert(by['stochastic-beh26-near'].notes.includes('plotted point retains numbered Theorem 1'));
+
+assert(by['stochastic-beh26-lower'].graph.includes('(0,1/2]'));
+assert(by['stochastic-beh26-lower'].guarantee.includes('sufficiently small'));
+assert(!api.records({publication:'published'}).some(r=>r.sourceId==='behnezhad26-polynomial-degree'));
+const newPoint=api.layoutGeometry(1100,1020,{epsilon:.1},true).points.find(p=>p.id==='stochastic-beh26-near');
+assert.equal(newPoint.beta,.9);assert.equal(newPoint.family,'eps-fourth');
+assert(api.diagramSVG().includes('p≤½; small ε'));

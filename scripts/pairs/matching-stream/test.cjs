@@ -7,7 +7,7 @@ const context={document,window:{},AbortController,Set,console};vm.runInNewContex
 const api=context.window.AtlasPairRenderers['matching-stream'];
 const routes=['matching-stream-insertion','matching-stream-insertion-bipartite','matching-stream-turnstile','matching-stream-onepass','matching-stream-bounded','matching-stream-bounded-approx','matching-stream-arboricity'];
 const r=id=>data.verifiedRecords.find(r=>r.id===id);
-assert.equal(patch.upsertSlices.length,7);assert.equal(data.verifiedRecords.length,20);
+assert.equal(patch.upsertSlices.length,7);assert.equal(data.verifiedRecords.length,21);
 for(const s of input.slices)for(const entry of s.results)assert(r(entry.id),'Original result missing '+entry.id);
 for(const entry of data.verifiedRecords){for(const f of ['sourceId','kind','graph','output','stream','bound','quality','space','passes','theorem','probability','assumptions'])assert(entry[f],entry.id+' missing '+f);assert(data.sources[entry.sourceId]);assert(data.figureAxes.some(p=>p.id===entry.panel));}
 // Material model/regression assertions, independent of renderer internals.
@@ -56,4 +56,7 @@ api.mount(root,'matching-stream-bounded');assert(root.handlers.slice(0,3).every(
 const activeClick=root.handlers.filter(h=>h.type==='click'&&!h.signal.aborted)[0];activeClick.fn({target:{closest:()=>({dataset:{mstrResult:'matching-stream-kdd25-det-lower'}})}});
 assert(root.querySelector('.mstr-theorem').innerHTML.includes('K≤n/2'));
 api.release(root);assert(root.handlers.every(h=>h.signal.aborted));assert(!root.classes.has('mstr-view'));
-console.log('Streaming pair checks passed: 20 records, 7 routes, 84 summaries, source scope/filtering, theorem selection and release lifecycle.');
+console.log('Streaming pair checks passed: 21 records, 7 routes, 84 summaries, source scope/filtering, theorem selection and release lifecycle.');
+
+const chen=r("matching-stream-chen26-quadratic-passes");
+assert.equal(chen.passes,"O(ε⁻²)");assert.equal(chen.probability,"deterministic");assert.equal(chen.publicationStatus,"preprint");assert(chen.space.includes("μ(G) ε⁻² log n"));assert(chen.notes.includes("proof not independently verified"));assert(!api.records({publication:"published"}).some(x=>x.sourceId==="chen26"));assert(api.diagramSVG("matching-stream-insertion").includes(chen.id));

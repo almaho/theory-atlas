@@ -1,0 +1,43 @@
+{
+  "paper": {
+    "id": "stochastic-behnezhad26-polynomial-degree",
+    "title": "Stochastic Matching with Polynomial Degree",
+    "authors": [
+      "Soheil Behnezhad"
+    ],
+    "year": 2026,
+    "venue": "arXiv preprint v1 · 2 November 2026",
+    "publicationStatus": "preprint",
+    "url": "https://arxiv.org/abs/2611.03367v1",
+    "fullTextUrl": "https://arxiv.org/html/2611.03367v1",
+    "arxivId": "2611.03367",
+    "arxivVersion": "v1",
+    "verifiedOn": "2026-11-03",
+    "verificationNote": "Primary theorem/model statements and algorithm inspected; proof not independently verified."
+  },
+  "sliceId": "matching-stochastic-near",
+  "results": [
+    {
+      "id": "stochastic-beh26-near",
+      "paperId": "stochastic-behnezhad26-polynomial-degree",
+      "kind": "upper",
+      "bound": "Maximum degree Δ(H) ≤ O(log(1/ε) / (p ε⁴))",
+      "guarantee": "E μ(H∩Gₚ) ≥ (1−ε) E μ(Gₚ), for ε∈(0,1)",
+      "sourceLocation": "Section 4, Theorem 1 and Sample-and-Union Algorithm 1; §1 Result 1",
+      "notes": "Preprint v1: theorem statement checked; proof not independently verified. Sample-and-union takes R independent simulated realizations and unions one maximum matching from each; Δ(H)≤R. The budget is polynomial jointly in 1/ε and 1/p. Remark 4.1 states that a refined analysis of the same efficient sample-and-union algorithm gives O(log(1/ε)·(1/(p ε²)+1/ε³)); the plotted point retains numbered Theorem 1. Appendix B removes the logarithmic factor using a different construction with exact edge-selection marginals, giving O(1/(p ε²)+1/ε³), but claims no efficient exact computation of those marginals. The guarantee is unweighted and non-adaptive, not a weighted or adaptive-testing theorem. Finite simple undirected general unweighted graph; every edge survives independently with the same known p∈(0,1] Ratio of expectations over independent test-edge realizations and the algorithm’s independent simulations; no high-probability approximation statement",
+      "evidenceStatus": "full_text_verified",
+      "plot": null
+    },
+    {
+      "id": "stochastic-beh26-lower",
+      "paperId": "stochastic-behnezhad26-polynomial-degree",
+      "kind": "lower",
+      "bound": "Ω(1/(p ε))",
+      "guarantee": "For every p∈(0,1/2] and sufficiently small ε>0, some bipartite G requires Δ(H)=Ω(1/(p ε)) for a (1−ε) ratio of expectations",
+      "sourceLocation": "Appendix A, Theorem 3; proof uses p≤1/2 and ε≤1/16",
+      "notes": "Preprint v1: Theorem 3 and parameter regime inspected; proof not independently verified. This is a maximum-degree necessity and holds for randomized sparsifiers that obey the degree cap. The hard graph is bipartite. No transfer to adaptive testing is asserted. The earlier BBD ’22 bound is retained with its own small-p scope. Bipartite unweighted hard instances; every edge survives independently with uniform p∈(0,1/2] Expected maximum matching size; randomized bounded-degree sparsifiers included when independent of the test realization",
+      "evidenceStatus": "full_text_verified",
+      "plot": null
+    }
+  ]
+}
