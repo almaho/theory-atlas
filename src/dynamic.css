@@ -13,3 +13,5 @@
 /* A connected side lens keeps the original approximation/time map intact. */
 
 .d-plot-host:has(.d-ors-interval){min-width:1020px}.d-map .d-interval-author{font-size:13px;fill:var(--green);font-weight:550}.d-map .d-interval-footnote{font-size:12px;fill:var(--muted)}
+
+.d-map .d-exact-heading{font-size:12px;font-weight:650;fill:var(--ink)}.d-map .d-exact-label{font-size:13px;font-weight:600;fill:var(--red)}.d-map .d-exact-bound{font-size:13px;fill:var(--ink)}.d-exact-result:hover .d-exact-label,.d-exact-result:focus-visible .d-exact-label{text-decoration:underline}

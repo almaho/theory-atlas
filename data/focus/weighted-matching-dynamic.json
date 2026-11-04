@@ -3,7 +3,7 @@
   "problem": "weighted_matching",
   "model": "dynamic",
   "title": "Weighted matching · fully dynamic",
-  "reviewedOn": "2026-11-03",
+  "reviewedOn": "2026-11-04",
   "sources": {
     "gp13": {
       "title": "Fully Dynamic (1+ε)-Approximate Matchings",
@@ -122,6 +122,19 @@
       "fullTextUrl": "https://arxiv.org/html/2611.02105v1",
       "verifiedOn": "2026-11-03",
       "shortLabel": "Chen ’26 · unified"
+    },
+    "ko26": {
+      "title": "Unconditional Boolean Dynamic Lower Bounds from Disjointness",
+      "authors": [
+        "Young Kun Ko"
+      ],
+      "year": 2026,
+      "venue": "arXiv preprint v3, 2 November 2026",
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/abs/2610.10904v3",
+      "fullTextUrl": "https://arxiv.org/html/2610.10904v3#A1.SS2.SSS4",
+      "shortLabel": "Ko ’26 · cell-probe",
+      "verifiedOn": "2026-11-04"
     }
   },
   "verifiedRecords": [
@@ -419,7 +432,44 @@
       "sourceUrl": "https://arxiv.org/html/1511.06773v1#S3.SS1",
       "publicationStatus": "published",
       "sourceLocation": "Corollary 3.4 and parameter-preserving matching reductions immediately following it; Table 5 footnote",
-      "year": 2015
+      "year": 2015,
+      "conditional": true
+    },
+    {
+      "id": "weighted-dynamic-exact-ko26-cell-probe",
+      "sourceId": "ko26",
+      "kind": "lower",
+      "conditional": false,
+      "panel": "exact",
+      "boundKind": "cell-probe-tradeoff",
+      "costKey": "cell-probe-tradeoff",
+      "plotY": "tradeoff",
+      "shortLabel": "Ko ’26 · cell-probe",
+      "bound": "max(u,q) = Ω((log N / log log N)²)",
+      "displayBound": "u + q = Ω((log N / log(uw))²); hence max(u,q) = Ω((log N / log log N)²)",
+      "quality": "Exact optimum weight only; unconditional within the zero-error cell-probe model",
+      "output": "Exact maximum matching weight; not a constant-factor approximation",
+      "graph": "Already planar bipartite graphs with positive polynomially bounded integer weights under edge insertions; therefore also fully dynamic general weighted graphs. A separate unit-weight bipartite transfer does not assert planarity.",
+      "timeType": "worst-case update u; per-input expected query q",
+      "probability": "Zero error: correct for every input and random tape; update bound holds over inputs and tapes; query expectation is per fixed valid input history",
+      "adversary": "Hard input history is independent of the random tape; no Monte Carlo or amortized-update transfer is claimed",
+      "queryTime": "Variable expected q. If q = O(1), worst-case u = Ω((log N / log log N)²).",
+      "theorem": "Lemma A.1; Section A.2.4 (planar weighted matching); Section A.1.1 (unit-weight transfer); cell-probe conventions in Section 2.1",
+      "sourceUrl": "https://arxiv.org/html/2610.10904v3#A1.SS2.SSS4",
+      "notes": "Here N is the vertex count and w = Θ(log N). Cells and addresses both have w bits; all input-dependent state retained between operations resides in charged memory. Preprocessing is unrestricted and uncharged. The matching reductions require a constant number of final updates, so the bound is on u + q, not q alone. The unit-weight construction also transfers exact cardinality hardness because optimum weight equals matching size. This does not give a lower bound for amortized updates, bounded-error Monte Carlo algorithms, or approximate matching. Preprint v3: theorem statements, model and reduction contracts reviewed; proof not independently verified.",
+      "evidenceStatus": "primary_statement_and_model_checked_not_independent_proof_verification",
+      "modelContract": {
+        "computationalModel": "zero-error cell-probe",
+        "wordBits": "Θ(log N)",
+        "addressBits": "w",
+        "preprocessing": "unrestricted and uncharged",
+        "updateTime": "worst-case over inputs and random tapes",
+        "queryTime": "expected over the random tape for each fixed valid input history",
+        "retainedState": "all input-dependent state in charged memory",
+        "approximation": false,
+        "amortizedUpdateLowerBound": false,
+        "boundedErrorLowerBound": false
+      }
     }
   ],
   "relatedResults": [
@@ -518,8 +568,8 @@
   ],
   "defaultEpsilon": 0.05,
   "defaultScope": "General undirected graphs; positive edge weights; fully dynamic edge insertions and deletions; weights remain in a fixed interval of aspect ratio R≤poly(n)",
-  "coverageNote": "Selected verified milestones and recent preprints, not an exhaustive frontier. Approximate maintained edges and exact weight queries have separate main panels. Restricted graph families, approximate value-only output, and the ORS reduction are related results. Chen’s November 2026 preprint adds a separately marked oracle reduction; it is not interpreted as a standalone update-time bound.",
-  "lowerBoundStatus": "No approximation lower bound for the main explicit-matching rows was verified. The red barrier is conditional, exact-only, and requires sufficiently fast weight queries.",
+  "coverageNote": "Selected verified milestones and recent preprints, not an exhaustive frontier. Approximate maintained edges and exact weight queries have separate main panels. Restricted graph families, approximate value-only output, and the ORS reduction are related results. Chen’s November 2026 preprint adds a separately marked oracle reduction; it is not interpreted as a standalone update-time bound. Ko’s November 2026 revision adds an exact-only zero-error cell-probe lower bound as a symbolic annotation, separate from the conditional OMv barrier.",
+  "lowerBoundStatus": "No approximation lower bound for the main explicit-matching rows was verified. Exact queries have a conditional OMv barrier and a separate unconditional zero-error cell-probe tradeoff, with worst-case updates and expected queries per input. The latter is a reviewed preprint statement, not an independently verified proof.",
   "sourceVerification": [
     {
       "sourceId": "gp13",
@@ -599,6 +649,19 @@
         "Section 6.6.2"
       ],
       "note": "Reduction contract, auxiliary graph sizes, accuracy rescaling, adaptive-adversary assumption, integer weight/word-RAM model and tilde convention checked. Preprint, not independently proof-verified."
+    },
+    {
+      "sourceId": "ko26",
+      "checkedOn": "2026-11-04",
+      "url": "https://arxiv.org/html/2610.10904v3#A1.SS2.SSS4",
+      "locations": [
+        "Section 2.1",
+        "Lemma A.1",
+        "Section A.1.1",
+        "Section A.2.4"
+      ],
+      "status": "primary_statement_and_model_checked_not_independent_proof_verification",
+      "note": "Uncharged unrestricted preprocessing, w-bit addresses/cells, zero-error convention, worst-case updates, expected queries per history, constant-operation reductions and positive polynomial integer weights checked. No approximate, amortized or Monte Carlo claim."
     }
   ],
   "figureAxes": {
@@ -668,6 +731,10 @@
           {
             "id": "cubic",
             "label": "O(n³)"
+          },
+          {
+            "id": "cell-probe-tradeoff",
+            "label": "Separate symbolic annotation: max(u,q) = Ω((log N / log log N)²); not a polynomial-axis coordinate"
           }
         ]
       },
@@ -682,6 +749,10 @@
           {
             "id": "slow",
             "label": "O(n³) query; recompute on demand"
+          },
+          {
+            "id": "tradeoff",
+            "label": "Variable expected q; q=O(1) specialization shown symbolically"
           }
         ]
       }
@@ -690,6 +761,6 @@
   "representation": {
     "approximation": "Numeric retained-weight scale; ε slider changes guarantees, not constants hidden in asymptotic update bounds.",
     "cost": "Approximate formulas have categorical spacing. General, sparsity-sensitive, and accuracy-sensitive formulas are not totally ordered.",
-    "exact": "Dense-graph reference only; red excludes fixed polynomial improvements below n for fast queries under OMv, not an unconditional Ω(n) lower bound."
+    "exact": "Dense-graph reference only; red excludes fixed polynomial improvements below n for fast queries under OMv, not an unconditional Ω(n) lower bound. The solid red hexagon is a separate symbolic cell-probe annotation; its logarithmic cost is not plotted at exponent zero. It concerns worst-case updates and zero-error expected queries, with an explicit constant-query specialization."
   }
 }

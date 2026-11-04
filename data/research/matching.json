@@ -1,6 +1,6 @@
 {
   "problem": "matching",
-  "reviewedThrough": "2026-11-03",
+  "reviewedThrough": "2026-11-04",
   "searchSummary": "Expanded primary-source audit through 2026-09-27 with classical milestones and contemporary 2026 results. Distinct access and task assumptions (explicit vs value, adversary, list vs pair, insertion vs deletion, pass count, memory) remain separate. Literature is large; this is a curated landscape and cannot certify exhaustive state of the art in every parameter regime. MPC review: primary-source verification of BHH, GU, CDP, GGJ and GGM; corrected mildly sublinear memory, published venues, and explicitly conditional component-stable lower bounds (CDP 2024, Theorem 12).",
   "coverage": [
     {
@@ -1710,6 +1710,18 @@
       "arxivVersion": "v1",
       "verifiedOn": "2026-11-03",
       "verificationNote": "Primary theorem/model statements and algorithm inspected; proof not independently verified."
+    },
+    {
+      "id": "ko-2026-unconditional-dynamic",
+      "title": "Unconditional Boolean Dynamic Lower Bounds from Disjointness",
+      "authors": [
+        "Young Kun Ko"
+      ],
+      "year": 2026,
+      "venue": "arXiv:2610.10904v3 (preprint)",
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/html/2610.10904v3#A1.SS1.SSS1",
+      "verifiedOn": "2026-11-04"
     }
   ],
   "slices": [
@@ -2024,6 +2036,18 @@
           "evidenceStatus": "verified",
           "frontierStatus": "historical",
           "notes": "Lower bound under OMv · See lower-bound statement · amortized, fully dynamic. At dense m=Theta(n^2), this excludes truly sublinear-in-n updates when queries are sufficiently fast. The reduction distinguishes exact matching sizes; it is not a constant-factor approximation lower bound.",
+          "plot": null
+        },
+        {
+          "id": "matching-dynamic-edges-atlas-dynamic-exact-cell-probe-2026",
+          "paperId": "ko-2026-unconditional-dynamic",
+          "kind": "lower",
+          "bound": "If q = O(1): u = Ω((log n / log log n)²)",
+          "guarantee": "The preprint proves an unconditional update/query lower bound for exact maximum-matching size and perfect-matching detection, already on bipartite graphs under insertions. With n graph vertices, w = Θ(log n), worst-case update cost u and expected query cost q, u + q = Ω((log n / log(uw))²). Hence constant-time queries require u = Ω((log n / log log n)²). A fully dynamic data structure must also support these insertion sequences.",
+          "sourceLocation": "§2.1; Lemma A.1; Appendix A.1.1 (bipartite matching)",
+          "evidenceStatus": "verified",
+          "frontierStatus": "current",
+          "notes": "Word and address widths are both w = Θ(log n). Preprocessing is unrestricted and uncharged; all input-dependent persistent information is stored in charged cells. Correctness holds for every input and random tape; updates are worst-case over tapes and inputs, queries expected for each fixed valid history. This does not establish an amortized-update, Monte Carlo, or approximation lower bound. The theorem statement, model and matching reduction were reviewed; the complete lower-bound proof has not been independently verified. General tradeoff: u + q = Ω((log n / log(uw))²); q is expected per fixed valid input history.",
           "plot": null
         }
       ],
@@ -3975,6 +3999,18 @@
           "evidenceStatus": "verified",
           "frontierStatus": "different_scope",
           "notes": "Shown as a separate bipartite-only inset in the shared dynamic figure. The reference slide calls this B’22 using its preprint year; publication was SODA 2023. This theorem does not hold for arbitrary general graphs as stated. The source lower-bounds δ₀ instead of specifying its exact numerical value; ratio is deliberately null, and ratioLowerBound is only a strict lower bound. Any plotted horizontal position should be labeled symbolically as 2/3+δ₀ rather than interpreted as an exact numerical ratio.",
+          "plot": null
+        },
+        {
+          "id": "matching-dynamic-size-atlas-dynamic-exact-cell-probe-2026",
+          "paperId": "ko-2026-unconditional-dynamic",
+          "kind": "lower",
+          "bound": "If q = O(1): u = Ω((log n / log log n)²)",
+          "guarantee": "The preprint proves an unconditional update/query lower bound for exact maximum-matching size and perfect-matching detection, already on bipartite graphs under insertions. With n graph vertices, w = Θ(log n), worst-case update cost u and expected query cost q, u + q = Ω((log n / log(uw))²). Hence constant-time queries require u = Ω((log n / log log n)²). A fully dynamic data structure must also support these insertion sequences.",
+          "sourceLocation": "§2.1; Lemma A.1; Appendix A.1.1 (bipartite matching)",
+          "evidenceStatus": "verified",
+          "frontierStatus": "current",
+          "notes": "Word and address widths are both w = Θ(log n). Preprocessing is unrestricted and uncharged; all input-dependent persistent information is stored in charged cells. Correctness holds for every input and random tape; updates are worst-case over tapes and inputs, queries expected for each fixed valid history. This does not establish an amortized-update, Monte Carlo, or approximation lower bound. The theorem statement, model and matching reduction were reviewed; the complete lower-bound proof has not been independently verified. General tradeoff: u + q = Ω((log n / log(uw))²); q is expected per fixed valid input history.",
           "plot": null
         }
       ],

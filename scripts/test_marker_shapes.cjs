@@ -17,7 +17,7 @@ for(const shape of symbols.shapes)for(const kind of ['upper','lower','barrier','
  assert.equal(+a['data-center-x'],10/3,'Coordinate metadata retains exact precision');
  assert.equal(a['data-setup-shape'],shape);
 }
-const visibleRoutes=api.settings(),nativeShapeRoutes=new Set(['dynamic-edges','dynamic-size','edge-lca','edge-query_matrix','edge-query_list','vertex-query_matrix','vertex-query_list']);
+const visibleRoutes=api.settings(),nativeShapeRoutes=new Set(['edge-lca','edge-query_matrix','edge-query_list','vertex-query_matrix','vertex-query_list']);
 assert.equal(visibleRoutes.length,61,'The current visible atlas has 61 figure routes after hiding Online');
 assert(!visibleRoutes.some(route=>route.model==='online'||route.model==='query_combined'),'Archived models have no visible shape routes');
 let checked=0,shapeRoutes=0;const nativeRoutesSeen=[];
@@ -30,8 +30,8 @@ for(const route of visibleRoutes){
   assert.equal(a.fill,a['data-open-marker']?'none':a.stroke);checked++;
  }
 }
-assert.deepEqual(nativeRoutesSeen.sort(),[...nativeShapeRoutes].sort(),'Only the seven reviewed native-symbol routes omit the shared marker primitive');
-assert.equal(shapeRoutes,54,'All 54 remaining visible figure routes use the shared shape encoding');
+assert.deepEqual(nativeRoutesSeen.sort(),[...nativeShapeRoutes].sort(),'Only the five reviewed native-symbol routes omit the shared marker primitive');
+assert.equal(shapeRoutes,56,'All 56 remaining visible figure routes use the shared shape encoding');
 const archivedOnlineRenderer=c.window.AtlasPairRenderers['maximum_is-online'];
 assert(archivedOnlineRenderer&&typeof archivedOnlineRenderer.summarySVG==='function','Archived Online renderer remains available for regression checks');
 function shapesFor(key,id){

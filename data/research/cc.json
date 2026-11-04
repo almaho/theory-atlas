@@ -185,11 +185,11 @@
         "Antoine Schohn"
       ],
       "year": 2026,
-      "venue": "arXiv v2 revised Aug 31, 2026",
+      "venue": "arXiv v3 revised Nov 3, 2026",
       "publicationStatus": "preprint",
-      "url": "https://arxiv.org/pdf/2607.27829v2",
-      "verifiedOn": "2026-10-26",
-      "sourceUrl": "https://arxiv.org/html/2607.27829v2"
+      "url": "https://arxiv.org/pdf/2607.27829v3",
+      "verifiedOn": "2026-11-04",
+      "sourceUrl": "https://arxiv.org/html/2607.27829v3"
     },
     {
       "id": "cao-2025-sublinear-lp",
@@ -2246,13 +2246,13 @@
           "kind": "upper",
           "bound": "Õ(2^{poly(1/ε)} n)",
           "guarantee": "(1.3865+ε) approximation against integral OPT",
-          "sourceLocation": "arXiv v2: Theorem 1.3 and paragraph after Corollary 1.4",
+          "sourceLocation": "arXiv v3: Theorem 1.3, paragraph after Corollary 1.4, and Theorem 7.1 with its derandomization qualification",
           "evidenceStatus": "verified",
           "frontierStatus": "current_best_verified",
-          "notes": "The source explicitly states the fast composition. The certified deterministic dual algorithm takes 2^{poly(1/ε)}poly(n) time and is a different resource claim.",
+          "notes": "The source explicitly states the fast composition. Theorem 7.1 gives expected sublinear rounding time, and the following paragraph excludes this implementation from the polynomial-time derandomization. The certified deterministic dual algorithm takes 2^{poly(1/ε)}poly(n) time and is a different resource claim.",
           "plot": null,
           "conditional": false,
-          "probability": "Randomized composition: primal solver is randomized; new rounding is deterministic."
+          "probability": "Randomized composition with an expected approximation guarantee and expected running time; the sublinear rounding implementation is randomized. The separate polynomial-time rounding can be derandomized."
         }
       ]
     },

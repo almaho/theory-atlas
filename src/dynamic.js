@@ -28,10 +28,25 @@
     {ids:['abr2024-size'],beta:2-Math.SQRT2,y:559,label:'ABR’23',sub:'2−√2−ε ≈ 0.5858−ε',lx:498,ly:543}
   ];
   const allRecords=()=>['dynamic-edges','dynamic-size'].flatMap(key=>[...collection[key].results,...collection[key].relatedResults].map(r=>({...r,outputKey:key})));
-  const allowed=(r,o={})=>(o.publication!=='published'||r.publicationStatus!=='preprint')&&(r.kind==='conditional_barrier'||o.scope!=='adaptive'||r.adversary!=='oblivious')&&(r.kind==='conditional_barrier'||o.scope!=='deterministic'||r.randomization==='deterministic')&&(!o.output||o.output==='both'||r.outputKey===o.output);
+  const isLower=r=>r.kind==='conditional_barrier'||r.kind==='unconditional_barrier';
+  const allowed=(r,o={})=>(o.publication!=='published'||r.publicationStatus!=='preprint')&&(isLower(r)||o.scope!=='adaptive'||r.adversary!=='oblivious')&&(isLower(r)||o.scope!=='deterministic'||r.randomization==='deterministic')&&(!o.output||o.output==='both'||r.outputKey===o.output);
   const records=o=>allRecords().filter(r=>allowed(r,o));
   const find=(id,o)=>records(o).find(r=>r.id===id);
   const groupRows=(spec,o)=>spec.ids.map(id=>find(id,o)).filter(Boolean);
+  const exactRows=o=>['dynamic-exact-omv','dynamic-exact-cell-probe-2026'].map(id=>find(id,o)).filter(Boolean);
+  const exactShape=r=>r.kind==='conditional_barrier'?'diamond':'hexagon';
+  function exactStrip(y,width,options={}){
+    const rows=exactRows(options);if(!rows.length)return '';
+    let s=`<g data-panel="exact-lower-bounds" data-axis-type="symbolic-separate-scope"><path d="M185 ${y}H${width-20}" class="d-grid"/><text x="185" y="${y+24}" class="d-exact-heading">EXACT SIZE / PERFECT DETECTION · separate scope, already bipartite</text>`;
+    rows.forEach((r,i)=>{
+      const cy=y+56+i*63,conditional=r.kind==='conditional_barrier';
+      const heading=conditional?'Conditional · OMv · polynomial preprocessing':'Unconditional in zero-error cell probe · Ko ’26 · preprint v3';
+      const bound=conditional?'No simultaneous u = m^{1/2−δ} and q = m^{1−δ}, fixed δ > 0.':'q = O(1) ⇒ worst-case u = Ω((log n / log log n)²).';
+      const note=conditional?'Fully dynamic amortized updates; this is not an approximation lower bound.':'w-bit cells + addresses, w = Θ(log n); unrestricted preprocessing. General u/q tradeoff in details.';
+      s+=`<g class="d-plot-result d-exact-result" data-dynamic-result="${r.id}" role="button" tabindex="0" aria-pressed="${options.selected===r.id}" aria-label="${esc(heading+'. '+bound+' Inspect theorem and source.')}"><title>${esc(r.statement)}</title><rect x="185" y="${cy-18}" width="${width-205}" height="59" fill="transparent"/>${window.AtlasSymbols.mark(196,cy,6,exactShape(r),'lower','',{conditional})}<text x="214" y="${cy+4}" class="d-exact-label">${esc(heading)}</text><text x="214" y="${cy+23}" class="d-exact-bound">${svgMath(bound)}</text><text x="214" y="${cy+40}" class="d-micro">${esc(note)}</text></g>`;
+    });
+    return s+'</g>';
+  }
   const orsIds=['dynamic-edges-bg24','dynamic-edges-akk25','dynamic-edges-ms25-ors'];
   const orsLabels={
     'dynamic-edges-bg24':'Behnezhad–Ghafari · FOCS 2024',
@@ -66,7 +81,8 @@
     const text=(px,py,t,cls='',anchor='start')=>`<text x="${px}" y="${py}" class="${cls}" text-anchor="${anchor}">${svgMath(t)}</text>`;
     const lanes=[{y:58,t:'O_ε(n)'},{y:111,t:'n / (log* n)^{Ω(1)}'},{y:159,t:'n / 2^{Ω(√log n)}'},{y:220,t:'n^{1−Ω_ε(1)}',note:'exponent unspecified'},{y:284,t:'n^{1/2+o(1)}'},{y:337,t:'Õ(√n)'},{y:393,t:'Õ(n^{1/3})'},{y:447,t:'Õ(n^{1/4})'},{y:500,t:'Õ(n^{δ})',note:'any small fixed δ > 0'},{y:559,t:'polylog n / O(1)'}];
     const hasOrs=orsRows(options).length>0;
-    let svg=`<svg class="d-map" viewBox="0 0 ${hasOrs?1240:1100} ${hasOrs?738:684}" role="img" aria-label="Fully dynamic matching: approximation versus update time, with simple ORS interval lines at the right edge of the original plot. Green symbols maintain edges and squares estimate size. Red is reserved for separately scoped lower bounds."><title>Fully dynamic matching — approximation, update time and ORS-dependent algorithms</title><desc>General unweighted graphs, edge insertions and deletions. Runtime lanes are schematic asymptotic bounds. Open points show limiting approximation ratios. The near-optimal column approaches one. The rightmost interval lines include Behnezhad–Ghafari 2024 and subsequent algorithms without assigning an unsupported n exponent.</desc>`;
+    const baseHeight=hasOrs?738:684,exact=exactRows(options);
+    let svg=`<svg class="d-map" viewBox="0 0 ${hasOrs?1240:1100} ${baseHeight+(exact.length?45+exact.length*63:0)}" role="img" aria-label="Fully dynamic matching: approximation versus update time, with ORS intervals at the right and a separate exact-only lower-bound strip below. Green circles maintain edges and squares estimate size. Red diamonds show conditional OMv; red hexagons show zero-error cell probe."><title>Fully dynamic matching — approximation, update time and exact-output lower bounds</title><desc>General unweighted graphs, edge insertions and deletions. Runtime lanes are schematic asymptotic bounds. Open points show limiting approximation ratios. The near-optimal column approaches one. The ORS lines retain parameterized bounds. Exact lower bounds have their own symbolic strip, not coordinates in the approximation map.</desc>`;
     svg+='<g data-panel="original-dynamic-map">';
     svg+=`<rect x="185" y="193" width="845" height="52" rx="5" fill="${S}" opacity=".045"/><rect x="185" y="86" width="845" height="96" rx="5" fill="var(--ink)" opacity=".025"/>`;
     svg+=text(12,18,'UPDATE TIME','d-axis-title')+text(1024,18,'Better approximation →','d-muted','end');
@@ -97,11 +113,13 @@
     svg+=text(590,215,'Polynomial savings','d-region')+text(590,232,'ε-dependent exponent; lane is schematic','d-micro');
     svg+='</g>';
     if(hasOrs)svg+=orsLens(options);
+    svg+=exactStrip(baseHeight,hasOrs?1240:1100,options);
     svg+=`</svg>`;return svg;
   }
   function summarySVG(key,w,h,options={}){
     const level=options.level||(w<220||h<140?'overview':w<420||h<240?'compact':'detail'),tiny=level==='overview',full=level==='detail',ors=orsRows(options);
-    const l=tiny?8:full?65:22,r=Math.max(l+8,w-(ors.length?w*.22:20)),top=tiny?8:full?34:18,bottom=Math.max(top+8,h-(tiny?10:full?48:31));
+    const exact=exactRows(options),strip=exact.length?(tiny?17:full?69:40):0;
+    const l=tiny?8:full?65:22,r=Math.max(l+8,w-(ors.length?w*.22:20)),top=tiny?8:full?34:18,bottom=Math.max(top+8,h-(tiny?10:full?48:31)-strip);
     const px=v=>l+(x(v)-185)/845*(r-l),py=v=>top+(v-32)/585*(bottom-top);
     let groups=specs.map(spec=>({spec,rows:groupRows(spec,{...options,output:'both'})})).filter(g=>g.rows.length);
     if(tiny){const keep=['dynamic-edges-gp13','bks2023-size','dynamic-edges-gssu22','dynamic-edges-bk22-k2','dynamic-edges-bk22-k3','dynamic-edges-bgs11','abr2024-size'];groups=groups.filter(g=>keep.includes(g.spec.ids[0]));}
@@ -110,7 +128,7 @@
     for(const g of groups){const cx=px(g.spec.beta),cy=py(g.spec.y);svg+=marker(cx,cy,g.rows,false,true);}
     if(!tiny)svg+=`<text x="${px(.5)}" y="${bottom+19}" text-anchor="middle">½</text><text x="${px(1)}" y="${bottom+19}" text-anchor="middle">→1</text>`;
     if(full){
-      svg+=`<text x="${l}" y="19">Dynamic matching</text><text x="${l-8}" y="${py(58)+4}" text-anchor="end">n</text><text x="${l-8}" y="${py(337)+4}" text-anchor="end">√n</text><text x="${l-8}" y="${py(559)+4}" text-anchor="end">polylog</text><text x="${px(2/3)}" y="${bottom+19}" text-anchor="middle">⅔</text><text x="${(l+r)/2}" y="${h-7}" text-anchor="middle">Approximation β → · faster ↓</text>`;
+      svg+=`<text x="${l}" y="19">Dynamic matching</text><text x="${l-8}" y="${py(58)+4}" text-anchor="end">n</text><text x="${l-8}" y="${py(337)+4}" text-anchor="end">√n</text><text x="${l-8}" y="${py(559)+4}" text-anchor="end">polylog</text><text x="${px(2/3)}" y="${bottom+19}" text-anchor="middle">⅔</text><text x="${(l+r)/2}" y="${h-strip-7}" text-anchor="middle">Approximation β → · faster ↓</text>`;
     }
     if(full){
       const labels={'dynamic-edges-gp13':'GP’13','bks2023-size':'BKS’23','dynamic-edges-gssu22':'GSSU’22','abr2024-size':'ABR’23'};
@@ -124,6 +142,11 @@
       });
       if(!tiny)svg+=`<text x="${w*.89}" y="${top-5}" text-anchor="middle" style="font-size:9px;fill:var(--green)">ORS ranges</text><text x="${w*.89}" y="${bottom+16}" text-anchor="middle" style="font-size:8px">ORS-dependent</text>`;
       svg+='</g>';
+    }
+    if(exact.length){
+      const y=h-strip;svg+=`<g data-panel="exact-lower-bounds" data-axis-type="symbolic-separate-scope"><path d="M${l} ${y}H${w-12}" stroke="var(--line)"/>`;
+      if(!tiny)svg+=`<text x="${l}" y="${y+13}" style="font-size:9px">Exact only · separate scope</text>`;
+      exact.forEach((r,i)=>{const cx=tiny?l+8+i*22:l+8+(full?0:i*(w-l-20)/2),cy=tiny?h-7:full?y+29+i*21:h-8;svg+=`<g data-dynamic-result="${r.id}"><title>${esc(r.rowName+' · '+r.updateTime)}</title>${window.AtlasSymbols.mark(cx,cy,tiny?3:4,exactShape(r),'lower','',{conditional:r.kind==='conditional_barrier'})}`;if(!tiny)svg+=`<text x="${cx+9}" y="${cy+3}" style="font-size:${full?10:8}px;fill:var(--red)">${r.kind==='conditional_barrier'?(full?'OMv · update/query barrier':'OMv'):(full?'Ko ’26 · zero-error · preprint':'zero-error · preprint')}</text>`;svg+='</g>'});svg+='</g>';
     }
     return svg+'</svg>';
   }
@@ -144,7 +167,7 @@
     function detail(){
       const rows=records(opts()),r=rows.find(r=>r.id===selected);if(!r)return;
       const group=specs.find(s=>s.ids.includes(selected)),siblings=group?groupRows(group,opts()):[r];
-      root.querySelector('.d-theorem').innerHTML=`<div class="d-theorem-top"><span class="d-type ${r.kind==='conditional_barrier'?'d-lower-type':r.outputKey==='dynamic-size'?'d-size-type':''}">${r.kind==='conditional_barrier'?'Conditional lower bound · exact only':r.outputKey==='dynamic-size'?'Size estimate':'Matching edges'}${r.plotScope==='bipartite'?' · BIPARTITE ONLY':''}</span><strong>${esc(r.rowName||r.title)}</strong>${source(r,'Read paper')}${walkthrough(r)}<span>${esc(r.dateLabel||r.year)}</span></div>${siblings.length>1?`<div class="d-coincident"><span>At this location:</span>${siblings.map(s=>`<button type="button" data-dynamic-result="${s.id}" aria-pressed="${s.id===selected}">${esc(s.rowName)}${s.outputKey==='dynamic-size'?' · size':''}</button>`).join('')}</div>`:''}<div class="d-detail-grid"><div><span>Guaranteed fraction</span><strong>${math(r.formula||'See theorem')}</strong></div><div><span>Original update cost</span><strong>${math(r.updateTime||r.bound||'See theorem')}</strong></div><div><span>Conditions</span><strong>${esc(r.timeType||'See theorem')} · ${esc(r.adversary||'See theorem')} · ${esc(r.randomization||'See theorem')}</strong></div></div><p>${esc(r.statement||r.summary)}</p>${intervalHTML(r)}<details class="d-theorem-more"><summary>Read assumptions, reporting cost &amp; source</summary><h3>${esc(r.title)}</h3><p>${esc(r.authors)}</p><p>${esc(r.notes)}</p><p><b>Query / reporting:</b> ${esc(r.queryTime||'See theorem; reporting an entire matching has a separate output cost.')}</p><p>${source(r)} · ${esc(r.sourceLocation)}</p></details>`;
+      root.querySelector('.d-theorem').innerHTML=`<div class="d-theorem-top"><span class="d-type ${isLower(r)?'d-lower-type':r.outputKey==='dynamic-size'?'d-size-type':''}">${isLower(r)?(r.kind==='conditional_barrier'?'Conditional lower bound · exact only':'Unconditional · zero-error · preprint · exact only'):r.outputKey==='dynamic-size'?'Size estimate':'Matching edges'}${r.plotScope==='bipartite'?' · BIPARTITE ONLY':''}</span><strong>${esc(r.rowName||r.title)}</strong>${source(r,'Read paper')}${walkthrough(r)}<span>${esc(r.dateLabel||r.year)}</span></div>${siblings.length>1?`<div class="d-coincident"><span>At this location:</span>${siblings.map(s=>`<button type="button" data-dynamic-result="${s.id}" aria-pressed="${s.id===selected}">${esc(s.rowName)}${s.outputKey==='dynamic-size'?' · size':''}</button>`).join('')}</div>`:''}<div class="d-detail-grid"><div><span>Guaranteed fraction</span><strong>${math(r.formula||'See theorem')}</strong></div><div><span>Original update cost</span><strong>${math(r.updateTime||r.bound||'See theorem')}</strong></div><div><span>Conditions</span><strong>${esc(r.timeType||'See theorem')} · ${esc(r.adversary||'See theorem')} · ${esc(r.randomization||'See theorem')}</strong></div></div><p>${esc(r.statement||r.summary)}</p>${intervalHTML(r)}<details class="d-theorem-more"><summary>Read assumptions, reporting cost &amp; source</summary><h3>${esc(r.title)}</h3><p>${esc(r.authors)}</p><p>${esc(r.notes)}</p><p><b>Query / reporting:</b> ${esc(r.queryTime||'See theorem; reporting an entire matching has a separate output cost.')}</p><p>${source(r)} · ${esc(r.sourceLocation)}</p></details>`;
     }
     function render(){
       const rows=records(opts());if(!rows.some(r=>r.id===selected))selected=rows[0]?.id;
@@ -152,7 +175,7 @@
       const ors=orsRows(opts()),bip=find('beh2023-size-bipartite',opts()),lower=find('dynamic-exact-omv',opts());
       root.querySelector('.d-specials').innerHTML=`${ors.length?`<div class="d-special d-ors-sources"><span>ORS PAPERS · DIRECT LINKS</span><div class="d-ors-links">${ors.map(r=>source(r,orsLabels[r.id])+walkthrough(r,'Watch BG’24 algorithm')).join('')}</div></div>`:''}${bip?`<div class="d-special d-bipartite"><span>BIPARTITE ONLY · SIZE</span><strong>B’22: β = ⅔ + δ₀ &nbsp; at &nbsp; O(√n)</strong><small>δ₀ &gt; 10⁻⁶ · adaptive · worst-case. Separate graph class.</small><button type="button" data-dynamic-result="${bip.id}">Inspect theorem ↗</button>${source(bip,'Read paper')}</div>`:''}${lower?`<div class="d-special d-lower-bound"><span>CONDITIONAL LOWER BOUND · EXACT MATCHING ONLY</span><strong>OMv: no simultaneous m<sup>1/2−δ</sup> updates and m<sup>1−δ</sup> queries.</strong><small>Fixed δ &gt; 0, polynomial preprocessing. This does not rule out the approximations in the plot.</small><button type="button" data-dynamic-result="${lower.id}">Inspect lower bound ↗</button>${source(lower,'Read paper')}</div>`:''}`;
       const unique=rows.filter((r,i,a)=>a.findIndex(v=>v.id===r.id)===i);
-      root.querySelector('.d-evidence-list').innerHTML=unique.map(r=>`<div class="d-evidence-item"><button type="button" data-dynamic-result="${esc(r.id)}" class="${r.kind==='conditional_barrier'?'d-lower-evidence':r.outputKey==='dynamic-size'?'d-size-evidence':''}"><span>${esc(r.rowName||r.title)}</span><strong>${math(r.formula||r.bound)}</strong><small>${math(r.updateTime||'See statement')}${r.plotScope?' · '+esc(r.plotScope):''}</small></button>${source(r,'Read paper')}</div>`).join('');
+      root.querySelector('.d-evidence-list').innerHTML=unique.map(r=>`<div class="d-evidence-item"><button type="button" data-dynamic-result="${esc(r.id)}" class="${isLower(r)?'d-lower-evidence':r.outputKey==='dynamic-size'?'d-size-evidence':''}"><span>${esc(r.rowName||r.title)}</span><strong>${math(r.formula||r.bound)}</strong><small>${math(r.updateTime||'See statement')}${r.plotScope?' · '+esc(r.plotScope):''}</small></button>${source(r,'Read paper')}</div>`).join('');
       root.querySelectorAll('[data-dynamic-output]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.dynamicOutput===output)));detail();
     }
     function select(id){selected=id;render()}

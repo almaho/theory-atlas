@@ -1,5 +1,5 @@
 {
-  "reviewedOn": "2026-10-20",
+  "reviewedOn": "2026-11-04",
   "schemaVersion": 1,
   "scope": {
     "problem": "Maximum-cardinality matching size estimation",
@@ -309,6 +309,32 @@
       "statement": "For bipartite graphs, the maintained size estimate exceeds a two-thirds approximation by an absolute positive constant, with the displayed worst-case update bound against adaptive updates.",
       "notes": "The reference slide calls this B’22 using its preprint year; publication was SODA 2023. This theorem does not hold for arbitrary general graphs as stated. The source lower-bounds δ₀ instead of specifying its exact numerical value; ratio is deliberately null, and ratioLowerBound is only a strict lower bound. Any plotted horizontal position should be labeled symbolically as 2/3+δ₀ rather than interpreted as an exact numerical ratio.",
       "queryDerivation": "The final algorithm continuously maintains a scalar; reading it is constant time."
+    },
+    {
+      "id": "dynamic-exact-cell-probe-2026",
+      "kind": "unconditional_barrier",
+      "year": 2026,
+      "rowName": "Ko ’26 · exact size · zero-error cell probe",
+      "title": "Unconditional Boolean Dynamic Lower Bounds from Disjointness",
+      "authors": "Young Kun Ko",
+      "ratio": null,
+      "formula": "Exact size / perfect-matching detection",
+      "updateTime": "If q = O(1): u = Ω((log n / log log n)²)",
+      "queryTime": "General tradeoff: u + q = Ω((log n / log(uw))²); q is expected per fixed valid input history.",
+      "timeType": "worst-case update probes",
+      "adversary": "fixed input history; no adaptive guarantee inferred",
+      "randomization": "zero error for every input and random tape",
+      "url": "https://arxiv.org/html/2610.10904v3#A1.SS1.SSS1",
+      "sourceLocation": "§2.1; Lemma A.1; Appendix A.1.1 (bipartite matching)",
+      "publicationStatus": "preprint",
+      "dateLabel": "arXiv v3 · 2 Nov 2026",
+      "evidenceStatus": "full_text_checked",
+      "statement": "The preprint proves an unconditional update/query lower bound for exact maximum-matching size and perfect-matching detection, already on bipartite graphs under insertions. With n graph vertices, w = Θ(log n), worst-case update cost u and expected query cost q, u + q = Ω((log n / log(uw))²). Hence constant-time queries require u = Ω((log n / log log n)²). A fully dynamic data structure must also support these insertion sequences.",
+      "summary": "Exact-output cell-probe lower bound; separate from conditional OMv and all approximation guarantees.",
+      "notes": "Word and address widths are both w = Θ(log n). Preprocessing is unrestricted and uncharged; all input-dependent persistent information is stored in charged cells. Correctness holds for every input and random tape; updates are worst-case over tapes and inputs, queries expected for each fixed valid history. This does not establish an amortized-update, Monte Carlo, or approximation lower bound. The theorem statement, model and matching reduction were reviewed; the complete lower-bound proof has not been independently verified."
     }
+  ],
+  "sourcesChecked": [
+    "Ko arXiv:2610.10904v3 §2.1, Lemma A.1 and Appendix A.1.1 (exact zero-error cell-probe scope)"
   ]
 }

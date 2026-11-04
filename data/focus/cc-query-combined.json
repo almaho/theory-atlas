@@ -27,11 +27,11 @@
         "Antoine Schohn"
       ],
       "year": 2026,
-      "venue": "arXiv v2 revised Aug 31, 2026",
+      "venue": "arXiv v3 revised Nov 3, 2026",
       "publicationStatus": "preprint",
-      "url": "https://arxiv.org/pdf/2607.27829v2",
-      "verifiedOn": "2026-10-26",
-      "sourceUrl": "https://arxiv.org/html/2607.27829v2"
+      "url": "https://arxiv.org/pdf/2607.27829v3",
+      "verifiedOn": "2026-11-04",
+      "sourceUrl": "https://arxiv.org/html/2607.27829v3"
     },
     "cao-2025-sublinear-lp": {
       "id": "cao-2025-sublinear-lp",
@@ -132,20 +132,20 @@
       "algorithmLabel": "New rounding + Cao solver",
       "resource": "Time",
       "displayBound": "Õ(2^{poly(1/ε)} n)",
-      "queryComplexity": "Õ(2^{poly(1/ε)} n) via stated fast composition; inherits solver randomness",
-      "timeComplexity": "Õ(2^{poly(1/ε)} n)",
+      "queryComplexity": "Õ(2^{poly(1/ε)} n) expected, via stated fast composition; solver and sublinear rounding are randomized",
+      "timeComplexity": "Õ(2^{poly(1/ε)} n) in expectation",
       "quality": "(1.3865+ε) approximation against integral OPT",
       "qualityLabel": "1.3865+ε",
       "approximationBase": 1.3865,
-      "probability": "Randomized composition: primal solver is randomized; new rounding is deterministic.",
+      "probability": "Randomized composition with an expected approximation guarantee and expected running time; the sublinear rounding implementation is randomized. The separate polynomial-time rounding can be derandomized.",
       "oracle": "Cao et al. combined positive-degree, indexed-positive-neighbor, and pair-label access.",
       "output": "Explicit partition; no per-instance primal–dual certificate for this fast composition.",
-      "theorem": "arXiv v2: Theorem 1.3 and paragraph after Corollary 1.4",
+      "theorem": "arXiv v3: Theorem 1.3, paragraph after Corollary 1.4, and Theorem 7.1 with its derandomization qualification",
       "assumptions": [
         "Sufficiently small fixed ε>0 for the inherited sublinear solver.",
         "Use the stated near-linear composition, not the paper’s separate polynomial-time dual solver."
       ],
-      "notes": "The source explicitly states the fast composition. The certified deterministic dual algorithm takes 2^{poly(1/ε)}poly(n) time and is a different resource claim.",
+      "notes": "The source explicitly states the fast composition. Theorem 7.1 gives expected sublinear rounding time, and the following paragraph excludes this implementation from the polynomial-time derandomization. The certified deterministic dual algorithm takes 2^{poly(1/ε)}poly(n) time and is a different resource claim.",
       "evidenceStatus": "verified",
       "frontierStatus": "current_best_verified"
     },
@@ -542,11 +542,11 @@
       },
       {
         "sourceId": "garciasoriano-2026-cluster-lp",
-        "url": "https://arxiv.org/html/2607.27829v2",
+        "url": "https://arxiv.org/html/2607.27829v3",
         "theorems": [
           {
             "id": "cc-query-combined-13865",
-            "theorem": "arXiv v2: Theorem 1.3 and paragraph after Corollary 1.4",
+            "theorem": "arXiv v3: Theorem 1.3, paragraph after Corollary 1.4, and Theorem 7.1 with its derandomization qualification",
             "evidenceStatus": "verified"
           }
         ]

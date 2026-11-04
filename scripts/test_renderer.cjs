@@ -194,6 +194,7 @@ const focusContext = {
   }
 };
 vm.createContext(focusContext);
+vm.runInContext(fs.readFileSync(path.join(__dirname, '../src/marker-shapes.js'), 'utf8'), focusContext);
 vm.runInContext(fs.readFileSync(path.join(__dirname, '../src/dynamic.js'), 'utf8'), focusContext);
 vm.runInContext(fs.readFileSync(path.join(__dirname, '../src/streaming.js'), 'utf8'), focusContext);
 vm.runInContext(fs.readFileSync(path.join(__dirname, '../src/lca.js'), 'utf8'), focusContext);
@@ -250,7 +251,7 @@ for (const [key, id] of settings) {
   assert(summaries.every(svg => svg.includes('var(--green)')), `${key} algorithm guarantees remain green throughout semantic zoom`);
   assert(summaries.every(svg => !/\d+ (?:results|papers)/.test(visibleText(svg))), `${key} summaries do not overlay result or paper counts`);
   if (key.startsWith('dynamic-')) {
-    assert(summaries.every(svg => !svg.includes('var(--red)')), 'Dynamic approximate guarantees never acquire an unscoped lower-bound region');
+    assert(summaries.every(svg => svg.includes('data-panel="exact-lower-bounds"') && svg.includes('data-axis-type="symbolic-separate-scope"')), 'Dynamic lower bounds retain a separate exact-output scope at all zoom levels');
     assert(!summaries[1].includes('summary-paper') && summaries[2].includes('summary-paper'), 'Dynamic author labels appear only in the detail thumbnail');
     const marks = svg => (svg.match(/\bdata-center-x=/g) || []).length || (svg.match(/<circle\b/g) || []).length;
     assert(marks(summaries[0]) < marks(summaries[1]), 'Dynamic overview selects representative guarantees instead of shrinking every paper marker');
@@ -443,8 +444,10 @@ for (const [key, host] of [['dynamic-edges', edgesHost], ['dynamic-size', sizeHo
   assert(/<circle\b[^>]*data-output="edges"[^>]*stroke="var\(--green\)"/.test(plot) && /<rect\b[^>]*data-output="size"[^>]*stroke="var\(--green\)"/.test(plot), 'Both atlas routes show green edge circles and size squares');
   assert(plot.includes('data-group="dynamic-edges-gp13"') && plot.includes('data-group="bks2023-size"'), 'The shared map includes explicit and size-only near-optimal results');
   for (const row of allDynamicRecords) assert(evidenceHTML(host).includes(`data-dynamic-result="${row.id}"`), `${row.id} remains inspectable in the complete evidence list`);
-  assert(!plot.includes('var(--red') && !plot.includes('var(--f-red'), 'Approximate dynamic maps do not inherit streaming impossibility shading');
-  assert(!resultIds(plot).includes('dynamic-exact-omv'), 'Exact conditional hardness is not projected onto an approximate frontier');
+  const approximatePlot = plot.split('data-panel="exact-lower-bounds"')[0];
+  assert(!approximatePlot.includes('var(--red') && !approximatePlot.includes('var(--f-red'), 'Approximate dynamic map does not inherit exact impossibility shading');
+  assert(!resultIds(approximatePlot).includes('dynamic-exact-omv'), 'Exact conditional hardness is not projected onto an approximate frontier');
+  assert(resultIds(plot).includes('dynamic-exact-cell-probe-2026') && /data-setup-shape="hexagon"[^>]*stroke="var\(--red\)"/.test(plot), 'Unconditional exact cell-probe lower bound uses a red hexagon in a separate symbolic strip');
   assert(host.innerHTML.includes('β-axis is broken') && plot.includes('exponent unspecified'), 'Schematic near-optimal and unspecified-exponent lanes are disclosed');
   const specials = host.querySelector('.d-specials').innerHTML;
   assert(specials.includes('d-lower-bound') && specials.includes('EXACT MATCHING ONLY') && resultIds(specials).includes('dynamic-exact-omv'), 'The exact conditional lower bound remains visible in its separately scoped card');
@@ -514,6 +517,8 @@ assert(!edgesHost.querySelector('.d-specials').innerHTML.includes('beh2023-size-
 assert(resultIds(edgesHost.querySelector('.d-specials').innerHTML).includes('dynamic-exact-omv'), 'Deterministic algorithm filtering does not erase conditional hardness evidence');
 clickResult(edgesHost, 'dynamic-exact-omv');
 assert(edgesHost.querySelector('.d-theorem').innerHTML.includes('d-lower-type') && edgesHost.querySelector('.d-theorem').innerHTML.includes('Conditional lower bound · exact only'), 'Inspecting the red lower-bound card keeps its exact-only scope');
+clickResult(edgesHost, 'dynamic-exact-cell-probe-2026');
+assert(edgesHost.querySelector('.d-theorem').innerHTML.includes('Unconditional · zero-error · preprint · exact only') && edgesHost.querySelector('.d-theorem').innerHTML.includes('2610.10904v3'), 'Cell-probe inspection preserves source, preprint and exact/zero-error scope');
 chooseScope(edgesHost, 'all');
 let keyPrevented = false;
 edgesHost.listeners.find(event => event.type === 'keydown').listener({key: 'Enter', preventDefault() {keyPrevented = true;}, target: {closest: selector => selector === '.d-plot-result' ? {dataset: {dynamicResult: 'abr2024-size'}} : null}});
@@ -526,12 +531,14 @@ publicationData['dynamic-size'].results.push({...publicationData['dynamic-size']
 publicationData['dynamic-size'].results.find(row => row.id === 'abr2024-size').publicationStatus = 'preprint';
 const publicationContext = {AbortController, ResizeObserver: focusContext.ResizeObserver, window: {}, document: {getElementById: () => ({textContent: JSON.stringify({focus: publicationData})})}};
 vm.createContext(publicationContext);
+vm.runInContext(fs.readFileSync(path.join(__dirname, '../src/marker-shapes.js'), 'utf8'), publicationContext);
 vm.runInContext(fs.readFileSync(path.join(__dirname, '../src/dynamic.js'), 'utf8'), publicationContext);
 const publicationAPI = publicationContext.window.DynamicMatching;
 const withPreprints = focusHost(), publishedOnly = focusHost();
 const allInstance = publicationAPI.mount(withPreprints, 'dynamic-size');
 const publishedInstance = publicationAPI.mount(publishedOnly, 'dynamic-size', {publication: 'published'});
 assert(evidenceHTML(withPreprints).includes('fixture-preprint') && !plotHTML(withPreprints).includes('fixture-preprint'), 'Unmapped synthetic evidence is listed without invented coordinates');
+assert(!plotHTML(publishedOnly).includes('dynamic-exact-cell-probe-2026') && !evidenceHTML(publishedOnly).includes('dynamic-exact-cell-probe-2026'), 'Published-only filter removes the new preprint annotation and evidence');
 assert(!evidenceHTML(publishedOnly).includes('fixture-preprint'), 'Publication filter excludes evidence-only preprints');
 assert(resultIds(plotHTML(withPreprints)).includes('abr2024-size') && !resultIds(plotHTML(publishedOnly)).includes('abr2024-size'), 'Publication filter also removes mapped preprints');
 assert(groupHTML(publishedOnly, 'dynamic-edges-gp13'), 'Published mapped results remain visible when another theorem is filtered');
@@ -1091,3 +1098,4 @@ require("./test_semantic_palette.cjs");
 
 require("./test_marker_shapes.cjs");
 require('./test_algorithm_walkthrough.cjs');
+require('child_process').execFileSync('python3', [path.join(__dirname, 'test_dynamic_cell_probe_gadget.py')], {stdio: 'inherit'});
