@@ -2,19 +2,22 @@
 const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),assert=require('node:assert/strict');
 const root=path.resolve(__dirname,'..'),read=file=>fs.readFileSync(path.join(root,file),'utf8');
 const html=read('dist/index.html'),data=JSON.parse(html.match(/<script id="atlas-data" type="application\/json">([\s\S]*?)<\/script>/)[1]);
-for(const page of ['index','vision','people']){
+for(const page of ['index','vision','matching-ors']){
  const content=read('dist/'+page+'.html'),nav=content.match(/<nav class="view-nav"[\s\S]*?<\/nav>/)[0];
  assert(!content.includes('/* SITE_CSS */')&&!content.includes('<!-- SITE_NAV -->'));
  assert.equal((nav.match(/aria-current="page"/g)||[]).length,1);
- for(const href of ['index.html#atlas','vision.html','people.html'])assert(nav.includes('href="'+href+'"'));
- assert(!nav.includes('Focused')&&!nav.includes('fine-grained'));
+ for(const href of ['index.html#atlas','vision.html'])assert(nav.includes('href="'+href+'"'));
+ assert(!nav.includes('Focused')&&!nav.includes('fine-grained')&&!nav.includes('people.html'));
+ assert(nav.includes('THEORY MAP')&&nav.includes('>Sublinear Problems</a>'),'Shared navigation uses the new site and section names');
+ assert(/<title>[^<]*Theory Map[^<]*<\/title>/.test(content),'Every published page uses Theory Map in its title');
  for(const [,href]of content.matchAll(/href="([^"#:]+\.html)(?:#[^"]*)?"/g)){
   if(!href.includes('://'))assert(fs.existsSync(path.join(root,'dist',href)),page+': local navigation target exists');
  }
  assert.equal((content.match(/<main\b/g)||[]).length,1,page+': one main landmark');
 }
 assert(!html.includes('id="focus-view"')&&!html.includes('id="show-focus"'));
-assert(/<main id="atlas" aria-label=/.test(html),'The atlas is visible before JS initializes');
+assert(html.includes('<main id="atlas" aria-label="Sublinear Algorithm Landscape">'),'The landscape remains visible before JS initializes with its new accessible name');
+assert(html.includes('<h1>Sublinear Algorithm Landscape</h1>'),'Main page uses the requested landscape title');
 assert(!html.includes('Jump to a focused figure'));
 assert(read('src/vision.html').includes('As AI advances'));
 assert(read('src/vision.html').includes('Think in abstractions'));
@@ -23,9 +26,13 @@ assert(read('src/people.html').includes('Alma Ghafari'));
 assert(read('src/people.html').includes('PROJECT INITIATOR'));
 assert(read('src/people.html').includes('https://github.com/almaho/theory-atlas/issues'));
 assert(!fs.existsSync(path.join(root,'dist/fine-grained.html')),'Fine-grained stays removed');
+assert(!fs.existsSync(path.join(root,'dist/people.html')),'People is unpublished while its source remains available');
 
 const c={window:{},document:{getElementById:id=>id==='atlas-data'?{textContent:JSON.stringify(data)}:null}};
 vm.createContext(c);vm.runInContext(read('src/focus.js'),c);const api=c.window.AtlasFocus;
+assert(!data.problems.some(p=>p.id==='maximum_is')&&data.problems.some(p=>p.id==='mis'),'Maximum IS is hidden while maximal MIS remains published');
+assert(!api.settings().some(route=>route.problem==='maximum_is')&&api.settings().some(route=>route.problem==='mis'),'Visible setting routes preserve maximal MIS and exclude Maximum IS');
+assert(fs.existsSync(path.join(root,'data/research/maximum_is.json')),'Maximum IS research remains archived in source');
 for(const route of api.settings()){
  const old=api.routeForHash('#focus-'+route.key),current=api.routeForHash('#atlas/'+route.key);
  assert.deepEqual(old,current,'Old figure links open the same atlas setting');
@@ -59,6 +66,6 @@ vm.createContext(announcementContext);vm.runInContext(announcementSource+'\nupda
 currentSlice={id:'second'};vm.runInContext('updateDetail();',announcementContext);
 currentCell=null;vm.runInContext('updateDetail();',announcementContext);
 assert.deepEqual(announcements,['first','second',null],'URLs follow changed tabs/selections and overview, without per-frame history updates');
-console.log('Site pages PASS: shared navigation, atlas default, all 60 legacy figure links, canonical setting routes, Vision/People content and local links; no separate figure mode or fine-grained page.');
+console.log('Site pages PASS: Theory Map branding, Sublinear Problems navigation and landscape title, legacy figure routes, Vision and walkthrough links; People source preserved but unpublished; no separate figure mode or fine-grained page.');
 require('./test_site_theme.cjs');
 require('./test_open_problems.cjs');

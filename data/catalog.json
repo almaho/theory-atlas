@@ -38,7 +38,8 @@
       "quality": "Approximation factor α ≥ 1 means |I| ≥ OPT/α. Online competitive ratios and random-input densities retain their own conventions.",
       "variants": "Exact / approximate · explicit vertices / value · general / restricted / random graphs",
       "axisLabel": "Approximation / guarantee",
-      "axisShort": "α"
+      "axisShort": "α",
+      "visible": false
     },
     {
       "id": "cc",

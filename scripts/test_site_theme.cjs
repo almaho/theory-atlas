@@ -20,7 +20,7 @@ b.storage.value='light';b.winEvents.pageshow();assert.equal(b.element.dataset.th
 b.winEvents.storage({key:'theory-atlas-appearance',newValue:null});assert.equal(b.element.dataset.theme,'dark','Clearing choice restores the dark default');
 a=boot('invalid',false);assert.equal(a.element.dataset.theme,'dark','Invalid stored appearance uses the dark default');
 a=boot(null,false,true);a.buttons[1].click();a.winEvents.pageshow();assert.equal(a.element.dataset.theme,'dark','Blocked storage does not break the switch');
-for(const page of ['index','vision','people']){
+for(const page of ['index','vision','matching-ors']){
  const html=fs.readFileSync(path.join(root,'dist',page+'.html'),'utf8');
  assert(html.includes(source)&&html.indexOf(source)<html.indexOf('<style>'),'Appearance initializes before styles');
  assert.equal((html.match(/data-site-theme="light"/g)||[]).length,1);

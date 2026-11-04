@@ -10,6 +10,8 @@ Deduplicate by base arXiv ID and version, and compare against existing bibliogra
 
 Online was hidden at Alma's request on 2 November 2026. Retain its archived research, but defer Online-only additions and setup questions until she restores the column. This also defers the pending three-colorable online-coloring panel for arXiv:2610.41516; it does not exclude coloring construction in the remaining models.
 
+The site is named Theory Map; its main page is Sublinear Algorithm Landscape. Maximum Independent Set was hidden on 4 November 2026 at Alma’s request. Preserve its research separately from maximal MIS and do not restore the row or publish new Maximum IS panels until she reopens it. People is also unpublished for now.
+
 ## Evidence before publication
 
 Read full theorem statements and model definitions. Preserve graph/input classes, objectives and outputs, query interfaces, approximation thresholds, parameter regimes, randomness, adversaries, resource units, and theorem locations. Abstracts identify candidates; they are insufficient evidence for plotted bounds. Preprints keep a visible status and version. A claimed resolution of a conjecture must be clearly distinguished from a historical conditional implication and from an independently checked or published result.

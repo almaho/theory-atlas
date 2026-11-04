@@ -1,7 +1,7 @@
 (()=>{
   'use strict';
-  const atlasData=JSON.parse(document.getElementById('atlas-data').textContent),visibleModels=new Set((atlasData.models||[]).map(m=>m.id));
-  const pairManifest=(atlasData.focusPairs||[]).map(p=>({...p,routes:p.routes.filter(r=>!visibleModels.size||visibleModels.has(r.model))})).filter(p=>p.routes.length);
+  const atlasData=JSON.parse(document.getElementById('atlas-data').textContent),visibleModels=new Set((atlasData.models||[]).map(m=>m.id)),visibleProblems=new Set((atlasData.problems||[]).map(p=>p.id));
+  const pairManifest=(atlasData.focusPairs||[]).map(p=>({...p,routes:p.routes.filter(r=>(!visibleModels.size||visibleModels.has(r.model))&&(!visibleProblems.size||visibleProblems.has(r.problem)))})).filter(p=>p.routes.length);
   const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const legacySettings=[
     {key:'one',sliceId:'matching-stream-singlepass-insertion-explicit',label:'Streaming · 1 + 2 passes',note:'01',type:'streaming',graph:'unweighted, general'},

@@ -9,9 +9,8 @@ def site_theme(root: Path):
 
 
 def site_navigation(active):
-    links = [('atlas', 'index.html#atlas', 'Atlas'),
-             ('vision', 'vision.html', 'Vision'),
-             ('people', 'people.html', 'People')]
+    links = [('atlas', 'index.html#atlas', 'Sublinear Problems'),
+             ('vision', 'vision.html', 'Vision')]
     items = []
     for key, href, title in links:
         current = ' aria-current="page"' if key == active else ''
@@ -19,7 +18,7 @@ def site_navigation(active):
         items.append(f'<a class="site-link" href="{href}"{current}{home}>{title}</a>')
     return ('<nav class="view-nav" aria-label="Site navigation">'
             '<a class="atlas-brand" href="index.html#atlas" data-atlas-home="true">'
-            'THEORY ATLAS<span>Knowledge, in view.</span></a>'
+            'THEORY MAP<span>Knowledge, in view.</span></a>'
             '<div class="site-links">' + ''.join(items) + '</div></nav>')
 
 
@@ -33,11 +32,11 @@ def site_appearance():
 def build_site_pages(root: Path, write=True):
     css = '\n'.join((root / 'src' / name).read_text()
                     for name in ('style.css', 'focus.css', 'site.css'))
-    footer = ('<footer class="site-footer"><a href="index.html#atlas">Explore the atlas ↗</a>'
+    footer = ('<footer class="site-footer"><a href="index.html#atlas">Explore sublinear problems ↗</a>'
               '<span>A community effort in theoretical computer science.</span>'
               '<a href="https://github.com/almaho/theory-atlas" target="_blank" '
               'rel="noopener noreferrer">Project on GitHub ↗</a>' + site_appearance() + '</footer>')
-    for page in ('vision', 'people'):
+    for page in ('vision',):
         template = (root / 'src' / f'{page}.html').read_text()
         if page == 'people':
             photos = json.loads((root / 'src' / 'assets' / 'people' / 'sources.json').read_text())
@@ -54,4 +53,7 @@ def build_site_pages(root: Path, write=True):
         if write:
             (root / 'dist').mkdir(exist_ok=True)
             (root / 'dist' / f'{page}.html').write_text(html)
-    print('Community pages: Vision and People; shared Atlas / Vision / People navigation.')
+    if write:
+        # Keep the People source and portraits for a future return, but do not publish the page.
+        (root / 'dist' / 'people.html').unlink(missing_ok=True)
+    print('Theory Map: Sublinear Problems / Vision navigation; People page unpublished.')

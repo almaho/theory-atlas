@@ -1,12 +1,12 @@
-# Graph theory atlas
+# Theory Map
 
-An interactive, source-linked atlas of graph algorithms and lower bounds. Explore matching, weighted matching, maximal and maximum independent set, correlation clustering, edge coloring, and vertex coloring across eight visible computational models, including Stochastic.
+The **Sublinear Algorithm Landscape** is an interactive, source-linked map of algorithms and lower bounds. Explore matching, weighted matching, maximal independent set, correlation clustering, edge coloring, and vertex coloring across eight visible computational models, including Stochastic.
 
 Algorithms are green; lower bounds are red. Select a result for its theorem, assumptions, output contract, and primary paper. Zooming out removes detail while preserving the shape of each comparison.
 
-## View the atlas
+## Explore sublinear problems
 
-Open the **[live atlas](https://almaho.github.io/theory-atlas/#atlas)**, or use [the standalone HTML](dist/index.html) offline. Read the [Vision](https://almaho.github.io/theory-atlas/vision.html) and [People](https://almaho.github.io/theory-atlas/people.html) pages. The atlas is the main entry point; individual figures open within it. Source and history are in [almaho/theory-atlas](https://github.com/almaho/theory-atlas).
+Open the **[live Theory Map](https://almaho.github.io/theory-atlas/#atlas)**, or use [the standalone HTML](dist/index.html) offline. Read the [Vision](https://almaho.github.io/theory-atlas/vision.html) page. People is unpublished for now; its source and portraits remain archived. The atlas is the main entry point; individual figures open within it. Source and history are in [almaho/theory-atlas](https://github.com/almaho/theory-atlas).
 
 The fine-grained complexity page is paused and removed from the published site at Alma’s request (28 October 2026). Its source, data, and semantic regression checks remain available for future redesign.
 
@@ -26,7 +26,7 @@ Then open `http://127.0.0.1:8765/dist/#atlas`.
 
 ## Current scope
 
-The atlas has 56 visible problem/model cells. Online and Combined / other queries are hidden from the grid and navigation; their research remains archived. Streaming edge coloring was deferred. Cells without a completed source review are explicitly labeled.
+The map has 48 visible problem/model cells. Maximum Independent Set is hidden for now, with its research preserved separately from maximal MIS. Online and Combined / other queries are hidden from the grid and navigation; their research remains archived. Streaming edge coloring was deferred. Cells without a completed source review are explicitly labeled.
 
 This is an evolving research collection, not an exhaustive bibliography. Review dates and qualifications belong to individual settings and sources. Incompatible graph classes, output contracts, probability guarantees, and resource models remain visibly distinguished.
 
@@ -58,7 +58,8 @@ See [the research contract](docs/research-contract.md) for data rules and [figur
 | `scripts/build.py` | Validation and standalone HTML build |
 | `scripts/test_renderer.cjs` | Renderer and scope regressions |
 | `dist/index.html` | Self-contained graph atlas and offline artifact |
-| `dist/vision.html`, `dist/people.html` | Vision and community pages |
+| `dist/vision.html` | Vision page |
+| `src/people.html` | Archived People page; excluded from publication |
 | `src/fine-grained.*` | Archived page source; excluded from the published build |
 
 Daily arXiv review is scheduled through the current Codex chat at 09:00 America/New_York. [The update policy](docs/arxiv-update-policy.md) records the user-authorized verification and publication process. Its persistent checkpoint is `../arxiv-monitor-state.json`; the first scheduled search is separate from the source review that produced this release.

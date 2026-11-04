@@ -13,8 +13,9 @@ for(const p of data.problems)for(const model of data.models){
  assert(card.includes(q.models.includes(model.id)?'In this setting':'Across the'),'Cross-model questions retain their family-level label');
  assert(q.status.includes('cited')||q.status.includes('bounds gap'),'Paper-stated and inferred questions remain distinguished');cards++;
 }
-const people=read('dist/people.html');
-assert(!people.includes('Principal Investigator')&&!people.includes('Soheil Behnezhad'),'People keeps the current Alma-only profile choice');
+const people=read('src/people.html');
+assert(!fs.existsSync(path.join(root,'dist/people.html')),'People remains archived, not published');
+assert(!people.includes('Principal Investigator')&&!people.includes('Soheil Behnezhad'),'Archived People source preserves the Alma-only profile choice');
 const dynamicQuestion=context.window.AtlasFigureFirst.questionHTML('weighted_matching','dynamic');
 assert(dynamicQuestion.includes('explicit (1−ε)')&&dynamicQuestion.includes('fully dynamic'),'Weighted dynamic has its own correctly scoped open direction');
 assert(!dynamicQuestion.includes('independent edge survival'),'Dynamic question does not inherit the stochastic setup');
@@ -23,7 +24,8 @@ const photos=JSON.parse(read('src/assets/people/sources.json'));
 for(const photo of photos){
  assert(!photo.profileUrl.includes('simons')&&!photo.imageUrl.includes('simons'));
  assert(people.includes('href="'+photo.profileUrl+'" target="_blank" rel="noopener noreferrer">'+photo.name+'</a>'),'Names themselves link to personal websites');
- const original=fs.readFileSync(path.join(root,'src/assets/people',photo.filename)).toString('base64');
- assert(people.includes('data:'+photo.mimeType+';base64,'+original),'Published portrait is the current personal-site asset');
+ const original=fs.readFileSync(path.join(root,'src/assets/people',photo.filename));
+ const token='{{PORTRAIT_'+photo.id.toUpperCase().replaceAll('-','_')+'}}';
+ assert(original.length>0&&people.includes(token),'Archived personal-site asset and portrait placeholder remain available');
 }
-console.log('Open problems PASS: '+data.problems.length+' sourced family questions, setup labels on all '+cards+' setting pages, inference/preprint qualifications, and current personal-site portraits with linked names.');
+console.log('Open problems PASS: '+data.problems.length+' sourced family questions, setup labels on all '+cards+' setting pages, inference/preprint qualifications, and preserved archived personal-site portraits with linked names.');

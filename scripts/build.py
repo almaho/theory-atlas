@@ -263,12 +263,15 @@ def main():
     focus["query-list"] = query_list
     pairs = load_pairs(focus, catalog, research)
     visible_models = [m for m in catalog["models"] if m.get("visible", True)]
+    visible_problems = [p for p in catalog["problems"] if p.get("visible", True)]
+    visible_problem_ids = {p["id"] for p in visible_problems}
     open_problems = json.loads((ROOT / "src" / "open-problems.json").read_text())
     require(set(open_problems["problems"]) == set(PROBLEMS), "Every problem family needs a sourced open question")
     for problem, question in open_problems["problems"].items():
         require(all(question.get(k) for k in ("title", "setup", "question", "context", "status", "sources")), f"Incomplete open question: {problem}")
         require(all(s.get("title") and s.get("url", "").startswith("https://") for s in question["sources"]), f"Open question needs a primary-source link: {problem}")
-    project = {**catalog, "openProblems": open_problems, "models": visible_models, "ccComparison": json.loads((DATA / "cc-comparison.json").read_text()), "paperLinks": json.loads((DATA / "paper-links.json").read_text()), "research": research, "focus": focus, "focusPairs": pairs, "reviewedThrough": max(d["reviewedThrough"] for d in research)}
+    public_open_problems = {**open_problems, "problems": {k: v for k, v in open_problems["problems"].items() if k in visible_problem_ids}}
+    project = {**catalog, "problems": visible_problems, "openProblems": public_open_problems, "models": visible_models, "ccComparison": json.loads((DATA / "cc-comparison.json").read_text()), "paperLinks": json.loads((DATA / "paper-links.json").read_text()), "research": research, "focus": focus, "focusPairs": pairs, "reviewedThrough": max(d["reviewedThrough"] for d in research)}
     if not args.check:
         template = (ROOT / "src" / "index.html").read_text()
         css = (ROOT / "src" / "style.css").read_text() + "\n" + (ROOT / "src" / "focus.css").read_text() + "\n" + (ROOT / "src" / "dynamic.css").read_text() + "\n" + (ROOT / "src" / "streaming.css").read_text() + "\n" + (ROOT / "src" / "lca.css").read_text() + "\n" + (ROOT / "src" / "local.css").read_text() + "\n" + (ROOT / "src" / "mpc.css").read_text() + "\n" + (ROOT / "src" / "query-list.css").read_text()
@@ -290,7 +293,7 @@ def main():
     build_fine_grained(ROOT, write=False)
     if not args.check:
         (ROOT / "dist" / "fine-grained.html").unlink(missing_ok=True)
-    print(f"Validated: {counts['papers']} sources; {counts['slices']} scoped settings; {counts['results']} results; {len(catalog['problems']) * len(visible_models)} cells.")
+    print(f"Validated: {counts['papers']} sources; {counts['slices']} scoped settings; {counts['results']} results; {len(visible_problems) * len(visible_models)} visible cells.")
 
 
 if __name__ == "__main__":

@@ -18,7 +18,7 @@ for(const shape of symbols.shapes)for(const kind of ['upper','lower','barrier','
  assert.equal(a['data-setup-shape'],shape);
 }
 const visibleRoutes=api.settings(),nativeShapeRoutes=new Set(['edge-lca','edge-query_matrix','edge-query_list','vertex-query_matrix','vertex-query_list']);
-assert.equal(visibleRoutes.length,61,'The current visible atlas has 61 figure routes after hiding Online');
+assert.equal(visibleRoutes.length,58,'The visible map has 58 figure routes after hiding Online and Maximum IS');
 assert(!visibleRoutes.some(route=>route.model==='online'||route.model==='query_combined'),'Archived models have no visible shape routes');
 let checked=0,shapeRoutes=0;const nativeRoutesSeen=[];
 for(const route of visibleRoutes){
@@ -31,14 +31,15 @@ for(const route of visibleRoutes){
  }
 }
 assert.deepEqual(nativeRoutesSeen.sort(),[...nativeShapeRoutes].sort(),'Only the five reviewed native-symbol routes omit the shared marker primitive');
-assert.equal(shapeRoutes,56,'All 56 remaining visible figure routes use the shared shape encoding');
+assert.equal(shapeRoutes,53,'All 53 remaining visible figure routes use the shared shape encoding');
 const archivedOnlineRenderer=c.window.AtlasPairRenderers['maximum_is-online'];
 assert(archivedOnlineRenderer&&typeof archivedOnlineRenderer.summarySVG==='function','Archived Online renderer remains available for regression checks');
 function shapesFor(key,id){
  return [180,330,738].map(w=>{
   // Exercise archived evidence directly; hidden keys must not fall through the
   // public coordinator to an unrelated visible setting.
-  const renderer=key==='maximum_is-online'?archivedOnlineRenderer:api;
+  const renderer=key.startsWith('maximum_is-')?c.window.AtlasPairRenderers[key]:api;
+  assert(renderer&&typeof renderer.summarySVG==='function',key+': archived renderer remains available directly');
   const svg=renderer.summarySVG(key,w,w===180?110:w===330?245:548);
   const groups=[...svg.matchAll(/<g\b[^>]*data-[\w-]*result="[^"]+"[^>]*>[\s\S]*?<\/g>/g)].map(m=>m[0]).filter(s=>s.includes('result="'+id+'"'));
   return new Set(groups.flatMap(symbolTags).map(a=>a['data-setup-shape']));
