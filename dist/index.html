@@ -6294,7 +6294,7 @@ function chart(w,h,o={},interactive=false){
   if(!tiny&&!compact){
    if(r.panel==='approximate'){const name=r.boundKind==='oracle-reduction'?'Chen ’26 · reduction':r.id.includes('bc25-near')?'BC ’25':r.id.includes('gp13-near')?'GP ’13':r.shortLabel;s+=txt(p.x,p.y+(beta(r,o)<.5?-28:25),name,'point-label','text-anchor="middle"');s+=txt(p.x,p.y+(beta(r,o)<.5?-10:43),(r.timeType.startsWith('worst')?'worst-case':'amortized')+(r.publicationStatus==='preprint'?' · preprint':''),'point-note','text-anchor="middle"');}
    else if(symbolic)s+=txt(52,762,'Ko ’26 · PREPRINT · unconditional within zero-error cell-probe','lower-label')+txt(32,791,'max(u,q) = Ω((log N / log log N)²)','symbolic-formula')+txt(32,817,'q = O(1) ⇒ worst-case u = Ω((log N / log log N)²)','symbolic-contract')+txt(32,840,'Expected q per input · w = Θ(log N) · symbolic strip, not a polynomial-axis coordinate','point-note');
-   else if(lower)s+=txt(p.x+12,p.y-13,'OMv: no n^{1−c} update','lower-label')+txt(p.x+12,p.y+25,'fixed c > 0 · conditional','point-note');
+   else if(lower)s+=txt(p.x+12,p.y+22,'OMv: no n^{1−c} update','lower-label')+txt(p.x+12,p.y+41,'fixed c > 0 · conditional','point-note');
    else s+=txt(p.x+(r.costKey==='cubic'?-10:10),p.y-15,r.shortLabel,'point-label','text-anchor="'+(r.costKey==='cubic'?'end':'start')+'"');
   }
   s+='</g>';
