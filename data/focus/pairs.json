@@ -226,13 +226,22 @@
           "problem": "mis",
           "model": "dynamic",
           "visible": false
+        },
+        {
+          "key": "mis-dynamic-fully-adaptive",
+          "sliceId": "mis-dynamic-randomized-adaptive",
+          "label": "Dynamic MIS · fully dynamic adaptive",
+          "problem": "mis",
+          "model": "dynamic",
+          "visible": false
         }
       ],
       "canonicalAliases": {
         "mis-dynamic-adaptive": "mis-dynamic",
         "mis-dynamic-deterministic": "mis-dynamic",
         "mis-dynamic-amortized": "mis-dynamic",
-        "mis-dynamic-batch": "mis-dynamic"
+        "mis-dynamic-batch": "mis-dynamic",
+        "mis-dynamic-fully-adaptive": "mis-dynamic"
       },
       "axisSummary": {
         "x": "Update guarantee / output contract or parallel resource (categorical)",

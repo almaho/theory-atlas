@@ -568,6 +568,7 @@ edgesInstance.destroy(); sizeInstance.destroy();
 // LCA uses point landscapes within explicitly scoped probe contracts. Named
 // symbolic cost lanes and categorical accuracy columns must not imply invented
 // exponents, numerical approximation quality, or a global size-query budget.
+context.state.cutoff = 'all'; // Prior publication-filter fixtures must not leak into all-source coverage.
 const lcaAPI = focusContext.window.LCAMatching;
 const lcaData = focusData.lca;
 const lcaSlices = research.slices.filter(slice => slice.model === 'lca');
@@ -634,7 +635,7 @@ for (const [key, id] of lcaSettings) {
 const shahSizeUpper = lcaData.relatedResults.find(row => row.id === 'size-shah26-nonadaptive-upper');
 assert(shahSizeUpper.graph.includes('simple') && !/multigraph/i.test(shahSizeUpper.graph), 'Shah non-adaptive size upper bound is retained only for verified simple graphs');
 const lcaRecord = id => [...lcaData.verifiedRecords, ...lcaData.skippedRecords].find(row => row.id === id);
-assert.equal(lcaData.verifiedRecords.length, 10, 'Adaptive, historical and restored non-adaptive results are plotted');
+assert.equal(lcaData.verifiedRecords.length, 11, 'General, bipartite, historical and non-adaptive results are plotted');
 assert.equal(lcaData.skippedRecords.length, 0, 'The user requested restoration of the non-adaptive comparison');
 assert(lcaData.verifiedRecords.every(row => !row.id.startsWith('size-')), 'Global size-query bounds are excluded from the local-output record set');
 assert.equal(lcaRecord('lca-brr23-nearoptimal-lower').qualityType, 'additive', 'The near-optimal lower bound uses additive epsilon*n error');
@@ -647,6 +648,14 @@ assert.equal(lcaRecord('lca-kmnft19-constant').qualityType, 'multiplicative_in_e
 assert(lcaRecord('lca-gha22-maximal').queryComplexity.includes('poly(Delta)'), 'The maximal-matching theorem retains its unspecified polynomial degree dependence');
 assert(lcaRecord('lca-emr14-maximal').queryComplexity.includes('Delta^{O(Delta^2)}'), 'EMR maximality retains its actual non-polynomial degree dependence');
 assert(lcaRecord('lca-emr14-nearoptimal').queryComplexity.includes('2^{Delta^{O(1/epsilon)}}'), 'EMR near-optimality retains its exponential degree dependence');
+const crLca=lcaRecord('lca-cr26-bipartite');
+assert.equal(crLca.publicationStatus,'preprint','The new Cohen–Roghani algorithm remains labeled as a preprint');
+assert(crLca.graph.includes('Bipartite') && crLca.qualityType==='multiplicative' && crLca.output.includes('partner'),'CR26 promises an integral bipartite mate oracle with a multiplicative guarantee');
+assert(crLca.adaptivity.includes('adaptive probes') && !crLca.adaptivity.includes('non-adaptive'),'Query-order consistency does not turn CR26 into a non-adaptive-probe algorithm');
+assert(crLca.notes.includes('Shared randomness oracle') && crLca.notes.includes('seed length, storage and addressing are not charged'),'The shared random-oracle accounting is explicit, rather than a bounded-seed guarantee');
+assert(crLca.queryComplexity.includes('worst-case') && crLca.probability.includes('0.9') && crLca.probability.includes('every random tape'),'CR26 separates worst-case work and always-feasible output from probabilistic approximation');
+assert(crLca.notes.includes('General-graph output is fractional'),'The source inspection forbids transferring the bipartite integral result to general graphs');
+assert(lcaData.comparisonContracts.bipartiteNearOptimal.lowerBoundWindow.includes('log^4 n<=Delta<=n^epsilon'),'Exponent-order tightness retains the BRR parameter window');
 for (const slice of lcaSlices) {
   for (const row of slice.results) assert(!row.plot, `${row.id} has no invented numeric LCA coordinates in the research layer`);
 }
@@ -667,6 +676,13 @@ assert(mainLcaPlot.includes('data-scope="fixed-probe-schedule"') && mainLcaPlot.
 const lcaGroups = svg => [...svg.matchAll(/<g\b[^>]*\bdata-lca-result="[^"]+"[^>]*>/g)].map(match => svgAttributes(match[0]));
 const lcaGroupHTML = (svg, id) => [...svg.matchAll(/<g\b[^>]*\bdata-lca-result="[^"]+"[^>]*>[\s\S]*?<\/g>/g)].map(match => match[0]).find(group => svgAttributes(group.match(/^<g\b[^>]*>/)[0])['data-lca-result'] === id);
 const mainLcaGroups = lcaGroups(mainLcaPlot);
+for(const id of ['lca-cr26-bipartite','lca-brr23-nearoptimal-lower']){
+  const group=lcaGroupHTML(mainLcaPlot,id);
+  assert(group.includes('data-setup-shape="triangle"'),'Comparable bipartite LCA upper and lower use the same setup shape');
+  assert(group.includes(id===crLca.id?'var(--green)':'var(--red)'),'Bipartite setup shape does not replace algorithm/lower-bound color');
+  for(const [w,h] of detailSizes)assert(lcaGroupHTML(lcaAPI.summarySVG('lca',w,h),id).includes('data-setup-shape="triangle"'),'Bipartite shape survives semantic zoom');
+}
+assert(lcaGroupHTML(mainLcaPlot,'lca-abgs25-nonadaptive-lower').includes('data-setup-shape="square"'),'Non-adaptive lower bounds keep their distinct square');
 for (const row of lcaData.verifiedRecords) {
   const groups = mainLcaGroups.filter(group => group['data-lca-result'] === row.id);
   assert(groups.length, `${row.id} appears as an actual point in the LCA landscape`);
@@ -719,6 +735,9 @@ for (const row of lcaData.verifiedRecords) {
 }
 const globalSizeRows = lcaData.relatedResults.filter(row => row.id.startsWith('size-'));
 assert(globalSizeRows.length > 0, 'Global size evidence remains available in a separate scope');
+const crSize=globalSizeRows.find(r=>r.id==='size-cr26-bipartite');
+assert(crSize.graph.includes('Bipartite') && crSize.output.includes('global') && crSize.quality.includes('epsilon*n'),'CR26 size estimation retains its bipartite additive global-output contract');
+assert(crSize.queryComplexity.includes('total worst-case') && crSize.queryComplexity.includes('log(2/zeta)') && crSize.notes.includes('Fresh randomness'),'Size cost is total work with confidence dependence and fresh randomness');
 for (const row of globalSizeRows) {
   assert(!mainLcaPlot.includes(`data-lca-result="${row.id}"`), `${row.id} is not projected onto a per-output-query diagram`);
   if (row.evidenceStatus === 'cross_reference_verified' || row.evidenceStatus === 'needs_conversion_check') {
@@ -732,6 +751,9 @@ lcaHost.listeners.find(event => event.type === 'keydown').listener({key: 'Enter'
 assert(lcaKeyPrevented && lcaTheorem(lcaHost).includes(lcaData.sources.brr23.title), 'Keyboard activation opens the same local lower-bound theorem');
 lcaHost.listeners.find(event => event.type === 'change').listener({target: {value: 'published', classList: {contains: name => name === 'l-publication-select'}}});
 assert.deepEqual(lcaPublicationChanges, ['published'], 'The embedded LCA publication control reports its state to the full atlas');
+assert(!lcaPlot(lcaHost).includes(crLca.id) && !lcaEvidence(lcaHost).includes(crLca.id),'Published-only removes the actual CR26 preprint from the main map and evidence');
+assert(!lcaHost.querySelector('.l-size-results').innerHTML.includes(crSize.id),'Published-only also removes the CR26 global-size card');
+assert(!lcaAPI.summarySVG('lca',738,548,{publication:'published'}).includes(crLca.id),'Full-atlas publication filtering excludes CR26 consistently');
 assert.equal(textCount(lcaAPI.summarySVG('lca', 180, 110, {level: 'detail'})), 0, 'Explicit detail cannot force text into a tiny LCA thumbnail');
 lcaInstance.destroy();
 
@@ -926,10 +948,11 @@ assert(mpcReused.listeners.every(e=>e.options.signal.aborted),'MPC family switch
 
 // Adjacency-list matching estimates one global size; its costs must not become
 // per-LCA-query costs, numeric exponents, or a shared simple/multigraph frontier.
+context.state.cutoff = 'all';
 const queryAPI=focusContext.window.ListQueryMatching, queryData=focusData['query-list'];
 const queryCell={id:'matching:query_list',p:cell.p,m:{id:'query_list',name:'Adjacency list',measure:'Total queries'}};
 const querySlices=research.slices.filter(slice=>slice.model==='query_list');
-const querySettings=[['query-list','matching-query-list-value-multiplicative'],['query-list-additive','matching-query-list-additive-lb'],['query-list-nonadaptive','matching-query-list-nonadaptive'],['query-list-bipartite','matching-query-list-bipartite-superlinear'],['query-list-mixed','matching-query-list-mixed-value']];
+const querySettings=[['query-list','matching-query-list-value-multiplicative'],['query-list-additive','matching-query-list-additive-lb'],['query-list-nonadaptive','matching-query-list-nonadaptive'],['query-list-bipartite','matching-query-list-bipartite-superlinear'],['query-list-mixed','matching-query-list-mixed-value'],['query-list-bipartite-degree','matching-query-list-bipartite-additive-degree']];
 const queryPlot=host=>host.querySelector('.ql-plot-host').innerHTML;
 const queryTheorem=host=>host.querySelector('.ql-theorem').innerHTML;
 const queryGroup=(svg,id)=>[...svg.matchAll(/<g\b[^>]*\bdata-query-list-result="[^"]+"[^>]*>[\s\S]*?<\/g>/g)].map(m=>m[0]).find(g=>svgAttributes(g.match(/^<g\b[^>]*>/)[0])['data-query-list-result']===id);
@@ -952,13 +975,17 @@ for(const [key,id] of querySettings){
   context.disposeDetail();assert(host.listeners.every(e=>e.options.signal.aborted),'Leaving an adjacency-list atlas figure releases its handlers');
 }
 assert.equal(realFocus.settings().filter(s=>s.type==='query_list').length,1,'Adjacency-list figure has one visible picker entry');
+const queryOpened=[],queryRouteListeners=new Map(),queryRouteContext={cells:[queryCell],allSlices:()=>querySlices,focus:(cell,id)=>queryOpened.push([cell.id,id]),window:{addEventListener:(name,listener)=>queryRouteListeners.set(name,listener)}};
+vm.createContext(queryRouteContext);vm.runInContext(source.slice(eventStart,eventEnd),queryRouteContext);
+queryRouteListeners.get('atlas:open-setting')({detail:{sliceId:'matching-query-list-bipartite-additive-degree'}});
+assert.deepEqual(queryOpened.at(-1),['matching:query_list','matching-query-list-bipartite-additive-degree'],'The new hidden degree route opens its exact setting inside the full atlas');
 assert(realFocus.axisSummary('query-list').includes('total time') && realFocus.axisSummary('query-list').includes('multigraph'),'Recorded atlas axes preserve global resource and graph scope');
 const queryHost=focusHost(),queryChanges=[];
 const queryInstance=realFocus.mount(queryHost,'query-list',{onPublicationChange:value=>queryChanges.push(value)});
 const queryDiagram=queryPlot(queryHost);
 assertPointLandscape(queryDiagram,'Adjacency-list focused map');
-assert.equal((queryDiagram.match(/data-axis="x"/g)||[]).length,2,'Both shared-adaptive and non-adaptive plots label their horizontal axis');
-assert.equal((queryDiagram.match(/data-axis="y"/g)||[]).length,2,'Both shared-adaptive and non-adaptive plots label their vertical axis');
+assert.equal((queryDiagram.match(/data-axis="x"/g)||[]).length,3,'Shared-adaptive, bounded-degree bipartite and non-adaptive panels label their horizontal axes');
+assert.equal((queryDiagram.match(/data-axis="y"/g)||[]).length,3,'Shared-adaptive, bounded-degree bipartite and non-adaptive panels label their vertical axes');
 assert(!queryDiagram.includes('data-beta=') && !queryDiagram.includes('data-exponent='),'Symbolic list-query statements do not invent numeric coordinates');
 assert(queryHost.innerHTML.includes('one edge-membership or partner query') && queryHost.innerHTML.includes('global maximum matching size'),'Global size and local-output query costs are explicitly distinguished');
 assert(queryDiagram.includes('∀δ &gt; 0 ∃ε(δ) &gt; 0') && queryDiagram.includes('η = η(γ) &gt; 0'),'The additive and non-adaptive lower-bound quantifiers remain visible');
@@ -976,6 +1003,17 @@ for(const row of queryData.verifiedRecords){
   assert(queryTheorem(queryHost).includes(row.theorem),`${row.id} retains its exact theorem pointer`);
 }
 for(const row of queryData.relatedResults)assert(!queryDiagram.includes(`data-query-list-result="${row.id}"`),'Related tradeoffs stay outside the main categorical figure');
+const crList=queryData.verifiedRecords.find(r=>r.id==='list-cr26-bipartite-additive'),brrDegree=queryData.verifiedRecords.find(r=>r.id==='list-brr23-degree-lower');
+assert.equal(crList.panel,'bounded-bipartite');assert.equal(brrDegree.panel,crList.panel);
+assert(crList.quality.includes('epsilon*n') && crList.queryComplexity.includes('total worst-case') && crList.queryComplexity.includes('log(2/zeta)'),'Bipartite estimator preserves additive error, total worst-case probes and confidence');
+assert(crList.notes.includes('Fresh randomness') && crList.notes.includes('no shared-seed oracle'),'Global size sampling does not inherit the LCA shared-seed requirement');
+assert(brrDegree.theorem==='Theorem 2' && brrDegree.assumptions.join(' ').includes('log^4 n<=Delta<=n^epsilon'),'Size lower bound cites its own theorem and degree window');
+assert(brrDegree.notes.includes('constant rescaling of epsilon'),'One-sided versus two-sided additive comparisons disclose accuracy rescaling');
+assert(queryDiagram.includes('ε ≤ 0.01') && queryDiagram.includes('log⁴ n ≤ Δ ≤ n^ε'),'The bounded-degree lower window is displayed on the figure');
+for(const id of [crList.id,brrDegree.id]){
+  assert(queryGroup(queryDiagram,id).includes('data-setup-shape="triangle"'),'Bipartite size algorithm and lower bound share a triangle');
+  for(const [w,h] of detailSizes)assert(queryGroup(queryAPI.summarySVG('query-list',w,h),id).includes('data-setup-shape="triangle"'),'Both degree-comparison markers remain visible with their setup shape through zoom');
+}
 for(const slice of querySlices)for(const row of slice.results)assert.equal(row.plot,null,'Query-list research records do not fabricate a universal numeric feasibility region');
 const richQuery=queryAPI.summarySVG('query-list',738,548);
 assert(richQuery.includes('ql-summary-formula') && richQuery.includes('data-axis="y"'),'Normal enlarged atlas cell shows query formula ticks and axes');
@@ -987,6 +1025,9 @@ queryHost.listeners.find(e=>e.type==='keydown').listener({key:'Enter',preventDef
 assert(queryKeyPrevented && queryTheorem(queryHost).includes('ε(δ)'),'Keyboard activation opens the exact additive lower-bound statement');
 queryHost.listeners.find(e=>e.type==='change').listener({target:{value:'published',classList:{contains:n=>n==='ql-publication-select'}}});
 assert.deepEqual(queryChanges,['published'],'Adjacency-list publication changes synchronize with the atlas');
+assert(!queryPlot(queryHost).includes(crList.id) && !queryHost.querySelector('.ql-evidence-list').innerHTML.includes(crList.id),'Published-only excludes the actual CR26 estimator from figure and evidence');
+assert(queryPlot(queryHost).includes(brrDegree.id),'Published-only retains the published degree lower bound');
+assert(!queryAPI.summarySVG('query-list',738,548,{publication:'published'}).includes(crList.id),'The actual estimator preprint is excluded in full-atlas published-only view');
 queryInstance.destroy();
 const filteredQueryData=JSON.parse(JSON.stringify(queryData)),queryPreprint=filteredQueryData.verifiedRecords.find(r=>r.id==='list-brr24-additive-lower');
 filteredQueryData.sources[queryPreprint.sourceId].publicationStatus='preprint';queryPreprint.publicationStatus='preprint';

@@ -1,9 +1,9 @@
 {
-  "reviewedOn": "2026-10-28",
+  "reviewedOn": "2026-11-06",
   "problem": "matching",
   "model": "query_list",
   "title": "Matching size through adjacency-list queries",
-  "coverage": "Eleven scoped entries from six primary sources, covering the five existing adjacency-list settings; three parameterized related results are retained for inspection. This is a curated comparison, not an exhaustive survey.",
+  "coverage": "Fourteen scoped entries from eight primary sources. A bounded-degree bipartite panel compares the 2026 additive estimator with the published degree-dependent lower bound. Costs are total queries for one estimate.",
   "defaultScope": "Global maximum-cardinality matching size estimates through degree and indexed-neighbor access. Adaptive simple graphs, bipartite graphs, additive error, and non-adaptive queries have separate contracts.",
   "sources": {
     "beh21": {
@@ -102,6 +102,38 @@
       "venue": "SODA 2026",
       "publicationStatus": "published",
       "publicationUrl": "https://doi.org/10.1137/1.9781611978971.182",
+      "verifiedOn": "2026-10-20"
+    },
+    "cr26": {
+      "title": "Optimal LCA and Sublinear Estimation for Bipartite Matching in Δ^{O(1/ε)} Queries",
+      "authors": [
+        "Edith Cohen",
+        "Mohammad Roghani"
+      ],
+      "firstYear": 2026,
+      "year": 2026,
+      "venue": "arXiv preprint v1",
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/abs/2611.06024v1",
+      "fullTextUrl": "https://arxiv.org/html/2611.06024v1#S1.Thmtheorem1",
+      "shortLabel": "CR · 2026",
+      "verifiedOn": "2026-11-06",
+      "paperId": "cohen-roghani-2026-bipartite-lca"
+    },
+    "brr23lca": {
+      "title": "Local Computation Algorithms for Maximum Matching: New Lower Bounds",
+      "authors": [
+        "Soheil Behnezhad",
+        "Mohammad Roghani",
+        "Aviad Rubinstein"
+      ],
+      "firstYear": 2023,
+      "venue": "FOCS 2023",
+      "publicationStatus": "published",
+      "url": "https://arxiv.org/abs/2311.09359",
+      "fullTextUrl": "https://arxiv.org/html/2311.09359v1",
+      "publicationUrl": "https://doi.org/10.1109/FOCS57990.2023.00143",
+      "shortLabel": "BRR · FOCS 2023",
       "verifiedOn": "2026-10-20"
     }
   },
@@ -389,6 +421,59 @@
       "resourceUnit": "Total cost for one global size estimate; not per local-output query",
       "exactQueryComplexity": "Õ_ε(n·d̄^{1−Θ(ε²)})",
       "sourceUrl": "https://arxiv.org/html/2212.00189v2#S1"
+    },
+    {
+      "panel": "bounded-bipartite",
+      "qualityFamily": "pure-additive",
+      "output": "One global maximum matching size estimate",
+      "graph": "Bipartite simple unweighted graphs",
+      "oracle": "Degree and indexed-neighbor queries; uniform vertex sampling available",
+      "adaptivity": "Adaptive queries allowed",
+      "assumptions": [
+        "0<epsilon<1/2; known n>=2 and degree bound Delta>=2"
+      ],
+      "resourceUnit": "Total graph probes for one global estimate, not per local-output query",
+      "evidenceStatus": "theorem_and_model_verified",
+      "id": "list-cr26-bipartite-additive",
+      "sourceId": "cr26",
+      "kind": "algorithm",
+      "resourceLane": "degree-upper",
+      "displayBound": "(2Δ)^{O(1/ε)}",
+      "queryComplexity": "(2Delta)^{O(1/epsilon)} log(2/zeta) total worst-case graph queries and separate work",
+      "quality": "|estimate-OPT|<=epsilon*n",
+      "probability": "At least 1-zeta; figure fixes zeta=0.1",
+      "theorem": "Theorem 1.1(b); Section 8 Algorithm 7",
+      "summaryLabel": "CR’26 preprint",
+      "plotLabel": "CR’26 preprint",
+      "notes": "0<epsilon<1/2. Fresh randomness; no shared-seed oracle is needed for this estimator. On general graphs it estimates the fractional matching optimum instead. Two-sided additive error, not a pure multiplicative guarantee. Known n>=2 and degree bound Delta>=2. Figure shows constant-confidence cost. Primary theorem/model reviewed, not independent proof verification.",
+      "sourceUrl": "https://arxiv.org/html/2611.06024v1#S1.Thmtheorem1",
+      "publicationStatus": "preprint"
+    },
+    {
+      "panel": "bounded-bipartite",
+      "qualityFamily": "pure-additive",
+      "output": "One global maximum matching size estimate",
+      "graph": "Bipartite simple unweighted graphs",
+      "oracle": "Degree and indexed-neighbor queries; uniform vertex sampling available",
+      "adaptivity": "Adaptive queries allowed",
+      "assumptions": [
+        "0<epsilon<=0.01; log^4 n<=Delta<=n^epsilon"
+      ],
+      "resourceUnit": "Total graph probes for one global estimate, not per local-output query",
+      "evidenceStatus": "theorem_and_model_verified",
+      "id": "list-brr23-degree-lower",
+      "sourceId": "brr23lca",
+      "kind": "lower",
+      "resourceLane": "degree-lower",
+      "displayBound": "Delta^{Omega(1/epsilon)}",
+      "queryComplexity": "Delta^{Omega(1/epsilon)} total adjacency-list queries",
+      "quality": "(1,epsilon*n)-approximation of maximum matching size",
+      "probability": "Success at least 0.51",
+      "theorem": "Theorem 2",
+      "summaryLabel": "BRR’23",
+      "plotLabel": "BRR’23",
+      "notes": "Lower-bound window: 0<epsilon<=0.01 and log^4 n<=Delta<=n^epsilon. The source uses (1,epsilon*n) notation; two-sided estimates can be shifted to one-sided estimates with a constant rescaling of epsilon. Thus exponent orders match in the applicable regime; parameter endpoints are not asserted identical under this conversion. This is a total-query lower bound, separate from its Theorem 1 per-partner-query lower bound.",
+      "sourceUrl": "https://arxiv.org/html/2311.09359v1#S1.Thmtheorem2"
     }
   ],
   "relatedResults": [
@@ -577,6 +662,32 @@
           }
         ]
       }
+    },
+    "bounded-bipartite": {
+      "x": {
+        "label": "Additive size accuracy",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "pure-additive",
+            "label": "±epsilon*n, up to constant accuracy rescaling"
+          }
+        ]
+      },
+      "y": {
+        "label": "Total probes, constant success probability",
+        "kind": "symbolic",
+        "categories": [
+          {
+            "id": "degree-upper",
+            "label": "(2Δ)^{O(1/ε)}"
+          },
+          {
+            "id": "degree-lower",
+            "label": "Delta^{Omega(1/epsilon)}"
+          }
+        ]
+      }
     }
   },
   "definitions": {
@@ -594,7 +705,8 @@
     "The bipartite lower bound applies to all fixed improvements above 2/3; its upper bound establishes some positive improvement.",
     "For the additive lower bound, δ is chosen first and ε depends on it.",
     "The non-adaptive lower bound uses multigraphs. Its transfer to simple graphs is unproved in the source.",
-    "The fixed-tree probe model is omitted as requested."
+    "The fixed-tree probe model is omitted as requested.",
+    "Bounded-degree bipartite additive estimation uses Delta^{O(1/epsilon)} total probes. BRR23 supplies the matching exponent-order lower bound only for epsilon<=0.01 and log^4 n<=Delta<=n^epsilon, with constant accuracy rescaling to align additive conventions. It does not resolve the dense unrestricted-degree additive setting."
   ],
   "exclusions": [
     {

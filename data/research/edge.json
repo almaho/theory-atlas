@@ -1,6 +1,6 @@
 {
   "problem": "edge",
-  "reviewedThrough": "2026-10-27",
+  "reviewedThrough": "2026-11-06",
   "searchSummary": "Expanded proper edge-coloring record across dynamic, W-streaming, LOCAL, MPC, line-graph LCA, and full-output graph-query oracles. Includes historical algorithms and later improvements, plus distinct palette (number of colors), update time versus recoloring recourse, random/adversarial edge order, simple versus multigraph, low-space MPC conditional lower bounds. q is a palette, not approximation ratio q/χ′. Query-oracle results explicitly compose edge enumeration with sequential algorithms; they do not assert sublinear query SOTA. LCA remains partial, because direct ordinary-graph oracle results were not verified. SOSA 2021, FOCS 2024 and SODA 2025 predecessor results are retained for navigation through progress.",
   "coverage": [
     {
@@ -78,11 +78,11 @@
         "Haim Kaplan"
       ],
       "year": 2026,
-      "venue": "arXiv:2602.09497v2",
+      "venue": "arXiv:2602.09497v3",
       "publicationStatus": "preprint",
       "url": "https://arxiv.org/abs/2602.09497",
-      "verifiedOn": "2026-10-27",
-      "fullTextUrl": "https://arxiv.org/html/2602.09497v2"
+      "verifiedOn": "2026-11-06",
+      "fullTextUrl": "https://arxiv.org/html/2602.09497v3"
     },
     {
       "id": "chechik-chen-zhang-2025-stream",
@@ -637,6 +637,20 @@
       "venue": "Journal of Combinatorial Theory B45(2),135–149 (1988)",
       "publicationStatus": "journal",
       "verifiedOn": "2026-10-27"
+    },
+    {
+      "id": "ghaffari-peng-2026-dynamic-edge",
+      "title": "Constant-Time Dynamic Edge Coloring via Dynamic Splitting and LLL",
+      "authors": [
+        "Mohsen Ghaffari",
+        "Sijin Peng"
+      ],
+      "year": 2026,
+      "venue": "arXiv:2611.06611v1",
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/abs/2611.06611v1",
+      "verifiedOn": "2026-11-06",
+      "fullTextUrl": "https://arxiv.org/html/2611.06611v1"
     }
   ],
   "slices": [
@@ -1088,7 +1102,7 @@
             }
           ],
           "sourceId": "sadeh-kaplan-2026-recourse",
-          "sourceUrl": "https://arxiv.org/html/2602.09497v2"
+          "sourceUrl": "https://arxiv.org/html/2602.09497v3"
         },
         {
           "output": "Explicit proper edge coloring",
@@ -1097,6 +1111,7 @@
           "notes": "The source corrects a missing (Δ−C) factor inside the logarithm in earlier citations. Keep this structural bound outside the main dynamic frontier.",
           "assumptions": [
             "1≤C≤Δ−2",
+            "n≥Δ+C+2 (v3 size condition)",
             "Specified initial partial coloring",
             "Not an amortized or expected dynamic lower bound",
             "May be unreachable under a maintained invariant"
@@ -1117,7 +1132,7 @@
           "theorem": "Theorem 2.6 and explicit scope warning following it",
           "scope": "arbitrary_precoloring_extension",
           "sourceId": "sadeh-kaplan-2026-recourse",
-          "sourceUrl": "https://arxiv.org/html/2602.09497v2",
+          "sourceUrl": "https://arxiv.org/html/2602.09497v3",
           "bound": "Ω(log(nC/(Δ−C)²) / log((Δ+C)/(Δ−C))) recolorings",
           "guarantee": "Extend its prescribed coloring to one uncolored edge",
           "sourceLocation": "Theorem 2.6 and explicit scope warning following it",
@@ -2143,7 +2158,7 @@
           "output": "Explicit proper edge coloring",
           "conditional": false,
           "evidenceStatus": "verified",
-          "notes": "Unlike the fixed-palette version, this local palette may require recoloring after deletions. The paper's arbitrary-precoloring lower is not asserted for all invariant-maintaining dynamic algorithms.",
+          "notes": "Unlike the fixed-palette version, this local palette may require recoloring after deletions. The paper's arbitrary-precoloring lower is not asserted for all invariant-maintaining dynamic algorithms. Version 3 states the general ε>0 bound as O(log_{1+ε} n); it simplifies to O(ε⁻¹ log n) for small ε, for example 0<ε≤1.",
           "assumptions": [
             "Fixed ε>0",
             "Known upper bound α throughout sequence",
@@ -2153,7 +2168,7 @@
           "id": "dynamic-arboricity-recourse-2026",
           "paperId": "sadeh-kaplan-2026-recourse",
           "kind": "upper",
-          "bound": "O(ε⁻¹ log n) worst-case recourse",
+          "bound": "O(log_{1+ε} n) worst-case recourse",
           "guarantee": "Every edge uv has color at most max{deg_t(u),deg_t(v)}+C",
           "sourceLocation": "Theorem 2.8",
           "frontierStatus": "candidate",
@@ -2165,9 +2180,9 @@
           "graph": "Fully dynamic simple graph with known arboricity upper bound α",
           "quality": "Every edge uv has color at most max{deg_t(u),deg_t(v)}+C",
           "probability": "Deterministic worst-case per-update recourse",
-          "displayBound": "O(ε⁻¹ log n) worst-case recourse",
+          "displayBound": "O(log_{1+ε} n) worst-case recourse",
           "updateTime": "O(m) per update",
-          "recourse": "O(ε⁻¹ log n) worst-case recolorings per update",
+          "recourse": "O(log_{1+ε} n) worst-case recolorings per update",
           "theorem": "Theorem 2.8",
           "placements": [
             {
@@ -2183,12 +2198,12 @@
               "group": "sparse-two",
               "slot": "sparse26",
               "costClass": "polylog",
-              "label": "ε⁻¹ log n",
+              "label": "log_(1+ε)n",
               "tag": "Worst case"
             }
           ],
           "sourceId": "sadeh-kaplan-2026-recourse",
-          "sourceUrl": "https://arxiv.org/html/2602.09497v2"
+          "sourceUrl": "https://arxiv.org/html/2602.09497v3"
         }
       ],
       "mode": "curated",
@@ -2355,7 +2370,7 @@
           "output": "Explicit proper edge coloring",
           "conditional": false,
           "evidenceStatus": "verified",
-          "notes": "Corollary C.6 gives a high-probability amortized alternative for polynomially many updates. The main marker uses the expected worst-case theorem.",
+          "notes": "Corollary C.6 gives a high-probability amortized alternative for polynomially many updates. The main marker uses the expected worst-case theorem. Ghaffari–Peng (2026 preprint) removes the n-dependence of the degree threshold while retaining poly(1/ε) expected time; this explicit 2024 ε-dependence is retained for comparison.",
           "assumptions": [
             "Known upper bound Δ on degrees throughout sequence",
             "Δ≥Δ*=(log n/ε⁴)^{Θ((1/ε)log(1/ε))}",
@@ -2368,7 +2383,7 @@
           "bound": "O(log⁴(1/ε)/ε⁹) expected worst-case time",
           "guarantee": "Proper near-Δ coloring",
           "sourceLocation": "Theorem 1.2; degree threshold immediately before Theorem 1.1",
-          "frontierStatus": "current_best_verified",
+          "frontierStatus": "historical",
           "panel": "time",
           "group": "general-near",
           "randomized": true,
@@ -2393,6 +2408,52 @@
           ],
           "sourceId": "bhattacharya-costa-panski-solomon-2024-nibbling",
           "sourceUrl": "https://arxiv.org/html/2311.03267"
+        },
+        {
+          "id": "edge-dynamic-ghaffari-peng-2026",
+          "paperId": "ghaffari-peng-2026-dynamic-edge",
+          "sourceId": "ghaffari-peng-2026-dynamic-edge",
+          "sourceUrl": "https://arxiv.org/html/2611.06611v1#Thmtheorem1",
+          "kind": "upper",
+          "output": "Explicit proper edge coloring",
+          "conditional": false,
+          "evidenceStatus": "verified",
+          "frontierStatus": "current_best_verified",
+          "notes": "The new threshold depends only on ε, removing the earlier n-dependent degree requirement. The polynomial exponent in 1/ε is unspecified; this does not establish uniformly better ε-dependence than the 2024 bound. Time is expected for each update, not amortized. No separate recourse theorem is plotted. Preprint theorem and model checked; proof not independently verified.",
+          "assumptions": [
+            "0<ε<1",
+            "Fixed known upper bound Δ on degrees throughout the update sequence",
+            "Δ≥Δε for a threshold Δε=Õ(ε⁻²); Õ hides polylogarithms in 1/ε",
+            "Simple undirected graph; edge insertions and deletions",
+            "Oblivious adversary",
+            "Expected per-update work in a word-RAM-style implementation with O(log n)-bit words"
+          ],
+          "bound": "poly(1/ε) worst-case expected update time",
+          "guarantee": "Proper (1+ε)Δ-edge coloring",
+          "sourceLocation": "Theorem 1; Section 6.2.3; Theorem 4",
+          "panel": "time",
+          "group": "general-near",
+          "randomized": true,
+          "paletteFamily": "near",
+          "palette": "At most (1+ε)Δ colors; fixed known Δ",
+          "graph": "Fully dynamic simple graph with Δ≥Δε=Õ(ε⁻²)",
+          "quality": "Proper near-Δ edge coloring",
+          "probability": "Randomized; worst-case expected time for each update against an oblivious adversary",
+          "displayBound": "poly(1/ε) worst-case expected update time",
+          "updateTime": "poly(1/ε) worst-case expected per update",
+          "recourse": null,
+          "theorem": "Theorem 1 (normalized palette); Theorem 4 and Section 6.2.3 (implementation)",
+          "placements": [
+            {
+              "panel": "time",
+              "group": "general-near",
+              "slot": "gp26",
+              "costClass": "epsilon",
+              "label": "poly(1/ε)",
+              "tag": "GP 2026 · Δ≥Õ(ε⁻²)"
+            }
+          ],
+          "sliceId": "edge-dynamic-general-near-delta-history"
         },
         {
           "output": "Explicit proper edge coloring",

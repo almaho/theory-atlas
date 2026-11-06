@@ -1,6 +1,6 @@
 {
   "problem": "matching",
-  "reviewedThrough": "2026-11-04",
+  "reviewedThrough": "2026-11-06",
   "searchSummary": "Expanded primary-source audit through 2026-09-27 with classical milestones and contemporary 2026 results. Distinct access and task assumptions (explicit vs value, adversary, list vs pair, insertion vs deletion, pass count, memory) remain separate. Literature is large; this is a curated landscape and cannot certify exhaustive state of the art in every parameter regime. MPC review: primary-source verification of BHH, GU, CDP, GGJ and GGM; corrected mildly sublinear memory, published venues, and explicitly conditional component-stable lower bounds (CDP 2024, Theorem 12).",
   "coverage": [
     {
@@ -21,8 +21,8 @@
     {
       "model": "lca",
       "status": "researched",
-      "note": "Ten core adjacency-list LCA results audited through 2026-10-20. Shared figure separates additive near-optimal accuracy, fixed-tree non-adaptivity, exact maximality, and expected constant approximation; global size has a separate total-query contract.",
-      "reviewedOn": "2026-10-20"
+      "note": "Eleven local-matching results under adjacency-list access, including the Cohen–Roghani 2026 bipartite preprint. General, bipartite and non-adaptive contracts remain explicit. Global size estimation has its own total-query cost.",
+      "reviewedOn": "2026-11-06"
     },
     {
       "model": "local",
@@ -37,7 +37,8 @@
     {
       "model": "query_list",
       "status": "researched",
-      "note": "Adjacency-list/array slices are separated below; inspect each oracle and output assumption."
+      "note": "Fourteen scoped entries from eight primary sources. A bounded-degree bipartite panel compares the 2026 additive estimator with the published degree-dependent lower bound. Costs are total queries for one estimate.",
+      "reviewedOn": "2026-11-06"
     },
     {
       "model": "query_matrix",
@@ -1722,6 +1723,23 @@
       "publicationStatus": "preprint",
       "url": "https://arxiv.org/html/2610.10904v3#A1.SS1.SSS1",
       "verifiedOn": "2026-11-04"
+    },
+    {
+      "title": "Optimal LCA and Sublinear Estimation for Bipartite Matching in Δ^{O(1/ε)} Queries",
+      "authors": [
+        "Edith Cohen",
+        "Mohammad Roghani"
+      ],
+      "firstYear": 2026,
+      "year": 2026,
+      "venue": "arXiv preprint v1",
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/abs/2611.06024v1",
+      "fullTextUrl": "https://arxiv.org/html/2611.06024v1#S1.Thmtheorem1",
+      "shortLabel": "CR · 2026",
+      "verifiedOn": "2026-11-06",
+      "paperId": "cohen-roghani-2026-bipartite-lca",
+      "id": "cohen-roghani-2026-bipartite-lca"
     }
   ],
   "slices": [
@@ -2855,7 +2873,8 @@
       "assumptions": [
         "General unweighted simple graphs; adjacency-list access",
         "Edge-membership upper bounds require the stated partner conversion",
-        "BRR lower: epsilon<=0.01, log^4 n<=Delta<=n^epsilon; even bipartite"
+        "BRR lower: epsilon<=0.01, log^4 n<=Delta<=n^epsilon; even bipartite",
+        "CR26 bipartite only: direct mate-query upper with a shared randomness oracle and constant approximation success"
       ],
       "results": [
         {
@@ -2941,10 +2960,31 @@
           "costMeasure": "graph probes per local output query",
           "focusRecordId": "lca-brr23-nearoptimal-lower",
           "plot": null
+        },
+        {
+          "id": "matching-lca-cr26-bipartite",
+          "paperId": "cohen-roghani-2026-bipartite-lca",
+          "kind": "upper",
+          "bound": "(2Delta)^{O(1/epsilon)} worst-case graph probes and separate computational work per mate query",
+          "guarantee": "|M| >= (1-epsilon) OPT",
+          "sourceLocation": "Theorem 1.1(a); Sections 2.1 and 9.3",
+          "evidenceStatus": "theorem_and_model_verified",
+          "frontierStatus": "current_best_verified",
+          "notes": "0<epsilon<1/2. No preprocessing, persistent memory, supplied bipartition or test of bipartiteness. Shared randomness oracle: seed length, storage and addressing are not charged. Finite arithmetic work is charged except machine-word operations on vertex IDs and n. The final capped algorithm is worst case, although an intermediate sampler is expected time. General-graph output is fractional, so this point does not improve general integral matching. Primary theorem/model and supporting sections reviewed; proof not independently verified.",
+          "output": "vertex partner or unmatched",
+          "oracle": "degree and indexed-neighbor queries; fixed arbitrary adjacency order",
+          "adaptivity": "adaptive probes; arbitrary adaptive output-query order",
+          "randomization": "randomized",
+          "probability": "Approximation succeeds with probability at least 0.9; feasibility and consistency hold for every random tape",
+          "graph": "Bipartite simple unweighted graphs; n>=2 and known integer Delta>=2",
+          "parameterRange": "0<epsilon<1/2; n>=2, known Delta>=2",
+          "costMeasure": "graph probes per mate query",
+          "focusRecordId": "lca-cr26-bipartite",
+          "plot": null
         }
       ],
       "mode": "2d",
-      "reviewedOn": "2026-10-20",
+      "reviewedOn": "2026-11-06",
       "xAxis": {
         "label": "Matching guarantee",
         "kind": "categorical",
@@ -2977,7 +3017,7 @@
           },
           {
             "id": "brr-lower",
-            "label": "Delta^{Omega(1/epsilon)}"
+            "label": "(2Delta)^{O(1/epsilon)} upper / Delta^{Omega(1/epsilon)} lower"
           },
           {
             "id": "polynomial-degree",
@@ -3024,7 +3064,7 @@
               },
               {
                 "id": "brr-lower",
-                "label": "Delta^{Omega(1/epsilon)}"
+                "label": "(2Delta)^{O(1/epsilon)} upper / Delta^{Omega(1/epsilon)} lower"
               },
               {
                 "id": "polynomial-degree",
@@ -3077,6 +3117,34 @@
             ]
           },
           "scaleNote": "Fix Delta and epsilon. MRVX and MV give time bounds that also bound probes; EMR gives probe bounds. Degree and epsilon dependence remains in the theorem inspector."
+        },
+        "nonadaptive": {
+          "title": "Non-adaptive local queries",
+          "x": {
+            "label": "Constant-factor matching guarantee",
+            "kind": "categorical",
+            "categories": [
+              {
+                "id": "constant-approximation",
+                "label": "Fixed positive approximation; exact contract in theorem"
+              }
+            ]
+          },
+          "y": {
+            "label": "Graph probes per local query",
+            "kind": "symbolic-categorical",
+            "categories": [
+              {
+                "id": "quasipolynomial-upper",
+                "label": "Delta^{O(log Delta/loglog Delta)}"
+              },
+              {
+                "id": "quasipolynomial-lower",
+                "label": "Delta^{Omega(log Delta/loglog Delta)}"
+              }
+            ]
+          },
+          "scaleNote": "Upper and lower match up to constants in the exponent, for fixed approximation. No universal n-coordinate."
         }
       },
       "scaleNote": "Named formula rows are not a numerical ordering for all n, Delta and epsilon. Columns are different guarantee families, not equally spaced approximation ratios."
@@ -7145,6 +7213,76 @@
           "plot": null
         }
       ]
+    },
+    {
+      "id": "matching-query-list-bipartite-additive-degree",
+      "problem": "matching",
+      "model": "query_list",
+      "label": "Bipartite additive size estimation, degree-dependent queries",
+      "task": "Estimate maximum matching size within additive epsilon*n",
+      "assumptions": [
+        "Bipartite simple unweighted graph; degree and neighbor probes",
+        "Known n and Delta>=2; adaptive probes allowed",
+        "Upper 0<epsilon<1/2; lower 0<epsilon<=0.01 and log^4 n<=Delta<=n^epsilon",
+        "Constant success; additive conventions aligned by constant accuracy rescaling"
+      ],
+      "results": [
+        {
+          "id": "matching-list-cr26-bipartite-additive",
+          "paperId": "cohen-roghani-2026-bipartite-lca",
+          "kind": "upper",
+          "bound": "(2Delta)^{O(1/epsilon)} log(2/zeta) total worst-case graph queries and separate work",
+          "guarantee": "|estimate-OPT|<=epsilon*n",
+          "sourceLocation": "Theorem 1.1(b); Section 8 Algorithm 7",
+          "evidenceStatus": "theorem_and_model_verified",
+          "frontierStatus": "current_best_verified",
+          "notes": "0<epsilon<1/2. Fresh randomness; no shared-seed oracle is needed for this estimator. On general graphs it estimates the fractional matching optimum instead. Two-sided additive error, not a pure multiplicative guarantee. Known n>=2 and degree bound Delta>=2. Figure shows constant-confidence cost. Primary theorem/model reviewed, not independent proof verification.",
+          "focusRecordId": "list-cr26-bipartite-additive",
+          "plot": null
+        },
+        {
+          "id": "matching-list-brr23-degree-lower",
+          "paperId": "behnezhad-roghani-rubinstein-2023-lca-lb",
+          "kind": "lower",
+          "bound": "Delta^{Omega(1/epsilon)} total adjacency-list queries",
+          "guarantee": "(1,epsilon*n)-approximation of maximum matching size",
+          "sourceLocation": "Theorem 2",
+          "evidenceStatus": "theorem_and_model_verified",
+          "frontierStatus": "current_best_verified",
+          "notes": "Lower-bound window: 0<epsilon<=0.01 and log^4 n<=Delta<=n^epsilon. The source uses (1,epsilon*n) notation; two-sided estimates can be shifted to one-sided estimates with a constant rescaling of epsilon. Thus exponent orders match in the applicable regime; parameter endpoints are not asserted identical under this conversion. This is a total-query lower bound, separate from its Theorem 1 per-partner-query lower bound.",
+          "focusRecordId": "list-brr23-degree-lower",
+          "plot": null
+        }
+      ],
+      "mode": "2d",
+      "xAxis": {
+        "label": "Additive size accuracy",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "pure-additive",
+            "label": "±epsilon*n, up to constant accuracy rescaling"
+          }
+        ]
+      },
+      "yAxis": {
+        "label": "Total probes, constant success probability",
+        "kind": "symbolic",
+        "categories": [
+          {
+            "id": "degree-upper",
+            "label": "(2Delta)^{O(1/epsilon)}"
+          },
+          {
+            "id": "degree-lower",
+            "label": "Delta^{Omega(1/epsilon)}"
+          }
+        ]
+      },
+      "curatedView": "query-list",
+      "curatedPanel": "bounded-bipartite",
+      "scaleNote": "Symbolic exponent-order comparison, not a numeric runtime ranking; retain lower-bound parameter window.",
+      "reviewedOn": "2026-11-06"
     }
   ]
 }

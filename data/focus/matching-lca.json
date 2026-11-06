@@ -1,10 +1,10 @@
 {
-  "reviewedOn": "2026-10-27",
+  "reviewedOn": "2026-11-06",
   "problem": "matching",
   "model": "lca",
   "title": "Matching through local probes",
-  "coverage": "Curated primary-source landscape of ten local-matching results under adjacency-list access. The Non-adaptive comparison was restored and tagged on 2026-10-27. Global size and specialized stochastic oracles remain separately scoped related records; this is not exhaustive coverage of every graph class or oracle.",
-  "defaultScope": "General unweighted simple graphs, maximum degree Delta, indexed adjacency-list probes. The main panel compares adaptive local matching queries by named guarantee and probe-formula categories. The fixed-degree panel compares n-dependence with Delta and epsilon fixed. The near-optimal comparison uses vertex-partner queries and additive deficit epsilon*n. A third panel compares Non-adaptive local queries under a fixed probe schedule on general graphs.",
+  "coverage": "Eleven local-matching results under adjacency-list access, including the Cohen–Roghani 2026 bipartite preprint. General, bipartite and non-adaptive contracts remain explicit. Global size estimation has its own total-query cost.",
+  "defaultScope": "General unweighted simple graphs, maximum degree Delta, indexed adjacency-list probes. The main panel compares adaptive local matching queries by named guarantee and probe-formula categories. The fixed-degree panel compares n-dependence with Delta and epsilon fixed. The near-optimal comparison uses vertex-partner queries and additive deficit epsilon*n. A third panel compares Non-adaptive local queries under a fixed probe schedule on general graphs. The bipartite adaptive mate-query algorithm is shown separately from general-graph integral matching.",
   "definitions": {
     "explicitOutput": "An oracle consistent with one matching, not enumeration of all its edges. Distinguish edge-membership, matched-status, and vertex-partner queries.",
     "sizeOutput": "One estimate of the global optimum. Its total probe budget is not the same quantity as the probe budget per local matching query.",
@@ -38,6 +38,17 @@
       "oracle": "Fixed parent-index/neighbor-port exploration tree, following discovered vertex IDs; degrees revealed for free for the lower bound.",
       "tightness": "Delta^{Theta(log Delta/loglog Delta)} up to constants in the exponent; no equality of numerical constants",
       "displayStatus": "main"
+    },
+    "bipartiteNearOptimal": {
+      "quality": "(1-epsilon) OPT upper; OPT-epsilon*n lower",
+      "output": "vertex partner or unmatched",
+      "cost": "worst-case graph probes per local output query",
+      "algorithmId": "lca-cr26-bipartite",
+      "lowerBoundId": "lca-brr23-nearoptimal-lower",
+      "lowerBoundWindow": "0<epsilon<=0.01; log^4 n<=Delta<=n^epsilon",
+      "tightness": "Delta^{Theta(1/epsilon)} up to constants in the exponent, only in the lower-bound parameter window",
+      "randomness": "CR26 uses a shared randomness oracle; no bounded-seed claim",
+      "plotType": "symbolic formula categories"
     }
   },
   "sources": {
@@ -241,6 +252,22 @@
       "url": "https://doi.org/10.1137/110828691",
       "shortLabel": "YYI 2009 / 2012",
       "verifiedOn": "2026-10-20"
+    },
+    "cr26": {
+      "title": "Optimal LCA and Sublinear Estimation for Bipartite Matching in Δ^{O(1/ε)} Queries",
+      "authors": [
+        "Edith Cohen",
+        "Mohammad Roghani"
+      ],
+      "firstYear": 2026,
+      "year": 2026,
+      "venue": "arXiv preprint v1",
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/abs/2611.06024v1",
+      "fullTextUrl": "https://arxiv.org/html/2611.06024v1#S1.Thmtheorem1",
+      "shortLabel": "CR · 2026",
+      "verifiedOn": "2026-11-06",
+      "paperId": "cohen-roghani-2026-bipartite-lca"
     }
   },
   "verifiedRecords": [
@@ -487,6 +514,34 @@
       "parameterRange": "Asymptotic degree parameter; sufficiently large graphs",
       "panel": "nonadaptive",
       "setupTag": "Non-adaptive"
+    },
+    {
+      "id": "lca-cr26-bipartite",
+      "sourceId": "cr26",
+      "kind": "algorithm",
+      "theorem": "Theorem 1.1(a); Sections 2.1 and 9.3",
+      "quality": "|M| >= (1-epsilon) OPT",
+      "qualityType": "multiplicative",
+      "output": "vertex partner or unmatched",
+      "graph": "Bipartite simple unweighted graphs; n>=2 and known integer Delta>=2",
+      "oracle": "degree and indexed-neighbor queries; fixed arbitrary adjacency order",
+      "adaptivity": "adaptive probes; arbitrary adaptive output-query order",
+      "randomization": "randomized",
+      "queryComplexity": "(2Delta)^{O(1/epsilon)} worst-case graph probes and separate computational work per mate query",
+      "simplifiedBound": "(2Delta)^{O(1/epsilon)}",
+      "displayBound": "(2Δ)^{O(1/ε)}",
+      "probability": "Approximation succeeds with probability at least 0.9; feasibility and consistency hold for every random tape",
+      "notes": "0<epsilon<1/2. No preprocessing, persistent memory, supplied bipartition or test of bipartiteness. Shared randomness oracle: seed length, storage and addressing are not charged. Finite arithmetic work is charged except machine-word operations on vertex IDs and n. The final capped algorithm is worst case, although an intermediate sampler is expected time. General-graph output is fractional, so this point does not improve general integral matching. Primary theorem/model and supporting sections reviewed; proof not independently verified.",
+      "evidenceStatus": "theorem_and_model_verified",
+      "label": "Cohen–Roghani 2026",
+      "year": 2026,
+      "publicationStatus": "preprint",
+      "sourceUrl": "https://arxiv.org/html/2611.06024v1#S1.Thmtheorem1",
+      "costMeasure": "graph probes per mate query",
+      "outputClass": "local_matching",
+      "setupTag": "Bipartite · adaptive",
+      "parameterRange": "0<epsilon<1/2; n>=2, known Delta>=2",
+      "commonContract": "The multiplicative guarantee implies |M|>=OPT-epsilon*n. Exponent-order optimality is restricted to the BRR23 lower-bound window."
     }
   ],
   "relatedResults": [
@@ -644,6 +699,26 @@
       "evidenceStatus": "derived_from_verified_theorem",
       "notes": "Use the same matching oracle for all sampled vertices. Sample matched-status indicators, multiply their mean by n/2. Allocate error between matching deficit and sampling; clip or subtract sampling error for a one-sided estimate. Oracle failure probability must be included. This is not a per-query bound and not a multiplicative size guarantee.",
       "sourceUrl": "https://arxiv.org/html/1502.04022v1"
+    },
+    {
+      "id": "size-cr26-bipartite",
+      "sourceId": "cr26",
+      "kind": "algorithm",
+      "theorem": "Theorem 1.1(b); Section 8, Algorithm 7",
+      "quality": "|estimate-OPT| <= epsilon*n",
+      "output": "one global matching-size estimate",
+      "graph": "Bipartite simple unweighted graphs; known n and degree bound Delta>=2",
+      "oracle": "degree / indexed-neighbor queries and uniform vertex sampling",
+      "adaptivity": "adaptive",
+      "randomization": "randomized",
+      "queryComplexity": "(2Delta)^{O(1/epsilon)} log(2/zeta) total worst-case graph probes and separate work",
+      "displayBound": "(2Δ)^{O(1/ε)} log(2/ζ)",
+      "probability": "At least 1-zeta, for 0<zeta<1/2",
+      "notes": "0<epsilon<1/2. Fresh randomness; no shared-seed oracle is needed for this estimator. On general graphs it estimates the fractional matching optimum instead. Two-sided additive error, not a pure multiplicative guarantee.",
+      "evidenceStatus": "theorem_and_model_verified",
+      "sourceUrl": "https://arxiv.org/html/2611.06024v1#S1.Thmtheorem1",
+      "publicationStatus": "preprint",
+      "outputClass": "global_size"
     }
   ],
   "visualCautions": [
@@ -691,7 +766,7 @@
           },
           {
             "id": "brr-lower",
-            "label": "Delta^{Omega(1/epsilon)}"
+            "label": "(2Δ)^{O(1/ε)} upper / Δ^{Ω(1/ε)} lower"
           },
           {
             "id": "polynomial-degree",

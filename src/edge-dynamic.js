@@ -60,7 +60,7 @@ function chart(w,h,o={},focus=false){
   const ly=bottom+65;
   svg+=txt(20,ly,'Green: O upper · Red: Ω lower','edyn-legend');
   svg+=txt(278,ly,'○ general   △ bounded arboricity   □ forests','edyn-legend');
-  svg+=txt(17,ly+19,'2019 and Nibble 2024 need high Δ.  Blank = no separate resource bound recorded.','edyn-muted');
+  svg+=txt(17,ly+19,'2019 / BCPS 2024 need high Δ; GP 2026 only Δ≥Õ(ε⁻²). Blank = no separate bound.','edyn-muted');
   svg+=txt(17,ly+36,'M=min{Δ/c, log_(Δ+c−1)n};  B=C/Δ−1/φ;  Λ=log((Δ+C)/(Δ−C)).','edyn-muted');
   svg+=txt(17,ly+52,'Classes are not a universal ranking as Δ and ε vary. Select a result for its full regime.','edyn-muted');
  }

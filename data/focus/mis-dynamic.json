@@ -3,8 +3,8 @@
   "title": "How expensive is maintaining an MIS?",
   "problem": "mis",
   "model": "dynamic",
-  "reviewedOn": "2026-10-20",
-  "coverage": "Bounded review of the nine supplied primary sources; not a claim of complete literature coverage.",
+  "reviewedOn": "2026-11-06",
+  "coverage": "Bounded primary-source review, updated with CFZ26 arXiv v1; not a claim of complete literature or independent proof verification.",
   "sources": {
     "chechik-zhang-2019-dynamic-mis": {
       "id": "chechik-zhang-2019-dynamic-mis",
@@ -145,6 +145,21 @@
       "url": "https://arxiv.org/abs/2604.07515",
       "verifiedOn": "2026-10-20",
       "fullTextUrl": "https://arxiv.org/html/2604.07515v1"
+    },
+    "chen-fan-zhang-2026-adaptive-mis": {
+      "id": "chen-fan-zhang-2026-adaptive-mis",
+      "title": "Faster Dynamic Maximal Independent Set against Adaptive Adversaries",
+      "authors": [
+        "Hongyi Chen",
+        "Shuyan Fan",
+        "Tianyi Zhang"
+      ],
+      "year": 2026,
+      "venue": "arXiv 2611.05932v1 · preprint",
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/abs/2611.05932v1",
+      "fullTextUrl": "https://arxiv.org/html/2611.05932v1",
+      "verifiedOn": "2026-11-06"
     }
   },
   "verifiedRecords": [
@@ -662,6 +677,72 @@
       "probability": "Depth with high probability; expected-work bound is a separate coordinate",
       "conditional": false,
       "resource": "Parallel depth per batch"
+    },
+    {
+      "id": "mis-dyn-cfz26-adaptive",
+      "kind": "upper",
+      "bound": "Õ(m^{5/8})",
+      "displayBound": "Õ(m^{5/8})",
+      "updateComplexity": "Õ(m^{5/8})",
+      "guarantee": "Explicit fully dynamic maximal independent set",
+      "sourceLocation": "Theorem 1.1; §4.2.2 initialization and reporting; §4.3; Lemmas 4.7–4.8; §4.5",
+      "evidenceStatus": "theorem_verified",
+      "frontierStatus": "candidate",
+      "notes": "Preprint claim: O(n) initialization, then high-probability amortized time over polynomial-length adaptive sequences. m is a sequence-wide edge cap. Membership changes are reported; enumerating the entire MIS costs its output size. Correctness holds for all random choices. No worst-case-time or timing-observing-adversary claim.",
+      "plot": null,
+      "sourceId": "chen-fan-zhang-2026-adaptive-mis",
+      "sliceId": "mis-dynamic-randomized-adaptive",
+      "panel": "deterministic",
+      "contract": "amortized",
+      "shortLabel": "CFZ26 · randomized",
+      "plotLabel": "CFZ26",
+      "theorem": "Theorem 1.1; §§4.2.2–4.5",
+      "output": "Explicit MIS; report membership changes",
+      "quality": "Exact maximal independent set",
+      "graph": "General undirected graphs; initially empty; n vertices and at most m edges throughout",
+      "assumptions": [
+        "Initially empty undirected graph on n vertices; at most m edges at every time",
+        "Polynomial-length sequence of adaptive edge insertions and deletions",
+        "Adversary sees reported MISs, not private samples, traversal order, or running time",
+        "O(n) initialization; reports membership changes, not a full listing after each update",
+        "Randomized amortized time holds with high probability; correctness for every random tape"
+      ],
+      "adversary": "Adaptive to previously reported MISs",
+      "probability": "Always correct; amortized runtime w.h.p. over polynomial-length sequences",
+      "conditional": false,
+      "resource": "Sequential amortized update time"
+    },
+    {
+      "id": "mis-dyn-bbfks26-fully-adaptive-lower",
+      "kind": "lower",
+      "bound": "Ω(n^{1−o(1)})",
+      "guarantee": "Explicit fully dynamic MIS; insertion-only hard sequence",
+      "sourceLocation": "Theorem 1.1; Hypothesis 2.2; §3",
+      "evidenceStatus": "theorem_verified",
+      "frontierStatus": "candidate",
+      "notes": "The existing incremental conditional lower bound also applies to fully dynamic algorithms because they must handle insertion-only histories. Assumes combinatorial BMM and restricts to combinatorial algorithms; this is not an unconditional lower bound.",
+      "plot": null,
+      "sourceId": "bernstein-et-al-2026-dynamic-separation",
+      "sliceId": "mis-dynamic-randomized-adaptive",
+      "panel": "deterministic",
+      "contract": "amortized",
+      "shortLabel": "BBFKS26",
+      "plotLabel": "BBFKS26",
+      "displayBound": "Ω(n^{1−o(1)})",
+      "updateComplexity": "Ω(n^{1−o(1)})",
+      "theorem": "Theorem 1.1; Hypothesis 2.2",
+      "output": "Explicit MIS under adaptive edge updates",
+      "quality": "Exact maximal independent set",
+      "graph": "General undirected graphs; n vertices, m edges, maximum degree Δ",
+      "assumptions": [
+        "Combinatorial BMM hypothesis",
+        "Combinatorial algorithm; randomized algorithms allowed by hypothesis",
+        "Adaptive adversary; insertion-only hard histories are included in fully dynamic updates"
+      ],
+      "adversary": "Adaptive",
+      "probability": "Lower bound permits randomized algorithms under the stated hypothesis",
+      "conditional": true,
+      "resource": "Sequential update time"
     }
   ],
   "relatedResults": [
@@ -806,13 +887,13 @@
     },
     {
       "id": "deterministic",
-      "title": "Fully dynamic · deterministic",
-      "subtitle": "Exact degree and edge-count formulas remain visible",
+      "title": "Fully dynamic · adaptive",
+      "subtitle": "Deterministic bounds and randomized CFZ26 preprint",
       "xLabel": "Update contract",
       "categories": [
         {
           "id": "amortized",
-          "label": "Amortized · arbitrary updates"
+          "label": "Amortized · adaptive"
         }
       ],
       "yLabel": "Amortized update-time bounds",
@@ -820,7 +901,9 @@
         "O(min{Δ, m^{3/4}})",
         "O(m^{2/3} √log m)",
         "O(min{Δ, m^{2/3}})",
-        "O(m^{2/3})"
+        "O(m^{2/3})",
+        "Õ(m^{5/8})",
+        "Ω(n^{1−o(1)})"
       ]
     },
     {
@@ -941,7 +1024,7 @@
         "categories": [
           {
             "id": "amortized",
-            "label": "Amortized · arbitrary updates"
+            "label": "Amortized · adaptive"
           }
         ]
       },
@@ -964,6 +1047,14 @@
           {
             "id": "O(m^{2/3})",
             "label": "O(m^{2/3})"
+          },
+          {
+            "id": "Õ(m^{5/8})",
+            "label": "Õ(m^{5/8})"
+          },
+          {
+            "id": "Ω(n^{1−o(1)})",
+            "label": "Ω(n^{1−o(1)})"
           }
         ]
       },
@@ -1123,12 +1214,26 @@
         "Corollary 6.14.1"
       ],
       "notes": "Primary full text inspected; exact resource and adversary contracts recorded per result."
+    },
+    {
+      "sourceId": "chen-fan-zhang-2026-adaptive-mis",
+      "url": "https://arxiv.org/html/2611.05932v1",
+      "checkedOn": "2026-11-06",
+      "theorems": [
+        "Theorem 1.1",
+        "§4.2.2 initialization and reporting",
+        "§4.3 correctness",
+        "Lemmas 4.7–4.8",
+        "§4.5 runtime analysis"
+      ],
+      "notes": "Theorem and model statements inspected; proof not independently verified. Timing and private samples are hidden from the adaptive adversary."
     }
   ],
   "notes": [
-    "Green circles: algorithms. Red hollow diamonds: conditional lower bounds. Solid red diamonds: unconditional lower bounds in related results.",
-    "All main-figure bounds are symbolic categories. Do not read geometric distances as exponent gaps.",
-    "The adaptive lower bound does not apply to oblivious updates. Work and depth are separate resources.",
-    "No compatible lower bound was verified in the bounded source set for the oblivious, deterministic amortized, or batch scopes."
+    "Green marks: algorithms; red marks: lower bounds; hollow marks indicate conditional hardness. Shapes distinguish setup panels.",
+    "Symbolic formula rows are categories, not a numerical scale.",
+    "The adaptive combinatorial-BMM lower bound also constrains fully dynamic algorithms; it does not apply to oblivious updates.",
+    "CFZ26 is a preprint: always-correct explicit MIS with high-probability amortized runtime, not worst-case per-update time.",
+    "Batch work/depth and worst-case recourse are separate resources."
   ]
 }

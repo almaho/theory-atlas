@@ -1,12 +1,12 @@
 {
   "problem": "mis",
-  "reviewedThrough": "2026-10-30",
+  "reviewedThrough": "2026-11-06",
   "searchSummary": "Expanded primary-source survey through 2026-09-27. Inclusion-maximal independent set, maximum-cardinality independent set, lexicographically first MIS, and cardinality estimation have different outputs. Dynamic adversary, stream order and passes, LCA oracle and random seed, LOCAL elapsed/awake rounds, MPC local/global memory, graph classes and matrix/list access remain separated. Historical papers and incomparable bounds are visible; symbolic expressions are not converted to invented numeric regions. This is a substantial curated collection, not a claim of exhaustive coverage of every restricted graph family. Maximum-cardinality online and random-input records moved to the separate maximum-independent-set row on 30 October 2026.",
   "coverage": [
     {
       "model": "dynamic",
       "status": "researched",
-      "note": "Centralized deterministic, oblivious randomized, adaptive incremental conditional hardness, and parallel batch update are separated. Dynamic distributed messages/rounds and vertex updates remain outside this survey."
+      "note": "Deterministic and randomized fully dynamic adaptive bounds, oblivious updates, incremental conditional hardness and parallel batch resources stay labeled separately. CFZ26 v1 adds high-probability amortized Õ(m^{5/8})."
     },
     {
       "model": "stream",
@@ -732,6 +732,21 @@
       "verifiedOn": "2026-10-28",
       "shortLabel": "Mahabadi–Tarnawski 2026",
       "verificationVersion": "arXiv:2610.06053v1, 5 October 2026"
+    },
+    {
+      "id": "chen-fan-zhang-2026-adaptive-mis",
+      "title": "Faster Dynamic Maximal Independent Set against Adaptive Adversaries",
+      "authors": [
+        "Hongyi Chen",
+        "Shuyan Fan",
+        "Tianyi Zhang"
+      ],
+      "year": 2026,
+      "venue": "arXiv 2611.05932v1 · preprint",
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/abs/2611.05932v1",
+      "fullTextUrl": "https://arxiv.org/html/2611.05932v1",
+      "verifiedOn": "2026-11-06"
     }
   ],
   "slices": [
@@ -5042,6 +5057,146 @@
           "notes": "Red bounds constrain PARALLEL-GREEDY only. Each iteration costs O(1) CRCW PRAM time with a processor per edge; no universal MIS time lower bound is claimed."
         }
       ]
+    },
+    {
+      "id": "mis-dynamic-randomized-adaptive",
+      "problem": "mis",
+      "model": "dynamic",
+      "label": "Fully dynamic adaptive MIS: randomized algorithm and conditional hardness",
+      "task": "Maintain an explicit maximal independent set after edge updates",
+      "assumptions": [
+        "Initially empty undirected graph on n vertices; at most m edges at every time",
+        "Polynomial-length sequence of adaptive edge insertions and deletions",
+        "Adversary sees reported MISs, not private samples, traversal order, or running time",
+        "O(n) initialization; reports membership changes, not a full listing after each update",
+        "Randomized amortized time holds with high probability; correctness for every random tape"
+      ],
+      "parameters": {
+        "m": "Sequence-wide upper bound on edges",
+        "n": "Vertices"
+      },
+      "results": [
+        {
+          "id": "mis-dyn-cfz26-adaptive",
+          "kind": "upper",
+          "bound": "Õ(m^{5/8})",
+          "guarantee": "Explicit fully dynamic maximal independent set",
+          "sourceLocation": "Theorem 1.1; §4.2.2 initialization and reporting; §4.3; Lemmas 4.7–4.8; §4.5",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "candidate",
+          "notes": "Preprint claim: O(n) initialization, then high-probability amortized time over polynomial-length adaptive sequences. m is a sequence-wide edge cap. Membership changes are reported; enumerating the entire MIS costs its output size. Correctness holds for all random choices. No worst-case-time or timing-observing-adversary claim.",
+          "plot": null,
+          "assumptions": [
+            "Initially empty undirected graph on n vertices; at most m edges at every time",
+            "Polynomial-length sequence of adaptive edge insertions and deletions",
+            "Adversary sees reported MISs, not private samples, traversal order, or running time",
+            "O(n) initialization; reports membership changes, not a full listing after each update",
+            "Randomized amortized time holds with high probability; correctness for every random tape"
+          ],
+          "paperId": "chen-fan-zhang-2026-adaptive-mis"
+        },
+        {
+          "id": "mis-dyn-bbfks26-fully-adaptive-lower",
+          "kind": "lower",
+          "bound": "Ω(n^{1−o(1)})",
+          "guarantee": "Explicit fully dynamic MIS; insertion-only hard sequence",
+          "sourceLocation": "Theorem 1.1; Hypothesis 2.2; §3",
+          "evidenceStatus": "theorem_verified",
+          "frontierStatus": "candidate",
+          "notes": "The existing incremental conditional lower bound also applies to fully dynamic algorithms because they must handle insertion-only histories. Assumes combinatorial BMM and restricts to combinatorial algorithms; this is not an unconditional lower bound.",
+          "plot": null,
+          "assumptions": [
+            "Combinatorial BMM hypothesis",
+            "Combinatorial algorithm; randomized algorithms allowed by hypothesis",
+            "Adaptive adversary; insertion-only hard histories are included in fully dynamic updates"
+          ],
+          "paperId": "bernstein-et-al-2026-dynamic-separation"
+        }
+      ],
+      "mode": "categorical",
+      "figureAxes": {
+        "x": {
+          "label": "Update contract",
+          "kind": "categorical",
+          "categories": [
+            {
+              "id": "amortized",
+              "label": "Amortized · adaptive"
+            }
+          ]
+        },
+        "y": {
+          "label": "Amortized update-time bounds",
+          "kind": "symbolic",
+          "categories": [
+            {
+              "id": "O(min{Δ, m^{3/4}})",
+              "label": "O(min{Δ, m^{3/4}})"
+            },
+            {
+              "id": "O(m^{2/3} √log m)",
+              "label": "O(m^{2/3} √log m)"
+            },
+            {
+              "id": "O(min{Δ, m^{2/3}})",
+              "label": "O(min{Δ, m^{2/3}})"
+            },
+            {
+              "id": "O(m^{2/3})",
+              "label": "O(m^{2/3})"
+            },
+            {
+              "id": "Õ(m^{5/8})",
+              "label": "Õ(m^{5/8})"
+            },
+            {
+              "id": "Ω(n^{1−o(1)})",
+              "label": "Ω(n^{1−o(1)})"
+            }
+          ]
+        },
+        "note": "Symbolic formula rows are categories, not a numerical scale or a cross-parameter ranking."
+      },
+      "xAxis": {
+        "label": "Update contract",
+        "kind": "categorical",
+        "categories": [
+          {
+            "id": "amortized",
+            "label": "Amortized · adaptive"
+          }
+        ]
+      },
+      "yAxis": {
+        "label": "Amortized update-time bounds",
+        "kind": "symbolic",
+        "categories": [
+          {
+            "id": "O(min{Δ, m^{3/4}})",
+            "label": "O(min{Δ, m^{3/4}})"
+          },
+          {
+            "id": "O(m^{2/3} √log m)",
+            "label": "O(m^{2/3} √log m)"
+          },
+          {
+            "id": "O(min{Δ, m^{2/3}})",
+            "label": "O(min{Δ, m^{2/3}})"
+          },
+          {
+            "id": "O(m^{2/3})",
+            "label": "O(m^{2/3})"
+          },
+          {
+            "id": "Õ(m^{5/8})",
+            "label": "Õ(m^{5/8})"
+          },
+          {
+            "id": "Ω(n^{1−o(1)})",
+            "label": "Ω(n^{1−o(1)})"
+          }
+        ]
+      }
     }
   ]
 }

@@ -24,6 +24,7 @@
     {key:'query-list-additive',sliceId:'matching-query-list-additive-lb',label:'Adjacency list · matching size',hidden:true,type:'query_list',graph:'general, additive error'},
     {key:'query-list-nonadaptive',sliceId:'matching-query-list-nonadaptive',label:'Adjacency list · matching size',hidden:true,type:'query_list',graph:'simple-graph upper and multigraph lower'},
     {key:'query-list-bipartite',sliceId:'matching-query-list-bipartite-superlinear',label:'Adjacency list · matching size',hidden:true,type:'query_list',graph:'bipartite'},
+    {key:'query-list-bipartite-degree',sliceId:'matching-query-list-bipartite-additive-degree',label:'Adjacency list · bounded-degree bipartite size',hidden:true,type:'query_list',graph:'bipartite, additive error'},
     {key:'query-list-mixed',sliceId:'matching-query-list-mixed-value',label:'Adjacency list · matching size',hidden:true,type:'query_list',graph:'general, mixed additive error'}
   ];
   const settings=legacySettings.map(s=>({...s,problem:'matching',model:s.type==='streaming'?'stream':s.type})).concat(pairManifest.flatMap(pair=>pair.routes.map(route=>({...route,pairId:pair.id,hidden:!route.visible}))));
