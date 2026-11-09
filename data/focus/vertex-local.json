@@ -1,7 +1,7 @@
 {
   "id": "vertex-local",
   "title": "Vertex coloring · LOCAL rounds",
-  "reviewedOn": "2026-10-27",
+  "reviewedOn": "2026-11-09",
   "defaultSelected": "vertex-local-deterministic-ghaffari-grunau-2024",
   "defaultView": "variable",
   "userSetup": {
@@ -197,6 +197,44 @@
       "verificationUrl": "https://arxiv.org/html/1511.01287v2",
       "theorem": "Theorem 4.1; Corollary 4.1",
       "verificationNote": "Set conflict degree d=1 in Theorem 4.1: lists of size degree(v)+1 suffice; exact bound is O(√Δ log^{5/2}Δ)+log* n."
+    },
+    "fuchs-kuhn-2026-two-sweep": {
+      "id": "fuchs-kuhn-2026-two-sweep",
+      "title": "Greedy-Like Defective Coloring: Distributed Algorithms and Applications",
+      "authors": [
+        "Marc Fuchs",
+        "Fabian Kuhn"
+      ],
+      "year": 2026,
+      "venue": "arXiv preprint · v3 (6 November 2026)",
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/abs/2608.02386v3",
+      "version": "2608.02386v3",
+      "published": "2026-08-03T15:29:13Z",
+      "updated": "2026-11-06T16:35:32Z",
+      "verifiedOn": "2026-11-09",
+      "verificationUrl": "https://arxiv.org/html/2608.02386v3#S2.Thmtheorem3",
+      "theorem": "Theorem 2.3; §5 proof",
+      "verificationNote": "Proper degree+1 list coloring in deterministic O(√Δ log⁴Δ + log* n) CONGEST rounds requires a common color universe C=O(Δ). The main figure uses its ordinary [Δ+1] specialization. Initial O(Δ²)-coloring is computed within the displayed time. Theorem 2.5 only limits the Two-Sweep defective-coloring framework, so it supplies no proper-coloring lower bound. v3 retains the proper-coloring theorem and adds a three-bucket defective-coloring result."
+    },
+    "fuchs-kuhn-2026-sqrt-degree": {
+      "id": "fuchs-kuhn-2026-sqrt-degree",
+      "title": "Distributed (Δ+1)-Coloring in O(√Δ + log* n) Rounds",
+      "authors": [
+        "Marc Fuchs",
+        "Fabian Kuhn"
+      ],
+      "year": 2026,
+      "venue": "arXiv preprint · v1 (12 October 2026)",
+      "publicationStatus": "preprint",
+      "url": "https://arxiv.org/abs/2610.16575v1",
+      "version": "2610.16575v1",
+      "published": "2026-10-12T10:54:45Z",
+      "updated": "2026-10-12T10:54:45Z",
+      "verifiedOn": "2026-11-09",
+      "verificationUrl": "https://arxiv.org/html/2610.16575v1#S1.Thmtheorem1",
+      "theorem": "Theorem 1.1; §3.4 proof; Theorem A.1",
+      "verificationNote": "Deterministic O(√Δ + log* n) LOCAL and CONGEST for the ordinary [Δ+1] palette. The degree+1-list theorem has O(√Δ log(1+C/Δ)+log* n) rounds, with C≤poly(n) in CONGEST. All nodes know Δ,C and initial coloring preprocessing is included. The general-C main proof finds its hash family by deterministic exhaustive local search; Appendix A supplies explicit hash functions with the same ordinary-palette bound. Discovered through the updated Two-Sweep paper’s subsequent-work citation, outside the daily search interval."
     }
   },
   "verifiedRecords": [
@@ -661,13 +699,77 @@
       "verificationUrl": "https://arxiv.org/html/2301.06457v2",
       "shortLabel": "FGHKN24",
       "rowKey": "sparse-lower"
+    },
+    {
+      "kind": "upper",
+      "evidenceStatus": "theorem_verified",
+      "plot": null,
+      "sliceId": "vertex-local-deterministic-delta-plus-one",
+      "graph": "Simple n-vertex graphs with maximum degree Δ",
+      "output": "Every vertex outputs a proper color in [Δ+1]",
+      "probability": "Deterministic; correctness probability 1",
+      "mode": "deterministic",
+      "panel": "main",
+      "contractKey": "ordinary",
+      "quality": "Common palette [Δ+1] · also CONGEST",
+      "sourceId": "fuchs-kuhn-2026-two-sweep",
+      "paperId": "fuchs-kuhn-2026-two-sweep",
+      "theorem": "Theorem 2.3; §5 proof",
+      "sourceLocation": "Theorem 2.3; §5 proof",
+      "verificationUrl": "https://arxiv.org/html/2608.02386v3#S2.Thmtheorem3",
+      "id": "vertex-local-deterministic-fuchs-kuhn-2026-two-sweep",
+      "bound": "O(√Δ log⁴Δ + log* n)",
+      "displayBound": "O(√Δ log⁴Δ + log* n)",
+      "guarantee": "Proper ordinary (Δ+1)-coloring, deterministic; O(log n)-bit messages",
+      "frontierStatus": "historical",
+      "shortLabel": "FK26 · Two-Sweep · preprint",
+      "rowKey": "d-root-log4",
+      "assumptions": [
+        "Synchronous deterministic CONGEST: O(log n)-bit messages, hence also valid in LOCAL",
+        "Ordinary common palette [Δ+1]; the full list theorem requires |L(v)|≥degree(v)+1 and a common color space C=O(Δ)",
+        "Unique O(log n)-bit IDs; initial proper O(Δ²)-coloring computed in the included O(log* n) preprocessing",
+        "The displayed resource is communication rounds; local computation is unrestricted by the model"
+      ],
+      "notes": "Theorem 2.3 gives degree+1 list coloring only when the common color universe has size C=O(Δ); the point displays the ordinary [Δ+1] specialization. The §5 proof uses Theorem 2.2 with q=O(Δ²), then Theorem 4 of Fuchs–Kuhn (DISC 2023), including initial coloring and O(log n)-bit message accounting. This is a simpler communication-efficient alternative, not a faster LOCAL bound than FHK16. The later FK26 √Δ theorem improves its ordinary-palette round bound. The Two-Sweep defect limitation is not a general proper-coloring lower bound."
+    },
+    {
+      "kind": "upper",
+      "evidenceStatus": "theorem_verified",
+      "plot": null,
+      "sliceId": "vertex-local-deterministic-delta-plus-one",
+      "graph": "Simple n-vertex graphs with maximum degree Δ",
+      "output": "Every vertex outputs a proper color in [Δ+1]",
+      "probability": "Deterministic; correctness probability 1",
+      "mode": "deterministic",
+      "panel": "main",
+      "contractKey": "ordinary",
+      "quality": "Common palette [Δ+1] · also CONGEST",
+      "sourceId": "fuchs-kuhn-2026-sqrt-degree",
+      "paperId": "fuchs-kuhn-2026-sqrt-degree",
+      "theorem": "Theorem 1.1; §3.4 proof; Theorem A.1",
+      "sourceLocation": "Theorem 1.1; §3.4 proof; Theorem A.1",
+      "verificationUrl": "https://arxiv.org/html/2610.16575v1#S1.Thmtheorem1",
+      "id": "vertex-local-deterministic-fuchs-kuhn-2026-sqrt-degree",
+      "bound": "O(√Δ + log* n)",
+      "displayBound": "O(√Δ + log* n)",
+      "guarantee": "Proper ordinary (Δ+1)-coloring, deterministic; O(log n)-bit messages",
+      "frontierStatus": "candidate",
+      "shortLabel": "FK26 · √Δ · preprint",
+      "rowKey": "d-root-exact",
+      "assumptions": [
+        "Synchronous deterministic LOCAL; the ordinary-palette algorithm also works in CONGEST with O(log n)-bit messages",
+        "Every node knows Δ and the common color universe C; this plotted specialization sets C=Δ+1",
+        "Unique O(log n)-bit IDs; initial auxiliary O(Δ²)-coloring costs O(log* n), already included",
+        "The general-C theorem permits unrestricted local computation and uses deterministic exhaustive search for a hash family; Theorem A.1 provides an explicit alternative with the same ordinary-palette round bound"
+      ],
+      "notes": "The main point specializes Theorem 1.1 to the ordinary palette [Δ+1]. More generally, |L(v)|≥degree(v)+1 lists from [C], C≥Δ+1, take O(√Δ log(1+C/Δ)+log* n) deterministic LOCAL rounds; the same bound holds in CONGEST when C≤poly(n). The √Δ bound therefore also covers C=O(Δ), but is not asserted for an unrestricted color universe. All preprocessing is included. The general-C proof computes a common hash family by deterministic exhaustive local search; Theorem A.1 avoids that search using explicit hash functions and retains O(√Δ+log* n) for C=O(Δ). No MPC transfer or matching √Δ lower bound is asserted. This October preprint was found through the subsequent-work citation in the November revision of the Two-Sweep paper."
     }
   ],
   "relatedResults": [],
   "figureAxes": {
     "main": {
       "x": {
-        "label": "Strongest verified coloring contract",
+        "label": "Displayed coloring contract",
         "kind": "symbolic",
         "categories": [
           {
@@ -694,8 +796,20 @@
             "mode": "Det."
           },
           {
+            "id": "d-root-log4",
+            "label": "O(√Δ log⁴Δ + log* n)",
+            "compactLabel": "√Δ log⁴Δ + log* n",
+            "mode": "Det."
+          },
+          {
             "id": "d-root",
             "label": "O(√Δ log^{5/2}Δ) + log* n",
+            "mode": "Det."
+          },
+          {
+            "id": "d-root-exact",
+            "label": "O(√Δ + log* n)",
+            "compactLabel": "√Δ + log* n",
             "mode": "Det."
           },
           {
@@ -839,8 +953,20 @@
       "mode": "Det."
     },
     {
+      "id": "d-root-log4",
+      "label": "O(√Δ log⁴Δ + log* n)",
+      "compactLabel": "√Δ log⁴Δ + log* n",
+      "mode": "Det."
+    },
+    {
       "id": "d-root",
       "label": "O(√Δ log^{5/2}Δ) + log* n",
+      "mode": "Det."
+    },
+    {
+      "id": "d-root-exact",
+      "label": "O(√Δ + log* n)",
+      "compactLabel": "√Δ + log* n",
       "mode": "Det."
     },
     {
@@ -874,7 +1000,7 @@
       "mode": "Rand."
     }
   ],
-  "coverageNote": "All 15 supplied records retained across six setups; coverage is limited to the 11 supplied primary papers.",
+  "coverageNote": "17 verified records across six setups, from 13 primary papers. The two FK26 additions are preprints; their ordinary-palette specializations also use O(log n)-bit messages (CONGEST).",
   "lowerBoundStatus": "Only scoped cycle and palette-sparsified-network lower bounds are shown. No variable-degree ordinary-LOCAL lower frontier is asserted.",
   "sourceVerification": [
     {
@@ -953,9 +1079,23 @@
       "theorem": "Theorem 4.1; Corollary 4.1",
       "note": "Set conflict degree d=1 in Theorem 4.1: lists of size degree(v)+1 suffice; exact bound is O(√Δ log^{5/2}Δ)+log* n.",
       "checked": "2026-10-27"
+    },
+    {
+      "sourceId": "fuchs-kuhn-2026-two-sweep",
+      "url": "https://arxiv.org/html/2608.02386v3#S2.Thmtheorem3",
+      "theorem": "Theorem 2.3; §5 proof",
+      "note": "Proper degree+1 list coloring in deterministic O(√Δ log⁴Δ + log* n) CONGEST rounds requires a common color universe C=O(Δ). The main figure uses its ordinary [Δ+1] specialization. Initial O(Δ²)-coloring is computed within the displayed time. Theorem 2.5 only limits the Two-Sweep defective-coloring framework, so it supplies no proper-coloring lower bound. v3 retains the proper-coloring theorem and adds a three-bucket defective-coloring result.",
+      "checked": "2026-11-09"
+    },
+    {
+      "sourceId": "fuchs-kuhn-2026-sqrt-degree",
+      "url": "https://arxiv.org/html/2610.16575v1#S1.Thmtheorem1",
+      "theorem": "Theorem 1.1; §3.4 proof; Theorem A.1",
+      "note": "Deterministic O(√Δ + log* n) LOCAL and CONGEST for the ordinary [Δ+1] palette. The degree+1-list theorem has O(√Δ log(1+C/Δ)+log* n) rounds, with C≤poly(n) in CONGEST. All nodes know Δ,C and initial coloring preprocessing is included. The general-C main proof finds its hash family by deterministic exhaustive local search; Appendix A supplies explicit hash functions with the same ordinary-palette bound. Discovered through the updated Two-Sweep paper’s subsequent-work citation, outside the daily search interval.",
+      "checked": "2026-11-09"
     }
   ],
-  "representationNote": "Exact round formulas are categorical coordinates, not a universal ordering in n and Δ. A degree+1-list theorem also solves Δ+1 lists and ordinary Δ+1 coloring; points mark the strongest verified contract once.",
+  "representationNote": "Exact round formulas are categorical coordinates, not a universal ordering in n and Δ. A degree+1-list theorem also solves Δ+1 lists and ordinary Δ+1 coloring. The FK26 points display ordinary [Δ+1] specializations; their color-universe-dependent list guarantees remain in theorem details. Both also work in CONGEST. Green squares are deterministic algorithms; red lower bounds retain their stated setup.",
   "problem": "vertex",
   "model": "local"
 }

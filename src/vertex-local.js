@@ -9,12 +9,13 @@ const ln=(x1,y1,x2,y2,c='grid')=>'<path class="vloc-'+c+'" d="M'+x1+' '+y1+'L'+x
 const all=data.verifiedRecords.concat(data.relatedResults||[]);
 function records(o={}){return all.map(r=>({...data.sources[r.sourceId],...r})).filter(r=>(o.publication!=='published'||r.publicationStatus!=='preprint')&&(!o.panel||r.panel===o.panel));}
 const views={variable:'All setups',cycle:'Cycles · Δ=2',high:'High degree',brooks:'Fewer colors',sparse:'Sampled network'};
+const compactCosts={'d-linear':'Δ + log* n','d-root':'√Δ·log^{5/2}Δ + log* n','d-log':'log²Δ · log n','d-53':'Õ(log^{5/3}n)','r-hss':'HSS18 · symbolic','r-det':'Det_d(polylog n)','r-3':'log³log n','r-53':'Õ((loglog n)^{5/3})'};
 const routeViews={'vertex-local-cycle':'cycle','vertex-local-high':'high','vertex-local-brooks':'brooks','vertex-local-sparse':'sparse'};
 function viewFor(key,o){return o.view&&views[o.view]?o.view:(routeViews[key]||'variable');}
 function levelFor(w,h,o){const fit=w<300||h<230?0:w<650||h<480?1:2,wanted=['overview','compact','detail'].indexOf(o.level);return['overview','compact','detail'][Math.min(fit,wanted<0?fit:wanted)];}
 function geometry(w,h,o={}){
  const level=levelFor(w,h,o),tiny=level==='overview',compact=level==='compact',view=o.view||'variable',points=[],boxes={};
- const rows=records(o),get=id=>rows.find(r=>r.id===id);
+ const rows=records(o),get=id=>rows.find(r=>r.id===id),mainRows=data.mainRows.filter(a=>rows.some(r=>r.panel==='main'&&r.rowKey===a.id));
  function box(panel,x,y,bw,bh,mini){
   const left=x+bw*.13,right=x+bw*.93,top=y+bh*.28,bottom=y+bh*.82;
   boxes[panel]={panel,x,y,w:bw,h:bh,left,right,top,bottom,mini};
@@ -27,11 +28,11 @@ function geometry(w,h,o={}){
  if(view==='variable'){
   const left=w*(tiny?.40:compact?.44:.43),right=w-(tiny?6:compact?10:24),top=tiny?h*.08:compact?47:98,bottom=tiny?h*.64:compact?h*.59:h*.62;
   boxes.main={panel:'main',x:0,y:0,w,h,left,right,top,bottom};
-  rows.filter(r=>r.panel==='main').forEach(r=>{const i=data.mainRows.findIndex(a=>a.id===r.rowKey),j=['ordinary','delta-list','degree-list'].indexOf(r.contractKey);points.push({id:r.id,panel:'main',x:left+(right-left)*(j+.5)/3,y:top+(bottom-top)*(i+.5)/8,context:'main'});});
+  rows.filter(r=>r.panel==='main').forEach(r=>{const i=mainRows.findIndex(a=>a.id===r.rowKey),j=['ordinary','delta-list','degree-list'].indexOf(r.contractKey);points.push({id:r.id,panel:'main',x:left+(right-left)*(j+.5)/3,y:top+(bottom-top)*(i+.5)/mainRows.length,context:'main'});});
   const y=tiny?h*.72:compact?h*.75:h*.75,bh=h-y-(tiny?4:compact?6:14),pad=tiny?4:compact?8:12,gap=tiny?3:compact?4:8,bw=(w-2*pad-3*gap)/4;
   ['cycle','high','brooks','sparse'].forEach((p,i)=>box(p,pad+i*(bw+gap),y,bw,bh,true));
  }else box(view,12,tiny?5:compact?45:88,w-24,h-(tiny?12:compact?72:125),false);
- return{w,h,level,view,points,boxes};
+ return{w,h,level,view,points,boxes,mainRows};
 }
 function mark(r,p,o,interactive,g){
  const sz=g.level==='overview'?Math.max(2,Math.min(g.w,g.h)*.014):g.level==='compact'?3.6:5;
@@ -98,8 +99,8 @@ function chart(w,h,o={},interactive=false){
  if(g.view==='variable'){
   const b=g.boxes.main;
   s+=ln(b.left,b.top,b.left,b.bottom,'axis')+ln(b.left,b.bottom,b.right,b.bottom,'axis');
-  data.mainRows.forEach((r,i)=>{const y=b.top+(b.bottom-b.top)*(i+.5)/8;s+=ln(b.left,y,b.right,y);if(!tiny)s+=tx(compact?9:12,y+4,compact?['Δ + log* n','√Δ·polylogΔ + log* n','log²Δ · log n','Õ(log^{5/3}n)','HSS18 · symbolic','Det_d(polylog n)','log³log n','Õ((loglog n)^{5/3})'][i]:r.label,compact?'compact-cost':'cost');});
-  const split=b.top+(b.bottom-b.top)/2;s+=ln(7,split,b.right,split,'divider');
+  g.mainRows.forEach((r,i)=>{const y=b.top+(b.bottom-b.top)*(i+.5)/g.mainRows.length;s+=ln(b.left,y,b.right,y);if(!tiny)s+=tx(compact?9:12,y+4,compact?(r.compactLabel||compactCosts[r.id]||r.label):r.label,compact?'compact-cost':'cost');});
+  const firstRandom=g.mainRows.findIndex(r=>r.mode==='Rand.');if(firstRandom>0){const split=b.top+(b.bottom-b.top)*firstRandom/g.mainRows.length;s+=ln(7,split,b.right,split,'divider');}
   ['ordinary','delta-list','degree-list'].forEach((c,i)=>{const x=b.left+(b.right-b.left)*(i+.5)/3;s+=ln(x,b.top,x,b.bottom);if(!tiny)s+=tx(x,b.bottom+(compact?15:22),compact?['Δ+1','Δ+1 list','deg+1 list'][i]:['Common Δ+1','Δ+1 lists','degree+1 lists'][i],'tick','middle');});
   for(const p of g.points.filter(q=>q.panel==='main')){const r=byId.get(p.id);s+=mark(r,p,o,interactive,g);if(!tiny&&!compact)s+=tx(p.x+12,p.y+4,r.shortLabel,r.mode==='randomized'?'rand-label':'det-label');}
   if(!tiny){s+=tx(12,compact?44:83,compact?'Rounds · symbolic':'Rounds · exact formulas, not a numerical ranking','axis-title','start','data-axis="y"');
