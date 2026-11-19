@@ -10,6 +10,7 @@ def site_theme(root: Path):
 
 def site_navigation(active):
     links = [('atlas', 'index.html#atlas', 'Sublinear Problems'),
+             ('problem-solving', 'problem-solving.html', 'Problem solving'),
              ('vision', 'vision.html', 'Vision')]
     items = []
     for key, href, title in links:
@@ -36,7 +37,7 @@ def build_site_pages(root: Path, write=True):
               '<span>A community effort in theoretical computer science.</span>'
               '<a href="https://github.com/almaho/theory-atlas" target="_blank" '
               'rel="noopener noreferrer">Project on GitHub ↗</a>' + site_appearance() + '</footer>')
-    for page in ('vision',):
+    for page in ('vision', 'problem-solving'):
         template = (root / 'src' / f'{page}.html').read_text()
         if page == 'people':
             photos = json.loads((root / 'src' / 'assets' / 'people' / 'sources.json').read_text())
@@ -50,10 +51,15 @@ def build_site_pages(root: Path, write=True):
             assert template.count(token) == 1, f'{page}: missing or repeated {token}'
         html = template.replace('/* SITE_CSS */', css).replace(
             '<!-- SITE_NAV -->', site_navigation(page)).replace('<!-- SITE_FOOTER -->', footer).replace('<!-- SITE_THEME -->', site_theme(root))
+        if page == 'problem-solving':
+            for token, filename in (('/* PROBLEM_SOLVING_CSS */', 'problem-solving.css'),
+                                    ('/* PROBLEM_SOLVING_JS */', 'problem-solving.js')):
+                assert html.count(token) == 1, f'{page}: missing or repeated {token}'
+                html = html.replace(token, (root / 'src' / filename).read_text())
         if write:
             (root / 'dist').mkdir(exist_ok=True)
             (root / 'dist' / f'{page}.html').write_text(html)
     if write:
         # Keep the People source and portraits for a future return, but do not publish the page.
         (root / 'dist' / 'people.html').unlink(missing_ok=True)
-    print('Theory Map: Sublinear Problems / Vision navigation; People page unpublished.')
+    print('Theory Map: Sublinear Problems / Problem solving / Vision navigation; People page unpublished.')

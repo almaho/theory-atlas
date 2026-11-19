@@ -10,6 +10,8 @@ Open the **[live Theory Map](https://almaho.github.io/theory-atlas/#atlas)**, or
 
 The fine-grained complexity page is paused and removed from the published site at Alma’s request (28 October 2026). Its source, data, and semantic regression checks remain available for future redesign.
 
+The [Problem solving page](https://almaho.github.io/theory-atlas/problem-solving.html) connects the six Atlas problems to concrete exercises and reusable techniques. Start with constant-factor dynamic matching, then vary approximation slack and count solution changes. Further examples cover weighted greedy choices, maximal independent sets, coloring palettes and correlation clustering obstructions. Small instances are calculated directly; primary papers support the general techniques and guarantees.
+
 The October 2026 APSP/3SUM preprints are labeled claims, with their theorem statements inspected but proofs not independently verified here. Historical conditional implications remain distinct from the status of their premises. The displayed algorithm baselines are not asserted to be current best bounds.
 
 ## Run locally

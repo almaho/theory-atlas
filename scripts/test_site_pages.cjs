@@ -2,11 +2,11 @@
 const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),assert=require('node:assert/strict');
 const root=path.resolve(__dirname,'..'),read=file=>fs.readFileSync(path.join(root,file),'utf8');
 const html=read('dist/index.html'),data=JSON.parse(html.match(/<script id="atlas-data" type="application\/json">([\s\S]*?)<\/script>/)[1]);
-for(const page of ['index','vision','matching-ors']){
+for(const page of ['index','vision','matching-ors','problem-solving']){
  const content=read('dist/'+page+'.html'),nav=content.match(/<nav class="view-nav"[\s\S]*?<\/nav>/)[0];
  assert(!content.includes('/* SITE_CSS */')&&!content.includes('<!-- SITE_NAV -->'));
  assert.equal((nav.match(/aria-current="page"/g)||[]).length,1);
- for(const href of ['index.html#atlas','vision.html'])assert(nav.includes('href="'+href+'"'));
+ for(const href of ['index.html#atlas','vision.html','problem-solving.html'])assert(nav.includes('href="'+href+'"'));
  assert(!nav.includes('Focused')&&!nav.includes('fine-grained')&&!nav.includes('people.html'));
  assert(nav.includes('THEORY MAP')&&nav.includes('>Sublinear Problems</a>'),'Shared navigation uses the new site and section names');
  assert(/<title>[^<]*Theory Map[^<]*<\/title>/.test(content),'Every published page uses Theory Map in its title');

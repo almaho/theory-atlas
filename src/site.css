@@ -1,7 +1,7 @@
 /* Site navigation and centered community pages. */
 .view-nav{position:sticky;top:0;z-index:50;background:var(--bg);max-width:1300px}
 #atlas,#stage{scroll-margin-top:100px}
-.view-nav .site-links{display:flex;align-items:center;gap:6px}
+.view-nav .site-links{display:flex;flex-wrap:wrap;align-items:center;gap:6px;min-width:0}
 .view-nav .site-link{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:8px 15px;border-radius:5px;font-size:14px;text-decoration:none;color:var(--ink)}
 .view-nav .site-link:hover{background:var(--soft)}
 .view-nav .site-link[aria-current="page"]{background:var(--ink);color:var(--bg)}
@@ -53,8 +53,8 @@
  .editorial-page{padding:54px 26px 64px}.people-invitation{gap:35px}.people-profiles{gap:30px}
 }
 @media(max-width:700px){
- .view-nav{display:grid;grid-template-columns:1fr auto;gap:12px;padding:16px 20px}
- .view-nav .site-links{justify-content:flex-end;gap:0}
+ .view-nav{display:grid;grid-template-columns:1fr;justify-items:center;gap:12px;padding:16px 20px}
+ .view-nav .site-links{justify-content:center;gap:0;max-width:100%}
  .view-nav .site-link{padding:8px 12px}
  .atlas-brand{max-width:none;font-size:11px}.atlas-brand span{font-size:13px}
  #atlas,#stage{scroll-margin-top:90px}
